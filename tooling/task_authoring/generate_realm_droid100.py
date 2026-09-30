@@ -38,6 +38,12 @@ UNSAFE_SCENE_REGIONS = {
     ("office_cubicles_left", "Circular_Table"),
 }
 ELLIPTICAL_SUPPORTS = {"Coffee_Table", "Circular_Table"}
+# The REVIEWED_* tables below address tasks by rank, which is a position in one specific
+# frequency ranking. They are only meaningful for the ranking they were authored against;
+# a source file built from a different DROID sample must declare its own ranking_id and
+# carry its own review. The corrected instructions do not record the originals they replaced,
+# so these cannot be re-keyed by instruction text after the fact.
+REVIEWED_RANKING_ID = "droid100-v1"
 REVIEWED_CAMERA_SOURCES = {
     82: ("droid_realm_ep_060817_cam1", "droid_realm_ep_060817_cam2"),
     98: ("droid_realm_ep_044890_cam1", "droid_realm_ep_044890_cam2"),
@@ -127,9 +133,11 @@ def slug(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", "_", value.lower()).strip("_")
 
 
-def reviewed_task(task: dict[str, object]) -> tuple[str, str, dict[str, str] | None]:
+def reviewed_task(
+    task: dict[str, object], apply_reviewed: bool = True
+) -> tuple[str, str, dict[str, str] | None]:
 
-    explicit = REVIEWED_TASK_OVERRIDES.get(int(task["rank"]))
+    explicit = REVIEWED_TASK_OVERRIDES.get(int(task["rank"])) if apply_reviewed else None
     if explicit:
         return explicit["instruction"], explicit["task_type"], explicit
     instruction = str(task["instruction"])
@@ -481,6 +489,8 @@ def generate(
     camera_rng = random.Random(seed + 1)
     distractor_rng = random.Random(seed + 2)
     selection = json.loads(source.read_text(encoding="utf-8"))
+    ranking_id = selection.get("ranking_id")
+    apply_reviewed = ranking_id == REVIEWED_RANKING_ID
     indexed = discover_assets(dataset)
     assets_by_category: dict[str, list[dict[str, object]]] = defaultdict(list)
     for asset in indexed:
@@ -518,7 +528,7 @@ def generate(
         elliptical = region["support"] in ELLIPTICAL_SUPPORTS
         rank = int(task["rank"])
         sampled_cameras = sample_camera_pair(camera_poses, camera_rng)
-        reviewed_camera_sources = REVIEWED_CAMERA_SOURCES.get(rank)
+        reviewed_camera_sources = REVIEWED_CAMERA_SOURCES.get(rank) if apply_reviewed else None
         if reviewed_camera_sources:
             sampled_cameras = {
                 f"cam{index}": {**camera_poses[source_name], "source": source_name}
@@ -530,7 +540,7 @@ def generate(
             for key, value in sampled_cameras.items()
         }
         original_instruction = task["instruction"]
-        instruction, task_type, reviewed_override = reviewed_task(task)
+        instruction, task_type, reviewed_override = reviewed_task(task, apply_reviewed)
         initial_relation = initial_relation_type(instruction, task_type)
         terms = instruction_terms(instruction, task_type)
         resolved = concepts(instruction, task_type)
@@ -542,7 +552,10 @@ def generate(
                 max_xy,
             )
             config["name"] = f"{config['name']}_{index + 1}" if resolved.count(concept) > 1 else config["name"]
-            model_override = REVIEWED_MODEL_OVERRIDES.get(rank, {}).get(str(config["name"]))
+            model_override = (
+                REVIEWED_MODEL_OVERRIDES.get(rank, {}).get(str(config["name"]))
+                if apply_reviewed else None
+            )
             if model_override:
                 audit = apply_model_override(config, model_override, assets_by_category, max_xy)
             configs.append(config)
@@ -589,12 +602,18 @@ def generate(
                 break
         if len(distractors) < 3:
             raise ValueError(f"could not place three distractors for rank {task['rank']}")
-        position_overrides = REVIEWED_POSITION_OVERRIDES.get(rank, {})
+        position_overrides = REVIEWED_POSITION_OVERRIDES.get(rank, {}) if apply_reviewed else {}
         if position_overrides:
             by_name = {str(item["name"]): item for item in configs + distractors}
+            missing = sorted(set(position_overrides) - set(by_name))
+            if missing:
+                raise ValueError(
+                    f"reviewed position override for rank {rank} names {missing}, "
+                    f"absent from this task; the source ranking does not match "
+                    f"{REVIEWED_RANKING_ID!r}"
+                )
             for name, xy in position_overrides.items():
-                config = by_name[name]
-                config["relative_bbox_position"][:2] = xy
+                by_name[name]["relative_bbox_position"][:2] = xy
         verb = {"put": "put", "pick": "pick", "stack": "stack", "rotate": "rotate"}[task_type]
         document = {
             "task": {"type": "DummyTask", "termination_config": {}, "reward_config": {}},
@@ -640,13 +659,15 @@ def generate(
             "initial_relation": relation_audit,
             "render_review_overrides": {
                 "camera_sources": list(reviewed_camera_sources) if reviewed_camera_sources else None,
-                "model": REVIEWED_MODEL_OVERRIDES.get(rank),
-                "positions": REVIEWED_POSITION_OVERRIDES.get(rank),
+                "model": REVIEWED_MODEL_OVERRIDES.get(rank) if apply_reviewed else None,
+                "positions": REVIEWED_POSITION_OVERRIDES.get(rank) if apply_reviewed else None,
             },
         })
     audit = {
         "family": "REALM_DROID100",
         "source": str(source),
+        "ranking_id": ranking_id,
+        "reviewed_overrides_applied": apply_reviewed,
         "dataset": str(dataset),
         "seed": seed,
         "scene_pool_size": len(regions),

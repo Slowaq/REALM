@@ -394,7 +394,7 @@ def check_support_geometry(document: dict, region: dict[str, float] | None,
                 findings.append(Finding(
                     "FLOATING_OBJECT", "error",
                     f"z={position[2]:.4f} leaves a {position[2] - bbox[2] / 2:.4f} m gap above the "
-                    "support and no initial_state relation explains it",
+                    "support, which nothing in the scene holds up",
                     obj=name, path=path,
                     fix={"path": path, "value": [position[0], position[1], round(expected_z, 7)]},
                 ))
@@ -441,10 +441,27 @@ def _fits_support(x: float, y: float, extent_x: float, extent_y: float,
 
 
 def check_overlap(document: dict) -> list[Finding]:
-    """Pairwise XY overlap, excluding pairs a declared initial_state relation stacks."""
+    """Pairwise XY overlap, excluding pairs a declared relation genuinely pins.
+
+    A declared `initial_state` predicate alone is NOT an exemption: no code under `realm/` reads
+    that key, so declaring one silences this rule without changing what the simulator does. The
+    relation is honoured only when the object being rested on or contained in is itself protected
+    from re-placement -- either an `immutable`, which perturbations/v_sc.py pins by name, or the
+    `target` of a `stack` task, whose support is re-placed with the main object rather than
+    independently. Anything else stays an error.
+    """
     findings = []
     relations = declared_relations(document)
-    exempt = {frozenset((subject, target)) for subject, (_, target) in relations.items()}
+    protected_names = {
+        str(config.get("name")) for config in objects_of(document, "immutables")
+    }
+    if str(document.get("task_type")) == "stack":
+        protected_names |= {str(config.get("name")) for config in objects_of(document, "target_objects")}
+    exempt = {
+        frozenset((subject, target))
+        for subject, (_, target) in relations.items()
+        if target in protected_names
+    }
     placed = []
     for role, index, config in all_objects(document):
         bbox, position = bbox_of(config), position_of(config)
@@ -479,21 +496,32 @@ def check_overlap(document: dict) -> list[Finding]:
             roles_in_pair = {placed[first][1], placed[second][1]}
             severity = "warning" if "immutables" in roles_in_pair else "error"
             vertical_gap = abs(pos_a[2] - pos_b[2]) - (bbox_a[2] + bbox_b[2]) / 2
+            # Promoting the LOWER object is what survives perturbation: `immutables` ride in
+            # env.distractors but are pinned through placement's main_object_names by
+            # perturbations/v_sc.py, which is the only perturbation that re-places a distractor.
+            # Declaring an initial_state predicate instead would silence this rule while changing
+            # nothing at runtime -- no code under realm/ reads that key.
+            lower, upper = (name_a, name_b) if pos_a[2] <= pos_b[2] else (name_b, name_a)
             if vertical_gap >= 0:
                 findings.append(Finding(
                     "UNDECLARED_STACK", severity,
                     f"{name_a!r} and {name_b!r} share an XY footprint and are vertically "
-                    "separated, i.e. one rests on the other, but no initial_state predicate "
-                    "declares it; the perturbations that re-place objects will break the stack",
+                    "separated, i.e. one rests on the other, but the arrangement is not "
+                    "author-declared; if it is intended, move the supporting object to the "
+                    f"`immutables` role (else V-SC re-places it and the arrangement breaks)",
                     obj=name_a,
+                    fix={"action": "promote_to_immutable", "object": lower,
+                         "reason": "the resting object is separated from the support by V-SC"},
                 ))
                 continue
             findings.append(Finding(
                 "XY_OVERLAP", severity,
                 f"{name_a!r} and {name_b!r} interpenetrate: their bboxes overlap in XY by "
                 f"({-gap_x:.4f}, {-gap_y:.4f}) m and also overlap in Z. If one is meant to be in "
-                "or on the other, declare it in initial_state",
+                f"or on the other, move the container ({lower!r}) to the `immutables` role",
                 obj=name_a,
+                fix={"action": "promote_to_immutable", "object": lower,
+                     "reason": "the containing object must be pinned for the overlap to survive"},
             ))
     return findings
 

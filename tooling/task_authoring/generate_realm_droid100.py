@@ -89,6 +89,42 @@ REVIEWED_TASK_OVERRIDES = {
     },
 }
 
+
+def reviewed_ranks() -> set[int]:
+    """Every rank the REVIEWED_* tables address, across all four tables."""
+    ranks = set(REVIEWED_CAMERA_SOURCES) | set(REVIEWED_MODEL_OVERRIDES) | set(REVIEWED_POSITION_OVERRIDES)
+    ranks |= set(REVIEWED_TASK_OVERRIDES)
+    return ranks
+
+
+def check_reviewed_alignment(selection: dict[str, object], apply_reviewed: bool, tasks: list[dict]) -> None:
+    """A source claiming `REVIEWED_RANKING_ID` must actually carry the reviewed tasks.
+
+    `apply_reviewed` keys off `ranking_id` alone, and every table is then read with `dict.get(rank)`.
+    A source that declares the reviewed ranking but whose ranks belong to a different DROID sample
+    therefore generates silently UNREVIEWED configs while the manifest reports
+    `reviewed_overrides_applied: true` -- the exact failure `ranking_id` exists to prevent. Only
+    REVIEWED_POSITION_OVERRIDES is self-checking, and only for the ranks it happens to list, so the
+    other three tables need this explicit audit. Raises rather than warning: a mis-keyed source has
+    already lost the review, and a warning would let it reach a measured family.
+    """
+    if not apply_reviewed:
+        return
+    expected = reviewed_ranks()
+    present = {int(task["rank"]) for task in tasks}
+    missing = sorted(expected - present)
+    # 90% because a deliberately sampled subset (a smoke run over 10 instructions) is legitimate;
+    # a full re-ranking that loses nearly every reviewed rank is not.
+    if missing and len(present & expected) < 0.9 * len(expected):
+        raise ValueError(
+            f"source declares ranking_id {REVIEWED_RANKING_ID!r} but carries only "
+            f"{len(present & expected)}/{len(expected)} of its reviewed ranks "
+            f"(missing e.g. {missing[:8]}); the reviewed overrides would be silently skipped. "
+            f"Re-run select_droid100.py against the same DROID sample, or declare the source's "
+            f"own ranking_id so the tables are not applied."
+        )
+
+
 CATEGORY_BY_CONCEPT = {
     "marker": "marker",
     "pen": "pen",
@@ -515,6 +551,7 @@ def generate(
             eligible_distractors.append(category)
     if len({distractor_family(category) for category in eligible_distractors}) < 3:
         raise ValueError("DROID whitelist has fewer than three usable distractor families")
+    check_reviewed_alignment(selection, apply_reviewed, selection["tasks"])
     scene_order = list(regions)
     scene_rng.shuffle(scene_order)
     category_usage: Counter[str] = Counter()
@@ -641,7 +678,10 @@ def generate(
             "directory": directory_name,
             "task_type": task_type,
             "instruction": instruction,
-            "original_instruction": original_instruction if reviewed_override else None,
+            # Recorded for EVERY rank, not only the overridden ones: the correction store keys a
+            # task by sha1(instruction + ranking_id), so a rank whose original text is absent
+            # cannot be re-keyed when the ranking is regenerated (AGENTIC_PIPELINE.md 4.5).
+            "original_instruction": original_instruction,
             "reviewed_override": reviewed_override,
             "concepts": resolved,
             "scene": {
@@ -668,6 +708,11 @@ def generate(
         "source": str(source),
         "ranking_id": ranking_id,
         "reviewed_overrides_applied": apply_reviewed,
+        # The boolean alone cannot distinguish "reviewed" from "declared a ranking_id whose ranks
+        # matched nothing". The audited intersection makes that difference visible in the artifact.
+        "reviewed_ranks_in_source": sorted(
+            {int(task["rank"]) for task in selection["tasks"]} & reviewed_ranks()
+        ),
         "dataset": str(dataset),
         "seed": seed,
         "scene_pool_size": len(regions),

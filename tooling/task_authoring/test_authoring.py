@@ -121,7 +121,7 @@ class AuthoringTest(unittest.TestCase):
     def test_distractor_sampler_balances_visual_families(self):
         assets = {
             category: [{"model": "model", "bbox": [0.05, 0.05, 0.10]}]
-            for category in ("bottle_of_water", "bottle_of_juice", "apple", "fork", "spoon")
+            for category in ("bottle_of_water", "bottle_of_juice", "apple", "fork", "teaspoon")
         }
         sampled = sample_distractors(
             assets, list(assets), set(), Counter(), Counter(), random.Random(4)

@@ -16,12 +16,14 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 from pathlib import Path
 
 import yaml
 
+from tooling.task_authoring.agent import catalog as asset_catalog
 from tooling.task_authoring.agent import layout, tools
 from tooling.task_authoring.agent.corrections import DEFAULT_CORRECTIONS_DIR, task_id
 from tooling.task_authoring.agent.prompts import GENERATOR_SYSTEM, PROMPT_VERSION
@@ -30,7 +32,8 @@ from tooling.task_authoring.agent.prompts import GENERATOR_SYSTEM, PROMPT_VERSIO
 REPO_ROOT = Path(__file__).resolve().parents[3]
 DEFAULT_OUTPUT = REPO_ROOT / "realm" / "config" / "tasks" / "REALM_DROID100"
 DEFAULT_CACHE = REPO_ROOT / "tmp" / "droid100" / "agent_cache"
-MODEL = "claude-opus-5"
+#: Override with --model or REALM_AGENT_MODEL. Part of the cache key, so switching models re-runs.
+MODEL = os.environ.get("REALM_AGENT_MODEL", "claude-opus-5")
 MAX_TOOL_ROUNDS = 24
 
 #: Verbs the offline driver recognizes. Mirrors the intent rules in
@@ -43,12 +46,7 @@ VERB_RULES = (
     ("rotate", ("rotate ", "reorient ", "turn the ")),
 )
 #: Concept -> catalogue category. Same mapping the batch generator uses.
-CONCEPT_TO_CATEGORY = {
-    "marker": "marker", "pen": "pen", "cup": "mug", "mug": "mug", "bowl": "bowl",
-    "lid": "lid", "pot": "saucepot", "pan": "frying_pan", "towel": "dishtowel",
-    "box": "storage_box", "tape": "masking_tape", "plate": "plate", "can": "can",
-    "cloth": "microfiber_cloth", "spoon": "teaspoon", "screwdriver": "screwdriver",
-}
+CONCEPT_TO_CATEGORY = asset_catalog.CONCEPT_TO_CATEGORY
 CONCEPT_WORDS = tuple(sorted(CONCEPT_TO_CATEGORY, key=len, reverse=True))
 #: Instruction grammar, verbs and bare colour names. Excluded when the catalogue is scanned for
 #: nouns, so a category that merely starts with an English word ("mug_holder" vs "the") cannot
@@ -73,14 +71,32 @@ DISTRACTOR_PREFS = ("apple", "orange", "lemon", "marker", "tablefork", "sponge",
                     "chocolate_bar", "toy_dice", "cork", "pear", "plum")
 
 
+#: Phrasings REALM's single-main-object contract cannot represent ("two cups", "them", "the pile").
+MULTI_OBJECT = re.compile(
+    r"\b(two|three|four|some|all|both|them|together|pile|stack of|several|each|every)\b"
+    r"|\b(cups|mugs|bottles|blocks|objects|markers|pens|items|things|plates|bowls)\b"
+)
+#: "... from X and put it on the table": a removal whose destination is the support itself.
+REMOVAL_TO_SUPPORT = re.compile(
+    r"\b(remove|take|pick|lift|get)\b.*\b(from|out of|off)\b.*\b(on|onto|to)\b\s+(the\s+)?"
+    r"(table|desk|counter|countertop|tabletop|surface)\b"
+)
+
+
 def classify(instruction: str, assets: dict | None = None) -> tuple[str, list[str]]:
     """instruction -> (task_type, ordered object nouns). Deterministic, catalogue-aware."""
     lowered = instruction.lower()
+    if REMOVAL_TO_SUPPORT.search(lowered):
+        # The rubric for removal is `pick` (LIFT_LARGE); "on the table" is the support, not a target.
+        return "pick", nouns(instruction, assets)
     for task_type, needles in VERB_RULES:
         if any(needle in lowered for needle in needles):
             return task_type, nouns(instruction, assets)
     if re.search(r"\b(put|place|move|drop|insert)\b", lowered) and re.search(r"\b(in|into|inside|on|onto)\b", lowered):
-        return ("stack" if re.search(r"\b(on|onto|on top of)\b", lowered) else "put"), nouns(instruction, assets)
+        # "in/into/inside" names a receiver and wins over a stray "on" ("the pen on the table").
+        into = re.search(r"\b(in|into|inside)\b", lowered)
+        onto = re.search(r"\b(on|onto|on top of)\b", lowered)
+        return ("stack" if onto and not into else "put"), nouns(instruction, assets)
     if re.search(r"\b(pick|grab|lift|take|remove|get)\b", lowered):
         return "pick", nouns(instruction, assets)
     return "", nouns(instruction, assets)
@@ -89,13 +105,10 @@ def classify(instruction: str, assets: dict | None = None) -> tuple[str, list[st
 def ground_word(word: str, assets: dict) -> str | None:
     """The indexed category a word names, or None. Mirrors `Session.search_assets` matching.
 
-    Exact category first, then substring, then the shortest match. The catalogue is the authority
-    on what is an object: a word counts as a noun here only if something actually answers to it.
+    Word-boundary aware (see `catalog.match_category`). The catalogue is the authority on what is
+    an object: a word counts as a noun here only if something actually answers to it.
     """
-    if word in assets:
-        return word
-    matches = sorted(name for name in assets if word and word in name)
-    return matches[0] if matches else None
+    return asset_catalog.match_category(word, assets)
 
 
 def nouns(instruction: str, assets: dict | None = None) -> list[str]:
@@ -204,10 +217,10 @@ def build_roles(instruction: str, task_type: str, session: tools.Session) -> tup
     roles: dict = {"task_type": task_type, "instruction": instruction, "main": main}
 
     if task_type in {"put", "stack"}:
-        # The SECOND noun is the receiver ("put X in Y", "stack X on Y"); ordering beats a
-        # keyword scan, which would pick the main object whenever it is also a container word
-        # ("Stack the cup on the plate" must not take the cup as the support).
-        receiver_category = resolved[1] if len(resolved) > 1 else None
+        # The LAST noun is the receiver ("put X in Y", "take X out of Z and put it in Y"); ordering
+        # beats a keyword scan, which would pick the main object whenever it is also a container
+        # word ("Stack the cup on the plate" must not take the cup as the support).
+        receiver_category = resolved[-1] if len(resolved) > 1 else None
         if receiver_category is None:
             word = next((item for item in RECEIVER_WORDS if re.search(rf"\b{item}\b", lowered)), None)
             receiver_category = CONCEPT_TO_CATEGORY.get(word, word) if word else "bowl"
@@ -269,6 +282,11 @@ def run_offline(instruction: str, session: tools.Session) -> dict:
     reason is indistinguishable from a crash, and the run report is the only thing an operator
     sees when a family comes back short.
     """
+    if MULTI_OBJECT.search(instruction.lower()):
+        return session.report_ungroundable(
+            "the instruction manipulates several objects; REALM scores exactly one main object",
+            nouns(instruction, session.assets),
+        )
     task_type, _ = classify(instruction, session.assets)
     if not task_type:
         return session.report_ungroundable(
@@ -315,7 +333,7 @@ def run_offline(instruction: str, session: tools.Session) -> dict:
     return session.submit_task(decisions)
 
 
-def run_agent(instruction: str, session: tools.Session) -> dict:
+def run_agent(instruction: str, session: tools.Session, model: str = MODEL) -> dict:
     """The model path. Requires `anthropic` and an API key; falls back with a clear message."""
     try:
         import anthropic
@@ -336,7 +354,7 @@ def run_agent(instruction: str, session: tools.Session) -> dict:
     transcript: list[dict] = []
     for _ in range(MAX_TOOL_ROUNDS):
         response = client.messages.create(
-            model=MODEL,
+            model=model,
             max_tokens=16000,
             system=[{"type": "text", "text": GENERATOR_SYSTEM, "cache_control": {"type": "ephemeral"}}],
             tools=schemas,
@@ -384,42 +402,66 @@ def generate_one(
     instruction: str,
     *,
     offline: bool,
-    dataset: Path = layout.DEFAULT_DATASET,
+    dataset: Path | None = None,
     output: Path | None = None,
     seed: int = 100,
     ranking_id: str | None = None,
     cache_dir: Path | None = None,
     use_cache: bool = True,
     corrections_dir: Path | None = DEFAULT_CORRECTIONS_DIR,
+    assets_by_category: dict | None = None,
+    catalog: Path | None = None,
+    model: str = MODEL,
 ) -> dict:
-    """One instruction -> a validated config (or an honest refusal). Cached on content."""
+    """One instruction -> a validated config (or an honest refusal). Cached on content.
+
+    The cache is valid only for the same prompt version, model and asset catalogue. Keying on the
+    catalogue fingerprint is what stops a run made against a missing dataset (100/100 declined)
+    from being replayed verbatim after the dataset path is fixed.
+    """
     resolved_cache = cache_dir if cache_dir is not None else DEFAULT_CACHE
     key = task_id(instruction, ranking_id)
     cached = cache_path(instruction, ranking_id, resolved_cache)
+    if assets_by_category is None:
+        assets_by_category, _ = asset_catalog.resolve(dataset=dataset, catalog=catalog)
+    catalog_key = asset_catalog.fingerprint(assets_by_category)
+    model_id = "offline" if offline else model
     if use_cache and cached.is_file():
         try:
             record = json.loads(cached.read_text(encoding="utf-8"))
-            if record.get("prompt_version") == PROMPT_VERSION:
+            if (
+                record.get("prompt_version") == PROMPT_VERSION
+                and record.get("model") == model_id
+                and record.get("catalog_fingerprint") == catalog_key
+            ):
+                if record["document"] and output is not None:
+                    write_task(record, output, None)
                 return record
         except (OSError, ValueError):
             pass
 
     session = tools.Session(
         instruction, dataset=dataset, seed=seed, ranking_id=ranking_id,
-        corrections_dir=corrections_dir,
+        corrections_dir=corrections_dir, assets_by_category=assets_by_category,
     )
-    outcome = run_offline(instruction, session) if offline else run_agent(instruction, session)
+    outcome = run_offline(instruction, session) if offline else run_agent(instruction, session, model)
     record = {
         "task_id": key,
         "instruction": instruction,
         "ranking_id": ranking_id,
         "prompt_version": PROMPT_VERSION,
-        "model": "offline" if offline else MODEL,
+        "model": model_id,
+        "catalog_fingerprint": catalog_key,
         "grounded": bool(session.submission),
         "ungroundable": session.ungroundable,
         "validation": (session.submission or {}).get("validation"),
         "document": (session.submission or {}).get("document"),
     }
+    if not record["grounded"] and not record["ungroundable"]:
+        # The model stopped (or the API failed) without submitting or declining. Keep the reason
+        # in the report, and do not cache it: it says nothing about the instruction.
+        record["failure"] = str((outcome or {}).get("reason") or "no submission and no decline")
+        return record
     resolved_cache.mkdir(parents=True, exist_ok=True)
     cached.write_text(json.dumps(record, indent=2, default=str) + "\n", encoding="utf-8")
     if record["document"] and output is not None:
@@ -427,13 +469,33 @@ def generate_one(
     return record
 
 
-def write_task(record: dict, output: Path, session: tools.Session) -> Path:
+def write_task(record: dict, output: Path, session: tools.Session | None = None) -> Path:
     directory = output / f"{_slug(record['instruction'])[:72]}_{record['task_id'][:6]}"
     directory.mkdir(parents=True, exist_ok=True)
     (directory / "default.yaml").write_text(
         yaml.safe_dump(record["document"], sort_keys=False, width=120), encoding="utf-8"
     )
     return directory
+
+
+def signature(document: dict) -> tuple:
+    """What makes two generated tasks the same benchmark task: verb + the grounded role assets.
+
+    DROID phrasings repeat ("Put the marker in the cup" / "... in the mug" / "Pick up the marker
+    and put it in the cup"). Once grounded they solve to the same scene, and counting them twice
+    inflates the family without adding a task.
+    """
+    def ident(role: str) -> str:
+        configs = document.get(role) or []
+        if not configs:
+            return ""
+        config = configs[0]
+        return str(config.get("category") or f"{config.get('primitive_type')}:{config.get('rgba')}")
+
+    return (
+        str(document.get("task_type")),
+        ident("main_objects"), ident("target_objects"), ident("immutables"),
+    )
 
 
 def _slug(value: str) -> str:
@@ -446,7 +508,14 @@ def main(argv: list[str] | None = None) -> int:
                         help="a JSON file {tasks:[{instruction, rank?}]}, or a text file, one per line")
     parser.add_argument("--offline", action="store_true",
                         help="drive the six tools with a scripted agent; no API key required")
-    parser.add_argument("--dataset", type=Path, default=layout.DEFAULT_DATASET)
+    parser.add_argument("--dataset", type=Path, default=None,
+                        help="scan this behavior-1k-assets tree instead of the committed catalogue")
+    parser.add_argument("--catalog", type=Path, default=None,
+                        help=f"asset catalogue JSON (default: {asset_catalog.DEFAULT_CATALOG.name})")
+    parser.add_argument("--model", default=MODEL, help="Anthropic model id for the non-offline path")
+    parser.add_argument("--limit", type=int, default=None, help="only the first N instructions")
+    parser.add_argument("--keep-duplicates", action="store_true",
+                        help="write every grounded config, even ones that solve to the same task")
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--seed", type=int, default=100)
     parser.add_argument("--ranking-id", default=None)
@@ -468,40 +537,70 @@ def main(argv: list[str] | None = None) -> int:
         args.ranking_id = args.ranking_id or payload.get("ranking_id")
     else:
         entries = [{"instruction": line.strip()} for line in text.splitlines() if line.strip()]
+    if args.limit:
+        entries = entries[: args.limit]
     if not entries:
         print("no instructions found", file=sys.stderr)
         return 2
 
-    results, grounded, declined = [], 0, 0
+    # Resolve the catalogue ONCE and say which one it is. A wrong --dataset is an error here,
+    # not 100 silent declines.
+    try:
+        assets, catalog_info = asset_catalog.resolve(dataset=args.dataset, catalog=args.catalog)
+    except asset_catalog.CatalogError as error:
+        print(f"error: {error}", file=sys.stderr)
+        return 2
+    print(f"catalogue: {catalog_info['source']} ({len(assets)} categories, "
+          f"fingerprint {catalog_info['fingerprint']}) from {catalog_info['path']}")
+    if catalog_info["source"] == "seed-from-configs":
+        print("  note: this is the SEED catalogue; build the full one with "
+              "`python -m tooling.task_authoring.agent.catalog build --dataset ...`")
+    if not args.offline and not os.environ.get("ANTHROPIC_API_KEY"):
+        print("error: ANTHROPIC_API_KEY is not set (or pass --offline)", file=sys.stderr)
+        return 2
+
+    results, counts = [], {"grounded": 0, "duplicate": 0, "declined": 0, "failed": 0}
+    seen: dict[tuple, str] = {}
     for entry in entries:
         record = generate_one(
-            entry["instruction"], offline=args.offline, dataset=args.dataset,
-            output=None if args.no_write else args.output, seed=args.seed,
-            ranking_id=args.ranking_id, use_cache=not args.no_cache,
+            entry["instruction"], offline=args.offline, dataset=args.dataset, output=None,
+            seed=args.seed, ranking_id=args.ranking_id, use_cache=not args.no_cache,
+            assets_by_category=assets, model=args.model,
         )
-        results.append(record)
+        record["rank"] = entry.get("rank")
+        status, detail = "DECLINED", ""
         if record["grounded"]:
-            grounded += 1
+            key = signature(record["document"])
+            if key in seen and not args.keep_duplicates:
+                record["duplicate_of"] = seen[key]
+                status, detail = "DUP     ", f" -- same task as {seen[key]}"
+                counts["duplicate"] += 1
+            else:
+                seen.setdefault(key, record["task_id"])
+                status = "OK      "
+                counts["grounded"] += 1
+                if not args.no_write:
+                    record["path"] = str(write_task(record, args.output))
+        elif record.get("failure"):
+            status, detail = "FAILED  ", f" -- {record['failure'][:90]}"
+            counts["failed"] += 1
         else:
-            declined += 1
+            detail = f" -- {record['ungroundable']['reason'][:90]}"
+            counts["declined"] += 1
+        results.append(record)
         if not args.quiet:
-            status = "OK      " if record["grounded"] else "DECLINED"
-            detail = ""
-            if record["ungroundable"]:
-                detail = f" -- {record['ungroundable']['reason'][:90]}"
-            elif record["validation"]:
-                detail = f" -- {record['validation']['error_count']} error(s)"
             print(f"{status} {record['task_id']}  {entry['instruction'][:60]}{detail}")
 
-    print(f"\n{grounded} grounded, {declined} declined, {len(entries)} total")
+    print(f"\n{counts['grounded']} unique tasks, {counts['duplicate']} duplicates, "
+          f"{counts['declined']} declined, {counts['failed']} failed, {len(entries)} total")
     if args.report:
         args.report.parent.mkdir(parents=True, exist_ok=True)
         args.report.write_text(json.dumps({
             "prompt_version": PROMPT_VERSION,
             "offline": args.offline,
-            "dataset": str(args.dataset),
-            "grounded": grounded,
-            "declined": declined,
+            "model": "offline" if args.offline else args.model,
+            "catalog": catalog_info,
+            **counts,
             "total": len(entries),
             "results": results,
         }, indent=2, default=str) + "\n", encoding="utf-8")

@@ -15,6 +15,7 @@ produces byte-identical output.
 """
 from __future__ import annotations
 
+import functools
 import math
 import random
 from pathlib import Path
@@ -461,6 +462,7 @@ def build_document(
     scenes: Path = DEFAULT_REGIONS,
     assets_by_category: dict | None = None,
     corrections_dir: Path | None = None,
+    provenance: dict | None = None,
 ) -> dict:
     """Full pipeline for one agent proposal: index -> solve -> cameras -> corrections.
 
@@ -489,7 +491,7 @@ def build_document(
     )
     document = solved["document"]
     camera_rng = random.Random(seed + 1)
-    poses = load_camera_extrinsics(camera_extrinsics)
+    poses = _camera_poses(Path(camera_extrinsics))
     if not poses:
         raise LayoutError(f"no camera poses in {camera_extrinsics}")
     sampled = sample_camera_pair(poses, camera_rng)
@@ -498,10 +500,27 @@ def build_document(
     }
     audit = dict(solved["audit"])
     audit["camera_extrinsic_sources"] = {key: value["source"] for key, value in sampled.items()}
+    if provenance:
+        # Set BEFORE the merge: the store is keyed by provenance.task_id (the ORIGINAL instruction),
+        # and a document whose instruction the agent rewrote would otherwise look itself up under
+        # the rewritten text and never find the corrections recorded against it.
+        document["provenance"] = {key: value for key, value in provenance.items() if value is not None}
     applied = merge_document(document, corrections_dir=corrections_dir)
     if applied:
         audit["corrections_applied"] = applied
     return {"document": document, "audit": audit}
+
+
+@functools.lru_cache(maxsize=4)
+def _camera_poses(path: Path) -> dict:
+    """Load the 17 MB extrinsics file once per process.
+
+    Re-reading it on every propose_layout call leaked: `authoring.sample_opposite_camera_pair`
+    memoizes its pair list keyed by `id(poses)`, so every fresh dict pinned another copy and a
+    100-instruction run died of MemoryError around instruction 30. Same content, same draws: this
+    changes no number, only how often the file is parsed.
+    """
+    return load_camera_extrinsics(path)
 
 
 def _eligible_distractors(assets_by_category: dict[str, list[dict]]) -> list[str]:

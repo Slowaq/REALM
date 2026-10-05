@@ -1,0 +1,499 @@
+{
+ "source": "seed-from-configs",
+ "dataset": null,
+ "assets": [
+  {
+   "category": "bag_of_cookies",
+   "model": "bbyvsc",
+   "bbox": [
+    0.17,
+    0.11,
+    0.03
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "banana",
+   "model": "vvyyyv",
+   "bbox": [
+    0.15,
+    0.03,
+    0.09
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "beaker",
+   "model": "exzsal",
+   "bbox": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "bottle_of_water",
+   "model": "eeaimz",
+   "bbox": [
+    0.07,
+    0.07,
+    0.17
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "bottle_of_wine",
+   "model": "tisclo",
+   "bbox": [
+    0.075,
+    0.075,
+    0.24
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "bowl",
+   "model": "adciys",
+   "bbox": [
+    0.15,
+    0.15,
+    0.06
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "bowl",
+   "model": "bexgtn",
+   "bbox": [
+    0.2,
+    0.2,
+    0.07
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "bowl",
+   "model": "fiarri",
+   "bbox": [
+    0.15,
+    0.15,
+    0.06
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "bowl",
+   "model": "jpvcjv",
+   "bbox": [
+    0.2,
+    0.2,
+    0.07
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "bowl",
+   "model": "mspdar",
+   "bbox": [
+    0.175,
+    0.175,
+    0.06
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "bowl",
+   "model": "rlwpcd",
+   "bbox": [
+    0.13,
+    0.15,
+    0.06
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "box_of_cane_sugar",
+   "model": "pozpqi",
+   "bbox": [
+    0.04,
+    0.08,
+    0.14
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "can_of_soda",
+   "model": "itolcg",
+   "bbox": [
+    0.08,
+    0.08,
+    0.13
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "chocolate_bar",
+   "model": "eqfznz",
+   "bbox": [
+    0.18,
+    0.11,
+    0.01
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "coffee_cup",
+   "model": "ckkwmj",
+   "bbox": [
+    0.09,
+    0.07,
+    0.07
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "cola_bottle",
+   "model": "oyqdtz",
+   "bbox": [
+    0.07,
+    0.07,
+    0.22
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "corkscrew",
+   "model": "gqocna",
+   "bbox": [
+    0.11,
+    0.09,
+    0.02
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "dental_floss",
+   "model": "aokqke",
+   "bbox": [
+    0.04,
+    0.04,
+    0.02
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "electric_switch",
+   "model": "oedwla",
+   "bbox": [
+    0.025,
+    0.06,
+    0.12
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "frying_pan",
+   "model": "aewpzn",
+   "bbox": [
+    0.37,
+    0.24,
+    0.08
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "half_apple",
+   "model": "sguztn",
+   "bbox": [
+    0.1,
+    0.09,
+    0.04
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "jar_of_puree",
+   "model": "raagvm",
+   "bbox": [
+    0.07,
+    0.07,
+    0.08
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "lemon",
+   "model": "asdada",
+   "bbox": [
+    0.07,
+    0.05,
+    0.05
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "lid",
+   "model": "gerjlh",
+   "bbox": [
+    0.2,
+    0.2,
+    0.07
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "marker",
+   "model": "rsxbso",
+   "bbox": [
+    0.02,
+    0.02,
+    0.13
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "mug",
+   "model": "waqrdy",
+   "bbox": [
+    0.08,
+    0.12,
+    0.14
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "orange",
+   "model": "ucstpm",
+   "bbox": [
+    0.08,
+    0.09,
+    0.08
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "pen",
+   "model": "gzrbrx",
+   "bbox": [
+    0.16,
+    0.01,
+    0.01
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "plate",
+   "model": "ivuveo",
+   "bbox": [
+    0.27,
+    0.27,
+    0.03
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "plate",
+   "model": "luhkiz",
+   "bbox": [
+    0.24,
+    0.24,
+    0.03
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "plate",
+   "model": "nikfgd",
+   "bbox": [
+    0.27,
+    0.27,
+    0.03
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "plate",
+   "model": "ntedfx",
+   "bbox": [
+    0.2,
+    0.2,
+    0.03
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "plate",
+   "model": "pkkgzc",
+   "bbox": [
+    0.26,
+    0.26,
+    0.03
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "plate",
+   "model": "qtfzeq",
+   "bbox": [
+    0.24,
+    0.24,
+    0.02
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "plate",
+   "model": "spppps",
+   "bbox": [
+    0.26,
+    0.26,
+    0.03
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "pruner",
+   "model": "lucqrs",
+   "bbox": [
+    0.03,
+    0.07,
+    0.23
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "sponge",
+   "model": "qewotb",
+   "bbox": [
+    0.1,
+    0.07,
+    0.02
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "table_knife",
+   "model": "eebpap",
+   "bbox": [
+    0.27,
+    0.03,
+    0.01
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "tea_bag",
+   "model": "kmvcrb",
+   "bbox": [
+    0.05,
+    0.04,
+    0.03
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "teaspoon",
+   "model": "eilfij",
+   "bbox": [
+    0.04,
+    0.19,
+    0.01
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "teaspoon",
+   "model": "prbhag",
+   "bbox": [
+    0.13,
+    0.03,
+    0.02
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "ticket",
+   "model": "ahknpi",
+   "bbox": [
+    0.08,
+    0.04,
+    0.0025
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "toy_dice",
+   "model": "eqwazv",
+   "bbox": [
+    0.05,
+    0.05,
+    0.05
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "toy_dice",
+   "model": "gcevml",
+   "bbox": [
+    0.05,
+    0.05,
+    0.05
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "tray",
+   "model": "vxbtax",
+   "bbox": [
+    0.33,
+    0.48,
+    0.09
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "tray",
+   "model": "xzcnjq",
+   "bbox": [
+    0.23,
+    0.35,
+    0.05
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "trowel",
+   "model": "ematag",
+   "bbox": [
+    0.28,
+    0.05,
+    0.02
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "water_glass",
+   "model": "lvqgvn",
+   "bbox": [
+    0.06,
+    0.06,
+    0.15
+   ],
+   "bbox_source": "authored_config"
+  },
+  {
+   "category": "wineglass",
+   "model": "hxccge",
+   "bbox": [
+    0.08,
+    0.08,
+    0.16
+   ],
+   "bbox_source": "authored_config"
+  }
+ ],
+ "fingerprint": "94fb765331f4",
+ "categories": 35,
+ "models": 49
+}

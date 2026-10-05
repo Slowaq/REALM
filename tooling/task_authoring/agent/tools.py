@@ -17,6 +17,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from tooling.task_authoring.agent import catalog as asset_catalog
 from tooling.task_authoring.agent import layout
 from tooling.task_authoring.agent.corrections import DEFAULT_CORRECTIONS_DIR, record_correction
 from tooling.task_authoring.validation import validate
@@ -184,18 +185,23 @@ class Session:
         self,
         instruction: str,
         *,
-        dataset: Path = layout.DEFAULT_DATASET,
+        dataset: Path | None = None,
         seed: int = layout.__dict__.get("DEFAULT_SEED", 100),
         assets_by_category: dict | None = None,
         corrections_dir: Path | None = DEFAULT_CORRECTIONS_DIR,
         ranking_id: str | None = None,
+        catalog: Path | None = None,
     ) -> None:
         self.instruction = instruction
-        self.dataset = dataset
+        self.dataset = dataset if dataset is not None else layout.DEFAULT_DATASET
         self.seed = seed
         self.ranking_id = ranking_id
         self.corrections_dir = corrections_dir
-        self.assets = assets_by_category if assets_by_category is not None else layout.index_assets(dataset)
+        if assets_by_category is None:
+            # Raises CatalogError rather than handing the agent an empty catalogue: an empty index
+            # declines every instruction and reads as a grounding failure, not a missing dataset.
+            assets_by_category, _ = asset_catalog.resolve(dataset=dataset, catalog=catalog)
+        self.assets = assets_by_category
         self.documents: list[dict] = []
         self.document: dict | None = None
         self.submission: dict | None = None
@@ -212,10 +218,11 @@ class Session:
         exact = self.assets.get(query, [])
         category = query
         if not exact:
-            # Substring fallback so "spoon" reaches teaspoon/tablespoon/wooden_spoon rather than
-            # reporting the catalogue empty -- but the result still names the REAL category, so the
-            # model cannot drift off the catalogue.
-            matches = sorted(name for name in self.assets if query and query in name)
+            # Word-boundary fallback so "spoon" reaches teaspoon and "can" reaches can_of_soda (not
+            # box_of_cane_sugar) -- and the result still names the REAL category, so the model
+            # cannot drift off the catalogue.
+            match = asset_catalog.match_category(query, self.assets)
+            matches = [match] if match else []
             if not matches:
                 return {
                     "query": query, "role": role, "found": False,
@@ -269,6 +276,11 @@ class Session:
                 dataset=self.dataset,
                 assets_by_category=self.assets,
                 corrections_dir=self.corrections_dir,
+                provenance={
+                    "task_id": _task_id_for(self.instruction, self.ranking_id),
+                    "ranking_id": self.ranking_id,
+                    "original_instruction": self.instruction,
+                },
             )
         except layout.LayoutError as error:
             return {"ok": False, "reason": str(error)}
@@ -296,28 +308,50 @@ class Session:
             return {"ok": False, "reason": "no layout proposed yet; call propose_layout first"}
         self.validation_rounds += 1
         report = validate(self.document, task=str(self.instruction)[:60])
+        errors = [finding for finding in report.as_dict()["findings"] if finding["severity"] == "error"]
+        errors += self._semantic_findings()
         return {
-            "ok": report.ok,
-            "error_count": len(report.errors),
-            "findings": [finding for finding in report.as_dict()["findings"] if finding["severity"] == "error"],
+            "ok": not errors,
+            "error_count": len(errors),
+            "findings": errors,
             "warnings": [finding for finding in report.as_dict()["findings"] if finding["severity"] == "warning"],
             "round": self.validation_rounds,
             "note": (
                 "apply each error's `fix` through the tool that owns it, then validate again"
-                if not report.ok else "clean: call submit_task"
+                if errors else "clean: call submit_task"
             ),
         }
+
+    def _semantic_findings(self) -> list[dict]:
+        """Agent-level checks the geometry validator cannot make, because they need the catalogue."""
+        phantoms = asset_catalog.phantom_nouns(self.document or {}, self.assets)
+        if not phantoms:
+            return []
+        return [{
+            "code": "INSTRUCTION_PHANTOM_OBJECT",
+            "severity": "error",
+            "message": (
+                f"the instruction names {phantoms} but no such object is in the scene. Either add "
+                f"it as a role (a `source` for 'from X', a `target` for 'into/onto X') or rewrite "
+                f"the instruction so it promises only objects the scene contains."
+            ),
+            "obj": None,
+            "path": "instruction",
+            "fix": {"remove_or_ground_words": phantoms},
+        }]
 
     def submit_task(self, decisions=None) -> dict:
         if self.document is None:
             return {"ok": False, "reason": "no layout proposed yet; call propose_layout first"}
         report = validate(self.document, task=str(self.instruction)[:60])
-        if not report.ok:
+        errors = [item for item in report.as_dict()["findings"] if item["severity"] == "error"]
+        errors += self._semantic_findings()
+        if errors:
             self.validation_rounds += 1
             return {
                 "ok": False,
-                "reason": f"draft has {len(report.errors)} error(s); fix them before submitting",
-                "findings": [as_dict for as_dict in report.as_dict()["findings"] if as_dict["severity"] == "error"],
+                "reason": f"draft has {len(errors)} error(s); fix them before submitting",
+                "findings": errors,
             }
         if decisions:
             self.document.setdefault("provenance", {})["decisions"] = [str(item) for item in decisions]
@@ -326,7 +360,7 @@ class Session:
             "document": self.document,
             "validation": report.as_dict(),
         }
-        return {"ok": True, "accepted": True, "task_id": _task_id(self.document, self.ranking_id)}
+        return {"ok": True, "accepted": True, "task_id": _task_id_for(self.instruction, self.ranking_id)}
 
     def report_ungroundable(self, reason: str, blocking_terms=None) -> dict:
         self.ungroundable = {
@@ -365,10 +399,11 @@ def _summarize(document: dict) -> dict:
     }
 
 
-def _task_id(document: dict, ranking_id: str | None) -> str:
+def _task_id_for(instruction: str, ranking_id: str | None) -> str:
+    """Content key of the ORIGINAL instruction -- the same key run.py caches and the store uses."""
     from tooling.task_authoring.agent.corrections import task_id
 
-    return task_id(str(document.get("instruction", "")), ranking_id)
+    return task_id(str(instruction), ranking_id)
 
 
 def dispatch(session: Session, name: str, arguments: dict | None) -> dict:

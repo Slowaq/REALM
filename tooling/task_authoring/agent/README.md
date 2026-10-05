@@ -12,44 +12,46 @@ batch generator uses.
 
 ## Quick start
 
-Runs on the authoring host (the machine with the OmniGibson dataset staged):
+Everything up to the render step runs on a laptop. The agent grounds against a small committed
+asset catalogue (`../asset_catalog.json`), not the 1k-asset dataset tree.
 
 ```sh
-# 1. Offline: drive the six tools with a scripted agent. No API key, no network.
-uv run python -m tooling.task_authoring.agent.run instructions.json \
-    --offline --dataset "$REALM_DATA_PATH/datasets/behavior-1k-assets" \
-    --output realm/config/tasks/REALM_DROID100
+# 0. Once, on a machine that HAS the dataset (lab workstation; no GPU needed):
+python -m tooling.task_authoring.agent.catalog build \
+    --dataset "$REALM_DATA_PATH/datasets/behavior-1k-assets"      # then commit asset_catalog.json
+#    Until then the committed file is a ~35-category SEED taken from REALM's own task configs.
+python -m tooling.task_authoring.agent.catalog show
 
-# 2. Model-backed: the same six tools, driven by Claude.
-uv add anthropic          # once
-export ANTHROPIC_API_KEY=...
-uv run python -m tooling.task_authoring.agent.run instructions.json --dataset ...
+# 1. Offline smoke test: a scripted regex agent drives the six tools. Proves the plumbing, NOT a
+#    generator -- its grounding is keyword matching and it mislabels compound instructions.
+uv run python -m tooling.task_authoring.agent.run data/DROID100_tabletop.json --offline \
+    --report tmp/droid100/offline_report.json
+
+# 2a. The real generator, no API key: an interactive coding agent drives the same tools via the CLI.
+#     Tell it: "Follow tooling/task_authoring/agent/GENERATE_TASKS.md for the next 20 instructions."
+python -m tooling.task_authoring.agent.cli next data/DROID100_tabletop.json
+
+# 2b. The real generator, unattended: the same tools through the Anthropic API.
+uv add anthropic && export ANTHROPIC_API_KEY=...
+uv run python -m tooling.task_authoring.agent.run data/DROID100_tabletop.json --model <model-id> \
+    --report tmp/droid100/agent_report.json
 
 # 3. Container only: build each config, settle it, render and probe it.
 ./scripts/run_apptainer.sh python -u tooling/task_authoring/render_review.py \
     --family REALM_DROID100 --out tmp/droid100/review
 ```
 
-**Point `--dataset` at the real asset tree.** It is bound into the container as
-`/data/behavior-1k-assets`, so on the authoring host that is `$REALM_DATA_PATH/datasets/behavior-1k-assets`.
-The `DEFAULT_DATASET` baked into `layout.py` (`data/datasets_og391/behavior-1k-assets`) only exists on a
-machine that staged the tree inside the repo. A wrong path indexes zero assets, and the offline driver
-then *declines every instruction* instead of erroring — which reads as an ungroundable family, not as a
-missing dataset. The report prints `0 grounded, N declined`; check for the index error before believing it.
+A wrong `--dataset` is now an error (it used to index zero assets and decline every instruction).
+The run cache is keyed on `(task_id, PROMPT_VERSION, model, catalogue fingerprint)`, so declines made
+against a smaller catalogue are not replayed after the catalogue grows. Both drivers collapse
+instructions that solve to the same task (`run.signature`); `--keep-duplicates` turns that off.
 
 Step 3 is the only stage that needs a GPU, and the only one that needs the container. Inside the
-container there is no `uv` — the image's conda env already has REALM on `PYTHONPATH`, so call
-`python -u`, never `uv run python`.
-
-Run step 3 on **three** configs first — one `--task_cfg_path` invocation each — and confirm you get a
+container there is no `uv` -- call `python -u`. Run it on three configs first and confirm you get a
 real PASS/FAIL split before submitting a sweep over the whole family.
 
 `instructions.json` is `{"ranking_id": "...", "tasks": [{"instruction": "...", "rank": 1}, ...]}`,
 or a plain text file with one instruction per line.
-
-Always run the first pass with `--offline`. It needs no model and it proves the tool contract is
-complete: if the scripted driver can ground an instruction using only the six tools, so can Claude.
-A model path that fails while the offline path succeeds is a prompting problem, not a tooling one.
 
 ## The stages
 
@@ -68,6 +70,8 @@ A model path that fails while the offline path succeeds is a prompting problem, 
 
 | File | Role |
 |---|---|
+| `catalog.py` | asset catalogue snapshot (`build`/`show`), word-boundary category matching, phantom-noun check |
+| `cli.py` | the six tools as shell commands, so an interactive coding agent can be the generator (see `GENERATE_TASKS.md`) |
 | `layout.py` | role assignment -> solved document. The semantics/geometry boundary |
 | `tools.py` | the six tool schemas and the per-instruction `Session` |
 | `prompts.py` | `GENERATOR_SYSTEM`, `REVIEW_SYSTEM`, `PROMPT_VERSION` |
@@ -75,7 +79,7 @@ A model path that fails while the offline path succeeds is a prompting problem, 
 | `review.py` | S6/S7: parse findings, apply deterministic transforms, bounded at two iterations |
 | `corrections.py` | content-keyed correction store, replacing the rank-keyed `REVIEWED_*` tables |
 | `../render_review.py` | S5 harness. One config per process; `--family` fans out to children |
-| `test_agent.py` | 65 host-safe tests; builds its own synthetic asset tree |
+| `test_agent.py`, `test_catalog_cli.py` | host-safe tests; build their own synthetic asset tree |
 
 `review.py` (S6/S7) is a library with no CLI yet: `build_review_request`, `parse_findings` and
 `apply_correction` are callable and tested, but nothing reads `render_review.py`'s JSON and drives the
@@ -109,7 +113,8 @@ Host, no GPU, must stay green:
 ```sh
 uv run ruff check realm examples tests scripts tooling
 uv run python -m pytest -q tooling/task_authoring/test_validation.py \
-    tooling/task_authoring/test_authoring.py tooling/task_authoring/agent/test_agent.py
+    tooling/task_authoring/test_authoring.py tooling/task_authoring/agent/test_agent.py \
+    tooling/task_authoring/agent/test_catalog_cli.py
 uv run python -m tooling.task_authoring.validation \
     realm/config/tasks/REALM_DROID10 --profile authored
 ```

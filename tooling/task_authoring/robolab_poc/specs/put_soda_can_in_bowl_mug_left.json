@@ -1,0 +1,16 @@
+{
+  "name": "put_soda_can_in_bowl_mug_left",
+  "instruction": "put the can of soda in the bowl",
+  "task_type": "put",
+  "region": "Pomaria_1_int / Kitchen_Counter",
+  "objects": [
+    {"name": "can_of_soda", "category": "can_of_soda", "role": "main"},
+    {"name": "bowl", "category": "bowl", "role": "target"},
+    {"name": "mug", "category": "mug", "role": "distractor"},
+    {"name": "lemon", "category": "lemon", "role": "distractor"}
+  ],
+  "relations": [
+    {"type": "left-of", "object": "mug", "reference": "bowl"},
+    {"type": "in-front-of", "object": "lemon", "reference": "bowl"}
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "rotate_mug_chocolate_on_plate",
+  "instruction": "rotate the mug",
+  "task_type": "rotate",
+  "region": "Pomaria_1_int / Table",
+  "objects": [
+    {"name": "mug", "category": "mug", "role": "main"},
+    {"name": "plate", "category": "plate", "role": "distractor"},
+    {"name": "chocolate_bar", "category": "chocolate_bar", "role": "distractor"},
+    {"name": "can_of_soda", "category": "can_of_soda", "role": "distractor"}
+  ],
+  "relations": [
+    {"type": "on", "object": "chocolate_bar", "support": "plate"},
+    {"type": "behind", "object": "plate", "reference": "mug"},
+    {"type": "right-of", "object": "can_of_soda", "reference": "mug"}
+  ]
+}

@@ -1,0 +1,105 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: put the can of soda in the bowl
+instruction_obj_to_replace: can of soda
+instruction_target_to_replace: bowl
+instruction_verb_to_replace: put
+supported_scenes:
+  Pomaria_1_int:
+  - Kitchen_Counter
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.1401061
+    - 0.3821257
+    - 0.3856306
+    rot:
+    - 0.2589997
+    - -0.3556954
+    - -0.7540296
+    - 0.4876877
+  cam2:
+    pos:
+    - 0.1135287
+    - -0.3413598
+    - 0.5284507
+    rot:
+    - 0.4959567
+    - -0.1283347
+    - -0.2830536
+    - 0.8108254
+main_objects:
+- type: DatasetObject
+  name: can_of_soda
+  category: can_of_soda
+  model: itolcg
+  bounding_box:
+  - 0.08
+  - 0.08
+  - 0.13
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.081
+  - 0.27444
+  - 0.115
+target_objects:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: jpvcjv
+  bounding_box:
+  - 0.17
+  - 0.17
+  - 0.0595
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.23688
+  - 0.25657
+  - 0.07975
+distractors:
+- type: DatasetObject
+  name: mug
+  category: mug
+  model: waqrdy
+  bounding_box:
+  - 0.0666667
+  - 0.1
+  - 0.1166667
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.23486
+  - 0.091
+  - 0.1083334
+- type: DatasetObject
+  name: lemon
+  category: lemon
+  model: asdada
+  bounding_box:
+  - 0.07
+  - 0.05
+  - 0.05
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.061
+  - 0.13256
+  - 0.0750001
+immutables: []

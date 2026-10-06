@@ -1,0 +1,223 @@
+{
+  "generator": "robolab_poc",
+  "robolab_commit": "ad45d4f",
+  "spec_sha1": "9c2158951db4",
+  "spec": {
+    "name": "rotate_mug_chocolate_on_plate",
+    "instruction": "rotate the mug",
+    "task_type": "rotate",
+    "region": "Pomaria_1_int / Table",
+    "objects": [
+      {
+        "name": "mug",
+        "category": "mug",
+        "role": "main"
+      },
+      {
+        "name": "plate",
+        "category": "plate",
+        "role": "distractor"
+      },
+      {
+        "name": "chocolate_bar",
+        "category": "chocolate_bar",
+        "role": "distractor"
+      },
+      {
+        "name": "can_of_soda",
+        "category": "can_of_soda",
+        "role": "distractor"
+      }
+    ],
+    "relations": [
+      {
+        "type": "on",
+        "object": "chocolate_bar",
+        "support": "plate"
+      },
+      {
+        "type": "behind",
+        "object": "plate",
+        "reference": "mug"
+      },
+      {
+        "type": "right-of",
+        "object": "can_of_soda",
+        "reference": "mug"
+      }
+    ]
+  },
+  "seed": 4,
+  "collision_margin": 0.015,
+  "catalog_fingerprint": "fe65d2d33f30",
+  "region": "Pomaria_1_int / Table",
+  "robot_yaw_deg": 180,
+  "mirrored_x": true,
+  "solver_bounds_forward_left": [
+    0.3844,
+    0.7324,
+    -0.2272,
+    0.3708
+  ],
+  "resized_assets": [
+    {
+      "name": "plate",
+      "reason": "fit_role_limit",
+      "original_bbox": [
+        0.27,
+        0.27,
+        0.03
+      ],
+      "authored_bbox": [
+        0.17,
+        0.17,
+        0.0188889
+      ],
+      "scale": 0.62963
+    },
+    {
+      "name": "chocolate_bar",
+      "reason": "fit_role_limit",
+      "original_bbox": [
+        0.18,
+        0.11,
+        0.01
+      ],
+      "authored_bbox": [
+        0.1,
+        0.0611111,
+        0.0055556
+      ],
+      "scale": 0.55556
+    }
+  ],
+  "receiver_capacity": [],
+  "attempts": [
+    {
+      "seed": 0,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "OVERLAP",
+        "RELATION_BROKEN"
+      ]
+    },
+    {
+      "seed": 1,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "RELATION_BROKEN"
+      ]
+    },
+    {
+      "seed": 2,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "RELATION_BROKEN"
+      ]
+    },
+    {
+      "seed": 3,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "RELATION_BROKEN"
+      ]
+    },
+    {
+      "seed": 4,
+      "ok": true,
+      "error": null,
+      "codes": []
+    }
+  ],
+  "camera_extrinsic_sources": [
+    "droid_realm_ep_035190_cam1",
+    "droid_realm_ep_035190_cam2"
+  ],
+  "findings": [],
+  "layout": {
+    "mug": {
+      "role": "main",
+      "category": "mug",
+      "model": "waqrdy",
+      "relative_bbox_position": [
+        0.10266,
+        0.43138,
+        0.12
+      ],
+      "robot_frame_forward_left": [
+        0.4611,
+        -0.0346
+      ],
+      "bounding_box": [
+        0.08,
+        0.12,
+        0.14
+      ],
+      "yaw_deg": 0
+    },
+    "plate": {
+      "role": "distractor",
+      "category": "plate",
+      "model": "nikfgd",
+      "relative_bbox_position": [
+        0.274,
+        0.49319,
+        0.0594445
+      ],
+      "robot_frame_forward_left": [
+        0.6324,
+        -0.0964
+      ],
+      "bounding_box": [
+        0.17,
+        0.17,
+        0.0188889
+      ],
+      "yaw_deg": 0
+    },
+    "chocolate_bar": {
+      "role": "distractor",
+      "category": "chocolate_bar",
+      "model": "eqfznz",
+      "relative_bbox_position": [
+        0.274,
+        0.49319,
+        0.0816667
+      ],
+      "robot_frame_forward_left": [
+        0.6324,
+        -0.0964
+      ],
+      "bounding_box": [
+        0.1,
+        0.0611111,
+        0.0055556
+      ],
+      "yaw_deg": 0
+    },
+    "can_of_soda": {
+      "role": "distractor",
+      "category": "can_of_soda",
+      "model": "itolcg",
+      "relative_bbox_position": [
+        0.081,
+        0.569,
+        0.115
+      ],
+      "robot_frame_forward_left": [
+        0.4394,
+        -0.1722
+      ],
+      "bounding_box": [
+        0.08,
+        0.08,
+        0.13
+      ],
+      "yaw_deg": 0
+    }
+  }
+}

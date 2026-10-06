@@ -1,0 +1,221 @@
+{
+  "generator": "robolab_poc",
+  "robolab_commit": "ad45d4f",
+  "spec_sha1": "0708d93d5cfd",
+  "spec": {
+    "name": "put_orange_in_bowl_with_lemon",
+    "instruction": "put the orange in the bowl",
+    "task_type": "put",
+    "region": "Benevolence_1_int / Dining_Table",
+    "objects": [
+      {
+        "name": "orange",
+        "category": "orange",
+        "role": "main"
+      },
+      {
+        "name": "bowl",
+        "category": "bowl",
+        "role": "target"
+      },
+      {
+        "name": "lemon",
+        "category": "lemon",
+        "role": "distractor"
+      },
+      {
+        "name": "water_glass",
+        "category": "water_glass",
+        "role": "distractor"
+      }
+    ],
+    "relations": [
+      {
+        "type": "in",
+        "object": "lemon",
+        "container": "bowl"
+      },
+      {
+        "type": "right-of",
+        "object": "orange",
+        "reference": "bowl"
+      },
+      {
+        "type": "left-of",
+        "object": "water_glass",
+        "reference": "bowl"
+      }
+    ]
+  },
+  "seed": 3,
+  "collision_margin": 0.015,
+  "catalog_fingerprint": "fe65d2d33f30",
+  "region": "Benevolence_1_int / Dining_Table",
+  "robot_yaw_deg": 270,
+  "mirrored_x": true,
+  "solver_bounds_forward_left": [
+    0.326,
+    0.674,
+    -0.274,
+    0.274
+  ],
+  "resized_assets": [
+    {
+      "name": "bowl",
+      "reason": "fit_role_limit",
+      "original_bbox": [
+        0.2,
+        0.2,
+        0.07
+      ],
+      "authored_bbox": [
+        0.17,
+        0.17,
+        0.0595
+      ],
+      "scale": 0.85
+    }
+  ],
+  "receiver_capacity": [
+    {
+      "task_type": "put",
+      "margin": 1.15,
+      "yaw_degrees": 0,
+      "main_bbox_before_capacity_fit": [
+        0.08,
+        0.09,
+        0.08
+      ],
+      "main_bbox_after_capacity_fit": [
+        0.08,
+        0.09,
+        0.08
+      ],
+      "target_bbox": [
+        0.17,
+        0.17,
+        0.0595
+      ],
+      "uniform_scale": 1.0
+    }
+  ],
+  "attempts": [
+    {
+      "seed": 0,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "OVERLAP"
+      ]
+    },
+    {
+      "seed": 1,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "RELATION_BROKEN"
+      ]
+    },
+    {
+      "seed": 2,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "RELATION_BROKEN"
+      ]
+    },
+    {
+      "seed": 3,
+      "ok": true,
+      "error": null,
+      "codes": []
+    }
+  ],
+  "camera_extrinsic_sources": [
+    "droid_realm_ep_032509_cam1",
+    "droid_realm_ep_032509_cam2"
+  ],
+  "findings": [],
+  "layout": {
+    "orange": {
+      "role": "main",
+      "category": "orange",
+      "model": "ucstpm",
+      "relative_bbox_position": [
+        0.419,
+        0.26721,
+        0.09
+      ],
+      "robot_frame_forward_left": [
+        0.4328,
+        -0.119
+      ],
+      "bounding_box": [
+        0.08,
+        0.09,
+        0.08
+      ],
+      "yaw_deg": 0
+    },
+    "bowl": {
+      "role": "target",
+      "category": "bowl",
+      "model": "jpvcjv",
+      "relative_bbox_position": [
+        0.24289,
+        0.23002,
+        0.07975
+      ],
+      "robot_frame_forward_left": [
+        0.47,
+        0.0571
+      ],
+      "bounding_box": [
+        0.17,
+        0.17,
+        0.0595
+      ],
+      "yaw_deg": 0
+    },
+    "lemon": {
+      "role": "distractor",
+      "category": "lemon",
+      "model": "asdada",
+      "relative_bbox_position": [
+        0.24289,
+        0.23002,
+        0.1545
+      ],
+      "robot_frame_forward_left": [
+        0.47,
+        0.0571
+      ],
+      "bounding_box": [
+        0.07,
+        0.05,
+        0.05
+      ],
+      "yaw_deg": 0
+    },
+    "water_glass": {
+      "role": "distractor",
+      "category": "water_glass",
+      "model": "lvqgvn",
+      "relative_bbox_position": [
+        0.10844,
+        0.16882,
+        0.125
+      ],
+      "robot_frame_forward_left": [
+        0.5312,
+        0.1916
+      ],
+      "bounding_box": [
+        0.06,
+        0.06,
+        0.15
+      ],
+      "yaw_deg": 0
+    }
+  }
+}

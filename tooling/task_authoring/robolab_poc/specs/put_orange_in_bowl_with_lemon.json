@@ -1,0 +1,17 @@
+{
+  "name": "put_orange_in_bowl_with_lemon",
+  "instruction": "put the orange in the bowl",
+  "task_type": "put",
+  "region": "Benevolence_1_int / Dining_Table",
+  "objects": [
+    {"name": "orange", "category": "orange", "role": "main"},
+    {"name": "bowl", "category": "bowl", "role": "target"},
+    {"name": "lemon", "category": "lemon", "role": "distractor"},
+    {"name": "water_glass", "category": "water_glass", "role": "distractor"}
+  ],
+  "relations": [
+    {"type": "in", "object": "lemon", "container": "bowl"},
+    {"type": "right-of", "object": "orange", "reference": "bowl"},
+    {"type": "left-of", "object": "water_glass", "reference": "bowl"}
+  ]
+}

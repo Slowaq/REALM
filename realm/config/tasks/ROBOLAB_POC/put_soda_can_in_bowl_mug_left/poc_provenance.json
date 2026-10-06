@@ -1,0 +1,232 @@
+{
+  "generator": "robolab_poc",
+  "robolab_commit": "ad45d4f",
+  "spec_sha1": "81faa4a7bfc0",
+  "spec": {
+    "name": "put_soda_can_in_bowl_mug_left",
+    "instruction": "put the can of soda in the bowl",
+    "task_type": "put",
+    "region": "Pomaria_1_int / Kitchen_Counter",
+    "objects": [
+      {
+        "name": "can_of_soda",
+        "category": "can_of_soda",
+        "role": "main"
+      },
+      {
+        "name": "bowl",
+        "category": "bowl",
+        "role": "target"
+      },
+      {
+        "name": "mug",
+        "category": "mug",
+        "role": "distractor"
+      },
+      {
+        "name": "lemon",
+        "category": "lemon",
+        "role": "distractor"
+      }
+    ],
+    "relations": [
+      {
+        "type": "left-of",
+        "object": "mug",
+        "reference": "bowl"
+      },
+      {
+        "type": "in-front-of",
+        "object": "lemon",
+        "reference": "bowl"
+      }
+    ]
+  },
+  "seed": 3,
+  "collision_margin": 0.015,
+  "catalog_fingerprint": "fe65d2d33f30",
+  "region": "Pomaria_1_int / Kitchen_Counter",
+  "robot_yaw_deg": 180,
+  "mirrored_x": true,
+  "solver_bounds_forward_left": [
+    0.4476,
+    0.7956,
+    -0.259,
+    0.189
+  ],
+  "resized_assets": [
+    {
+      "name": "bowl",
+      "reason": "fit_role_limit",
+      "original_bbox": [
+        0.2,
+        0.2,
+        0.07
+      ],
+      "authored_bbox": [
+        0.17,
+        0.17,
+        0.0595
+      ],
+      "scale": 0.85
+    },
+    {
+      "name": "mug",
+      "reason": "fit_role_limit",
+      "original_bbox": [
+        0.08,
+        0.12,
+        0.14
+      ],
+      "authored_bbox": [
+        0.0666667,
+        0.1,
+        0.1166667
+      ],
+      "scale": 0.83333
+    }
+  ],
+  "receiver_capacity": [
+    {
+      "task_type": "put",
+      "margin": 1.15,
+      "yaw_degrees": 0,
+      "main_bbox_before_capacity_fit": [
+        0.08,
+        0.08,
+        0.13
+      ],
+      "main_bbox_after_capacity_fit": [
+        0.08,
+        0.08,
+        0.13
+      ],
+      "target_bbox": [
+        0.17,
+        0.17,
+        0.0595
+      ],
+      "uniform_scale": 1.0
+    }
+  ],
+  "attempts": [
+    {
+      "seed": 0,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "OVERLAP"
+      ]
+    },
+    {
+      "seed": 1,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "RELATION_BROKEN"
+      ]
+    },
+    {
+      "seed": 2,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "OVERLAP",
+        "RELATION_BROKEN"
+      ]
+    },
+    {
+      "seed": 3,
+      "ok": true,
+      "error": null,
+      "codes": []
+    }
+  ],
+  "camera_extrinsic_sources": [
+    "droid_realm_ep_032509_cam1",
+    "droid_realm_ep_032509_cam2"
+  ],
+  "findings": [],
+  "layout": {
+    "can_of_soda": {
+      "role": "main",
+      "category": "can_of_soda",
+      "model": "itolcg",
+      "relative_bbox_position": [
+        0.081,
+        0.27444,
+        0.115
+      ],
+      "robot_frame_forward_left": [
+        0.5026,
+        -0.0594
+      ],
+      "bounding_box": [
+        0.08,
+        0.08,
+        0.13
+      ],
+      "yaw_deg": 0
+    },
+    "bowl": {
+      "role": "target",
+      "category": "bowl",
+      "model": "jpvcjv",
+      "relative_bbox_position": [
+        0.23688,
+        0.25657,
+        0.07975
+      ],
+      "robot_frame_forward_left": [
+        0.6584,
+        -0.0416
+      ],
+      "bounding_box": [
+        0.17,
+        0.17,
+        0.0595
+      ],
+      "yaw_deg": 0
+    },
+    "mug": {
+      "role": "distractor",
+      "category": "mug",
+      "model": "waqrdy",
+      "relative_bbox_position": [
+        0.23486,
+        0.091,
+        0.1083334
+      ],
+      "robot_frame_forward_left": [
+        0.6564,
+        0.124
+      ],
+      "bounding_box": [
+        0.0666667,
+        0.1,
+        0.1166667
+      ],
+      "yaw_deg": 0
+    },
+    "lemon": {
+      "role": "distractor",
+      "category": "lemon",
+      "model": "asdada",
+      "relative_bbox_position": [
+        0.061,
+        0.13256,
+        0.0750001
+      ],
+      "robot_frame_forward_left": [
+        0.4826,
+        0.0824
+      ],
+      "bounding_box": [
+        0.07,
+        0.05,
+        0.05
+      ],
+      "yaw_deg": 0
+    }
+  }
+}

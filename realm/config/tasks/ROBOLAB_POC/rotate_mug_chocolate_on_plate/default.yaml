@@ -1,0 +1,105 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: rotate
+instruction: rotate the mug
+instruction_obj_to_replace: mug
+instruction_target_to_replace: ''
+instruction_verb_to_replace: rotate
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.1756703
+    - -0.3440416
+    - 0.3246195
+    rot:
+    - 0.4818498
+    - -0.0895751
+    - -0.2975771
+    - 0.8192954
+  cam2:
+    pos:
+    - 0.2033354
+    - 0.4519296
+    - 0.2980138
+    rot:
+    - 0.2158357
+    - -0.4077369
+    - -0.8089249
+    - 0.3644256
+main_objects:
+- type: DatasetObject
+  name: mug
+  category: mug
+  model: waqrdy
+  bounding_box:
+  - 0.08
+  - 0.12
+  - 0.14
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.10266
+  - 0.43138
+  - 0.12
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: plate
+  category: plate
+  model: nikfgd
+  bounding_box:
+  - 0.17
+  - 0.17
+  - 0.0188889
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.274
+  - 0.49319
+  - 0.0594445
+- type: DatasetObject
+  name: chocolate_bar
+  category: chocolate_bar
+  model: eqfznz
+  bounding_box:
+  - 0.1
+  - 0.0611111
+  - 0.0055556
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.274
+  - 0.49319
+  - 0.0816667
+- type: DatasetObject
+  name: can_of_soda
+  category: can_of_soda
+  model: itolcg
+  bounding_box:
+  - 0.08
+  - 0.08
+  - 0.13
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.081
+  - 0.569
+  - 0.115
+immutables: []

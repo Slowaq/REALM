@@ -1,0 +1,333 @@
+{
+  "generator": "robolab_poc",
+  "robolab_commit": "ad45d4f",
+  "spec_sha1": "27929d2d7b5e",
+  "spec": {
+    "name": "pick_lemon_from_bowl",
+    "instruction": "take the lemon out of the bowl",
+    "task_type": "pick",
+    "verb": "take",
+    "region": "office_cubicles_left / Office_Desk",
+    "objects": [
+      {
+        "name": "lemon",
+        "category": "lemon",
+        "role": "main"
+      },
+      {
+        "name": "bowl",
+        "category": "bowl",
+        "role": "source"
+      },
+      {
+        "name": "can_of_soda",
+        "category": "can_of_soda",
+        "role": "distractor"
+      },
+      {
+        "name": "sponge",
+        "category": "sponge",
+        "role": "distractor"
+      }
+    ],
+    "relations": [
+      {
+        "type": "in",
+        "object": "lemon",
+        "container": "bowl"
+      },
+      {
+        "type": "right-of",
+        "object": "can_of_soda",
+        "reference": "bowl"
+      },
+      {
+        "type": "behind",
+        "object": "sponge",
+        "reference": "bowl"
+      }
+    ]
+  },
+  "seed": 16,
+  "collision_margin": 0.015,
+  "catalog_fingerprint": "fe65d2d33f30",
+  "region": "office_cubicles_left / Office_Desk",
+  "robot_yaw_deg": 0,
+  "mirrored_x": false,
+  "solver_bounds_forward_left": [
+    0.376,
+    0.724,
+    -0.274,
+    0.274
+  ],
+  "resized_assets": [
+    {
+      "name": "bowl",
+      "reason": "fit_role_limit",
+      "original_bbox": [
+        0.2,
+        0.2,
+        0.07
+      ],
+      "authored_bbox": [
+        0.17,
+        0.17,
+        0.0595
+      ],
+      "scale": 0.85
+    }
+  ],
+  "receiver_capacity": [
+    {
+      "task_type": "put",
+      "margin": 1.15,
+      "yaw_degrees": 0,
+      "main_bbox_before_capacity_fit": [
+        0.07,
+        0.05,
+        0.05
+      ],
+      "main_bbox_after_capacity_fit": [
+        0.07,
+        0.05,
+        0.05
+      ],
+      "target_bbox": [
+        0.17,
+        0.17,
+        0.0595
+      ],
+      "uniform_scale": 1.0
+    }
+  ],
+  "attempts": [
+    {
+      "seed": 0,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "RELATION_BROKEN"
+      ]
+    },
+    {
+      "seed": 1,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "OVERLAP",
+        "RELATION_BROKEN"
+      ]
+    },
+    {
+      "seed": 2,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "OVERLAP",
+        "RELATION_BROKEN"
+      ]
+    },
+    {
+      "seed": 3,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "RELATION_BROKEN"
+      ]
+    },
+    {
+      "seed": 4,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "OVERLAP"
+      ]
+    },
+    {
+      "seed": 5,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "OVERLAP"
+      ]
+    },
+    {
+      "seed": 6,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "OVERLAP",
+        "RELATION_BROKEN"
+      ]
+    },
+    {
+      "seed": 7,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "OVERLAP",
+        "RELATION_BROKEN"
+      ]
+    },
+    {
+      "seed": 8,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "OVERLAP",
+        "RELATION_BROKEN"
+      ]
+    },
+    {
+      "seed": 9,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "OVERLAP"
+      ]
+    },
+    {
+      "seed": 10,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "RELATION_BROKEN"
+      ]
+    },
+    {
+      "seed": 11,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "OVERLAP"
+      ]
+    },
+    {
+      "seed": 12,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "OVERLAP"
+      ]
+    },
+    {
+      "seed": 13,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "OVERLAP",
+        "RELATION_BROKEN"
+      ]
+    },
+    {
+      "seed": 14,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "OVERLAP",
+        "RELATION_BROKEN"
+      ]
+    },
+    {
+      "seed": 15,
+      "ok": false,
+      "error": null,
+      "codes": [
+        "OVERLAP"
+      ]
+    },
+    {
+      "seed": 16,
+      "ok": true,
+      "error": null,
+      "codes": []
+    }
+  ],
+  "camera_extrinsic_sources": [
+    "droid_realm_ep_070876_cam1",
+    "droid_realm_ep_070876_cam2"
+  ],
+  "findings": [],
+  "layout": {
+    "lemon": {
+      "role": "main",
+      "category": "lemon",
+      "model": "asdada",
+      "relative_bbox_position": [
+        0.16566,
+        0.29126,
+        0.1545
+      ],
+      "robot_frame_forward_left": [
+        0.5157,
+        -0.0087
+      ],
+      "bounding_box": [
+        0.07,
+        0.05,
+        0.05
+      ],
+      "yaw_deg": 0
+    },
+    "bowl": {
+      "role": "source",
+      "category": "bowl",
+      "model": "jpvcjv",
+      "relative_bbox_position": [
+        0.16566,
+        0.29126,
+        0.07975
+      ],
+      "robot_frame_forward_left": [
+        0.5157,
+        -0.0087
+      ],
+      "bounding_box": [
+        0.17,
+        0.17,
+        0.0595
+      ],
+      "yaw_deg": 0
+    },
+    "can_of_soda": {
+      "role": "distractor",
+      "category": "can_of_soda",
+      "model": "itolcg",
+      "relative_bbox_position": [
+        0.1794,
+        0.13626,
+        0.115
+      ],
+      "robot_frame_forward_left": [
+        0.5294,
+        -0.1637
+      ],
+      "bounding_box": [
+        0.08,
+        0.08,
+        0.13
+      ],
+      "yaw_deg": 0
+    },
+    "sponge": {
+      "role": "distractor",
+      "category": "sponge",
+      "model": "qewotb",
+      "relative_bbox_position": [
+        0.324,
+        0.37065,
+        0.06
+      ],
+      "robot_frame_forward_left": [
+        0.674,
+        0.0707
+      ],
+      "bounding_box": [
+        0.1,
+        0.07,
+        0.02
+      ],
+      "yaw_deg": 0
+    }
+  }
+}

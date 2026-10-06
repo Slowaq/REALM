@@ -1,0 +1,105 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: put the orange in the bowl
+instruction_obj_to_replace: orange
+instruction_target_to_replace: bowl
+instruction_verb_to_replace: put
+supported_scenes:
+  Benevolence_1_int:
+  - Dining_Table
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.1401061
+    - 0.3821257
+    - 0.3856306
+    rot:
+    - 0.2589997
+    - -0.3556954
+    - -0.7540296
+    - 0.4876877
+  cam2:
+    pos:
+    - 0.1135287
+    - -0.3413598
+    - 0.5284507
+    rot:
+    - 0.4959567
+    - -0.1283347
+    - -0.2830536
+    - 0.8108254
+main_objects:
+- type: DatasetObject
+  name: orange
+  category: orange
+  model: ucstpm
+  bounding_box:
+  - 0.08
+  - 0.09
+  - 0.08
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.419
+  - 0.26721
+  - 0.09
+target_objects:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: jpvcjv
+  bounding_box:
+  - 0.17
+  - 0.17
+  - 0.0595
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.24289
+  - 0.23002
+  - 0.07975
+distractors:
+- type: DatasetObject
+  name: lemon
+  category: lemon
+  model: asdada
+  bounding_box:
+  - 0.07
+  - 0.05
+  - 0.05
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.24289
+  - 0.23002
+  - 0.1545
+- type: DatasetObject
+  name: water_glass
+  category: water_glass
+  model: lvqgvn
+  bounding_box:
+  - 0.06
+  - 0.06
+  - 0.15
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.10844
+  - 0.16882
+  - 0.125
+immutables: []

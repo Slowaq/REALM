@@ -1,0 +1,18 @@
+{
+  "name": "pick_lemon_from_bowl",
+  "instruction": "take the lemon out of the bowl",
+  "task_type": "pick",
+  "verb": "take",
+  "region": "office_cubicles_left / Office_Desk",
+  "objects": [
+    {"name": "lemon", "category": "lemon", "role": "main"},
+    {"name": "bowl", "category": "bowl", "role": "source"},
+    {"name": "can_of_soda", "category": "can_of_soda", "role": "distractor"},
+    {"name": "sponge", "category": "sponge", "role": "distractor"}
+  ],
+  "relations": [
+    {"type": "in", "object": "lemon", "container": "bowl"},
+    {"type": "right-of", "object": "can_of_soda", "reference": "bowl"},
+    {"type": "behind", "object": "sponge", "reference": "bowl"}
+  ]
+}

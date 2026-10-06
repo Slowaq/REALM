@@ -53,6 +53,10 @@ CONCEPT_TO_CATEGORY = {
     "box": "storage_box", "tape": "masking_tape", "plate": "plate", "can": "can",
     "cloth": "microfiber_cloth", "spoon": "teaspoon", "screwdriver": "screwdriver",
 }
+#: A bare word whose head-noun match is ambiguous in the full catalogue: "pot" heads copper_pot,
+#: crock_pot, drip_pot and instant_pot, so the shortest-name tie-break picked a coffee drip pot.
+#: DROID's "pot" is a cooking pot.
+PREFERRED_CATEGORY = {"pot": "saucepot", "pots": "saucepot", "pan": "frying_pan", "pans": "frying_pan"}
 #: Words that name the support surface the scene already provides, never an object to author.
 #: Colour adjectives that are also catalogue categories ("orange") are never object nouns here.
 COLOR_WORDS = frozenset({"orange", "lime", "lemon", "olive", "plum", "cherry", "peach", "chocolate"})
@@ -93,6 +97,8 @@ def match_category(word: str, categories) -> str | None:
         return None
     if word in names:
         return word
+    if PREFERRED_CATEGORY.get(word) in names:
+        return PREFERRED_CATEGORY[word]
 
     def head(category: str) -> str:
         if "_of_" in category:

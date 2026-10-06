@@ -27,6 +27,10 @@ class MatchCategoryTest(unittest.TestCase):
         self.assertEqual(catalog.match_category("cup", self.NAMES), "coffee_cup")
         self.assertEqual(catalog.match_category("cups", self.NAMES), "coffee_cup")
 
+    def test_bare_pot_is_a_cooking_pot(self):
+        names = ("copper_pot", "crock_pot", "drip_pot", "instant_pot", "saucepot", "teapot")
+        self.assertEqual(catalog.match_category("pot", names), "saucepot")
+
     def test_no_loose_substrings(self):
         self.assertIsNone(catalog.match_category("on", self.NAMES))        # not lem-on
         self.assertIsNone(catalog.match_category("cane", ("can_of_soda",)))
@@ -347,6 +351,19 @@ class SignatureTest(unittest.TestCase):
                     "target_objects": [{"category": "bowl"}]}
 
         self.assertEqual(run.signature(doc([0.1, 0.2, 0.9, 1])), run.signature(doc([0.9, 0.8, 0.1, 1])))
+
+
+class ClutterSourceTest(unittest.TestCase):
+    def test_automatic_clutter_comes_from_droid_categories(self):
+        from tooling.task_authoring.agent import layout
+
+        droid = ["apple", "banana", "lemon", "sponge", "marker", "toy_dice", "teaspoon"]
+        assets = {name: [{"category": name, "model": "m", "bbox": [0.05, 0.05, 0.05]}]
+                  for name in droid + ["diced_watermelon", "cooked_squid"]}
+        eligible = layout._eligible_distractors(assets)
+        self.assertNotIn("diced_watermelon", eligible)
+        self.assertNotIn("cooked_squid", eligible)
+        self.assertIn("apple", eligible)
 
 
 class StaleSessionTest(CliTest):

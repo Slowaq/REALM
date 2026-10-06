@@ -22,7 +22,12 @@ from pathlib import Path
 
 from tooling.task_authoring.agent.corrections import merge_document
 from tooling.task_authoring.validation import CAPACITY_MARGIN, fits_lengthwise
-from tooling.task_authoring.authoring import discover_assets, load_camera_extrinsics, load_scene_regions
+from tooling.task_authoring.authoring import (
+    discover_assets,
+    load_camera_extrinsics,
+    load_droid_categories,
+    load_scene_regions,
+)
 from tooling.task_authoring.generate_realm_droid100 import (
     ELLIPTICAL_SUPPORTS,
     SUPPORT_CLEARANCE,
@@ -51,9 +56,16 @@ TASK_TYPES = ("put", "pick", "rotate", "push", "stack", "open_drawer", "close_dr
 #: Roles the agent may assign, in the order the emitted document lists them.
 ROLES = ("main", "target", "source", "distractor")
 
-#: XY ceiling for the main object and for receivers/supports, matching the batch generator.
+#: XY ceiling for the main object and for receivers/supports/sources. The receiver ceiling is
+#: 0.28 m, wider than the batch generator's 0.17 m: real saucepots, storage boxes and frying pans
+#: are 0.22-0.5 m across, and a 0.17 m cap shrank every pot to a toy. 0.28 m still leaves room for
+#: the main object beside it on the narrowest (0.4 x 0.5 m) region.
 MAIN_MAX_XY = (0.14, 0.16)
-OTHER_MAX_XY = (0.17, 0.17)
+OTHER_MAX_XY = (0.28, 0.28)
+#: Automatic clutter is drawn only from the DROID object categories in categories.yaml: real
+#: tabletop objects DROID scenes contain. The full catalogue also holds hundreds of food states
+#: (cooked_*, diced_*, half_*) that no DROID table shows.
+DROID_CATEGORIES = REPO_ROOT / "realm" / "config" / "objects" / "categories.yaml"
 
 #: Largest bbox dimension a distractor may have, matching realm/config/shared.py.
 DISTRACTOR_MAX_DIM = 0.12
@@ -582,7 +594,19 @@ def _camera_poses(path: Path) -> dict:
 
 
 def _eligible_distractors(assets_by_category: dict[str, list[dict]]) -> list[str]:
-    """Categories usable as clutter, matching the batch generator's size gate."""
+    """Categories usable as automatic clutter: DROID object categories that pass the size gate.
+
+    Falls back to the size gate alone when fewer than six DROID categories are indexed, which only
+    happens with a small synthetic catalogue (tests, the seed catalogue).
+    """
+    sized = _size_gated(assets_by_category)
+    droid = set(load_droid_categories(DROID_CATEGORIES))
+    preferred = [category for category in sized if category in droid]
+    return preferred if len(preferred) >= 6 else sized
+
+
+def _size_gated(assets_by_category: dict[str, list[dict]]) -> list[str]:
+    """Categories small enough to be clutter, matching the batch generator's size gate."""
     eligible = []
     for category, candidates in assets_by_category.items():
         if not candidates:

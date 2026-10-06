@@ -323,10 +323,11 @@ class LengthwiseInsertionTest(unittest.TestCase):
 
     def test_pen_starting_inside_a_mug_keeps_full_size(self):
         # A pick whose source holds the pen `inside` stands it upright, so the same cross-section
-        # rule applies: no receiver-capacity shrink to a toy pen.
+        # rule applies: no receiver-capacity shrink to a toy pen. The mug is shallower than the pen
+        # so it sticks out above the rim (RELATION_UNGRASPABLE otherwise).
         assets = {
             "pen": [{"category": "pen", "model": "p1", "bbox": [0.16, 0.012, 0.012]}],
-            "mug": [{"category": "mug", "model": "m1", "bbox": [0.08, 0.12, 0.14]}],
+            "mug": [{"category": "mug", "model": "m1", "bbox": [0.08, 0.12, 0.10]}],
         }
         with tempfile.TemporaryDirectory() as tmp:
             session = tools.Session("Remove the pen from the mug", assets_by_category=assets,
@@ -341,6 +342,53 @@ class LengthwiseInsertionTest(unittest.TestCase):
             self.assertFalse([a for a in result["audit"]["resized_assets"] if a["reason"] == "receiver_capacity"])
             self.assertTrue(result["audit"]["receiver_capacity"]["lengthwise_insertion"])
             self.assertTrue(session.validate_draft()["ok"])
+
+
+class SourceRelationTest(unittest.TestCase):
+    """Regressions from the full-catalogue pilot: lids shrunk into pots, markers tipping in pots."""
+
+    def session(self, instruction, assets):
+        self._tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self._tmp.cleanup)
+        return tools.Session(instruction, assets_by_category=assets, corrections_dir=Path(self._tmp.name))
+
+    def test_lid_on_a_pot_keeps_a_rim_resting_size(self):
+        assets = {
+            "lid": [{"category": "lid", "model": "l1", "bbox": [0.136, 0.136, 0.03]}],
+            "saucepot": [{"category": "saucepot", "model": "p1", "bbox": [0.118, 0.118, 0.12]}],
+        }
+        session = self.session("Remove the lid from the pot", assets)
+        result = session.propose_layout(
+            task_type="pick", instruction="Remove the lid from the saucepot",
+            main={"name": "lid", "category": "lid", "model": "l1"},
+            source={"name": "saucepot", "category": "saucepot", "model": "p1"},
+            initial_state=[{"predicate": "on_top_of", "subject": "lid", "object": "saucepot"}])
+        self.assertTrue(result["ok"], result)
+        self.assertEqual(session.document["main_objects"][0]["bounding_box"], [0.136, 0.136, 0.03])
+        self.assertTrue(session.validate_draft()["ok"], session.validate_draft())
+
+    def test_marker_in_a_wide_pot_lies_flat(self):
+        assets = {
+            "marker": [{"category": "marker", "model": "k1", "bbox": [0.14, 0.02, 0.02]}],
+            "saucepot": [{"category": "saucepot", "model": "p1", "bbox": [0.25, 0.25, 0.12]}],
+        }
+        session = self.session("Remove the marker from the pot", assets)
+        result = session.propose_layout(
+            task_type="pick", instruction="Remove the marker from the saucepot",
+            main={"name": "marker", "category": "marker", "model": "k1"},
+            source={"name": "saucepot", "category": "saucepot", "model": "p1"},
+            initial_state=[{"predicate": "inside", "subject": "marker", "object": "saucepot"}])
+        self.assertTrue(result["ok"], result)
+        self.assertTrue(result["audit"]["initial_relation"]["lying_flat"])
+        self.assertEqual(session.document["main_objects"][0]["orientation"], [0.0, 0.0, 0.0, 1.0])
+        self.assertTrue(session.validate_draft()["ok"], session.validate_draft())
+
+    def test_search_lists_alternative_categories(self):
+        assets = {name: [{"category": name, "model": "m", "bbox": [0.08, 0.08, 0.1]}]
+                  for name in ("soda_cup", "coffee_cup", "paper_cup", "teacup", "mug")}
+        result = self.session("Put the marker in the cup", assets).search_assets("cup", "target")
+        self.assertEqual(result["category"], "soda_cup")
+        self.assertEqual(set(result["alternatives"]), {"coffee_cup", "paper_cup", "teacup"})
 
 
 class SignatureTest(unittest.TestCase):

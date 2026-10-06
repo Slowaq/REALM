@@ -117,6 +117,23 @@ def match_category(word: str, categories) -> str | None:
     return None
 
 
+def matching_categories(word: str, categories, limit: int = 8) -> list[str]:
+    """Every category a word could name, best first: the alternatives the agent may choose from.
+
+    `match_category` must return one answer; the agent should see the others ("cup" -> soda_cup,
+    coffee_cup, paper_cup, teacup) and pick the one the instruction means.
+    """
+    word = str(word).strip().lower().rstrip("s") if len(str(word)) > 3 else str(word).strip().lower()
+    names = list(categories)
+
+    def head(category: str) -> str:
+        return category.split("_of_", 1)[0] if "_of_" in category else category.rsplit("_", 1)[-1]
+
+    hits = [c for c in names if c == word or head(c) == word
+            or (len(word) >= 3 and "_" not in c and c.endswith(word) and len(c) - len(word) >= 3)]
+    return sorted(hits, key=lambda c: (c != word, len(c), c))[:limit]
+
+
 def phantom_nouns(document: dict, assets_by_category: dict[str, list[dict]]) -> list[str]:
     """Words in the instruction that name a catalogue object which is NOT in the scene.
 

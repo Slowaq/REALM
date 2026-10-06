@@ -263,8 +263,11 @@ class Session:
                 continue
             candidates.append({"category": category, "model": str(asset["model"]), "bbox": bbox})
         candidates.sort(key=lambda item: (item["bbox"][0] * item["bbox"][1], item["model"]))
+        alternatives = [name for name in asset_catalog.matching_categories(query, self.assets)
+                        if name != category]
         return {
             "query": query, "role": role, "category": category, "found": bool(candidates),
+            "alternatives": alternatives,
             "candidates": candidates[:12],
             "note": (
                 "use `category` and `model` verbatim in propose_layout"

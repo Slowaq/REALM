@@ -66,6 +66,16 @@ Use these roles:
   When the full catalogue arrives, tasks made against the seed catalogue show as `stale` and `next`
   offers them again.
 
+- `search_assets` returns `alternatives`: the other categories the word could mean ("cup" gives
+  soda_cup, coffee_cup, paper_cup, teacup). Pick the one the instruction means, and record why.
+- A lid on a pot must be at least as wide as the pot (`LID_SMALLER_THAN_OPENING`). Pick a lid model
+  close to the pot's size. The solver no longer shrinks a lid below its pot.
+- An object starting inside a narrow container must stick out above the rim
+  (`RELATION_UNGRASPABLE`). Choose a shorter container or a longer object. In a container wider
+  than the object is long (a marker in a pot), the solver lays it flat on the floor.
+- To redo a task you declined or submitted earlier, run
+  `cli start "<instruction>" --ranking-id <id> --rank <n> --restart`.
+
 ### Decline, don't bend
 
 Decline when:

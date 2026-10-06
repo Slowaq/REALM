@@ -105,7 +105,8 @@ class LayoutTest(unittest.TestCase):
     def test_source_role_is_authored_as_an_immutable(self):
         roles = {
             "task_type": "pick", "instruction": "Take the lid off the saucepot",
-            "main": {"name": "lid", "category": "lid", "model": "m2"},
+            # A lid as wide as the pot rests on its rim; a narrower one would drop inside.
+            "main": {"name": "lid", "category": "lid", "model": "m1"},
             "source": {"name": "saucepot", "category": "saucepot", "model": "m1"},
             "initial_state": [{"predicate": "on_top_of", "subject": "lid", "object": "saucepot"}],
         }

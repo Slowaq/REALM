@@ -80,12 +80,45 @@ class ValidationTest(unittest.TestCase):
             instruction="take the lid off the pot",
             instruction_obj_to_replace="lid",
             instruction_target_to_replace="",
-            main_objects=[obj("lid", [0.16, 0.16, 0.02], [0.30, 0.30, 0.205])],
+            main_objects=[obj("lid", [0.24, 0.24, 0.02], [0.30, 0.30, 0.205])],
             target_objects=[],
             immutables=[obj("pot", [0.22, 0.22, 0.14], [0.30, 0.30, 0.12])],
             initial_state=[{"predicate": "on_top_of", "subject": "lid", "object": "pot"}],
         )
         self.assertTrue(report.ok, [item.line() for item in report.findings])
+
+    def test_a_lid_narrower_than_the_pot_drops_inside(self):
+        report = check(
+            task_type="pick", instruction="take the lid off the pot",
+            instruction_obj_to_replace="lid", instruction_target_to_replace="",
+            main_objects=[obj("lid", [0.16, 0.16, 0.02], [0.30, 0.30, 0.205])],
+            target_objects=[],
+            immutables=[obj("pot", [0.22, 0.22, 0.14], [0.30, 0.30, 0.12])],
+            initial_state=[{"predicate": "on_top_of", "subject": "lid", "object": "pot"}],
+        )
+        self.assertIn("LID_SMALLER_THAN_OPENING", codes(report))
+
+    def test_marker_hidden_below_a_mug_rim_is_ungraspable(self):
+        upright = [0.0, 0.7071068, 0.0, 0.7071068]
+        def scene(marker_length):
+            return check(
+                task_type="pick", instruction="take the marker out of the mug",
+                instruction_obj_to_replace="marker", instruction_target_to_replace="",
+                main_objects=[obj("marker", [marker_length, 0.02, 0.02], [0.30, 0.30, 0.20],
+                                  orientation=upright)],
+                target_objects=[],
+                immutables=[obj("mug", [0.09, 0.09, 0.12], [0.30, 0.30, 0.11])],
+                initial_state=[{"predicate": "inside", "subject": "marker", "object": "mug"}],
+            )
+        self.assertIn("RELATION_UNGRASPABLE", codes(scene(0.11)))
+        self.assertNotIn("RELATION_UNGRASPABLE", codes(scene(0.16)))
+
+    def test_vertical_extent_follows_the_quaternion(self):
+        from tooling.task_authoring.validation import vertical_extent
+
+        self.assertAlmostEqual(vertical_extent([0.15, 0.02, 0.03], [0, 0, 0, 1]), 0.03)
+        self.assertAlmostEqual(vertical_extent([0.15, 0.02, 0.03], [0, 0.7071068, 0, 0.7071068]), 0.15, places=5)
+        self.assertAlmostEqual(vertical_extent([0.15, 0.02, 0.03], [0, 0, 0.7071068, 0.7071068]), 0.03, places=5)
 
     def test_relation_geometry_catches_a_lid_sunk_into_the_pot(self):
         report = check(

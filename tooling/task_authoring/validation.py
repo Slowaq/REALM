@@ -188,6 +188,20 @@ def yaw_only(orientation: list[float], tolerance: float = 1e-3) -> bool:
     return abs(float(orientation[0])) <= tolerance and abs(float(orientation[1])) <= tolerance
 
 
+#: A container narrower than this hides an object below its rim from the gripper.
+GRASP_OPENING_M = 0.15
+#: How far an object inside a narrow container must stick out above the rim to be grasped.
+GRASP_CLEARANCE_M = 0.02
+
+
+def vertical_extent(bbox: list[float], orientation: list[float] | None) -> float:
+    """World-Z extent of a box after rotation by an XYZW quaternion."""
+    x, y, z, w = (float(v) for v in (orientation or [0.0, 0.0, 0.0, 1.0]))
+    # Third row of the rotation matrix gives each body axis's contribution to world Z.
+    row = (2 * (x * z - w * y), 2 * (y * z + w * x), 1 - 2 * (x * x + y * y))
+    return sum(abs(r) * float(b) for r, b in zip(row, bbox))
+
+
 def oriented_footprint(bbox: list[float], orientation: list[float] | None) -> tuple[float, float]:
     """XY extent after a yaw of 0 or 90 degrees; any other yaw uses the circumscribed extent."""
     if orientation is None:
@@ -632,6 +646,14 @@ def check_relations(document: dict) -> list[Finding]:
                      "value": [source_pos[0], source_pos[1], round(main_pos[2], 7)]},
             ))
         source_top = source_pos[2] + source_bbox[2] / 2
+        if predicate == "on_top_of" and "lid" in str(main.get("category") or main.get("name") or "").split("_"):
+            if min(main_bbox[:2]) < min(source_bbox[:2]):
+                findings.append(Finding(
+                    "LID_SMALLER_THAN_OPENING", "error",
+                    f"lid {subject!r} ({min(main_bbox[:2]):.3f} m) is narrower than {target!r} "
+                    f"({min(source_bbox[:2]):.3f} m): it would drop inside instead of resting on the rim",
+                    obj=subject,
+                ))
         if predicate == "on_top_of":
             expected = source_top + main_bbox[2] / 2 + RELATION_CLEARANCE
             if abs(main_pos[2] - expected) > FLOAT_TOLERANCE:
@@ -644,6 +666,20 @@ def check_relations(document: dict) -> list[Finding]:
                     fix={"path": path, "value": [source_pos[0], source_pos[1], round(expected, 7)]},
                 ))
         elif predicate == "inside":
+            # Graspability: after settling, the object rests on the container floor. If its vertical
+            # extent does not clear the rim, a narrow container hides it from the gripper.
+            standing = vertical_extent(main_bbox, main.get("orientation"))
+            source_bottom = source_pos[2] - source_bbox[2] / 2
+            narrow = min(source_bbox[0], source_bbox[1]) < GRASP_OPENING_M
+            if narrow and source_bottom + standing < source_top + GRASP_CLEARANCE_M:
+                findings.append(Finding(
+                    "RELATION_UNGRASPABLE", "error",
+                    f"{subject!r} ({standing:.3f} m tall as placed) would settle below the rim of "
+                    f"{target!r} ({source_bbox[2]:.3f} m deep, {min(source_bbox[:2]):.3f} m opening): "
+                    f"it must stick out at least {GRASP_CLEARANCE_M} m to be graspable. Use a taller "
+                    f"object or a shallower container",
+                    obj=subject,
+                ))
             vertical = max(main_bbox)
             if main_pos[2] - vertical / 2 > source_top:
                 findings.append(Finding(

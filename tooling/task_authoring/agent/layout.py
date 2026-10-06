@@ -208,7 +208,11 @@ def solve_layout(
     if "main" not in roles:
         raise LayoutError("a `main` role is required: exactly one object is manipulated")
 
-    main_config, audits = _build_role("main", roles["main"], assets_by_category, MAIN_MAX_XY)
+    # A main object that starts resting ON a source (a lid on a pot) must be at least as wide as
+    # the source's opening, so it gets the receiver ceiling, not the 14 cm hand-object ceiling.
+    rests_on_source = bool(roles.get("source")) and _declared_predicate(roles) in (None, "on_top_of")
+    main_config, audits = _build_role(
+        "main", roles["main"], assets_by_category, OTHER_MAX_XY if rests_on_source else MAIN_MAX_XY)
     target_config = source_config = None
     if roles.get("target"):
         target_config, audit = _build_role("target", roles["target"], assets_by_category, OTHER_MAX_XY)
@@ -247,7 +251,15 @@ def solve_layout(
                     "target_bbox": list(lengthwise_container["bounding_box"])}
         receiver = None
     if receiver is not None:
-        capacity_type = "stack" if task_type == "stack" else "put" if task_type in {"put", "pick"} else task_type
+        # The margin follows the RELATION: resting on something (stack, or a lid on a pot) needs the
+        # stack margin, which lets the object be wider than its support; being inside something
+        # needs the put margin. Using `put` for "lid on pot" made every lid narrower than the pot.
+        if task_type == "stack" or (receiver is source_config and rests_on_source):
+            capacity_type = "stack"
+        elif task_type in {"put", "pick"}:
+            capacity_type = "put"
+        else:
+            capacity_type = task_type
         capacity = ensure_receiver_capacity(main_config, receiver, capacity_type)
         if capacity["uniform_scale"] < 1:
             audits.append({
@@ -280,6 +292,8 @@ def solve_layout(
         place(anchor, placed, region)
         relation = "on_top" if resolved_predicate == "on_top_of" else "inside"
         relation_audit = place_initial_relation(main_config, anchor, relation)
+        if relation == "inside":
+            relation_audit.update(_lie_flat_if_wide(main_config, anchor))
         placed.append(main_config)
         # A source task may still have a receiver ("take the pen out of the mug and put it in the
         # bowl"); it is packed like any other object, never left unplaced.
@@ -376,6 +390,27 @@ def _build_role(role: str, spec: dict, assets_by_category: dict, max_xy) -> tupl
         )
     config, audit = build_object(name, category, model, assets_by_category, max_xy)
     return config, ([audit] if audit else [])
+
+
+def _lie_flat_if_wide(main: dict, container: dict) -> dict:
+    """An elongated object inside a container WIDER than it is long lies on the container floor.
+
+    The shared solver always stands a pen/marker upright inside a container. In a mug the rim holds
+    it; in a 25 cm pot it would simply tip over when the sim settles, so the authored start state
+    is not the state the policy sees. Lying flat on the floor is where it would end up anyway.
+    """
+    dims = [float(value) for value in main["bounding_box"]]
+    longest = max(dims)
+    others = sorted(dims)[:2]
+    opening = sorted(float(value) for value in container["bounding_box"][:2])
+    if longest < 2 * others[1] or opening[0] < longest * 1.05:
+        return {"lying_flat": False}
+    # Long axis along X, lying (yaw only); the container's floor is approximated by its bbox bottom.
+    main["orientation"] = [0.0, 0.0, 0.0, 1.0] if dims[0] >= dims[1] else [0.0, 0.0, 0.7071068, 0.7071068]
+    container_bottom = float(container["relative_bbox_position"][2]) - float(container["bounding_box"][2]) / 2
+    x, y, _ = main["relative_bbox_position"]
+    main["relative_bbox_position"] = [x, y, round(container_bottom + dims[2] / 2 + 0.01, 7)]
+    return {"lying_flat": True}
 
 
 def _declared_predicate(roles: dict) -> str | None:

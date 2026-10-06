@@ -579,6 +579,10 @@ def _eligible_distractors(assets_by_category: dict[str, list[dict]]) -> list[str
         if not candidates:
             continue
         smallest = min(candidates, key=lambda item: math.prod(item["bbox"][:2]))
+        # A zero extent is a planar/degenerate mesh (the full dataset has a signpost with x=0); it is
+        # not placeable clutter, and fit_bbox would divide by it.
+        if min(float(value) for value in smallest["bbox"]) <= 0:
+            continue
         if max(float(value) for value in smallest["bbox"][:2]) <= 0.24 and float(smallest["bbox"][2]) <= 0.35:
             eligible.append(category)
     return sorted(eligible)

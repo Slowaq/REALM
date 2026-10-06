@@ -308,6 +308,27 @@ class LengthwiseInsertionTest(unittest.TestCase):
             self.assertTrue(result["audit"]["receiver_capacity"]["lengthwise_insertion"])
             self.assertTrue(session.validate_draft()["ok"])
 
+    def test_pen_starting_inside_a_mug_keeps_full_size(self):
+        # A pick whose source holds the pen `inside` stands it upright, so the same cross-section
+        # rule applies: no receiver-capacity shrink to a toy pen.
+        assets = {
+            "pen": [{"category": "pen", "model": "p1", "bbox": [0.16, 0.012, 0.012]}],
+            "mug": [{"category": "mug", "model": "m1", "bbox": [0.08, 0.12, 0.14]}],
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            session = tools.Session("Remove the pen from the mug", assets_by_category=assets,
+                                    corrections_dir=Path(tmp))
+            result = session.propose_layout(
+                task_type="pick", instruction="Remove the pen from the mug",
+                main={"name": "pen", "category": "pen", "model": "p1"},
+                source={"name": "mug", "category": "mug", "model": "m1"},
+                initial_state=[{"predicate": "inside", "subject": "main", "object": "mug"}])
+            self.assertTrue(result["ok"], result)
+            self.assertEqual(session.document["main_objects"][0]["bounding_box"], [0.14, 0.0105, 0.0105])
+            self.assertFalse([a for a in result["audit"]["resized_assets"] if a["reason"] == "receiver_capacity"])
+            self.assertTrue(result["audit"]["receiver_capacity"]["lengthwise_insertion"])
+            self.assertTrue(session.validate_draft()["ok"])
+
 
 class SignatureTest(unittest.TestCase):
     def test_colour_alone_is_not_a_new_task(self):

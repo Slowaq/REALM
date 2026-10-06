@@ -215,15 +215,24 @@ def solve_layout(
     # batch path does; the audit is reported so a shrink is never invisible.
     capacity = None
     receiver = target_config or source_config
+    # The container an elongated object is (or will be) inserted into long-axis-vertical: the put
+    # target, or a pick's source that holds it `inside` at the start (place_initial_relation stands
+    # it upright there, so its lying-down footprint is the wrong thing to fit).
+    lengthwise_container = None
+    if task_type == "put" and target_config is not None:
+        lengthwise_container = target_config
+    elif task_type == "pick" and target_config is None and source_config is not None \
+            and _declared_predicate(roles) == "inside":
+        lengthwise_container = source_config
     if (
-        task_type == "put" and target_config is not None
-        and fits_lengthwise(main_config["bounding_box"], target_config["bounding_box"], CAPACITY_MARGIN["put"])
+        lengthwise_container is not None
+        and fits_lengthwise(main_config["bounding_box"], lengthwise_container["bounding_box"], CAPACITY_MARGIN["put"])
     ):
         # A pen into a mug: inserted long-axis-vertical, so its cross-section is what must fit.
-        # The object still STARTS lying on the table; only the capacity judgement changes.
+        # For put the object still STARTS lying on the table; only the capacity judgement changes.
         capacity = {"task_type": "put", "lengthwise_insertion": True, "uniform_scale": 1.0,
                     "main_bbox": list(main_config["bounding_box"]),
-                    "target_bbox": list(target_config["bounding_box"])}
+                    "target_bbox": list(lengthwise_container["bounding_box"])}
         receiver = None
     if receiver is not None:
         capacity_type = "stack" if task_type == "stack" else "put" if task_type in {"put", "pick"} else task_type

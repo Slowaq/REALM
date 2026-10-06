@@ -197,6 +197,30 @@ class FamilyVarietyTest(unittest.TestCase):
                    for name in ("apple", "lemon", "orange", "marker", "sponge", "teaspoon")}
         self.assertGreater(len(cameras), 1)
 
+    def test_solver_spreads_tasks_across_regions_when_none_is_named(self):
+        scenes = set()
+        for name in ("apple", "lemon", "orange", "marker", "sponge", "teaspoon", "mug", "plate"):
+            document = self.solve(f"Put the {name} in the bowl")
+            scenes.add(json.dumps(document["supported_scenes"], sort_keys=True))
+        self.assertGreater(len(scenes), 1)
+
+    def test_distractors_never_confusable_with_a_role_object(self):
+        from tooling.task_authoring.agent.test_agent import CATEGORIES
+
+        dataset = build_fixture(self.root / "ds2", categories=CATEGORIES + ("pen", "wineglass"))
+        session = tools.Session("Put the marker in the mug", dataset=dataset,
+                                corrections_dir=self.root / "corr")
+        roles = {
+            "task_type": "put", "instruction": "Put the marker in the mug",
+            "main": {"name": "marker", "category": "marker", "model": "m2"},
+            "target": {"name": "mug", "category": "mug", "model": "m1"},
+            "distractors": [{"name": "d_pen", "category": "pen", "model": "m2"}],
+        }
+        self.assertTrue(session.propose_layout(**roles)["ok"])
+        categories = {item["category"] for item in session.document["distractors"]}
+        self.assertNotIn("pen", categories)
+        self.assertFalse(categories & {"marker", "mug", "coffee_cup", "wineglass"})
+
     def test_block_search_points_at_a_primitive(self):
         session = tools.Session("Put the yellow block in the bowl", dataset=self.dataset,
                                 corrections_dir=self.root / "corr")

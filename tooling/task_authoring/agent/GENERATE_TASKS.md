@@ -38,8 +38,6 @@ python -m tooling.task_authoring.agent.cli call $T propose_layout '{
   "task_type":"put","instruction":"Put the marker in the mug",
   "main":{"name":"marker","category":"marker","model":"<from search>"},
   "target":{"name":"mug","category":"mug","model":"<from search>"},
-  "distractors":[{"name":"distractor_lemon","category":"lemon","model":"<from search>"}],
-  "region_index":0,
   "decisions":["cup grounded as mug; instruction rewritten to name it"]}'
 python -m tooling.task_authoring.agent.cli call $T validate_draft
 python -m tooling.task_authoring.agent.cli call $T submit_task '{"decisions":["..."]}'
@@ -56,6 +54,8 @@ Use these roles:
 - A coloured block or cube is not a catalogue asset. Author it as a primitive:
   `{"name":"yellow_block","primitive":"block","rgba":[0.9,0.8,0.1,1]}`. Its colour is guaranteed, so
   "Put the yellow block in the bowl" is groundable. Don't decline it for a missing block category.
+- Omit `region_index` unless the instruction needs a specific surface. The solver then picks the
+  scene from this task's seed, which spreads the family across scenes.
 - Leave `distractors` empty unless the instruction implies specific clutter. The solver then samples
   plausible distractors from the catalogue with this task's own seed, so clutter varies across the
   family instead of repeating the same three objects.

@@ -260,7 +260,7 @@ def solve_layout(
 
     distractor_configs, distractor_audit = _place_distractors(
         roles, region, assets_by_category, placed, rng, distractors, distractors_available,
-        {str(item.get("category")) for item in (main_config, target_config, source_config) if item},
+        _confusable_with(main_config, target_config, source_config),
     )
 
     document = {
@@ -354,6 +354,38 @@ def _declared_predicate(roles: dict) -> str | None:
     return None
 
 
+#: Categories a policy (or a person) could mistake for one another from the instruction's words.
+#: A distractor from the same group as a role object makes the instruction ambiguous: "the marker"
+#: next to a pen, "the cup" next to a wineglass.
+CONFUSABLE_GROUPS = (
+    frozenset({"marker", "pen", "pencil", "highlighter", "crayon"}),
+    frozenset({"mug", "coffee_cup", "cup", "teacup", "paper_cup", "water_glass", "wineglass",
+               "beaker", "tumbler"}),
+    frozenset({"bowl", "mixing_bowl", "salad_bowl"}),
+    frozenset({"teaspoon", "tablespoon", "spoon", "wooden_spoon"}),
+    frozenset({"saucepot", "stockpot", "frying_pan", "saucepan"}),
+)
+#: A PrimitiveObject cube is confusable with any cube-shaped asset.
+PRIMITIVE_CONFUSABLE = frozenset({"toy_dice", "cube", "block"})
+
+
+def _confusable_with(*configs) -> set[str]:
+    """Role categories plus every category a distractor must not share a confusion group with."""
+    excluded: set[str] = set()
+    for config in configs:
+        if not config:
+            continue
+        if config.get("type") == "PrimitiveObject":
+            excluded |= PRIMITIVE_CONFUSABLE
+            continue
+        category = str(config.get("category"))
+        excluded.add(category)
+        for group in CONFUSABLE_GROUPS:
+            if category in group:
+                excluded |= group
+    return excluded
+
+
 def _place_distractors(
     roles, region, assets_by_category, placed, rng, count, available, excluded,
 ) -> tuple[list[dict], list[dict]]:
@@ -379,7 +411,11 @@ def _place_distractors(
             continue
         category = str(config.get("category", ""))
         family = _family(category)
-        if category in excluded or family in families:
+        if category in excluded:
+            audit.append({"name": config["name"], "dropped": (
+                f"{category!r} is a role object or confusable with one; the instruction would be ambiguous")})
+            continue
+        if family in families:
             audit.append({"name": config["name"], "dropped": f"family {family!r} already represented"})
             continue
         try:

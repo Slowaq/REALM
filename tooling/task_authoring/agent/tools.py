@@ -15,6 +15,7 @@ substitutes a plausible-sounding asset rather than admit one does not exist -- w
 from __future__ import annotations
 
 import json
+import random
 from pathlib import Path
 
 from tooling.task_authoring.agent import catalog as asset_catalog
@@ -116,7 +117,14 @@ def tool_schemas() -> list[dict]:
                             "additionalProperties": False,
                         },
                     },
-                    "region_index": {"type": "integer", "description": "from list_scene_regions"},
+                    "region_index": {
+                        "type": "integer",
+                        "description": (
+                            "from list_scene_regions. Omit it unless the task needs a specific "
+                            "surface: the solver then picks a region from this task's own seed, "
+                            "which keeps the family spread across scenes"
+                        ),
+                    },
                     "decisions": {
                         "type": "array", "items": {"type": "string"},
                         "description": "short notes on substitutions or instruction rewrites",
@@ -280,11 +288,29 @@ class Session:
         }
 
     def propose_layout(self, **roles) -> dict:
-        region_index = int(roles.pop("region_index", 0) or 0)
+        requested = roles.pop("region_index", None)
         decisions = roles.pop("decisions", None)
+        if requested is None:
+            # No region named: try the usable regions in a task-seeded order, so the family spreads
+            # across scenes instead of every task landing on whichever region the agent likes.
+            order = list(range(len(self.regions)))
+            random.Random(self.seed + 2).shuffle(order)
+        else:
+            order = [int(requested)]
+        result = None
+        for position, region_index in enumerate(order):
+            outcome = self._solve(roles, region_index)
+            if outcome.get("ok") or position == len(order) - 1:
+                result = outcome
+                break
+        if not result.get("ok"):
+            return result
+        return self._accept(result["result"], decisions)
+
+    def _solve(self, roles: dict, region_index: int) -> dict:
         try:
             result = layout.build_document(
-                roles,
+                json.loads(json.dumps(roles)),
                 region_index=region_index,
                 seed=self.seed,
                 dataset=self.dataset,
@@ -300,6 +326,9 @@ class Session:
             return {"ok": False, "reason": str(error)}
         except ValueError as error:
             return {"ok": False, "reason": str(error)}
+        return {"ok": True, "result": result}
+
+    def _accept(self, result: dict, decisions) -> dict:
         self.document = result["document"]
         if self.ranking_id:
             self.document.setdefault("provenance", {})["ranking_id"] = self.ranking_id

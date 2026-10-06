@@ -55,8 +55,9 @@ sys.path.append(str(PROJECT_ROOT))
 #: settle is expected, a large one means the authored layout was not physically stable.
 DRIFT_WARN_M = 0.01
 DRIFT_FAIL_M = 0.03
-#: An authored z this far below the support means the object starts interpenetrating.
-PENETRATION_TOL_M = 0.005
+#: A settled lower face this far below the MEASURED support surface means the object is sunk in.
+#: Wider than a contact gap because mesh AABBs include tessellation and collision-margin slop.
+PENETRATION_TOL_M = 0.015
 #: When placement cannot pack an object it writes z = support + DROP_HEIGHT (0.10 flat) instead of
 #: the authored convention z = support + bbox_z/2 + 0.05, and only logs at ERROR level. The two
 #: readings collide for bbox_z = 0.10, so the signature also requires the object to have SETTLED
@@ -78,6 +79,40 @@ def authored_names(cfg: dict) -> set:
     for role in ("main_objects", "target_objects", "distractors", "immutables"):
         names |= {str(o["name"]) for o in (cfg.get(role) or []) if o.get("name")}
     return names
+
+
+def measured_support_z(rows: list[dict]) -> float | None:
+    """The support surface as the scene actually has it: the resting height of the authored objects.
+
+    scenes.yaml's `z` is the SPAWN height, not the table top. REALM authors objects at
+    spawn z + relative z and lets them fall onto the real surface, which sits about 0.2 m lower in
+    some scenes. Using `z` as the table height reported every object in every task as sunk
+    18-20 cm into the table. The live surface is read off the settled objects instead: the lower
+    quartile of their world-AABB lower faces, so objects stacked on others (higher) and a single
+    genuinely sunk object (lower) cannot move it. Needs at least two measured objects.
+    """
+    lows = sorted(
+        float(row["aabb_low_z"]) for row in rows
+        if row.get("present") and row.get("authored", True) and row.get("aabb_low_z") is not None
+    )
+    if len(lows) < 2:
+        return None
+    return lows[len(lows) // 4] if len(lows) >= 4 else lows[len(lows) // 2]
+
+
+def _explicitly_placed(obj_cfg: dict, spawn_bbox) -> bool:
+    """True when the live config still holds the authored pose (relative + spawn origin).
+
+    placement.py overwrites the position of an object it re-places, falling back to
+    spawn z + DROP_HEIGHT when it cannot pack it. An object AUTHORED at relative z 0.10 (a spoon on
+    a plate, a cube on a cube) has the same height, so the z alone cannot tell the two apart.
+    """
+    relative = obj_cfg.get("relative_bbox_position")
+    position = obj_cfg.get("position")
+    if spawn_bbox is None or not relative or not position or len(relative) != 3:
+        return False
+    origin = (float(spawn_bbox[0]), float(spawn_bbox[2]), float(spawn_bbox[4]))
+    return all(abs(float(position[i]) - (float(relative[i]) + origin[i])) < 1e-6 for i in range(3))
 
 
 def probe(env) -> list[dict]:
@@ -128,6 +163,15 @@ def probe(env) -> list[dict]:
             row["mass"] = round(float(obj.root_link.mass), 5)
         except Exception:
             pass
+        try:
+            # World-frame AABB of the live object: its true lowest point, with no assumption about
+            # where the asset's origin sits relative to its bounding box.
+            low, _high = obj.aabb
+            low = low.cpu().numpy() if hasattr(low, "cpu") else low
+            row["aabb_low_z"] = round(float(low[2]), 5)
+        except Exception:
+            pass
+        row["explicitly_placed"] = _explicitly_placed(obj_cfg, getattr(env, "spawn_bbox", None))
         rows.append(row)
     return rows
 
@@ -135,11 +179,16 @@ def probe(env) -> list[dict]:
 def stability_findings(rows: list[dict], support_z: float) -> list[dict]:
     """Computed findings from the probe, before any image is shown to a model.
 
+    `support_z` is scenes.yaml's spawn `z`: the CONFIG-frame plane that authored and fallback
+    positions are expressed against, used for DROPPED and FLOATING. It is not the table top, so
+    PENETRATION is judged against `measured_support_z(rows)` instead.
+
     Only objects the task authored are judged (`authored`, defaulting to True so a hand-built row
     is still judged): scene fixtures the config never placed are reported but not held against the
     config, because `scene_setup` removes and pins some of them deliberately.
     """
     findings = []
+    surface = measured_support_z(rows)
     for row in rows:
         judged = row.get("authored", True)
         if not row.get("present"):
@@ -157,6 +206,7 @@ def stability_findings(rows: list[dict], support_z: float) -> list[dict]:
         # on the support is what distinguishes it from a genuinely floating object authored at the
         # same height (bbox_z = 0.10 makes the two authored poses identical).
         dropped = (authored_pos and support_z is not None and drift_z is not None
+                   and not row.get("explicitly_placed", False)
                    and abs((authored_pos[2] - support_z) - DROP_HEIGHT_M) <= DROP_TOL_M
                    and drift_z < -DROP_TOL_M)
         if not judged:
@@ -185,18 +235,16 @@ def stability_findings(rows: list[dict], support_z: float) -> list[dict]:
                 "code": "DRIFT", "object": row["name"],
                 "reason": f"settled {drift_xy:.4f} m from its authored XY",
             })
-        drift_z = row.get("drift_z")
         bbox = row.get("bbox")
-        if drift_z is not None and bbox and support_z is not None:
-            lowest = row["settled_position"][2] - float(bbox[2]) / 2
-            if lowest < support_z - PENETRATION_TOL_M:
-                findings.append({
-                    "code": "PENETRATION", "object": row["name"],
-                    "reason": (
-                        f"lower face at z={lowest:.4f} is {support_z - lowest:.4f} m below the "
-                        f"support at z={support_z:.4f}"
-                    ),
-                })
+        lowest = row.get("aabb_low_z")
+        if lowest is not None and surface is not None and lowest < surface - PENETRATION_TOL_M:
+            findings.append({
+                "code": "PENETRATION", "object": row["name"],
+                "reason": (
+                    f"lower face at z={lowest:.4f} is {surface - lowest:.4f} m below the measured "
+                    f"support surface at z={surface:.4f}"
+                ),
+            })
         if row.get("authored_position") and bbox and support_z is not None:
             authored_low = row["authored_position"][2] - float(bbox[2]) / 2
             if authored_low > support_z + 0.10:
@@ -325,6 +373,7 @@ def review_one(task_cfg_path: str, out_dir: Path, *, robot: str = "DROID_mounted
         rows = probe(env)
         record["objects"] = rows
         record["support_z"] = support_z
+        record["support_z_measured"] = measured_support_z(rows)
         record["settle_steps"] = steps
         record["compute_findings"] = stability_findings(rows, support_z)
         paths, errors = render(env, task_dir, stem, "t060")
@@ -442,7 +491,7 @@ def _summary(results: list[dict], out: Path) -> None:
     summary = out / "_summary.json"
     summary.write_text(json.dumps({"results": [
         {k: r.get(k) for k in ("task", "task_cfg_path", "verdict", "renders", "render_errors",
-                               "error", "support_z")}
+                               "error", "support_z", "support_z_measured")}
         for r in results], "tally": tally}, indent=2, default=str) + "\n", encoding="utf-8")
     print(f"summary -> {summary}", flush=True)
     print("Read the JSON, not the exit code: Isaac exits 0 on unhandled exceptions.", flush=True)

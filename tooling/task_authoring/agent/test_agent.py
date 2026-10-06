@@ -564,14 +564,50 @@ class RenderHarnessTest(unittest.TestCase):
         codes = [item["code"] for item in render_review.stability_findings([{"name": "b", "present": False}], 0.0)]
         self.assertEqual(codes, ["MISSING"])
 
+    @staticmethod
+    def _resting(name, low, **extra):
+        return {"name": name, "present": True, "authored": True,
+                "settled_position": [0, 0, low + 0.025], "authored_position": [0, 0, low + 0.025],
+                "drift_xy": 0.0, "drift_z": 0.0, "bbox": [0.05, 0.05, 0.05], "aabb_low_z": low,
+                **extra}
+
     def test_buried_object_is_penetration(self):
         from tooling.task_authoring import render_review
 
-        rows = [{"name": "a", "present": True, "settled_position": [0, 0, 0.01],
-                 "authored_position": [0, 0, 0.075], "drift_xy": 0.0, "drift_z": -0.065,
-                 "bbox": [0.05, 0.05, 0.05]}]
-        codes = [item["code"] for item in render_review.stability_findings(rows, 0.05)]
-        self.assertIn("PENETRATION", codes)
+        rows = [self._resting(name, 0.85) for name in ("a", "b", "c")]
+        rows.append(self._resting("sunk", 0.80))
+        findings = render_review.stability_findings(rows, 1.05)
+        self.assertEqual([(item["code"], item["object"]) for item in findings], [("PENETRATION", "sunk")])
+
+    def test_spawn_height_above_the_table_is_not_penetration(self):
+        """Regression: scenes.yaml `z` is the spawn height, ~0.2 m above the real table in some
+        scenes. Treating it as the table top reported every object of all 11 REALM_DROID10 tasks as
+        sunk 18-20 cm. Objects resting together on the real surface must be clean."""
+        from tooling.task_authoring import render_review
+
+        rows = [self._resting(name, 0.85 + 0.002 * index) for index, name in enumerate("abcd")]
+        self.assertEqual(render_review.stability_findings(rows, 1.05), [])
+        self.assertAlmostEqual(render_review.measured_support_z(rows), 0.852)
+
+    def test_object_authored_on_the_drop_plane_is_not_a_failed_pack(self):
+        """pick_spoon authors the teaspoon at relative z 0.10 on a plate; stack_cubes authors cube4
+        there too. Same height as placement's fallback, but the pose is the authored one."""
+        from tooling.task_authoring import render_review
+
+        rows = [{"name": "teaspoon", "present": True, "authored": True, "explicitly_placed": True,
+                 "settled_position": [0.1, 0.2, 0.03], "authored_position": [0.1, 0.2, 0.1],
+                 "drift_xy": 0.0, "drift_z": -0.07, "bbox": [0.19, 0.04, 0.01]}]
+        self.assertNotIn("DROPPED", [item["code"] for item in render_review.stability_findings(rows, 0.0)])
+
+    def test_explicit_placement_is_read_from_the_live_config(self):
+        from tooling.task_authoring import render_review
+
+        spawn = [-4.7, -4.3, -2.0, -1.5, 1.05]
+        authored = {"relative_bbox_position": [0.15, 0.47, 0.1], "position": [-4.55, -1.53, 1.15]}
+        replaced = {"relative_bbox_position": [0.15, 0.47, 0.1], "position": [-4.6, -1.8, 1.15]}
+        self.assertTrue(render_review._explicitly_placed(authored, spawn))
+        self.assertFalse(render_review._explicitly_placed(replaced, spawn))
+        self.assertFalse(render_review._explicitly_placed({"position": [0, 0, 0]}, spawn))
 
     def test_resting_object_produces_no_finding(self):
         """The clean case must be clean. A harness that always fails is as useless as one that

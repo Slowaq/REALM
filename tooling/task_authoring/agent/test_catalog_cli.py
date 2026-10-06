@@ -229,6 +229,58 @@ class FamilyVarietyTest(unittest.TestCase):
         self.assertIn("primitive", result["note"])
 
 
+class GoalNotSatisfiedAtStartTest(unittest.TestCase):
+    """Regression: `stack` used to place the main object ON its target at reset."""
+
+    def setUp(self):
+        self._tmp = tempfile.TemporaryDirectory()
+        self.root = Path(self._tmp.name)
+        self.dataset = build_fixture(self.root / "ds")
+
+    def tearDown(self):
+        self._tmp.cleanup()
+
+    def blocks(self, **extra):
+        return {
+            "task_type": "stack", "instruction": "Put the orange block on top of the green block",
+            "main": {"name": "orange_block", "primitive": "block", "rgba": [0.95, 0.5, 0.1, 1]},
+            "target": {"name": "green_block", "primitive": "block", "rgba": [0.15, 0.65, 0.2, 1]},
+            **extra,
+        }
+
+    def test_stack_starts_with_the_objects_apart(self):
+        session = tools.Session("Put the orange block on top of the green block",
+                                dataset=self.dataset, corrections_dir=self.root / "corr")
+        self.assertTrue(session.propose_layout(**self.blocks())["ok"])
+        document = session.document
+        self.assertNotIn("initial_state", document)
+        self.assertEqual(document["target_state"]["predicate"], "on_top_of")
+        main = document["main_objects"][0]["relative_bbox_position"]
+        target = document["target_objects"][0]["relative_bbox_position"]
+        self.assertGreater(max(abs(main[0] - target[0]), abs(main[1] - target[1])), 0.05)
+        self.assertTrue(session.validate_draft()["ok"])
+
+    def test_initial_state_on_the_target_is_refused(self):
+        session = tools.Session("Put the orange block on top of the green block",
+                                dataset=self.dataset, corrections_dir=self.root / "corr")
+        result = session.propose_layout(**self.blocks(initial_state=[
+            {"predicate": "on_top_of", "subject": "orange_block", "object": "green_block"}]))
+        self.assertFalse(result["ok"])
+        self.assertIn("already solved", result["reason"])
+
+    def test_validator_flags_a_main_object_resting_on_its_target(self):
+        from tooling.task_authoring.validation import validate
+
+        session = tools.Session("Put the orange block on top of the green block",
+                                dataset=self.dataset, corrections_dir=self.root / "corr")
+        session.propose_layout(**self.blocks())
+        document = json.loads(json.dumps(session.document))
+        target = document["target_objects"][0]["relative_bbox_position"]
+        document["main_objects"][0]["relative_bbox_position"] = [target[0], target[1], target[2] + 0.06]
+        codes = {item.code for item in validate(document).findings}
+        self.assertIn("GOAL_SATISFIED_AT_START", codes)
+
+
 class StaleSessionTest(CliTest):
     def test_session_from_another_catalogue_is_offered_again(self):
         listing = self.root / "list.txt"

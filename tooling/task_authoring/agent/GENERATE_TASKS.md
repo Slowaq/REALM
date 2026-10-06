@@ -48,7 +48,9 @@ python -m tooling.task_authoring.agent.cli call $T report_ungroundable '{"reason
 Use these roles:
 
 - `pick` with "from X" means X is the `source`, plus `initial_state: [{predicate: inside|on_top_of, subject: main, object: X}]`.
-- `put` needs a `target` receiver. `stack` needs a `target` support.
+- `put` needs a `target` receiver. `stack` needs a `target` support. The main object and the target
+  always start apart, so never declare an `initial_state` between them. That would make the task
+  start already solved, and `propose_layout` rejects it.
 - "... and put it on the table" is a removal (`pick`). The table is the support, not an object.
 
 - A coloured block or cube is not a catalogue asset. Author it as a primitive:

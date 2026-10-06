@@ -231,10 +231,6 @@ def build_roles(instruction: str, task_type: str, session: tools.Session) -> tup
                 f"{receiver_category!r}; report_ungroundable rather than inventing one"
             )
         roles["target"] = {"name": hit["category"], "category": hit["category"], "model": hit["candidates"][-1]["model"]}
-        if task_type == "stack":
-            roles["initial_state"] = [
-                {"predicate": "on_top_of", "subject": str(main["name"]), "object": hit["category"]}
-            ]
 
     if task_type == "pick" and len(resolved) > 1:
         source_category = resolved[1]

@@ -229,23 +229,29 @@ def solve_layout(
     placed: list[dict] = []
     relation_audit = None
     predicate = _declared_predicate(roles)
-    # For `stack` the SUPPORT is the target role, not the source: the main object rests on it.
-    # Anchoring the relation to the target is what makes RELATION_GEOMETRY agree with the
-    # declaration instead of solving the pair side by side and then claiming they are stacked.
-    target_is_anchor = source_config is None and task_type == "stack" and target_config is not None
-    anchor = source_config if source_config is not None else (target_config if target_is_anchor else None)
+    target_name = str((roles.get("target") or {}).get("name") or "")
+    for entry in roles.get("initial_state") or []:
+        if isinstance(entry, dict) and target_name and str(entry.get("object")) == target_name:
+            # The target is where the main object must END UP. Starting it there makes the task
+            # solved at reset: put/stack would score PLACE_INTO/PLACE_ONTO without the robot moving.
+            raise LayoutError(
+                f"initial_state puts the main object {entry.get('predicate')} the target "
+                f"{target_name!r}, so the task would start already solved. The target is the goal; "
+                f"only a `source` (what a pick removes the object from) may hold it at the start."
+            )
+    # Only a SOURCE holds the main object at the start ("take the marker out of the mug"). For put
+    # and stack the main object and the target start apart: the goal relation is what the robot
+    # must achieve, and matches how REALM_DROID10's stack_cubes / put_* configs are authored.
+    anchor = source_config
     if anchor is not None:
         resolved_predicate = predicate or "on_top_of"
         place(anchor, placed, region)
         relation = "on_top" if resolved_predicate == "on_top_of" else "inside"
         relation_audit = place_initial_relation(main_config, anchor, relation)
         placed.append(main_config)
-        if source_config is None:
-            # The target is the support and is already placed; it must not also go through the
-            # packing pass, which would move it off the main object.
-            packable = [main_config]
-        else:
-            packable = []
+        # A source task may still have a receiver ("take the pen out of the mug and put it in the
+        # bowl"); it is packed like any other object, never left unplaced.
+        packable = [target_config]
     else:
         resolved_predicate = None
         packable = [main_config, target_config]
@@ -295,11 +301,7 @@ def solve_layout(
             "object": str(source_config["name"]),
         }
     elif target_config is not None and task_type == "stack":
-        document["initial_state"] = [{
-            "predicate": "on_top_of",
-            "subject": str(main_config["name"]),
-            "object": str(target_config["name"]),
-        }]
+        # Goal only: the main object ends on the support. It does not start there.
         document["target_state"] = {
             "rubric": task_type, "predicate": "on_top_of",
             "subject": str(main_config["name"]), "object": str(target_config["name"]),

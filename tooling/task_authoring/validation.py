@@ -446,17 +446,23 @@ def check_overlap(document: dict) -> list[Finding]:
     A declared `initial_state` predicate alone is NOT an exemption: no code under `realm/` reads
     that key, so declaring one silences this rule without changing what the simulator does. The
     relation is honoured only when the object being rested on or contained in is itself protected
-    from re-placement -- either an `immutable`, which perturbations/v_sc.py pins by name, or the
-    `target` of a `stack` task, whose support is re-placed with the main object rather than
-    independently. Anything else stays an error.
+    from re-placement -- an `immutable`, which perturbations/v_sc.py pins by name. Anything else
+    stays an error.
+
+    The main object overlapping its TARGET in a put/stack task is reported separately as
+    GOAL_SATISFIED_AT_START: that arrangement is the success state, not a layout to pin.
     """
     findings = []
     relations = declared_relations(document)
     protected_names = {
         str(config.get("name")) for config in objects_of(document, "immutables")
     }
-    if str(document.get("task_type")) == "stack":
-        protected_names |= {str(config.get("name")) for config in objects_of(document, "target_objects")}
+    goal_pair = None
+    if str(document.get("task_type")) in {"put", "stack"}:
+        mains = objects_of(document, "main_objects")
+        targets = objects_of(document, "target_objects")
+        if mains and targets:
+            goal_pair = frozenset((str(mains[0].get("name")), str(targets[0].get("name"))))
     exempt = {
         frozenset((subject, target))
         for subject, (_, target) in relations.items()
@@ -480,6 +486,15 @@ def check_overlap(document: dict) -> list[Finding]:
             gap_x = abs(pos_a[0] - pos_b[0]) - (extent_a[0] + extent_b[0]) / 2
             gap_y = abs(pos_a[1] - pos_b[1]) - (extent_a[1] + extent_b[1]) / 2
             if gap_x >= OVERLAP_MARGIN or gap_y >= OVERLAP_MARGIN:
+                continue
+            if goal_pair is not None and frozenset((name_a, name_b)) == goal_pair and gap_x < 0 and gap_y < 0:
+                findings.append(Finding(
+                    "GOAL_SATISFIED_AT_START", "error",
+                    f"the main object and its target ({name_a!r}, {name_b!r}) share an XY "
+                    f"footprint at reset, i.e. the {document.get('task_type')} task starts in or "
+                    "near its success state. Author them apart; the robot must achieve the relation",
+                    obj=name_a,
+                ))
                 continue
             if gap_x >= 0 or gap_y >= 0:
                 # Separated in XY, but by less than the margin the placer leaves for settling

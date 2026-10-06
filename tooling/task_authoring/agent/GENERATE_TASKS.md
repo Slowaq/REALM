@@ -53,6 +53,17 @@ Use these roles:
 - `put` needs a `target` receiver. `stack` needs a `target` support.
 - "... and put it on the table" is a removal (`pick`). The table is the support, not an object.
 
+- A coloured block or cube is not a catalogue asset. Author it as a primitive:
+  `{"name":"yellow_block","primitive":"block","rgba":[0.9,0.8,0.1,1]}`. Its colour is guaranteed, so
+  "Put the yellow block in the bowl" is groundable. Don't decline it for a missing block category.
+- Leave `distractors` empty unless the instruction implies specific clutter. The solver then samples
+  plausible distractors from the catalogue with this task's own seed, so clutter varies across the
+  family instead of repeating the same three objects.
+- Substituting a different object (a frying pan for a pot) changes the task. Only do it when the
+  stand-in plays the same role, rewrite the instruction to name it, and record why in `decisions`.
+  When the full catalogue arrives, tasks made against the seed catalogue show as `stale` and `next`
+  offers them again.
+
 ### Decline, don't bend
 
 Decline when:

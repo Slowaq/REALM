@@ -168,5 +168,54 @@ class CliTest(unittest.TestCase):
         self.assertFalse(self.cli("call", key, "propose_layout", "{not json")["ok"])
 
 
+class FamilyVarietyTest(unittest.TestCase):
+    """Regression: one shared seed gave every task the same cameras and the same sampled clutter."""
+
+    def setUp(self):
+        self._tmp = tempfile.TemporaryDirectory()
+        self.root = Path(self._tmp.name)
+        self.dataset = build_fixture(self.root / "ds")
+
+    def tearDown(self):
+        self._tmp.cleanup()
+
+    def solve(self, instruction):
+        session = tools.Session(instruction, dataset=self.dataset, ranking_id="R",
+                                corrections_dir=self.root / "corr")
+        roles, _ = run.build_roles(instruction, "put", session)
+        roles["distractors"] = []
+        self.assertTrue(session.propose_layout(**roles)["ok"])
+        return session.document
+
+    def test_tasks_get_distinct_but_reproducible_seeds(self):
+        self.assertEqual(tools.task_seed(100, "a", "R"), tools.task_seed(100, "a", "R"))
+        self.assertNotEqual(tools.task_seed(100, "a", "R"), tools.task_seed(100, "b", "R"))
+        first = self.solve("Put the apple in the bowl")
+        again = self.solve("Put the apple in the bowl")
+        self.assertEqual(first["camera_extrinsics"], again["camera_extrinsics"])
+        cameras = {json.dumps(self.solve(f"Put the {name} in the bowl")["camera_extrinsics"], sort_keys=True)
+                   for name in ("apple", "lemon", "orange", "marker", "sponge", "teaspoon")}
+        self.assertGreater(len(cameras), 1)
+
+    def test_block_search_points_at_a_primitive(self):
+        session = tools.Session("Put the yellow block in the bowl", dataset=self.dataset,
+                                corrections_dir=self.root / "corr")
+        result = session.search_assets("block", "main")
+        self.assertFalse(result["found"])
+        self.assertIn("primitive", result["note"])
+
+
+class StaleSessionTest(CliTest):
+    def test_session_from_another_catalogue_is_offered_again(self):
+        listing = self.root / "list.txt"
+        listing.write_text("Put the apple in the bowl\n")
+        key = self.cli("start", "Put the apple in the bowl")["task_id"]
+        self.cli("call", key, "report_ungroundable", '{"reason": "test"}')
+        self.assertTrue(self.cli("next", str(listing))["done"])
+        other = build_fixture(self.root / "other", categories=("bowl", "apple", "lemon"))
+        self.base = ["--dataset", str(other), "--sessions", str(self.root / "sessions")]
+        self.assertEqual(self.cli("next", str(listing))["task_id"], key)
+
+
 if __name__ == "__main__":
     unittest.main()

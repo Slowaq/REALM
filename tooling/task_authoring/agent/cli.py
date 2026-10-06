@@ -106,7 +106,7 @@ def cmd_start(args, assets, info) -> int:
     store = Store(args.sessions)
     key = task_id(args.instruction, args.ranking_id)
     existing = store.path(key)
-    if existing.is_file() and not args.restart:
+    if existing.is_file() and not args.restart and store.load(key).get("catalog_fingerprint") == info["fingerprint"]:
         state = store.load(key)
         return _emit({"task_id": key, "resumed": True, "outcome": state.get("outcome"),
                       "note": "session exists; pass --restart to begin again"})
@@ -186,8 +186,10 @@ def cmd_next(args, assets, info) -> int:
     for entry in entries[args.offset:]:
         key = task_id(entry["instruction"], ranking_id)
         path = store.path(key)
-        if path.is_file() and store.load(key).get("outcome"):
-            continue
+        if path.is_file():
+            state = store.load(key)
+            if state.get("outcome") and state.get("catalog_fingerprint") == info["fingerprint"]:
+                continue
         return _emit({
             "instruction": entry["instruction"], "rank": entry.get("rank"), "ranking_id": ranking_id,
             "task_id": key,
@@ -200,15 +202,18 @@ def cmd_next(args, assets, info) -> int:
 def cmd_status(args, assets, info) -> int:
     store = Store(args.sessions)
     states = store.all()
-    counts = {"submitted": 0, "declined": 0, "open": 0}
+    counts = {"submitted": 0, "declined": 0, "open": 0, "stale": 0}
     rows = []
     for state in states:
         status = (state.get("outcome") or {}).get("status", "open")
+        if state.get("catalog_fingerprint") != info["fingerprint"]:
+            status = "stale"
         counts[status] = counts.get(status, 0) + 1
         rows.append(f"{status:9} {state['task_id']}  {state['instruction'][:70]}")
     if args.instructions:
         entries, _ = _load_entries(args.instructions)
         counts["remaining_in_list"] = max(0, len(entries) - counts["submitted"] - counts["declined"])
+        # `stale` = made against a different asset catalogue; `next` offers those again.
     if not args.quiet:
         print("\n".join(rows))
     print(json.dumps(counts))
@@ -218,7 +223,12 @@ def cmd_status(args, assets, info) -> int:
 def cmd_export(args, assets, info) -> int:
     """Write every submitted config, collapsing ones that solve to the same task, plus a report."""
     store = Store(args.sessions)
-    records = [state["outcome"]["record"] for state in store.all() if state.get("outcome")]
+    states = [state for state in store.all() if state.get("outcome")]
+    stale = [state for state in states if state.get("catalog_fingerprint") != info["fingerprint"]]
+    if stale:
+        print(f"skipping {len(stale)} session(s) made against a different asset catalogue; "
+              f"`next` will offer them again", file=sys.stderr)
+    records = [state["outcome"]["record"] for state in states if state not in stale]
     records.sort(key=lambda record: (record.get("rank") is None, record.get("rank") or 0, record["task_id"]))
     seen: dict[tuple, str] = {}
     written, duplicates = [], []

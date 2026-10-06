@@ -24,6 +24,8 @@ from tooling.task_authoring.validation import validate
 
 
 TASK_TYPE_ENUM = list(layout.TASK_TYPES)
+#: Nouns that name a PrimitiveObject cube, which the config can colour exactly.
+PRIMITIVE_WORDS = frozenset({"block", "cube"})
 
 ASSET_REF = {
     "type": "object",
@@ -194,7 +196,10 @@ class Session:
     ) -> None:
         self.instruction = instruction
         self.dataset = dataset if dataset is not None else layout.DEFAULT_DATASET
-        self.seed = seed
+        # Each task draws from its own deterministic stream. One shared seed gave all tasks the same
+        # camera pair and the same sampled clutter; deriving from the content key keeps every task
+        # reproducible while making the family varied.
+        self.seed = task_seed(seed, instruction, ranking_id)
         self.ranking_id = ranking_id
         self.corrections_dir = corrections_dir
         if assets_by_category is None:
@@ -223,6 +228,15 @@ class Session:
             # cannot drift off the catalogue.
             match = asset_catalog.match_category(query, self.assets)
             matches = [match] if match else []
+            if not matches and query.rstrip("s") in PRIMITIVE_WORDS:
+                return {
+                    "query": query, "role": role, "found": False, "candidates": [],
+                    "note": (
+                        "a block/cube is not a catalogue asset: author it as a primitive -- "
+                        "{\"name\": \"yellow_block\", \"primitive\": \"block\", \"rgba\": [r, g, b, 1]} "
+                        "in propose_layout. Its colour is guaranteed, so colour words may stay."
+                    ),
+                }
             if not matches:
                 return {
                     "query": query, "role": role, "found": False,
@@ -404,6 +418,11 @@ def _task_id_for(instruction: str, ranking_id: str | None) -> str:
     from tooling.task_authoring.agent.corrections import task_id
 
     return task_id(str(instruction), ranking_id)
+
+
+def task_seed(base_seed: int, instruction: str, ranking_id: str | None) -> int:
+    """Per-task RNG seed: the family's base seed offset by the task's content key."""
+    return int(base_seed) + int(_task_id_for(instruction, ranking_id)[:8], 16) % 1_000_000
 
 
 def dispatch(session: Session, name: str, arguments: dict | None) -> dict:

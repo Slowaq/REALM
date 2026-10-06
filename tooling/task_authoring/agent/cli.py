@@ -252,7 +252,8 @@ def cmd_export(args, assets, info) -> int:
     }
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(json.dumps(report, indent=2, default=str) + "\n", encoding="utf-8")
-    print(f"{len(written)} unique tasks written to {args.output}, {len(duplicates)} duplicates, "
+    verb = "would be written" if args.dry_run else "written"
+    print(f"{len(written)} unique tasks {verb} to {args.output}, {len(duplicates)} duplicates, "
           f"{report['declined']} declined; report: {args.report}")
     return 0
 

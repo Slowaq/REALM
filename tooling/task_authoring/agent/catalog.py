@@ -57,6 +57,17 @@ CONCEPT_TO_CATEGORY = {
 #: Colour adjectives that are also catalogue categories ("orange") are never object nouns here.
 COLOR_WORDS = frozenset({"orange", "lime", "lemon", "olive", "plum", "cherry", "peach", "chocolate"})
 SUPPORT_WORDS = frozenset({"table", "desk", "counter", "countertop", "tabletop", "surface", "workspace"})
+#: Instruction words that are never object nouns. Against the full dataset catalogue the compound
+#: rules in match_category reach real categories from them ("and" -> nightstand, "it" -> post_it,
+#: "pick" -> toothpick, "take" -> shiitake, "up" -> classroom_mock_up, "top" -> desk_top), which made
+#: the phantom-noun check reject ordinary instructions.
+FUNCTION_WORDS = frozenset({
+    "a", "an", "the", "it", "its", "them", "this", "that", "and", "or", "then", "with",
+    "in", "into", "inside", "on", "onto", "top", "of", "off", "out", "from", "to", "up", "down",
+    "over", "under", "back", "away", "next",
+    "put", "place", "set", "pick", "take", "grab", "lift", "remove", "move", "stack", "cover",
+    "uncover", "drop", "push", "press", "open", "close", "turn", "rotate", "flip",
+})
 
 
 class CatalogError(RuntimeError):
@@ -116,7 +127,7 @@ def phantom_nouns(document: dict, assets_by_category: dict[str, list[dict]]) -> 
     concept_values = set(CONCEPT_TO_CATEGORY.values())
     phantoms = []
     for word in re.findall(r"[a-z]+", str(document.get("instruction", "")).lower()):
-        if word in SUPPORT_WORDS or word in COLOR_WORDS or word in present:
+        if word in SUPPORT_WORDS or word in COLOR_WORDS or word in FUNCTION_WORDS or word in present:
             continue
         if word in CONCEPT_TO_CATEGORY:
             category = CONCEPT_TO_CATEGORY[word]

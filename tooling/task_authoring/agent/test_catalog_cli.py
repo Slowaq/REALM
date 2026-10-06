@@ -82,6 +82,15 @@ class SemanticCheckTest(unittest.TestCase):
         document = self.doc("Put the orange marker in the bowl on the table", "marker", "bowl")
         self.assertEqual(catalog.phantom_nouns(document, self.ASSETS), [])
 
+    def test_verbs_and_function_words_are_not_phantoms(self):
+        # The full dataset reaches real categories from these words through the compound rules.
+        assets = dict(self.ASSETS, nightstand=[{}], post_it=[{}], toothpick=[{}], shiitake=[{}],
+                      classroom_mock_up=[{}], desk_top=[{}])
+        document = self.doc("Pick up the marker and take it out of the bowl", "marker", "bowl")
+        self.assertEqual(catalog.phantom_nouns(document, assets), [])
+        self.assertEqual(catalog.phantom_nouns(self.doc("Put the toothpick in the bowl", "bowl"), assets),
+                         ["toothpick"])
+
 
 class DriverRegressionTest(unittest.TestCase):
     def setUp(self):

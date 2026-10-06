@@ -21,6 +21,7 @@ import random
 from pathlib import Path
 
 from tooling.task_authoring.agent.corrections import merge_document
+from tooling.task_authoring.validation import CAPACITY_MARGIN, fits_lengthwise
 from tooling.task_authoring.authoring import discover_assets, load_camera_extrinsics, load_scene_regions
 from tooling.task_authoring.generate_realm_droid100 import (
     ELLIPTICAL_SUPPORTS,
@@ -214,6 +215,16 @@ def solve_layout(
     # batch path does; the audit is reported so a shrink is never invisible.
     capacity = None
     receiver = target_config or source_config
+    if (
+        task_type == "put" and target_config is not None
+        and fits_lengthwise(main_config["bounding_box"], target_config["bounding_box"], CAPACITY_MARGIN["put"])
+    ):
+        # A pen into a mug: inserted long-axis-vertical, so its cross-section is what must fit.
+        # The object still STARTS lying on the table; only the capacity judgement changes.
+        capacity = {"task_type": "put", "lengthwise_insertion": True, "uniform_scale": 1.0,
+                    "main_bbox": list(main_config["bounding_box"]),
+                    "target_bbox": list(target_config["bounding_box"])}
+        receiver = None
     if receiver is not None:
         capacity_type = "stack" if task_type == "stack" else "put" if task_type in {"put", "pick"} else task_type
         capacity = ensure_receiver_capacity(main_config, receiver, capacity_type)

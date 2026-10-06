@@ -486,7 +486,9 @@ def signature(document: dict) -> tuple:
         if not configs:
             return ""
         config = configs[0]
-        return str(config.get("category") or f"{config.get('primitive_type')}:{config.get('rgba')}")
+        # Colour alone does not make a new task: "the blue block" and "the yellow block" into the
+        # same bowl exercise the same skill, and colour variation is what S-PROP perturbs anyway.
+        return str(config.get("category") or f"primitive:{config.get('primitive_type')}")
 
     return (
         str(document.get("task_type")),

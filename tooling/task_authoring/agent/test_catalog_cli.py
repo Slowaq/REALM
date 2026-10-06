@@ -281,6 +281,44 @@ class GoalNotSatisfiedAtStartTest(unittest.TestCase):
         self.assertIn("GOAL_SATISFIED_AT_START", codes)
 
 
+class LengthwiseInsertionTest(unittest.TestCase):
+    def test_pen_fits_a_mug_standing_up_without_shrinking(self):
+        from tooling.task_authoring.validation import fits_lengthwise
+
+        self.assertTrue(fits_lengthwise([0.16, 0.012, 0.012], [0.08, 0.12, 0.14], 1.15))
+        self.assertFalse(fits_lengthwise([0.16, 0.012, 0.012], [0.27, 0.27, 0.03], 1.15))  # plate: too shallow
+        self.assertFalse(fits_lengthwise([0.08, 0.08, 0.10], [0.06, 0.06, 0.15], 1.15))   # not elongated
+
+    def test_solver_keeps_the_pen_full_size(self):
+        assets = {
+            "pen": [{"category": "pen", "model": "p1", "bbox": [0.16, 0.012, 0.012]}],
+            "mug": [{"category": "mug", "model": "m1", "bbox": [0.08, 0.12, 0.14]}],
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            session = tools.Session("Put the pen in the mug", assets_by_category=assets,
+                                    corrections_dir=Path(tmp))
+            result = session.propose_layout(
+                task_type="put", instruction="Put the pen in the mug",
+                main={"name": "pen", "category": "pen", "model": "p1"},
+                target={"name": "mug", "category": "mug", "model": "m1"})
+            self.assertTrue(result["ok"], result)
+            # Only the generic 14 cm main-object ceiling applies; no receiver-capacity shrink.
+            self.assertEqual(session.document["main_objects"][0]["bounding_box"], [0.14, 0.0105, 0.0105])
+            self.assertFalse([a for a in result["audit"]["resized_assets"] if a["reason"] == "receiver_capacity"])
+            self.assertTrue(result["audit"]["receiver_capacity"]["lengthwise_insertion"])
+            self.assertTrue(session.validate_draft()["ok"])
+
+
+class SignatureTest(unittest.TestCase):
+    def test_colour_alone_is_not_a_new_task(self):
+        def doc(rgba):
+            return {"task_type": "put",
+                    "main_objects": [{"type": "PrimitiveObject", "primitive_type": "Cube", "rgba": rgba}],
+                    "target_objects": [{"category": "bowl"}]}
+
+        self.assertEqual(run.signature(doc([0.1, 0.2, 0.9, 1])), run.signature(doc([0.9, 0.8, 0.1, 1])))
+
+
 class StaleSessionTest(CliTest):
     def test_session_from_another_catalogue_is_offered_again(self):
         listing = self.root / "list.txt"

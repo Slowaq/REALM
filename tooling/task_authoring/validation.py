@@ -541,6 +541,21 @@ def check_overlap(document: dict) -> list[Finding]:
     return findings
 
 
+def fits_lengthwise(main_bbox, target_bbox, margin: float) -> bool:
+    """An elongated object (pen, marker, utensil) goes into a deep container long-axis-vertical.
+
+    Comparing its lying-down footprint with the container's opening would demand a 16 cm-wide mug
+    for a pen. What has to fit is the cross-section, and the container must be deep enough to hold
+    the object upright (at least half its length, as a mug holds a standing pen).
+    """
+    dims = sorted(float(value) for value in main_bbox)
+    longest, cross = dims[2], dims[:2]
+    if longest < 2 * dims[1] or float(target_bbox[2]) < 0.5 * longest:
+        return False
+    opening = sorted(float(value) for value in target_bbox[:2])
+    return opening[0] >= cross[1] * margin and opening[1] >= cross[1] * margin
+
+
 def check_capacity(document: dict) -> list[Finding]:
     """Outer-bbox proxy for 'will the main object fit in/on the receiver'."""
     mains = objects_of(document, "main_objects")
@@ -557,7 +572,7 @@ def check_capacity(document: dict) -> list[Finding]:
     fits = (
         target_bbox[0] >= extent[0] * margin and target_bbox[1] >= extent[1] * margin
     )
-    if fits:
+    if fits or (task_type == "put" and fits_lengthwise(main_bbox, target_bbox, margin)):
         return []
     scale = min(
         target_bbox[0] / (extent[0] * margin), target_bbox[1] / (extent[1] * margin),

@@ -415,6 +415,34 @@ class RollingClutterTest(unittest.TestCase):
             self.assertFalse(layout.rolls(category), category)
 
 
+class ClusterSelectionTest(unittest.TestCase):
+    def test_rewordings_merge_and_failed_demos_do_not_count(self):
+        import sys
+        import types
+
+        sys.modules.setdefault("pyarrow", types.ModuleType("pyarrow"))
+        sys.modules.setdefault("pyarrow.parquet", types.ModuleType("pyarrow.parquet"))
+        from tooling.task_authoring import select_droid100
+
+        rows = [
+            {"instruction": "Put the marker in the mug", "successful_episodes": 3, "locations": ["A", "B"]},
+            {"instruction": "Place the marker in the mug.", "successful_episodes": 1, "locations": ["C"]},
+            {"instruction": "Put the pen in the bowl", "successful_episodes": 5, "locations": ["A"]},
+            {"instruction": "Put the spoon in the bowl", "successful_episodes": 0, "locations": []},
+            {"instruction": "Open the drawer", "successful_episodes": 9, "locations": ["A", "B", "C", "D"]},
+        ]
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "counts.json"
+            path.write_text(json.dumps({"chunks": 1, "instructions": rows}))
+            result = select_droid100.select_clusters(path, limit=10)
+        signatures = [tuple(task["signature"]) for task in result["tasks"]]
+        self.assertEqual(signatures[0], ("put", "marker", "mug"))      # 3 locations beats 5 episodes
+        self.assertEqual(result["tasks"][0]["episodes"], 4)
+        self.assertEqual(result["tasks"][0]["instruction"], "Put the marker in the mug")
+        self.assertNotIn(("put", "teaspoon", "bowl"), signatures)        # no successful episode
+        self.assertFalse(any(sig[0] == "open_drawer" for sig in signatures))  # fixture verb
+
+
 class SignatureTest(unittest.TestCase):
     def test_colour_alone_is_not_a_new_task(self):
         def doc(rgba):

@@ -9,6 +9,19 @@ The agent becomes the generator. It does the semantics (which task, which object
 The deterministic solver does all the geometry. There's no API key or SDK. Every action is one
 shell command, so the whole run is reviewable afterwards.
 
+## Instruction list
+
+Build the list from the DROID data survey (`tmp/droid_instruction_counts.json`):
+
+```sh
+python3 -m tooling.task_authoring.select_droid100 --counts tmp/droid_instruction_counts.json \
+    --limit 300 --output tmp/droid100/DROID_clusters.json
+```
+
+Each entry is one TASK: rewordings are merged, ranked by how many DROID locations demonstrated it.
+`instruction` is the most-demonstrated wording; `variants` lists others. Shorten a compound phrasing
+to the part the rubric can score.
+
 ## 0. Once per session
 
 ```sh

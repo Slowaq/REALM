@@ -130,7 +130,10 @@ def nouns(instruction: str, assets: dict | None = None) -> list[str]:
     if assets:
         for match in re.finditer(r"\b([a-z][a-z_]{2,})\b", lowered):
             word = match.group(1)
-            if word in CONCEPT_WORDS or word in STOPWORDS:
+            # "table" is the support, and "block"/"cube" are primitives: neither may ground to a
+            # catalogue category (lab_table, knife_block) and become a phantom object.
+            if (word in CONCEPT_WORDS or word in STOPWORDS or word in asset_catalog.SUPPORT_WORDS
+                    or word.rstrip("s") in ("block", "cube")):
                 continue
             category = ground_word(word, assets)
             if category:

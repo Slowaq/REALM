@@ -582,6 +582,15 @@ def check_capacity(document: dict) -> list[Finding]:
     main_bbox, target_bbox = bbox_of(main), bbox_of(target)
     if main_bbox is None or target_bbox is None:
         return []
+    if (task_type == "stack" and "lid" in str(main.get("category") or "").split("_")
+            and min(main_bbox[:2]) < min(target_bbox[:2])):
+        # The goal is the lid resting on the rim; a lid narrower than the opening can only fall in.
+        return [Finding(
+            "LID_SMALLER_THAN_OPENING", "error",
+            f"lid {main.get('name')!r} ({min(main_bbox[:2]):.3f} m) is narrower than "
+            f"{target.get('name')!r} ({min(target_bbox[:2]):.3f} m): the stack goal is unreachable",
+            obj=str(main.get("name")),
+        )]
     extent = oriented_footprint(main_bbox, main.get("orientation"))
     fits = (
         target_bbox[0] >= extent[0] * margin and target_bbox[1] >= extent[1] * margin

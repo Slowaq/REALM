@@ -211,8 +211,12 @@ def solve_layout(
     # A main object that starts resting ON a source (a lid on a pot) must be at least as wide as
     # the source's opening, so it gets the receiver ceiling, not the 14 cm hand-object ceiling.
     rests_on_source = bool(roles.get("source")) and _declared_predicate(roles) in (None, "on_top_of")
+    # The same holds for the GOAL of a lid task: "put the lid on the pot" needs a lid as wide as the
+    # pot, so a lid that is the main object of a stack gets the receiver ceiling too.
+    lid_goal = task_type == "stack" and "lid" in str((roles.get("main") or {}).get("category") or "").split("_")
     main_config, audits = _build_role(
-        "main", roles["main"], assets_by_category, OTHER_MAX_XY if rests_on_source else MAIN_MAX_XY)
+        "main", roles["main"], assets_by_category,
+        OTHER_MAX_XY if (rests_on_source or lid_goal) else MAIN_MAX_XY)
     target_config = source_config = None
     if roles.get("target"):
         target_config, audit = _build_role("target", roles["target"], assets_by_category, OTHER_MAX_XY)

@@ -367,6 +367,20 @@ class SourceRelationTest(unittest.TestCase):
         self.assertEqual(session.document["main_objects"][0]["bounding_box"], [0.136, 0.136, 0.03])
         self.assertTrue(session.validate_draft()["ok"], session.validate_draft())
 
+    def test_put_the_lid_on_the_pot_keeps_a_full_size_lid(self):
+        assets = {
+            "lid": [{"category": "lid", "model": "l1", "bbox": [0.232, 0.232, 0.03]}],
+            "saucepot": [{"category": "saucepot", "model": "p1", "bbox": [0.208, 0.208, 0.12]}],
+        }
+        session = self.session("Put the lid on the pot", assets)
+        result = session.propose_layout(
+            task_type="stack", instruction="Put the lid on the saucepot",
+            main={"name": "lid", "category": "lid", "model": "l1"},
+            target={"name": "saucepot", "category": "saucepot", "model": "p1"})
+        self.assertTrue(result["ok"], result)
+        self.assertEqual(session.document["main_objects"][0]["bounding_box"][:2], [0.232, 0.232])
+        self.assertTrue(session.validate_draft()["ok"], session.validate_draft())
+
     def test_marker_in_a_wide_pot_lies_flat(self):
         assets = {
             "marker": [{"category": "marker", "model": "k1", "bbox": [0.14, 0.02, 0.02]}],

@@ -405,6 +405,16 @@ class SourceRelationTest(unittest.TestCase):
         self.assertEqual(set(result["alternatives"]), {"coffee_cup", "paper_cup", "teacup"})
 
 
+class RollingClutterTest(unittest.TestCase):
+    def test_round_objects_are_not_clutter(self):
+        from tooling.task_authoring.agent import layout
+
+        for category in ("volleyball", "pear", "apple", "orange", "baseball", "tennis_ball"):
+            self.assertTrue(layout.rolls(category), category)
+        for category in ("banana", "sponge", "half_apple", "toy_dice", "bottle_of_water"):
+            self.assertFalse(layout.rolls(category), category)
+
+
 class SignatureTest(unittest.TestCase):
     def test_colour_alone_is_not_a_new_task(self):
         def doc(rgba):
@@ -425,7 +435,8 @@ class ClutterSourceTest(unittest.TestCase):
         eligible = layout._eligible_distractors(assets)
         self.assertNotIn("diced_watermelon", eligible)
         self.assertNotIn("cooked_squid", eligible)
-        self.assertIn("apple", eligible)
+        self.assertIn("banana", eligible)
+        self.assertNotIn("apple", eligible)  # round: rolls at settle
 
 
 class StaleSessionTest(CliTest):

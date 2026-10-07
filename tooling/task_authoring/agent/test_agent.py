@@ -590,6 +590,27 @@ class RenderHarnessTest(unittest.TestCase):
         self.assertEqual(render_review.stability_findings(rows, 1.05), [])
         self.assertAlmostEqual(render_review.measured_support_z(rows), 0.852)
 
+    def test_floor_standing_fixtures_do_not_define_the_table(self):
+        """Drawer scenes author a table support on the floor and a lamp above the table; both pulled
+        the measured surface to z=-0.001, so every table object looked sunk."""
+        from tooling.task_authoring import render_review
+
+        rows = [self._resting(name, 0.85) for name in ("a", "b", "c")]
+        floor = self._resting("table_support", -0.001)
+        floor["authored_position"] = [0, 0, 0.36]
+        rows.append(floor)
+        self.assertAlmostEqual(render_review.measured_support_z(rows, 0.9), 0.85)
+        self.assertEqual(render_review.stability_findings(rows, 0.9), [])
+
+    def test_declared_resting_object_is_not_floating(self):
+        from tooling.task_authoring import render_review
+
+        lid = {"name": "lid", "present": True, "authored": True,
+               "settled_position": [0, 0, 1.0], "authored_position": [0, 0, 1.0],
+               "drift_xy": 0.0, "drift_z": 0.0, "bbox": [0.2, 0.2, 0.06]}
+        self.assertIn("FLOATING", [f["code"] for f in render_review.stability_findings([lid], 0.8)])
+        self.assertEqual(render_review.stability_findings([lid], 0.8, resting={"lid"}), [])
+
     def test_object_authored_on_the_drop_plane_is_not_a_failed_pack(self):
         """pick_spoon authors the teaspoon at relative z 0.10 on a plate; stack_cubes authors cube4
         there too. Same height as placement's fallback, but the pose is the authored one."""

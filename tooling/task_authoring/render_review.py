@@ -81,7 +81,20 @@ def authored_names(cfg: dict) -> set:
     return names
 
 
-def measured_support_z(rows: list[dict]) -> float | None:
+#: Objects authored more than this far from the spawn plane are not ON the task surface: a
+#: floor-standing table support in the drawer scenes, a lamp hung above the table. They must not
+#: pull the measured surface down to the floor (both drawer tasks measured z = -0.001).
+SUPPORT_BAND_M = 0.30
+
+
+def on_task_surface(row: dict, support_z: float | None) -> bool:
+    authored = row.get("authored_position")
+    if support_z is None or not authored:
+        return True
+    return abs(float(authored[2]) - float(support_z)) <= SUPPORT_BAND_M
+
+
+def measured_support_z(rows: list[dict], support_z: float | None = None) -> float | None:
     """The support surface as the scene actually has it: the resting height of the authored objects.
 
     scenes.yaml's `z` is the SPAWN height, not the table top. REALM authors objects at
@@ -94,10 +107,24 @@ def measured_support_z(rows: list[dict]) -> float | None:
     lows = sorted(
         float(row["aabb_low_z"]) for row in rows
         if row.get("present") and row.get("authored", True) and row.get("aabb_low_z") is not None
+        and on_task_surface(row, support_z)
     )
     if len(lows) < 2:
         return None
     return lows[len(lows) // 4] if len(lows) >= 4 else lows[len(lows) // 2]
+
+
+def declared_resting(task_cfg_path: str) -> set:
+    """Names the task YAML declares on/in another object (initial_state subjects)."""
+    import yaml
+
+    path = PROJECT_ROOT / "realm" / "config" / "tasks" / task_cfg_path
+    try:
+        document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    except (OSError, yaml.YAMLError):
+        return set()
+    return {str(entry.get("subject")) for entry in document.get("initial_state") or []
+            if isinstance(entry, dict) and entry.get("subject")}
 
 
 def _explicitly_placed(obj_cfg: dict, spawn_bbox) -> bool:
@@ -176,19 +203,23 @@ def probe(env) -> list[dict]:
     return rows
 
 
-def stability_findings(rows: list[dict], support_z: float) -> list[dict]:
+def stability_findings(rows: list[dict], support_z: float, resting: set | None = None) -> list[dict]:
     """Computed findings from the probe, before any image is shown to a model.
 
     `support_z` is scenes.yaml's spawn `z`: the CONFIG-frame plane that authored and fallback
     positions are expressed against, used for DROPPED and FLOATING. It is not the table top, so
     PENETRATION is judged against `measured_support_z(rows)` instead.
 
+    `resting` names objects the config declares on/in another object (initial_state subjects): a lid
+    on a pot or a marker in a mug sits high by design, so FLOATING does not apply to them.
+
     Only objects the task authored are judged (`authored`, defaulting to True so a hand-built row
     is still judged): scene fixtures the config never placed are reported but not held against the
     config, because `scene_setup` removes and pins some of them deliberately.
     """
     findings = []
-    surface = measured_support_z(rows)
+    resting = resting or set()
+    surface = measured_support_z(rows, support_z)
     for row in rows:
         judged = row.get("authored", True)
         if not row.get("present"):
@@ -237,7 +268,8 @@ def stability_findings(rows: list[dict], support_z: float) -> list[dict]:
             })
         bbox = row.get("bbox")
         lowest = row.get("aabb_low_z")
-        if lowest is not None and surface is not None and lowest < surface - PENETRATION_TOL_M:
+        if (lowest is not None and surface is not None and on_task_surface(row, support_z)
+                and lowest < surface - PENETRATION_TOL_M):
             findings.append({
                 "code": "PENETRATION", "object": row["name"],
                 "reason": (
@@ -245,7 +277,7 @@ def stability_findings(rows: list[dict], support_z: float) -> list[dict]:
                     f"support surface at z={surface:.4f}"
                 ),
             })
-        if row.get("authored_position") and bbox and support_z is not None:
+        if row.get("authored_position") and bbox and support_z is not None and row["name"] not in resting:
             authored_low = row["authored_position"][2] - float(bbox[2]) / 2
             if authored_low > support_z + 0.10:
                 findings.append({
@@ -373,9 +405,9 @@ def review_one(task_cfg_path: str, out_dir: Path, *, robot: str = "DROID_mounted
         rows = probe(env)
         record["objects"] = rows
         record["support_z"] = support_z
-        record["support_z_measured"] = measured_support_z(rows)
+        record["support_z_measured"] = measured_support_z(rows, support_z)
         record["settle_steps"] = steps
-        record["compute_findings"] = stability_findings(rows, support_z)
+        record["compute_findings"] = stability_findings(rows, support_z, declared_resting(task_cfg_path))
         paths, errors = render(env, task_dir, stem, "t060")
         record["renders"] += paths
         record["render_errors"] += errors

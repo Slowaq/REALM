@@ -484,6 +484,10 @@ def _place_distractors(
             continue
         category = str(config.get("category", ""))
         family = _family(category)
+        if rolls(category):
+            audit.append({"name": config["name"], "dropped": (
+                f"{category!r} is round and rolls when the scene settles")})
+            continue
         if category in excluded:
             audit.append({"name": config["name"], "dropped": (
                 f"{category!r} is a role object or confusable with one; the instruction would be ambiguous")})
@@ -632,16 +636,31 @@ def _camera_poses(path: Path) -> dict:
     return load_camera_extrinsics(path)
 
 
+#: Round objects roll on their own when the sim settles: a volleyball drifted 3.2 cm and a pear
+#: 9.2 cm in the first pilot render, failing two otherwise-correct tasks as UNSTABLE.
+ROLLING_WORDS = frozenset({
+    "ball", "orange", "apple", "pear", "peach", "plum", "lemon", "lime", "tomato", "onion",
+    "potato", "egg", "pomelo", "grapefruit", "melon", "coconut", "kiwi", "mango", "apricot",
+    "nectarine", "tangerine", "clementine", "grape", "cherry", "globe", "marble", "pearl",
+})
+
+
+def rolls(category: str) -> bool:
+    words = str(category).split("_")
+    return any(word in ROLLING_WORDS or word.endswith("ball") for word in words) and not str(
+        category).startswith(("half_", "sliced_", "diced_"))
+
+
 def _eligible_distractors(assets_by_category: dict[str, list[dict]]) -> list[str]:
     """Categories usable as automatic clutter: DROID object categories that pass the size gate.
 
-    Falls back to the size gate alone when fewer than six DROID categories are indexed, which only
+    Falls back to the size gate alone when fewer than three DROID categories are indexed, which only
     happens with a small synthetic catalogue (tests, the seed catalogue).
     """
-    sized = _size_gated(assets_by_category)
+    sized = [category for category in _size_gated(assets_by_category) if not rolls(category)]
     droid = set(load_droid_categories(DROID_CATEGORIES))
     preferred = [category for category in sized if category in droid]
-    return preferred if len(preferred) >= 6 else sized
+    return preferred if len(preferred) >= 3 else sized
 
 
 def _size_gated(assets_by_category: dict[str, list[dict]]) -> list[str]:

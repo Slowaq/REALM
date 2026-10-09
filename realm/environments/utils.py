@@ -3,6 +3,7 @@ import os
 from collections import OrderedDict
 
 import omnigibson as og
+from omnigibson.macros import macros
 from omnigibson.object_states.open_state import _get_relevant_joints
 from omnigibson.prims.joint_prim import JointPrim, JointType
 from omnigibson.prims.rigid_prim import RigidPrim
@@ -21,6 +22,15 @@ def load_task_progressions():
         task_progressions[task] = OrderedDict((stage, False) for stage in stages)
 
     return task_progressions
+
+
+def container_volume_link(obj):
+    """@obj's `fillable`/`openfillable` meta link -- the cavity OG's `Inside` tests against -- or None."""
+    container_types = macros.object_states.contains.CONTAINER_META_LINK_TYPES
+    for link in obj.links.values():
+        if getattr(link, "is_meta_link", False) and link.meta_link_type in container_types:
+            return link
+    return None
 
 
 def reset_joints(

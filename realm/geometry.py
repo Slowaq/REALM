@@ -171,3 +171,30 @@ def calculate_new_camera_pose_mixed_rotations(
     )
     T_world_new_camera = T_world_new_base.dot(T_base_camera)
     return get_xyz_quaternion_from_homogeneous_transform(T_world_new_camera)
+
+
+# ------------------------------------------- containment -------------------------------------------
+def aabb_containment(inner_lo, inner_hi, cavity_lo, cavity_hi):
+    """How far an object's AABB sits inside a container's cavity AABB.
+
+    Returns (xy_coverage, depth_fraction):
+        xy_coverage     share of the object's xy footprint that lies over the cavity's footprint,
+                        in [0, 1].
+        depth_fraction  how far the object's lowest point reaches below the cavity's top, as a
+                        share of the cavity's height: 0 at the rim, 1 at the floor, negative above.
+
+    IoU and volume overlap are not used: IoU scales with the size ratio of the two boxes (a small
+    block resting in a large bowl scores near 0), and volume overlap penalises an object taller than
+    its container (scissors standing in a mug).
+    """
+    inner_lo, inner_hi, cavity_lo, cavity_hi = (
+        np.asarray(v, dtype=float) for v in (inner_lo, inner_hi, cavity_lo, cavity_hi))
+
+    footprint = np.prod(np.maximum(inner_hi[:2] - inner_lo[:2], 1e-9))
+    overlap = np.clip(np.minimum(inner_hi[:2], cavity_hi[:2]) - np.maximum(inner_lo[:2], cavity_lo[:2]),
+                      0.0, None)
+    xy_coverage = float(np.prod(overlap) / footprint)
+
+    cavity_height = max(cavity_hi[2] - cavity_lo[2], 1e-9)
+    depth_fraction = float((cavity_hi[2] - inner_lo[2]) / cavity_height)
+    return xy_coverage, depth_fraction

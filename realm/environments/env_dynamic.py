@@ -202,6 +202,7 @@ class RealmEnvironmentDynamic(SceneSetupMixin, FoamBallMixin, RealmEnvironmentBa
         self.reset_joints()
 
         self.was_lifted = False
+        self.place_inside_static_steps = 0
         for k in self.task_progression.keys():
             self.task_progression[k] = False
 

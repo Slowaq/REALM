@@ -4,15 +4,20 @@ import copy
 import numpy as np
 
 import omnigibson as og
+import omnigibson.lazy as lazy
 
 from realm.config.shared import (
+    PLACE_INSIDE_MIN_DEPTH_FRACTION,
+    PLACE_INSIDE_STATIC_ANG_VEL,
+    PLACE_INSIDE_STATIC_LIN_VEL,
+    PLACE_INSIDE_STATIC_STEPS,
     POUR_LIFT_THRESHOLD,
     POUR_LIQUID_MIN_PARTICLES,
     POUR_MOVE_CLOSE_XY_DIST,
     POUR_PROXY_MIN_BALLS_INSIDE,
 )
-from realm.environments.utils import load_task_progressions
-from realm.geometry import compute_rot_diff_magnitude
+from realm.environments.utils import container_volume_link, load_task_progressions
+from realm.geometry import aabb_containment, compute_rot_diff_magnitude
 
 
 def _as_numpy(value):
@@ -29,6 +34,7 @@ class TaskProgressionMixin:
     def _init_task_progression(self, task_type):
 
         self.was_lifted = False
+        self.place_inside_static_steps = 0
         self.task_progression = (
             copy.deepcopy(TASK_PROGRESS_RUBRICS[task_type])
             if task_type in TASK_PROGRESS_RUBRICS
@@ -192,11 +198,41 @@ class TaskProgressionMixin:
                                            - np.asarray(_as_numpy(pos2))[:2]))
         return distance_xy < POUR_MOVE_CLOSE_XY_DIST
 
-    def check_place_condition(self, obs):
+    def _is_inside(self, obj, container):
+        """Is @obj substantially inside @container?
+
+        Judged from axis-aligned boxes: @obj's world AABB against @container's cavity, which is its
+        `fillable` meta link when it has one (the volume OG's `Inside` uses, so a wineglass's stem
+        does not count as depth) and its whole AABB otherwise. @obj must cover the cavity's
+        footprint by at least OmniGibson's Overlaid.OVERLAP_AREA_PERCENTAGE and reach at least
+        PLACE_INSIDE_MIN_DEPTH_FRACTION of the way down into it.
+        """
+        volume_link = container_volume_link(container)
+        cavity_lo, cavity_hi = volume_link.visual_aabb if volume_link is not None else container.aabb
+        obj_lo, obj_hi = obj.aabb
+        xy_coverage, depth_fraction = aabb_containment(
+            _as_numpy(obj_lo), _as_numpy(obj_hi), _as_numpy(cavity_lo), _as_numpy(cavity_hi))
+        return (xy_coverage >= lazy.omnigibson.object_states.overlaid.m.OVERLAP_AREA_PERCENTAGE
+                and depth_fraction >= PLACE_INSIDE_MIN_DEPTH_FRACTION)
+
+    def _is_static(self, obj):
+        lin_vel = np.linalg.norm(_as_numpy(obj.get_linear_velocity()))
+        ang_vel = np.linalg.norm(_as_numpy(obj.get_angular_velocity()))
+        return lin_vel < PLACE_INSIDE_STATIC_LIN_VEL and ang_vel < PLACE_INSIDE_STATIC_ANG_VEL
+
+    def check_place_condition(self, obs, static_steps=PLACE_INSIDE_STATIC_STEPS):
+        """Main object released, substantially inside the target, and at rest there.
+
+        All three must hold for @static_steps consecutive control steps; a failing step restarts
+        the count, so an object caught mid-fall or sliding off the rim is not credited.
+        """
         mo = self.main_objects[0]
         target = self.target_objects[0]
-        inside_or_on_top = mo.states[og.object_states.OnTop].get_value(target) or mo.states[og.object_states.Inside].get_value(target)
-        return inside_or_on_top and not self.is_grasping(obs, mo)
+        if not self.is_grasping(obs, mo) and self._is_inside(mo, target) and self._is_static(mo):
+            self.place_inside_static_steps += 1
+        else:
+            self.place_inside_static_steps = 0
+        return self.place_inside_static_steps >= static_steps
 
     def check_place_onto_condition(self, obs):
         mo = self.main_objects[0]

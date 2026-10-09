@@ -1,0 +1,138 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the toy from the basket
+instruction_obj_to_replace: toy
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+main_objects:
+- type: DatasetObject
+  name: toy
+  category: toy_figure
+  model: fekpjq
+  bounding_box:
+  - 0.10324
+  - 0.11427
+  - 0.08317
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.195
+  - 0.2029273
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_aspirin
+  category: bottle_of_aspirin
+  model: psvktc
+  bounding_box:
+  - 0.04428
+  - 0.04428
+  - 0.08861
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.455
+  - 0.094305
+- type: DatasetObject
+  name: distractor_sushi
+  category: sushi
+  model: akpnxn
+  bounding_box:
+  - 0.03544
+  - 0.03626
+  - 0.02413
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.455
+  - 0.062065
+- type: DatasetObject
+  name: distractor_parer
+  category: parer
+  model: zpkhwi
+  bounding_box:
+  - 0.1
+  - 0.0126275
+  - 0.0067316
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.195
+  - 0.0533658
+immutables:
+- type: DatasetObject
+  name: basket
+  category: wicker_basket
+  model: dgkhyn
+  bounding_box:
+  - 0.175541
+  - 0.28
+  - 0.1321348
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.195
+  - 0.1160674
+initial_state:
+- predicate: inside
+  subject: toy
+  object: basket
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: toy
+  object: basket
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.3297653
+    - 0.4965226
+    - 0.4970473
+    rot:
+    - 0.1063076
+    - -0.3754276
+    - -0.8779957
+    - 0.2772659
+  cam2:
+    pos:
+    - 0.065986
+    - -0.4668
+    - 0.4849124
+    rot:
+    - 0.4257639
+    - -0.2330021
+    - -0.3723072
+    - 0.7910894
+provenance:
+  task_id: d94b4ed1b090
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up the brown toy from the white basket and put it in the plastic
+  decisions:
+  - 'shortened to the removal clause: "put it in the plastic" names an unclear receiver (a bag?) and is a second stage'
+  - colours dropped (texture); toy grounded as toy_figure fekpjq, basket as wicker_basket dgkhyn (authored at the 0.28 m ceiling)

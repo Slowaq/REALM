@@ -1,0 +1,139 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Take the salt shaker out of the pot
+instruction_obj_to_replace: salt shaker
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Benevolence_1_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: salt_shaker
+  category: salt_shaker
+  model: iomwtn
+  bounding_box:
+  - 0.05105
+  - 0.05113
+  - 0.13983
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.7071068
+  - 0.7071068
+  relative_bbox_position:
+  - 0.3
+  - 0.2
+  - 0.1299151
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_can_of_tomato_paste
+  category: can_of_tomato_paste
+  model: sqqdzb
+  bounding_box:
+  - 0.08046
+  - 0.08041
+  - 0.12345
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.09
+  - 0.2
+  - 0.111725
+- type: DatasetObject
+  name: distractor_bottle_of_antihistamines
+  category: bottle_of_antihistamines
+  model: agavwx
+  bounding_box:
+  - 0.06797
+  - 0.06569
+  - 0.1272
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.45
+  - 0.2
+  - 0.1136
+- type: DatasetObject
+  name: distractor_tweezers
+  category: tweezers
+  model: ngwoat
+  bounding_box:
+  - 0.00485
+  - 0.03209
+  - 0.0025
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.18
+  - 0.12
+  - 0.0512501
+immutables:
+- type: DatasetObject
+  name: pot
+  category: saucepot
+  model: vqtkwq
+  bounding_box:
+  - 0.2046389
+  - 0.28
+  - 0.1379411
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.3
+  - 0.2
+  - 0.1189706
+initial_state:
+- predicate: inside
+  subject: salt_shaker
+  object: pot
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: salt_shaker
+  object: pot
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2948712
+    - -0.4130115
+    - 0.4727228
+    rot:
+    - 0.4440318
+    - -0.253143
+    - -0.2185233
+    - 0.8312653
+  cam2:
+    pos:
+    - 0.3262588
+    - 0.6032504
+    - 0.3369733
+    rot:
+    - 0.1498885
+    - -0.559047
+    - -0.7056656
+    - 0.4087004
+provenance:
+  task_id: fbfd2e7e96f2
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Take the salt cellar out of the white pot
+  decisions:
+  - salt cellar grounded as salt_shaker and named; "white" dropped
+  - 'symmetric saucepot vqtkwq (~20 cm body): wider than the 14 cm shaker is tall, so the solver lays it on the pot floor;
+    a narrow long-handled pot would put the bbox-centred shaker outside the pot body'

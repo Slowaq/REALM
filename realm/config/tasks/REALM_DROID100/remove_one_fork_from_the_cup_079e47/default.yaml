@@ -1,0 +1,138 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the fork from the mug
+instruction_obj_to_replace: fork
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  office_cubicles_left:
+  - Office_Desk
+main_objects:
+- type: DatasetObject
+  name: fork
+  category: tablefork
+  model: hktwlm
+  bounding_box:
+  - 0.14
+  - 0.0190007
+  - 0.0091719
+  orientation:
+  - 0.0
+  - 0.7071068
+  - 0.0
+  - 0.7071068
+  relative_bbox_position:
+  - 0.12
+  - 0.18
+  - 0.16954
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_half_hamburger_bun
+  category: half_hamburger_bun
+  model: sjtieq
+  bounding_box:
+  - 0.08628
+  - 0.04247
+  - 0.02534
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.42
+  - 0.06267
+- type: DatasetObject
+  name: distractor_bottle_of_salsa
+  category: bottle_of_salsa
+  model: dvxotd
+  bounding_box:
+  - 0.07223
+  - 0.07223
+  - 0.25015
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.42
+  - 0.175075
+- type: DatasetObject
+  name: distractor_parer
+  category: parer
+  model: zpkhwi
+  bounding_box:
+  - 0.1
+  - 0.0126275
+  - 0.0067316
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.18
+  - 0.0533658
+immutables:
+- type: DatasetObject
+  name: mug
+  category: mug
+  model: lgxhsc
+  bounding_box:
+  - 0.07725
+  - 0.10513
+  - 0.08454
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.18
+  - 0.09227
+initial_state:
+- predicate: inside
+  subject: fork
+  object: mug
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: fork
+  object: mug
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.1365969
+    - -0.4585636
+    - 0.4521198
+    rot:
+    - 0.4237977
+    - -0.4480459
+    - -0.1767419
+    - 0.7670806
+  cam2:
+    pos:
+    - 0.2316594
+    - 0.600804
+    - 0.3838493
+    rot:
+    - 0.3357376
+    - -0.5433066
+    - -0.7663279
+    - 0.0695688
+provenance:
+  task_id: 079e4761c572
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove one fork from the cup
+  decisions:
+  - '"one fork" implies several forks; authored as a single fork (one main object) and worded "the fork"'
+  - 'cup grounded as mug lgxhsc (variant: the mug), 8.5 cm deep; fork authored at the 14 cm ceiling sticks out above the rim'

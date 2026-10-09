@@ -1,0 +1,133 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the marker in the cup
+instruction_obj_to_replace: marker
+instruction_target_to_replace: cup
+instruction_verb_to_replace: put
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: marker
+  category: marker
+  model: kjxpdi
+  bounding_box:
+  - 0.10839
+  - 0.01488
+  - 0.01279
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - 0.056395
+target_objects:
+- type: DatasetObject
+  name: cup
+  category: soda_cup
+  model: gnzegv
+  bounding_box:
+  - 0.08208
+  - 0.08207
+  - 0.15727
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.128635
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_tea_leaves
+  category: bottle_of_tea_leaves
+  model: pfbtus
+  bounding_box:
+  - 0.06
+  - 0.06
+  - 0.07186
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - 0.0859301
+- type: DatasetObject
+  name: distractor_jar_of_spaghetti_sauce
+  category: jar_of_spaghetti_sauce
+  model: zahyds
+  bounding_box:
+  - 0.06496
+  - 0.06496
+  - 0.10621
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - 0.103105
+- type: DatasetObject
+  name: distractor_sponge
+  category: sponge
+  model: aewrov
+  bounding_box:
+  - 0.1
+  - 0.0666667
+  - 0.02
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.25
+  - 0.3
+  - 0.06
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: marker
+  object: cup
+camera_extrinsics:
+  cam1:
+    pos:
+    - -0.0367504
+    - 0.5242513
+    - 0.4616411
+    rot:
+    - 0.2863997
+    - -0.5144949
+    - -0.6959178
+    - 0.4110579
+  cam2:
+    pos:
+    - 0.0993905
+    - -0.6058862
+    - 0.5550605
+    rot:
+    - 0.5071532
+    - -0.2316945
+    - -0.3823753
+    - 0.7368192
+provenance:
+  task_id: d311145a2995
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the marker in the cup
+  decisions:
+  - cup grounded as soda_cup gnzegv (literally a cup, deep enough for lengthwise insertion)

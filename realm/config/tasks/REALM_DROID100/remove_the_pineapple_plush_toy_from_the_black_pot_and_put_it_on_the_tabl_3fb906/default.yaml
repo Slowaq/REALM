@@ -1,0 +1,139 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the pineapple from the pot
+instruction_obj_to_replace: pineapple
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Benevolence_1_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: pineapple
+  category: pineapple
+  model: wfaybl
+  bounding_box:
+  - 0.14
+  - 0.0575334
+  - 0.0554397
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.3
+  - 0.2
+  - 0.0877199
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_sake
+  category: bottle_of_sake
+  model: swlykk
+  bounding_box:
+  - 0.05731
+  - 0.05779
+  - 0.24463
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.2
+  - 0.172315
+- type: DatasetObject
+  name: distractor_beer_bottle
+  category: beer_bottle
+  model: nigfha
+  bounding_box:
+  - 0.07544
+  - 0.07544
+  - 0.25865
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.51
+  - 0.2
+  - 0.1793251
+- type: DatasetObject
+  name: distractor_mouse
+  category: mouse
+  model: oydobn
+  bounding_box:
+  - 0.0311
+  - 0.0196
+  - 0.01128
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.09
+  - 0.2
+  - 0.05564
+immutables:
+- type: DatasetObject
+  name: pot
+  category: saucepot
+  model: uvzmss
+  bounding_box:
+  - 0.2079007
+  - 0.28
+  - 0.103913
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.3
+  - 0.2
+  - 0.1019565
+initial_state:
+- predicate: inside
+  subject: pineapple
+  object: pot
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: pineapple
+  object: pot
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.29835
+    - 0.617866
+    - 0.4006068
+    rot:
+    - 0.1570282
+    - -0.5068539
+    - -0.7949623
+    - 0.2940684
+  cam2:
+    pos:
+    - 0.2387592
+    - -0.4778298
+    - 0.439511
+    rot:
+    - 0.4751517
+    - -0.1773244
+    - -0.2968424
+    - 0.8091178
+provenance:
+  task_id: 3fb906cfdb13
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the pineapple plush toy from the black pot and put it on the table
+  decisions:
+  - plush toy grounded as the pineapple asset (same shape and role; plush is a material the config cannot show), so the instruction
+    names "the pineapple"; shortened to the removal; "black" dropped
+  - pineapple authored at the 14 cm hand-object ceiling, inside saucepot uvzmss

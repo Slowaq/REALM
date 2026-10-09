@@ -1,0 +1,88 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the bag of chips from the sink
+instruction_obj_to_replace: bag of chips
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Benevolence_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: bag_of_chips
+  category: bag_of_chips
+  model: ennnjj
+  bounding_box:
+  - 0.14
+  - 0.1049052
+  - 0.0475426
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.2
+  - 0.2486229
+target_objects: []
+distractors: []
+immutables:
+- type: DatasetObject
+  name: sink
+  category: drop_in_sink
+  model: wzpabm
+  bounding_box:
+  - 0.28
+  - 0.2703133
+  - 0.1867372
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.2
+  - 0.1433687
+initial_state:
+- predicate: inside
+  subject: bag_of_chips
+  object: sink
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: bag_of_chips
+  object: sink
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.1747716
+    - 0.6448092
+    - 0.485079
+    rot:
+    - 0.0195373
+    - -0.4872809
+    - -0.859087
+    - 0.1553872
+  cam2:
+    pos:
+    - 0.2720674
+    - -0.4343859
+    - 0.4113266
+    rot:
+    - 0.5858574
+    - -0.1123859
+    - -0.1804881
+    - 0.7820259
+provenance:
+  task_id: 427db21494e3
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up the object from the sink and put it on the counter
+  decisions:
+  - 'lead names only "the object"; variants say "the packet": grounded as a bag_of_chips authored at the 14 cm hand-object
+    ceiling (a snack packet) and named in the instruction'
+  - shortened to the removal; counter is the support; sink as drop_in_sink wzpabm (smallest basin, at the 0.28 m ceiling)

@@ -1,0 +1,112 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Pick up the towel
+instruction_obj_to_replace: towel
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Pomaria_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: towel
+  category: dishtowel
+  model: dtfspn
+  bounding_box:
+  - 0.1170832
+  - 0.16
+  - 0.0239291
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.15
+  - 0.0619646
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_can_of_oatmeal
+  category: can_of_oatmeal
+  model: qyukhm
+  bounding_box:
+  - 0.09218
+  - 0.09218
+  - 0.13596
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.35
+  - 0.11798
+- type: DatasetObject
+  name: distractor_jar_of_honey
+  category: jar_of_honey
+  model: wdxfaq
+  bounding_box:
+  - 0.0891374
+  - 0.1
+  - 0.1217298
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.35
+  - 0.1108649
+- type: DatasetObject
+  name: distractor_bottle_of_rum
+  category: bottle_of_rum
+  model: oidmvy
+  bounding_box:
+  - 0.07702
+  - 0.07702
+  - 0.30091
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.15
+  - 0.200455
+immutables: []
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2446215
+    - -0.3315469
+    - 0.7587518
+    rot:
+    - 0.348159
+    - -0.0899325
+    - -0.1436218
+    - 0.9219925
+  cam2:
+    pos:
+    - 0.4701505
+    - 0.5457731
+    - 0.1810655
+    rot:
+    - 0.1618928
+    - -0.6242573
+    - -0.763833
+    - 0.0255479
+provenance:
+  task_id: 1bdaf212d972
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up the towel
+  decisions:
+  - towel grounded as dishtowel dtfspn (folded, 3 cm thick); the hang-it variant is a second stage the pick rubric cannot
+    see

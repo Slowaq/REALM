@@ -1,0 +1,134 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: stack
+instruction: Put the toy pan on the cup
+instruction_obj_to_replace: toy pan
+instruction_target_to_replace: cup
+instruction_verb_to_replace: stack
+supported_scenes:
+  Benevolence_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: toy_pan
+  category: frying_pan
+  model: jpzusm
+  bounding_box:
+  - 0.14
+  - 0.0861305
+  - 0.0172851
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.7071068
+  - 0.7071068
+  relative_bbox_position:
+  - 0.12
+  - 0.12
+  - 0.0586426
+target_objects:
+- type: DatasetObject
+  name: cup
+  category: mug
+  model: yxaapv
+  bounding_box:
+  - 0.09136
+  - 0.12817
+  - 0.1242
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.28
+  - 0.1121
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_almond_oil
+  category: bottle_of_almond_oil
+  model: nlokfa
+  bounding_box:
+  - 0.0652
+  - 0.0654
+  - 0.22197
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.28
+  - 0.160985
+- type: DatasetObject
+  name: distractor_jar_of_spaghetti_sauce
+  category: jar_of_spaghetti_sauce
+  model: zahyds
+  bounding_box:
+  - 0.06496
+  - 0.06496
+  - 0.10621
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.12
+  - 0.103105
+- type: DatasetObject
+  name: distractor_tweezers
+  category: tweezers
+  model: ngwoat
+  bounding_box:
+  - 0.00485
+  - 0.03209
+  - 0.0025
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.2
+  - 0.0512501
+immutables: []
+target_state:
+  rubric: stack
+  predicate: on_top_of
+  subject: toy_pan
+  object: cup
+camera_extrinsics:
+  cam1:
+    pos:
+    - -0.1628566
+    - -0.5382669
+    - 0.5923167
+    rot:
+    - 0.5317947
+    - -0.2668157
+    - -0.4379348
+    - 0.6739562
+  cam2:
+    pos:
+    - 0.2038748
+    - 0.7859254
+    - 0.463249
+    rot:
+    - -0.0633293
+    - -0.5946445
+    - -0.6666446
+    - 0.4449408
+provenance:
+  task_id: 1f9f7c831aaa
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up the toy pan and put on the black cup
+  decisions:
+  - toy pan grounded as a frying_pan authored at the 14 cm hand-object ceiling (a toy-sized pan); "black" dropped
+  - cup grounded as mug yxaapv (9 cm wide), wide enough to support the toy pan at the stack margin

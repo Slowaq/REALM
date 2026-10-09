@@ -1,0 +1,136 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the plate in the bowl
+instruction_obj_to_replace: plate
+instruction_target_to_replace: bowl
+instruction_verb_to_replace: put
+supported_scenes:
+  Benevolence_1_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: plate
+  category: plate
+  model: lixwwc
+  bounding_box:
+  - 0.11556
+  - 0.11556
+  - 0.02836
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.42
+  - 0.28
+  - 0.06418
+target_objects:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: hpqjug
+  bounding_box:
+  - 0.16194
+  - 0.16194
+  - 0.07924
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.18
+  - 0.12
+  - 0.08962
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_lemon_sauce
+  category: bottle_of_lemon_sauce
+  model: iyijeb
+  bounding_box:
+  - 0.08535
+  - 0.08535
+  - 0.09369
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.18
+  - 0.28
+  - 0.096845
+- type: DatasetObject
+  name: distractor_jug
+  category: jug
+  model: gjgwvi
+  bounding_box:
+  - 0.0716459
+  - 0.1
+  - 0.152124
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.42
+  - 0.12
+  - 0.126062
+- type: DatasetObject
+  name: distractor_jar_of_puree
+  category: jar_of_puree
+  model: raagvm
+  bounding_box:
+  - 0.07003
+  - 0.06907
+  - 0.0804
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.3
+  - 0.3
+  - 0.0902
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: plate
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2691724
+    - 0.4477386
+    - 0.4608654
+    rot:
+    - 0.1492003
+    - -0.6111181
+    - -0.7605869
+    - 0.1605664
+  cam2:
+    pos:
+    - 0.121298
+    - -0.5944598
+    - 0.519354
+    rot:
+    - 0.4170949
+    - -0.3251004
+    - -0.4324655
+    - 0.7302843
+provenance:
+  task_id: e7b2e9a790c4
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up the paper bowl on the left and put it in the paper bowl on the right
+  decisions:
+  - the lead (paper bowl into paper bowl) has main and target of one category that the instruction can only tell apart by
+    left/right, which the config does not pin; the cluster variant "put the white paper plate in the blue bowl" is used, minus
+    colours
+  - plate lixwwc (11.6 cm), bowl hpqjug (16.2 cm)

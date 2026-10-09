@@ -1,0 +1,135 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the bag of chips in the basket
+instruction_obj_to_replace: bag of chips
+instruction_target_to_replace: basket
+instruction_verb_to_replace: put
+supported_scenes:
+  office_cubicles_left:
+  - Office_Desk
+main_objects:
+- type: DatasetObject
+  name: bag_of_chips
+  category: bag_of_chips
+  model: uevvib
+  bounding_box:
+  - 0.14
+  - 0.1035392
+  - 0.0448853
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.7071068
+  - 0.7071068
+  relative_bbox_position:
+  - 0.28
+  - 0.42
+  - 0.0724427
+target_objects:
+- type: DatasetObject
+  name: basket
+  category: wicker_basket
+  model: unasxd
+  bounding_box:
+  - 0.175541
+  - 0.28
+  - 0.1321348
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.18
+  - 0.1160674
+distractors:
+- type: DatasetObject
+  name: distractor_drill
+  category: drill
+  model: nzgmza
+  bounding_box:
+  - 0.0372288
+  - 0.1
+  - 0.1252306
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.42
+  - 0.1126153
+- type: DatasetObject
+  name: distractor_blackboard_eraser
+  category: blackboard_eraser
+  model: oynrtw
+  bounding_box:
+  - 0.1
+  - 0.0333333
+  - 0.0242267
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.18
+  - 0.0621134
+- type: DatasetObject
+  name: distractor_bottle_of_fennel
+  category: bottle_of_fennel
+  model: ihlkfu
+  bounding_box:
+  - 0.06
+  - 0.06
+  - 0.07186
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.3
+  - 0.3
+  - 0.0859301
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: bag_of_chips
+  object: basket
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.3729473
+    - -0.4336482
+    - 0.4454929
+    rot:
+    - 0.3641392
+    - -0.1841888
+    - -0.3192756
+    - 0.8553012
+  cam2:
+    pos:
+    - 0.4851332
+    - 0.3932275
+    - 0.4378626
+    rot:
+    - 0.0873188
+    - -0.3404982
+    - -0.919644
+    - 0.1751895
+provenance:
+  task_id: e686209fa880
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up the small blue packet from the countertop and put it in the black wire basket
+  decisions:
+  - '"small blue packet" grounded as a bag_of_chips authored at the 14 cm ceiling (a snack packet) and named; colours and
+    "wire" dropped'
+  - countertop is the support; basket as wicker_basket unasxd

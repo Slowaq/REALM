@@ -1,0 +1,138 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the marker from the box
+instruction_obj_to_replace: marker
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: marker
+  category: marker
+  model: xakoic
+  bounding_box:
+  - 0.14
+  - 0.0156356
+  - 0.0128276
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.0664138
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_can_of_icetea
+  category: can_of_icetea
+  model: ifrjsc
+  bounding_box:
+  - 0.0757
+  - 0.0757
+  - 0.14925
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - 0.124625
+- type: DatasetObject
+  name: distractor_bottle_of_lacquer
+  category: bottle_of_lacquer
+  model: cykzcp
+  bounding_box:
+  - 0.07728
+  - 0.07695
+  - 0.16014
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - 0.1300701
+- type: DatasetObject
+  name: distractor_reagent_bottle
+  category: reagent_bottle
+  model: uaijua
+  bounding_box:
+  - 0.09029
+  - 0.09029
+  - 0.18476
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - 0.14238
+immutables:
+- type: DatasetObject
+  name: box
+  category: storage_box
+  model: bwbpvg
+  bounding_box:
+  - 0.23519
+  - 0.2508
+  - 0.0573
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.07865
+initial_state:
+- predicate: inside
+  subject: marker
+  object: box
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: marker
+  object: box
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.3262706
+    - 0.4670074
+    - 0.3314123
+    rot:
+    - 0.2084489
+    - -0.4471705
+    - -0.7960129
+    - 0.3506438
+  cam2:
+    pos:
+    - 0.3272481
+    - -0.3490691
+    - 0.38997
+    rot:
+    - 0.4477555
+    - -0.2653348
+    - -0.4017631
+    - 0.7534579
+provenance:
+  task_id: 3c06f65268d0
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the purple marker from the box and put it on the counter
+  decisions:
+  - shortened to the removal; counter is the support; "purple" dropped (texture)
+  - 'shallow storage_box bwbpvg (5.7 cm deep): the marker lies flat and stays reachable'

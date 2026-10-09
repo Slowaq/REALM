@@ -1,0 +1,133 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: stack
+instruction: Put the plate on top of the bowl
+instruction_obj_to_replace: plate
+instruction_target_to_replace: bowl
+instruction_verb_to_replace: stack
+supported_scenes:
+  Benevolence_1_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: plate
+  category: plate
+  model: uumkbl
+  bounding_box:
+  - 0.12128
+  - 0.12136
+  - 0.02409
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.42
+  - 0.28
+  - 0.062045
+target_objects:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: hitnkv
+  bounding_box:
+  - 0.12491
+  - 0.12491
+  - 0.07365
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.18
+  - 0.12
+  - 0.086825
+distractors:
+- type: DatasetObject
+  name: distractor_hotdog_bun
+  category: hotdog_bun
+  model: ajlvvj
+  bounding_box:
+  - 0.1
+  - 0.0479192
+  - 0.0346424
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.18
+  - 0.28
+  - 0.0673212
+- type: DatasetObject
+  name: distractor_jar_of_pepper_seasoning
+  category: jar_of_pepper_seasoning
+  model: iuydyz
+  bounding_box:
+  - 0.09257
+  - 0.09257
+  - 0.13171
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.42
+  - 0.12
+  - 0.115855
+- type: DatasetObject
+  name: distractor_bottle_of_molasses
+  category: bottle_of_molasses
+  model: jvsjop
+  bounding_box:
+  - 0.08084
+  - 0.08074
+  - 0.19055
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.3
+  - 0.2
+  - 0.145275
+immutables: []
+target_state:
+  rubric: stack
+  predicate: on_top_of
+  subject: plate
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2515128
+    - -0.672098
+    - 0.3196284
+    rot:
+    - 0.5117513
+    - -0.1404852
+    - -0.2898914
+    - 0.7964531
+  cam2:
+    pos:
+    - 0.1842508
+    - 0.5520706
+    - 0.27867
+    rot:
+    - 0.0334404
+    - -0.5265401
+    - -0.8423872
+    - 0.1096404
+provenance:
+  task_id: f045846e1d54
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the plate on top of the bowl
+  decisions:
+  - plate uumkbl (12.1 cm), bowl hitnkv (12.5 cm); instruction unchanged

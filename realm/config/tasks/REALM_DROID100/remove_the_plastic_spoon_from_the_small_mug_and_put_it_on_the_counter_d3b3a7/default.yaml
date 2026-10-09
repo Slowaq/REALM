@@ -1,0 +1,139 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the spoon from the mug
+instruction_obj_to_replace: spoon
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: spoon
+  category: teaspoon
+  model: piqabk
+  bounding_box:
+  - 0.14
+  - 0.0299157
+  - 0.0151338
+  orientation:
+  - 0.0
+  - 0.7071068
+  - 0.0
+  - 0.7071068
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.16954
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_can_of_tomato_paste
+  category: can_of_tomato_paste
+  model: sqqdzb
+  bounding_box:
+  - 0.08046
+  - 0.08041
+  - 0.12345
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - 0.111725
+- type: DatasetObject
+  name: distractor_reagent_bottle
+  category: reagent_bottle
+  model: uaijua
+  bounding_box:
+  - 0.09029
+  - 0.09029
+  - 0.18476
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - 0.14238
+- type: DatasetObject
+  name: distractor_bottle_of_tea
+  category: bottle_of_tea
+  model: iladfg
+  bounding_box:
+  - 0.06586
+  - 0.06586
+  - 0.21996
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - 0.15998
+immutables:
+- type: DatasetObject
+  name: mug
+  category: mug
+  model: lgxhsc
+  bounding_box:
+  - 0.07725
+  - 0.10513
+  - 0.08454
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.09227
+initial_state:
+- predicate: inside
+  subject: spoon
+  object: mug
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: spoon
+  object: mug
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.19204
+    - 0.4439092
+    - 0.3356291
+    rot:
+    - 0.3264836
+    - -0.484061
+    - -0.774107
+    - 0.2446462
+  cam2:
+    pos:
+    - 0.061685
+    - -0.5064259
+    - 0.3213603
+    rot:
+    - 0.5231322
+    - -0.3190742
+    - -0.3390967
+    - 0.7138192
+provenance:
+  task_id: d3b3a79e8c2a
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the plastic spoon from the small mug and put it on the counter
+  decisions:
+  - shortened to the removal (variant wording); counter is the support; "plastic" and "small" dropped (material/size not guaranteed)
+  - spoon grounded as teaspoon piqabk (14.7 cm) standing in mug lgxhsc (8.5 cm deep) so it sticks out above the rim; a 6.5
+    cm-deep mug failed lengthwise insertion and shrank the spoon

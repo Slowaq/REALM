@@ -1,0 +1,138 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the marker from the bowl
+instruction_obj_to_replace: marker
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+main_objects:
+- type: DatasetObject
+  name: marker
+  category: marker
+  model: nqxveo
+  bounding_box:
+  - 0.12562
+  - 0.01476
+  - 0.01496
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.195
+  - 0.06748
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_coconut_oil
+  category: bottle_of_coconut_oil
+  model: rrwzkq
+  bounding_box:
+  - 0.07104
+  - 0.07104
+  - 0.22792
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.455
+  - 0.16396
+- type: DatasetObject
+  name: distractor_sushi
+  category: sushi
+  model: akpnxn
+  bounding_box:
+  - 0.03544
+  - 0.03626
+  - 0.02413
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.455
+  - 0.062065
+- type: DatasetObject
+  name: distractor_allen_wrench
+  category: allen_wrench
+  model: neqlcn
+  bounding_box:
+  - 0.1
+  - 0.021601
+  - 0.0037431
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.195
+  - 0.0518716
+immutables:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: npuuir
+  bounding_box:
+  - 0.17445
+  - 0.17445
+  - 0.07796
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.195
+  - 0.08898
+initial_state:
+- predicate: inside
+  subject: marker
+  object: bowl
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: marker
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2673735
+    - 0.4435634
+    - 0.4634561
+    rot:
+    - 0.1509631
+    - -0.6098021
+    - -0.7618068
+    - 0.1581201
+  cam2:
+    pos:
+    - 0.1164328
+    - -0.5970663
+    - 0.5164952
+    rot:
+    - 0.4186176
+    - -0.3279221
+    - -0.4320096
+    - 0.7284189
+provenance:
+  task_id: 6facf87f4f83
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up the marker from the bowl and put it on the table
+  decisions:
+  - shortened to the removal (variant wording); the table is the support
+  - marker lies flat in bowl npuuir (17.4 cm)

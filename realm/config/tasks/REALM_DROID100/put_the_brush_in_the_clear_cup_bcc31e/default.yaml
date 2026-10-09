@@ -1,0 +1,134 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the brush in the cup
+instruction_obj_to_replace: brush
+instruction_target_to_replace: cup
+instruction_verb_to_replace: put
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: brush
+  category: toothbrush
+  model: vkrjps
+  bounding_box:
+  - 0.14
+  - 0.0108058
+  - 0.0166929
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - 0.0583465
+target_objects:
+- type: DatasetObject
+  name: cup
+  category: soda_cup
+  model: vicaqs
+  bounding_box:
+  - 0.07836
+  - 0.07836
+  - 0.12904
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.11452
+distractors:
+- type: DatasetObject
+  name: distractor_glue_stick
+  category: glue_stick
+  model: sqzyci
+  bounding_box:
+  - 0.09478
+  - 0.01923
+  - 0.01928
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - 0.05964
+- type: DatasetObject
+  name: distractor_bottle_of_pesto
+  category: bottle_of_pesto
+  model: hyeetr
+  bounding_box:
+  - 0.05451
+  - 0.05695
+  - 0.1169
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - 0.10845
+- type: DatasetObject
+  name: distractor_jar_of_pepper_seasoning
+  category: jar_of_pepper_seasoning
+  model: iuydyz
+  bounding_box:
+  - 0.09257
+  - 0.09257
+  - 0.13171
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.25
+  - 0.3
+  - 0.115855
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: brush
+  object: cup
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.196354
+    - -0.3233302
+    - 0.3185618
+    rot:
+    - 0.4470713
+    - -0.1833717
+    - -0.3786151
+    - 0.7894002
+  cam2:
+    pos:
+    - 0.2296724
+    - 0.3967265
+    - 0.2971551
+    rot:
+    - 0.1846067
+    - -0.5312789
+    - -0.7704293
+    - 0.3001698
+provenance:
+  task_id: bcc31ebaf0d1
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the brush in the clear cup
+  decisions:
+  - brush grounded as toothbrush vkrjps (a brush that stands in a cup); instruction keeps the generic "brush"
+  - '"clear cup" grounded as soda_cup vicaqs (a clear plastic cup); "clear" dropped (material)'

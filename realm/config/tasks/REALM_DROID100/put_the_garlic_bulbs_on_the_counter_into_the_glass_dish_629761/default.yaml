@@ -1,0 +1,135 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the garlic into the casserole
+instruction_obj_to_replace: garlic
+instruction_target_to_replace: casserole
+instruction_verb_to_replace: put
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: garlic
+  category: garlic
+  model: nlclql
+  bounding_box:
+  - 0.06628
+  - 0.06594
+  - 0.06655
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - 0.083275
+target_objects:
+- type: DatasetObject
+  name: casserole
+  category: casserole
+  model: ncbsee
+  bounding_box:
+  - 0.24506
+  - 0.24506
+  - 0.1197
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.10985
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_peanut_butter
+  category: bottle_of_peanut_butter
+  model: edcvwr
+  bounding_box:
+  - 0.07916
+  - 0.07916
+  - 0.13146
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - 0.11573
+- type: DatasetObject
+  name: distractor_chopstick
+  category: chopstick
+  model: bdvjuf
+  bounding_box:
+  - 0.1
+  - 0.0022835
+  - 0.0022879
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - 0.051144
+- type: DatasetObject
+  name: distractor_jar_of_cumin
+  category: jar_of_cumin
+  model: tsktnz
+  bounding_box:
+  - 0.06
+  - 0.06
+  - 0.07186
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.375
+  - 0.3
+  - 0.0859301
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: garlic
+  object: casserole
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.3071855
+    - 0.5083795
+    - 0.3902421
+    rot:
+    - 0.2486811
+    - -0.4363551
+    - -0.7819843
+    - 0.3691239
+  cam2:
+    pos:
+    - 0.0950131
+    - -0.4726608
+    - 0.5580272
+    rot:
+    - 0.4391842
+    - -0.1106775
+    - -0.2158435
+    - 0.8650314
+provenance:
+  task_id: '629761349468'
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the garlic bulbs on the counter into the glass dish
+  decisions:
+  - '"garlic bulbs" authored as one garlic bulb (single main object)'
+  - '"glass dish" grounded as casserole ncbsee (a baking dish) and named "the casserole" ("casserole dish" tripped INSTRUCTION_PHANTOM_OBJECT
+    on "dish"); "glass" dropped (material)'

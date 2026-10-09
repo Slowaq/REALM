@@ -1,0 +1,100 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the can inside the sink
+instruction_obj_to_replace: can
+instruction_target_to_replace: sink
+instruction_verb_to_replace: put
+supported_scenes:
+  Benevolence_1_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: can
+  category: can_of_soda
+  model: chwjfu
+  bounding_box:
+  - 0.065
+  - 0.065
+  - 0.15356
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.09
+  - 0.2
+  - 0.12678
+target_objects:
+- type: DatasetObject
+  name: sink
+  category: drop_in_sink
+  model: wzpabm
+  bounding_box:
+  - 0.28
+  - 0.2703133
+  - 0.1867372
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.3
+  - 0.2
+  - 0.1433687
+distractors:
+- type: DatasetObject
+  name: distractor_hammer
+  category: hammer
+  model: fcrlbo
+  bounding_box:
+  - 0.1
+  - 0.0414117
+  - 0.0122257
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.51
+  - 0.2
+  - 0.0561129
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: can
+  object: sink
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.4076057
+    - 0.3963185
+    - 0.464273
+    rot:
+    - 0.2156455
+    - -0.5878808
+    - -0.7431576
+    - 0.2358177
+  cam2:
+    pos:
+    - -0.1141478
+    - -0.605429
+    - 0.5242106
+    rot:
+    - 0.4199305
+    - -0.3359666
+    - -0.4338002
+    - 0.7229123
+provenance:
+  task_id: 05972ad9c939
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the can inside the sink
+  decisions:
+  - can grounded as can_of_soda chwjfu (6.5 cm, graspable); the `can` models are 11-28 cm wide
+  - sink as drop_in_sink wzpabm (smallest basin, at the 0.28 m ceiling)

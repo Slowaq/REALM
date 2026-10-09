@@ -1,0 +1,140 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the bottle from the box
+instruction_obj_to_replace: bottle
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+main_objects:
+- type: DatasetObject
+  name: bottle
+  category: bottle_of_water
+  model: migvlt
+  bounding_box:
+  - 0.07033
+  - 0.07033
+  - 0.22846
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.325
+  - 0.250515
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_mug
+  category: mug
+  model: kitxam
+  bounding_box:
+  - 0.064
+  - 0.08585
+  - 0.06466
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.1625
+  - 0.08233
+- type: DatasetObject
+  name: distractor_bottle_of_mayonnaise
+  category: bottle_of_mayonnaise
+  model: cirpak
+  bounding_box:
+  - 0.0598903
+  - 0.1
+  - 0.2329414
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.5525
+  - 0.1664707
+- type: DatasetObject
+  name: distractor_wooden_spoon
+  category: wooden_spoon
+  model: aeubta
+  bounding_box:
+  - 0.06077
+  - 0.01513
+  - 0.00395
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.195
+  - 0.051975
+immutables:
+- type: DatasetObject
+  name: box
+  category: storage_box
+  model: aqdbdu
+  bounding_box:
+  - 0.20369
+  - 0.20368
+  - 0.1434
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.325
+  - 0.1217
+initial_state:
+- predicate: inside
+  subject: bottle
+  object: box
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: bottle
+  object: box
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.0445818
+    - 0.6596387
+    - 0.4650809
+    rot:
+    - 0.330845
+    - -0.536872
+    - -0.6759332
+    - 0.3813453
+  cam2:
+    pos:
+    - -0.0710196
+    - -0.4592734
+    - 0.3787727
+    rot:
+    - 0.5328843
+    - -0.3348116
+    - -0.3736997
+    - 0.6813839
+provenance:
+  task_id: 2fff8e25f540
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick the bottle from the black box and place it on the table
+  decisions:
+  - shortened to the removal (table is the support); "black" dropped (texture)
+  - bottle grounded as bottle_of_water lojipo (6.7 cm wide, graspable); cluster signature ink_bottle is a classifier artefact
+  - 'bottle_of_water migvlt (22.8 cm) in storage_box aqdbdu (14 cm deep, 20 cm wide): taller than the box is wide, so it stands
+    upright and protrudes ~9 cm (an 18.5 cm bottle was laid flat)'

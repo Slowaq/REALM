@@ -1,0 +1,134 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the glass into the jar
+instruction_obj_to_replace: glass
+instruction_target_to_replace: jar
+instruction_verb_to_replace: put
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: glass
+  category: water_glass
+  model: ybhepe
+  bounding_box:
+  - 0.04173
+  - 0.04173
+  - 0.05912
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - 0.07956
+target_objects:
+- type: DatasetObject
+  name: jar
+  category: hingeless_jar
+  model: ifgcmr
+  bounding_box:
+  - 0.09365
+  - 0.09365
+  - 0.10072
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.10036
+distractors:
+- type: DatasetObject
+  name: distractor_hamburger_bun
+  category: hamburger_bun
+  model: fqxumh
+  bounding_box:
+  - 0.08664
+  - 0.08494
+  - 0.02639
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - 0.063195
+- type: DatasetObject
+  name: distractor_bottle_of_coke
+  category: bottle_of_coke
+  model: bmtvvb
+  bounding_box:
+  - 0.1
+  - 0.0991774
+  - 0.3090119
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - 0.204506
+- type: DatasetObject
+  name: distractor_duct_tape
+  category: duct_tape
+  model: htrage
+  bounding_box:
+  - 0.1
+  - 0.0902897
+  - 0.0293137
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.25
+  - 0.3
+  - 0.0646569
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: glass
+  object: jar
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.0663504
+    - 0.7204349
+    - 0.5524695
+    rot:
+    - 0.2142112
+    - -0.4197626
+    - -0.760861
+    - 0.4460981
+  cam2:
+    pos:
+    - 0.2221351
+    - -0.5278781
+    - 0.4460254
+    rot:
+    - 0.2518853
+    - -0.0636751
+    - -0.4171397
+    - 0.8709154
+provenance:
+  task_id: 7802519e1367
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the glass cup into the jar
+  decisions:
+  - '"glass cup" is one compound noun grounded as water_glass ybhepe (a 4.2 cm small glass) and worded "the glass"'
+  - jar grounded as hingeless_jar ifgcmr (9.4 cm, open), wide enough to receive it

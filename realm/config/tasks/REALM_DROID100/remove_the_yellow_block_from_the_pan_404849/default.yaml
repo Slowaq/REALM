@@ -1,0 +1,147 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the yellow block from the pan
+instruction_obj_to_replace: yellow block
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: PrimitiveObject
+  name: yellow_block
+  primitive_type: Cube
+  rgba:
+  - 0.9
+  - 0.8
+  - 0.1
+  - 1.0
+  bounding_box:
+  - 0.05
+  - 0.05
+  - 0.05
+  scale:
+  - 0.05
+  - 0.05
+  - 0.05
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.25
+  - 0.3
+  - 0.0970702
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_oil
+  category: bottle_of_oil
+  model: ueanhf
+  bounding_box:
+  - 0.09056
+  - 0.0906
+  - 0.31938
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.25
+  - 0.15
+  - 0.20969
+- type: DatasetObject
+  name: distractor_pocketknife
+  category: pocketknife
+  model: ngtgdn
+  bounding_box:
+  - 0.1
+  - 0.0215902
+  - 0.0058464
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - 0.0529232
+- type: DatasetObject
+  name: distractor_shaker
+  category: shaker
+  model: hbheag
+  bounding_box:
+  - 0.03577
+  - 0.03592
+  - 0.09196
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.0959801
+immutables:
+- type: DatasetObject
+  name: pan
+  category: frying_pan
+  model: jpzusm
+  bounding_box:
+  - 0.28
+  - 0.1722609
+  - 0.0345702
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.25
+  - 0.3
+  - 0.0672851
+initial_state:
+- predicate: inside
+  subject: yellow_block
+  object: pan
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: yellow_block
+  object: pan
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.3614411
+    - 0.4744469
+    - 0.4245465
+    rot:
+    - 0.1448725
+    - -0.5915457
+    - -0.7519907
+    - 0.2521819
+  cam2:
+    pos:
+    - 0.1986458
+    - -0.5642038
+    - 0.2590372
+    rot:
+    - 0.6039798
+    - -0.1919891
+    - -0.2608162
+    - 0.7282331
+provenance:
+  task_id: 404849d30ce9
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the yellow block from the pan
+  decisions:
+  - yellow block authored as a block primitive with rgba set
+  - frying_pan jpzusm at the 0.28 m ceiling (~17 cm body); the solver centres the block on the handle-inclusive bbox, ~5 cm
+    off the pan axis but still inside the 8.6 cm body radius, so the render pass should confirm it settles in the pan

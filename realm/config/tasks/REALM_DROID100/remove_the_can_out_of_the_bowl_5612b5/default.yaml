@@ -1,0 +1,138 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the can from the bowl
+instruction_obj_to_replace: can
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+main_objects:
+- type: DatasetObject
+  name: can
+  category: can_of_soda
+  model: opivig
+  bounding_box:
+  - 0.06316
+  - 0.06316
+  - 0.11381
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.195
+  - 0.1594525
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_alfredo_sauce
+  category: bottle_of_alfredo_sauce
+  model: xwzqjr
+  bounding_box:
+  - 0.05973
+  - 0.05973
+  - 0.11393
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.455
+  - 0.106965
+- type: DatasetObject
+  name: distractor_teaspoon
+  category: teaspoon
+  model: wzsvzv
+  bounding_box:
+  - 0.09894
+  - 0.02218
+  - 0.0078
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.455
+  - 0.0539
+- type: DatasetObject
+  name: distractor_sourdough
+  category: sourdough
+  model: jgydml
+  bounding_box:
+  - 0.08979
+  - 0.07987
+  - 0.05222
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.195
+  - 0.0761101
+immutables:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: jblalf
+  bounding_box:
+  - 0.16932
+  - 0.16932
+  - 0.081
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.195
+  - 0.0905
+initial_state:
+- predicate: inside
+  subject: can
+  object: bowl
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: can
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.1732843
+    - -0.5693179
+    - 0.338325
+    rot:
+    - 0.6009627
+    - -0.1912311
+    - -0.2319853
+    - 0.740579
+  cam2:
+    pos:
+    - 0.2502507
+    - 0.5879914
+    - 0.3792267
+    rot:
+    - 0.2321373
+    - -0.5200418
+    - -0.7472269
+    - 0.3425212
+provenance:
+  task_id: 5612b5b3bcfa
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the can out of the bowl
+  decisions:
+  - '"out of" normalised to "from" (same removal)'
+  - can grounded as can_of_soda opivig (6.3 cm, graspable) in bowl jblalf

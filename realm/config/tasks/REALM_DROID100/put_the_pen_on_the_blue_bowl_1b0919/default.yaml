@@ -1,0 +1,134 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: stack
+instruction: Put the pen on the bowl
+instruction_obj_to_replace: pen
+instruction_target_to_replace: bowl
+instruction_verb_to_replace: stack
+supported_scenes:
+  office_cubicles_left:
+  - Office_Desk
+main_objects:
+- type: DatasetObject
+  name: pen
+  category: pen
+  model: enfumt
+  bounding_box:
+  - 0.14
+  - 0.0081891
+  - 0.0126726
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.42
+  - 0.0563363
+target_objects:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: aspeds
+  bounding_box:
+  - 0.1451
+  - 0.14509
+  - 0.0543
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.18
+  - 0.07715
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_beer
+  category: bottle_of_beer
+  model: rdnopv
+  bounding_box:
+  - 0.05661
+  - 0.05653
+  - 0.20525
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.42
+  - 0.152625
+- type: DatasetObject
+  name: distractor_wooden_spoon
+  category: wooden_spoon
+  model: aeubta
+  bounding_box:
+  - 0.06077
+  - 0.01513
+  - 0.00395
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.18
+  - 0.051975
+- type: DatasetObject
+  name: distractor_table_knife
+  category: table_knife
+  model: nmkend
+  bounding_box:
+  - 0.1
+  - 0.0105597
+  - 0.0021863
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.3
+  - 0.0510932
+immutables: []
+target_state:
+  rubric: stack
+  predicate: on_top_of
+  subject: pen
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.1853428
+    - -0.4754481
+    - 0.4634112
+    rot:
+    - 0.5156964
+    - -0.1289195
+    - -0.0914406
+    - 0.8420663
+  cam2:
+    pos:
+    - 0.2325265
+    - 0.6210255
+    - 0.5025919
+    rot:
+    - 0.0798869
+    - -0.5517541
+    - -0.8207067
+    - 0.1250041
+provenance:
+  task_id: 1b0919649c02
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the pen on the blue bowl
+  decisions:
+  - kept as stack (PLACE_ONTO) as worded; "blue" dropped
+  - pen enfumt (authored at the 14 cm ceiling), bowl aspeds (14.5 cm)

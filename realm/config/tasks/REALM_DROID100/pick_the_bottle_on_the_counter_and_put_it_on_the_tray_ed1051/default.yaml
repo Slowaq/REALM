@@ -1,0 +1,117 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: stack
+instruction: Put the bottle on the tray
+instruction_obj_to_replace: bottle
+instruction_target_to_replace: tray
+instruction_verb_to_replace: stack
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+main_objects:
+- type: DatasetObject
+  name: bottle
+  category: bottle_of_water
+  model: rrkhva
+  bounding_box:
+  - 0.06471
+  - 0.06538
+  - 0.1507
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.5525
+  - 0.1253501
+target_objects:
+- type: DatasetObject
+  name: tray
+  category: tray
+  model: zsddtq
+  bounding_box:
+  - 0.26694
+  - 0.26694
+  - 0.02564
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.325
+  - 0.06282
+distractors:
+- type: DatasetObject
+  name: distractor_tablespoon
+  category: tablespoon
+  model: mwzxal
+  bounding_box:
+  - 0.1
+  - 0.0184019
+  - 0.0078269
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.1625
+  - 0.0539135
+- type: DatasetObject
+  name: distractor_allen_wrench
+  category: allen_wrench
+  model: neqlcn
+  bounding_box:
+  - 0.1
+  - 0.021601
+  - 0.0037431
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.4875
+  - 0.0518716
+immutables: []
+target_state:
+  rubric: stack
+  predicate: on_top_of
+  subject: bottle
+  object: tray
+camera_extrinsics:
+  cam1:
+    pos:
+    - -0.0663135
+    - 0.7031964
+    - 0.5345527
+    rot:
+    - 0.3861912
+    - -0.5615158
+    - -0.6001158
+    - 0.4188286
+  cam2:
+    pos:
+    - -0.0692841
+    - -0.5159736
+    - 0.5048189
+    rot:
+    - 0.4343694
+    - -0.1715611
+    - -0.3304109
+    - 0.8201943
+provenance:
+  task_id: ed105146e2a4
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick the bottle on the counter and put it on the tray
+  decisions:
+  - shortened to the scored placement; the counter is the support
+  - bottle grounded as bottle_of_water rrkhva (6.5 cm wide, 15 cm tall); tray zsddtq; placing onto a tray is PLACE_ONTO (stack)

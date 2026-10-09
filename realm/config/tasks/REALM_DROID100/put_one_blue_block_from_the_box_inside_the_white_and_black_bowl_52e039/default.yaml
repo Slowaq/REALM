@@ -1,0 +1,163 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Take the blue block out of the box and put it in the bowl
+instruction_obj_to_replace: blue block
+instruction_target_to_replace: bowl
+instruction_verb_to_replace: put
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: PrimitiveObject
+  name: blue_block
+  primitive_type: Cube
+  rgba:
+  - 0.1
+  - 0.3
+  - 0.9
+  - 1.0
+  bounding_box:
+  - 0.05
+  - 0.05
+  - 0.05
+  scale:
+  - 0.05
+  - 0.05
+  - 0.05
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.1198
+target_objects:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: jblalf
+  bounding_box:
+  - 0.16932
+  - 0.16932
+  - 0.081
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - 0.0905
+distractors:
+- type: DatasetObject
+  name: distractor_can
+  category: can
+  model: moeqjz
+  bounding_box:
+  - 0.1
+  - 0.1
+  - 0.1298312
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - 0.1149156
+- type: DatasetObject
+  name: distractor_bottle_of_shampoo
+  category: bottle_of_shampoo
+  model: stjjjm
+  bounding_box:
+  - 0.05782
+  - 0.05782
+  - 0.17172
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - 0.13586
+- type: DatasetObject
+  name: distractor_plier
+  category: plier
+  model: zwzncq
+  bounding_box:
+  - 0.1
+  - 0.0290771
+  - 0.0057154
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.375
+  - 0.3
+  - 0.0528577
+immutables:
+- type: DatasetObject
+  name: box
+  category: storage_box
+  model: bwbpvg
+  bounding_box:
+  - 0.23519
+  - 0.2508
+  - 0.0573
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.07865
+initial_state:
+- predicate: inside
+  subject: blue_block
+  object: box
+target_state:
+  rubric: put
+  predicate: inside
+  subject: blue_block
+  object: box
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.160207
+    - 0.1933108
+    - 0.2194672
+    rot:
+    - 0.2050427
+    - -0.4907449
+    - -0.7503363
+    - 0.3925842
+  cam2:
+    pos:
+    - 0.0763686
+    - -0.2395287
+    - 0.2301619
+    rot:
+    - 0.4379305
+    - -0.2893119
+    - -0.5185579
+    - 0.6749913
+provenance:
+  task_id: 52e039b196b4
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put one blue block from the box inside the white and black bowl
+  decisions:
+  - variant wording; "one blue block" authored as a single block primitive with rgba set
+  - 'put with a source: block starts in shallow storage_box bwbpvg and must end in bowl jblalf; bowl colours dropped'

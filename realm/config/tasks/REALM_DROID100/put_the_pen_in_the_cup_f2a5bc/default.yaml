@@ -1,0 +1,133 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the pen in the cup
+instruction_obj_to_replace: pen
+instruction_target_to_replace: cup
+instruction_verb_to_replace: put
+supported_scenes:
+  office_cubicles_left:
+  - Office_Desk
+main_objects:
+- type: DatasetObject
+  name: pen
+  category: pen
+  model: gzrbrx
+  bounding_box:
+  - 0.14
+  - 0.0100935
+  - 0.0097397
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.42
+  - 0.0548699
+target_objects:
+- type: DatasetObject
+  name: cup
+  category: paper_cup
+  model: guobeq
+  bounding_box:
+  - 0.07407
+  - 0.07043
+  - 0.10542
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.18
+  - 0.10271
+distractors:
+- type: DatasetObject
+  name: distractor_jar_of_kidney_beans
+  category: jar_of_kidney_beans
+  model: kfzxah
+  bounding_box:
+  - 0.093
+  - 0.093
+  - 0.13171
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.42
+  - 0.115855
+- type: DatasetObject
+  name: distractor_bottle_of_peanut_butter
+  category: bottle_of_peanut_butter
+  model: edcvwr
+  bounding_box:
+  - 0.07916
+  - 0.07916
+  - 0.13146
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.18
+  - 0.11573
+- type: DatasetObject
+  name: distractor_half_bagel
+  category: half_bagel
+  model: hsvakn
+  bounding_box:
+  - 0.1
+  - 0.0660391
+  - 0.0367399
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.3
+  - 0.06837
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: pen
+  object: cup
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.1447171
+    - 0.8238894
+    - 0.3989374
+    rot:
+    - 0.1402593
+    - -0.5208966
+    - -0.7653584
+    - 0.3510279
+  cam2:
+    pos:
+    - 0.3547373
+    - -0.4208796
+    - 0.4948733
+    rot:
+    - 0.3213511
+    - -0.0866806
+    - -0.2422393
+    - 0.9113397
+provenance:
+  task_id: f2a5bc394480
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the pen in the cup
+  decisions:
+  - cup grounded as paper_cup guobeq (10.5 cm deep, holds the pen lengthwise); instruction unchanged

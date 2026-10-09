@@ -1,0 +1,134 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the egg inside the cup
+instruction_obj_to_replace: egg
+instruction_target_to_replace: cup
+instruction_verb_to_replace: put
+supported_scenes:
+  Benevolence_1_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: egg
+  category: egg
+  model: brkitw
+  bounding_box:
+  - 0.06979
+  - 0.05514
+  - 0.05528
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.7071068
+  - 0.7071068
+  relative_bbox_position:
+  - 0.42
+  - 0.28
+  - 0.07764
+target_objects:
+- type: DatasetObject
+  name: cup
+  category: mug
+  model: ycbmug
+  bounding_box:
+  - 0.09308
+  - 0.11697
+  - 0.08138
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.18
+  - 0.12
+  - 0.09069
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_dish_soap
+  category: bottle_of_dish_soap
+  model: bnmixt
+  bounding_box:
+  - 0.05077
+  - 0.09171
+  - 0.22
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.18
+  - 0.28
+  - 0.16
+- type: DatasetObject
+  name: distractor_can_of_oatmeal
+  category: can_of_oatmeal
+  model: qyukhm
+  bounding_box:
+  - 0.09218
+  - 0.09218
+  - 0.13596
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.42
+  - 0.12
+  - 0.11798
+- type: DatasetObject
+  name: distractor_pocketknife
+  category: pocketknife
+  model: ngtgdn
+  bounding_box:
+  - 0.1
+  - 0.0215902
+  - 0.0058464
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.3
+  - 0.2
+  - 0.0529232
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: egg
+  object: cup
+camera_extrinsics:
+  cam1:
+    pos:
+    - -0.1340629
+    - -0.3093773
+    - 0.705922
+    rot:
+    - 0.4707877
+    - -0.2557706
+    - -0.4304246
+    - 0.7264124
+  cam2:
+    pos:
+    - -0.0750188
+    - 0.6450407
+    - 0.5214445
+    rot:
+    - 0.2295609
+    - -0.5321969
+    - -0.7482871
+    - 0.322699
+provenance:
+  task_id: de05772a8ced
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the egg inside the red cup
+  decisions:
+  - '"red" dropped (texture); cup grounded as mug ycbmug (variant: red mug)'
+  - egg brkitw; note an egg can roll, so the render pass should confirm it rests still at spawn

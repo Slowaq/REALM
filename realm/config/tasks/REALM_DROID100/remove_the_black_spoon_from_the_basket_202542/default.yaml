@@ -1,0 +1,138 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the spoon from the basket
+instruction_obj_to_replace: spoon
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Benevolence_1_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: spoon
+  category: tablespoon
+  model: yxxfdj
+  bounding_box:
+  - 0.14
+  - 0.030396
+  - 0.0103559
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.3
+  - 0.2
+  - 0.0651779
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_bell_pepper
+  category: bell_pepper
+  model: ukkycp
+  bounding_box:
+  - 0.09409
+  - 0.06433
+  - 0.0685
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.2
+  - 0.08425
+- type: DatasetObject
+  name: distractor_jar_of_spaghetti_sauce
+  category: jar_of_spaghetti_sauce
+  model: zahyds
+  bounding_box:
+  - 0.06496
+  - 0.06496
+  - 0.10621
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.45
+  - 0.2
+  - 0.103105
+- type: DatasetObject
+  name: distractor_tweezers
+  category: tweezers
+  model: ngwoat
+  bounding_box:
+  - 0.00485
+  - 0.03209
+  - 0.0025
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.18
+  - 0.12
+  - 0.0512501
+immutables:
+- type: DatasetObject
+  name: basket
+  category: wicker_basket
+  model: unasxd
+  bounding_box:
+  - 0.175541
+  - 0.28
+  - 0.1321348
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.3
+  - 0.2
+  - 0.1160674
+initial_state:
+- predicate: inside
+  subject: spoon
+  object: basket
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: spoon
+  object: basket
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.1847508
+    - -0.4670715
+    - 0.2153222
+    rot:
+    - 0.5192215
+    - -0.1492529
+    - -0.2372486
+    - 0.8073696
+  cam2:
+    pos:
+    - 0.2042123
+    - 0.5522027
+    - 0.6915536
+    rot:
+    - 0.1519385
+    - -0.3974566
+    - -0.8490703
+    - 0.3130855
+provenance:
+  task_id: 202542c3a4cc
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the black spoon from the basket
+  decisions:
+  - '"black" dropped (texture)'
+  - spoon grounded as tablespoon yxxfdj (authored at the 14 cm ceiling), lying in wicker_basket unasxd

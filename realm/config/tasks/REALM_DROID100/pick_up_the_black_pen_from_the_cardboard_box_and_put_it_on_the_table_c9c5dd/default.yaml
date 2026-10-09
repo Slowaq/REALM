@@ -1,0 +1,138 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the pen from the box
+instruction_obj_to_replace: pen
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+main_objects:
+- type: DatasetObject
+  name: pen
+  category: pen
+  model: hiyeki
+  bounding_box:
+  - 0.14
+  - 0.0113327
+  - 0.0112142
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.325
+  - 0.0656071
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_jar_of_clove
+  category: jar_of_clove
+  model: dlvall
+  bounding_box:
+  - 0.09535
+  - 0.09534
+  - 0.13171
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.5525
+  - 0.115855
+- type: DatasetObject
+  name: distractor_half_hamburger_bun
+  category: half_hamburger_bun
+  model: sjtieq
+  bounding_box:
+  - 0.08628
+  - 0.04247
+  - 0.02534
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.1625
+  - 0.06267
+- type: DatasetObject
+  name: distractor_chopstick
+  category: chopstick
+  model: bdvjuf
+  bounding_box:
+  - 0.1
+  - 0.0022835
+  - 0.0022879
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.4875
+  - 0.051144
+immutables:
+- type: DatasetObject
+  name: box
+  category: storage_box
+  model: bwbpvg
+  bounding_box:
+  - 0.23519
+  - 0.2508
+  - 0.0573
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.325
+  - 0.07865
+initial_state:
+- predicate: inside
+  subject: pen
+  object: box
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: pen
+  object: box
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.1679156
+    - -0.3655562
+    - 0.3217625
+    rot:
+    - 0.4727767
+    - -0.1235705
+    - -0.3445176
+    - 0.8015735
+  cam2:
+    pos:
+    - 0.20262
+    - 0.4530975
+    - 0.2923757
+    rot:
+    - 0.2054899
+    - -0.4158716
+    - -0.8108432
+    - 0.3568727
+provenance:
+  task_id: c9c5dd3e649d
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up the black pen from the cardboard box and put it on the table
+  decisions:
+  - shortened to the removal (variant wording); table is the support; "black" and "cardboard" dropped
+  - 'shallow storage_box bwbpvg (5.7 cm deep): the pen lies flat and stays reachable'

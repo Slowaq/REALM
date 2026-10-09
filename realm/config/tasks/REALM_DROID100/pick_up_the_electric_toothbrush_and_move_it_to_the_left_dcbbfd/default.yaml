@@ -1,0 +1,112 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Pick up the toothbrush
+instruction_obj_to_replace: toothbrush
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+main_objects:
+- type: DatasetObject
+  name: toothbrush
+  category: toothbrush
+  model: ifxlss
+  bounding_box:
+  - 0.14
+  - 0.0114323
+  - 0.015639
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.195
+  - 0.0578195
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_can_of_sardines
+  category: can_of_sardines
+  model: dpgmry
+  bounding_box:
+  - 0.08483
+  - 0.08483
+  - 0.11827
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.455
+  - 0.109135
+- type: DatasetObject
+  name: distractor_bottle_of_soy_sauce
+  category: bottle_of_soy_sauce
+  model: afxisg
+  bounding_box:
+  - 0.09698
+  - 0.09701
+  - 0.20581
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.455
+  - 0.1529051
+- type: DatasetObject
+  name: distractor_toasting_fork
+  category: toasting_fork
+  model: osrfkc
+  bounding_box:
+  - 0.1
+  - 0.0172667
+  - 0.0053867
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.195
+  - 0.0526934
+immutables: []
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2337686
+    - 0.5174242
+    - 0.3786653
+    rot:
+    - 0.2924855
+    - -0.6797414
+    - -0.6034526
+    - 0.2970672
+  cam2:
+    pos:
+    - 0.1050634
+    - -0.4302891
+    - 0.4393333
+    rot:
+    - 0.6173541
+    - -0.276323
+    - -0.2968734
+    - 0.6740814
+provenance:
+  task_id: dcbbfdf4aed8
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up the electric toothbrush and move it to the left
+  decisions:
+  - 'shortened to the lift: "move it to the left" is a motion REALM cannot score'
+  - '"electric" dropped: the toothbrush asset is not guaranteed to be electric'

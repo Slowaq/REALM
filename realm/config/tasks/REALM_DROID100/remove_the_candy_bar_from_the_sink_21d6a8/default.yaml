@@ -1,0 +1,87 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the chocolate bar from the sink
+instruction_obj_to_replace: chocolate bar
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Benevolence_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: chocolate_bar
+  category: chocolate_bar
+  model: dxnisi
+  bounding_box:
+  - 0.14
+  - 0.0728
+  - 0.00504
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.2
+  - 0.2379973
+target_objects: []
+distractors: []
+immutables:
+- type: DatasetObject
+  name: sink
+  category: drop_in_sink
+  model: wzpabm
+  bounding_box:
+  - 0.28
+  - 0.2703133
+  - 0.1867372
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.2
+  - 0.1433687
+initial_state:
+- predicate: inside
+  subject: chocolate_bar
+  object: sink
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: chocolate_bar
+  object: sink
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2601063
+    - -0.3779777
+    - 0.2678962
+    rot:
+    - 0.4394925
+    - -0.1380399
+    - -0.3332645
+    - 0.8226336
+  cam2:
+    pos:
+    - 0.2383738
+    - 0.4541576
+    - 0.2449555
+    rot:
+    - 0.2788092
+    - -0.433953
+    - -0.7590073
+    - 0.3973136
+provenance:
+  task_id: 21d6a8156df9
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the candy bar from the sink
+  decisions:
+  - candy bar grounded as chocolate_bar (a candy bar; hard_candy is a sweet, not a bar) and named in the instruction
+  - sink as drop_in_sink wzpabm (smallest basin, at the 0.28 m ceiling)

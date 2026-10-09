@@ -1,0 +1,139 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the bottle from the bowl
+instruction_obj_to_replace: bottle
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+main_objects:
+- type: DatasetObject
+  name: bottle
+  category: bottle_of_water
+  model: cyzaue
+  bounding_box:
+  - 0.05437
+  - 0.05078
+  - 0.17502
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.195
+  - 0.148055
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_paint_remover
+  category: bottle_of_paint_remover
+  model: abrsty
+  bounding_box:
+  - 0.06355
+  - 0.06355
+  - 0.2429
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.455
+  - 0.17145
+- type: DatasetObject
+  name: distractor_jar_of_spaghetti_sauce
+  category: jar_of_spaghetti_sauce
+  model: zahyds
+  bounding_box:
+  - 0.06496
+  - 0.06496
+  - 0.10621
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.455
+  - 0.103105
+- type: DatasetObject
+  name: distractor_hammer
+  category: hammer
+  model: fcrlbo
+  bounding_box:
+  - 0.1
+  - 0.0414117
+  - 0.0122257
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.195
+  - 0.0561129
+immutables:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: aspeds
+  bounding_box:
+  - 0.1451
+  - 0.14509
+  - 0.0543
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.195
+  - 0.07715
+initial_state:
+- predicate: inside
+  subject: bottle
+  object: bowl
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: bottle
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.3117481
+    - -0.3264663
+    - 0.4313761
+    rot:
+    - 0.3425243
+    - -0.0892948
+    - -0.3133318
+    - 0.8812075
+  cam2:
+    pos:
+    - 0.0455069
+    - 0.4540814
+    - 0.4274811
+    rot:
+    - 0.2462294
+    - -0.3313754
+    - -0.8164427
+    - 0.4037113
+provenance:
+  task_id: fa72b15d2534
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the bottle from the bowl and put it on the table
+  decisions:
+  - shortened to the removal; table is the support
+  - 'bottle_of_water cyzaue (17.5 cm) in bowl aspeds (14.5 cm, 5.4 cm deep): the bowl is narrower than the bottle is tall,
+    so it stands upright instead of being laid flat'

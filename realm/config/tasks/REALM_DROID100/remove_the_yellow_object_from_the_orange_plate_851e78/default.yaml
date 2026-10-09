@@ -1,0 +1,146 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the yellow object from the plate
+instruction_obj_to_replace: yellow
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Pomaria_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: PrimitiveObject
+  name: yellow_block
+  primitive_type: Cube
+  rgba:
+  - 0.9
+  - 0.8
+  - 0.1
+  - 1.0
+  bounding_box:
+  - 0.05
+  - 0.05
+  - 0.05
+  scale:
+  - 0.05
+  - 0.05
+  - 0.05
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.15
+  - 0.10448
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_can_of_bay_leaves
+  category: can_of_bay_leaves
+  model: ppwvjf
+  bounding_box:
+  - 0.06254
+  - 0.06118
+  - 0.07412
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.35
+  - 0.08706
+- type: DatasetObject
+  name: distractor_bottle_of_lemonade
+  category: bottle_of_lemonade
+  model: hqobwj
+  bounding_box:
+  - 0.1
+  - 0.0374057
+  - 0.0172126
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.35
+  - 0.0586063
+- type: DatasetObject
+  name: distractor_zucchini
+  category: zucchini
+  model: yhhkxf
+  bounding_box:
+  - 0.1
+  - 0.0399956
+  - 0.0373848
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.15
+  - 0.0686924
+immutables:
+- type: DatasetObject
+  name: plate
+  category: plate
+  model: aewthq
+  bounding_box:
+  - 0.17043
+  - 0.17043
+  - 0.01948
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.15
+  - 0.05974
+initial_state:
+- predicate: on_top_of
+  subject: yellow_block
+  object: plate
+target_state:
+  rubric: pick
+  predicate: on_top_of
+  subject: yellow_block
+  object: plate
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.1491933
+    - -0.6159549
+    - 0.4716827
+    rot:
+    - 0.4974426
+    - -0.1573861
+    - -0.2556759
+    - 0.8138859
+  cam2:
+    pos:
+    - 0.176261
+    - 0.5174009
+    - 0.4133229
+    rot:
+    - 0.1621777
+    - -0.4429325
+    - -0.8111802
+    - 0.3456817
+provenance:
+  task_id: 851e78224c57
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the yellow object from the orange plate
+  decisions:
+  - '"yellow object" is a generic noun phrase whose only property is colour: authored as a yellow block primitive (rgba set)'
+  - '"orange" dropped from the plate (texture); plate aewthq'

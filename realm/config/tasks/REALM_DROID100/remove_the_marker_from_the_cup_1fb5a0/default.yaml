@@ -1,0 +1,139 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the marker from the cup
+instruction_obj_to_replace: marker
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+main_objects:
+- type: DatasetObject
+  name: marker
+  category: marker
+  model: shyzgp
+  bounding_box:
+  - 0.14
+  - 0.0131972
+  - 0.013206
+  orientation:
+  - 0.0
+  - 0.7071068
+  - 0.0
+  - 0.7071068
+  relative_bbox_position:
+  - 0.12
+  - 0.195
+  - 0.1905001
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_jar_of_sugar
+  category: jar_of_sugar
+  model: vrmrci
+  bounding_box:
+  - 0.06808
+  - 0.06808
+  - 0.10457
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.455
+  - 0.102285
+- type: DatasetObject
+  name: distractor_bottle_of_lighter_fluid
+  category: bottle_of_lighter_fluid
+  model: qudpzo
+  bounding_box:
+  - 0.04503
+  - 0.08753
+  - 0.23909
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.455
+  - 0.169545
+- type: DatasetObject
+  name: distractor_drill
+  category: drill
+  model: nzgmza
+  bounding_box:
+  - 0.0372288
+  - 0.1
+  - 0.1252306
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.195
+  - 0.1126153
+immutables:
+- type: DatasetObject
+  name: cup
+  category: soda_cup
+  model: fsfsas
+  bounding_box:
+  - 0.09201
+  - 0.09211
+  - 0.1055
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.195
+  - 0.1027501
+initial_state:
+- predicate: inside
+  subject: marker
+  object: cup
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: marker
+  object: cup
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.055323
+    - 0.3193113
+    - 0.237682
+    rot:
+    - 0.3559102
+    - -0.5665239
+    - -0.6125874
+    - 0.4208505
+  cam2:
+    pos:
+    - 0.0872853
+    - -0.325156
+    - 0.2366114
+    rot:
+    - 0.5660261
+    - -0.3490711
+    - -0.3924017
+    - 0.6354406
+provenance:
+  task_id: 1fb5a0b7d5a0
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the marker from the cup
+  decisions:
+  - 'cup grounded as soda_cup fsfsas (10.5 cm tall): the instruction says cup, and soda_cup is the alternative that is literally
+    a cup'
+  - long marker so it stands above the rim and is graspable

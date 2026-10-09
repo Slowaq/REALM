@@ -1,0 +1,135 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the bottle in the box
+instruction_obj_to_replace: bottle
+instruction_target_to_replace: box
+instruction_verb_to_replace: put
+supported_scenes:
+  Pomaria_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: bottle
+  category: bottle_of_water
+  model: migvlt
+  bounding_box:
+  - 0.07033
+  - 0.07033
+  - 0.22846
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.425
+  - 0.16423
+target_objects:
+- type: DatasetObject
+  name: box
+  category: storage_box
+  model: aqdbdu
+  bounding_box:
+  - 0.20369
+  - 0.20368
+  - 0.1434
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.25
+  - 0.1217
+distractors:
+- type: DatasetObject
+  name: distractor_teaspoon
+  category: teaspoon
+  model: wzsvzv
+  bounding_box:
+  - 0.09894
+  - 0.02218
+  - 0.0078
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.125
+  - 0.0539
+- type: DatasetObject
+  name: distractor_shaker
+  category: shaker
+  model: hbheag
+  bounding_box:
+  - 0.03577
+  - 0.03592
+  - 0.09196
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.06
+  - 0.25
+  - 0.0959801
+- type: DatasetObject
+  name: distractor_pencil
+  category: pencil
+  model: fnlbpu
+  bounding_box:
+  - 0.1
+  - 0.0038263
+  - 0.0031886
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.375
+  - 0.0515943
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: bottle
+  object: box
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.116884
+    - 0.5687245
+    - 0.2352191
+    rot:
+    - 0.2006533
+    - -0.487112
+    - -0.7781045
+    - 0.3420725
+  cam2:
+    pos:
+    - 0.1390146
+    - -0.5414217
+    - 0.5165604
+    rot:
+    - 0.3753406
+    - -0.1610728
+    - -0.3266653
+    - 0.852329
+provenance:
+  task_id: 0e517f13df89
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up the bottle from the table and put it in the grey box, place the grey box on top of the black
+    box
+  decisions:
+  - shortened to the first scoreable clause (bottle into box); stacking the box onto a second box is a second main object
+  - colours dropped; bottle_of_water migvlt, storage_box aqdbdu

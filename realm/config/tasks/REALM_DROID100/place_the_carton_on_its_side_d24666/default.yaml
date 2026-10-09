@@ -1,0 +1,114 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: rotate
+instruction: Rotate the carton
+instruction_obj_to_replace: carton
+instruction_target_to_replace: ''
+instruction_verb_to_replace: rotate
+supported_scenes:
+  Benevolence_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: carton
+  category: carton_of_milk
+  model: kklgxk
+  bounding_box:
+  - 0.04496
+  - 0.0662
+  - 0.14934
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.12
+  - 0.12467
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_pencil
+  category: pencil
+  model: fnlbpu
+  bounding_box:
+  - 0.1
+  - 0.0038263
+  - 0.0031886
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.28
+  - 0.0515943
+- type: DatasetObject
+  name: distractor_allen_wrench
+  category: allen_wrench
+  model: neqlcn
+  bounding_box:
+  - 0.1
+  - 0.021601
+  - 0.0037431
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.28
+  - 0.0518716
+- type: DatasetObject
+  name: distractor_table_knife
+  category: table_knife
+  model: nmkend
+  bounding_box:
+  - 0.1
+  - 0.0105597
+  - 0.0021863
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.12
+  - 0.0510932
+immutables: []
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.1343943
+    - -0.4188512
+    - 0.2153054
+    rot:
+    - 0.54628
+    - -0.1379225
+    - -0.3282318
+    - 0.7581684
+  cam2:
+    pos:
+    - 0.1977585
+    - 0.3494114
+    - 0.2946944
+    rot:
+    - 0.1227441
+    - -0.4038502
+    - -0.8780997
+    - 0.2253439
+provenance:
+  task_id: d24666983663
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Place the carton on its side
+  decisions:
+  - placing a carton on its side is a reorientation; ROTATED scores any rotation > 1.1 rad, not "on its side", so the instruction
+    is shortened to "Rotate the carton"
+  - carton grounded as carton_of_milk kklgxk (the variant's white and blue carton is a drinks carton; `carton` models are
+    cardboard boxes)

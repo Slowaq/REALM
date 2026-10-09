@@ -1,0 +1,134 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the scoop inside the bowl
+instruction_obj_to_replace: scoop
+instruction_target_to_replace: bowl
+instruction_verb_to_replace: put
+supported_scenes:
+  office_cubicles_left:
+  - Office_Desk
+main_objects:
+- type: DatasetObject
+  name: scoop
+  category: scoop
+  model: oaghrf
+  bounding_box:
+  - 0.14
+  - 0.0238944
+  - 0.0193092
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.42
+  - 0.0596546
+target_objects:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: hpqjug
+  bounding_box:
+  - 0.16194
+  - 0.16194
+  - 0.07924
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.18
+  - 0.08962
+distractors:
+- type: DatasetObject
+  name: distractor_jar_of_clove
+  category: jar_of_clove
+  model: dlvall
+  bounding_box:
+  - 0.09535
+  - 0.09534
+  - 0.13171
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.42
+  - 0.115855
+- type: DatasetObject
+  name: distractor_bottle_of_beer
+  category: bottle_of_beer
+  model: rdnopv
+  bounding_box:
+  - 0.05661
+  - 0.05653
+  - 0.20525
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.18
+  - 0.152625
+- type: DatasetObject
+  name: distractor_beer_bottle
+  category: beer_bottle
+  model: nigfha
+  bounding_box:
+  - 0.07544
+  - 0.07544
+  - 0.25865
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.3
+  - 0.3
+  - 0.1793251
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: scoop
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2521228
+    - 0.5611843
+    - 0.41285
+    rot:
+    - 0.1723366
+    - -0.5446223
+    - -0.7838283
+    - 0.2435156
+  cam2:
+    pos:
+    - 0.0722605
+    - -0.4578849
+    - 0.569972
+    rot:
+    - 0.4358198
+    - -0.229696
+    - -0.4350418
+    - 0.7536839
+provenance:
+  task_id: dc3a3f546056
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the blue scoop inside the yellow bowl
+  decisions:
+  - colours dropped (texture)
+  - scoop oaghrf (authored at the 14 cm ceiling), bowl hpqjug

@@ -1,0 +1,135 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the toy in the bowl
+instruction_obj_to_replace: toy
+instruction_target_to_replace: bowl
+instruction_verb_to_replace: put
+supported_scenes:
+  Benevolence_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: toy
+  category: toy_figure
+  model: fekpjq
+  bounding_box:
+  - 0.10324
+  - 0.11427
+  - 0.08317
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.28
+  - 0.091585
+target_objects:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: jblalf
+  bounding_box:
+  - 0.16932
+  - 0.16932
+  - 0.081
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.12
+  - 0.0905
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_apple_cider
+  category: bottle_of_apple_cider
+  model: frekrp
+  bounding_box:
+  - 0.07436
+  - 0.07268
+  - 0.31068
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.28
+  - 0.2053401
+- type: DatasetObject
+  name: distractor_hotdog_bun
+  category: hotdog_bun
+  model: ajlvvj
+  bounding_box:
+  - 0.1
+  - 0.0479192
+  - 0.0346424
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.12
+  - 0.0673212
+- type: DatasetObject
+  name: distractor_allen_wrench
+  category: allen_wrench
+  model: neqlcn
+  bounding_box:
+  - 0.1
+  - 0.021601
+  - 0.0037431
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.3
+  - 0.2
+  - 0.0518716
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: toy
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2009218
+    - 0.4965431
+    - 0.4452356
+    rot:
+    - 0.1598474
+    - -0.4215652
+    - -0.8507442
+    - 0.2701221
+  cam2:
+    pos:
+    - 0.1546867
+    - -0.3984614
+    - 0.5461016
+    rot:
+    - 0.4040263
+    - -0.104215
+    - -0.2525108
+    - 0.8730064
+provenance:
+  task_id: 1299a815d5c6
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up the orange toy from the worktop and place it in the green bowl
+  decisions:
+  - 'shortened to the scored put: the pick-up-from-worktop clause is REACH/GRASP, the worktop is the support'
+  - 'colour words (orange toy, green bowl) dropped: asset textures are not guaranteed (rule 5)'
+  - toy grounded as toy_figure fekpjq (compact, fits a 17 cm bowl)

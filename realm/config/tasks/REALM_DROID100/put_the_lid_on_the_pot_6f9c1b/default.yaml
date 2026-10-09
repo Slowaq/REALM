@@ -1,0 +1,133 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: stack
+instruction: Put the lid on the pot
+instruction_obj_to_replace: lid
+instruction_target_to_replace: pot
+instruction_verb_to_replace: stack
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: lid
+  category: lid
+  model: geesvf
+  bounding_box:
+  - 0.22608
+  - 0.22608
+  - 0.07324
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.25
+  - 0.45
+  - 0.08662
+target_objects:
+- type: DatasetObject
+  name: pot
+  category: saucepot
+  model: vqtkwq
+  bounding_box:
+  - 0.2046389
+  - 0.28
+  - 0.1379411
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.1189706
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_cologne
+  category: bottle_of_cologne
+  model: lyipur
+  bounding_box:
+  - 0.07776
+  - 0.08
+  - 0.12
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - 0.11
+- type: DatasetObject
+  name: distractor_mouse
+  category: mouse
+  model: oydobn
+  bounding_box:
+  - 0.0311
+  - 0.0196
+  - 0.01128
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.375
+  - 0.3
+  - 0.05564
+- type: DatasetObject
+  name: distractor_broccoli
+  category: broccoli
+  model: wsxavx
+  bounding_box:
+  - 0.02909
+  - 0.02903
+  - 0.02186
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.425
+  - 0.3
+  - 0.06093
+immutables: []
+target_state:
+  rubric: stack
+  predicate: on_top_of
+  subject: lid
+  object: pot
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2101344
+    - 0.3702791
+    - 0.3512246
+    rot:
+    - 0.0590726
+    - -0.5283129
+    - -0.8297614
+    - 0.1699759
+  cam2:
+    pos:
+    - 0.0229793
+    - -0.6926885
+    - 0.3578397
+    rot:
+    - 0.3916904
+    - -0.246867
+    - -0.4010006
+    - 0.7904643
+provenance:
+  task_id: 6f9c1b41e66c
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the lid on the pot
+  decisions:
+  - saucepot vqtkwq (~20 cm body after the 0.28 m cap) with lid geesvf (22.6 cm), wider than the pot so it rests on the rim

@@ -1,0 +1,113 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: rotate
+instruction: Rotate the pot
+instruction_obj_to_replace: pot
+instruction_target_to_replace: ''
+instruction_verb_to_replace: rotate
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+main_objects:
+- type: DatasetObject
+  name: pot
+  category: saucepot
+  model: uvzmss
+  bounding_box:
+  - 0.1188004
+  - 0.16
+  - 0.0593789
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.195
+  - 0.0796895
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_shaker
+  category: shaker
+  model: hbheag
+  bounding_box:
+  - 0.03577
+  - 0.03592
+  - 0.09196
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.455
+  - 0.0959801
+- type: DatasetObject
+  name: distractor_bottle_of_molasses
+  category: bottle_of_molasses
+  model: jvsjop
+  bounding_box:
+  - 0.08084
+  - 0.08074
+  - 0.19055
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.455
+  - 0.145275
+- type: DatasetObject
+  name: distractor_bell_pepper
+  category: bell_pepper
+  model: ukkycp
+  bounding_box:
+  - 0.09409
+  - 0.06433
+  - 0.0685
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.195
+  - 0.08425
+immutables: []
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.0798928
+    - 0.4138941
+    - 0.4326942
+    rot:
+    - 0.2993325
+    - -0.5537126
+    - -0.6589665
+    - 0.4117835
+  cam2:
+    pos:
+    - 0.2555545
+    - -0.5344777
+    - 0.5096174
+    rot:
+    - 0.5597586
+    - -0.154191
+    - -0.1777488
+    - 0.7945444
+provenance:
+  task_id: 20a53e71a252
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Rotate the black pot
+  decisions:
+  - '"black" dropped (texture)'
+  - saucepot uvzmss as the main object is authored at the 14 cm hand-object ceiling (a small, graspable pot); ROTATED scores
+    magnitude, so "to the right" in the variant is not promised

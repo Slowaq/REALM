@@ -1,0 +1,138 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Take the pen out of the bowl
+instruction_obj_to_replace: pen
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Benevolence_1_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: pen
+  category: pen
+  model: izhouj
+  bounding_box:
+  - 0.14
+  - 0.0130093
+  - 0.0080797
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.18
+  - 0.12
+  - 0.0640398
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_jar_of_curry_powder
+  category: jar_of_curry_powder
+  model: ozhftu
+  bounding_box:
+  - 0.06
+  - 0.0599
+  - 0.07195
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.42
+  - 0.28
+  - 0.085975
+- type: DatasetObject
+  name: distractor_can_of_bay_leaves
+  category: can_of_bay_leaves
+  model: ppwvjf
+  bounding_box:
+  - 0.06254
+  - 0.06118
+  - 0.07412
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.18
+  - 0.28
+  - 0.08706
+- type: DatasetObject
+  name: distractor_bottle_of_maple_syrup
+  category: bottle_of_maple_syrup
+  model: qfgewi
+  bounding_box:
+  - 0.1
+  - 0.0803425
+  - 0.109391
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.42
+  - 0.12
+  - 0.1046955
+immutables:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: jblalf
+  bounding_box:
+  - 0.16932
+  - 0.16932
+  - 0.081
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.18
+  - 0.12
+  - 0.0905
+initial_state:
+- predicate: inside
+  subject: pen
+  object: bowl
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: pen
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.382199
+    - 0.5056422
+    - 0.4952352
+    rot:
+    - 0.1420744
+    - -0.4612173
+    - -0.8388631
+    - 0.251798
+  cam2:
+    pos:
+    - 0.1443399
+    - -0.5178273
+    - 0.37781
+    rot:
+    - 0.5905561
+    - -0.2082474
+    - -0.2716731
+    - 0.7308011
+provenance:
+  task_id: a55d56af782d
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Take the pen out of the bowl and place it on the table
+  decisions:
+  - shortened to the removal; table is the support
+  - pen izhouj lies flat in bowl jblalf (17 cm)

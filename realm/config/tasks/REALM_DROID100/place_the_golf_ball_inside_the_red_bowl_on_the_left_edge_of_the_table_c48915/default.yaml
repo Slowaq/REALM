@@ -1,0 +1,135 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the ball inside the bowl
+instruction_obj_to_replace: ball
+instruction_target_to_replace: bowl
+instruction_verb_to_replace: put
+supported_scenes:
+  Benevolence_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: ball
+  category: tennis_ball
+  model: rgekxe
+  bounding_box:
+  - 0.06673
+  - 0.06584
+  - 0.06598
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.28
+  - 0.0829901
+target_objects:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: jblalf
+  bounding_box:
+  - 0.16932
+  - 0.16932
+  - 0.081
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.12
+  - 0.0905
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_conditioner
+  category: bottle_of_conditioner
+  model: teafxb
+  bounding_box:
+  - 0.1
+  - 0.0405229
+  - 0.0191148
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.28
+  - 0.0595574
+- type: DatasetObject
+  name: distractor_stapler
+  category: stapler
+  model: kgnsas
+  bounding_box:
+  - 0.08743
+  - 0.01823
+  - 0.04502
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.12
+  - 0.07251
+- type: DatasetObject
+  name: distractor_jar_of_dill_seed
+  category: jar_of_dill_seed
+  model: reavkt
+  bounding_box:
+  - 0.06244
+  - 0.06151
+  - 0.07418
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.3
+  - 0.2
+  - 0.08709
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: ball
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.0496475
+    - 0.48451
+    - 0.4775894
+    rot:
+    - 0.2453471
+    - -0.5627098
+    - -0.7148973
+    - 0.33479
+  cam2:
+    pos:
+    - -0.0763178
+    - -0.3689628
+    - 0.5359364
+    rot:
+    - 0.5700511
+    - -0.2526254
+    - -0.3688033
+    - 0.689352
+provenance:
+  task_id: c4891515bc7f
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Place the golf ball inside the red bowl on the left edge of the table
+  decisions:
+  - 'no golf_ball asset; the variants say "the white ball": grounded as tennis_ball and the instruction says only "ball"'
+  - '"red" and "on the left edge of the table" dropped (texture, unscored position)'
+  - 'note: a ball can roll, so the render pass should confirm it rests still at spawn'

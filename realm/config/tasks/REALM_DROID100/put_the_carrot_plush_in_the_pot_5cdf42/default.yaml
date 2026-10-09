@@ -1,0 +1,135 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the carrot in the pot
+instruction_obj_to_replace: carrot
+instruction_target_to_replace: pot
+instruction_verb_to_replace: put
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: carrot
+  category: carrot
+  model: qhmmmx
+  bounding_box:
+  - 0.14
+  - 0.0229997
+  - 0.0230074
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - 0.0615037
+target_objects:
+- type: DatasetObject
+  name: pot
+  category: saucepot
+  model: vqtkwq
+  bounding_box:
+  - 0.2046389
+  - 0.28
+  - 0.1379411
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.1189706
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_alfredo_sauce
+  category: bottle_of_alfredo_sauce
+  model: xwzqjr
+  bounding_box:
+  - 0.05973
+  - 0.05973
+  - 0.11393
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - 0.106965
+- type: DatasetObject
+  name: distractor_jar_of_cocoa
+  category: jar_of_cocoa
+  model: sjwgfn
+  bounding_box:
+  - 0.1
+  - 0.0973557
+  - 0.1305627
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - 0.1152814
+- type: DatasetObject
+  name: distractor_hotdog_bun
+  category: hotdog_bun
+  model: ajlvvj
+  bounding_box:
+  - 0.1
+  - 0.0479192
+  - 0.0346424
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.375
+  - 0.3
+  - 0.0673212
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: carrot
+  object: pot
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2337135
+    - 0.5266391
+    - 0.3484036
+    rot:
+    - 0.1182772
+    - -0.6124151
+    - -0.7681145
+    - 0.1447699
+  cam2:
+    pos:
+    - -0.0313319
+    - -0.4922518
+    - 0.5068732
+    rot:
+    - 0.5016729
+    - -0.1626112
+    - -0.2624647
+    - 0.8080806
+provenance:
+  task_id: 5cdf42aa8977
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the carrot plush in the pot
+  decisions:
+  - plush toy grounded as the carrot asset (same shape and role; plush is a material the config cannot show), worded "the
+    carrot"
+  - saucepot vqtkwq

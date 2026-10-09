@@ -1,0 +1,139 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the spice bottle from the bowl
+instruction_obj_to_replace: spice bottle
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  office_cubicles_left:
+  - Office_Desk
+main_objects:
+- type: DatasetObject
+  name: spice_bottle
+  category: bottle_of_pumpkin_pie_spice
+  model: oindrv
+  bounding_box:
+  - 0.04325
+  - 0.04323
+  - 0.108
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.18
+  - 0.137
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_can_of_icetea
+  category: can_of_icetea
+  model: ifrjsc
+  bounding_box:
+  - 0.0757
+  - 0.0757
+  - 0.14925
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.42
+  - 0.124625
+- type: DatasetObject
+  name: distractor_tray
+  category: tray
+  model: coqeme
+  bounding_box:
+  - 0.0638129
+  - 0.1
+  - 0.0080665
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.42
+  - 0.0540333
+- type: DatasetObject
+  name: distractor_bottle_of_fennel
+  category: bottle_of_fennel
+  model: ihlkfu
+  bounding_box:
+  - 0.06
+  - 0.06
+  - 0.07186
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.18
+  - 0.0859301
+immutables:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: kthvrl
+  bounding_box:
+  - 0.09344
+  - 0.09344
+  - 0.06
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.18
+  - 0.08
+initial_state:
+- predicate: inside
+  subject: spice_bottle
+  object: bowl
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: spice_bottle
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.3474485
+    - 0.5216496
+    - 0.4851246
+    rot:
+    - 0.2189242
+    - -0.5032294
+    - -0.7698182
+    - 0.3259023
+  cam2:
+    pos:
+    - 0.0952704
+    - -0.197059
+    - 0.4359719
+    rot:
+    - 0.4483082
+    - -0.3943609
+    - -0.581323
+    - 0.5527773
+provenance:
+  task_id: bfa45715ee67
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the spice bottle from the yellow cereal bowl
+  decisions:
+  - spice bottle grounded as bottle_of_pumpkin_pie_spice oindrv (a spice bottle; the instruction keeps the generic name)
+  - '"yellow cereal" dropped (texture); bowl kthvrl (9.3 cm) is narrower than the 10.8 cm bottle is tall, so it stands upright
+    and protrudes'

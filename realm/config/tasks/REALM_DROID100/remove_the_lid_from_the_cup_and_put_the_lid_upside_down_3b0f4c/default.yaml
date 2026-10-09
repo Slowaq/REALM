@@ -1,0 +1,139 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the lid from the mug
+instruction_obj_to_replace: lid
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  office_cubicles_left:
+  - Office_Desk
+main_objects:
+- type: DatasetObject
+  name: lid
+  category: lid
+  model: pwgbsb
+  bounding_box:
+  - 0.08975
+  - 0.08974
+  - 0.02248
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.7071068
+  - 0.7071068
+  relative_bbox_position:
+  - 0.12
+  - 0.18
+  - 0.1359
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_perfume
+  category: bottle_of_perfume
+  model: ipurzb
+  bounding_box:
+  - 0.06637
+  - 0.06637
+  - 0.1524
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.42
+  - 0.1262
+- type: DatasetObject
+  name: distractor_can_of_beans
+  category: can_of_beans
+  model: ojqgjz
+  bounding_box:
+  - 0.0805
+  - 0.08261
+  - 0.09877
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.42
+  - 0.099385
+- type: DatasetObject
+  name: distractor_jar_of_tumeric
+  category: jar_of_tumeric
+  model: miivhi
+  bounding_box:
+  - 0.09321
+  - 0.09321
+  - 0.13171
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.18
+  - 0.115855
+immutables:
+- type: DatasetObject
+  name: mug
+  category: mug
+  model: kitxam
+  bounding_box:
+  - 0.064
+  - 0.08585
+  - 0.06466
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.18
+  - 0.08233
+initial_state:
+- predicate: on_top_of
+  subject: lid
+  object: mug
+target_state:
+  rubric: pick
+  predicate: on_top_of
+  subject: lid
+  object: mug
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.1935664
+    - 0.4885386
+    - 0.4486465
+    rot:
+    - 0.1624919
+    - -0.4162895
+    - -0.8518788
+    - 0.2731335
+  cam2:
+    pos:
+    - 0.1555018
+    - -0.4065188
+    - 0.5410766
+    rot:
+    - 0.4077616
+    - -0.1005328
+    - -0.2499747
+    - 0.8724312
+provenance:
+  task_id: 3b0f4c911d46
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the lid from the cup and put the lid upside down
+  decisions:
+  - 'shortened to the removal (variant wording): "put the lid upside down" is an orientation the pick rubric cannot score'
+  - mug kitxam (6.4 cm body); lid pwgbsb (9 cm) covers the opening even though the solver centres it on the handle-inclusive
+    bbox (~1 cm off the body axis)

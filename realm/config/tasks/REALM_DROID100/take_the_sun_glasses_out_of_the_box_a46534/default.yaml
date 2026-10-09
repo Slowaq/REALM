@@ -1,0 +1,137 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Take the sunglasses out of the box
+instruction_obj_to_replace: sunglasses
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+main_objects:
+- type: DatasetObject
+  name: sunglasses
+  category: sunglasses
+  model: wdxiwf
+  bounding_box:
+  - 0.04152
+  - 0.10669
+  - 0.0341
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.7071068
+  - 0.7071068
+  relative_bbox_position:
+  - 0.2
+  - 0.325
+  - 0.07705
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_conditioner
+  category: bottle_of_conditioner
+  model: teafxb
+  bounding_box:
+  - 0.1
+  - 0.0405229
+  - 0.0191148
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.1625
+  - 0.0595574
+- type: DatasetObject
+  name: distractor_tongs
+  category: tongs
+  model: rcpjld
+  bounding_box:
+  - 0.1
+  - 0.0257077
+  - 0.0243115
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.4875
+  - 0.0621558
+- type: DatasetObject
+  name: distractor_hingeless_jar
+  category: hingeless_jar
+  model: zdeyzf
+  bounding_box:
+  - 0.06014
+  - 0.06014
+  - 0.05165
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.5525
+  - 0.075825
+immutables:
+- type: DatasetObject
+  name: box
+  category: storage_box
+  model: bwbpvg
+  bounding_box:
+  - 0.23519
+  - 0.2508
+  - 0.0573
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.325
+  - 0.07865
+initial_state:
+- predicate: inside
+  subject: sunglasses
+  object: box
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: sunglasses
+  object: box
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.3336075
+    - 0.4787739
+    - 0.3652185
+    rot:
+    - 0.0293046
+    - -0.5003507
+    - -0.8640073
+    - 0.0477682
+  cam2:
+    pos:
+    - 0.2482725
+    - -0.5013589
+    - 0.326972
+    rot:
+    - 0.5069289
+    - -0.092761
+    - -0.1534398
+    - 0.8431339
+provenance:
+  task_id: a465348324f7
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Take the sun glasses out of the box
+  decisions:
+  - '"sun glasses" normalised to "sunglasses" (the category); shallow storage_box bwbpvg (5.7 cm deep)'

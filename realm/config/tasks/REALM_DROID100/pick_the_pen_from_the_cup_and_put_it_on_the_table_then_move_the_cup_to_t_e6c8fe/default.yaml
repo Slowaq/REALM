@@ -1,0 +1,139 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the pen from the mug
+instruction_obj_to_replace: pen
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Pomaria_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: pen
+  category: pen
+  model: izhouj
+  bounding_box:
+  - 0.14
+  - 0.0130093
+  - 0.0080797
+  orientation:
+  - 0.0
+  - 0.7071068
+  - 0.0
+  - 0.7071068
+  relative_bbox_position:
+  - 0.12
+  - 0.15
+  - 0.16954
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_alfredo_sauce
+  category: bottle_of_alfredo_sauce
+  model: xwzqjr
+  bounding_box:
+  - 0.05973
+  - 0.05973
+  - 0.11393
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.35
+  - 0.106965
+- type: DatasetObject
+  name: distractor_scone
+  category: scone
+  model: gwdhyj
+  bounding_box:
+  - 0.1
+  - 0.0635379
+  - 0.0342788
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.35
+  - 0.0671394
+- type: DatasetObject
+  name: distractor_parer
+  category: parer
+  model: zpkhwi
+  bounding_box:
+  - 0.1
+  - 0.0126275
+  - 0.0067316
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.15
+  - 0.0533658
+immutables:
+- type: DatasetObject
+  name: mug
+  category: mug
+  model: lgxhsc
+  bounding_box:
+  - 0.07725
+  - 0.10513
+  - 0.08454
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.15
+  - 0.09227
+initial_state:
+- predicate: inside
+  subject: pen
+  object: mug
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: pen
+  object: mug
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.321459
+    - 0.5510908
+    - 0.1387493
+    rot:
+    - 0.3164866
+    - -0.5281887
+    - -0.6984544
+    - 0.3647114
+  cam2:
+    pos:
+    - 0.1323377
+    - -0.3592943
+    - 0.1704442
+    rot:
+    - 0.4884104
+    - -0.4523035
+    - -0.2549583
+    - 0.7013367
+provenance:
+  task_id: e6c8fe65dc7d
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick the pen from the cup and put it on the table, then move the cup to the left
+  decisions:
+  - 'shortened to the removal: "move the cup to the left" is a motion REALM cannot score, "put it on the table" is the support'
+  - cluster signature and variants say mug cup; grounded and named as mug
+  - mug lgxhsc (8.5 cm deep) with a long pen so it protrudes above the rim

@@ -1,0 +1,137 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the banana from the box
+instruction_obj_to_replace: banana
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: banana
+  category: banana
+  model: wmglhc
+  bounding_box:
+  - 0.14
+  - 0.0718551
+  - 0.0596834
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.7071068
+  - 0.7071068
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.1222208
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_coconut_milk
+  category: bottle_of_coconut_milk
+  model: idenxg
+  bounding_box:
+  - 0.09978
+  - 0.09978
+  - 0.28356
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - 0.19178
+- type: DatasetObject
+  name: distractor_broccoli
+  category: broccoli
+  model: wsxavx
+  bounding_box:
+  - 0.02909
+  - 0.02903
+  - 0.02186
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - 0.06093
+- type: DatasetObject
+  name: distractor_toasting_fork
+  category: toasting_fork
+  model: osrfkc
+  bounding_box:
+  - 0.1
+  - 0.0172667
+  - 0.0053867
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - 0.0526934
+immutables:
+- type: DatasetObject
+  name: box
+  category: storage_box
+  model: bwbpvg
+  bounding_box:
+  - 0.23519
+  - 0.2508
+  - 0.0573
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.07865
+initial_state:
+- predicate: inside
+  subject: banana
+  object: box
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: banana
+  object: box
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.097288
+    - 0.7457614
+    - 0.4076226
+    rot:
+    - 0.1567488
+    - -0.6747764
+    - -0.6834847
+    - 0.2301201
+  cam2:
+    pos:
+    - -0.1378338
+    - -0.6949861
+    - 0.4511252
+    rot:
+    - 0.6396708
+    - -0.2754916
+    - -0.2917541
+    - 0.6555952
+provenance:
+  task_id: 859416e17df6
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the banana from the box
+  decisions:
+  - banana wmglhc in shallow storage_box bwbpvg (5.7 cm deep) so it stays reachable; instruction unchanged

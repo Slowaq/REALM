@@ -1,0 +1,146 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the yellow block from the pot
+instruction_obj_to_replace: yellow block
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  office_cubicles_left:
+  - Office_Desk
+main_objects:
+- type: PrimitiveObject
+  name: yellow_block
+  primitive_type: Cube
+  rgba:
+  - 0.9
+  - 0.8
+  - 0.1
+  - 1.0
+  bounding_box:
+  - 0.05
+  - 0.05
+  - 0.05
+  scale:
+  - 0.05
+  - 0.05
+  - 0.05
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.3
+  - 0.1471798
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_paint
+  category: bottle_of_paint
+  model: volzrj
+  bounding_box:
+  - 0.06233
+  - 0.06233
+  - 0.16605
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.51
+  - 0.133025
+- type: DatasetObject
+  name: distractor_broccoli
+  category: broccoli
+  model: wsxavx
+  bounding_box:
+  - 0.02909
+  - 0.02903
+  - 0.02186
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.06
+  - 0.3
+  - 0.06093
+- type: DatasetObject
+  name: distractor_beaker
+  category: beaker
+  model: fxrsyi
+  bounding_box:
+  - 0.04578
+  - 0.04578
+  - 0.06632
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.34
+  - 0.3
+  - 0.0831601
+immutables:
+- type: DatasetObject
+  name: pot
+  category: saucepot
+  model: wfryvm
+  bounding_box:
+  - 0.2050415
+  - 0.28
+  - 0.0846798
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.3
+  - 0.0923399
+initial_state:
+- predicate: inside
+  subject: yellow_block
+  object: pot
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: yellow_block
+  object: pot
+camera_extrinsics:
+  cam1:
+    pos:
+    - -0.0480993
+    - -0.2667364
+    - 0.3365273
+    rot:
+    - 0.5277052
+    - -0.3492848
+    - -0.4376637
+    - 0.6387314
+  cam2:
+    pos:
+    - 0.0416917
+    - 0.3984497
+    - 0.2924237
+    rot:
+    - 0.3036977
+    - -0.4733447
+    - -0.666264
+    - 0.4896987
+provenance:
+  task_id: 2031046d45c5
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the yellow block from the silver pot and put it on the table
+  decisions:
+  - shortened to the removal; table is the support; "silver" dropped (material)
+  - yellow block authored as a block primitive with rgba set; pot grounded as saucepot wfryvm

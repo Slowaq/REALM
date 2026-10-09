@@ -1,0 +1,139 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the box from the bowl
+instruction_obj_to_replace: box
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: box
+  category: match_box
+  model: xpnfjz
+  bounding_box:
+  - 0.10484
+  - 0.05
+  - 0.01597
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.067985
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_oil
+  category: bottle_of_oil
+  model: ueanhf
+  bounding_box:
+  - 0.09056
+  - 0.0906
+  - 0.31938
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - 0.20969
+- type: DatasetObject
+  name: distractor_screwdriver
+  category: screwdriver
+  model: uajlga
+  bounding_box:
+  - 0.1
+  - 0.0092764
+  - 0.0092203
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - 0.0546102
+- type: DatasetObject
+  name: distractor_jar_of_kidney_beans
+  category: jar_of_kidney_beans
+  model: kfzxah
+  bounding_box:
+  - 0.093
+  - 0.093
+  - 0.13171
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - 0.115855
+immutables:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: jblalf
+  bounding_box:
+  - 0.16932
+  - 0.16932
+  - 0.081
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.0905
+initial_state:
+- predicate: inside
+  subject: box
+  object: bowl
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: box
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.0907985
+    - 0.3909808
+    - 0.458754
+    rot:
+    - 0.3806949
+    - -0.4435972
+    - -0.655985
+    - 0.4774689
+  cam2:
+    pos:
+    - 0.0659122
+    - -0.2460045
+    - 0.2887835
+    rot:
+    - 0.5298881
+    - -0.3116201
+    - -0.4279456
+    - 0.6625512
+provenance:
+  task_id: a06176bb2745
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the box from the bowl
+  decisions:
+  - box grounded as match_box xpnfjz (a small box, 10.5x5 cm, graspable); storage_box at the 14 cm ceiling came out 14x14x10
+    cm, wider than the gripper opens on every axis. Instruction keeps "the box"
+  - bowl jblalf (17 cm)

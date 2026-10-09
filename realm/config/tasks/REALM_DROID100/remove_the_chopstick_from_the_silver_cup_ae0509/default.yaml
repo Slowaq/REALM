@@ -1,0 +1,139 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the chopstick from the cup
+instruction_obj_to_replace: chopstick
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+main_objects:
+- type: DatasetObject
+  name: chopstick
+  category: chopstick
+  model: ahmhza
+  bounding_box:
+  - 0.14
+  - 0.0067663
+  - 0.007472
+  orientation:
+  - 0.0
+  - 0.7071068
+  - 0.0
+  - 0.7071068
+  relative_bbox_position:
+  - 0.12
+  - 0.195
+  - 0.17481
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_conditioner
+  category: bottle_of_conditioner
+  model: teafxb
+  bounding_box:
+  - 0.1
+  - 0.0405229
+  - 0.0191148
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.455
+  - 0.0595574
+- type: DatasetObject
+  name: distractor_toasting_fork
+  category: toasting_fork
+  model: osrfkc
+  bounding_box:
+  - 0.1
+  - 0.0172667
+  - 0.0053867
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.455
+  - 0.0526934
+- type: DatasetObject
+  name: distractor_jar_of_spaghetti_sauce
+  category: jar_of_spaghetti_sauce
+  model: zahyds
+  bounding_box:
+  - 0.06496
+  - 0.06496
+  - 0.10621
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.195
+  - 0.103105
+immutables:
+- type: DatasetObject
+  name: cup
+  category: coffee_cup
+  model: rypdvd
+  bounding_box:
+  - 0.09144
+  - 0.06512
+  - 0.08981
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.195
+  - 0.094905
+initial_state:
+- predicate: inside
+  subject: chopstick
+  object: cup
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: chopstick
+  object: cup
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.3619828
+    - 0.3905012
+    - 0.3969489
+    rot:
+    - 0.1415471
+    - -0.3866952
+    - -0.8676722
+    - 0.2785249
+  cam2:
+    pos:
+    - 0.1808627
+    - -0.3316233
+    - 0.3950754
+    rot:
+    - 0.4639619
+    - -0.2304014
+    - -0.3580868
+    - 0.7768065
+provenance:
+  task_id: ae0509d49cce
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the chopstick from the silver cup
+  decisions:
+  - '"silver" dropped (material)'
+  - 'chopstick ahmhza (authored at the 14 cm ceiling) in coffee_cup rypdvd (9 cm deep): deep enough for lengthwise insertion
+    (a 6.9 cm cup shrank the chopstick to 8 cm) and it still sticks out ~5 cm'

@@ -1,0 +1,138 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the knife from the cup
+instruction_obj_to_replace: knife
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+main_objects:
+- type: DatasetObject
+  name: knife
+  category: table_knife
+  model: oceyno
+  bounding_box:
+  - 0.14
+  - 0.0119922
+  - 0.0051014
+  orientation:
+  - 0.0
+  - 0.7071068
+  - 0.0
+  - 0.7071068
+  relative_bbox_position:
+  - 0.12
+  - 0.195
+  - 0.19042
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_can_of_bay_leaves
+  category: can_of_bay_leaves
+  model: ppwvjf
+  bounding_box:
+  - 0.06254
+  - 0.06118
+  - 0.07412
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.455
+  - 0.08706
+- type: DatasetObject
+  name: distractor_bottle_of_cranberry_juice
+  category: bottle_of_cranberry_juice
+  model: heoxnw
+  bounding_box:
+  - 0.0774
+  - 0.07708
+  - 0.22915
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.455
+  - 0.164575
+- type: DatasetObject
+  name: distractor_hingeless_jar
+  category: hingeless_jar
+  model: zdeyzf
+  bounding_box:
+  - 0.06014
+  - 0.06014
+  - 0.05165
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.195
+  - 0.075825
+immutables:
+- type: DatasetObject
+  name: cup
+  category: paper_cup
+  model: guobeq
+  bounding_box:
+  - 0.07407
+  - 0.07043
+  - 0.10542
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.195
+  - 0.10271
+initial_state:
+- predicate: inside
+  subject: knife
+  object: cup
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: knife
+  object: cup
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.4508694
+    - 0.5477291
+    - 0.4834113
+    rot:
+    - -0.0182916
+    - -0.4867375
+    - -0.868293
+    - 0.0939113
+  cam2:
+    pos:
+    - 0.2296502
+    - -0.5387963
+    - 0.4172953
+    rot:
+    - 0.57236
+    - -0.1535704
+    - -0.2393204
+    - 0.7691202
+provenance:
+  task_id: aec737ce3dfb
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the knife from the cup
+  decisions:
+  - 'knife grounded as table_knife oceyno (authored at the 14 cm ceiling); cup as paper_cup guobeq (variant: paper cup), 10.5
+    cm deep so the knife sticks out'

@@ -1,0 +1,134 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the towel inside the basket
+instruction_obj_to_replace: towel
+instruction_target_to_replace: basket
+instruction_verb_to_replace: put
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+main_objects:
+- type: DatasetObject
+  name: towel
+  category: dishtowel
+  model: dtfspn
+  bounding_box:
+  - 0.1170832
+  - 0.16
+  - 0.0239291
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.455
+  - 0.0619646
+target_objects:
+- type: DatasetObject
+  name: basket
+  category: wicker_basket
+  model: unasxd
+  bounding_box:
+  - 0.175541
+  - 0.28
+  - 0.1321348
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.195
+  - 0.1160674
+distractors:
+- type: DatasetObject
+  name: distractor_jug_of_milk
+  category: jug_of_milk
+  model: xbvdpc
+  bounding_box:
+  - 0.1
+  - 0.1
+  - 0.1421228
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.455
+  - 0.1210614
+- type: DatasetObject
+  name: distractor_jar_of_kidney_beans
+  category: jar_of_kidney_beans
+  model: kfzxah
+  bounding_box:
+  - 0.093
+  - 0.093
+  - 0.13171
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.195
+  - 0.115855
+- type: DatasetObject
+  name: distractor_zucchini
+  category: zucchini
+  model: yhhkxf
+  bounding_box:
+  - 0.1
+  - 0.0399956
+  - 0.0373848
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.3
+  - 0.325
+  - 0.0686924
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: towel
+  object: basket
+camera_extrinsics:
+  cam1:
+    pos:
+    - -0.0072949
+    - -0.3975619
+    - 0.2355443
+    rot:
+    - 0.5030865
+    - -0.2545103
+    - -0.398102
+    - 0.723632
+  cam2:
+    pos:
+    - 0.0027761
+    - 0.489904
+    - 0.4641946
+    rot:
+    - -0.0439835
+    - -0.5299101
+    - -0.5415761
+    - 0.6511191
+provenance:
+  task_id: 59d5e3a7af63
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the white towel inside the black basket
+  decisions:
+  - colours dropped (texture)
+  - towel grounded as dishtowel dtfspn (folded), basket as wicker_basket unasxd (authored at the 0.28 m ceiling)

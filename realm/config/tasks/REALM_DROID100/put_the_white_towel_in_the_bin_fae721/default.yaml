@@ -1,0 +1,136 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the towel in the bin
+instruction_obj_to_replace: towel
+instruction_target_to_replace: bin
+instruction_verb_to_replace: put
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: towel
+  category: dishtowel
+  model: dtfspn
+  bounding_box:
+  - 0.1170832
+  - 0.16
+  - 0.0239291
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.7071068
+  - 0.7071068
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - 0.0619646
+target_objects:
+- type: DatasetObject
+  name: bin
+  category: trash_can
+  model: wkxtxh
+  bounding_box:
+  - 0.23017
+  - 0.23009
+  - 0.27886
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.18943
+distractors:
+- type: DatasetObject
+  name: distractor_jar_of_sugar
+  category: jar_of_sugar
+  model: vrmrci
+  bounding_box:
+  - 0.06808
+  - 0.06808
+  - 0.10457
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - 0.102285
+- type: DatasetObject
+  name: distractor_stapler
+  category: stapler
+  model: kgnsas
+  bounding_box:
+  - 0.08743
+  - 0.01823
+  - 0.04502
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - 0.07251
+- type: DatasetObject
+  name: distractor_open_end_wrench
+  category: open_end_wrench
+  model: klnawb
+  bounding_box:
+  - 0.1
+  - 0.0272963
+  - 0.005124
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.375
+  - 0.3
+  - 0.052562
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: towel
+  object: bin
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.1061385
+    - 0.5084091
+    - 0.4537268
+    rot:
+    - 0.2318715
+    - -0.5690962
+    - -0.7366516
+    - 0.2823288
+  cam2:
+    pos:
+    - -0.0889139
+    - -0.3982934
+    - 0.4054967
+    rot:
+    - 0.638248
+    - -0.3305464
+    - -0.3435235
+    - 0.6044586
+provenance:
+  task_id: fae721cd96f1
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the white towel in the bin
+  decisions:
+  - '"white" dropped (texture)'
+  - bin grounded as trash_can wkxtxh (23 cm, 28 cm tall, the smallest tabletop-scale bin); towel dishtowel dtfspn
+  - 'region_index 3 (Wainscott dining table, 0.5x0.6 m): on the default region the towel overhung the support edge next to
+    the 23 cm bin'

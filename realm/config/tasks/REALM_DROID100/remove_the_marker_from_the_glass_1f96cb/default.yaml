@@ -1,0 +1,137 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the marker from the glass
+instruction_obj_to_replace: marker
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Pomaria_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: marker
+  category: marker
+  model: mcpkkq
+  bounding_box:
+  - 0.14
+  - 0.0155849
+  - 0.0126759
+  orientation:
+  - 0.0
+  - 0.7071068
+  - 0.0
+  - 0.7071068
+  relative_bbox_position:
+  - 0.12
+  - 0.15
+  - 0.1628101
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_can_of_tomato_paste
+  category: can_of_tomato_paste
+  model: sqqdzb
+  bounding_box:
+  - 0.08046
+  - 0.08041
+  - 0.12345
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.35
+  - 0.111725
+- type: DatasetObject
+  name: distractor_bottle_of_beer
+  category: bottle_of_beer
+  model: rdnopv
+  bounding_box:
+  - 0.05661
+  - 0.05653
+  - 0.20525
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.35
+  - 0.152625
+- type: DatasetObject
+  name: distractor_hammer
+  category: hammer
+  model: fcrlbo
+  bounding_box:
+  - 0.1
+  - 0.0414117
+  - 0.0122257
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.15
+  - 0.0561129
+immutables:
+- type: DatasetObject
+  name: glass
+  category: water_glass
+  model: ktuvuo
+  bounding_box:
+  - 0.07898
+  - 0.07898
+  - 0.07781
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.15
+  - 0.0889051
+initial_state:
+- predicate: inside
+  subject: marker
+  object: glass
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: marker
+  object: glass
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.1002324
+    - 0.394526
+    - 0.183988
+    rot:
+    - 0.4321341
+    - -0.377695
+    - -0.6643925
+    - 0.4787372
+  cam2:
+    pos:
+    - 0.0523553
+    - -0.345399
+    - 0.1782634
+    rot:
+    - 0.5802121
+    - -0.449923
+    - -0.4142262
+    - 0.5379031
+provenance:
+  task_id: 1f96cb8b6028
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the marker from the glass
+  decisions:
+  - glass grounded as water_glass ktuvuo (7.8 cm tall) so the 14 cm marker protrudes above the rim

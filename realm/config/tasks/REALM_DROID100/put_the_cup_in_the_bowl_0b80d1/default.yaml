@@ -1,0 +1,134 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the cup in the bowl
+instruction_obj_to_replace: cup
+instruction_target_to_replace: bowl
+instruction_verb_to_replace: put
+supported_scenes:
+  Pomaria_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: cup
+  category: coffee_cup
+  model: nhzrei
+  bounding_box:
+  - 0.10229
+  - 0.07373
+  - 0.08584
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.425
+  - 0.09292
+target_objects:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: hynhgz
+  bounding_box:
+  - 0.19223
+  - 0.19223
+  - 0.11361
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.25
+  - 0.106805
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_paint
+  category: bottle_of_paint
+  model: volzrj
+  bounding_box:
+  - 0.06233
+  - 0.06233
+  - 0.16605
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.06
+  - 0.25
+  - 0.133025
+- type: DatasetObject
+  name: distractor_can_of_bay_leaves
+  category: can_of_bay_leaves
+  model: ppwvjf
+  bounding_box:
+  - 0.06254
+  - 0.06118
+  - 0.07412
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.34
+  - 0.25
+  - 0.08706
+- type: DatasetObject
+  name: distractor_rubber_eraser
+  category: rubber_eraser
+  model: cungod
+  bounding_box:
+  - 0.05
+  - 0.02135
+  - 0.0114
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.125
+  - 0.0557
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: cup
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - -0.1291743
+    - -0.2820512
+    - 0.7065233
+    rot:
+    - 0.4767999
+    - -0.2418654
+    - -0.4150983
+    - 0.7361089
+  cam2:
+    pos:
+    - -0.2082756
+    - 0.430718
+    - 0.5431604
+    rot:
+    - 0.3970139
+    - -0.4695947
+    - -0.6492178
+    - 0.447635
+provenance:
+  task_id: 0b80d1e9d0df
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the cup in the bowl
+  decisions:
+  - cup grounded as coffee_cup nhzrei (handled cup, as the cluster's mug signature suggests) and the instruction keeps "cup";
+    bowl hynhgz (19 cm) receives it

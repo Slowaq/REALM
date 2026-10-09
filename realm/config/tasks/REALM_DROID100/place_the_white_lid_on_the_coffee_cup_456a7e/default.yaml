@@ -1,0 +1,134 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: stack
+instruction: Place the lid on the coffee cup
+instruction_obj_to_replace: lid
+instruction_target_to_replace: coffee cup
+instruction_verb_to_replace: stack
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+main_objects:
+- type: DatasetObject
+  name: lid
+  category: lid
+  model: pwgbsb
+  bounding_box:
+  - 0.08975
+  - 0.08974
+  - 0.02248
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.195
+  - 0.06124
+target_objects:
+- type: DatasetObject
+  name: coffee_cup
+  category: coffee_cup
+  model: ckkwmj
+  bounding_box:
+  - 0.09149
+  - 0.07222
+  - 0.06867
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.455
+  - 0.084335
+distractors:
+- type: DatasetObject
+  name: distractor_can_of_beans
+  category: can_of_beans
+  model: ojqgjz
+  bounding_box:
+  - 0.0805
+  - 0.08261
+  - 0.09877
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.455
+  - 0.099385
+- type: DatasetObject
+  name: distractor_table_knife
+  category: table_knife
+  model: nmkend
+  bounding_box:
+  - 0.1
+  - 0.0105597
+  - 0.0021863
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.195
+  - 0.0510932
+- type: DatasetObject
+  name: distractor_bottle_of_ground_cloves
+  category: bottle_of_ground_cloves
+  model: vzamzb
+  bounding_box:
+  - 0.06
+  - 0.06
+  - 0.07187
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.325
+  - 0.0859351
+immutables: []
+target_state:
+  rubric: stack
+  predicate: on_top_of
+  subject: lid
+  object: coffee_cup
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.3790034
+    - 0.4660148
+    - 0.3385336
+    rot:
+    - 0.2224274
+    - -0.4357453
+    - -0.7924931
+    - 0.3641521
+  cam2:
+    pos:
+    - 0.2696521
+    - -0.4632391
+    - 0.3983842
+    rot:
+    - 0.4918324
+    - -0.2444549
+    - -0.3627446
+    - 0.752834
+provenance:
+  task_id: 456a7ed6eac9
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Place the white lid on the coffee cup
+  decisions:
+  - '"white" dropped (texture)'
+  - coffee_cup ckkwmj (7.2 cm body); lid pwgbsb (9 cm) is wider than the opening

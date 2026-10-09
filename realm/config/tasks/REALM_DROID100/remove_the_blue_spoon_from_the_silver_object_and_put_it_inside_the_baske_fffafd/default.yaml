@@ -1,0 +1,135 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the wooden spoon in the basket
+instruction_obj_to_replace: wooden spoon
+instruction_target_to_replace: basket
+instruction_verb_to_replace: put
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: wooden_spoon
+  category: wooden_spoon
+  model: gpiftn
+  bounding_box:
+  - 0.14
+  - 0.0272802
+  - 0.0071088
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - 0.0535544
+target_objects:
+- type: DatasetObject
+  name: basket
+  category: wicker_basket
+  model: unasxd
+  bounding_box:
+  - 0.175541
+  - 0.28
+  - 0.1321348
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.1160674
+distractors:
+- type: DatasetObject
+  name: distractor_mouse
+  category: mouse
+  model: oydobn
+  bounding_box:
+  - 0.0311
+  - 0.0196
+  - 0.01128
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - 0.05564
+- type: DatasetObject
+  name: distractor_bottle_of_onion_powder
+  category: bottle_of_onion_powder
+  model: xruqod
+  bounding_box:
+  - 0.05411
+  - 0.05409
+  - 0.15346
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - 0.12673
+- type: DatasetObject
+  name: distractor_hamburger_bun
+  category: hamburger_bun
+  model: fqxumh
+  bounding_box:
+  - 0.08664
+  - 0.08494
+  - 0.02639
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.375
+  - 0.3
+  - 0.063195
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: wooden_spoon
+  object: basket
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.3519401
+    - 0.6565576
+    - 0.4527317
+    rot:
+    - 0.1898283
+    - -0.4788365
+    - -0.8077818
+    - 0.286652
+  cam2:
+    pos:
+    - 0.3172225
+    - -0.3223491
+    - 0.4540982
+    rot:
+    - 0.4979794
+    - -0.1719227
+    - -0.2209766
+    - 0.8207487
+provenance:
+  task_id: fffafd65bfc5
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the blue spoon from the silver object and put it inside the basket
+  decisions:
+  - the variant names a blue wooden spoon in a metal holder; the holder (an unidentified "silver object") is dropped and the
+    scored put kept
+  - wooden_spoon gpiftn ("wooden" is the category, not a texture claim), basket wicker_basket unasxd; "blue" dropped

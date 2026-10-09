@@ -1,0 +1,134 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the glass in the jug
+instruction_obj_to_replace: glass
+instruction_target_to_replace: jug
+instruction_verb_to_replace: put
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: glass
+  category: water_glass
+  model: szjfpb
+  bounding_box:
+  - 0.05487
+  - 0.05496
+  - 0.1138
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - 0.1069
+target_objects:
+- type: DatasetObject
+  name: jug
+  category: jug
+  model: gjgwvi
+  bounding_box:
+  - 0.13847
+  - 0.19327
+  - 0.29401
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.197005
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_apple_cider
+  category: bottle_of_apple_cider
+  model: frekrp
+  bounding_box:
+  - 0.07436
+  - 0.07268
+  - 0.31068
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - 0.2053401
+- type: DatasetObject
+  name: distractor_jar_of_pepper_seasoning
+  category: jar_of_pepper_seasoning
+  model: iuydyz
+  bounding_box:
+  - 0.09257
+  - 0.09257
+  - 0.13171
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - 0.115855
+- type: DatasetObject
+  name: distractor_carrot
+  category: carrot
+  model: nktmff
+  bounding_box:
+  - 0.09122
+  - 0.02607
+  - 0.02368
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.375
+  - 0.3
+  - 0.0618401
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: glass
+  object: jug
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.1928727
+    - 0.6838493
+    - 0.3991783
+    rot:
+    - 0.2518267
+    - -0.4670683
+    - -0.7807877
+    - 0.3298501
+  cam2:
+    pos:
+    - 0.3106369
+    - -0.3442921
+    - 0.3023551
+    rot:
+    - 0.5821923
+    - -0.0612298
+    - -0.1115312
+    - 0.8030341
+provenance:
+  task_id: f6c0645dd5b6
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the glass cup in the clear jug
+  decisions:
+  - '"glass cup" is one compound noun grounded as water_glass szjfpb (5.5 cm) and worded "the glass"; "clear" dropped (material)'
+  - jug gjgwvi (13.8 cm body)

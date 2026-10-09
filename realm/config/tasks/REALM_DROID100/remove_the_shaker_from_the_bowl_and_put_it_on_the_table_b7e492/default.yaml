@@ -1,0 +1,139 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the shaker from the bowl
+instruction_obj_to_replace: shaker
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Benevolence_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: shaker
+  category: shaker
+  model: nbjgci
+  bounding_box:
+  - 0.04176
+  - 0.04186
+  - 0.09912
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.12
+  - 0.13478
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_can_of_icetea
+  category: can_of_icetea
+  model: ifrjsc
+  bounding_box:
+  - 0.0757
+  - 0.0757
+  - 0.14925
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.28
+  - 0.124625
+- type: DatasetObject
+  name: distractor_teapot
+  category: teapot
+  model: mvrhya
+  bounding_box:
+  - 0.1
+  - 0.0622272
+  - 0.0388681
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.28
+  - 0.0694341
+- type: DatasetObject
+  name: distractor_bottle_of_beer
+  category: bottle_of_beer
+  model: rdnopv
+  bounding_box:
+  - 0.05661
+  - 0.05653
+  - 0.20525
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.12
+  - 0.152625
+immutables:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: kthvrl
+  bounding_box:
+  - 0.09344
+  - 0.09344
+  - 0.06
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.12
+  - 0.08
+initial_state:
+- predicate: inside
+  subject: shaker
+  object: bowl
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: shaker
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.4985284
+    - 0.3633593
+    - 0.5289231
+    rot:
+    - -0.0274136
+    - -0.3537159
+    - -0.9348634
+    - 0.0128092
+  cam2:
+    pos:
+    - 0.1844664
+    - -0.6080579
+    - 0.4445583
+    rot:
+    - 0.4667435
+    - -0.2082794
+    - -0.298438
+    - 0.8060428
+provenance:
+  task_id: b7e492cf4b8a
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the shaker from the bowl and put it on the table
+  decisions:
+  - shortened to the removal; table is the support
+  - 'shaker nbjgci (9.9 cm) in bowl kthvrl (9.3 cm, 6 cm deep): narrower than the shaker is tall, so it stands upright and
+    protrudes'

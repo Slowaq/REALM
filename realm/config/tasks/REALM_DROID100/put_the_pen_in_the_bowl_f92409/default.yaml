@@ -1,0 +1,133 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the pen in the bowl
+instruction_obj_to_replace: pen
+instruction_target_to_replace: bowl
+instruction_verb_to_replace: put
+supported_scenes:
+  office_cubicles_left:
+  - Office_Desk
+main_objects:
+- type: DatasetObject
+  name: pen
+  category: pen
+  model: nvyicz
+  bounding_box:
+  - 0.14
+  - 0.0100491
+  - 0.0118762
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.42
+  - 0.0559381
+target_objects:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: tvtive
+  bounding_box:
+  - 0.1878
+  - 0.18777
+  - 0.11735
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.18
+  - 0.108675
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_fennel
+  category: bottle_of_fennel
+  model: ihlkfu
+  bounding_box:
+  - 0.06
+  - 0.06
+  - 0.07186
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.42
+  - 0.0859301
+- type: DatasetObject
+  name: distractor_jar_of_sesame_seed
+  category: jar_of_sesame_seed
+  model: acsllv
+  bounding_box:
+  - 0.09282
+  - 0.09282
+  - 0.13171
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.18
+  - 0.115855
+- type: DatasetObject
+  name: distractor_tablespoon
+  category: tablespoon
+  model: mwzxal
+  bounding_box:
+  - 0.1
+  - 0.0184019
+  - 0.0078269
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.3
+  - 0.0539135
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: pen
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.0709805
+    - -0.4318594
+    - 0.4521206
+    rot:
+    - 0.3251896
+    - -0.1381363
+    - -0.4113499
+    - 0.840215
+  cam2:
+    pos:
+    - 0.2749892
+    - 0.3494796
+    - 0.3324908
+    rot:
+    - 0.240818
+    - -0.3019747
+    - -0.8098422
+    - 0.4415581
+provenance:
+  task_id: f924094f14e4
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the pen in the bowl
+  decisions:
+  - pen nvyicz, bowl tvtive (18.8 cm); instruction unchanged

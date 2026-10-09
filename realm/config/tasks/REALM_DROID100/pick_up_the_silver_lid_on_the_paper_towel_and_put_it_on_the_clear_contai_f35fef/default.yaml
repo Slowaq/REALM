@@ -1,0 +1,119 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: stack
+instruction: Put the lid on the towel
+instruction_obj_to_replace: lid
+instruction_target_to_replace: towel
+instruction_verb_to_replace: stack
+supported_scenes:
+  Pomaria_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: lid
+  category: lid
+  model: picclm
+  bounding_box:
+  - 0.16455
+  - 0.16455
+  - 0.01513
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.375
+  - 0.057565
+target_objects:
+- type: DatasetObject
+  name: towel
+  category: dishtowel
+  model: ltydgg
+  bounding_box:
+  - 0.15747
+  - 0.2175
+  - 0.02594
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.15
+  - 0.06297
+distractors:
+- type: DatasetObject
+  name: distractor_hotdog_bun
+  category: hotdog_bun
+  model: ajlvvj
+  bounding_box:
+  - 0.1
+  - 0.0479192
+  - 0.0346424
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.15
+  - 0.0673212
+- type: DatasetObject
+  name: distractor_carving_knife
+  category: carving_knife
+  model: awvoox
+  bounding_box:
+  - 0.1
+  - 0.0133684
+  - 0.0075488
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.3
+  - 0.25
+  - 0.0537744
+immutables: []
+target_state:
+  rubric: stack
+  predicate: on_top_of
+  subject: lid
+  object: towel
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2413848
+    - 0.6158141
+    - 0.3019413
+    rot:
+    - 0.1685922
+    - -0.5005681
+    - -0.7943855
+    - 0.2999331
+  cam2:
+    pos:
+    - 0.1211294
+    - -0.3964727
+    - 0.3049318
+    rot:
+    - 0.4875111
+    - -0.246887
+    - -0.4502961
+    - 0.7061255
+provenance:
+  task_id: f35fef5f8b98
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up the silver lid on the paper towel and put it on the clear container on the paper towel
+  decisions:
+  - the lead (lid onto a clear container, everything on paper towels) needs a lidless clear container the catalogue lacks;
+    the variant "Put the lid on the towel" is used
+  - towel grounded as dishtowel ltydgg (15.7 cm); lid picclm (16.5 cm), since LID_SMALLER_THAN_OPENING requires a stacked
+    lid at least as wide as its support

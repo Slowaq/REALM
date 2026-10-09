@@ -1,0 +1,139 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the measuring cup from the bowl
+instruction_obj_to_replace: measuring cup
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: measuring_cup
+  category: measuring_cup
+  model: ahtzhp
+  bounding_box:
+  - 0.14
+  - 0.0829225
+  - 0.0610097
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.1826024
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_can
+  category: can
+  model: moeqjz
+  bounding_box:
+  - 0.1
+  - 0.1
+  - 0.1298312
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - 0.1149156
+- type: DatasetObject
+  name: distractor_bottle_of_face_cream
+  category: bottle_of_face_cream
+  model: dztaed
+  bounding_box:
+  - 0.07659
+  - 0.0767
+  - 0.05407
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - 0.0770351
+- type: DatasetObject
+  name: distractor_jug
+  category: jug
+  model: gjgwvi
+  bounding_box:
+  - 0.0716459
+  - 0.1
+  - 0.152124
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - 0.126062
+immutables:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: tvtive
+  bounding_box:
+  - 0.1878
+  - 0.18777
+  - 0.11735
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.108675
+initial_state:
+- predicate: inside
+  subject: measuring_cup
+  object: bowl
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: measuring_cup
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.0777524
+    - 0.5443756
+    - 0.5017604
+    rot:
+    - 0.2407568
+    - -0.47976
+    - -0.7875518
+    - 0.3027023
+  cam2:
+    pos:
+    - 0.0855655
+    - -0.3483897
+    - 0.510014
+    rot:
+    - 0.4041824
+    - -0.2115019
+    - -0.3985627
+    - 0.7956452
+provenance:
+  task_id: 32dd4ace6b33
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the measuring cup from the green bowl and put it on the counter
+  decisions:
+  - shortened to the removal; counter is the support; "green" dropped (texture)
+  - measuring_cup ahtzhp is the only model (27 cm incl. handle) and is authored at the 14 cm hand-object ceiling; bowl tvtive
+    (18.8 cm) holds it

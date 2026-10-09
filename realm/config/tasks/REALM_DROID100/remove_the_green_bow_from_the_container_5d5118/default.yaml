@@ -1,0 +1,122 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the bow from the box
+instruction_obj_to_replace: bow
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Benevolence_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: bow
+  category: bow
+  model: puwdwq
+  bounding_box:
+  - 0.10003
+  - 0.05289
+  - 0.01266
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.7071068
+  - 0.7071068
+  relative_bbox_position:
+  - 0.2
+  - 0.2
+  - 0.110465
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_tweezers
+  category: tweezers
+  model: ngwoat
+  bounding_box:
+  - 0.00485
+  - 0.03209
+  - 0.0025
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.06
+  - 0.2
+  - 0.0512501
+- type: DatasetObject
+  name: distractor_chopstick
+  category: chopstick
+  model: bdvjuf
+  bounding_box:
+  - 0.1
+  - 0.0022835
+  - 0.0022879
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.34
+  - 0.051144
+immutables:
+- type: DatasetObject
+  name: box
+  category: storage_box
+  model: bwbpvg
+  bounding_box:
+  - 0.23519
+  - 0.2508
+  - 0.0573
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.2
+  - 0.07865
+initial_state:
+- predicate: inside
+  subject: bow
+  object: box
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: bow
+  object: box
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.4684751
+    - 0.4761856
+    - 0.4233447
+    rot:
+    - 0.1543719
+    - -0.5127989
+    - -0.8016221
+    - 0.2657228
+  cam2:
+    pos:
+    - 0.3419039
+    - -0.4975829
+    - 0.4554401
+    rot:
+    - 0.613185
+    - -0.1963244
+    - -0.2496085
+    - 0.7232956
+provenance:
+  task_id: 5d51184a2515
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the green bow from the container
+  decisions:
+  - bow grounded as bow puwdwq (a 10 cm ribbon bow); "green" dropped
+  - '"container" grounded as shallow storage_box bwbpvg (5.7 cm deep) so the flat bow stays reachable, and the instruction
+    names the box'

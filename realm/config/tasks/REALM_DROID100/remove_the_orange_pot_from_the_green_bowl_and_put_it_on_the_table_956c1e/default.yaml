@@ -1,0 +1,139 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the pot from the bowl
+instruction_obj_to_replace: pot
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Benevolence_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: pot
+  category: saucepot
+  model: obuxbe
+  bounding_box:
+  - 0.14
+  - 0.0589151
+  - 0.0692532
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.12
+  - 0.0946266
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_can_of_oatmeal
+  category: can_of_oatmeal
+  model: qyukhm
+  bounding_box:
+  - 0.09218
+  - 0.09218
+  - 0.13596
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.28
+  - 0.11798
+- type: DatasetObject
+  name: distractor_bottle_of_lotion
+  category: bottle_of_lotion
+  model: tkryrh
+  bounding_box:
+  - 0.07293
+  - 0.07293
+  - 0.1809
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.28
+  - 0.1404501
+- type: DatasetObject
+  name: distractor_teacup
+  category: teacup
+  model: tfzfam
+  bounding_box:
+  - 0.07268
+  - 0.07268
+  - 0.05212
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.12
+  - 0.07606
+immutables:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: tvtive
+  bounding_box:
+  - 0.1878
+  - 0.18777
+  - 0.11735
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.12
+  - 0.108675
+initial_state:
+- predicate: inside
+  subject: pot
+  object: bowl
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: pot
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.0748877
+    - -0.4870473
+    - 0.4689093
+    rot:
+    - 0.4679074
+    - -0.2232162
+    - -0.375622
+    - 0.7682091
+  cam2:
+    pos:
+    - -0.108169
+    - 0.583897
+    - 0.440435
+    rot:
+    - 0.3018875
+    - -0.4924337
+    - -0.6792178
+    - 0.4528092
+provenance:
+  task_id: 956c1ee60030
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the orange pot from the green bowl and put it on the table
+  decisions:
+  - shortened to the removal; colours dropped (texture)
+  - 'the variants call it a small pot: saucepot obuxbe authored at the 14 cm hand-object ceiling, inside bowl tvtive (18.8
+    cm)'

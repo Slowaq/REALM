@@ -1,0 +1,134 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the cup in the pot
+instruction_obj_to_replace: cup
+instruction_target_to_replace: pot
+instruction_verb_to_replace: put
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+main_objects:
+- type: DatasetObject
+  name: cup
+  category: coffee_cup
+  model: ibhhfj
+  bounding_box:
+  - 0.09864
+  - 0.07897
+  - 0.06391
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.7071068
+  - 0.7071068
+  relative_bbox_position:
+  - 0.2
+  - 0.5525
+  - 0.081955
+target_objects:
+- type: DatasetObject
+  name: pot
+  category: saucepot
+  model: uvzmss
+  bounding_box:
+  - 0.2079007
+  - 0.28
+  - 0.103913
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.325
+  - 0.1019565
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_apple_juice
+  category: bottle_of_apple_juice
+  model: xvrbdy
+  bounding_box:
+  - 0.04331
+  - 0.04344
+  - 0.20251
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.06
+  - 0.325
+  - 0.151255
+- type: DatasetObject
+  name: distractor_pill_bottle
+  category: pill_bottle
+  model: csvdbe
+  bounding_box:
+  - 0.03885
+  - 0.03885
+  - 0.05468
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.34
+  - 0.325
+  - 0.0773401
+- type: DatasetObject
+  name: distractor_mouse
+  category: mouse
+  model: oydobn
+  bounding_box:
+  - 0.0311
+  - 0.0196
+  - 0.01128
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.1625
+  - 0.05564
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: cup
+  object: pot
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.0869726
+    - -0.4481994
+    - 0.4436811
+    rot:
+    - 0.4330479
+    - -0.4709097
+    - -0.2865278
+    - 0.7131728
+  cam2:
+    pos:
+    - 0.1900507
+    - 0.5889616
+    - 0.3985383
+    rot:
+    - 0.303921
+    - -0.5512149
+    - -0.775682
+    - 0.0459517
+provenance:
+  task_id: 0b379bb70b7f
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up the blue cup and put it in the pot
+  decisions:
+  - variant wording; pick-up clause is REACH/GRASP; "blue" dropped
+  - cup as coffee_cup ibhhfj in saucepot uvzmss

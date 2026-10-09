@@ -1,0 +1,142 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the orange object in the paper bag
+instruction_obj_to_replace: orange
+instruction_target_to_replace: paper bag
+instruction_verb_to_replace: put
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+main_objects:
+- type: PrimitiveObject
+  name: orange_block
+  primitive_type: Cube
+  rgba:
+  - 0.95
+  - 0.45
+  - 0.05
+  - 1.0
+  bounding_box:
+  - 0.05
+  - 0.05
+  - 0.05
+  scale:
+  - 0.05
+  - 0.05
+  - 0.05
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.455
+  - 0.0750001
+target_objects:
+- type: DatasetObject
+  name: paper_bag
+  category: paper_bag
+  model: ruryqd
+  bounding_box:
+  - 0.11539
+  - 0.20192
+  - 0.19921
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.195
+  - 0.149605
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_vodka
+  category: bottle_of_vodka
+  model: nwegts
+  bounding_box:
+  - 0.0852
+  - 0.0852
+  - 0.28572
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.455
+  - 0.19286
+- type: DatasetObject
+  name: distractor_can_of_baking_mix
+  category: can_of_baking_mix
+  model: blrqqz
+  bounding_box:
+  - 0.094
+  - 0.094
+  - 0.10953
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.195
+  - 0.104765
+- type: DatasetObject
+  name: distractor_tray
+  category: tray
+  model: coqeme
+  bounding_box:
+  - 0.0638129
+  - 0.1
+  - 0.0080665
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.3
+  - 0.325
+  - 0.0540333
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: orange_block
+  object: paper_bag
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2824454
+    - 0.3339499
+    - 0.307141
+    rot:
+    - 0.1897563
+    - -0.3987452
+    - -0.8322914
+    - 0.3350908
+  cam2:
+    pos:
+    - 0.2117592
+    - -0.336801
+    - 0.4107778
+    rot:
+    - 0.4652427
+    - -0.2450567
+    - -0.3497097
+    - 0.7753706
+provenance:
+  task_id: 74a1ecf13e0c
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up the orange object on the table and put it in the paper bag
+  decisions:
+  - '"orange object" is a generic noun phrase whose only property is colour: authored as an orange block primitive (rgba set)'
+  - paper_bag ruryqd; pick-up clause is REACH/GRASP

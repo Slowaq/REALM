@@ -1,0 +1,112 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Pick up the cup
+instruction_obj_to_replace: cup
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+main_objects:
+- type: DatasetObject
+  name: cup
+  category: coffee_cup
+  model: siksnl
+  bounding_box:
+  - 0.09516
+  - 0.07883
+  - 0.07979
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.195
+  - 0.089895
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_sponge
+  category: sponge
+  model: aewrov
+  bounding_box:
+  - 0.1
+  - 0.0666667
+  - 0.02
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.455
+  - 0.06
+- type: DatasetObject
+  name: distractor_bottle_of_cocoa
+  category: bottle_of_cocoa
+  model: ganhpw
+  bounding_box:
+  - 0.1
+  - 0.0888848
+  - 0.1190936
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.455
+  - 0.1095468
+- type: DatasetObject
+  name: distractor_bowl
+  category: bowl
+  model: kthvrl
+  bounding_box:
+  - 0.09344
+  - 0.09344
+  - 0.06
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.195
+  - 0.08
+immutables: []
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2550458
+    - 0.557797
+    - 0.5975341
+    rot:
+    - 0.1305386
+    - -0.4874706
+    - -0.8437693
+    - 0.1827166
+  cam2:
+    pos:
+    - 0.084469
+    - -0.4942468
+    - 0.5557212
+    rot:
+    - 0.4364077
+    - -0.1240345
+    - -0.2418783
+    - 0.8577055
+provenance:
+  task_id: eef25dbb2585
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up the white cup and move it to the left
+  decisions:
+  - 'shortened to the lift: "move it to the left" is a motion REALM cannot score'
+  - '"white" dropped (texture); cup grounded as coffee_cup siksnl'

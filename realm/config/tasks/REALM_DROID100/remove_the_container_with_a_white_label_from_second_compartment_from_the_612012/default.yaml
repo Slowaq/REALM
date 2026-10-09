@@ -1,0 +1,149 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the grey block from the tray
+instruction_obj_to_replace: grey block
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  office_cubicles_left:
+  - Office_Desk
+main_objects:
+- type: PrimitiveObject
+  name: grey_block
+  primitive_type: Cube
+  rgba:
+  - 0.7
+  - 0.7
+  - 0.72
+  - 1.0
+  bounding_box:
+  - 0.05
+  - 0.05
+  - 0.05
+  scale:
+  - 0.05
+  - 0.05
+  - 0.05
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.3
+  - 0.11064
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_liquid_soap
+  category: bottle_of_liquid_soap
+  model: bhquvg
+  bounding_box:
+  - 0.1
+  - 0.0426254
+  - 0.0243745
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.51
+  - 0.0621873
+- type: DatasetObject
+  name: distractor_pen
+  category: pen
+  model: ubwjqa
+  bounding_box:
+  - 0.1
+  - 0.0089124
+  - 0.0078709
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.15
+  - 0.0539355
+- type: DatasetObject
+  name: distractor_pencil
+  category: pencil
+  model: fnlbpu
+  bounding_box:
+  - 0.1
+  - 0.0038263
+  - 0.0031886
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.45
+  - 0.0515943
+immutables:
+- type: DatasetObject
+  name: tray
+  category: tray
+  model: zsddtq
+  bounding_box:
+  - 0.26694
+  - 0.26694
+  - 0.02564
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.3
+  - 0.06282
+initial_state:
+- predicate: on_top_of
+  subject: grey_block
+  object: tray
+target_state:
+  rubric: pick
+  predicate: on_top_of
+  subject: grey_block
+  object: tray
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2156669
+    - 0.5845926
+    - 0.6007175
+    rot:
+    - 0.1589431
+    - -0.4338705
+    - -0.8456142
+    - 0.2672642
+  cam2:
+    pos:
+    - 0.0073751
+    - -0.251228
+    - 0.6749385
+    rot:
+    - 0.4243963
+    - -0.3220317
+    - -0.4983254
+    - 0.6839994
+provenance:
+  task_id: '612012519135'
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the container with a white label from second compartment from the front of the tray on the
+    left and put it on the table
+  decisions:
+  - cluster is remove-an-object-from-a-tray; the lead wording names a labelled container in a compartment, which has no asset,
+    so the variant "Remove the silver object from the wooden tray" is used
+  - the unspecified silver object is authored as a grey block primitive (colour guaranteed by rgba; "silver" is a material
+    the primitive cannot promise, so the instruction says grey block); "wooden" dropped

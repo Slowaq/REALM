@@ -1,0 +1,138 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the marker from the pot
+instruction_obj_to_replace: marker
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: marker
+  category: marker
+  model: zmimhb
+  bounding_box:
+  - 0.12682
+  - 0.01519
+  - 0.01513
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.067565
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_jar_of_curry_powder
+  category: jar_of_curry_powder
+  model: ozhftu
+  bounding_box:
+  - 0.06
+  - 0.0599
+  - 0.07195
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - 0.085975
+- type: DatasetObject
+  name: distractor_bottle_of_ground_cloves
+  category: bottle_of_ground_cloves
+  model: vzamzb
+  bounding_box:
+  - 0.06
+  - 0.06
+  - 0.07187
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - 0.0859351
+- type: DatasetObject
+  name: distractor_shaker
+  category: shaker
+  model: hbheag
+  bounding_box:
+  - 0.03577
+  - 0.03592
+  - 0.09196
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - 0.0959801
+immutables:
+- type: DatasetObject
+  name: pot
+  category: saucepot
+  model: uvzmss
+  bounding_box:
+  - 0.2079007
+  - 0.28
+  - 0.103913
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.1019565
+initial_state:
+- predicate: inside
+  subject: marker
+  object: pot
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: marker
+  object: pot
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2797939
+    - 0.3601324
+    - 0.3006803
+    rot:
+    - 0.237013
+    - -0.4030994
+    - -0.7816189
+    - 0.4128046
+  cam2:
+    pos:
+    - 0.2265656
+    - -0.2530701
+    - 0.2695929
+    rot:
+    - 0.4946844
+    - -0.1710243
+    - -0.3866706
+    - 0.7592917
+provenance:
+  task_id: f89099d45c31
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick the marker from the pot and put it on the table
+  decisions:
+  - shortened to the removal (variant wording); the table is the support
+  - saucepot uvzmss is wider than the marker is long, so the solver lays it flat on the floor

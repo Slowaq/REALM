@@ -1,0 +1,139 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the lid from the jar
+instruction_obj_to_replace: lid
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: lid
+  category: lid
+  model: zkderg
+  bounding_box:
+  - 0.07612
+  - 0.07612
+  - 0.03305
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.190095
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_rum
+  category: bottle_of_rum
+  model: oidmvy
+  bounding_box:
+  - 0.07702
+  - 0.07702
+  - 0.30091
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - 0.200455
+- type: DatasetObject
+  name: distractor_rubber_eraser
+  category: rubber_eraser
+  model: cungod
+  bounding_box:
+  - 0.05
+  - 0.02135
+  - 0.0114
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - 0.0557
+- type: DatasetObject
+  name: distractor_sponge
+  category: sponge
+  model: aewrov
+  bounding_box:
+  - 0.1
+  - 0.0666667
+  - 0.02
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - 0.06
+immutables:
+- type: DatasetObject
+  name: jar
+  category: hingeless_jar
+  model: waousd
+  bounding_box:
+  - 0.07543
+  - 0.07543
+  - 0.11357
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.106785
+initial_state:
+- predicate: on_top_of
+  subject: lid
+  object: jar
+target_state:
+  rubric: pick
+  predicate: on_top_of
+  subject: lid
+  object: jar
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.1337843
+    - 0.5586544
+    - 0.5008641
+    rot:
+    - 0.2914595
+    - -0.4637202
+    - -0.6883586
+    - 0.4755811
+  cam2:
+    pos:
+    - 0.2688642
+    - -0.4942937
+    - 0.5196167
+    rot:
+    - 0.4057694
+    - -0.0163643
+    - -0.2137443
+    - 0.8884801
+provenance:
+  task_id: 6f67e142f2f8
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up the black lid from the jar and put it on the counter
+  decisions:
+  - shortened to the removal (variant wording); counter is the support; "black" dropped (texture)
+  - jar grounded as hingeless_jar waousd (7.5 cm); lid zkderg (7.6 cm) is at least as wide, so it rests on the jar; signature
+    basil_jar would carry its own lid

@@ -1,0 +1,135 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: stack
+instruction: Put the bowl on the plate
+instruction_obj_to_replace: bowl
+instruction_target_to_replace: plate
+instruction_verb_to_replace: stack
+supported_scenes:
+  office_cubicles_left:
+  - Office_Desk
+main_objects:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: kthvrl
+  bounding_box:
+  - 0.09344
+  - 0.09344
+  - 0.06
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.42
+  - 0.08
+target_objects:
+- type: DatasetObject
+  name: plate
+  category: plate
+  model: aewthq
+  bounding_box:
+  - 0.17043
+  - 0.17043
+  - 0.01948
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.18
+  - 0.05974
+distractors:
+- type: DatasetObject
+  name: distractor_drill
+  category: drill
+  model: nzgmza
+  bounding_box:
+  - 0.0372288
+  - 0.1
+  - 0.1252306
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.42
+  - 0.1126153
+- type: DatasetObject
+  name: distractor_pocketknife
+  category: pocketknife
+  model: ngtgdn
+  bounding_box:
+  - 0.1
+  - 0.0215902
+  - 0.0058464
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.18
+  - 0.0529232
+- type: DatasetObject
+  name: distractor_jar_of_dill_seed
+  category: jar_of_dill_seed
+  model: reavkt
+  bounding_box:
+  - 0.06244
+  - 0.06151
+  - 0.07418
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.3
+  - 0.3
+  - 0.08709
+immutables: []
+target_state:
+  rubric: stack
+  predicate: on_top_of
+  subject: bowl
+  object: plate
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.4770051
+    - 0.4330601
+    - 0.4896768
+    rot:
+    - 0.0216019
+    - -0.4299291
+    - -0.9007644
+    - 0.0576004
+  cam2:
+    pos:
+    - 0.3128927
+    - -0.4716811
+    - 0.5077103
+    rot:
+    - 0.3594213
+    - 0.0056343
+    - -0.0025876
+    - 0.9331548
+provenance:
+  task_id: b4fe8632d81c
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the white bowl from the plate and put it on the cupboard
+  decisions:
+  - the lead removes the bowl to a cupboard (no cupboard support on the tabletop); the variant "put it on the plate" is the
+    scoreable stack
+  - bowl kthvrl (9.3 cm), plate aewthq (17 cm)

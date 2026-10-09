@@ -1,0 +1,134 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: stack
+instruction: Put the lid on the bowl
+instruction_obj_to_replace: lid
+instruction_target_to_replace: bowl
+instruction_verb_to_replace: stack
+supported_scenes:
+  Benevolence_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: lid
+  category: lid
+  model: tnwisp
+  bounding_box:
+  - 0.09491
+  - 0.09491
+  - 0.02738
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.12
+  - 0.06369
+target_objects:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: kthvrl
+  bounding_box:
+  - 0.09344
+  - 0.09344
+  - 0.06
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.28
+  - 0.08
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_apple_juice
+  category: bottle_of_apple_juice
+  model: xvrbdy
+  bounding_box:
+  - 0.04331
+  - 0.04344
+  - 0.20251
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.28
+  - 0.151255
+- type: DatasetObject
+  name: distractor_coffee_cup
+  category: coffee_cup
+  model: ykuftq
+  bounding_box:
+  - 0.09144
+  - 0.05695
+  - 0.07753
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.12
+  - 0.0887651
+- type: DatasetObject
+  name: distractor_wooden_spoon
+  category: wooden_spoon
+  model: aeubta
+  bounding_box:
+  - 0.06077
+  - 0.01513
+  - 0.00395
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.2
+  - 0.051975
+immutables: []
+target_state:
+  rubric: stack
+  predicate: on_top_of
+  subject: lid
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.0101783
+    - 0.5281798
+    - 0.6469658
+    rot:
+    - 0.2051029
+    - -0.4163074
+    - -0.7912682
+    - 0.3981401
+  cam2:
+    pos:
+    - -0.0211274
+    - -0.3702108
+    - 0.5470724
+    rot:
+    - 0.4455631
+    - -0.235117
+    - -0.4498737
+    - 0.7374328
+provenance:
+  task_id: fdb025e22d7c
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the pink lid on the blue bowl
+  decisions:
+  - colours dropped (texture)
+  - bowl kthvrl (9.3 cm) with lid tnwisp (9.5 cm), wider than the opening

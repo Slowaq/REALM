@@ -1,0 +1,146 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the orange block from the bowl
+instruction_obj_to_replace: orange block
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: PrimitiveObject
+  name: orange_block
+  primitive_type: Cube
+  rgba:
+  - 0.95
+  - 0.45
+  - 0.05
+  - 1.0
+  bounding_box:
+  - 0.05
+  - 0.05
+  - 0.05
+  scale:
+  - 0.05
+  - 0.05
+  - 0.05
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.1435
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_baby_oil
+  category: bottle_of_baby_oil
+  model: xpdlrr
+  bounding_box:
+  - 0.0544
+  - 0.07569
+  - 0.17518
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - 0.13759
+- type: DatasetObject
+  name: distractor_screwdriver
+  category: screwdriver
+  model: uajlga
+  bounding_box:
+  - 0.1
+  - 0.0092764
+  - 0.0092203
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - 0.0546102
+- type: DatasetObject
+  name: distractor_tablefork
+  category: tablefork
+  model: uodzrq
+  bounding_box:
+  - 0.1
+  - 0.0126521
+  - 0.0063287
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - 0.0531644
+immutables:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: jblalf
+  bounding_box:
+  - 0.16932
+  - 0.16932
+  - 0.081
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.0905
+initial_state:
+- predicate: inside
+  subject: orange_block
+  object: bowl
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: orange_block
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.3172982
+    - 0.5108389
+    - 0.4863805
+    rot:
+    - 0.2288213
+    - -0.4997759
+    - -0.762171
+    - 0.3419946
+  cam2:
+    pos:
+    - 0.0944196
+    - -0.2208597
+    - 0.4345581
+    rot:
+    - 0.458896
+    - -0.3854956
+    - -0.5669452
+    - 0.5651377
+provenance:
+  task_id: 0c3ed4fdf84f
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up one small orange block from the green bowl and put it on the table
+  decisions:
+  - shortened to the removal; table is the support; "green" dropped (bowl texture not guaranteed)
+  - orange block authored as a block primitive with rgba set (colour guaranteed)

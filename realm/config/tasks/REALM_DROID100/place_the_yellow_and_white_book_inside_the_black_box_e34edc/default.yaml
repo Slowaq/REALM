@@ -1,0 +1,100 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Place the book inside the box
+instruction_obj_to_replace: book
+instruction_target_to_replace: box
+instruction_verb_to_replace: put
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+main_objects:
+- type: DatasetObject
+  name: book
+  category: hardback
+  model: ewktjc
+  bounding_box:
+  - 0.13911
+  - 0.1208
+  - 0.02627
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.7071068
+  - 0.7071068
+  relative_bbox_position:
+  - 0.2
+  - 0.5525
+  - 0.063135
+target_objects:
+- type: DatasetObject
+  name: box
+  category: storage_box
+  model: eicujj
+  bounding_box:
+  - 0.2611098
+  - 0.28
+  - 0.0641603
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.325
+  - 0.0820802
+distractors:
+- type: DatasetObject
+  name: distractor_wooden_spoon
+  category: wooden_spoon
+  model: aeubta
+  bounding_box:
+  - 0.06077
+  - 0.01513
+  - 0.00395
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.1625
+  - 0.051975
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: book
+  object: box
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.3319288
+    - -0.2427177
+    - 0.2510485
+    rot:
+    - 0.5542194
+    - -0.2315981
+    - -0.3402246
+    - 0.7234987
+  cam2:
+    pos:
+    - 0.3552705
+    - 0.329988
+    - 0.2691894
+    rot:
+    - 0.1553
+    - -0.5429476
+    - -0.7854575
+    - 0.2532713
+provenance:
+  task_id: e34edc151127
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Place the yellow and white book inside the black box
+  decisions:
+  - colours dropped (texture)
+  - book grounded as hardback ewktjc (13.9x12.1x2.6 cm), box as storage_box eicujj

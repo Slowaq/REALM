@@ -1,0 +1,134 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the bottle in the sink
+instruction_obj_to_replace: bottle
+instruction_target_to_replace: sink
+instruction_verb_to_replace: put
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: bottle
+  category: bottle_of_water
+  model: suytyi
+  bounding_box:
+  - 0.06107
+  - 0.06107
+  - 0.165
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.25
+  - 0.51
+  - 0.1325
+target_objects:
+- type: DatasetObject
+  name: sink
+  category: drop_in_sink
+  model: wzpabm
+  bounding_box:
+  - 0.28
+  - 0.2703133
+  - 0.1867372
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.25
+  - 0.3
+  - 0.1433687
+distractors:
+- type: DatasetObject
+  name: distractor_box_of_cereal
+  category: box_of_cereal
+  model: pfwgkm
+  bounding_box:
+  - 0.035
+  - 0.1
+  - 0.115
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.075
+  - 0.3
+  - 0.1075001
+- type: DatasetObject
+  name: distractor_pill_bottle
+  category: pill_bottle
+  model: csvdbe
+  bounding_box:
+  - 0.03885
+  - 0.03885
+  - 0.05468
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.425
+  - 0.3
+  - 0.0773401
+- type: DatasetObject
+  name: distractor_pencil
+  category: pencil
+  model: fnlbpu
+  bounding_box:
+  - 0.1
+  - 0.0038263
+  - 0.0031886
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.25
+  - 0.15
+  - 0.0515943
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: bottle
+  object: sink
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.3185023
+    - 0.5285406
+    - 0.4572884
+    rot:
+    - 0.1804521
+    - -0.7015062
+    - -0.6704075
+    - 0.1608722
+  cam2:
+    pos:
+    - 0.3136561
+    - -0.4639126
+    - 0.4038394
+    rot:
+    - 0.5476541
+    - -0.2588777
+    - -0.3015092
+    - 0.7363081
+provenance:
+  task_id: fe1ee8cde3f6
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Move the bottle from the base top and put it in the sink
+  decisions:
+  - shortened to the scored put (variant wording, colour dropped); "base top" is the support
+  - bottle grounded as bottle_of_water suytyi; sink as drop_in_sink wzpabm (smallest basin, at the 0.28 m ceiling)

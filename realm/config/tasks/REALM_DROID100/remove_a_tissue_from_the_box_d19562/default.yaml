@@ -1,0 +1,140 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Take the teddy bear out of the box
+instruction_obj_to_replace: teddy bear
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  office_cubicles_left:
+  - Office_Desk
+main_objects:
+- type: DatasetObject
+  name: teddy_bear
+  category: teddy_bear
+  model: ecvxmu
+  bounding_box:
+  - 0.14
+  - 0.1022868
+  - 0.0808114
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.7071068
+  - 0.7071068
+  relative_bbox_position:
+  - 0.2
+  - 0.3
+  - 0.1275029
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_sesame_oil
+  category: bottle_of_sesame_oil
+  model: jipawg
+  bounding_box:
+  - 0.05867
+  - 0.05851
+  - 0.2665
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.51
+  - 0.1832501
+- type: DatasetObject
+  name: distractor_allen_wrench
+  category: allen_wrench
+  model: neqlcn
+  bounding_box:
+  - 0.1
+  - 0.021601
+  - 0.0037431
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.15
+  - 0.0518716
+- type: DatasetObject
+  name: distractor_wooden_spoon
+  category: wooden_spoon
+  model: aeubta
+  bounding_box:
+  - 0.06077
+  - 0.01513
+  - 0.00395
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.45
+  - 0.051975
+immutables:
+- type: DatasetObject
+  name: box
+  category: storage_box
+  model: bwbpvg
+  bounding_box:
+  - 0.23519
+  - 0.2508
+  - 0.0573
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.3
+  - 0.07865
+initial_state:
+- predicate: inside
+  subject: teddy_bear
+  object: box
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: teddy_bear
+  object: box
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2669079
+    - -0.598582
+    - 0.3099921
+    rot:
+    - 0.5431952
+    - -0.2382085
+    - -0.296336
+    - 0.7485857
+  cam2:
+    pos:
+    - 0.2555624
+    - 0.5944213
+    - 0.401639
+    rot:
+    - 0.2305743
+    - -0.478488
+    - -0.8108807
+    - 0.2456771
+provenance:
+  task_id: d19562e05c21
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove a tissue from the box
+  decisions:
+  - cluster is pick-from-box; the lead wording (a tissue from a tissue box) has no tissue asset that can start inside a box,
+    so the variant "Take the stuffed animal out of the wooden box" is used
+  - stuffed animal grounded as teddy_bear and named in the instruction; "wooden" dropped (texture)
+  - shallow storage_box bwbpvg (5.7 cm deep) so the bear stays graspable

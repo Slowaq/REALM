@@ -1,0 +1,133 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the towel in the bowl
+instruction_obj_to_replace: towel
+instruction_target_to_replace: bowl
+instruction_verb_to_replace: put
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: towel
+  category: dishtowel
+  model: dtfspn
+  bounding_box:
+  - 0.1170832
+  - 0.16
+  - 0.0239291
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - 0.0619646
+target_objects:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: hynhgz
+  bounding_box:
+  - 0.19223
+  - 0.19223
+  - 0.11361
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.106805
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_powder
+  category: bottle_of_powder
+  model: vfabau
+  bounding_box:
+  - 0.08228
+  - 0.06173
+  - 0.21113
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - 0.155565
+- type: DatasetObject
+  name: distractor_allen_wrench
+  category: allen_wrench
+  model: neqlcn
+  bounding_box:
+  - 0.1
+  - 0.021601
+  - 0.0037431
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - 0.0518716
+- type: DatasetObject
+  name: distractor_pruner
+  category: pruner
+  model: lucqrs
+  bounding_box:
+  - 0.0293
+  - 0.06691
+  - 0.22791
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.25
+  - 0.45
+  - 0.1639551
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: towel
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2956008
+    - -0.2986312
+    - 0.42843
+    rot:
+    - 0.3332882
+    - -0.2029294
+    - -0.2825136
+    - 0.8763131
+  cam2:
+    pos:
+    - 0.2063352
+    - 0.4266592
+    - 0.1214933
+    rot:
+    - 0.2642283
+    - -0.5178622
+    - -0.727588
+    - 0.3641674
+provenance:
+  task_id: 22f218d48234
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the towel in the bowl
+  decisions:
+  - towel grounded as dishtowel dtfspn (folded, authored at the hand-object ceiling); bowl hynhgz (19 cm)

@@ -1,0 +1,135 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the spoon in the holder
+instruction_obj_to_replace: spoon
+instruction_target_to_replace: holder
+instruction_verb_to_replace: put
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: spoon
+  category: teaspoon
+  model: piqabk
+  bounding_box:
+  - 0.14
+  - 0.0299157
+  - 0.0151338
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - 0.0575669
+target_objects:
+- type: DatasetObject
+  name: holder
+  category: pencil_holder
+  model: eodvyo
+  bounding_box:
+  - 0.09876
+  - 0.09876
+  - 0.14196
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.12098
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_black_pepper
+  category: bottle_of_black_pepper
+  model: honise
+  bounding_box:
+  - 0.04484
+  - 0.04782
+  - 0.10726
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - 0.10363
+- type: DatasetObject
+  name: distractor_jug
+  category: jug
+  model: gjgwvi
+  bounding_box:
+  - 0.0716459
+  - 0.1
+  - 0.152124
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - 0.126062
+- type: DatasetObject
+  name: distractor_jar_of_cocoa
+  category: jar_of_cocoa
+  model: sjwgfn
+  bounding_box:
+  - 0.1
+  - 0.0973557
+  - 0.1305627
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.25
+  - 0.3
+  - 0.1152814
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: spoon
+  object: holder
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.3994696
+    - 0.4821693
+    - 0.4016625
+    rot:
+    - 0.1410687
+    - -0.5037425
+    - -0.8233498
+    - 0.2200867
+  cam2:
+    pos:
+    - 0.1842812
+    - -0.4505223
+    - 0.4292035
+    rot:
+    - 0.5908595
+    - -0.0295413
+    - -0.1679556
+    - 0.788545
+provenance:
+  task_id: 77da6195b15b
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up the spoon and place it in the spoon holder
+  decisions:
+  - no utensil-holder asset; pencil_holder eodvyo (10 cm cylinder, 14 cm deep) plays the same role, and the instruction says
+    "the holder" rather than promising a spoon holder
+  - spoon grounded as teaspoon piqabk; pick-up clause is REACH/GRASP

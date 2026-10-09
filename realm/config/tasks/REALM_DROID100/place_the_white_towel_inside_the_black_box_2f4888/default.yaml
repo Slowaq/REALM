@@ -1,0 +1,117 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Place the towel inside the box
+instruction_obj_to_replace: towel
+instruction_target_to_replace: box
+instruction_verb_to_replace: put
+supported_scenes:
+  Benevolence_1_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: towel
+  category: dishtowel
+  model: ltydgg
+  bounding_box:
+  - 0.11584
+  - 0.16
+  - 0.0190823
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.09
+  - 0.2
+  - 0.0595412
+target_objects:
+- type: DatasetObject
+  name: box
+  category: storage_box
+  model: eicujj
+  bounding_box:
+  - 0.2611098
+  - 0.28
+  - 0.0641603
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.3
+  - 0.2
+  - 0.0820802
+distractors:
+- type: DatasetObject
+  name: distractor_can_of_corn
+  category: can_of_corn
+  model: pddtfk
+  bounding_box:
+  - 0.08599
+  - 0.08598
+  - 0.0906
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.51
+  - 0.2
+  - 0.0953
+- type: DatasetObject
+  name: distractor_tweezers
+  category: tweezers
+  model: ngwoat
+  bounding_box:
+  - 0.00485
+  - 0.03209
+  - 0.0025
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.45
+  - 0.2
+  - 0.0512501
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: towel
+  object: box
+camera_extrinsics:
+  cam1:
+    pos:
+    - -0.1333793
+    - -0.3089375
+    - 0.7066061
+    rot:
+    - 0.4714658
+    - -0.2556522
+    - -0.4285131
+    - 0.7271441
+  cam2:
+    pos:
+    - -0.0773889
+    - 0.6478112
+    - 0.5194714
+    rot:
+    - 0.2311177
+    - -0.5331638
+    - -0.7474096
+    - 0.3220247
+provenance:
+  task_id: 2f4888979b99
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Place the white towel inside the black box
+  decisions:
+  - colours dropped (texture)
+  - towel grounded as dishtowel ltydgg (folded), box as storage_box eicujj

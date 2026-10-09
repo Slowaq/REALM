@@ -1,0 +1,134 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the bottle in the bowl
+instruction_obj_to_replace: bottle
+instruction_target_to_replace: bowl
+instruction_verb_to_replace: put
+supported_scenes:
+  Pomaria_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: bottle
+  category: bottle_of_water
+  model: cyzaue
+  bounding_box:
+  - 0.05437
+  - 0.05078
+  - 0.17502
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.06
+  - 0.25
+  - 0.1375101
+target_objects:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: hynhgz
+  bounding_box:
+  - 0.19223
+  - 0.19223
+  - 0.11361
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.25
+  - 0.106805
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_soda
+  category: bottle_of_soda
+  model: eqyqlx
+  bounding_box:
+  - 0.0693
+  - 0.06002
+  - 0.22373
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.425
+  - 0.161865
+- type: DatasetObject
+  name: distractor_banana
+  category: banana
+  model: verqwv
+  bounding_box:
+  - 0.1
+  - 0.0313702
+  - 0.015795
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.125
+  - 0.0578975
+- type: DatasetObject
+  name: distractor_table_knife
+  category: table_knife
+  model: nmkend
+  bounding_box:
+  - 0.1
+  - 0.0105597
+  - 0.0021863
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.375
+  - 0.0510932
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: bottle
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.382199
+    - 0.5056422
+    - 0.4952352
+    rot:
+    - 0.1420744
+    - -0.4612173
+    - -0.8388631
+    - 0.251798
+  cam2:
+    pos:
+    - 0.1443399
+    - -0.5178273
+    - 0.37781
+    rot:
+    - 0.5905561
+    - -0.2082474
+    - -0.2716731
+    - 0.7308011
+provenance:
+  task_id: 662239f12a32
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the white bottle in the orange bowl
+  decisions:
+  - colour words dropped (texture)
+  - bottle grounded as bottle_of_water cyzaue (5.4 cm wide); bowl hynhgz (19 cm)

@@ -1,0 +1,117 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Place the chocolate bar inside the sink
+instruction_obj_to_replace: chocolate bar
+instruction_target_to_replace: sink
+instruction_verb_to_replace: put
+supported_scenes:
+  office_cubicles_left:
+  - Office_Desk
+main_objects:
+- type: DatasetObject
+  name: chocolate_bar
+  category: chocolate_bar
+  model: amutpr
+  bounding_box:
+  - 0.14
+  - 0.0863888
+  - 0.00523
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.51
+  - 0.052615
+target_objects:
+- type: DatasetObject
+  name: sink
+  category: drop_in_sink
+  model: wzpabm
+  bounding_box:
+  - 0.28
+  - 0.2703133
+  - 0.1867372
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.3
+  - 0.1433687
+distractors:
+- type: DatasetObject
+  name: distractor_chopstick
+  category: chopstick
+  model: bdvjuf
+  bounding_box:
+  - 0.1
+  - 0.0022835
+  - 0.0022879
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.15
+  - 0.051144
+- type: DatasetObject
+  name: distractor_pencil
+  category: pencil
+  model: fnlbpu
+  bounding_box:
+  - 0.1
+  - 0.0038263
+  - 0.0031886
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.45
+  - 0.0515943
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: chocolate_bar
+  object: sink
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.1136656
+    - 0.5993711
+    - 0.3591076
+    rot:
+    - 0.246949
+    - -0.4342425
+    - -0.7509294
+    - 0.4319199
+  cam2:
+    pos:
+    - 0.2130073
+    - -0.4652059
+    - 0.5394045
+    rot:
+    - 0.409466
+    - -0.1750615
+    - -0.3829282
+    - 0.8093559
+provenance:
+  task_id: cfa4fa9c7836
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Place the snack bar inside the sink
+  decisions:
+  - snack bar grounded as chocolate_bar (the variant names a Snickers, a chocolate bar) and named in the instruction
+  - sink as drop_in_sink wzpabm (smallest basin, at the 0.28 m ceiling)

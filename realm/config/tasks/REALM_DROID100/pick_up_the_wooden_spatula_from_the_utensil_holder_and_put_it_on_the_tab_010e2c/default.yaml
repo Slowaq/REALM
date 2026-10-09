@@ -1,0 +1,139 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the spatula from the holder
+instruction_obj_to_replace: spatula
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Pomaria_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: spatula
+  category: spatula
+  model: ktkigm
+  bounding_box:
+  - 0.14
+  - 0.0301487
+  - 0.0105223
+  orientation:
+  - 0.0
+  - 0.7071068
+  - 0.0
+  - 0.7071068
+  relative_bbox_position:
+  - 0.12
+  - 0.15
+  - 0.1582501
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_hamburger_bun
+  category: hamburger_bun
+  model: fqxumh
+  bounding_box:
+  - 0.08664
+  - 0.08494
+  - 0.02639
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.35
+  - 0.063195
+- type: DatasetObject
+  name: distractor_jar_of_peppercorns
+  category: jar_of_peppercorns
+  model: gkakwk
+  bounding_box:
+  - 0.095
+  - 0.095
+  - 0.13171
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.35
+  - 0.115855
+- type: DatasetObject
+  name: distractor_screwdriver
+  category: screwdriver
+  model: uajlga
+  bounding_box:
+  - 0.1
+  - 0.0092764
+  - 0.0092203
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.15
+  - 0.0546102
+immutables:
+- type: DatasetObject
+  name: holder
+  category: pencil_holder
+  model: jkuiqg
+  bounding_box:
+  - 0.06512
+  - 0.07759
+  - 0.07325
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.15
+  - 0.0866251
+initial_state:
+- predicate: inside
+  subject: spatula
+  object: holder
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: spatula
+  object: holder
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.3022405
+    - 0.5195519
+    - 0.4548486
+    rot:
+    - 0.2350099
+    - -0.491498
+    - -0.777176
+    - 0.3149565
+  cam2:
+    pos:
+    - 0.081473
+    - -0.415475
+    - 0.2346576
+    rot:
+    - 0.5469209
+    - -0.3593164
+    - -0.4195504
+    - 0.629084
+provenance:
+  task_id: 010e2cfe775d
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up the wooden spatula from the utensil holder and put it on the table
+  decisions:
+  - shortened to the removal; "wooden" dropped (material)
+  - 'no utensil-holder asset: pencil_holder jkuiqg (7.3 cm deep cylinder) plays the same role and the instruction says "the
+    holder"; spatula ktkigm authored at the 14 cm ceiling stands in it and protrudes ~7 cm'

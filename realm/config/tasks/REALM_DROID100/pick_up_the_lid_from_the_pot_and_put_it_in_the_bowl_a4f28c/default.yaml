@@ -1,0 +1,137 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the lid in the bowl
+instruction_obj_to_replace: lid
+instruction_target_to_replace: bowl
+instruction_verb_to_replace: put
+supported_scenes:
+  Pomaria_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: lid
+  category: lid
+  model: vkepll
+  bounding_box:
+  - 0.13442
+  - 0.13442
+  - 0.04776
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.35
+  - 0.07388
+target_objects:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: kdkrov
+  bounding_box:
+  - 0.17852
+  - 0.17852
+  - 0.11503
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.15
+  - 0.107515
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_soy_sauce
+  category: bottle_of_soy_sauce
+  model: afxisg
+  bounding_box:
+  - 0.09698
+  - 0.09701
+  - 0.20581
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.35
+  - 0.1529051
+- type: DatasetObject
+  name: distractor_table_knife
+  category: table_knife
+  model: nmkend
+  bounding_box:
+  - 0.1
+  - 0.0105597
+  - 0.0021863
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.15
+  - 0.0510932
+- type: DatasetObject
+  name: distractor_hammer
+  category: hammer
+  model: fcrlbo
+  bounding_box:
+  - 0.1
+  - 0.0414117
+  - 0.0122257
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.3
+  - 0.25
+  - 0.0561129
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: lid
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.3852524
+    - 0.4839165
+    - 0.2663607
+    rot:
+    - 0.1247885
+    - -0.6349666
+    - -0.7411724
+    - 0.1786299
+  cam2:
+    pos:
+    - 0.189205
+    - -0.4638455
+    - 0.3183554
+    rot:
+    - 0.6539798
+    - -0.2439942
+    - -0.242617
+    - 0.6737315
+provenance:
+  task_id: a4f28c767baa
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up the lid from the pot and put it in the bowl
+  decisions:
+  - 'redone: the first draft started the lid on long-handled saucepot obuxbe, where the solver''s bbox-centred placement puts
+    the lid ~8 cm off the pot body'
+  - 'a symmetric pot needs a ~23 cm lid and a 27.6 cm bowl, which does not pack on any region with the pot, so the cluster
+    variant "Put the lid in the bowl" is used: same scored put, lid starts on the table'
+  - lid vkepll (13.4 cm), bowl kdkrov (17.9 cm)

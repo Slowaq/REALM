@@ -1,0 +1,135 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the spoon in the cup
+instruction_obj_to_replace: spoon
+instruction_target_to_replace: cup
+instruction_verb_to_replace: put
+supported_scenes:
+  Benevolence_1_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: spoon
+  category: teaspoon
+  model: nxddfp
+  bounding_box:
+  - 0.13
+  - 0.02918
+  - 0.01687
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.42
+  - 0.28
+  - 0.058435
+target_objects:
+- type: DatasetObject
+  name: cup
+  category: coffee_cup
+  model: rypdvd
+  bounding_box:
+  - 0.09144
+  - 0.06512
+  - 0.08981
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.18
+  - 0.12
+  - 0.094905
+distractors:
+- type: DatasetObject
+  name: distractor_can_of_tomatoes
+  category: can_of_tomatoes
+  model: ckdouu
+  bounding_box:
+  - 0.08483
+  - 0.08483
+  - 0.11827
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.18
+  - 0.28
+  - 0.109135
+- type: DatasetObject
+  name: distractor_bottle_of_supplements
+  category: bottle_of_supplements
+  model: oqakev
+  bounding_box:
+  - 0.06378
+  - 0.06379
+  - 0.11607
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.42
+  - 0.12
+  - 0.108035
+- type: DatasetObject
+  name: distractor_jar_of_cocoa
+  category: jar_of_cocoa
+  model: sjwgfn
+  bounding_box:
+  - 0.1
+  - 0.0973557
+  - 0.1305627
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.3
+  - 0.2
+  - 0.1152814
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: spoon
+  object: cup
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.3057315
+    - -0.3456641
+    - 0.1831859
+    rot:
+    - 0.4765882
+    - -0.0501704
+    - -0.2721998
+    - 0.8344183
+  cam2:
+    pos:
+    - 0.2012356
+    - 0.3291755
+    - 0.2283563
+    rot:
+    - 0.2406733
+    - -0.4359086
+    - -0.7363675
+    - 0.4580644
+provenance:
+  task_id: c0d0323c76f5
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick the spoon in the bowl and put in in the cup
+  decisions:
+  - shortened to the scored put (variant "Put the spoon in the red cup" without the colour); the starting bowl is dropped
+    because the rubric only scores the cup
+  - cup grounded as coffee_cup rypdvd (9 cm deep, takes the spoon lengthwise)

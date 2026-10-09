@@ -1,0 +1,139 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the plate from the bowl
+instruction_obj_to_replace: plate
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Benevolence_1_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: plate
+  category: plate
+  model: xtdcau
+  bounding_box:
+  - 0.14
+  - 0.1400552
+  - 0.0044368
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.18
+  - 0.12
+  - 0.1358684
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_molasses
+  category: bottle_of_molasses
+  model: jvsjop
+  bounding_box:
+  - 0.08084
+  - 0.08074
+  - 0.19055
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.42
+  - 0.28
+  - 0.145275
+- type: DatasetObject
+  name: distractor_trash_can
+  category: trash_can
+  model: wkxtxh
+  bounding_box:
+  - 0.1
+  - 0.0999652
+  - 0.1211539
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.18
+  - 0.28
+  - 0.110577
+- type: DatasetObject
+  name: distractor_jar_of_dill_seed
+  category: jar_of_dill_seed
+  model: reavkt
+  bounding_box:
+  - 0.06244
+  - 0.06151
+  - 0.07418
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.42
+  - 0.12
+  - 0.08709
+immutables:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: hitnkv
+  bounding_box:
+  - 0.12491
+  - 0.12491
+  - 0.07365
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.18
+  - 0.12
+  - 0.086825
+initial_state:
+- predicate: on_top_of
+  subject: plate
+  object: bowl
+target_state:
+  rubric: pick
+  predicate: on_top_of
+  subject: plate
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2977437
+    - 0.4275537
+    - 0.2662507
+    rot:
+    - 0.5267069
+    - -0.46055
+    - -0.6622133
+    - 0.2682295
+  cam2:
+    pos:
+    - -0.0551702
+    - -0.5551934
+    - 0.2606382
+    rot:
+    - 0.7649034
+    - 0.1090799
+    - -0.5042591
+    - 0.3856776
+provenance:
+  task_id: 82f5f5e1e69e
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the pink plate from the blue bowl
+  decisions:
+  - colours dropped (texture)
+  - plate xtdcau (15.2 cm) rests on top of bowl hitnkv (12.5 cm), wider than the opening so it covers the bowl and overhangs
+    enough to grasp

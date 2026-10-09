@@ -220,6 +220,43 @@ def cmd_status(args, assets, info) -> int:
     return 0
 
 
+def cmd_replay(args, assets, info) -> int:
+    """Re-solve every submitted task with the CURRENT solver, keeping the agent's choices.
+
+    A solver fix (clutter rules, sizing, placement) otherwise only reaches tasks generated after it.
+    Each submitted session's last propose_layout arguments are replayed deterministically; the new
+    document replaces the old one if it validates, and the agent's decisions are carried over. A
+    task that no longer validates is reopened so `next` offers it again.
+    """
+    store = Store(args.sessions)
+    updated = reopened = unchanged = 0
+    for state in store.all():
+        outcome = state.get("outcome") or {}
+        if outcome.get("status") != "submitted" or state.get("catalog_fingerprint") != info["fingerprint"]:
+            continue
+        old = outcome["record"]
+        session = _session(state, assets)
+        verdict = session.validate_draft() if session.document is not None else {"ok": False, "findings": []}
+        if not verdict.get("ok"):
+            state["outcome"] = None
+            state["reopened_by_replay"] = [f.get("code") for f in verdict.get("findings") or []]
+            store.save(state)
+            reopened += 1
+            print(f"REOPENED {state['task_id']}  {state['instruction'][:60]}  {state['reopened_by_replay']}")
+            continue
+        decisions = ((old.get("document") or {}).get("provenance") or {}).get("decisions")
+        session.submit_task(decisions)
+        record = _record(state, session, info)
+        if json.dumps(record["document"], sort_keys=True) == json.dumps(old.get("document"), sort_keys=True):
+            unchanged += 1
+            continue
+        state["outcome"] = {"status": "submitted", "record": record}
+        store.save(state)
+        updated += 1
+    print(json.dumps({"updated": updated, "unchanged": unchanged, "reopened": reopened}))
+    return 0
+
+
 def cmd_export(args, assets, info) -> int:
     """Write every submitted config, collapsing ones that solve to the same task, plus a report."""
     store = Store(args.sessions)
@@ -306,6 +343,8 @@ def main(argv: list[str] | None = None) -> int:
     export.add_argument("--keep-duplicates", action="store_true")
     export.add_argument("--dry-run", action="store_true")
 
+    sub.add_parser("replay", help="re-solve submitted tasks with the current solver, keeping choices")
+
     args = parser.parse_args(argv)
     try:
         assets, info = asset_catalog.resolve(dataset=args.dataset, catalog=args.catalog)
@@ -314,7 +353,7 @@ def main(argv: list[str] | None = None) -> int:
         return 2
     handlers = {
         "prompt": cmd_prompt, "start": cmd_start, "call": cmd_call,
-        "next": cmd_next, "status": cmd_status, "export": cmd_export,
+        "next": cmd_next, "status": cmd_status, "export": cmd_export, "replay": cmd_replay,
     }
     return handlers[args.command](args, assets, info)
 

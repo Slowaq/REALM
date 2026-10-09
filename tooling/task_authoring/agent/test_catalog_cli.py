@@ -173,6 +173,23 @@ class CliTest(unittest.TestCase):
         written = list((self.root / "out").glob("*/default.yaml"))
         self.assertEqual(len(written), 1)
 
+    def test_replay_keeps_choices_and_reopens_what_no_longer_validates(self):
+        key = self.cli("start", "Put the apple in the bowl", "--ranking-id", "R")["task_id"]
+        apple = self.cli("call", key, "search_assets", '{"query": "apple", "role": "main"}')
+        bowl = self.cli("call", key, "search_assets", '{"query": "bowl", "role": "target"}')
+        roles = {
+            "task_type": "put", "instruction": "Put the apple in the bowl",
+            "main": {"name": "apple", "category": "apple", "model": apple["candidates"][0]["model"]},
+            "target": {"name": "bowl", "category": "bowl", "model": bowl["candidates"][-1]["model"]},
+        }
+        self.cli("call", key, "propose_layout", json.dumps(roles))
+        self.cli("call", key, "submit_task", '{"decisions": ["kept"]}')
+        out = self.cli("replay")
+        self.assertEqual(out["reopened"], 0)
+        state = json.loads((self.root / "sessions" / f"{key}.json").read_text())
+        self.assertEqual(state["outcome"]["status"], "submitted")
+        self.assertEqual(state["outcome"]["record"]["document"]["provenance"]["decisions"], ["kept"])
+
     def test_tool_surface_matches_the_api_path(self):
         self.assertEqual(set(cli.TOOL_NAMES), {schema["name"] for schema in tools.tool_schemas()})
 
@@ -409,9 +426,11 @@ class RollingClutterTest(unittest.TestCase):
     def test_round_objects_are_not_clutter(self):
         from tooling.task_authoring.agent import layout
 
-        for category in ("volleyball", "pear", "apple", "orange", "baseball", "tennis_ball"):
+        for category in ("volleyball", "pear", "apple", "orange", "baseball", "tennis_ball",
+                         "chestnut", "gooseberry", "strawberry", "papaya"):
             self.assertTrue(layout.rolls(category), category)
-        for category in ("banana", "sponge", "half_apple", "toy_dice", "bottle_of_water"):
+        for category in ("banana", "sponge", "half_apple", "toy_dice", "bottle_of_water",
+                         "bottle_of_olive_oil", "jar_of_strawberry_jam", "bottle_of_strawberry_juice"):
             self.assertFalse(layout.rolls(category), category)
 
 

@@ -213,10 +213,14 @@ def solve_layout(
     rests_on_source = bool(roles.get("source")) and _declared_predicate(roles) in (None, "on_top_of")
     # The same holds for the GOAL of a lid task: "put the lid on the pot" needs a lid as wide as the
     # pot, so a lid that is the main object of a stack gets the receiver ceiling too.
-    lid_goal = task_type == "stack" and "lid" in str((roles.get("main") or {}).get("category") or "").split("_")
+    main_words = set(str((roles.get("main") or {}).get("category") or "").split("_"))
+    lid_like = bool(main_words & {"lid", "cover", "cap"})
+    lid_goal = task_type == "stack" and lid_like
     main_config, audits = _build_role(
         "main", roles["main"], assets_by_category,
-        OTHER_MAX_XY if (rests_on_source or lid_goal) else MAIN_MAX_XY)
+        # Only a lid-like object needs to be as wide as what it rests on. Giving every resting
+        # object the receiver ceiling let a "toy cart" on a box come out 28 x 20 x 30 cm.
+        OTHER_MAX_XY if ((rests_on_source and lid_like) or lid_goal) else MAIN_MAX_XY)
     target_config = source_config = None
     if roles.get("target"):
         target_config, audit = _build_role("target", roles["target"], assets_by_category, OTHER_MAX_XY)
@@ -642,13 +646,20 @@ ROLLING_WORDS = frozenset({
     "ball", "orange", "apple", "pear", "peach", "plum", "lemon", "lime", "tomato", "onion",
     "potato", "egg", "pomelo", "grapefruit", "melon", "coconut", "kiwi", "mango", "apricot",
     "nectarine", "tangerine", "clementine", "grape", "cherry", "globe", "marble", "pearl",
+    # Found in the first 104-task export: still drawn as clutter before this list grew.
+    "papaya", "avocado", "lychee", "fig", "date", "olive", "kumquat", "persimmon", "pomegranate",
+    "acorn", "pecan", "almond", "pea", "bead", "button", "bubble",
 })
 
 
 def rolls(category: str) -> bool:
-    words = str(category).split("_")
-    return any(word in ROLLING_WORDS or word.endswith("ball") for word in words) and not str(
-        category).startswith(("half_", "sliced_", "diced_"))
+    """True for round objects, judged by the HEAD noun: a bottle_of_olive_oil or a
+    jar_of_strawberry_jam is a container and stands still; a cherry_tomato rolls."""
+    category = str(category)
+    if category.startswith(("half_", "sliced_", "diced_")):
+        return False
+    head = category.split("_of_", 1)[0] if "_of_" in category else category.rsplit("_", 1)[-1]
+    return head in ROLLING_WORDS or head.endswith(("ball", "berry", "nut"))
 
 
 def _eligible_distractors(assets_by_category: dict[str, list[dict]]) -> list[str]:

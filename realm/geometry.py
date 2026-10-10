@@ -133,6 +133,11 @@ def compute_rot_diff_magnitude(initial_quat, final_quat):
     return rotvec[2]
 
 
+def rotation_angle_between(quat_a, quat_b):
+    """Angle in radians of the rotation taking @quat_a to @quat_b (both xyzw), about any axis."""
+    return float((Rotation.from_quat(quat_b) * Rotation.from_quat(quat_a).inv()).magnitude())
+
+
 def add_rotation_noise(current_orientation_quat, noise_std_dev_rad_xyz, min_xyz=None, max_xyz=None, noise_mean=(0,0,0)):
     """@current_orientation_quat (xyzw) with per-axis normal noise added in euler-xyz space.
 
@@ -171,3 +176,52 @@ def calculate_new_camera_pose_mixed_rotations(
     )
     T_world_new_camera = T_world_new_base.dot(T_base_camera)
     return get_xyz_quaternion_from_homogeneous_transform(T_world_new_camera)
+
+
+# ------------------------------------------- containment -------------------------------------------
+def points_in_box(points, lo, hi):
+    """Which of @points (N x 3) lie inside the axis-aligned box [@lo, @hi]."""
+    points = np.asarray(points, dtype=float).reshape(-1, 3)
+    return np.all((points >= np.asarray(lo, dtype=float)) & (points <= np.asarray(hi, dtype=float)), axis=1)
+
+
+def pull_toward_centre(points, distance):
+    """Move each of @points (N x 3) @distance toward the centre of their bounding box, never past it.
+
+    For testing a resting object against a container's volume: its contact faces lie ON the
+    volume's floor or wall, where an in-volume test is decided by rounding and penetration depth.
+    """
+    points = np.asarray(points, dtype=float).reshape(-1, 3)
+    offset = (points.min(axis=0) + points.max(axis=0)) / 2 - points
+    length = np.linalg.norm(offset, axis=1, keepdims=True)
+    direction = np.divide(offset, length, out=np.zeros_like(offset), where=length > 0)
+    return points + direction * np.minimum(distance, length)
+
+
+def containment_fractions(points, in_cavity, cavity_bottom, cavity_top):
+    """How far an object, given as world points on its surface, sits inside a container's cavity.
+
+    @in_cavity marks which @points lie in the cavity; @cavity_bottom / @cavity_top are its height
+    range.
+
+    Returns (rim_fraction, depth_fraction):
+        rim_fraction    share of the points at or below the cavity's top that are in the cavity, in
+                        [0, 1]; 0 when no point is that low.
+        depth_fraction  how far the lowest point in the cavity reaches below its top, as a share of
+                        its height: 0 at the rim, 1 at the floor, -inf when no point is in it.
+
+    Only the part of the object at rim height or lower is weighed, so whatever sticks up out of the
+    container (scissors' handles above a mug) is irrelevant, while whatever is down at the container
+    but outside it (leaning against the outside wall, tucked under a bowl's flared rim, one end of a
+    banana draped over a tray's edge) counts against it. IoU and volume overlap are not used: IoU
+    scales with the size ratio of the two boxes, volume overlap penalises objects taller than their
+    container.
+    """
+    points = np.asarray(points, dtype=float).reshape(-1, 3)
+    low = points[:, 2] <= cavity_top
+    inside = np.asarray(in_cavity, dtype=bool) & low
+    if not inside.any():
+        return 0.0, -np.inf
+    cavity_height = max(cavity_top - cavity_bottom, 1e-9)
+    depth_fraction = float((cavity_top - points[inside, 2].min()) / cavity_height)
+    return float(inside.sum() / low.sum()), depth_fraction

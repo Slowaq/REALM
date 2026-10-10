@@ -2,17 +2,34 @@
 import copy
 
 import numpy as np
+import torch as th
 
 import omnigibson as og
+import omnigibson.lazy as lazy
 
 from realm.config.shared import (
+    PLACE_INSIDE_CONTACT_MARGIN,
+    PLACE_INSIDE_MIN_DEPTH_FRACTION,
+    PLACE_INSIDE_SETTLE_POS_TOL,
+    PLACE_INSIDE_SETTLE_ROT_TOL,
+    PLACE_INSIDE_SETTLE_STEPS,
     POUR_LIFT_THRESHOLD,
     POUR_LIQUID_MIN_PARTICLES,
     POUR_MOVE_CLOSE_XY_DIST,
     POUR_PROXY_MIN_BALLS_INSIDE,
 )
-from realm.environments.utils import load_task_progressions
-from realm.geometry import compute_rot_diff_magnitude
+from realm.environments.utils import (
+    collision_mesh_points_world,
+    container_volume_link,
+    load_task_progressions,
+)
+from realm.geometry import (
+    compute_rot_diff_magnitude,
+    containment_fractions,
+    points_in_box,
+    pull_toward_centre,
+    rotation_angle_between,
+)
 
 
 def _as_numpy(value):
@@ -29,6 +46,7 @@ class TaskProgressionMixin:
     def _init_task_progression(self, task_type):
 
         self.was_lifted = False
+        self.reset_place_inside_settling()
         self.task_progression = (
             copy.deepcopy(TASK_PROGRESS_RUBRICS[task_type])
             if task_type in TASK_PROGRESS_RUBRICS
@@ -192,11 +210,62 @@ class TaskProgressionMixin:
                                            - np.asarray(_as_numpy(pos2))[:2]))
         return distance_xy < POUR_MOVE_CLOSE_XY_DIST
 
-    def check_place_condition(self, obs):
+    def _containment(self, obj, container):
+        """(rim_fraction, depth_fraction) of @obj in @container -- see geometry.containment_fractions.
+
+        @obj is judged by its collision-mesh vertices, each pulled PLACE_INSIDE_CONTACT_MARGIN toward
+        its centre so faces resting on the container's floor or wall are not read as outside. They
+        are tested against @container's `fillable` meta link volume when it has one -- the test OG's
+        `Inside` applies to a single point, so a bowl's flared rim or a wineglass's stem is not
+        mistaken for interior -- and against its whole AABB otherwise.
+        """
+        points = _as_numpy(collision_mesh_points_world(obj))
+        test_points = pull_toward_centre(points, PLACE_INSIDE_CONTACT_MARGIN)
+        volume_link = container_volume_link(container)
+        if volume_link is not None:
+            cavity_lo, cavity_hi = volume_link.visual_aabb
+            in_cavity = _as_numpy(volume_link.check_points_in_volume(th.as_tensor(test_points, dtype=th.float32)))
+        else:
+            cavity_lo, cavity_hi = container.aabb
+            in_cavity = points_in_box(test_points, _as_numpy(cavity_lo), _as_numpy(cavity_hi))
+        return containment_fractions(points, in_cavity, float(cavity_lo[2]), float(cavity_hi[2]))
+
+    def _is_inside(self, obj, container):
+        """Of @obj's vertices at or below @container's rim, at least OmniGibson's
+        Overlaid.OVERLAP_AREA_PERCENTAGE are in its cavity, and the lowest of those reaches
+        PLACE_INSIDE_MIN_DEPTH_FRACTION of the way down into it."""
+        rim_fraction, depth_fraction = self._containment(obj, container)
+        return (rim_fraction >= lazy.omnigibson.object_states.overlaid.m.OVERLAP_AREA_PERCENTAGE
+                and depth_fraction >= PLACE_INSIDE_MIN_DEPTH_FRACTION)
+
+    def reset_place_inside_settling(self):
+        self.place_inside_anchor = None
+        self.place_inside_settled_steps = 0
+
+    def check_place_condition(self, obs, settle_steps=PLACE_INSIDE_SETTLE_STEPS):
+        """Main object released, substantially inside the target, and settled there.
+
+        Settled means it stays within PLACE_INSIDE_SETTLE_POS_TOL / PLACE_INSIDE_SETTLE_ROT_TOL of
+        the pose it had when it first counted as placed, for @settle_steps consecutive control
+        steps; leaving that pose or the target restarts the count, so an object caught mid-fall or
+        sliding off the rim is not credited. Judged by pose rather than velocity: an object wedged
+        in a narrow container can be held in place while the solver keeps reporting velocity.
+        """
         mo = self.main_objects[0]
         target = self.target_objects[0]
-        inside_or_on_top = mo.states[og.object_states.OnTop].get_value(target) or mo.states[og.object_states.Inside].get_value(target)
-        return inside_or_on_top and not self.is_grasping(obs, mo)
+        if self.is_grasping(obs, mo) or not self._is_inside(mo, target):
+            self.reset_place_inside_settling()
+            return False
+
+        pos, orn = (_as_numpy(v) for v in mo.get_position_orientation())
+        anchor = self.place_inside_anchor
+        if (anchor is None
+                or np.linalg.norm(pos - anchor[0]) > PLACE_INSIDE_SETTLE_POS_TOL
+                or rotation_angle_between(anchor[1], orn) > PLACE_INSIDE_SETTLE_ROT_TOL):
+            self.place_inside_anchor = (pos, orn)
+            self.place_inside_settled_steps = 0
+        self.place_inside_settled_steps += 1
+        return self.place_inside_settled_steps >= settle_steps
 
     def check_place_onto_condition(self, obs):
         mo = self.main_objects[0]

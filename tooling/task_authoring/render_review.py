@@ -79,10 +79,20 @@ def authored_names(cfg: dict) -> set:
     (`to_remove`) and pins others (`to_fix`). A removed scene fixture is not an authored object that
     went missing, and reporting it as one would fail the config for nothing.
     """
-    names = set()
+    return set(authored_roles(cfg))
+
+
+#: Roles whose objects the sim moves. Immutables are fixtures (a table support, a sink), often
+#: pinned and modelled to pass through the floor, so the floor bound does not apply to them.
+MOVABLE_ROLES = ("main_objects", "target_objects", "distractors")
+
+
+def authored_roles(cfg: dict) -> dict:
+    """Authored object name -> the config role that placed it."""
+    roles = {}
     for role in ("main_objects", "target_objects", "distractors", "immutables"):
-        names |= {str(o["name"]) for o in (cfg.get(role) or []) if o.get("name")}
-    return names
+        roles.update({str(o["name"]): role for o in (cfg.get(role) or []) if o.get("name")})
+    return roles
 
 
 #: Objects authored more than this far from the spawn plane are not ON the task surface: a
@@ -98,7 +108,8 @@ def on_task_surface(row: dict, support_z: float | None) -> bool:
     return abs(float(authored[2]) - float(support_z)) <= SUPPORT_BAND_M
 
 
-def measured_support_z(rows: list[dict], support_z: float | None = None) -> float | None:
+def measured_support_z(rows: list[dict], support_z: float | None = None,
+                       resting: set | None = None) -> float | None:
     """The support surface as the scene actually has it: the resting height of the authored objects.
 
     scenes.yaml's `z` is the SPAWN height, not the table top. REALM authors objects at
@@ -107,11 +118,16 @@ def measured_support_z(rows: list[dict], support_z: float | None = None) -> floa
     18-20 cm into the table. The live surface is read off the settled objects instead: the lower
     quartile of their world-AABB lower faces, so objects stacked on others (higher) and a single
     genuinely sunk object (lower) cannot move it. Needs at least two measured objects.
+
+    Objects the config declares resting on or in another object (`resting`) are not on the surface
+    and are left out: a chocolate bar lying in a sink basin, with the sink the only other object,
+    made the basin floor "the surface" and flagged the sink as sunk 16 cm below it.
     """
+    resting = resting or set()
     lows = sorted(
         float(row["aabb_low_z"]) for row in rows
         if row.get("present") and row.get("authored", True) and row.get("aabb_low_z") is not None
-        and on_task_surface(row, support_z)
+        and on_task_surface(row, support_z) and row.get("name") not in resting
     )
     if len(lows) < 2:
         return None
@@ -217,7 +233,8 @@ def probe(env, before: dict | None = None) -> list[dict]:
     the checks that are about the AUTHORED pose (DROPPED, FLOATING). Nothing here is model-derived.
     """
     rows = []
-    authored = authored_names(env.cfg)
+    roles = authored_roles(env.cfg)
+    authored = set(roles)
     before = before or {}
     for obj_cfg in env.cfg.get("objects", []):
         name = obj_cfg.get("name")
@@ -235,6 +252,7 @@ def probe(env, before: dict | None = None) -> list[dict]:
             "name": name,
             "present": True,
             "authored": name in authored,
+            "role": roles.get(name),
             "category": getattr(obj, "category", None),
             "settled_position": pose["origin"],
             "settled_orientation": pose["orientation"],
@@ -274,7 +292,7 @@ def stability_findings(rows: list[dict], support_z: float, resting: set | None =
     """
     findings = []
     resting = resting or set()
-    surface = measured_support_z(rows, support_z)
+    surface = measured_support_z(rows, support_z, resting)
     for row in rows:
         judged = row.get("authored", True)
         if not row.get("present"):
@@ -332,7 +350,8 @@ def stability_findings(rows: list[dict], support_z: float, resting: set | None =
                     f"support surface at z={surface:.4f}"
                 ),
             })
-        elif lowest is not None and lowest < FLOOR_Z_M - PENETRATION_TOL_M:
+        elif (lowest is not None and lowest < FLOOR_Z_M - PENETRATION_TOL_M
+              and row.get("role", "main_objects") in MOVABLE_ROLES):
             findings.append({
                 "code": "PENETRATION", "object": row["name"],
                 "reason": f"lower face at z={lowest:.4f} is below the floor at z={FLOOR_Z_M}",
@@ -468,13 +487,14 @@ def review_one(task_cfg_path: str, out_dir: Path, *, robot: str = "DROID_mounted
         rows = probe(env, before)
         record["objects"] = rows
         record["support_z"] = support_z
-        record["support_z_measured"] = measured_support_z(rows, support_z)
+        resting = declared_resting(task_cfg_path)
+        record["support_z_measured"] = measured_support_z(rows, support_z, resting)
         # Say which penetration check actually ran, so a null surface is not read as a clean one.
         record["penetration_check"] = (
             "measured task surface and floor" if record["support_z_measured"] is not None
             else "floor only: fewer than two authored objects rest on the spawn plane")
         record["settle_steps"] = steps
-        record["compute_findings"] = stability_findings(rows, support_z, declared_resting(task_cfg_path))
+        record["compute_findings"] = stability_findings(rows, support_z, resting)
         paths, errors = render(env, task_dir, stem, "t060")
         record["renders"] += paths
         record["render_errors"] += errors

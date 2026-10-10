@@ -790,6 +790,30 @@ class SettleDriftTest(unittest.TestCase):
         drawer["aabb_low_z"] = -0.001
         self.assertEqual(render_review.stability_findings([drawer], 0.8), [])
 
+    def test_floor_bound_skips_fixtures(self):
+        """close_drawer/open_drawer author a table support fixture modelled 12.5 cm through the floor;
+        it is pinned scene furniture, not an object the sim dropped."""
+        from tooling.task_authoring import render_review
+
+        support = {"name": "breakfast_table_support", "present": True, "authored": True,
+                   "role": "immutables", "authored_position": [0, 0, 0.3], "bbox": [0.5, 0.5, 0.8],
+                   "drift_xy": 0.0, "drift_z": 0.0, "aabb_low_z": -0.1247}
+        self.assertEqual(render_review.stability_findings([support], 0.8), [])
+
+    def test_object_resting_in_a_fixture_does_not_define_the_surface(self):
+        """A chocolate bar in a sink basin, with the sink the only other object, made the basin
+        floor the measured surface and flagged the sink as sunk 16 cm below it."""
+        from tooling.task_authoring import render_review
+
+        sink = {"name": "sink", "present": True, "authored": True, "role": "immutables",
+                "authored_position": [0, 0, 1.15], "bbox": [0.28, 0.27, 0.19],
+                "drift_xy": 0.0, "drift_z": 0.0, "aabb_low_z": 1.0195}
+        bar = {"name": "chocolate_bar", "present": True, "authored": True, "role": "main_objects",
+               "authored_position": [0, 0, 1.24], "bbox": [0.14, 0.07, 0.005],
+               "drift_xy": 0.0, "drift_z": -0.06, "aabb_low_z": 1.1795}
+        self.assertIsNone(render_review.measured_support_z([sink, bar], 1.0, {"chocolate_bar"}))
+        self.assertEqual(render_review.stability_findings([sink, bar], 1.0, {"chocolate_bar"}), [])
+
 
 class _FakeEnv:
     """Just enough of an env for `render()`: one method, no simulator."""

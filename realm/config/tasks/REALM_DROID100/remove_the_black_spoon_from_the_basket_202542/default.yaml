@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.3
   - 0.2
-  - 0.0651779
+  - 0.1923127
 target_objects: []
 distractors:
 - type: DatasetObject

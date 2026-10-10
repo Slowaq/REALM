@@ -22,12 +22,12 @@ main_objects:
   orientation:
   - 0.0
   - 0.0
-  - 0.7071068
-  - 0.7071068
+  - 0.0
+  - 1.0
   relative_bbox_position:
   - 0.3
   - 0.2
-  - 0.1299151
+  - 0.2228987
 target_objects: []
 distractors:
 - type: DatasetObject

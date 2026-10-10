@@ -14,11 +14,11 @@ main_objects:
 - type: DatasetObject
   name: plate
   category: plate
-  model: xtdcau
+  model: nrjump
   bounding_box:
-  - 0.14
-  - 0.1400552
-  - 0.0044368
+  - 0.1656923
+  - 0.1656923
+  - 0.0098237
   orientation:
   - 0.0
   - 0.0
@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.18
   - 0.12
-  - 0.1358684
+  - 0.1249118
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -85,11 +85,11 @@ immutables:
 - type: DatasetObject
   name: bowl
   category: bowl
-  model: hitnkv
+  model: eipwho
   bounding_box:
-  - 0.12491
-  - 0.12491
-  - 0.07365
+  - 0.1077
+  - 0.1077
+  - 0.06
   orientation:
   - 0.0
   - 0.0
@@ -98,7 +98,7 @@ immutables:
   relative_bbox_position:
   - 0.18
   - 0.12
-  - 0.086825
+  - 0.08
 initial_state:
 - predicate: on_top_of
   subject: plate
@@ -135,5 +135,5 @@ provenance:
   original_instruction: Remove the pink plate from the blue bowl
   decisions:
   - colours dropped (texture)
-  - plate xtdcau (15.2 cm) rests on top of bowl hitnkv (12.5 cm), wider than the opening so it covers the bowl and overhangs
-    enough to grasp
+  - 'plate nrjump (16.9 cm, flat) on bowl eipwho (10.8 cm): 3 cm overhang a side so it rests on the rim and its edge is graspable;
+    the earlier 15.2 cm plate on a 12.5 cm bowl slid off the rim in the render'

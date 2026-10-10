@@ -630,11 +630,22 @@ def build_document(
     if not poses:
         raise LayoutError(f"no camera poses in {camera_extrinsics}")
     sampled = sample_camera_pair(poses, camera_rng)
+    first, redraws = sampled, 0
+    # Some DROID calibrations are wrong or the camera was mounted looking past the table; the
+    # pink-plate render showed mostly ceiling. Redraw from the same stream until both cameras look
+    # at the workspace, so a task whose first pair already does keeps exactly the same cameras.
+    while not all(looks_at_workspace(pose) for pose in sampled.values()):
+        redraws += 1
+        if redraws > CAMERA_MAX_REDRAWS:
+            sampled = first
+            break
+        sampled = sample_camera_pair(poses, camera_rng)
     document["camera_extrinsics"] = {
         key: {k: v for k, v in value.items() if k != "source"} for key, value in sampled.items()
     }
     audit = dict(solved["audit"])
     audit["camera_extrinsic_sources"] = {key: value["source"] for key, value in sampled.items()}
+    audit["camera_redraws"] = redraws if redraws <= CAMERA_MAX_REDRAWS else "none looked at the workspace"
     if provenance:
         # Set BEFORE the merge: the store is keyed by provenance.task_id (the ORIGINAL instruction),
         # and a document whose instruction the agent rewrote would otherwise look itself up under
@@ -644,6 +655,28 @@ def build_document(
     if applied:
         audit["corrections_applied"] = applied
     return {"document": document, "audit": audit}
+
+
+#: Where the manipulated objects are, robot-base frame (the frame the DROID extrinsics are in).
+WORKSPACE_POINT = (0.5, 0.0, 0.05)
+#: A camera whose optical axis misses that point by more than this frames the table at its edge.
+CAMERA_MAX_OFF_AXIS_DEG = 30.0
+#: ...and one that does not look down at least this much sees wall and ceiling.
+CAMERA_MIN_DOWN_PITCH_DEG = 10.0
+CAMERA_MAX_REDRAWS = 50
+
+
+def looks_at_workspace(pose: dict) -> bool:
+    """True when an OmniGibson-convention camera (XYZW, -Z forward) points down at the workspace."""
+    x, y, z, w = (float(value) for value in pose["rot"])
+    # The camera's -Z axis rotated into the base frame.
+    forward = (-(2 * (x * z + y * w)), -(2 * (y * z - x * w)), -(1 - 2 * (x * x + y * y)))
+    to_point = [target - float(value) for target, value in zip(WORKSPACE_POINT, pose["pos"])]
+    norm = math.sqrt(sum(value * value for value in to_point)) or 1.0
+    cosine = sum(f * t for f, t in zip(forward, to_point)) / norm
+    off_axis = math.degrees(math.acos(max(-1.0, min(1.0, cosine))))
+    down = -math.degrees(math.asin(max(-1.0, min(1.0, forward[2]))))
+    return off_axis <= CAMERA_MAX_OFF_AXIS_DEG and down >= CAMERA_MIN_DOWN_PITCH_DEG
 
 
 @functools.lru_cache(maxsize=4)

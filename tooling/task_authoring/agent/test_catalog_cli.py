@@ -483,6 +483,24 @@ class SourceRelationTest(unittest.TestCase):
         self.assertEqual(set(result["alternatives"]), {"coffee_cup", "paper_cup", "teacup"})
 
 
+class CameraFramingTest(unittest.TestCase):
+    """The pink-plate render's external cameras saw mostly ceiling: one looked level, one up."""
+
+    def test_level_and_upward_cameras_are_rejected(self):
+        from tooling.task_authoring.agent import layout
+
+        plate_cam1 = {"pos": [0.2977437, 0.4275537, 0.2662507], "rot": [0.5267069, -0.46055, -0.6622133, 0.2682295]}
+        plate_cam2 = {"pos": [-0.0551702, -0.5551934, 0.2606382], "rot": [0.7649034, 0.1090799, -0.5042591, 0.3856776]}
+        self.assertFalse(layout.looks_at_workspace(plate_cam1))
+        self.assertFalse(layout.looks_at_workspace(plate_cam2))
+
+    def test_a_typical_droid_camera_passes(self):
+        from tooling.task_authoring.agent import layout
+
+        good = {"pos": [0.1627260, 0.3454896, 0.4505137], "rot": [0.2619956, -0.5015634, -0.7250587, 0.3925332]}
+        self.assertTrue(layout.looks_at_workspace(good))
+
+
 class RollingClutterTest(unittest.TestCase):
     def test_round_objects_are_not_clutter(self):
         from tooling.task_authoring.agent import layout

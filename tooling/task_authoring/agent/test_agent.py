@@ -12,6 +12,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
+import numpy as np
 import yaml
 
 from tooling.task_authoring.agent import corrections, layout, review, run, tools
@@ -703,6 +704,93 @@ class RenderHarnessTest(unittest.TestCase):
         self.assertEqual(found["external/external_sensor0"], "A")
 
 
+class _FakeObject:
+    """A prim whose asset origin sits well below its geometry, as most DROID100 assets do."""
+
+    category = "teddy_bear"
+
+    def __init__(self, origin, low, high):
+        self._origin, self.aabb = origin, (np.asarray(low, float), np.asarray(high, float))
+
+    def get_position_orientation(self, frame="scene"):
+        return np.asarray(self._origin, float), np.asarray([0, 0, 0, 1], float)
+
+
+class _FakeScene:
+    def __init__(self, objects):
+        self.objects = objects
+
+    def object_registry(self, key, name):
+        return self.objects.get(name)
+
+
+class _FakeProbeEnv:
+    def __init__(self, cfg, objects):
+        self.cfg, self.spawn_bbox = cfg, None
+        self.omnigibson_env = self
+        self.scene = _FakeScene(objects)
+
+
+class SettleDriftTest(unittest.TestCase):
+    """Drift is live-before vs live-after, never live origin vs authored bbox centre.
+
+    The full DROID100 render failed 27 configs, 26 of them on UNSTABLE objects that were visibly
+    where they belonged: the authored `position` is a bbox centre, the live pose an asset origin,
+    and their difference is a property of the mesh, not of the layout.
+    """
+
+    def test_object_that_did_not_move_has_no_drift_whatever_its_origin(self):
+        from tooling.task_authoring import render_review
+
+        cfg = {"main_objects": [{"name": "bear"}],
+               "objects": [{"name": "bear", "position": [1.0, 1.0, 1.0], "bounding_box": [0.2, 0.2, 0.3]}]}
+        bear = _FakeObject(origin=[0.0, 0.0, 0.5], low=[-0.1, -0.1, 0.7], high=[0.1, 0.1, 1.0])
+        env = _FakeProbeEnv(cfg, {"bear": bear})
+        before = render_review.snapshot(env)
+        rows = render_review.probe(env, before)
+        self.assertEqual(rows[0]["drift_xy"], 0.0)
+        self.assertEqual(rows[0]["drift_z"], 0.0)
+        self.assertEqual(rows[0]["drift_reference"], "aabb_center")
+        self.assertEqual(render_review.stability_findings(rows, 1.2, resting={"bear"}), [])
+
+    def test_object_that_slid_is_unstable(self):
+        from tooling.task_authoring import render_review
+
+        before = {"aabb_center": [0.0, 0.0, 0.9], "origin": [0, 0, 0.5]}
+        after = {"aabb_center": [0.03, 0.04, 0.88], "origin": [0.03, 0.04, 0.48]}
+        drift = render_review.settle_drift(before, after)
+        self.assertAlmostEqual(drift["drift_xy"], 0.05)
+        self.assertAlmostEqual(drift["drift_z"], -0.02)
+
+    def test_origin_is_the_fallback_and_no_snapshot_means_no_drift(self):
+        from tooling.task_authoring import render_review
+
+        self.assertEqual(render_review.settle_drift(None, {"origin": [0, 0, 0]}), {})
+        drift = render_review.settle_drift({"origin": [0, 0, 0]}, {"origin": [0.0, 0.02, 0]})
+        self.assertEqual(drift["drift_reference"], "origin")
+        self.assertAlmostEqual(drift["drift_xy"], 0.02)
+
+    def test_review_snapshots_before_the_settle(self):
+        source = (Path(__file__).resolve().parents[1] / "render_review.py").read_text(encoding="utf-8")
+        body = source[source.index("def review_one("):]
+        self.assertLess(body.index("snapshot(env)"), body.index("settle(env"))
+        self.assertIn("probe(env, before)", body)
+
+    def test_floor_penetration_is_checked_when_no_surface_can_be_measured(self):
+        """Drawer scenes author no objects on the spawn plane, so the measured surface is None and
+        PENETRATION silently never ran. The floor is still a hard bound."""
+        from tooling.task_authoring import render_review
+
+        drawer = {"name": "cabinet", "present": True, "authored": True,
+                  "authored_position": [0, 0, 0.4], "bbox": [0.5, 0.5, 0.8],
+                  "drift_xy": 0.0, "drift_z": 0.0, "aabb_low_z": -0.05}
+        self.assertIsNone(render_review.measured_support_z([drawer], 0.8))
+        codes = [f["code"] for f in render_review.stability_findings([drawer], 0.8)]
+        self.assertEqual(codes, ["PENETRATION"])
+        drawer["aabb_low_z"] = -0.001
+        self.assertEqual(render_review.stability_findings([drawer], 0.8), [])
+
+
 class _FakeEnv:
     """Just enough of an env for `render()`: one method, no simulator."""
 
@@ -845,7 +933,9 @@ class RenderHarnessStaticContractTest(unittest.TestCase):
         self.assertIn("position", read_keys)
         self.assertNotIn("relative_bbox_position", read_keys,
                          "probe() must diff scene-frame `position`, not region-relative offsets")
-        frames = {kw.arg: kw.value.value for node in ast.walk(probe)
+        live = next(n for n in ast.walk(tree)
+                    if isinstance(n, ast.FunctionDef) and n.name == "live_pose")
+        frames = {kw.arg: kw.value.value for node in ast.walk(live)
                   if isinstance(node, ast.Call) and getattr(node.func, "attr", None) == "get_position_orientation"
                   for kw in node.keywords}
         self.assertEqual(frames.get("frame"), "scene",

@@ -9,7 +9,7 @@ and writes a single JSON the vision stage reads.
 Three properties this file is built around:
 
 **Compute first, look second** (AGENTIC_PIPELINE.md section 4.1). Every number a reviewer could
-want -- settled vs authored pose deltas, per-object drift, support heights, contact counts -- is
+want -- per-object settle drift (live pose before vs after settling), support heights -- is
 measured here and written into the JSON. A model shown an image AND the numbers can be asked to
 report only what the numbers do not already settle, which is the difference between a review loop
 that converges and one that hallucinates.
@@ -58,6 +58,10 @@ DRIFT_FAIL_M = 0.03
 #: A settled lower face this far below the MEASURED support surface means the object is sunk in.
 #: Wider than a contact gap because mesh AABBs include tessellation and collision-margin slop.
 PENETRATION_TOL_M = 0.015
+#: Scene-floor height. Every REALM scene is an `*_int` scene with its floor at z = 0, so a lower face
+#: below this is sunk into the floor whatever the task surface is. It is the only penetration check
+#: left when no task surface can be measured (the drawer scenes author no objects on the spawn plane).
+FLOOR_Z_M = 0.0
 #: When placement cannot pack an object it writes z = support + DROP_HEIGHT (0.10 flat) instead of
 #: the authored convention z = support + bbox_z/2 + 0.05, and only logs at ERROR level. The two
 #: readings collide for bbox_z = 0.10, so the signature also requires the object to have SETTLED
@@ -142,21 +146,79 @@ def _explicitly_placed(obj_cfg: dict, spawn_bbox) -> bool:
     return all(abs(float(position[i]) - (float(relative[i]) + origin[i])) < 1e-6 for i in range(3))
 
 
-def probe(env) -> list[dict]:
-    """Read the live scene: authored vs settled pose, per object.
+def _numpy(value):
+    value = value.detach().cpu().numpy() if hasattr(value, "detach") else value
+    return np.asarray(value, dtype=float)
 
-    Returns one row per object with the numbers a reviewer needs. Nothing here is model-derived:
-    these are read off the prims.
 
-    Both sides of the drift comparison are **scene-frame**, which is the frame REALM itself uses for
-    `cfg["objects"][i]["position"]` (`_helpers.set_scene_positions` / `vb_pose._place` both write it
-    with `frame="scene"`, and `backfill_object_cfgs` reads it back the same way). Comparing a
-    `relative_bbox_position` -- a region-relative offset -- against a world-frame live pose inflates
-    every drift by the spawn region's distance from the origin; `Pomaria_1_int/Kitchen_Counter` sits
-    at (-4.7, -2.0, 1.05), which would report ~5 m of drift on an object that never moved.
+def live_pose(obj) -> dict:
+    """One object's live pose, read two ways: the asset origin and the world-AABB centre.
+
+    The origin is wherever the asset author put it -- often the base, sometimes nowhere near the
+    geometry -- so it is not comparable with the authored `position`, which is a BOUNDING-BOX CENTRE.
+    Comparing the two made 324 of 354 DROID100 objects look sunk below their own geometry and
+    reported a teddy bear sitting in its box as 1.04 m adrift. Drift is therefore only ever taken
+    between two readings of the SAME quantity (`settle_drift`).
+    """
+    pos, ori = obj.get_position_orientation(frame="scene")
+    pose = {"origin": [round(float(v), 5) for v in _numpy(pos)],
+            "orientation": [round(float(v), 5) for v in _numpy(ori)]}
+    try:
+        low, high = obj.aabb
+        low, high = _numpy(low), _numpy(high)
+        pose["aabb_center"] = [round(float(v), 5) for v in (low + high) / 2]
+        pose["aabb_low_z"] = round(float(low[2]), 5)
+    except Exception:
+        pass
+    return pose
+
+
+def snapshot(env) -> dict:
+    """`live_pose` of every configured object present in the scene, keyed by name."""
+    poses = {}
+    for obj_cfg in env.cfg.get("objects", []):
+        name = obj_cfg.get("name")
+        try:
+            obj = env.omnigibson_env.scene.object_registry("name", name)
+        except Exception:
+            obj = None
+        if obj is not None:
+            poses[name] = live_pose(obj)
+    return poses
+
+
+def settle_drift(before: dict | None, after: dict) -> dict:
+    """How far the object moved while settling, like for like.
+
+    The AABB centre is used when both readings have it (it does not depend on where the asset's
+    origin sits), the origin otherwise. Both readings come from the live scene, so no authored
+    number, frame or origin convention enters the comparison.
+    """
+    if not before:
+        return {}
+    key = "aabb_center" if before.get("aabb_center") and after.get("aabb_center") else "origin"
+    start, end = before.get(key), after.get(key)
+    if not start or not end:
+        return {}
+    return {
+        "drift_reference": key,
+        "drift_xy": round(float(np.hypot(end[0] - start[0], end[1] - start[1])), 5),
+        "drift_z": round(float(end[2] - start[2]), 5),
+    }
+
+
+def probe(env, before: dict | None = None) -> list[dict]:
+    """Read the live scene after settling: one row per configured object.
+
+    `before` is the `snapshot()` taken right after reset, before the settle. Drift is the movement
+    between that snapshot and now (`settle_drift`), never live pose minus authored `position`: the
+    authored value is a bbox centre, the live pose an asset origin, and the two differ by an amount
+    that depends only on how the asset was modelled. The authored position is still recorded, for
+    the checks that are about the AUTHORED pose (DROPPED, FLOATING). Nothing here is model-derived.
     """
     rows = []
     authored = authored_names(env.cfg)
+    before = before or {}
     for obj_cfg in env.cfg.get("objects", []):
         name = obj_cfg.get("name")
         try:
@@ -166,9 +228,7 @@ def probe(env) -> list[dict]:
         if obj is None:
             rows.append({"name": name, "present": False, "authored": name in authored})
             continue
-        pos, ori = obj.get_position_orientation(frame="scene")
-        pos = pos.cpu().numpy() if hasattr(pos, "cpu") else pos
-        pos = np.asarray(pos, dtype=float)
+        pose = live_pose(obj)
         authored_pos = obj_cfg.get("position") or []
         bbox = obj_cfg.get("bounding_box") or obj_cfg.get("scale") or []
         row = {
@@ -176,26 +236,21 @@ def probe(env) -> list[dict]:
             "present": True,
             "authored": name in authored,
             "category": getattr(obj, "category", None),
-            "settled_position": [round(float(v), 5) for v in pos],
-            "settled_orientation": [round(float(v), 5) for v in ori],
+            "settled_position": pose["origin"],
+            "settled_orientation": pose["orientation"],
+            "settled_aabb_center": pose.get("aabb_center"),
+            "start_aabb_center": (before.get(name) or {}).get("aabb_center"),
             "authored_position": [round(float(v), 5) for v in authored_pos]
             if authored_pos else None,
             "bbox": [round(float(v), 5) for v in bbox] if bbox else None,
         }
-        if authored_pos and len(authored_pos) == 3:
-            row["drift_xy"] = round(float(abs(pos[0] - authored_pos[0])
-                                          + abs(pos[1] - authored_pos[1])), 5)
-            row["drift_z"] = round(float(pos[2] - authored_pos[2]), 5)
-        try:
-            row["mass"] = round(float(obj.root_link.mass), 5)
-        except Exception:
-            pass
-        try:
+        row.update(settle_drift(before.get(name), pose))
+        if pose.get("aabb_low_z") is not None:
             # World-frame AABB of the live object: its true lowest point, with no assumption about
             # where the asset's origin sits relative to its bounding box.
-            low, _high = obj.aabb
-            low = low.cpu().numpy() if hasattr(low, "cpu") else low
-            row["aabb_low_z"] = round(float(low[2]), 5)
+            row["aabb_low_z"] = pose["aabb_low_z"]
+        try:
+            row["mass"] = round(float(obj.root_link.mass), 5)
         except Exception:
             pass
         row["explicitly_placed"] = _explicitly_placed(obj_cfg, getattr(env, "spawn_bbox", None))
@@ -276,6 +331,11 @@ def stability_findings(rows: list[dict], support_z: float, resting: set | None =
                     f"lower face at z={lowest:.4f} is {surface - lowest:.4f} m below the measured "
                     f"support surface at z={surface:.4f}"
                 ),
+            })
+        elif lowest is not None and lowest < FLOOR_Z_M - PENETRATION_TOL_M:
+            findings.append({
+                "code": "PENETRATION", "object": row["name"],
+                "reason": f"lower face at z={lowest:.4f} is below the floor at z={FLOOR_Z_M}",
             })
         if row.get("authored_position") and bbox and support_z is not None and row["name"] not in resting:
             authored_low = row["authored_position"][2] - float(bbox[2]) / 2
@@ -391,6 +451,9 @@ def review_one(task_cfg_path: str, out_dir: Path, *, robot: str = "DROID_mounted
     )
     try:
         env.reset()
+        # Live poses before the settle: drift is measured against these, never against the authored
+        # bbox-centre `position` (see `settle_drift`).
+        before = snapshot(env)
         task_dir = out_dir / stem
         task_dir.mkdir(parents=True, exist_ok=True)
         paths, errors = render(env, task_dir, stem, "t000")
@@ -402,10 +465,14 @@ def review_one(task_cfg_path: str, out_dir: Path, *, robot: str = "DROID_mounted
         settle(env, steps=steps)
         region = getattr(env, "spawn_bbox", None)
         support_z = float(region[4]) if region is not None else None
-        rows = probe(env)
+        rows = probe(env, before)
         record["objects"] = rows
         record["support_z"] = support_z
         record["support_z_measured"] = measured_support_z(rows, support_z)
+        # Say which penetration check actually ran, so a null surface is not read as a clean one.
+        record["penetration_check"] = (
+            "measured task surface and floor" if record["support_z_measured"] is not None
+            else "floor only: fewer than two authored objects rest on the spawn plane")
         record["settle_steps"] = steps
         record["compute_findings"] = stability_findings(rows, support_z, declared_resting(task_cfg_path))
         paths, errors = render(env, task_dir, stem, "t060")
@@ -523,7 +590,8 @@ def _summary(results: list[dict], out: Path) -> None:
     summary = out / "_summary.json"
     summary.write_text(json.dumps({"results": [
         {k: r.get(k) for k in ("task", "task_cfg_path", "verdict", "renders", "render_errors",
-                               "error", "support_z", "support_z_measured")}
+                               "error", "support_z", "support_z_measured",
+                               "penetration_check")}
         for r in results], "tally": tally}, indent=2, default=str) + "\n", encoding="utf-8")
     print(f"summary -> {summary}", flush=True)
     print("Read the JSON, not the exit code: Isaac exits 0 on unhandled exceptions.", flush=True)

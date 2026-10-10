@@ -414,6 +414,67 @@ class SourceRelationTest(unittest.TestCase):
         self.assertEqual(session.document["main_objects"][0]["orientation"], [0.0, 0.0, 0.0, 1.0])
         self.assertTrue(session.validate_draft()["ok"], session.validate_draft())
 
+    def test_flat_object_is_dropped_in_from_the_rim_not_authored_at_the_bbox_floor(self):
+        """The bbox bottom is not the floor: sunglasses authored there were ejected from a storage
+        box's thick base, and a match box clipped through a bowl's curved wall."""
+        assets = {
+            "sunglasses": [{"category": "sunglasses", "model": "s1", "bbox": [0.107, 0.042, 0.034]}],
+            "storage_box": [{"category": "storage_box", "model": "b1", "bbox": [0.235, 0.25, 0.057]}],
+        }
+        session = self.session("Take the sunglasses out of the box", assets)
+        result = session.propose_layout(
+            task_type="pick", instruction="Take the sunglasses out of the box",
+            main={"name": "sunglasses", "category": "sunglasses", "model": "s1"},
+            source={"name": "box", "category": "storage_box", "model": "b1"},
+            initial_state=[{"predicate": "inside", "subject": "sunglasses", "object": "box"}])
+        self.assertTrue(result["ok"], result)
+        main = session.document["main_objects"][0]
+        box = session.document["immutables"][0]
+        rim = box["relative_bbox_position"][2] + box["bounding_box"][2] / 2
+        low = main["relative_bbox_position"][2] - main["bounding_box"][2] / 2
+        self.assertGreater(low, rim)
+        self.assertLess(low, rim + 0.02)
+        self.assertTrue(session.validate_draft()["ok"], session.validate_draft())
+
+    def test_upright_object_in_a_wide_pot_stays_upright(self):
+        """A salt shaker is long along Z: yawing it does not lay it down, and putting it 'flat' above
+        the rim left it wholly outside the pot."""
+        assets = {
+            "salt_shaker": [{"category": "salt_shaker", "model": "s1", "bbox": [0.051, 0.051, 0.14]}],
+            "saucepot": [{"category": "saucepot", "model": "p1", "bbox": [0.205, 0.28, 0.138]}],
+        }
+        session = self.session("Take the salt shaker out of the pot", assets)
+        result = session.propose_layout(
+            task_type="pick", instruction="Take the salt shaker out of the saucepot",
+            main={"name": "salt_shaker", "category": "salt_shaker", "model": "s1"},
+            source={"name": "pot", "category": "saucepot", "model": "p1"},
+            initial_state=[{"predicate": "inside", "subject": "salt_shaker", "object": "pot"}])
+        self.assertTrue(result["ok"], result)
+        self.assertFalse(result["audit"]["initial_relation"]["lying_flat"])
+        self.assertTrue(session.validate_draft()["ok"], session.validate_draft())
+
+    def test_plate_on_a_bowl_must_overhang_the_rim(self):
+        from tooling.task_authoring.validation import validate
+
+        assets = {
+            "plate": [{"category": "plate", "model": "p1", "bbox": [0.18, 0.18, 0.0045]}],
+            "bowl": [{"category": "bowl", "model": "b1", "bbox": [0.125, 0.125, 0.074]}],
+        }
+        session = self.session("Remove the plate from the bowl", assets)
+        result = session.propose_layout(
+            task_type="pick", instruction="Remove the plate from the bowl",
+            main={"name": "plate", "category": "plate", "model": "p1"},
+            source={"name": "bowl", "category": "bowl", "model": "b1"},
+            initial_state=[{"predicate": "on_top_of", "subject": "plate", "object": "bowl"}])
+        self.assertTrue(result["ok"], result)
+        # Not capped at the 14 cm hand-object ceiling: it rests across the opening.
+        self.assertGreater(session.document["main_objects"][0]["bounding_box"][0], 0.15)
+        self.assertTrue(session.validate_draft()["ok"], session.validate_draft())
+        # The rendered failure: a 15.2 cm plate on a 12.5 cm bowl, 7 mm a side.
+        session.document["main_objects"][0]["bounding_box"][:2] = [0.152, 0.152]
+        codes = [f.code for f in validate(session.document).findings]
+        self.assertIn("RIM_OVERHANG", codes)
+
     def test_search_lists_alternative_categories(self):
         assets = {name: [{"category": name, "model": "m", "bbox": [0.08, 0.08, 0.1]}]
                   for name in ("soda_cup", "coffee_cup", "paper_cup", "teacup", "mug")}

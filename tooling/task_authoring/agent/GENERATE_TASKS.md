@@ -85,7 +85,10 @@ Use these roles:
   close to the pot's size. The solver no longer shrinks a lid below its pot.
 - An object starting inside a narrow container must stick out above the rim
   (`RELATION_UNGRASPABLE`). Choose a shorter container or a longer object. In a container wider
-  than the object is long (a marker in a pot), the solver lays it flat on the floor.
+  than the object is long (a marker in a pot), the solver lays it flat just above the rim and the
+  settle drops it in.
+- Something resting on a bowl, pot or box rim that is not a lid (a plate on a bowl) must overhang
+  the rim by 1.5 cm a side (`RIM_OVERHANG`). Pick a wider plate or a narrower bowl.
 - To redo a task you declined or submitted earlier, run
   `cli start "<instruction>" --ranking-id <id> --rank <n> --restart`.
 

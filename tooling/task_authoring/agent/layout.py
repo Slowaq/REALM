@@ -216,11 +216,14 @@ def solve_layout(
     main_words = set(str((roles.get("main") or {}).get("category") or "").split("_"))
     lid_like = bool(main_words & {"lid", "cover", "cap"})
     lid_goal = task_type == "stack" and lid_like
+    # A plate or tray resting on a bowl is held by its overhang, so it too must be allowed to be
+    # wider than the bowl (validation's RIM_OVERHANG); it is thin, so the gripper takes its edge.
+    flat_resting = rests_on_source and bool(main_words & FLAT_RESTING_WORDS)
     main_config, audits = _build_role(
         "main", roles["main"], assets_by_category,
         # Only a lid-like object needs to be as wide as what it rests on. Giving every resting
         # object the receiver ceiling let a "toy cart" on a box come out 28 x 20 x 30 cm.
-        OTHER_MAX_XY if ((rests_on_source and lid_like) or lid_goal) else MAIN_MAX_XY)
+        OTHER_MAX_XY if ((rests_on_source and lid_like) or lid_goal or flat_resting) else MAIN_MAX_XY)
     target_config = source_config = None
     if roles.get("target"):
         target_config, audit = _build_role("target", roles["target"], assets_by_category, OTHER_MAX_XY)
@@ -400,12 +403,23 @@ def _build_role(role: str, spec: dict, assets_by_category: dict, max_xy) -> tupl
     return config, ([audit] if audit else [])
 
 
+#: Gap between the rim and the lower face of an object dropped into a container.
+RIM_DROP_CLEARANCE_M = 0.005
+#: Thin objects that rest across an opening (a plate on a bowl) rather than on a surface.
+FLAT_RESTING_WORDS = {"plate", "platter", "saucer", "tray", "dish"}
+
+
 def _lie_flat_if_wide(main: dict, container: dict) -> dict:
     """An elongated object inside a container WIDER than it is long lies on the container floor.
 
     The shared solver always stands a pen/marker upright inside a container. In a mug the rim holds
     it; in a 25 cm pot it would simply tip over when the sim settles, so the authored start state
     is not the state the policy sees. Lying flat on the floor is where it would end up anyway.
+
+    It is authored lying just ABOVE THE RIM and dropped in by the settle, never at the bbox floor:
+    the bbox bottom is not the container's floor (a storage box has a thick base, a bowl a curved
+    one), and sunglasses authored 1 cm above a box's bbox bottom were ejected off the table while a
+    match box at that height in a bowl clipped through its wall.
     """
     dims = [float(value) for value in main["bounding_box"]]
     longest = max(dims)
@@ -413,11 +427,15 @@ def _lie_flat_if_wide(main: dict, container: dict) -> dict:
     opening = sorted(float(value) for value in container["bounding_box"][:2])
     if longest < 2 * others[1] or opening[0] < longest * 1.05:
         return {"lying_flat": False}
-    # Long axis along X, lying (yaw only); the container's floor is approximated by its bbox bottom.
+    if dims[2] >= max(dims[:2]):
+        # Upright is the asset's own resting pose (a salt shaker): place_initial_relation already
+        # lowers its bottom quarter into the opening, and it drops onto the floor standing.
+        return {"lying_flat": False}
+    # Long axis along X, lying (yaw only), its footprint inside the opening so it drops straight in.
     main["orientation"] = [0.0, 0.0, 0.0, 1.0] if dims[0] >= dims[1] else [0.0, 0.0, 0.7071068, 0.7071068]
-    container_bottom = float(container["relative_bbox_position"][2]) - float(container["bounding_box"][2]) / 2
+    container_top = float(container["relative_bbox_position"][2]) + float(container["bounding_box"][2]) / 2
     x, y, _ = main["relative_bbox_position"]
-    main["relative_bbox_position"] = [x, y, round(container_bottom + dims[2] / 2 + 0.01, 7)]
+    main["relative_bbox_position"] = [x, y, round(container_top + dims[2] / 2 + RIM_DROP_CLEARANCE_M, 7)]
     return {"lying_flat": True}
 
 

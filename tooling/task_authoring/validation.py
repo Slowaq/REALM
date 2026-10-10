@@ -192,6 +192,19 @@ def yaw_only(orientation: list[float], tolerance: float = 1e-3) -> bool:
 GRASP_OPENING_M = 0.15
 #: How far an object inside a narrow container must stick out above the rim to be grasped.
 GRASP_CLEARANCE_M = 0.02
+#: Supports whose top is a RIM around an opening, not a surface. Something resting on one is held
+#: only where it overhangs the rim.
+OPEN_CONTAINER_WORDS = {"bowl", "pot", "saucepot", "stockpot", "pan", "mug", "cup", "box", "basket",
+                        "bin", "bucket", "jar", "sink", "vase", "pitcher", "kettle", "colander"}
+#: Overhang per side a non-lid object needs to rest on a rim. A 15 cm plate on a 12.5 cm bowl
+#: (7 mm a side) slid off the rim and settled on its edge in the render.
+RIM_OVERHANG_M = 0.015
+
+
+def category_head(category: str) -> str:
+    """The noun a category names: `bottle_of_oil` -> bottle, `drop_in_sink` -> sink."""
+    category = str(category or "")
+    return category.split("_of_", 1)[0] if "_of_" in category else category.rsplit("_", 1)[-1]
 
 
 def vertical_extent(bbox: list[float], orientation: list[float] | None) -> float:
@@ -655,7 +668,19 @@ def check_relations(document: dict) -> list[Finding]:
                      "value": [source_pos[0], source_pos[1], round(main_pos[2], 7)]},
             ))
         source_top = source_pos[2] + source_bbox[2] / 2
-        if predicate == "on_top_of" and "lid" in str(main.get("category") or main.get("name") or "").split("_"):
+        main_is_lid = "lid" in str(main.get("category") or main.get("name") or "").split("_")
+        if (predicate == "on_top_of" and not main_is_lid
+                and category_head(source.get("category") or source.get("name")) in OPEN_CONTAINER_WORDS
+                and min(main_bbox[:2]) < min(source_bbox[:2]) + 2 * RIM_OVERHANG_M):
+            findings.append(Finding(
+                "RIM_OVERHANG", "error",
+                f"{subject!r} ({min(main_bbox[:2]):.3f} m) rests on the rim of {target!r} "
+                f"({min(source_bbox[:2]):.3f} m) with less than {RIM_OVERHANG_M} m overhang a side: "
+                f"it slides off the rim or tips into the opening. Use a wider object or a narrower "
+                f"container",
+                obj=subject,
+            ))
+        if predicate == "on_top_of" and main_is_lid:
             if min(main_bbox[:2]) < min(source_bbox[:2]):
                 findings.append(Finding(
                     "LID_SMALLER_THAN_OPENING", "error",

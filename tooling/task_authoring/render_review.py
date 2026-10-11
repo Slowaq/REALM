@@ -47,6 +47,8 @@ import numpy as np
 # `realm.config.shared` imports only numpy, so the placement constant can be bound to the real
 # value instead of restated here -- DROP_HEIGHT is a number that moves placements.
 from realm.config.shared import DROP_HEIGHT as DROP_HEIGHT_M
+# The policy gets control after REALM's warmup, so the settle is judged at the same step count.
+from realm.config.shared import WARMUP_STEPS
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.append(str(PROJECT_ROOT))
@@ -69,6 +71,11 @@ FLOOR_Z_M = 0.0
 #: floating bug, not a failed pack. `placement.py`'s own ERROR log names the object; this finding
 #: is the durable on-disk record of the same event.
 DROP_TOL_M = 0.005
+#: Renders issued before reading camera buffers (see `render`).
+RENDER_FLUSH_PASSES = 30
+#: An object REALM authors above its support falls at least SUPPORT_CLEARANCE (5 cm) when physics
+#: runs. If no movable object moved even this much during the settle, the sim did not step.
+FROZEN_FALL_M = 0.005
 
 
 def authored_names(cfg: dict) -> set:
@@ -369,6 +376,25 @@ def stability_findings(rows: list[dict], support_z: float, resting: set | None =
     return findings
 
 
+def frozen_physics_findings(rows: list[dict]) -> list[dict]:
+    """PHYSICS_FROZEN when no movable object moved during the settle.
+
+    REALM authors every object above its resting height and lets it drop, so a settle that leaves
+    them all exactly where they spawned means the simulator never stepped -- and every other
+    "clean" number in the record is then meaningless.
+    """
+    moved = [abs(float(row.get("drift_z") or 0.0)) + float(row.get("drift_xy") or 0.0)
+             for row in rows if row.get("present") and row.get("role") in MOVABLE_ROLES
+             and row.get("drift_z") is not None]
+    if moved and max(moved) < FROZEN_FALL_M:
+        return [{
+            "code": "PHYSICS_FROZEN", "object": "*",
+            "reason": (f"no movable object moved more than {FROZEN_FALL_M} m during the settle "
+                       f"(largest {max(moved):.5f} m): the simulator did not step"),
+        }]
+    return []
+
+
 def collect_rgb(obs, prefix: str = "") -> list[tuple[str, object]]:
     """Every (camera-name, array) pair whose obs leaf is an `rgb` image.
 
@@ -416,8 +442,12 @@ def render(env, out_dir: Path, stem: str, timestep: str) -> tuple[list[str], lis
         return written, ["PIL is not importable; no images could be written"]
     try:
         import omnigibson as og
-        # Sensor buffers are only refreshed on an explicit render under render-on-demand.
-        og.sim.render()
+        # Sensor buffers are only refreshed on an explicit render under render-on-demand, and the
+        # RTX pipeline hands back frames a few renders late. One render after a settle run with
+        # `render_on_step(False)` returned the PRE-settle frame: every t060 image showed the
+        # objects still in the air at their spawn height. REALM's own warmup flushes 30 renders.
+        for _ in range(RENDER_FLUSH_PASSES):
+            og.sim.render()
     except Exception as error:
         errors.append(f"og.sim.render() failed: {type(error).__name__}: {error}")
     try:
@@ -441,7 +471,7 @@ def render(env, out_dir: Path, stem: str, timestep: str) -> tuple[list[str], lis
 
 
 def review_one(task_cfg_path: str, out_dir: Path, *, robot: str = "DROID_mounted",
-               steps: int = 60) -> dict:
+               steps: int = WARMUP_STEPS) -> dict:
     """Build, settle, probe and render ONE task config.
 
     Process lifetime is the caller's problem, not this function's: `og.shutdown()` is terminal, so a
@@ -495,12 +525,13 @@ def review_one(task_cfg_path: str, out_dir: Path, *, robot: str = "DROID_mounted
             else "floor only: fewer than two authored objects rest on the spawn plane")
         record["settle_steps"] = steps
         record["compute_findings"] = stability_findings(rows, support_z, resting)
+        record["compute_findings"] += frozen_physics_findings(rows)
         paths, errors = render(env, task_dir, stem, "t060")
         record["renders"] += paths
         record["render_errors"] += errors
         # No images at all is a harness failure, not a clean scene: never let it read as a pass.
         record["no_images"] = not record["renders"]
-        hard = {"MISSING", "UNSTABLE", "PENETRATION", "DROPPED"}
+        hard = {"MISSING", "UNSTABLE", "PENETRATION", "DROPPED", "PHYSICS_FROZEN"}
         failed = any(finding["code"] in hard for finding in record["compute_findings"])
         record["verdict"] = "FAIL" if (failed or record["no_images"]) else "PASS"
     except Exception as error:
@@ -542,7 +573,7 @@ def main(argv: list[str] | None = None) -> int:
                              "reviewed, each in its own process")
     parser.add_argument("--out", type=Path, default=PROJECT_ROOT / "tmp" / "droid100" / "review")
     parser.add_argument("--robot", default="DROID_mounted")
-    parser.add_argument("--steps", type=int, default=60)
+    parser.add_argument("--steps", type=int, default=WARMUP_STEPS)
     parser.add_argument("--timeout", type=int, default=1800,
                         help="per-config wall clock for --family children")
     args = parser.parse_args(argv)

@@ -790,6 +790,23 @@ class SettleDriftTest(unittest.TestCase):
         drawer["aabb_low_z"] = -0.001
         self.assertEqual(render_review.stability_findings([drawer], 0.8), [])
 
+    def test_a_settle_where_nothing_moved_is_physics_frozen(self):
+        """Every t060 image matched t000 with the objects still airborne; numbers that read clean
+        because nothing moved must not pass."""
+        from tooling.task_authoring import render_review
+
+        still = [{"name": n, "present": True, "role": "main_objects" if n == "a" else "distractors",
+                  "drift_xy": 0.0, "drift_z": 0.0} for n in "abc"]
+        self.assertEqual([f["code"] for f in render_review.frozen_physics_findings(still)],
+                         ["PHYSICS_FROZEN"])
+        still[0]["drift_z"] = -0.12
+        self.assertEqual(render_review.frozen_physics_findings(still), [])
+
+    def test_render_flushes_several_frames(self):
+        source = (Path(__file__).resolve().parents[1] / "render_review.py").read_text(encoding="utf-8")
+        body = source[source.index("def render("):source.index("def review_one(")]
+        self.assertIn("range(RENDER_FLUSH_PASSES)", body)
+
     def test_floor_bound_skips_fixtures(self):
         """close_drawer/open_drawer author a table support fixture modelled 12.5 cm through the floor;
         it is pinned scene furniture, not an object the sim dropped."""

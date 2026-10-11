@@ -1,0 +1,242 @@
+{
+  "task": "put_the_garlic_bulbs_on_the_counter_into_the_glass_dish_629761",
+  "task_cfg_path": "REALM_DROID100/put_the_garlic_bulbs_on_the_counter_into_the_glass_dish_629761/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/put_the_garlic_bulbs_on_the_counter_into_the_glass_dish_629761/put_the_garlic_bulbs_on_the_counter_into_the_glass_dish_629761_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/put_the_garlic_bulbs_on_the_counter_into_the_glass_dish_629761/put_the_garlic_bulbs_on_the_counter_into_the_glass_dish_629761_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/put_the_garlic_bulbs_on_the_counter_into_the_glass_dish_629761/put_the_garlic_bulbs_on_the_counter_into_the_glass_dish_629761_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/put_the_garlic_bulbs_on_the_counter_into_the_glass_dish_629761/put_the_garlic_bulbs_on_the_counter_into_the_glass_dish_629761_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/put_the_garlic_bulbs_on_the_counter_into_the_glass_dish_629761/put_the_garlic_bulbs_on_the_counter_into_the_glass_dish_629761_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/put_the_garlic_bulbs_on_the_counter_into_the_glass_dish_629761/put_the_garlic_bulbs_on_the_counter_into_the_glass_dish_629761_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "garlic",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "garlic",
+      "settled_position": [
+        5.0487,
+        6.82021,
+        0.76136
+      ],
+      "settled_orientation": [
+        -0.00789,
+        -0.06421,
+        0.00174,
+        0.9979
+      ],
+      "settled_aabb_center": [
+        5.04959,
+        6.82067,
+        0.76981
+      ],
+      "start_aabb_center": [
+        5.05124,
+        6.82048,
+        0.91716
+      ],
+      "authored_position": [
+        5.05,
+        6.82,
+        0.95327
+      ],
+      "bbox": [
+        0.06628,
+        0.06594,
+        0.06655
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00132,
+      "drift_z": -0.14695,
+      "aabb_low_z": 0.73577,
+      "mass": 0.05,
+      "explicitly_placed": true
+    },
+    {
+      "name": "casserole",
+      "present": true,
+      "authored": true,
+      "role": "target_objects",
+      "category": "casserole",
+      "settled_position": [
+        5.24948,
+        6.5799,
+        0.78839
+      ],
+      "settled_orientation": [
+        0.00063,
+        -0.00035,
+        7e-05,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.24943,
+        6.57981,
+        0.79766
+      ],
+      "start_aabb_center": [
+        5.25,
+        6.58,
+        0.94407
+      ],
+      "authored_position": [
+        5.25,
+        6.58,
+        0.97985
+      ],
+      "bbox": [
+        0.24506,
+        0.24506,
+        0.1197
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00053,
+      "drift_z": -0.1465,
+      "aabb_low_z": 0.73772,
+      "mass": 0.37271,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_peanut_butter",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_peanut_butter",
+      "settled_position": [
+        5.24999,
+        6.82001,
+        0.81194
+      ],
+      "settled_orientation": [
+        -7e-05,
+        -6e-05,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.24999,
+        6.82001,
+        0.80339
+      ],
+      "start_aabb_center": [
+        5.25,
+        6.82001,
+        0.93221
+      ],
+      "authored_position": [
+        5.25,
+        6.82,
+        0.98573
+      ],
+      "bbox": [
+        0.07916,
+        0.07916,
+        0.13146
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 1e-05,
+      "drift_z": -0.12883,
+      "aabb_low_z": 0.73765,
+      "mass": 0.31082,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_chopstick",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "chopstick",
+      "settled_position": [
+        5.04873,
+        6.57811,
+        0.73878
+      ],
+      "settled_orientation": [
+        -0.05889,
+        -9e-05,
+        0.00187,
+        0.99826
+      ],
+      "settled_aabb_center": [
+        5.04337,
+        6.57819,
+        0.73881
+      ],
+      "start_aabb_center": [
+        5.04465,
+        6.57998,
+        0.87621
+      ],
+      "authored_position": [
+        5.05,
+        6.58,
+        0.92114
+      ],
+      "bbox": [
+        0.1,
+        0.00228,
+        0.00229
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00228,
+      "drift_z": -0.1374,
+      "aabb_low_z": 0.73765,
+      "mass": 0.013,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_jar_of_cumin",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "jar_of_cumin",
+      "settled_position": [
+        5.02499,
+        6.70001,
+        0.78037
+      ],
+      "settled_orientation": [
+        -9e-05,
+        -9e-05,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.02494,
+        6.70024,
+        0.77359
+      ],
+      "start_aabb_center": [
+        5.02495,
+        6.70023,
+        0.90419
+      ],
+      "authored_position": [
+        5.025,
+        6.7,
+        0.95593
+      ],
+      "bbox": [
+        0.06,
+        0.06,
+        0.07186
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 1e-05,
+      "drift_z": -0.1306,
+      "aabb_low_z": 0.73766,
+      "mass": 0.22491,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.87,
+  "support_z_measured": 0.73765,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

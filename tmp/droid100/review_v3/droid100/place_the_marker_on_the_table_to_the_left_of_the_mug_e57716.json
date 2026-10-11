@@ -1,0 +1,248 @@
+{
+  "task": "place_the_marker_on_the_table_to_the_left_of_the_mug_e57716",
+  "task_cfg_path": "REALM_DROID100/place_the_marker_on_the_table_to_the_left_of_the_mug_e57716/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/place_the_marker_on_the_table_to_the_left_of_the_mug_e57716/place_the_marker_on_the_table_to_the_left_of_the_mug_e57716_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/place_the_marker_on_the_table_to_the_left_of_the_mug_e57716/place_the_marker_on_the_table_to_the_left_of_the_mug_e57716_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/place_the_marker_on_the_table_to_the_left_of_the_mug_e57716/place_the_marker_on_the_table_to_the_left_of_the_mug_e57716_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/place_the_marker_on_the_table_to_the_left_of_the_mug_e57716/place_the_marker_on_the_table_to_the_left_of_the_mug_e57716_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/place_the_marker_on_the_table_to_the_left_of_the_mug_e57716/place_the_marker_on_the_table_to_the_left_of_the_mug_e57716_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/place_the_marker_on_the_table_to_the_left_of_the_mug_e57716/place_the_marker_on_the_table_to_the_left_of_the_mug_e57716_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "marker",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "marker",
+      "settled_position": [
+        2.14433,
+        4.92413,
+        0.82049
+      ],
+      "settled_orientation": [
+        -0.014,
+        0.83816,
+        -0.033,
+        0.54424
+      ],
+      "settled_aabb_center": [
+        2.14823,
+        4.92318,
+        0.83017
+      ],
+      "start_aabb_center": [
+        2.12062,
+        4.92082,
+        1.0354
+      ],
+      "authored_position": [
+        2.12,
+        4.92,
+        1.06954
+      ],
+      "bbox": [
+        0.14,
+        0.01567,
+        0.01288
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.02468,
+      "drift_z": -0.20409,
+      "aabb_low_z": 0.7639,
+      "mass": 0.02,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_plier",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "plier",
+      "settled_position": [
+        1.88261,
+        5.08009,
+        0.75917
+      ],
+      "settled_orientation": [
+        2e-05,
+        0.0,
+        -2e-05,
+        1.0
+      ],
+      "settled_aabb_center": [
+        1.88582,
+        5.0855,
+        0.759
+      ],
+      "start_aabb_center": [
+        1.8832,
+        5.0854,
+        0.90773
+      ],
+      "authored_position": [
+        1.88,
+        5.08,
+        0.95286
+      ],
+      "bbox": [
+        0.1,
+        0.02908,
+        0.00572
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00261,
+      "drift_z": -0.14873,
+      "aabb_low_z": 0.75584,
+      "mass": 0.11806,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_poppy_seeds",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_poppy_seeds",
+      "settled_position": [
+        2.12928,
+        5.07978,
+        0.8021
+      ],
+      "settled_orientation": [
+        0.0,
+        -1e-05,
+        -0.03974,
+        0.99921
+      ],
+      "settled_aabb_center": [
+        2.12904,
+        5.07979,
+        0.79536
+      ],
+      "start_aabb_center": [
+        2.11976,
+        5.07986,
+        0.93781
+      ],
+      "authored_position": [
+        2.12,
+        5.08,
+        0.98952
+      ],
+      "bbox": [
+        0.066,
+        0.066,
+        0.07904
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00928,
+      "drift_z": -0.14246,
+      "aabb_low_z": 0.75584,
+      "mass": 0.108,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_sourdough",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "sourdough",
+      "settled_position": [
+        1.88266,
+        4.91939,
+        0.77652
+      ],
+      "settled_orientation": [
+        4e-05,
+        -0.00191,
+        0.00061,
+        1.0
+      ],
+      "settled_aabb_center": [
+        1.88069,
+        4.91775,
+        0.78165
+      ],
+      "start_aabb_center": [
+        1.87802,
+        4.91838,
+        0.93617
+      ],
+      "authored_position": [
+        1.88,
+        4.92,
+        0.97611
+      ],
+      "bbox": [
+        0.08979,
+        0.07987,
+        0.05222
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00273,
+      "drift_z": -0.15463,
+      "aabb_low_z": 0.75554,
+      "mass": 0.5,
+      "explicitly_placed": true
+    },
+    {
+      "name": "mug",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "mug",
+      "settled_position": [
+        2.12583,
+        4.92166,
+        0.79581
+      ],
+      "settled_orientation": [
+        -6e-05,
+        -4e-05,
+        -0.01163,
+        0.99993
+      ],
+      "settled_aabb_center": [
+        2.12579,
+        4.93436,
+        0.79811
+      ],
+      "start_aabb_center": [
+        2.12,
+        4.93267,
+        0.9496
+      ],
+      "authored_position": [
+        2.12,
+        4.92,
+        0.99227
+      ],
+      "bbox": [
+        0.07725,
+        0.10513,
+        0.08454
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00606,
+      "drift_z": -0.1515,
+      "aabb_low_z": 0.75583,
+      "mass": 0.14345,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.9,
+  "support_z_measured": 0.75583,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "DRIFT",
+      "object": "marker",
+      "reason": "settled 0.0247 m from its authored XY"
+    }
+  ],
+  "no_images": false,
+  "verdict": "PASS"
+}

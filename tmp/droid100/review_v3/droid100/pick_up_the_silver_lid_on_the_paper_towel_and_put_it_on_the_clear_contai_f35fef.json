@@ -1,0 +1,198 @@
+{
+  "task": "pick_up_the_silver_lid_on_the_paper_towel_and_put_it_on_the_clear_contai_f35fef",
+  "task_cfg_path": "REALM_DROID100/pick_up_the_silver_lid_on_the_paper_towel_and_put_it_on_the_clear_contai_f35fef/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/pick_up_the_silver_lid_on_the_paper_towel_and_put_it_on_the_clear_contai_f35fef/pick_up_the_silver_lid_on_the_paper_towel_and_put_it_on_the_clear_contai_f35fef_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_silver_lid_on_the_paper_towel_and_put_it_on_the_clear_contai_f35fef/pick_up_the_silver_lid_on_the_paper_towel_and_put_it_on_the_clear_contai_f35fef_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_silver_lid_on_the_paper_towel_and_put_it_on_the_clear_contai_f35fef/pick_up_the_silver_lid_on_the_paper_towel_and_put_it_on_the_clear_contai_f35fef_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_silver_lid_on_the_paper_towel_and_put_it_on_the_clear_contai_f35fef/pick_up_the_silver_lid_on_the_paper_towel_and_put_it_on_the_clear_contai_f35fef_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_silver_lid_on_the_paper_towel_and_put_it_on_the_clear_contai_f35fef/pick_up_the_silver_lid_on_the_paper_towel_and_put_it_on_the_clear_contai_f35fef_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_silver_lid_on_the_paper_towel_and_put_it_on_the_clear_contai_f35fef/pick_up_the_silver_lid_on_the_paper_towel_and_put_it_on_the_clear_contai_f35fef_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "lid",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "lid",
+      "settled_position": [
+        -4.5,
+        -1.625,
+        0.93119
+      ],
+      "settled_orientation": [
+        0.0,
+        -0.0,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -4.5,
+        -1.625,
+        0.92721
+      ],
+      "start_aabb_center": [
+        -4.5,
+        -1.625,
+        1.05862
+      ],
+      "authored_position": [
+        -4.5,
+        -1.625,
+        1.10757
+      ],
+      "bbox": [
+        0.16455,
+        0.16455,
+        0.01513
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.13141,
+      "aabb_low_z": 0.91965,
+      "mass": 0.346,
+      "explicitly_placed": true
+    },
+    {
+      "name": "towel",
+      "present": true,
+      "authored": true,
+      "role": "target_objects",
+      "category": "dishtowel",
+      "settled_position": [
+        -4.41993,
+        -1.84999,
+        0.92647
+      ],
+      "settled_orientation": [
+        -0.00125,
+        0.00654,
+        1e-05,
+        0.99998
+      ],
+      "settled_aabb_center": [
+        -4.41669,
+        -1.84766,
+        0.93267
+      ],
+      "start_aabb_center": [
+        -4.41675,
+        -1.84769,
+        1.07311
+      ],
+      "authored_position": [
+        -4.42,
+        -1.85,
+        1.11297
+      ],
+      "bbox": [
+        0.15747,
+        0.2175,
+        0.02594
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 7e-05,
+      "drift_z": -0.14154,
+      "aabb_low_z": 0.91965,
+      "mass": 0.123,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_hotdog_bun",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "hotdog_bun",
+      "settled_position": [
+        -4.58027,
+        -1.85044,
+        0.93596
+      ],
+      "settled_orientation": [
+        0.03631,
+        -0.02171,
+        0.00033,
+        0.9991
+      ],
+      "settled_aabb_center": [
+        -4.58025,
+        -1.85076,
+        0.93674
+      ],
+      "start_aabb_center": [
+        -4.57966,
+        -1.85004,
+        1.07326
+      ],
+      "authored_position": [
+        -4.58,
+        -1.85,
+        1.11732
+      ],
+      "bbox": [
+        0.1,
+        0.04792,
+        0.03464
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00052,
+      "drift_z": -0.1364,
+      "aabb_low_z": 0.91965,
+      "mass": 0.054,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_carving_knife",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "carving_knife",
+      "settled_position": [
+        -4.60001,
+        -1.74956,
+        0.92226
+      ],
+      "settled_orientation": [
+        -0.2515,
+        0.00407,
+        0.00271,
+        0.96785
+      ],
+      "settled_aabb_center": [
+        -4.5946,
+        -1.74787,
+        0.92348
+      ],
+      "start_aabb_center": [
+        -4.5946,
+        -1.74817,
+        1.05947
+      ],
+      "authored_position": [
+        -4.6,
+        -1.75,
+        1.10377
+      ],
+      "bbox": [
+        0.1,
+        0.01337,
+        0.00755
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00044,
+      "drift_z": -0.13655,
+      "aabb_low_z": 0.91965,
+      "mass": 0.24228,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 1.05,
+  "support_z_measured": 0.91965,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

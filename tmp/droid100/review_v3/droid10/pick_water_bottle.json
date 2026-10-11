@@ -1,0 +1,242 @@
+{
+  "task": "pick_water_bottle",
+  "task_cfg_path": "REALM_DROID10/pick_water_bottle/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid10/pick_water_bottle/pick_water_bottle_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid10/pick_water_bottle/pick_water_bottle_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid10/pick_water_bottle/pick_water_bottle_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid10/pick_water_bottle/pick_water_bottle_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid10/pick_water_bottle/pick_water_bottle_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid10/pick_water_bottle/pick_water_bottle_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "bottle_of_water",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "bottle_of_water",
+      "settled_position": [
+        5.1993,
+        6.64971,
+        0.82186
+      ],
+      "settled_orientation": [
+        0.00045,
+        -0.00276,
+        -0.00059,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.19934,
+        6.64972,
+        0.83066
+      ],
+      "start_aabb_center": [
+        5.20004,
+        6.64988,
+        0.88877
+      ],
+      "authored_position": [
+        5.2,
+        6.65,
+        0.92
+      ],
+      "bbox": [
+        0.07,
+        0.07,
+        0.17
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00079,
+      "drift_z": -0.05811,
+      "aabb_low_z": 0.74556,
+      "mass": 0.675,
+      "explicitly_placed": true
+    },
+    {
+      "name": "lid",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "lid",
+      "settled_position": [
+        5.25003,
+        7.00009,
+        0.78381
+      ],
+      "settled_orientation": [
+        -0.0001,
+        -7e-05,
+        -3e-05,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.25053,
+        7.00018,
+        0.77314
+      ],
+      "start_aabb_center": [
+        5.25049,
+        7.0001,
+        0.84439
+      ],
+      "authored_position": [
+        5.25,
+        7.0,
+        0.9
+      ],
+      "bbox": [
+        0.2,
+        0.2,
+        0.07
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 9e-05,
+      "drift_z": -0.07123,
+      "aabb_low_z": 0.73761,
+      "mass": 0.02475,
+      "explicitly_placed": true
+    },
+    {
+      "name": "orange",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "orange",
+      "settled_position": [
+        5.09995,
+        6.84994,
+        0.77407
+      ],
+      "settled_orientation": [
+        -0.00151,
+        -0.00235,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.1004,
+        6.84943,
+        0.7749
+      ],
+      "start_aabb_center": [
+        5.10041,
+        6.84952,
+        0.82585
+      ],
+      "authored_position": [
+        5.1,
+        6.85,
+        0.87
+      ],
+      "bbox": [
+        0.08,
+        0.09,
+        0.08
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 8e-05,
+      "drift_z": -0.05097,
+      "aabb_low_z": 0.73419,
+      "mass": 0.145,
+      "explicitly_placed": true
+    },
+    {
+      "name": "bowl",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bowl",
+      "settled_position": [
+        5.30008,
+        6.42987,
+        0.76641
+      ],
+      "settled_orientation": [
+        -1e-05,
+        -0.00021,
+        -3e-05,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.30006,
+        6.42987,
+        0.76855
+      ],
+      "start_aabb_center": [
+        5.29999,
+        6.43,
+        0.82717
+      ],
+      "authored_position": [
+        5.3,
+        6.43,
+        0.87
+      ],
+      "bbox": [
+        0.15,
+        0.15,
+        0.06
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00015,
+      "drift_z": -0.05863,
+      "aabb_low_z": 0.73776,
+      "mass": 0.18166,
+      "explicitly_placed": true
+    },
+    {
+      "name": "frying_pan",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "frying_pan",
+      "settled_position": [
+        5.19977,
+        6.65003,
+        0.76076
+      ],
+      "settled_orientation": [
+        -0.00039,
+        -0.00017,
+        0.00017,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.14548,
+        6.65033,
+        0.77983
+      ],
+      "start_aabb_center": [
+        5.14589,
+        6.6505,
+        0.83847
+      ],
+      "authored_position": [
+        5.2,
+        6.65,
+        0.87
+      ],
+      "bbox": [
+        0.37,
+        0.24,
+        0.08
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00018,
+      "drift_z": -0.05801,
+      "aabb_low_z": 0.73769,
+      "mass": 0.54048,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.87,
+  "support_z_measured": 0.73761,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

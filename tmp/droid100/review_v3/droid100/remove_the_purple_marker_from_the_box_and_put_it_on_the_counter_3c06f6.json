@@ -1,0 +1,242 @@
+{
+  "task": "remove_the_purple_marker_from_the_box_and_put_it_on_the_counter_3c06f6",
+  "task_cfg_path": "REALM_DROID100/remove_the_purple_marker_from_the_box_and_put_it_on_the_counter_3c06f6/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/remove_the_purple_marker_from_the_box_and_put_it_on_the_counter_3c06f6/remove_the_purple_marker_from_the_box_and_put_it_on_the_counter_3c06f6_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_purple_marker_from_the_box_and_put_it_on_the_counter_3c06f6/remove_the_purple_marker_from_the_box_and_put_it_on_the_counter_3c06f6_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_purple_marker_from_the_box_and_put_it_on_the_counter_3c06f6/remove_the_purple_marker_from_the_box_and_put_it_on_the_counter_3c06f6_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_purple_marker_from_the_box_and_put_it_on_the_counter_3c06f6/remove_the_purple_marker_from_the_box_and_put_it_on_the_counter_3c06f6_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_purple_marker_from_the_box_and_put_it_on_the_counter_3c06f6/remove_the_purple_marker_from_the_box_and_put_it_on_the_counter_3c06f6_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_purple_marker_from_the_box_and_put_it_on_the_counter_3c06f6/remove_the_purple_marker_from_the_box_and_put_it_on_the_counter_3c06f6_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "marker",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "marker",
+      "settled_position": [
+        5.25011,
+        6.58269,
+        0.74349
+      ],
+      "settled_orientation": [
+        -0.19014,
+        0.00158,
+        -0.00326,
+        0.98175
+      ],
+      "settled_aabb_center": [
+        5.23934,
+        6.58179,
+        0.744
+      ],
+      "start_aabb_center": [
+        5.23925,
+        6.57908,
+        0.94461
+      ],
+      "authored_position": [
+        5.25,
+        6.58,
+        0.98871
+      ],
+      "bbox": [
+        0.14,
+        0.01564,
+        0.01283
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00269,
+      "drift_z": -0.20026,
+      "aabb_low_z": 0.73755,
+      "mass": 0.02,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_can_of_icetea",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "can_of_icetea",
+      "settled_position": [
+        5.04999,
+        6.82002,
+        0.80995
+      ],
+      "settled_orientation": [
+        -0.0001,
+        -7e-05,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.04999,
+        6.82002,
+        0.81227
+      ],
+      "start_aabb_center": [
+        5.05,
+        6.82,
+        0.95199
+      ],
+      "authored_position": [
+        5.05,
+        6.82,
+        0.99462
+      ],
+      "bbox": [
+        0.0757,
+        0.0757,
+        0.14925
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 2e-05,
+      "drift_z": -0.13971,
+      "aabb_low_z": 0.73764,
+      "mass": 0.35,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_lacquer",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_lacquer",
+      "settled_position": [
+        5.24974,
+        6.82007,
+        0.81407
+      ],
+      "settled_orientation": [
+        -0.00042,
+        -0.00173,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.24967,
+        6.82002,
+        0.81765
+      ],
+      "start_aabb_center": [
+        5.25003,
+        6.81999,
+        0.95867
+      ],
+      "authored_position": [
+        5.25,
+        6.82,
+        1.00007
+      ],
+      "bbox": [
+        0.07728,
+        0.07695,
+        0.16014
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00027,
+      "drift_z": -0.14104,
+      "aabb_low_z": 0.73765,
+      "mass": 0.5,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_reagent_bottle",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "reagent_bottle",
+      "settled_position": [
+        5.04999,
+        6.58002,
+        0.81329
+      ],
+      "settled_orientation": [
+        -0.00011,
+        -7e-05,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.04998,
+        6.58001,
+        0.83011
+      ],
+      "start_aabb_center": [
+        5.04999,
+        6.58,
+        0.98425
+      ],
+      "authored_position": [
+        5.05,
+        6.58,
+        1.01238
+      ],
+      "bbox": [
+        0.09029,
+        0.09029,
+        0.18476
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 2e-05,
+      "drift_z": -0.15413,
+      "aabb_low_z": 0.73769,
+      "mass": 0.33996,
+      "explicitly_placed": true
+    },
+    {
+      "name": "box",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "storage_box",
+      "settled_position": [
+        5.24962,
+        6.58387,
+        0.76434
+      ],
+      "settled_orientation": [
+        0.03561,
+        -0.01305,
+        0.00412,
+        0.99927
+      ],
+      "settled_aabb_center": [
+        5.24926,
+        6.58288,
+        0.77816
+      ],
+      "start_aabb_center": [
+        5.25,
+        6.58,
+        0.91755
+      ],
+      "authored_position": [
+        5.25,
+        6.58,
+        0.94865
+      ],
+      "bbox": [
+        0.23519,
+        0.2508,
+        0.0573
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00389,
+      "drift_z": -0.13935,
+      "aabb_low_z": 0.73773,
+      "mass": 0.0792,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.87,
+  "support_z_measured": 0.73765,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

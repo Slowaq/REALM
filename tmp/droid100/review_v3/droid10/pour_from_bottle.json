@@ -1,0 +1,253 @@
+{
+  "task": "pour_from_bottle",
+  "task_cfg_path": "REALM_DROID10/pour_from_bottle/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid10/pour_from_bottle/pour_from_bottle_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid10/pour_from_bottle/pour_from_bottle_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid10/pour_from_bottle/pour_from_bottle_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid10/pour_from_bottle/pour_from_bottle_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid10/pour_from_bottle/pour_from_bottle_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid10/pour_from_bottle/pour_from_bottle_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "cola_bottle",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "object",
+      "settled_position": [
+        -0.375,
+        -2.1,
+        0.92304
+      ],
+      "settled_orientation": [
+        -1e-05,
+        -1e-05,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.375,
+        -2.10128,
+        0.91846
+      ],
+      "start_aabb_center": [
+        -0.375,
+        -2.10128,
+        0.91846
+      ],
+      "authored_position": [
+        -0.375,
+        -2.1,
+        0.975
+      ],
+      "bbox": [
+        0.07,
+        0.07,
+        0.22
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": 0.0,
+      "aabb_low_z": 0.80494,
+      "mass": 0.1,
+      "explicitly_placed": true
+    },
+    {
+      "name": "bowl",
+      "present": true,
+      "authored": true,
+      "role": "target_objects",
+      "category": "bowl",
+      "settled_position": [
+        -0.35015,
+        -1.87018,
+        0.83945
+      ],
+      "settled_orientation": [
+        0.00263,
+        -0.00209,
+        -0.0,
+        0.99999
+      ],
+      "settled_aabb_center": [
+        -0.35027,
+        -1.87021,
+        0.84093
+      ],
+      "start_aabb_center": [
+        -0.35027,
+        -1.87021,
+        0.84093
+      ],
+      "authored_position": [
+        -0.35,
+        -1.87,
+        0.85
+      ],
+      "bbox": [
+        0.2,
+        0.2,
+        0.07
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": 0.0,
+      "aabb_low_z": 0.80491,
+      "mass": 0.1608,
+      "explicitly_placed": true
+    },
+    {
+      "name": "sponge",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "sponge",
+      "settled_position": [
+        -0.16,
+        -1.75,
+        0.81494
+      ],
+      "settled_orientation": [
+        -1e-05,
+        -1e-05,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.16,
+        -1.75,
+        0.81494
+      ],
+      "start_aabb_center": [
+        -0.16,
+        -1.75,
+        0.81494
+      ],
+      "authored_position": [
+        -0.16,
+        -1.75,
+        0.905
+      ],
+      "bbox": [
+        0.1,
+        0.07,
+        0.02
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": 0.0,
+      "aabb_low_z": 0.80494,
+      "mass": 0.053,
+      "explicitly_placed": true
+    },
+    {
+      "name": "pen",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "pen",
+      "settled_position": [
+        -0.1498,
+        -2.00968,
+        0.80963
+      ],
+      "settled_orientation": [
+        0.63035,
+        -0.00443,
+        -0.01444,
+        0.77617
+      ],
+      "settled_aabb_center": [
+        -0.13658,
+        -2.00936,
+        0.80958
+      ],
+      "start_aabb_center": [
+        -0.13658,
+        -2.00936,
+        0.80958
+      ],
+      "authored_position": [
+        -0.15,
+        -2.025,
+        0.89
+      ],
+      "bbox": [
+        0.16,
+        0.01,
+        0.01
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": 0.0,
+      "aabb_low_z": 0.80471,
+      "mass": 0.05,
+      "explicitly_placed": true
+    },
+    {
+      "name": "coffee_cup",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "coffee_cup",
+      "settled_position": [
+        -0.11493,
+        -1.84993,
+        0.83993
+      ],
+      "settled_orientation": [
+        -0.00113,
+        0.00113,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.10916,
+        -1.84991,
+        0.84026
+      ],
+      "start_aabb_center": [
+        -0.10916,
+        -1.84991,
+        0.84026
+      ],
+      "authored_position": [
+        -0.115,
+        -1.85,
+        1.025
+      ],
+      "bbox": [
+        0.09,
+        0.07,
+        0.07
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": 0.0,
+      "aabb_low_z": 0.80494,
+      "mass": 0.10998,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.85,
+  "support_z_measured": 0.80491,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "FLOATING",
+      "object": "coffee_cup",
+      "reason": "authored lower face sits 0.1400 m above the support with nothing holding it up"
+    },
+    {
+      "code": "PHYSICS_FROZEN",
+      "object": "*",
+      "reason": "no movable object moved more than 0.005 m during the settle (largest 0.00000 m): the simulator did not step"
+    }
+  ],
+  "no_images": false,
+  "verdict": "FAIL"
+}

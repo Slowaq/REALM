@@ -1,0 +1,206 @@
+{
+  "results": [
+    {
+      "task": "close_drawer",
+      "task_cfg_path": "REALM_DROID10/close_drawer/default.yaml",
+      "verdict": "FAIL",
+      "renders": [
+        "tmp/droid100/review_v3/droid10/close_drawer/close_drawer_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v3/droid10/close_drawer/close_drawer_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v3/droid10/close_drawer/close_drawer_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v3/droid10/close_drawer/close_drawer_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v3/droid10/close_drawer/close_drawer_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v3/droid10/close_drawer/close_drawer_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.8,
+      "support_z_measured": null,
+      "penetration_check": "floor only: fewer than two authored objects rest on the spawn plane"
+    },
+    {
+      "task": "open_drawer",
+      "task_cfg_path": "REALM_DROID10/open_drawer/default.yaml",
+      "verdict": "FAIL",
+      "renders": [
+        "tmp/droid100/review_v3/droid10/open_drawer/open_drawer_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v3/droid10/open_drawer/open_drawer_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v3/droid10/open_drawer/open_drawer_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v3/droid10/open_drawer/open_drawer_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v3/droid10/open_drawer/open_drawer_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v3/droid10/open_drawer/open_drawer_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.8,
+      "support_z_measured": null,
+      "penetration_check": "floor only: fewer than two authored objects rest on the spawn plane"
+    },
+    {
+      "task": "pick_spoon",
+      "task_cfg_path": "REALM_DROID10/pick_spoon/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v3/droid10/pick_spoon/pick_spoon_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v3/droid10/pick_spoon/pick_spoon_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v3/droid10/pick_spoon/pick_spoon_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v3/droid10/pick_spoon/pick_spoon_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v3/droid10/pick_spoon/pick_spoon_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v3/droid10/pick_spoon/pick_spoon_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.0,
+      "support_z_measured": 0.8094,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "pick_water_bottle",
+      "task_cfg_path": "REALM_DROID10/pick_water_bottle/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v3/droid10/pick_water_bottle/pick_water_bottle_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v3/droid10/pick_water_bottle/pick_water_bottle_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v3/droid10/pick_water_bottle/pick_water_bottle_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v3/droid10/pick_water_bottle/pick_water_bottle_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v3/droid10/pick_water_bottle/pick_water_bottle_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v3/droid10/pick_water_bottle/pick_water_bottle_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73761,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "pour_from_bottle",
+      "task_cfg_path": "REALM_DROID10/pour_from_bottle/default.yaml",
+      "verdict": "FAIL",
+      "renders": [
+        "tmp/droid100/review_v3/droid10/pour_from_bottle/pour_from_bottle_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v3/droid10/pour_from_bottle/pour_from_bottle_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v3/droid10/pour_from_bottle/pour_from_bottle_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v3/droid10/pour_from_bottle/pour_from_bottle_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v3/droid10/pour_from_bottle/pour_from_bottle_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v3/droid10/pour_from_bottle/pour_from_bottle_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.80491,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "push_switch",
+      "task_cfg_path": "REALM_DROID10/push_switch/default.yaml",
+      "verdict": "FAIL",
+      "renders": [
+        "tmp/droid100/review_v3/droid10/push_switch/push_switch_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v3/droid10/push_switch/push_switch_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v3/droid10/push_switch/push_switch_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v3/droid10/push_switch/push_switch_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v3/droid10/push_switch/push_switch_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v3/droid10/push_switch/push_switch_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.2,
+      "support_z_measured": null,
+      "penetration_check": "floor only: fewer than two authored objects rest on the spawn plane"
+    },
+    {
+      "task": "put_banana_into_box",
+      "task_cfg_path": "REALM_DROID10/put_banana_into_box/default.yaml",
+      "verdict": "FAIL",
+      "renders": [
+        "tmp/droid100/review_v3/droid10/put_banana_into_box/put_banana_into_box_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v3/droid10/put_banana_into_box/put_banana_into_box_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v3/droid10/put_banana_into_box/put_banana_into_box_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v3/droid10/put_banana_into_box/put_banana_into_box_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v3/droid10/put_banana_into_box/put_banana_into_box_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v3/droid10/put_banana_into_box/put_banana_into_box_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.5,
+      "support_z_measured": 0.45365,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_green_block_into_bowl",
+      "task_cfg_path": "REALM_DROID10/put_green_block_into_bowl/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v3/droid10/put_green_block_into_bowl/put_green_block_into_bowl_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v3/droid10/put_green_block_into_bowl/put_green_block_into_bowl_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v3/droid10/put_green_block_into_bowl/put_green_block_into_bowl_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v3/droid10/put_green_block_into_bowl/put_green_block_into_bowl_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v3/droid10/put_green_block_into_bowl/put_green_block_into_bowl_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v3/droid10/put_green_block_into_bowl/put_green_block_into_bowl_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.80491,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "rotate_marker",
+      "task_cfg_path": "REALM_DROID10/rotate_marker/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v3/droid10/rotate_marker/rotate_marker_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v3/droid10/rotate_marker/rotate_marker_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v3/droid10/rotate_marker/rotate_marker_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v3/droid10/rotate_marker/rotate_marker_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v3/droid10/rotate_marker/rotate_marker_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v3/droid10/rotate_marker/rotate_marker_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.0,
+      "support_z_measured": 0.8995,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "rotate_mug",
+      "task_cfg_path": "REALM_DROID10/rotate_mug/default.yaml",
+      "verdict": "FAIL",
+      "renders": [
+        "tmp/droid100/review_v3/droid10/rotate_mug/rotate_mug_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v3/droid10/rotate_mug/rotate_mug_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v3/droid10/rotate_mug/rotate_mug_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v3/droid10/rotate_mug/rotate_mug_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v3/droid10/rotate_mug/rotate_mug_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v3/droid10/rotate_mug/rotate_mug_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.74501,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "stack_cubes",
+      "task_cfg_path": "REALM_DROID10/stack_cubes/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v3/droid10/stack_cubes/stack_cubes_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v3/droid10/stack_cubes/stack_cubes_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v3/droid10/stack_cubes/stack_cubes_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v3/droid10/stack_cubes/stack_cubes_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v3/droid10/stack_cubes/stack_cubes_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v3/droid10/stack_cubes/stack_cubes_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.75584,
+      "penetration_check": "measured task surface and floor"
+    }
+  ],
+  "tally": {
+    "FAIL": 6,
+    "PASS": 5
+  }
+}

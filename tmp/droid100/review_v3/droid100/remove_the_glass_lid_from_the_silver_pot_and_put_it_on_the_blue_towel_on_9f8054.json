@@ -1,0 +1,286 @@
+{
+  "task": "remove_the_glass_lid_from_the_silver_pot_and_put_it_on_the_blue_towel_on_9f8054",
+  "task_cfg_path": "REALM_DROID100/remove_the_glass_lid_from_the_silver_pot_and_put_it_on_the_blue_towel_on_9f8054/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/remove_the_glass_lid_from_the_silver_pot_and_put_it_on_the_blue_towel_on_9f8054/remove_the_glass_lid_from_the_silver_pot_and_put_it_on_the_blue_towel_on_9f8054_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_glass_lid_from_the_silver_pot_and_put_it_on_the_blue_towel_on_9f8054/remove_the_glass_lid_from_the_silver_pot_and_put_it_on_the_blue_towel_on_9f8054_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_glass_lid_from_the_silver_pot_and_put_it_on_the_blue_towel_on_9f8054/remove_the_glass_lid_from_the_silver_pot_and_put_it_on_the_blue_towel_on_9f8054_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_glass_lid_from_the_silver_pot_and_put_it_on_the_blue_towel_on_9f8054/remove_the_glass_lid_from_the_silver_pot_and_put_it_on_the_blue_towel_on_9f8054_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_glass_lid_from_the_silver_pot_and_put_it_on_the_blue_towel_on_9f8054/remove_the_glass_lid_from_the_silver_pot_and_put_it_on_the_blue_towel_on_9f8054_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_glass_lid_from_the_silver_pot_and_put_it_on_the_blue_towel_on_9f8054/remove_the_glass_lid_from_the_silver_pot_and_put_it_on_the_blue_towel_on_9f8054_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "lid",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "lid",
+      "settled_position": [
+        5.25188,
+        6.58106,
+        0.86319
+      ],
+      "settled_orientation": [
+        -0.00149,
+        0.0116,
+        -0.00088,
+        0.99993
+      ],
+      "settled_aabb_center": [
+        5.25143,
+        6.58101,
+        0.87825
+      ],
+      "start_aabb_center": [
+        5.24999,
+        6.58001,
+        1.04193
+      ],
+      "authored_position": [
+        5.25,
+        6.58,
+        1.07053
+      ],
+      "bbox": [
+        0.22608,
+        0.22608,
+        0.07324
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00216,
+      "drift_z": -0.16238,
+      "aabb_low_z": 0.83915,
+      "mass": 0.346,
+      "explicitly_placed": true
+    },
+    {
+      "name": "towel",
+      "present": true,
+      "authored": true,
+      "role": "target_objects",
+      "category": "dishtowel",
+      "settled_position": [
+        5.0501,
+        6.82002,
+        0.74447
+      ],
+      "settled_orientation": [
+        -0.00136,
+        0.00647,
+        1e-05,
+        0.99998
+      ],
+      "settled_aabb_center": [
+        5.05334,
+        6.82235,
+        0.75066
+      ],
+      "start_aabb_center": [
+        5.05325,
+        6.82231,
+        0.89311
+      ],
+      "authored_position": [
+        5.05,
+        6.82,
+        0.93297
+      ],
+      "bbox": [
+        0.15747,
+        0.2175,
+        0.02594
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0001,
+      "drift_z": -0.14354,
+      "aabb_low_z": 0.73762,
+      "mass": 0.123,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_pumpkin_pie_spice",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_pumpkin_pie_spice",
+      "settled_position": [
+        5.25003,
+        6.82003,
+        0.77866
+      ],
+      "settled_orientation": [
+        -8e-05,
+        0.00069,
+        0.00034,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.25007,
+        6.82006,
+        0.79232
+      ],
+      "start_aabb_center": [
+        5.25003,
+        6.82003,
+        0.94268
+      ],
+      "authored_position": [
+        5.25,
+        6.82,
+        0.974
+      ],
+      "bbox": [
+        0.04325,
+        0.04323,
+        0.108
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 4e-05,
+      "drift_z": -0.15038,
+      "aabb_low_z": 0.73767,
+      "mass": 0.08007,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_coffee_cup",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "coffee_cup",
+      "settled_position": [
+        5.04999,
+        6.58001,
+        0.77397
+      ],
+      "settled_orientation": [
+        -8e-05,
+        -9e-05,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.06327,
+        6.58002,
+        0.77692
+      ],
+      "start_aabb_center": [
+        5.06328,
+        6.58,
+        0.91676
+      ],
+      "authored_position": [
+        5.05,
+        6.58,
+        0.95877
+      ],
+      "bbox": [
+        0.09144,
+        0.05695,
+        0.07753
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 1e-05,
+      "drift_z": -0.13983,
+      "aabb_low_z": 0.73769,
+      "mass": 0.15409,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_tweezers",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "tweezers",
+      "settled_position": [
+        5.15003,
+        6.84999,
+        0.73888
+      ],
+      "settled_orientation": [
+        -0.00059,
+        -0.00206,
+        -0.00041,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.15008,
+        6.84832,
+        0.73903
+      ],
+      "start_aabb_center": [
+        5.15004,
+        6.84833,
+        0.87645
+      ],
+      "authored_position": [
+        5.15,
+        6.85,
+        0.92125
+      ],
+      "bbox": [
+        0.00485,
+        0.03209,
+        0.0025
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 3e-05,
+      "drift_z": -0.13741,
+      "aabb_low_z": 0.73763,
+      "mass": 0.02,
+      "explicitly_placed": true
+    },
+    {
+      "name": "pot",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "saucepot",
+      "settled_position": [
+        5.25018,
+        6.57991,
+        0.78091
+      ],
+      "settled_orientation": [
+        -0.00035,
+        -0.00026,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.2502,
+        6.58,
+        0.79088
+      ],
+      "start_aabb_center": [
+        5.25001,
+        6.58006,
+        0.93694
+      ],
+      "authored_position": [
+        5.25,
+        6.58,
+        0.97196
+      ],
+      "bbox": [
+        0.2079,
+        0.28,
+        0.10391
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0002,
+      "drift_z": -0.14608,
+      "aabb_low_z": 0.73744,
+      "mass": 0.63733,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.87,
+  "support_z_measured": 0.73762,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

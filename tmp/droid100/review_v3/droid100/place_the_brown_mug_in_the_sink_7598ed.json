@@ -1,0 +1,154 @@
+{
+  "task": "place_the_brown_mug_in_the_sink_7598ed",
+  "task_cfg_path": "REALM_DROID100/place_the_brown_mug_in_the_sink_7598ed/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/place_the_brown_mug_in_the_sink_7598ed/place_the_brown_mug_in_the_sink_7598ed_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/place_the_brown_mug_in_the_sink_7598ed/place_the_brown_mug_in_the_sink_7598ed_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/place_the_brown_mug_in_the_sink_7598ed/place_the_brown_mug_in_the_sink_7598ed_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/place_the_brown_mug_in_the_sink_7598ed/place_the_brown_mug_in_the_sink_7598ed_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/place_the_brown_mug_in_the_sink_7598ed/place_the_brown_mug_in_the_sink_7598ed_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/place_the_brown_mug_in_the_sink_7598ed/place_the_brown_mug_in_the_sink_7598ed_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "mug",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "mug",
+      "settled_position": [
+        2.2138,
+        5.00021,
+        0.79279
+      ],
+      "settled_orientation": [
+        -0.0,
+        3e-05,
+        0.70593,
+        0.70828
+      ],
+      "settled_aabb_center": [
+        2.2061,
+        4.99951,
+        0.78859
+      ],
+      "start_aabb_center": [
+        2.20229,
+        4.99931,
+        0.93315
+      ],
+      "authored_position": [
+        2.21,
+        5.0,
+        0.98232
+      ],
+      "bbox": [
+        0.06449,
+        0.0877,
+        0.06463
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00381,
+      "drift_z": -0.14456,
+      "aabb_low_z": 0.75584,
+      "mass": 0.0873,
+      "explicitly_placed": true
+    },
+    {
+      "name": "sink",
+      "present": true,
+      "authored": true,
+      "role": "target_objects",
+      "category": "drop_in_sink",
+      "settled_position": [
+        2.00632,
+        5.00005,
+        0.81212
+      ],
+      "settled_orientation": [
+        0.0,
+        0.07595,
+        -0.00021,
+        0.99711
+      ],
+      "settled_aabb_center": [
+        1.99866,
+        5.00001,
+        0.84285
+      ],
+      "start_aabb_center": [
+        1.99491,
+        4.99996,
+        1.01389
+      ],
+      "authored_position": [
+        2.0,
+        5.0,
+        1.04337
+      ],
+      "bbox": [
+        0.28,
+        0.27031,
+        0.18674
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00632,
+      "drift_z": -0.18629,
+      "aabb_low_z": 0.75584,
+      "mass": 12.04177,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_jar_of_mayonnaise",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "jar_of_mayonnaise",
+      "settled_position": [
+        1.79429,
+        5.00001,
+        0.80619
+      ],
+      "settled_orientation": [
+        1e-05,
+        -0.00069,
+        -0.0022,
+        1.0
+      ],
+      "settled_aabb_center": [
+        1.79417,
+        5.00004,
+        0.80134
+      ],
+      "start_aabb_center": [
+        1.78986,
+        5.00003,
+        0.94517
+      ],
+      "authored_position": [
+        1.79,
+        5.0,
+        0.995
+      ],
+      "bbox": [
+        0.05831,
+        0.05831,
+        0.09
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00429,
+      "drift_z": -0.14385,
+      "aabb_low_z": 0.75584,
+      "mass": 0.475,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.9,
+  "support_z_measured": 0.75584,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

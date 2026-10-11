@@ -1,0 +1,336 @@
+{
+  "task": "put_green_block_into_bowl",
+  "task_cfg_path": "REALM_DROID10/put_green_block_into_bowl/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid10/put_green_block_into_bowl/put_green_block_into_bowl_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid10/put_green_block_into_bowl/put_green_block_into_bowl_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid10/put_green_block_into_bowl/put_green_block_into_bowl_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid10/put_green_block_into_bowl/put_green_block_into_bowl_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid10/put_green_block_into_bowl/put_green_block_into_bowl_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid10/put_green_block_into_bowl/put_green_block_into_bowl_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "cube",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "object",
+      "settled_position": [
+        -0.22,
+        -2.04,
+        0.81995
+      ],
+      "settled_orientation": [
+        -1e-05,
+        -1e-05,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.22,
+        -2.04,
+        0.81995
+      ],
+      "start_aabb_center": [
+        -0.22,
+        -2.04,
+        0.93004
+      ],
+      "authored_position": [
+        -0.22,
+        -2.04,
+        0.975
+      ],
+      "bbox": [
+        0.03,
+        0.03,
+        0.03
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.11009,
+      "aabb_low_z": 0.80494,
+      "mass": 0.027,
+      "explicitly_placed": true
+    },
+    {
+      "name": "bowl",
+      "present": true,
+      "authored": true,
+      "role": "target_objects",
+      "category": "bowl",
+      "settled_position": [
+        -0.25013,
+        -1.75022,
+        0.83946
+      ],
+      "settled_orientation": [
+        0.00317,
+        -0.00193,
+        -0.0,
+        0.99999
+      ],
+      "settled_aabb_center": [
+        -0.25025,
+        -1.75029,
+        0.84093
+      ],
+      "start_aabb_center": [
+        -0.25024,
+        -1.75025,
+        0.84093
+      ],
+      "authored_position": [
+        -0.25,
+        -1.75,
+        0.85
+      ],
+      "bbox": [
+        0.2,
+        0.2,
+        0.07
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 2e-05,
+      "drift_z": 0.0,
+      "aabb_low_z": 0.80493,
+      "mass": 0.1608,
+      "explicitly_placed": true
+    },
+    {
+      "name": "corkscrew",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "corkscrew",
+      "settled_position": [
+        -0.37501,
+        -2.22499,
+        0.81398
+      ],
+      "settled_orientation": [
+        -0.0018,
+        -0.0008,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.40406,
+        -2.22505,
+        0.81481
+      ],
+      "start_aabb_center": [
+        -0.40405,
+        -2.22506,
+        0.8358
+      ],
+      "authored_position": [
+        -0.375,
+        -2.225,
+        0.88
+      ],
+      "bbox": [
+        0.11,
+        0.09,
+        0.02
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 1e-05,
+      "drift_z": -0.02106,
+      "aabb_low_z": 0.80491,
+      "mass": 0.125,
+      "explicitly_placed": true
+    },
+    {
+      "name": "table_knife",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "table_knife",
+      "settled_position": [
+        -0.3,
+        -1.9,
+        0.80986
+      ],
+      "settled_orientation": [
+        -0.0,
+        -2e-05,
+        -0.38268,
+        0.92388
+      ],
+      "settled_aabb_center": [
+        -0.29441,
+        -1.90973,
+        0.80994
+      ],
+      "start_aabb_center": [
+        -0.29441,
+        -1.90973,
+        0.80994
+      ],
+      "authored_position": [
+        -0.3,
+        -1.9,
+        0.85
+      ],
+      "bbox": [
+        0.27,
+        0.03,
+        0.01
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": 0.0,
+      "aabb_low_z": 0.80494,
+      "mass": 0.07014,
+      "explicitly_placed": true
+    },
+    {
+      "name": "wineglass",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "wineglass",
+      "settled_position": [
+        -0.275,
+        -2.24999,
+        0.89502
+      ],
+      "settled_orientation": [
+        -3e-05,
+        -1e-05,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.275,
+        -2.24999,
+        0.88495
+      ],
+      "start_aabb_center": [
+        -0.275,
+        -2.25001,
+        0.88495
+      ],
+      "authored_position": [
+        -0.275,
+        -2.25,
+        0.89
+      ],
+      "bbox": [
+        0.08,
+        0.08,
+        0.16
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 2e-05,
+      "drift_z": 0.0,
+      "aabb_low_z": 0.80495,
+      "mass": 0.06081,
+      "explicitly_placed": true
+    },
+    {
+      "name": "water_glass",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "water_glass",
+      "settled_position": [
+        -0.10005,
+        -1.81997,
+        0.87902
+      ],
+      "settled_orientation": [
+        -0.00023,
+        -0.00033,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.10005,
+        -1.81997,
+        0.88054
+      ],
+      "start_aabb_center": [
+        -0.10005,
+        -1.81996,
+        0.88054
+      ],
+      "authored_position": [
+        -0.1,
+        -1.82,
+        0.89
+      ],
+      "bbox": [
+        0.06,
+        0.06,
+        0.15
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 1e-05,
+      "drift_z": 1e-05,
+      "aabb_low_z": 0.80494,
+      "mass": 0.10062,
+      "explicitly_placed": true
+    },
+    {
+      "name": "bottle_of_wine",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_wine",
+      "settled_position": [
+        -0.47563,
+        -2.12549,
+        0.90619
+      ],
+      "settled_orientation": [
+        0.00237,
+        -0.00308,
+        -0.0,
+        0.99999
+      ],
+      "settled_aabb_center": [
+        -0.47565,
+        -2.12519,
+        0.92596
+      ],
+      "start_aabb_center": [
+        -0.47559,
+        -2.12515,
+        0.94976
+      ],
+      "authored_position": [
+        -0.475,
+        -2.125,
+        0.975
+      ],
+      "bbox": [
+        0.075,
+        0.075,
+        0.24
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0008,
+      "drift_z": -0.02385,
+      "aabb_low_z": 0.80491,
+      "mass": 1.215,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.85,
+  "support_z_measured": 0.80491,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "FLOATING",
+      "object": "cube",
+      "reason": "authored lower face sits 0.1100 m above the support with nothing holding it up"
+    }
+  ],
+  "no_images": false,
+  "verdict": "PASS"
+}

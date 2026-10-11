@@ -1,0 +1,242 @@
+{
+  "task": "pick_up_the_blue_cup_and_put_it_in_the_pot_0b379b",
+  "task_cfg_path": "REALM_DROID100/pick_up_the_blue_cup_and_put_it_in_the_pot_0b379b/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/pick_up_the_blue_cup_and_put_it_in_the_pot_0b379b/pick_up_the_blue_cup_and_put_it_in_the_pot_0b379b_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_blue_cup_and_put_it_in_the_pot_0b379b/pick_up_the_blue_cup_and_put_it_in_the_pot_0b379b_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_blue_cup_and_put_it_in_the_pot_0b379b/pick_up_the_blue_cup_and_put_it_in_the_pot_0b379b_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_blue_cup_and_put_it_in_the_pot_0b379b/pick_up_the_blue_cup_and_put_it_in_the_pot_0b379b_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_blue_cup_and_put_it_in_the_pot_0b379b/pick_up_the_blue_cup_and_put_it_in_the_pot_0b379b_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_blue_cup_and_put_it_in_the_pot_0b379b/pick_up_the_blue_cup_and_put_it_in_the_pot_0b379b_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "cup",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "coffee_cup",
+      "settled_position": [
+        -0.25002,
+        -1.74753,
+        0.83746
+      ],
+      "settled_orientation": [
+        0.00015,
+        -0.0005,
+        0.70711,
+        0.70711
+      ],
+      "settled_aabb_center": [
+        -0.24989,
+        -1.74017,
+        0.83728
+      ],
+      "start_aabb_center": [
+        -0.24986,
+        -1.74012,
+        0.88682
+      ],
+      "authored_position": [
+        -0.25,
+        -1.7475,
+        0.93195
+      ],
+      "bbox": [
+        0.09864,
+        0.07897,
+        0.06391
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 4e-05,
+      "drift_z": -0.04953,
+      "aabb_low_z": 0.80494,
+      "mass": 0.11573,
+      "explicitly_placed": true
+    },
+    {
+      "name": "pot",
+      "present": true,
+      "authored": true,
+      "role": "target_objects",
+      "category": "saucepot",
+      "settled_position": [
+        -0.25002,
+        -1.97498,
+        0.84813
+      ],
+      "settled_orientation": [
+        -0.00025,
+        -0.0002,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.25,
+        -1.97489,
+        0.85809
+      ],
+      "start_aabb_center": [
+        -0.24999,
+        -1.97494,
+        0.91694
+      ],
+      "authored_position": [
+        -0.25,
+        -1.975,
+        0.95196
+      ],
+      "bbox": [
+        0.2079,
+        0.28,
+        0.10391
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 3e-05,
+      "drift_z": -0.05886,
+      "aabb_low_z": 0.80467,
+      "mass": 0.63733,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_apple_juice",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_apple_juice",
+      "settled_position": [
+        -0.11001,
+        -1.97495,
+        0.87356
+      ],
+      "settled_orientation": [
+        -0.00059,
+        -4e-05,
+        5e-05,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.10979,
+        -1.97488,
+        0.90615
+      ],
+      "start_aabb_center": [
+        -0.10978,
+        -1.97489,
+        0.98887
+      ],
+      "authored_position": [
+        -0.11,
+        -1.975,
+        1.00126
+      ],
+      "bbox": [
+        0.04331,
+        0.04344,
+        0.20251
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 5e-05,
+      "drift_z": -0.08273,
+      "aabb_low_z": 0.80495,
+      "mass": 0.56152,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_pill_bottle",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "pill_bottle",
+      "settled_position": [
+        -0.39003,
+        -1.97503,
+        0.8296
+      ],
+      "settled_orientation": [
+        -7e-05,
+        1e-05,
+        0.00073,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.39003,
+        -1.97502,
+        0.83228
+      ],
+      "start_aabb_center": [
+        -0.39,
+        -1.975,
+        0.88506
+      ],
+      "authored_position": [
+        -0.39,
+        -1.975,
+        0.92734
+      ],
+      "bbox": [
+        0.03885,
+        0.03885,
+        0.05468
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 4e-05,
+      "drift_z": -0.05278,
+      "aabb_low_z": 0.80494,
+      "mass": 0.00594,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_mouse",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "mouse",
+      "settled_position": [
+        -0.25061,
+        -2.13663,
+        0.80937
+      ],
+      "settled_orientation": [
+        0.01092,
+        0.00981,
+        -0.0032,
+        0.99989
+      ],
+      "settled_aabb_center": [
+        -0.2506,
+        -2.13576,
+        0.81052
+      ],
+      "start_aabb_center": [
+        -0.25,
+        -2.13668,
+        0.86195
+      ],
+      "authored_position": [
+        -0.25,
+        -2.1375,
+        0.90564
+      ],
+      "bbox": [
+        0.0311,
+        0.0196,
+        0.01128
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00106,
+      "drift_z": -0.05131,
+      "aabb_low_z": 0.80459,
+      "mass": 0.093,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.85,
+  "support_z_measured": 0.80467,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

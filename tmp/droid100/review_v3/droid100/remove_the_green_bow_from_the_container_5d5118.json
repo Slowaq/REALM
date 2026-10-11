@@ -1,0 +1,198 @@
+{
+  "task": "remove_the_green_bow_from_the_container_5d5118",
+  "task_cfg_path": "REALM_DROID100/remove_the_green_bow_from_the_container_5d5118/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/remove_the_green_bow_from_the_container_5d5118/remove_the_green_bow_from_the_container_5d5118_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_green_bow_from_the_container_5d5118/remove_the_green_bow_from_the_container_5d5118_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_green_bow_from_the_container_5d5118/remove_the_green_bow_from_the_container_5d5118_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_green_bow_from_the_container_5d5118/remove_the_green_bow_from_the_container_5d5118_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_green_bow_from_the_container_5d5118/remove_the_green_bow_from_the_container_5d5118_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_green_bow_from_the_container_5d5118/remove_the_green_bow_from_the_container_5d5118_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "bow",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "bow",
+      "settled_position": [
+        1.99998,
+        6.69998,
+        0.90701
+      ],
+      "settled_orientation": [
+        0.00033,
+        -0.00357,
+        0.7071,
+        0.7071
+      ],
+      "settled_aabb_center": [
+        1.9998,
+        6.71173,
+        0.90833
+      ],
+      "start_aabb_center": [
+        1.99982,
+        6.71176,
+        1.06668
+      ],
+      "authored_position": [
+        2.0,
+        6.7,
+        1.11047
+      ],
+      "bbox": [
+        0.10003,
+        0.05289,
+        0.01266
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 3e-05,
+      "drift_z": -0.15849,
+      "aabb_low_z": 0.90136,
+      "mass": 0.008,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_tweezers",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "tweezers",
+      "settled_position": [
+        2.14168,
+        6.69991,
+        0.90072
+      ],
+      "settled_orientation": [
+        -0.00061,
+        -0.00202,
+        -0.06544,
+        0.99785
+      ],
+      "settled_aabb_center": [
+        2.14249,
+        6.69838,
+        0.90088
+      ],
+      "start_aabb_center": [
+        2.14005,
+        6.69833,
+        1.00645
+      ],
+      "authored_position": [
+        2.14,
+        6.7,
+        1.05125
+      ],
+      "bbox": [
+        0.00485,
+        0.03209,
+        0.0025
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00168,
+      "drift_z": -0.10557,
+      "aabb_low_z": 0.89948,
+      "mass": 0.02,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_chopstick",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "chopstick",
+      "settled_position": [
+        1.99852,
+        6.83854,
+        0.90058
+      ],
+      "settled_orientation": [
+        -0.0587,
+        -0.00028,
+        0.00636,
+        0.99826
+      ],
+      "settled_aabb_center": [
+        1.99317,
+        6.83874,
+        0.90061
+      ],
+      "start_aabb_center": [
+        1.99464,
+        6.83998,
+        1.00621
+      ],
+      "authored_position": [
+        2.0,
+        6.84,
+        1.05114
+      ],
+      "bbox": [
+        0.1,
+        0.00228,
+        0.00229
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00208,
+      "drift_z": -0.1056,
+      "aabb_low_z": 0.89946,
+      "mass": 0.013,
+      "explicitly_placed": true
+    },
+    {
+      "name": "box",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "storage_box",
+      "settled_position": [
+        2.0,
+        6.7,
+        0.91429
+      ],
+      "settled_orientation": [
+        0.0,
+        0.0,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        2.0,
+        6.7,
+        0.92815
+      ],
+      "start_aabb_center": [
+        2.0,
+        6.7,
+        1.04755
+      ],
+      "authored_position": [
+        2.0,
+        6.7,
+        1.07865
+      ],
+      "bbox": [
+        0.23519,
+        0.2508,
+        0.0573
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.1194,
+      "aabb_low_z": 0.8995,
+      "mass": 0.0792,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 1.0,
+  "support_z_measured": 0.89948,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

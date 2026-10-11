@@ -1,0 +1,242 @@
+{
+  "task": "remove_the_blue_spoon_from_the_silver_object_and_put_it_inside_the_baske_fffafd",
+  "task_cfg_path": "REALM_DROID100/remove_the_blue_spoon_from_the_silver_object_and_put_it_inside_the_baske_fffafd/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/remove_the_blue_spoon_from_the_silver_object_and_put_it_inside_the_baske_fffafd/remove_the_blue_spoon_from_the_silver_object_and_put_it_inside_the_baske_fffafd_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_blue_spoon_from_the_silver_object_and_put_it_inside_the_baske_fffafd/remove_the_blue_spoon_from_the_silver_object_and_put_it_inside_the_baske_fffafd_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_blue_spoon_from_the_silver_object_and_put_it_inside_the_baske_fffafd/remove_the_blue_spoon_from_the_silver_object_and_put_it_inside_the_baske_fffafd_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_blue_spoon_from_the_silver_object_and_put_it_inside_the_baske_fffafd/remove_the_blue_spoon_from_the_silver_object_and_put_it_inside_the_baske_fffafd_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_blue_spoon_from_the_silver_object_and_put_it_inside_the_baske_fffafd/remove_the_blue_spoon_from_the_silver_object_and_put_it_inside_the_baske_fffafd_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_blue_spoon_from_the_silver_object_and_put_it_inside_the_baske_fffafd/remove_the_blue_spoon_from_the_silver_object_and_put_it_inside_the_baske_fffafd_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "wooden_spoon",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "wooden_spoon",
+      "settled_position": [
+        5.05002,
+        6.82,
+        0.74089
+      ],
+      "settled_orientation": [
+        -0.00016,
+        -0.00422,
+        1e-05,
+        0.99999
+      ],
+      "settled_aabb_center": [
+        5.03471,
+        6.81998,
+        0.74086
+      ],
+      "start_aabb_center": [
+        5.0347,
+        6.81998,
+        0.87867
+      ],
+      "authored_position": [
+        5.05,
+        6.82,
+        0.92355
+      ],
+      "bbox": [
+        0.14,
+        0.02728,
+        0.00711
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 2e-05,
+      "drift_z": -0.1377,
+      "aabb_low_z": 0.73764,
+      "mass": 0.05,
+      "explicitly_placed": true
+    },
+    {
+      "name": "basket",
+      "present": true,
+      "authored": true,
+      "role": "target_objects",
+      "category": "wicker_basket",
+      "settled_position": [
+        5.25073,
+        6.58004,
+        0.79749
+      ],
+      "settled_orientation": [
+        -0.00028,
+        0.0061,
+        0.0,
+        0.99998
+      ],
+      "settled_aabb_center": [
+        5.25204,
+        6.57799,
+        0.80513
+      ],
+      "start_aabb_center": [
+        5.25052,
+        6.57792,
+        0.94791
+      ],
+      "authored_position": [
+        5.25,
+        6.58,
+        0.98607
+      ],
+      "bbox": [
+        0.17554,
+        0.28,
+        0.13213
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00073,
+      "drift_z": -0.14362,
+      "aabb_low_z": 0.7377,
+      "mass": 0.68175,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_mouse",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "mouse",
+      "settled_position": [
+        5.24973,
+        6.82035,
+        0.7421
+      ],
+      "settled_orientation": [
+        0.01081,
+        0.00975,
+        -0.00332,
+        0.99989
+      ],
+      "settled_aabb_center": [
+        5.24974,
+        6.82123,
+        0.74325
+      ],
+      "start_aabb_center": [
+        5.25,
+        6.82082,
+        0.88195
+      ],
+      "authored_position": [
+        5.25,
+        6.82,
+        0.92564
+      ],
+      "bbox": [
+        0.0311,
+        0.0196,
+        0.01128
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00044,
+      "drift_z": -0.13858,
+      "aabb_low_z": 0.73732,
+      "mass": 0.093,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_onion_powder",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_onion_powder",
+      "settled_position": [
+        5.04996,
+        6.58,
+        0.79918
+      ],
+      "settled_orientation": [
+        -0.00011,
+        -7e-05,
+        -4e-05,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.05015,
+        6.58054,
+        0.81469
+      ],
+      "start_aabb_center": [
+        5.05018,
+        6.58056,
+        0.96728
+      ],
+      "authored_position": [
+        5.05,
+        6.58,
+        0.99673
+      ],
+      "bbox": [
+        0.05411,
+        0.05409,
+        0.15346
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 4e-05,
+      "drift_z": -0.15259,
+      "aabb_low_z": 0.73769,
+      "mass": 0.12834,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_hamburger_bun",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "hamburger_bun",
+      "settled_position": [
+        5.02507,
+        6.69991,
+        0.74761
+      ],
+      "settled_orientation": [
+        0.00615,
+        0.00435,
+        -2e-05,
+        0.99997
+      ],
+      "settled_aabb_center": [
+        5.02487,
+        6.69986,
+        0.75051
+      ],
+      "start_aabb_center": [
+        5.02488,
+        6.69988,
+        0.89071
+      ],
+      "authored_position": [
+        5.025,
+        6.7,
+        0.93319
+      ],
+      "bbox": [
+        0.08664,
+        0.08494,
+        0.02639
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00011,
+      "drift_z": -0.14062,
+      "aabb_low_z": 0.73766,
+      "mass": 0.05,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.87,
+  "support_z_measured": 0.73764,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

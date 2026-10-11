@@ -1,0 +1,160 @@
+{
+  "task": "remove_the_cup_from_the_sink_ef7a36",
+  "task_cfg_path": "REALM_DROID100/remove_the_cup_from_the_sink_ef7a36/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/remove_the_cup_from_the_sink_ef7a36/remove_the_cup_from_the_sink_ef7a36_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_cup_from_the_sink_ef7a36/remove_the_cup_from_the_sink_ef7a36_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_cup_from_the_sink_ef7a36/remove_the_cup_from_the_sink_ef7a36_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_cup_from_the_sink_ef7a36/remove_the_cup_from_the_sink_ef7a36_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_cup_from_the_sink_ef7a36/remove_the_cup_from_the_sink_ef7a36_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_cup_from_the_sink_ef7a36/remove_the_cup_from_the_sink_ef7a36_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "mug",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "mug",
+      "settled_position": [
+        -4.43287,
+        -1.76522,
+        0.96789
+      ],
+      "settled_orientation": [
+        0.04844,
+        0.03482,
+        0.81352,
+        0.57846
+      ],
+      "settled_aabb_center": [
+        -4.44131,
+        -1.76421,
+        0.97361
+      ],
+      "start_aabb_center": [
+        -4.50893,
+        -1.75339,
+        1.26312
+      ],
+      "authored_position": [
+        -4.5,
+        -1.75,
+        1.3068
+      ],
+      "bbox": [
+        0.081,
+        0.10911,
+        0.08026
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.06683,
+      "drift_z": -0.28901,
+      "aabb_low_z": 0.92952,
+      "mass": 0.11754,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_broccoli",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "broccoli",
+      "settled_position": [
+        -4.49997,
+        -1.57497,
+        0.93059
+      ],
+      "settled_orientation": [
+        -0.00478,
+        0.00485,
+        1e-05,
+        0.99998
+      ],
+      "settled_aabb_center": [
+        -4.49575,
+        -1.57474,
+        0.9307
+      ],
+      "start_aabb_center": [
+        -4.49573,
+        -1.57477,
+        1.06606
+      ],
+      "authored_position": [
+        -4.5,
+        -1.575,
+        1.11093
+      ],
+      "bbox": [
+        0.02909,
+        0.02903,
+        0.02186
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 4e-05,
+      "drift_z": -0.13538,
+      "aabb_low_z": 0.91964,
+      "mass": 0.036,
+      "explicitly_placed": true
+    },
+    {
+      "name": "sink",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "drop_in_sink",
+      "settled_position": [
+        -4.49348,
+        -1.74988,
+        0.97593
+      ],
+      "settled_orientation": [
+        -1e-05,
+        0.07596,
+        4e-05,
+        0.99711
+      ],
+      "settled_aabb_center": [
+        -4.50114,
+        -1.74993,
+        1.00666
+      ],
+      "start_aabb_center": [
+        -4.50509,
+        -1.75,
+        1.16394
+      ],
+      "authored_position": [
+        -4.5,
+        -1.75,
+        1.19337
+      ],
+      "bbox": [
+        0.28,
+        0.27031,
+        0.18674
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00653,
+      "drift_z": -0.17253,
+      "aabb_low_z": 0.91965,
+      "mass": 12.04177,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 1.05,
+  "support_z_measured": 0.91965,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "UNSTABLE",
+      "object": "mug",
+      "reason": "settled 0.0668 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    }
+  ],
+  "no_images": false,
+  "verdict": "FAIL"
+}

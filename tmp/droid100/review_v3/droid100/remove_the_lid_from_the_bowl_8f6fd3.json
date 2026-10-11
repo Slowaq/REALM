@@ -1,0 +1,253 @@
+{
+  "task": "remove_the_lid_from_the_bowl_8f6fd3",
+  "task_cfg_path": "REALM_DROID100/remove_the_lid_from_the_bowl_8f6fd3/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/remove_the_lid_from_the_bowl_8f6fd3/remove_the_lid_from_the_bowl_8f6fd3_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_lid_from_the_bowl_8f6fd3/remove_the_lid_from_the_bowl_8f6fd3_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_lid_from_the_bowl_8f6fd3/remove_the_lid_from_the_bowl_8f6fd3_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_lid_from_the_bowl_8f6fd3/remove_the_lid_from_the_bowl_8f6fd3_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_lid_from_the_bowl_8f6fd3/remove_the_lid_from_the_bowl_8f6fd3_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_lid_from_the_bowl_8f6fd3/remove_the_lid_from_the_bowl_8f6fd3_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "lid",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "lid",
+      "settled_position": [
+        -10.73374,
+        -10.18241,
+        0.78306
+      ],
+      "settled_orientation": [
+        0.3053,
+        0.20208,
+        -0.02548,
+        0.93022
+      ],
+      "settled_aabb_center": [
+        -10.73595,
+        -10.17802,
+        0.77753
+      ],
+      "start_aabb_center": [
+        -10.77963,
+        -10.12,
+        0.99486
+      ],
+      "authored_position": [
+        -10.78,
+        -10.12,
+        1.03369
+      ],
+      "bbox": [
+        0.09491,
+        0.09491,
+        0.02738
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.07769,
+      "drift_z": -0.20567,
+      "aabb_low_z": 0.74481,
+      "mass": 0.346,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_hammer",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "hammer",
+      "settled_position": [
+        -10.61987,
+        -9.88039,
+        0.7511
+      ],
+      "settled_orientation": [
+        0.02908,
+        0.00989,
+        0.00027,
+        0.99953
+      ],
+      "settled_aabb_center": [
+        -10.60851,
+        -9.87834,
+        0.75181
+      ],
+      "start_aabb_center": [
+        -10.60862,
+        -9.87792,
+        0.91113
+      ],
+      "authored_position": [
+        -10.62,
+        -9.88,
+        0.95611
+      ],
+      "bbox": [
+        0.1,
+        0.04141,
+        0.01223
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00041,
+      "drift_z": -0.16005,
+      "aabb_low_z": 0.74501,
+      "mass": 0.867,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_pumpkin_pie_spice",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_pumpkin_pie_spice",
+      "settled_position": [
+        -10.77993,
+        -9.88001,
+        0.786
+      ],
+      "settled_orientation": [
+        2e-05,
+        0.00076,
+        -2e-05,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -10.77989,
+        -9.87998,
+        0.79966
+      ],
+      "start_aabb_center": [
+        -10.77996,
+        -9.87997,
+        0.97268
+      ],
+      "authored_position": [
+        -10.78,
+        -9.88,
+        1.004
+      ],
+      "bbox": [
+        0.04325,
+        0.04323,
+        0.108
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 7e-05,
+      "drift_z": -0.17304,
+      "aabb_low_z": 0.74502,
+      "mass": 0.08007,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_plier",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "plier",
+      "settled_position": [
+        -10.62001,
+        -10.12001,
+        0.74834
+      ],
+      "settled_orientation": [
+        2e-05,
+        0.0,
+        8e-05,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -10.61681,
+        -10.1146,
+        0.74818
+      ],
+      "start_aabb_center": [
+        -10.6168,
+        -10.11459,
+        0.90773
+      ],
+      "authored_position": [
+        -10.62,
+        -10.12,
+        0.95286
+      ],
+      "bbox": [
+        0.1,
+        0.02908,
+        0.00572
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 1e-05,
+      "drift_z": -0.15956,
+      "aabb_low_z": 0.74501,
+      "mass": 0.11806,
+      "explicitly_placed": true
+    },
+    {
+      "name": "bowl",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "bowl",
+      "settled_position": [
+        -10.76664,
+        -10.14137,
+        0.78149
+      ],
+      "settled_orientation": [
+        0.31229,
+        0.19114,
+        0.00753,
+        0.93053
+      ],
+      "settled_aabb_center": [
+        -10.76161,
+        -10.14841,
+        0.78878
+      ],
+      "start_aabb_center": [
+        -10.78,
+        -10.12,
+        0.93386
+      ],
+      "authored_position": [
+        -10.78,
+        -10.12,
+        0.98
+      ],
+      "bbox": [
+        0.09344,
+        0.09344,
+        0.06
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0252,
+      "drift_z": -0.15355,
+      "aabb_low_z": 0.74501,
+      "mass": 0.16705,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.9,
+  "support_z_measured": 0.74501,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "UNSTABLE",
+      "object": "lid",
+      "reason": "settled 0.0777 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    },
+    {
+      "code": "DRIFT",
+      "object": "bowl",
+      "reason": "settled 0.0252 m from its authored XY"
+    }
+  ],
+  "no_images": false,
+  "verdict": "FAIL"
+}

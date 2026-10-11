@@ -1,0 +1,253 @@
+{
+  "task": "pick_up_the_lid_from_the_pot_and_put_it_in_the_bowl_a4f28c",
+  "task_cfg_path": "REALM_DROID100/pick_up_the_lid_from_the_pot_and_put_it_in_the_bowl_a4f28c/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/pick_up_the_lid_from_the_pot_and_put_it_in_the_bowl_a4f28c/pick_up_the_lid_from_the_pot_and_put_it_in_the_bowl_a4f28c_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_lid_from_the_pot_and_put_it_in_the_bowl_a4f28c/pick_up_the_lid_from_the_pot_and_put_it_in_the_bowl_a4f28c_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_lid_from_the_pot_and_put_it_in_the_bowl_a4f28c/pick_up_the_lid_from_the_pot_and_put_it_in_the_bowl_a4f28c_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_lid_from_the_pot_and_put_it_in_the_bowl_a4f28c/pick_up_the_lid_from_the_pot_and_put_it_in_the_bowl_a4f28c_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_lid_from_the_pot_and_put_it_in_the_bowl_a4f28c/pick_up_the_lid_from_the_pot_and_put_it_in_the_bowl_a4f28c_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_lid_from_the_pot_and_put_it_in_the_bowl_a4f28c/pick_up_the_lid_from_the_pot_and_put_it_in_the_bowl_a4f28c_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "lid",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "lid",
+      "settled_position": [
+        -4.58,
+        -1.64999,
+        0.93897
+      ],
+      "settled_orientation": [
+        -0.00027,
+        -8e-05,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -4.5801,
+        -1.65,
+        0.94423
+      ],
+      "start_aabb_center": [
+        -4.5801,
+        -1.65,
+        1.08419
+      ],
+      "authored_position": [
+        -4.58,
+        -1.65,
+        1.12388
+      ],
+      "bbox": [
+        0.13442,
+        0.13442,
+        0.04776
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 1e-05,
+      "drift_z": -0.13995,
+      "aabb_low_z": 0.91961,
+      "mass": 0.346,
+      "explicitly_placed": true
+    },
+    {
+      "name": "bowl",
+      "present": true,
+      "authored": true,
+      "role": "target_objects",
+      "category": "bowl",
+      "settled_position": [
+        -4.41466,
+        -1.92055,
+        0.97714
+      ],
+      "settled_orientation": [
+        0.0,
+        0.0,
+        0.2758,
+        0.96121
+      ],
+      "settled_aabb_center": [
+        -4.41466,
+        -1.92055,
+        0.97811
+      ],
+      "start_aabb_center": [
+        -4.42,
+        -1.85,
+        1.11352
+      ],
+      "authored_position": [
+        -4.42,
+        -1.85,
+        1.15752
+      ],
+      "bbox": [
+        0.17852,
+        0.17852,
+        0.11503
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.07075,
+      "drift_z": -0.13541,
+      "aabb_low_z": 0.91965,
+      "mass": 0.12613,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_soy_sauce",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_soy_sauce",
+      "settled_position": [
+        -4.49821,
+        -1.83737,
+        0.96259
+      ],
+      "settled_orientation": [
+        0.61329,
+        -0.42078,
+        -0.03166,
+        0.6677
+      ],
+      "settled_aabb_center": [
+        -4.49967,
+        -1.84308,
+        0.96974
+      ],
+      "start_aabb_center": [
+        -4.42013,
+        -1.65004,
+        1.17012
+      ],
+      "authored_position": [
+        -4.42,
+        -1.65,
+        1.20291
+      ],
+      "bbox": [
+        0.09698,
+        0.09701,
+        0.20581
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.20304,
+      "drift_z": -0.19535,
+      "aabb_low_z": 0.91965,
+      "mass": 0.78738,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_table_knife",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "table_knife",
+      "settled_position": [
+        -4.58,
+        -1.85036,
+        0.92073
+      ],
+      "settled_orientation": [
+        -0.02418,
+        -8e-05,
+        3e-05,
+        0.99971
+      ],
+      "settled_aabb_center": [
+        -4.57808,
+        -1.85032,
+        0.92073
+      ],
+      "start_aabb_center": [
+        -4.57808,
+        -1.84995,
+        1.05613
+      ],
+      "authored_position": [
+        -4.58,
+        -1.85,
+        1.10109
+      ],
+      "bbox": [
+        0.1,
+        0.01056,
+        0.00219
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00036,
+      "drift_z": -0.1354,
+      "aabb_low_z": 0.91962,
+      "mass": 0.07466,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_hammer",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "hammer",
+      "settled_position": [
+        -4.60003,
+        -1.74991,
+        0.92574
+      ],
+      "settled_orientation": [
+        0.02908,
+        0.00989,
+        0.0001,
+        0.99953
+      ],
+      "settled_aabb_center": [
+        -4.58868,
+        -1.74784,
+        0.92645
+      ],
+      "start_aabb_center": [
+        -4.58862,
+        -1.74792,
+        1.06113
+      ],
+      "authored_position": [
+        -4.6,
+        -1.75,
+        1.10611
+      ],
+      "bbox": [
+        0.1,
+        0.04141,
+        0.01223
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 9e-05,
+      "drift_z": -0.13541,
+      "aabb_low_z": 0.91965,
+      "mass": 0.867,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 1.05,
+  "support_z_measured": 0.91962,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "UNSTABLE",
+      "object": "bowl",
+      "reason": "settled 0.0707 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    },
+    {
+      "code": "UNSTABLE",
+      "object": "distractor_bottle_of_soy_sauce",
+      "reason": "settled 0.2030 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    }
+  ],
+  "no_images": false,
+  "verdict": "FAIL"
+}

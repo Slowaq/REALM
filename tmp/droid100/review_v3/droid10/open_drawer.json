@@ -1,0 +1,165 @@
+{
+  "task": "open_drawer",
+  "task_cfg_path": "REALM_DROID10/open_drawer/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid10/open_drawer/open_drawer_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid10/open_drawer/open_drawer_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid10/open_drawer/open_drawer_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid10/open_drawer/open_drawer_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid10/open_drawer/open_drawer_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid10/open_drawer/open_drawer_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "drawer",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "object",
+      "settled_position": [
+        -0.05,
+        -1.24,
+        0.5
+      ],
+      "settled_orientation": [
+        0.70442,
+        0.06163,
+        0.06163,
+        0.70442
+      ],
+      "settled_aabb_center": [
+        -0.03493,
+        -1.21047,
+        0.76555
+      ],
+      "start_aabb_center": [
+        -0.03493,
+        -1.21047,
+        0.76555
+      ],
+      "authored_position": [
+        -0.05,
+        -1.24,
+        0.5
+      ],
+      "bbox": [
+        0.4,
+        0.61,
+        0.54
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": 0.0,
+      "aabb_low_z": 0.28274,
+      "mass": 13.7137,
+      "explicitly_placed": true
+    },
+    {
+      "name": "breakfast_table_support",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "breakfast_table",
+      "settled_position": [
+        -0.2,
+        -1.0,
+        0.47
+      ],
+      "settled_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.19949,
+        -1.00256,
+        0.26176
+      ],
+      "start_aabb_center": [
+        -0.19949,
+        -1.00256,
+        0.26176
+      ],
+      "authored_position": [
+        -0.2,
+        -1.0,
+        0.47
+      ],
+      "bbox": [
+        1.0,
+        1.0,
+        0.75
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": 0.0,
+      "aabb_low_z": -0.12473,
+      "mass": 0.0,
+      "explicitly_placed": true
+    },
+    {
+      "name": "light_over_table",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "light",
+      "settled_position": [
+        0.0,
+        -2.0,
+        2.3
+      ],
+      "settled_orientation": [
+        0.08716,
+        0.0,
+        0.0,
+        0.99619
+      ],
+      "settled_aabb_center": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "start_aabb_center": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "authored_position": [
+        0.0,
+        -2.0,
+        2.3
+      ],
+      "bbox": [
+        0.1,
+        0.1,
+        0.1
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": 0.0,
+      "aabb_low_z": -0.001,
+      "mass": 0.0,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.8,
+  "support_z_measured": null,
+  "penetration_check": "floor only: fewer than two authored objects rest on the spawn plane",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "FLOATING",
+      "object": "light_over_table",
+      "reason": "authored lower face sits 1.4500 m above the support with nothing holding it up"
+    },
+    {
+      "code": "PHYSICS_FROZEN",
+      "object": "*",
+      "reason": "no movable object moved more than 0.005 m during the settle (largest 0.00000 m): the simulator did not step"
+    }
+  ],
+  "no_images": false,
+  "verdict": "FAIL"
+}

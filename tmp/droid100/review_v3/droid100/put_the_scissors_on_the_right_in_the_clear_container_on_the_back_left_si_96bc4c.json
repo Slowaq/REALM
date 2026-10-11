@@ -1,0 +1,242 @@
+{
+  "task": "put_the_scissors_on_the_right_in_the_clear_container_on_the_back_left_si_96bc4c",
+  "task_cfg_path": "REALM_DROID100/put_the_scissors_on_the_right_in_the_clear_container_on_the_back_left_si_96bc4c/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/put_the_scissors_on_the_right_in_the_clear_container_on_the_back_left_si_96bc4c/put_the_scissors_on_the_right_in_the_clear_container_on_the_back_left_si_96bc4c_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/put_the_scissors_on_the_right_in_the_clear_container_on_the_back_left_si_96bc4c/put_the_scissors_on_the_right_in_the_clear_container_on_the_back_left_si_96bc4c_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/put_the_scissors_on_the_right_in_the_clear_container_on_the_back_left_si_96bc4c/put_the_scissors_on_the_right_in_the_clear_container_on_the_back_left_si_96bc4c_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/put_the_scissors_on_the_right_in_the_clear_container_on_the_back_left_si_96bc4c/put_the_scissors_on_the_right_in_the_clear_container_on_the_back_left_si_96bc4c_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/put_the_scissors_on_the_right_in_the_clear_container_on_the_back_left_si_96bc4c/put_the_scissors_on_the_right_in_the_clear_container_on_the_back_left_si_96bc4c_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/put_the_scissors_on_the_right_in_the_clear_container_on_the_back_left_si_96bc4c/put_the_scissors_on_the_right_in_the_clear_container_on_the_back_left_si_96bc4c_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "scissors",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "shears",
+      "settled_position": [
+        5.04997,
+        6.82012,
+        0.74042
+      ],
+      "settled_orientation": [
+        1e-05,
+        4e-05,
+        0.00331,
+        0.99999
+      ],
+      "settled_aabb_center": [
+        5.03422,
+        6.81681,
+        0.74047
+      ],
+      "start_aabb_center": [
+        5.03421,
+        6.81666,
+        0.87735
+      ],
+      "authored_position": [
+        5.05,
+        6.82,
+        0.92226
+      ],
+      "bbox": [
+        0.12755,
+        0.04904,
+        0.00451
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00012,
+      "drift_z": -0.13687,
+      "aabb_low_z": 0.73764,
+      "mass": 0.15449,
+      "explicitly_placed": true
+    },
+    {
+      "name": "container",
+      "present": true,
+      "authored": true,
+      "role": "target_objects",
+      "category": "tupperware",
+      "settled_position": [
+        5.24999,
+        6.58004,
+        0.80365
+      ],
+      "settled_orientation": [
+        -0.0001,
+        -6e-05,
+        -4e-05,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.24999,
+        6.58005,
+        0.80575
+      ],
+      "start_aabb_center": [
+        5.25001,
+        6.58,
+        0.94516
+      ],
+      "authored_position": [
+        5.25,
+        6.58,
+        0.98803
+      ],
+      "bbox": [
+        0.21893,
+        0.21893,
+        0.13605
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 4e-05,
+      "drift_z": -0.13941,
+      "aabb_low_z": 0.73771,
+      "mass": 0.06584,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_teaspoon",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "teaspoon",
+      "settled_position": [
+        5.25,
+        6.82,
+        0.7409
+      ],
+      "settled_orientation": [
+        -0.00012,
+        -0.0001,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.23923,
+        6.82002,
+        0.74204
+      ],
+      "start_aabb_center": [
+        5.23923,
+        6.82002,
+        0.88007
+      ],
+      "authored_position": [
+        5.25,
+        6.82,
+        0.9239
+      ],
+      "bbox": [
+        0.09894,
+        0.02218,
+        0.0078
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.13804,
+      "aabb_low_z": 0.73767,
+      "mass": 0.027,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_blackboard_eraser",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "blackboard_eraser",
+      "settled_position": [
+        5.05,
+        6.58,
+        0.74832
+      ],
+      "settled_orientation": [
+        -0.00011,
+        -7e-05,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.04997,
+        6.58,
+        0.74981
+      ],
+      "start_aabb_center": [
+        5.04997,
+        6.58,
+        0.88864
+      ],
+      "authored_position": [
+        5.05,
+        6.58,
+        0.93211
+      ],
+      "bbox": [
+        0.1,
+        0.03333,
+        0.02423
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.13883,
+      "aabb_low_z": 0.73769,
+      "mass": 0.093,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_liquid_soap",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_liquid_soap",
+      "settled_position": [
+        5.025,
+        6.7,
+        0.7498
+      ],
+      "settled_orientation": [
+        -0.00012,
+        -7e-05,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.01905,
+        6.70027,
+        0.75052
+      ],
+      "start_aabb_center": [
+        5.01905,
+        6.70027,
+        0.88796
+      ],
+      "authored_position": [
+        5.025,
+        6.7,
+        0.93219
+      ],
+      "bbox": [
+        0.1,
+        0.04263,
+        0.02437
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.13742,
+      "aabb_low_z": 0.73767,
+      "mass": 0.4,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.87,
+  "support_z_measured": 0.73767,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

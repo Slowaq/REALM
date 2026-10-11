@@ -1,0 +1,258 @@
+{
+  "task": "remove_a_tissue_from_the_box_d19562",
+  "task_cfg_path": "REALM_DROID100/remove_a_tissue_from_the_box_d19562/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/remove_a_tissue_from_the_box_d19562/remove_a_tissue_from_the_box_d19562_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_a_tissue_from_the_box_d19562/remove_a_tissue_from_the_box_d19562_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_a_tissue_from_the_box_d19562/remove_a_tissue_from_the_box_d19562_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_a_tissue_from_the_box_d19562/remove_a_tissue_from_the_box_d19562_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_a_tissue_from_the_box_d19562/remove_a_tissue_from_the_box_d19562_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_a_tissue_from_the_box_d19562/remove_a_tissue_from_the_box_d19562_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "teddy_bear",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "teddy_bear",
+      "settled_position": [
+        -11.09627,
+        -9.35378,
+        0.03763
+      ],
+      "settled_orientation": [
+        0.90935,
+        -0.4021,
+        0.09992,
+        0.03757
+      ],
+      "settled_aabb_center": [
+        -11.09855,
+        -9.35054,
+        0.03996
+      ],
+      "start_aabb_center": [
+        -10.6988,
+        -10.01189,
+        0.98868
+      ],
+      "authored_position": [
+        -10.7,
+        -10.0,
+        1.0275
+      ],
+      "bbox": [
+        0.14,
+        0.10229,
+        0.08081
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.75804,
+      "drift_z": -0.94491,
+      "aabb_low_z": 0.00037,
+      "mass": 0.4,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_sesame_oil",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_sesame_oil",
+      "settled_position": [
+        -10.69631,
+        -9.78631,
+        0.86121
+      ],
+      "settled_orientation": [
+        -0.01582,
+        0.01585,
+        -7e-05,
+        0.99975
+      ],
+      "settled_aabb_center": [
+        -10.69747,
+        -9.78733,
+        0.87888
+      ],
+      "start_aabb_center": [
+        -10.70003,
+        -9.79,
+        1.05648
+      ],
+      "authored_position": [
+        -10.7,
+        -9.79,
+        1.08325
+      ],
+      "bbox": [
+        0.05867,
+        0.05851,
+        0.2665
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00522,
+      "drift_z": -0.17708,
+      "aabb_low_z": 0.74338,
+      "mass": 0.39061,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_allen_wrench",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "allen_wrench",
+      "settled_position": [
+        -10.70073,
+        -10.15179,
+        0.74689
+      ],
+      "settled_orientation": [
+        2e-05,
+        -0.0,
+        -0.014,
+        0.9999
+      ],
+      "settled_aabb_center": [
+        -10.70697,
+        -10.14599,
+        0.74689
+      ],
+      "start_aabb_center": [
+        -10.70644,
+        -10.14313,
+        0.90691
+      ],
+      "authored_position": [
+        -10.7,
+        -10.15,
+        0.95187
+      ],
+      "bbox": [
+        0.1,
+        0.0216,
+        0.00374
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00193,
+      "drift_z": -0.16002,
+      "aabb_low_z": 0.74501,
+      "mass": 0.066,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_wooden_spoon",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "wooden_spoon",
+      "settled_position": [
+        -10.69882,
+        -9.84226,
+        0.74688
+      ],
+      "settled_orientation": [
+        0.00023,
+        -7e-05,
+        -0.37864,
+        0.92554
+      ],
+      "settled_aabb_center": [
+        -10.70405,
+        -9.83692,
+        0.74699
+      ],
+      "start_aabb_center": [
+        -10.70842,
+        -9.85017,
+        0.90712
+      ],
+      "authored_position": [
+        -10.7,
+        -9.85,
+        0.95198
+      ],
+      "bbox": [
+        0.06077,
+        0.01513,
+        0.00395
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00783,
+      "drift_z": -0.16013,
+      "aabb_low_z": 0.74502,
+      "mass": 0.05,
+      "explicitly_placed": true
+    },
+    {
+      "name": "box",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "storage_box",
+      "settled_position": [
+        -10.82653,
+        -9.98947,
+        0.7598
+      ],
+      "settled_orientation": [
+        0.0,
+        -0.0,
+        0.14037,
+        0.9901
+      ],
+      "settled_aabb_center": [
+        -10.82653,
+        -9.98947,
+        0.77367
+      ],
+      "start_aabb_center": [
+        -10.7,
+        -10.0,
+        0.94755
+      ],
+      "authored_position": [
+        -10.7,
+        -10.0,
+        0.97865
+      ],
+      "bbox": [
+        0.23519,
+        0.2508,
+        0.0573
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.12697,
+      "drift_z": -0.17389,
+      "aabb_low_z": 0.74501,
+      "mass": 0.0792,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.9,
+  "support_z_measured": 0.74501,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "UNSTABLE",
+      "object": "teddy_bear",
+      "reason": "settled 0.7580 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    },
+    {
+      "code": "PENETRATION",
+      "object": "teddy_bear",
+      "reason": "lower face at z=0.0004 is 0.7446 m below the measured support surface at z=0.7450"
+    },
+    {
+      "code": "UNSTABLE",
+      "object": "box",
+      "reason": "settled 0.1270 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    }
+  ],
+  "no_images": false,
+  "verdict": "FAIL"
+}

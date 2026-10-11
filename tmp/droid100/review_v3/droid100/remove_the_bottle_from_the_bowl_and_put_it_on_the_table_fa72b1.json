@@ -1,0 +1,242 @@
+{
+  "task": "remove_the_bottle_from_the_bowl_and_put_it_on_the_table_fa72b1",
+  "task_cfg_path": "REALM_DROID100/remove_the_bottle_from_the_bowl_and_put_it_on_the_table_fa72b1/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/remove_the_bottle_from_the_bowl_and_put_it_on_the_table_fa72b1/remove_the_bottle_from_the_bowl_and_put_it_on_the_table_fa72b1_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_bottle_from_the_bowl_and_put_it_on_the_table_fa72b1/remove_the_bottle_from_the_bowl_and_put_it_on_the_table_fa72b1_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_bottle_from_the_bowl_and_put_it_on_the_table_fa72b1/remove_the_bottle_from_the_bowl_and_put_it_on_the_table_fa72b1_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_bottle_from_the_bowl_and_put_it_on_the_table_fa72b1/remove_the_bottle_from_the_bowl_and_put_it_on_the_table_fa72b1_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_bottle_from_the_bowl_and_put_it_on_the_table_fa72b1/remove_the_bottle_from_the_bowl_and_put_it_on_the_table_fa72b1_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_bottle_from_the_bowl_and_put_it_on_the_table_fa72b1/remove_the_bottle_from_the_bowl_and_put_it_on_the_table_fa72b1_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "bottle",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "bottle_of_water",
+      "settled_position": [
+        -0.17436,
+        -2.10865,
+        0.89212
+      ],
+      "settled_orientation": [
+        0.02732,
+        -0.03285,
+        0.0001,
+        0.99909
+      ],
+      "settled_aabb_center": [
+        -0.17382,
+        -2.10789,
+        0.90963
+      ],
+      "start_aabb_center": [
+        -0.17025,
+        -2.10489,
+        0.97118
+      ],
+      "authored_position": [
+        -0.17,
+        -2.105,
+        0.99805
+      ],
+      "bbox": [
+        0.05437,
+        0.05078,
+        0.17502
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00569,
+      "drift_z": -0.06097,
+      "aabb_low_z": 0.82073,
+      "mass": 0.675,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_paint_remover",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_paint_remover",
+      "settled_position": [
+        -0.33,
+        -1.845,
+        0.92897
+      ],
+      "settled_orientation": [
+        -1e-05,
+        -1e-05,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.32988,
+        -1.84428,
+        0.92724
+      ],
+      "start_aabb_center": [
+        -0.32987,
+        -1.84428,
+        0.97476
+      ],
+      "authored_position": [
+        -0.33,
+        -1.845,
+        1.02145
+      ],
+      "bbox": [
+        0.06355,
+        0.06355,
+        0.2429
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.04751,
+      "aabb_low_z": 0.80494,
+      "mass": 0.625,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_jar_of_spaghetti_sauce",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "jar_of_spaghetti_sauce",
+      "settled_position": [
+        -0.17,
+        -1.845,
+        0.85721
+      ],
+      "settled_orientation": [
+        -1e-05,
+        -1e-05,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.17,
+        -1.845,
+        0.85805
+      ],
+      "start_aabb_center": [
+        -0.17,
+        -1.845,
+        0.90898
+      ],
+      "authored_position": [
+        -0.17,
+        -1.845,
+        0.9531
+      ],
+      "bbox": [
+        0.06496,
+        0.06496,
+        0.10621
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.05093,
+      "aabb_low_z": 0.80494,
+      "mass": 0.6,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_hammer",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "hammer",
+      "settled_position": [
+        -0.3291,
+        -2.10526,
+        0.81103
+      ],
+      "settled_orientation": [
+        0.02904,
+        0.00995,
+        0.00262,
+        0.99953
+      ],
+      "settled_aabb_center": [
+        -0.31774,
+        -2.10336,
+        0.81174
+      ],
+      "start_aabb_center": [
+        -0.31862,
+        -2.10292,
+        0.86113
+      ],
+      "authored_position": [
+        -0.33,
+        -2.105,
+        0.90611
+      ],
+      "bbox": [
+        0.1,
+        0.04141,
+        0.01223
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00094,
+      "drift_z": -0.05012,
+      "aabb_low_z": 0.80494,
+      "mass": 0.867,
+      "explicitly_placed": true
+    },
+    {
+      "name": "bowl",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "bowl",
+      "settled_position": [
+        -0.17002,
+        -2.10506,
+        0.83257
+      ],
+      "settled_orientation": [
+        0.00131,
+        -0.00098,
+        0.00028,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.17022,
+        -2.10516,
+        0.83222
+      ],
+      "start_aabb_center": [
+        -0.17015,
+        -2.10503,
+        0.8817
+      ],
+      "authored_position": [
+        -0.17,
+        -2.105,
+        0.92715
+      ],
+      "bbox": [
+        0.1451,
+        0.14509,
+        0.0543
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 6e-05,
+      "drift_z": -0.04962,
+      "aabb_low_z": 0.80492,
+      "mass": 0.24249,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.85,
+  "support_z_measured": 0.80494,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

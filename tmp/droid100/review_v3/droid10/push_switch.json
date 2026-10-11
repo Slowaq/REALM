@@ -1,0 +1,72 @@
+{
+  "task": "push_switch",
+  "task_cfg_path": "REALM_DROID10/push_switch/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid10/push_switch/push_switch_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid10/push_switch/push_switch_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid10/push_switch/push_switch_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid10/push_switch/push_switch_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid10/push_switch/push_switch_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid10/push_switch/push_switch_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "electric_switch",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "electric_switch",
+      "settled_position": [
+        -1.0,
+        0.8375,
+        1.2
+      ],
+      "settled_orientation": [
+        0.0,
+        0.0,
+        -0.70711,
+        0.70711
+      ],
+      "settled_aabb_center": [
+        -0.98797,
+        0.82123,
+        1.2122
+      ],
+      "start_aabb_center": [
+        -0.98797,
+        0.82123,
+        1.2122
+      ],
+      "authored_position": [
+        -1.0,
+        0.8375,
+        1.2
+      ],
+      "bbox": [
+        0.025,
+        0.06,
+        0.12
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": 0.0,
+      "aabb_low_z": 1.15153,
+      "mass": 0.06257,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 1.2,
+  "support_z_measured": null,
+  "penetration_check": "floor only: fewer than two authored objects rest on the spawn plane",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "PHYSICS_FROZEN",
+      "object": "*",
+      "reason": "no movable object moved more than 0.005 m during the settle (largest 0.00000 m): the simulator did not step"
+    }
+  ],
+  "no_images": false,
+  "verdict": "FAIL"
+}

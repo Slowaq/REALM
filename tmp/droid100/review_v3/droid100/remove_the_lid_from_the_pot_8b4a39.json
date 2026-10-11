@@ -1,0 +1,154 @@
+{
+  "task": "remove_the_lid_from_the_pot_8b4a39",
+  "task_cfg_path": "REALM_DROID100/remove_the_lid_from_the_pot_8b4a39/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/remove_the_lid_from_the_pot_8b4a39/remove_the_lid_from_the_pot_8b4a39_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_lid_from_the_pot_8b4a39/remove_the_lid_from_the_pot_8b4a39_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_lid_from_the_pot_8b4a39/remove_the_lid_from_the_pot_8b4a39_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_lid_from_the_pot_8b4a39/remove_the_lid_from_the_pot_8b4a39_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_lid_from_the_pot_8b4a39/remove_the_lid_from_the_pot_8b4a39_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_lid_from_the_pot_8b4a39/remove_the_lid_from_the_pot_8b4a39_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "lid",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "lid",
+      "settled_position": [
+        1.99972,
+        6.70115,
+        1.03457
+      ],
+      "settled_orientation": [
+        -0.01435,
+        -0.00811,
+        -0.00034,
+        0.99986
+      ],
+      "settled_aabb_center": [
+        2.00231,
+        6.6988,
+        1.03296
+      ],
+      "start_aabb_center": [
+        2.00209,
+        6.69818,
+        1.15014
+      ],
+      "authored_position": [
+        2.0,
+        6.7,
+        1.19511
+      ],
+      "bbox": [
+        0.23193,
+        0.23193,
+        0.0624
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00123,
+      "drift_z": -0.11574,
+      "aabb_low_z": 0.99934,
+      "mass": 0.346,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_tweezers",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "tweezers",
+      "settled_position": [
+        2.14168,
+        6.69991,
+        0.90072
+      ],
+      "settled_orientation": [
+        -0.00061,
+        -0.00202,
+        -0.06544,
+        0.99785
+      ],
+      "settled_aabb_center": [
+        2.14249,
+        6.69838,
+        0.90088
+      ],
+      "start_aabb_center": [
+        2.14005,
+        6.69833,
+        1.00645
+      ],
+      "authored_position": [
+        2.14,
+        6.7,
+        1.05125
+      ],
+      "bbox": [
+        0.00485,
+        0.03209,
+        0.0025
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00168,
+      "drift_z": -0.10557,
+      "aabb_low_z": 0.89948,
+      "mass": 0.02,
+      "explicitly_placed": true
+    },
+    {
+      "name": "pot",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "saucepot",
+      "settled_position": [
+        2.00002,
+        6.7001,
+        0.94269
+      ],
+      "settled_orientation": [
+        -0.00024,
+        -0.00019,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        2.00003,
+        6.70019,
+        0.95265
+      ],
+      "start_aabb_center": [
+        2.00002,
+        6.70003,
+        1.0669
+      ],
+      "authored_position": [
+        2.0,
+        6.7,
+        1.10196
+      ],
+      "bbox": [
+        0.2079,
+        0.28,
+        0.10391
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 7e-05,
+      "drift_z": -0.11421,
+      "aabb_low_z": 0.89922,
+      "mass": 0.63733,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 1.0,
+  "support_z_measured": 0.89948,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

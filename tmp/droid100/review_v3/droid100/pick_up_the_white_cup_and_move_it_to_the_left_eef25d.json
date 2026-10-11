@@ -1,0 +1,198 @@
+{
+  "task": "pick_up_the_white_cup_and_move_it_to_the_left_eef25d",
+  "task_cfg_path": "REALM_DROID100/pick_up_the_white_cup_and_move_it_to_the_left_eef25d/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/pick_up_the_white_cup_and_move_it_to_the_left_eef25d/pick_up_the_white_cup_and_move_it_to_the_left_eef25d_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_white_cup_and_move_it_to_the_left_eef25d/pick_up_the_white_cup_and_move_it_to_the_left_eef25d_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_white_cup_and_move_it_to_the_left_eef25d/pick_up_the_white_cup_and_move_it_to_the_left_eef25d_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_white_cup_and_move_it_to_the_left_eef25d/pick_up_the_white_cup_and_move_it_to_the_left_eef25d_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_white_cup_and_move_it_to_the_left_eef25d/pick_up_the_white_cup_and_move_it_to_the_left_eef25d_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_white_cup_and_move_it_to_the_left_eef25d/pick_up_the_white_cup_and_move_it_to_the_left_eef25d_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "cup",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "coffee_cup",
+      "settled_position": [
+        -0.17,
+        -2.105,
+        0.8445
+      ],
+      "settled_orientation": [
+        -4e-05,
+        -3e-05,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.16403,
+        -2.105,
+        0.84485
+      ],
+      "start_aabb_center": [
+        -0.16403,
+        -2.105,
+        0.89528
+      ],
+      "authored_position": [
+        -0.17,
+        -2.105,
+        0.93989
+      ],
+      "bbox": [
+        0.09516,
+        0.07883,
+        0.07979
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.05043,
+      "aabb_low_z": 0.80495,
+      "mass": 0.08922,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_sponge",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "sponge",
+      "settled_position": [
+        -0.33,
+        -1.845,
+        0.81494
+      ],
+      "settled_orientation": [
+        -1e-05,
+        -1e-05,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.33,
+        -1.845,
+        0.81494
+      ],
+      "start_aabb_center": [
+        -0.33,
+        -1.845,
+        0.86504
+      ],
+      "authored_position": [
+        -0.33,
+        -1.845,
+        0.91
+      ],
+      "bbox": [
+        0.1,
+        0.06667,
+        0.02
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.0501,
+      "aabb_low_z": 0.80494,
+      "mass": 0.053,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_cocoa",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_cocoa",
+      "settled_position": [
+        -0.17006,
+        -1.84504,
+        0.86374
+      ],
+      "settled_orientation": [
+        0.00038,
+        -0.00056,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.173,
+        -1.84497,
+        0.8645
+      ],
+      "start_aabb_center": [
+        -0.17295,
+        -1.84492,
+        0.91532
+      ],
+      "authored_position": [
+        -0.17,
+        -1.845,
+        0.95955
+      ],
+      "bbox": [
+        0.1,
+        0.08888,
+        0.11909
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 7e-05,
+      "drift_z": -0.05084,
+      "aabb_low_z": 0.80493,
+      "mass": 0.625,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bowl",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bowl",
+      "settled_position": [
+        -0.33,
+        -2.105,
+        0.83612
+      ],
+      "settled_orientation": [
+        -1e-05,
+        -2e-05,
+        -9e-05,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.33,
+        -2.105,
+        0.83494
+      ],
+      "start_aabb_center": [
+        -0.33,
+        -2.105,
+        0.88386
+      ],
+      "authored_position": [
+        -0.33,
+        -2.105,
+        0.93
+      ],
+      "bbox": [
+        0.09344,
+        0.09344,
+        0.06
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.04892,
+      "aabb_low_z": 0.80494,
+      "mass": 0.16705,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.85,
+  "support_z_measured": 0.80494,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

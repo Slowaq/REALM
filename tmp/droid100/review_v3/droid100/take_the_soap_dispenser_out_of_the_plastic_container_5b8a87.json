@@ -1,0 +1,242 @@
+{
+  "task": "take_the_soap_dispenser_out_of_the_plastic_container_5b8a87",
+  "task_cfg_path": "REALM_DROID100/take_the_soap_dispenser_out_of_the_plastic_container_5b8a87/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/take_the_soap_dispenser_out_of_the_plastic_container_5b8a87/take_the_soap_dispenser_out_of_the_plastic_container_5b8a87_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/take_the_soap_dispenser_out_of_the_plastic_container_5b8a87/take_the_soap_dispenser_out_of_the_plastic_container_5b8a87_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/take_the_soap_dispenser_out_of_the_plastic_container_5b8a87/take_the_soap_dispenser_out_of_the_plastic_container_5b8a87_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/take_the_soap_dispenser_out_of_the_plastic_container_5b8a87/take_the_soap_dispenser_out_of_the_plastic_container_5b8a87_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/take_the_soap_dispenser_out_of_the_plastic_container_5b8a87/take_the_soap_dispenser_out_of_the_plastic_container_5b8a87_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/take_the_soap_dispenser_out_of_the_plastic_container_5b8a87/take_the_soap_dispenser_out_of_the_plastic_container_5b8a87_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "soap_dispenser",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "soap_dispenser",
+      "settled_position": [
+        -0.25114,
+        -1.97523,
+        0.90192
+      ],
+      "settled_orientation": [
+        0.00183,
+        -0.00598,
+        -0.0,
+        0.99998
+      ],
+      "settled_aabb_center": [
+        -0.24766,
+        -1.97537,
+        0.91267
+      ],
+      "start_aabb_center": [
+        -0.24548,
+        -1.975,
+        1.06122
+      ],
+      "authored_position": [
+        -0.25,
+        -1.975,
+        1.09526
+      ],
+      "bbox": [
+        0.08988,
+        0.07978,
+        0.20744
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00116,
+      "drift_z": -0.14838,
+      "aabb_low_z": 0.80777,
+      "mass": 0.25597,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_lemon_sauce",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_lemon_sauce",
+      "settled_position": [
+        -0.25,
+        -2.13749,
+        0.8489
+      ],
+      "settled_orientation": [
+        -0.00015,
+        -1e-05,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.24997,
+        -2.13749,
+        0.85229
+      ],
+      "start_aabb_center": [
+        -0.24997,
+        -2.1375,
+        0.90527
+      ],
+      "authored_position": [
+        -0.25,
+        -2.1375,
+        0.94684
+      ],
+      "bbox": [
+        0.08535,
+        0.08535,
+        0.09369
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 1e-05,
+      "drift_z": -0.05298,
+      "aabb_low_z": 0.80494,
+      "mass": 0.417,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_jar_of_jelly",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "jar_of_jelly",
+      "settled_position": [
+        -0.25008,
+        -1.81285,
+        0.85746
+      ],
+      "settled_orientation": [
+        0.00379,
+        -0.00087,
+        1e-05,
+        0.99999
+      ],
+      "settled_aabb_center": [
+        -0.24471,
+        -1.81292,
+        0.86051
+      ],
+      "start_aabb_center": [
+        -0.24459,
+        -1.81292,
+        0.91329
+      ],
+      "authored_position": [
+        -0.25,
+        -1.8125,
+        0.95519
+      ],
+      "bbox": [
+        0.1,
+        0.07503,
+        0.11039
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00036,
+      "drift_z": -0.05277,
+      "aabb_low_z": 0.80487,
+      "mass": 0.19652,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_pill_bottle",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "pill_bottle",
+      "settled_position": [
+        -0.11002,
+        -1.975,
+        0.8296
+      ],
+      "settled_orientation": [
+        -4e-05,
+        -2e-05,
+        0.00021,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.11002,
+        -1.975,
+        0.83229
+      ],
+      "start_aabb_center": [
+        -0.11,
+        -1.975,
+        0.88506
+      ],
+      "authored_position": [
+        -0.11,
+        -1.975,
+        0.92734
+      ],
+      "bbox": [
+        0.03885,
+        0.03885,
+        0.05468
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 2e-05,
+      "drift_z": -0.05278,
+      "aabb_low_z": 0.80494,
+      "mass": 0.00594,
+      "explicitly_placed": true
+    },
+    {
+      "name": "container",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "storage_box",
+      "settled_position": [
+        -0.25,
+        -1.975,
+        0.86035
+      ],
+      "settled_orientation": [
+        -1e-05,
+        0.0,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.25,
+        -1.975,
+        0.87664
+      ],
+      "start_aabb_center": [
+        -0.25,
+        -1.975,
+        0.94303
+      ],
+      "authored_position": [
+        -0.25,
+        -1.975,
+        0.9717
+      ],
+      "bbox": [
+        0.20369,
+        0.20368,
+        0.1434
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.06639,
+      "aabb_low_z": 0.80494,
+      "mass": 0.10672,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.85,
+  "support_z_measured": 0.80494,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

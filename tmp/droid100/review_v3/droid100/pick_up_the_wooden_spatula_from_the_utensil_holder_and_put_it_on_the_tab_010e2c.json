@@ -1,0 +1,253 @@
+{
+  "task": "pick_up_the_wooden_spatula_from_the_utensil_holder_and_put_it_on_the_tab_010e2c",
+  "task_cfg_path": "REALM_DROID100/pick_up_the_wooden_spatula_from_the_utensil_holder_and_put_it_on_the_tab_010e2c/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/pick_up_the_wooden_spatula_from_the_utensil_holder_and_put_it_on_the_tab_010e2c/pick_up_the_wooden_spatula_from_the_utensil_holder_and_put_it_on_the_tab_010e2c_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_wooden_spatula_from_the_utensil_holder_and_put_it_on_the_tab_010e2c/pick_up_the_wooden_spatula_from_the_utensil_holder_and_put_it_on_the_tab_010e2c_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_wooden_spatula_from_the_utensil_holder_and_put_it_on_the_tab_010e2c/pick_up_the_wooden_spatula_from_the_utensil_holder_and_put_it_on_the_tab_010e2c_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_wooden_spatula_from_the_utensil_holder_and_put_it_on_the_tab_010e2c/pick_up_the_wooden_spatula_from_the_utensil_holder_and_put_it_on_the_tab_010e2c_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_wooden_spatula_from_the_utensil_holder_and_put_it_on_the_tab_010e2c/pick_up_the_wooden_spatula_from_the_utensil_holder_and_put_it_on_the_tab_010e2c_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_wooden_spatula_from_the_utensil_holder_and_put_it_on_the_tab_010e2c/pick_up_the_wooden_spatula_from_the_utensil_holder_and_put_it_on_the_tab_010e2c_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "spatula",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "spatula",
+      "settled_position": [
+        -4.53825,
+        -1.8517,
+        0.92965
+      ],
+      "settled_orientation": [
+        0.29745,
+        0.04258,
+        0.03872,
+        0.953
+      ],
+      "settled_aabb_center": [
+        -4.52943,
+        -1.85433,
+        0.93006
+      ],
+      "start_aabb_center": [
+        -4.41783,
+        -1.84998,
+        1.15434
+      ],
+      "authored_position": [
+        -4.42,
+        -1.85,
+        1.20825
+      ],
+      "bbox": [
+        0.14,
+        0.03015,
+        0.01052
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.11826,
+      "drift_z": -0.23364,
+      "aabb_low_z": 0.91965,
+      "mass": 0.13,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_hamburger_bun",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "hamburger_bun",
+      "settled_position": [
+        -4.57995,
+        -1.65007,
+        0.92959
+      ],
+      "settled_orientation": [
+        0.00625,
+        0.00442,
+        -2e-05,
+        0.99997
+      ],
+      "settled_aabb_center": [
+        -4.58014,
+        -1.65012,
+        0.9325
+      ],
+      "start_aabb_center": [
+        -4.58012,
+        -1.65012,
+        1.07071
+      ],
+      "authored_position": [
+        -4.58,
+        -1.65,
+        1.1132
+      ],
+      "bbox": [
+        0.08664,
+        0.08494,
+        0.02639
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 9e-05,
+      "drift_z": -0.13864,
+      "aabb_low_z": 0.91965,
+      "mass": 0.05,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_jar_of_peppercorns",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "jar_of_peppercorns",
+      "settled_position": [
+        -4.42,
+        -1.65,
+        0.94847
+      ],
+      "settled_orientation": [
+        -0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -4.42525,
+        -1.65089,
+        0.98604
+      ],
+      "start_aabb_center": [
+        -4.42525,
+        -1.65089,
+        1.15846
+      ],
+      "authored_position": [
+        -4.42,
+        -1.65,
+        1.16586
+      ],
+      "bbox": [
+        0.095,
+        0.095,
+        0.13171
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.17242,
+      "aabb_low_z": 0.91965,
+      "mass": 0.05783,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_screwdriver",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "screwdriver",
+      "settled_position": [
+        -4.58006,
+        -1.84829,
+        0.92447
+      ],
+      "settled_orientation": [
+        -0.30809,
+        -0.00455,
+        0.00294,
+        0.95134
+      ],
+      "settled_aabb_center": [
+        -4.59504,
+        -1.84819,
+        0.92468
+      ],
+      "start_aabb_center": [
+        -4.59499,
+        -1.85001,
+        1.05964
+      ],
+      "authored_position": [
+        -4.58,
+        -1.85,
+        1.10461
+      ],
+      "bbox": [
+        0.1,
+        0.00928,
+        0.00922
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00171,
+      "drift_z": -0.13518,
+      "aabb_low_z": 0.91965,
+      "mass": 0.125,
+      "explicitly_placed": true
+    },
+    {
+      "name": "holder",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "pencil_holder",
+      "settled_position": [
+        -4.48354,
+        -1.84981,
+        0.95222
+      ],
+      "settled_orientation": [
+        0.0063,
+        -0.70708,
+        0.0063,
+        0.70708
+      ],
+      "settled_aabb_center": [
+        -4.48977,
+        -1.84991,
+        0.95221
+      ],
+      "start_aabb_center": [
+        -4.42001,
+        -1.84999,
+        1.0979
+      ],
+      "authored_position": [
+        -4.42,
+        -1.85,
+        1.13663
+      ],
+      "bbox": [
+        0.06512,
+        0.07759,
+        0.07325
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.06354,
+      "drift_z": -0.13944,
+      "aabb_low_z": 0.91965,
+      "mass": 0.05055,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 1.05,
+  "support_z_measured": 0.91965,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "UNSTABLE",
+      "object": "spatula",
+      "reason": "settled 0.1183 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    },
+    {
+      "code": "UNSTABLE",
+      "object": "holder",
+      "reason": "settled 0.0635 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    }
+  ],
+  "no_images": false,
+  "verdict": "FAIL"
+}

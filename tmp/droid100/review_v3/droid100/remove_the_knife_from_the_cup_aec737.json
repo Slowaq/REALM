@@ -1,0 +1,253 @@
+{
+  "task": "remove_the_knife_from_the_cup_aec737",
+  "task_cfg_path": "REALM_DROID100/remove_the_knife_from_the_cup_aec737/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/remove_the_knife_from_the_cup_aec737/remove_the_knife_from_the_cup_aec737_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_knife_from_the_cup_aec737/remove_the_knife_from_the_cup_aec737_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_knife_from_the_cup_aec737/remove_the_knife_from_the_cup_aec737_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_knife_from_the_cup_aec737/remove_the_knife_from_the_cup_aec737_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_knife_from_the_cup_aec737/remove_the_knife_from_the_cup_aec737_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_knife_from_the_cup_aec737/remove_the_knife_from_the_cup_aec737_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "knife",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "table_knife",
+      "settled_position": [
+        -0.15407,
+        -2.00247,
+        0.81022
+      ],
+      "settled_orientation": [
+        -0.63859,
+        0.761,
+        -0.07362,
+        0.08752
+      ],
+      "settled_aabb_center": [
+        -0.15344,
+        -2.01143,
+        0.81118
+      ],
+      "start_aabb_center": [
+        -0.16945,
+        -2.10543,
+        0.98653
+      ],
+      "authored_position": [
+        -0.17,
+        -2.105,
+        1.04042
+      ],
+      "bbox": [
+        0.14,
+        0.01199,
+        0.0051
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.10376,
+      "drift_z": -0.18524,
+      "aabb_low_z": 0.80756,
+      "mass": 0.06654,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_can_of_bay_leaves",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "can_of_bay_leaves",
+      "settled_position": [
+        -0.32843,
+        -1.84428,
+        0.84823
+      ],
+      "settled_orientation": [
+        -0.00919,
+        0.02007,
+        -0.00143,
+        0.99976
+      ],
+      "settled_aabb_center": [
+        -0.33021,
+        -1.84258,
+        0.84087
+      ],
+      "start_aabb_center": [
+        -0.33154,
+        -1.84317,
+        0.88472
+      ],
+      "authored_position": [
+        -0.33,
+        -1.845,
+        0.93706
+      ],
+      "bbox": [
+        0.06254,
+        0.06118,
+        0.07412
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00173,
+      "drift_z": -0.04387,
+      "aabb_low_z": 0.80494,
+      "mass": 0.08481,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_cranberry_juice",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_cranberry_juice",
+      "settled_position": [
+        -0.17004,
+        -1.84495,
+        0.90791
+      ],
+      "settled_orientation": [
+        -0.00023,
+        -0.00025,
+        -0.00017,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.17795,
+        -1.84478,
+        0.92014
+      ],
+      "start_aabb_center": [
+        -0.17794,
+        -1.84483,
+        0.98183
+      ],
+      "authored_position": [
+        -0.17,
+        -1.845,
+        1.01458
+      ],
+      "bbox": [
+        0.0774,
+        0.07708,
+        0.22915
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 6e-05,
+      "drift_z": -0.0617,
+      "aabb_low_z": 0.80494,
+      "mass": 0.78094,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_hingeless_jar",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "hingeless_jar",
+      "settled_position": [
+        -0.33,
+        -2.105,
+        0.82703
+      ],
+      "settled_orientation": [
+        -0.0,
+        -3e-05,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.32999,
+        -2.105,
+        0.83102
+      ],
+      "start_aabb_center": [
+        -0.32999,
+        -2.105,
+        0.88485
+      ],
+      "authored_position": [
+        -0.33,
+        -2.105,
+        0.92583
+      ],
+      "bbox": [
+        0.06014,
+        0.06014,
+        0.05165
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.05383,
+      "aabb_low_z": 0.80494,
+      "mass": 0.33777,
+      "explicitly_placed": true
+    },
+    {
+      "name": "cup",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "paper_cup",
+      "settled_position": [
+        -0.16654,
+        -2.03342,
+        0.83539
+      ],
+      "settled_orientation": [
+        -0.6716,
+        0.0611,
+        -0.06116,
+        0.73586
+      ],
+      "settled_aabb_center": [
+        -0.16151,
+        -2.03052,
+        0.84015
+      ],
+      "start_aabb_center": [
+        -0.16999,
+        -2.10501,
+        0.9099
+      ],
+      "authored_position": [
+        -0.17,
+        -2.105,
+        0.95271
+      ],
+      "bbox": [
+        0.07407,
+        0.07043,
+        0.10542
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.07166,
+      "drift_z": -0.07236,
+      "aabb_low_z": 0.80495,
+      "mass": 0.00156,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.85,
+  "support_z_measured": 0.80494,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "UNSTABLE",
+      "object": "knife",
+      "reason": "settled 0.1038 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    },
+    {
+      "code": "UNSTABLE",
+      "object": "cup",
+      "reason": "settled 0.0717 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    }
+  ],
+  "no_images": false,
+  "verdict": "FAIL"
+}

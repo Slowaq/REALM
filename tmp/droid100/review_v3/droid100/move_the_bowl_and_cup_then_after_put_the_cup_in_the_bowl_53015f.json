@@ -1,0 +1,248 @@
+{
+  "task": "move_the_bowl_and_cup_then_after_put_the_cup_in_the_bowl_53015f",
+  "task_cfg_path": "REALM_DROID100/move_the_bowl_and_cup_then_after_put_the_cup_in_the_bowl_53015f/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/move_the_bowl_and_cup_then_after_put_the_cup_in_the_bowl_53015f/move_the_bowl_and_cup_then_after_put_the_cup_in_the_bowl_53015f_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/move_the_bowl_and_cup_then_after_put_the_cup_in_the_bowl_53015f/move_the_bowl_and_cup_then_after_put_the_cup_in_the_bowl_53015f_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/move_the_bowl_and_cup_then_after_put_the_cup_in_the_bowl_53015f/move_the_bowl_and_cup_then_after_put_the_cup_in_the_bowl_53015f_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/move_the_bowl_and_cup_then_after_put_the_cup_in_the_bowl_53015f/move_the_bowl_and_cup_then_after_put_the_cup_in_the_bowl_53015f_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/move_the_bowl_and_cup_then_after_put_the_cup_in_the_bowl_53015f/move_the_bowl_and_cup_then_after_put_the_cup_in_the_bowl_53015f_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/move_the_bowl_and_cup_then_after_put_the_cup_in_the_bowl_53015f/move_the_bowl_and_cup_then_after_put_the_cup_in_the_bowl_53015f_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "cup",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "mug",
+      "settled_position": [
+        1.85974,
+        6.74791,
+        0.92716
+      ],
+      "settled_orientation": [
+        -0.15599,
+        -0.64237,
+        0.30653,
+        0.68489
+      ],
+      "settled_aabb_center": [
+        1.86312,
+        6.7506,
+        0.93215
+      ],
+      "start_aabb_center": [
+        1.91229,
+        6.77931,
+        1.03315
+      ],
+      "authored_position": [
+        1.92,
+        6.78,
+        1.08231
+      ],
+      "bbox": [
+        0.06449,
+        0.0877,
+        0.06463
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.06827,
+      "drift_z": -0.11019,
+      "aabb_low_z": 0.8995,
+      "mass": 0.0873,
+      "explicitly_placed": true
+    },
+    {
+      "name": "bowl",
+      "present": true,
+      "authored": true,
+      "role": "target_objects",
+      "category": "bowl",
+      "settled_position": [
+        2.08,
+        6.62,
+        0.96351
+      ],
+      "settled_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        2.08,
+        6.62001,
+        0.95901
+      ],
+      "start_aabb_center": [
+        2.08,
+        6.62001,
+        1.05922
+      ],
+      "authored_position": [
+        2.08,
+        6.62,
+        1.10868
+      ],
+      "bbox": [
+        0.1878,
+        0.18777,
+        0.11735
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.1002,
+      "aabb_low_z": 0.8995,
+      "mass": 0.31315,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_conditioner",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_conditioner",
+      "settled_position": [
+        2.08042,
+        6.78065,
+        0.90845
+      ],
+      "settled_orientation": [
+        -0.02759,
+        -0.0107,
+        0.01556,
+        0.99944
+      ],
+      "settled_aabb_center": [
+        2.08262,
+        6.78041,
+        0.90871
+      ],
+      "start_aabb_center": [
+        2.08232,
+        6.78009,
+        1.01496
+      ],
+      "authored_position": [
+        2.08,
+        6.78,
+        1.05956
+      ],
+      "bbox": [
+        0.1,
+        0.04052,
+        0.01911
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00077,
+      "drift_z": -0.10614,
+      "aabb_low_z": 0.89869,
+      "mass": 0.46,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_scone",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "scone",
+      "settled_position": [
+        1.92,
+        6.62,
+        0.91149
+      ],
+      "settled_orientation": [
+        -0.0,
+        -0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        1.91967,
+        6.62099,
+        0.91559
+      ],
+      "start_aabb_center": [
+        1.91967,
+        6.62099,
+        1.02628
+      ],
+      "authored_position": [
+        1.92,
+        6.62,
+        1.06714
+      ],
+      "bbox": [
+        0.1,
+        0.06354,
+        0.03428
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.11069,
+      "aabb_low_z": 0.89847,
+      "mass": 0.12,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_zucchini",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "zucchini",
+      "settled_position": [
+        1.90085,
+        6.69981,
+        0.9156
+      ],
+      "settled_orientation": [
+        0.00562,
+        0.03596,
+        0.00259,
+        0.99933
+      ],
+      "settled_aabb_center": [
+        1.90102,
+        6.69939,
+        0.91529
+      ],
+      "start_aabb_center": [
+        1.90009,
+        6.69961,
+        1.02367
+      ],
+      "authored_position": [
+        1.9,
+        6.7,
+        1.06869
+      ],
+      "bbox": [
+        0.1,
+        0.04,
+        0.03738
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00087,
+      "drift_z": -0.10813,
+      "aabb_low_z": 0.89805,
+      "mass": 0.273,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 1.0,
+  "support_z_measured": 0.89847,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "UNSTABLE",
+      "object": "cup",
+      "reason": "settled 0.0683 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    }
+  ],
+  "no_images": false,
+  "verdict": "FAIL"
+}

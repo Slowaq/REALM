@@ -1,0 +1,258 @@
+{
+  "task": "remove_the_pink_plate_from_the_blue_bowl_82f5f5",
+  "task_cfg_path": "REALM_DROID100/remove_the_pink_plate_from_the_blue_bowl_82f5f5/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/remove_the_pink_plate_from_the_blue_bowl_82f5f5/remove_the_pink_plate_from_the_blue_bowl_82f5f5_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_pink_plate_from_the_blue_bowl_82f5f5/remove_the_pink_plate_from_the_blue_bowl_82f5f5_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_pink_plate_from_the_blue_bowl_82f5f5/remove_the_pink_plate_from_the_blue_bowl_82f5f5_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_pink_plate_from_the_blue_bowl_82f5f5/remove_the_pink_plate_from_the_blue_bowl_82f5f5_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_pink_plate_from_the_blue_bowl_82f5f5/remove_the_pink_plate_from_the_blue_bowl_82f5f5_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_pink_plate_from_the_blue_bowl_82f5f5/remove_the_pink_plate_from_the_blue_bowl_82f5f5_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "plate",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "plate",
+      "settled_position": [
+        2.27754,
+        4.83253,
+        0.7702
+      ],
+      "settled_orientation": [
+        0.15066,
+        0.98618,
+        0.00124,
+        -0.06899
+      ],
+      "settled_aabb_center": [
+        2.27718,
+        4.83259,
+        0.76865
+      ],
+      "start_aabb_center": [
+        2.12,
+        4.92,
+        0.97828
+      ],
+      "authored_position": [
+        2.12,
+        4.92,
+        1.02491
+      ],
+      "bbox": [
+        0.16569,
+        0.16569,
+        0.00982
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.18019,
+      "drift_z": -0.20975,
+      "aabb_low_z": 0.75584,
+      "mass": 0.34891,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_molasses",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_molasses",
+      "settled_position": [
+        1.88272,
+        5.07999,
+        0.84207
+      ],
+      "settled_orientation": [
+        0.0001,
+        2e-05,
+        -0.00073,
+        1.0
+      ],
+      "settled_aabb_center": [
+        1.87948,
+        5.08003,
+        0.8511
+      ],
+      "start_aabb_center": [
+        1.87676,
+        5.08005,
+        1.00934
+      ],
+      "authored_position": [
+        1.88,
+        5.08,
+        1.04527
+      ],
+      "bbox": [
+        0.08084,
+        0.08074,
+        0.19055
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00272,
+      "drift_z": -0.15824,
+      "aabb_low_z": 0.75584,
+      "mass": 1.145,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_trash_can",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "trash_can",
+      "settled_position": [
+        2.1227,
+        5.08005,
+        0.81442
+      ],
+      "settled_orientation": [
+        -0.0,
+        -0.0,
+        -9e-05,
+        1.0
+      ],
+      "settled_aabb_center": [
+        2.1227,
+        5.08005,
+        0.81642
+      ],
+      "start_aabb_center": [
+        2.12,
+        5.08,
+        0.96761
+      ],
+      "authored_position": [
+        2.12,
+        5.08,
+        1.01058
+      ],
+      "bbox": [
+        0.1,
+        0.09997,
+        0.12115
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0027,
+      "drift_z": -0.15119,
+      "aabb_low_z": 0.75584,
+      "mass": 0.49583,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_jar_of_dill_seed",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "jar_of_dill_seed",
+      "settled_position": [
+        1.89234,
+        4.92629,
+        0.79826
+      ],
+      "settled_orientation": [
+        0.01574,
+        0.01616,
+        -0.25235,
+        0.96737
+      ],
+      "settled_aabb_center": [
+        1.89226,
+        4.92622,
+        0.79175
+      ],
+      "start_aabb_center": [
+        1.88016,
+        4.9198,
+        0.93561
+      ],
+      "authored_position": [
+        1.88,
+        4.92,
+        0.98709
+      ],
+      "bbox": [
+        0.06244,
+        0.06151,
+        0.07418
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.01385,
+      "drift_z": -0.14387,
+      "aabb_low_z": 0.75578,
+      "mass": 0.15602,
+      "explicitly_placed": true
+    },
+    {
+      "name": "bowl",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "bowl",
+      "settled_position": [
+        2.19932,
+        4.86331,
+        0.80171
+      ],
+      "settled_orientation": [
+        0.22448,
+        0.52222,
+        -0.12998,
+        0.8124
+      ],
+      "settled_aabb_center": [
+        2.2091,
+        4.85377,
+        0.80935
+      ],
+      "start_aabb_center": [
+        2.12,
+        4.91999,
+        0.93549
+      ],
+      "authored_position": [
+        2.12,
+        4.92,
+        0.98
+      ],
+      "bbox": [
+        0.1077,
+        0.1077,
+        0.06
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0975,
+      "drift_z": -0.13333,
+      "aabb_low_z": 0.75591,
+      "mass": 0.1289,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.9,
+  "support_z_measured": 0.75584,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "UNSTABLE",
+      "object": "plate",
+      "reason": "settled 0.1802 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    },
+    {
+      "code": "DRIFT",
+      "object": "distractor_jar_of_dill_seed",
+      "reason": "settled 0.0138 m from its authored XY"
+    },
+    {
+      "code": "UNSTABLE",
+      "object": "bowl",
+      "reason": "settled 0.0975 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    }
+  ],
+  "no_images": false,
+  "verdict": "FAIL"
+}

@@ -1,0 +1,242 @@
+{
+  "task": "pick_up_the_orange_toy_from_the_worktop_and_place_it_in_the_green_bowl_1299a8",
+  "task_cfg_path": "REALM_DROID100/pick_up_the_orange_toy_from_the_worktop_and_place_it_in_the_green_bowl_1299a8/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/pick_up_the_orange_toy_from_the_worktop_and_place_it_in_the_green_bowl_1299a8/pick_up_the_orange_toy_from_the_worktop_and_place_it_in_the_green_bowl_1299a8_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_orange_toy_from_the_worktop_and_place_it_in_the_green_bowl_1299a8/pick_up_the_orange_toy_from_the_worktop_and_place_it_in_the_green_bowl_1299a8_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_orange_toy_from_the_worktop_and_place_it_in_the_green_bowl_1299a8/pick_up_the_orange_toy_from_the_worktop_and_place_it_in_the_green_bowl_1299a8_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_orange_toy_from_the_worktop_and_place_it_in_the_green_bowl_1299a8/pick_up_the_orange_toy_from_the_worktop_and_place_it_in_the_green_bowl_1299a8_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_orange_toy_from_the_worktop_and_place_it_in_the_green_bowl_1299a8/pick_up_the_orange_toy_from_the_worktop_and_place_it_in_the_green_bowl_1299a8_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_orange_toy_from_the_worktop_and_place_it_in_the_green_bowl_1299a8/pick_up_the_orange_toy_from_the_worktop_and_place_it_in_the_green_bowl_1299a8_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "toy",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "toy_figure",
+      "settled_position": [
+        1.92,
+        6.78,
+        0.92682
+      ],
+      "settled_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        1.92117,
+        6.78418,
+        0.94155
+      ],
+      "start_aabb_center": [
+        1.92117,
+        6.78418,
+        1.06135
+      ],
+      "authored_position": [
+        1.92,
+        6.78,
+        1.09159
+      ],
+      "bbox": [
+        0.10324,
+        0.11427,
+        0.08317
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.1198,
+      "aabb_low_z": 0.8995,
+      "mass": 0.225,
+      "explicitly_placed": true
+    },
+    {
+      "name": "bowl",
+      "present": true,
+      "authored": true,
+      "role": "target_objects",
+      "category": "bowl",
+      "settled_position": [
+        2.08001,
+        6.61991,
+        0.93863
+      ],
+      "settled_orientation": [
+        0.00129,
+        0.00011,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        2.08008,
+        6.61988,
+        0.93985
+      ],
+      "start_aabb_center": [
+        2.08006,
+        6.62007,
+        1.04679
+      ],
+      "authored_position": [
+        2.08,
+        6.62,
+        1.0905
+      ],
+      "bbox": [
+        0.16932,
+        0.16932,
+        0.081
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 9e-05,
+      "drift_z": -0.10691,
+      "aabb_low_z": 0.8995,
+      "mass": 0.27416,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_apple_cider",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_apple_cider",
+      "settled_position": [
+        2.08131,
+        6.77959,
+        1.0284
+      ],
+      "settled_orientation": [
+        0.00181,
+        0.00501,
+        0.00014,
+        0.99999
+      ],
+      "settled_aabb_center": [
+        2.07819,
+        6.77967,
+        1.05574
+      ],
+      "start_aabb_center": [
+        2.07712,
+        6.78,
+        1.18784
+      ],
+      "authored_position": [
+        2.08,
+        6.78,
+        1.20534
+      ],
+      "bbox": [
+        0.07436,
+        0.07268,
+        0.31068
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00137,
+      "drift_z": -0.13198,
+      "aabb_low_z": 0.89866,
+      "mass": 1.5,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_hotdog_bun",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "hotdog_bun",
+      "settled_position": [
+        1.91969,
+        6.61949,
+        0.91581
+      ],
+      "settled_orientation": [
+        0.0363,
+        -0.02173,
+        -0.00017,
+        0.9991
+      ],
+      "settled_aabb_center": [
+        1.91971,
+        6.61917,
+        0.9166
+      ],
+      "start_aabb_center": [
+        1.92034,
+        6.61996,
+        1.02326
+      ],
+      "authored_position": [
+        1.92,
+        6.62,
+        1.06732
+      ],
+      "bbox": [
+        0.1,
+        0.04792,
+        0.03464
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0006,
+      "drift_z": -0.10655,
+      "aabb_low_z": 0.8995,
+      "mass": 0.054,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_allen_wrench",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "allen_wrench",
+      "settled_position": [
+        1.9,
+        6.7,
+        0.90137
+      ],
+      "settled_orientation": [
+        1e-05,
+        0.0,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        1.89356,
+        6.70687,
+        0.90137
+      ],
+      "start_aabb_center": [
+        1.89356,
+        6.70687,
+        1.00691
+      ],
+      "authored_position": [
+        1.9,
+        6.7,
+        1.05187
+      ],
+      "bbox": [
+        0.1,
+        0.0216,
+        0.00374
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.10554,
+      "aabb_low_z": 0.8995,
+      "mass": 0.066,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 1.0,
+  "support_z_measured": 0.8995,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

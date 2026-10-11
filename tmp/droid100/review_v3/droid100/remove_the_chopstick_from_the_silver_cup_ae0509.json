@@ -1,0 +1,248 @@
+{
+  "task": "remove_the_chopstick_from_the_silver_cup_ae0509",
+  "task_cfg_path": "REALM_DROID100/remove_the_chopstick_from_the_silver_cup_ae0509/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/remove_the_chopstick_from_the_silver_cup_ae0509/remove_the_chopstick_from_the_silver_cup_ae0509_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_chopstick_from_the_silver_cup_ae0509/remove_the_chopstick_from_the_silver_cup_ae0509_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_chopstick_from_the_silver_cup_ae0509/remove_the_chopstick_from_the_silver_cup_ae0509_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_chopstick_from_the_silver_cup_ae0509/remove_the_chopstick_from_the_silver_cup_ae0509_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_chopstick_from_the_silver_cup_ae0509/remove_the_chopstick_from_the_silver_cup_ae0509_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_chopstick_from_the_silver_cup_ae0509/remove_the_chopstick_from_the_silver_cup_ae0509_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "chopstick",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "chopstick",
+      "settled_position": [
+        -0.1544,
+        -2.10258,
+        0.86365
+      ],
+      "settled_orientation": [
+        -0.10381,
+        0.79443,
+        0.10597,
+        0.58897
+      ],
+      "settled_aabb_center": [
+        -0.15126,
+        -2.10232,
+        0.8759
+      ],
+      "start_aabb_center": [
+        -0.17055,
+        -2.10555,
+        0.99278
+      ],
+      "authored_position": [
+        -0.17,
+        -2.105,
+        1.02481
+      ],
+      "bbox": [
+        0.14,
+        0.00677,
+        0.00747
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.01579,
+      "drift_z": -0.11619,
+      "aabb_low_z": 0.80912,
+      "mass": 0.013,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_conditioner",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_conditioner",
+      "settled_position": [
+        -0.33066,
+        -1.84483,
+        0.81389
+      ],
+      "settled_orientation": [
+        -0.02777,
+        -0.01026,
+        -0.0006,
+        0.99956
+      ],
+      "settled_aabb_center": [
+        -0.32836,
+        -1.8448,
+        0.81415
+      ],
+      "start_aabb_center": [
+        -0.32768,
+        -1.84491,
+        0.86496
+      ],
+      "authored_position": [
+        -0.33,
+        -1.845,
+        0.90956
+      ],
+      "bbox": [
+        0.1,
+        0.04052,
+        0.01911
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00068,
+      "drift_z": -0.0507,
+      "aabb_low_z": 0.80413,
+      "mass": 0.46,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_toasting_fork",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "toasting_fork",
+      "settled_position": [
+        -0.17,
+        -1.845,
+        0.80746
+      ],
+      "settled_orientation": [
+        -1e-05,
+        -1e-05,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.17594,
+        -1.84483,
+        0.80801
+      ],
+      "start_aabb_center": [
+        -0.17594,
+        -1.84483,
+        0.85828
+      ],
+      "authored_position": [
+        -0.17,
+        -1.845,
+        0.90269
+      ],
+      "bbox": [
+        0.1,
+        0.01727,
+        0.00539
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.05027,
+      "aabb_low_z": 0.80494,
+      "mass": 0.15,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_jar_of_spaghetti_sauce",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "jar_of_spaghetti_sauce",
+      "settled_position": [
+        -0.33,
+        -2.105,
+        0.85721
+      ],
+      "settled_orientation": [
+        -1e-05,
+        -1e-05,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.33,
+        -2.105,
+        0.85805
+      ],
+      "start_aabb_center": [
+        -0.33,
+        -2.105,
+        0.90898
+      ],
+      "authored_position": [
+        -0.33,
+        -2.105,
+        0.9531
+      ],
+      "bbox": [
+        0.06496,
+        0.06496,
+        0.10621
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.05093,
+      "aabb_low_z": 0.80494,
+      "mass": 0.6,
+      "explicitly_placed": true
+    },
+    {
+      "name": "cup",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "coffee_cup",
+      "settled_position": [
+        -0.17,
+        -2.105,
+        0.85173
+      ],
+      "settled_orientation": [
+        1e-05,
+        -1e-05,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.1593,
+        -2.105,
+        0.85028
+      ],
+      "start_aabb_center": [
+        -0.15929,
+        -2.105,
+        0.8985
+      ],
+      "authored_position": [
+        -0.17,
+        -2.105,
+        0.9449
+      ],
+      "bbox": [
+        0.09144,
+        0.06512,
+        0.08981
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.04821,
+      "aabb_low_z": 0.80495,
+      "mass": 0.10294,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.85,
+  "support_z_measured": 0.80494,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "DRIFT",
+      "object": "chopstick",
+      "reason": "settled 0.0158 m from its authored XY"
+    }
+  ],
+  "no_images": false,
+  "verdict": "PASS"
+}

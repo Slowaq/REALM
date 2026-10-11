@@ -1,0 +1,154 @@
+{
+  "task": "place_the_yellow_and_white_book_inside_the_black_box_e34edc",
+  "task_cfg_path": "REALM_DROID100/place_the_yellow_and_white_book_inside_the_black_box_e34edc/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/place_the_yellow_and_white_book_inside_the_black_box_e34edc/place_the_yellow_and_white_book_inside_the_black_box_e34edc_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/place_the_yellow_and_white_book_inside_the_black_box_e34edc/place_the_yellow_and_white_book_inside_the_black_box_e34edc_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/place_the_yellow_and_white_book_inside_the_black_box_e34edc/place_the_yellow_and_white_book_inside_the_black_box_e34edc_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/place_the_yellow_and_white_book_inside_the_black_box_e34edc/place_the_yellow_and_white_book_inside_the_black_box_e34edc_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/place_the_yellow_and_white_book_inside_the_black_box_e34edc/place_the_yellow_and_white_book_inside_the_black_box_e34edc_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/place_the_yellow_and_white_book_inside_the_black_box_e34edc/place_the_yellow_and_white_book_inside_the_black_box_e34edc_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "book",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "hardback",
+      "settled_position": [
+        -0.25,
+        -1.7475,
+        0.81808
+      ],
+      "settled_orientation": [
+        -2e-05,
+        0.0,
+        0.70711,
+        0.70711
+      ],
+      "settled_aabb_center": [
+        -0.25197,
+        -1.74769,
+        0.81807
+      ],
+      "start_aabb_center": [
+        -0.25197,
+        -1.74769,
+        0.86816
+      ],
+      "authored_position": [
+        -0.25,
+        -1.7475,
+        0.91314
+      ],
+      "bbox": [
+        0.13911,
+        0.1208,
+        0.02627
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.05009,
+      "aabb_low_z": 0.80493,
+      "mass": 0.8,
+      "explicitly_placed": true
+    },
+    {
+      "name": "box",
+      "present": true,
+      "authored": true,
+      "role": "target_objects",
+      "category": "storage_box",
+      "settled_position": [
+        -0.25,
+        -1.975,
+        0.8215
+      ],
+      "settled_orientation": [
+        -1e-05,
+        -1e-05,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.25,
+        -1.975,
+        0.83702
+      ],
+      "start_aabb_center": [
+        -0.25,
+        -1.975,
+        0.90264
+      ],
+      "authored_position": [
+        -0.25,
+        -1.975,
+        0.93208
+      ],
+      "bbox": [
+        0.26111,
+        0.28,
+        0.06416
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.06562,
+      "aabb_low_z": 0.80494,
+      "mass": 0.07243,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_wooden_spoon",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "wooden_spoon",
+      "settled_position": [
+        -0.25,
+        -2.13752,
+        0.80681
+      ],
+      "settled_orientation": [
+        0.00206,
+        -2e-05,
+        0.00011,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.25842,
+        -2.13769,
+        0.80692
+      ],
+      "start_aabb_center": [
+        -0.25842,
+        -2.13767,
+        0.85712
+      ],
+      "authored_position": [
+        -0.25,
+        -2.1375,
+        0.90197
+      ],
+      "bbox": [
+        0.06077,
+        0.01513,
+        0.00395
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 2e-05,
+      "drift_z": -0.0502,
+      "aabb_low_z": 0.80495,
+      "mass": 0.05,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.85,
+  "support_z_measured": 0.80494,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

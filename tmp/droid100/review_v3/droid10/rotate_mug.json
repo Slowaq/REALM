@@ -1,0 +1,204 @@
+{
+  "task": "rotate_mug",
+  "task_cfg_path": "REALM_DROID10/rotate_mug/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid10/rotate_mug/rotate_mug_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid10/rotate_mug/rotate_mug_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid10/rotate_mug/rotate_mug_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid10/rotate_mug/rotate_mug_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid10/rotate_mug/rotate_mug_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid10/rotate_mug/rotate_mug_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "mug",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "mug",
+      "settled_position": [
+        -10.7,
+        -9.95,
+        0.81956
+      ],
+      "settled_orientation": [
+        3e-05,
+        -0.0,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -10.7,
+        -9.9354,
+        0.81579
+      ],
+      "start_aabb_center": [
+        -10.7,
+        -9.9354,
+        1.00126
+      ],
+      "authored_position": [
+        -10.7,
+        -9.95,
+        1.05
+      ],
+      "bbox": [
+        0.08,
+        0.12,
+        0.14
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.18548,
+      "aabb_low_z": 0.74501,
+      "mass": 0.16287,
+      "explicitly_placed": true
+    },
+    {
+      "name": "chocolate_bar",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "chocolate_bar",
+      "settled_position": [
+        -10.725,
+        -10.2,
+        0.74965
+      ],
+      "settled_orientation": [
+        0.0,
+        -0.00117,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -10.72472,
+        -10.2,
+        0.74981
+      ],
+      "start_aabb_center": [
+        -10.72472,
+        -10.2,
+        0.90519
+      ],
+      "authored_position": [
+        -10.725,
+        -10.2,
+        0.95
+      ],
+      "bbox": [
+        0.18,
+        0.11,
+        0.01
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.15539,
+      "aabb_low_z": 0.74501,
+      "mass": 0.118,
+      "explicitly_placed": true
+    },
+    {
+      "name": "tea_bag",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "tea_bag",
+      "settled_position": [
+        -10.52324,
+        -9.80691,
+        0.75078
+      ],
+      "settled_orientation": [
+        -0.01943,
+        -0.01287,
+        -0.68755,
+        0.72577
+      ],
+      "settled_aabb_center": [
+        -10.52367,
+        -9.80713,
+        0.75982
+      ],
+      "start_aabb_center": [
+        -10.59959,
+        -9.85007,
+        0.89466
+      ],
+      "authored_position": [
+        -10.6,
+        -9.85,
+        0.93
+      ],
+      "bbox": [
+        0.05,
+        0.04,
+        0.03
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.08803,
+      "drift_z": -0.13426,
+      "aabb_low_z": 0.74477,
+      "mass": 0.002,
+      "explicitly_placed": true
+    },
+    {
+      "name": "bag_of_cookies",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bag_of_cookies",
+      "settled_position": [
+        -10.70002,
+        -9.79992,
+        0.75944
+      ],
+      "settled_orientation": [
+        0.0,
+        -0.0,
+        -5e-05,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -10.69778,
+        -9.79925,
+        0.76002
+      ],
+      "start_aabb_center": [
+        -10.69776,
+        -9.79933,
+        0.85561
+      ],
+      "authored_position": [
+        -10.7,
+        -9.8,
+        0.9
+      ],
+      "bbox": [
+        0.17,
+        0.11,
+        0.03
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 8e-05,
+      "drift_z": -0.0956,
+      "aabb_low_z": 0.74502,
+      "mass": 0.275,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.9,
+  "support_z_measured": 0.74501,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "UNSTABLE",
+      "object": "tea_bag",
+      "reason": "settled 0.0880 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    }
+  ],
+  "no_images": false,
+  "verdict": "FAIL"
+}

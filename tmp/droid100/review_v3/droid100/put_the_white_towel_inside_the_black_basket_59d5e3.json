@@ -1,0 +1,248 @@
+{
+  "task": "put_the_white_towel_inside_the_black_basket_59d5e3",
+  "task_cfg_path": "REALM_DROID100/put_the_white_towel_inside_the_black_basket_59d5e3/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/put_the_white_towel_inside_the_black_basket_59d5e3/put_the_white_towel_inside_the_black_basket_59d5e3_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/put_the_white_towel_inside_the_black_basket_59d5e3/put_the_white_towel_inside_the_black_basket_59d5e3_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/put_the_white_towel_inside_the_black_basket_59d5e3/put_the_white_towel_inside_the_black_basket_59d5e3_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/put_the_white_towel_inside_the_black_basket_59d5e3/put_the_white_towel_inside_the_black_basket_59d5e3_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/put_the_white_towel_inside_the_black_basket_59d5e3/put_the_white_towel_inside_the_black_basket_59d5e3_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/put_the_white_towel_inside_the_black_basket_59d5e3/put_the_white_towel_inside_the_black_basket_59d5e3_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "towel",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "dishtowel",
+      "settled_position": [
+        -0.32984,
+        -1.8448,
+        0.81113
+      ],
+      "settled_orientation": [
+        -0.00126,
+        0.00709,
+        0.0003,
+        0.99997
+      ],
+      "settled_aabb_center": [
+        -0.32822,
+        -1.84186,
+        0.81688
+      ],
+      "start_aabb_center": [
+        -0.32836,
+        -1.84206,
+        0.87193
+      ],
+      "authored_position": [
+        -0.33,
+        -1.845,
+        0.91196
+      ],
+      "bbox": [
+        0.11708,
+        0.16,
+        0.02393
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00026,
+      "drift_z": -0.05587,
+      "aabb_low_z": 0.80483,
+      "mass": 0.123,
+      "explicitly_placed": true
+    },
+    {
+      "name": "basket",
+      "present": true,
+      "authored": true,
+      "role": "target_objects",
+      "category": "wicker_basket",
+      "settled_position": [
+        -0.1693,
+        -2.10498,
+        0.86471
+      ],
+      "settled_orientation": [
+        -0.00019,
+        0.00616,
+        0.0,
+        0.99998
+      ],
+      "settled_aabb_center": [
+        -0.16799,
+        -2.10703,
+        0.87237
+      ],
+      "start_aabb_center": [
+        -0.16948,
+        -2.10708,
+        0.92791
+      ],
+      "authored_position": [
+        -0.17,
+        -2.105,
+        0.96607
+      ],
+      "bbox": [
+        0.17554,
+        0.28,
+        0.13213
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0007,
+      "drift_z": -0.05639,
+      "aabb_low_z": 0.80494,
+      "mass": 0.68175,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_jug_of_milk",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "jug_of_milk",
+      "settled_position": [
+        -0.17,
+        -1.845,
+        0.86211
+      ],
+      "settled_orientation": [
+        -1e-05,
+        -1e-05,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.16935,
+        -1.84496,
+        0.8765
+      ],
+      "start_aabb_center": [
+        -0.16935,
+        -1.84496,
+        0.94049
+      ],
+      "authored_position": [
+        -0.17,
+        -1.845,
+        0.97106
+      ],
+      "bbox": [
+        0.1,
+        0.1,
+        0.14212
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.06399,
+      "aabb_low_z": 0.80494,
+      "mass": 2.735,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_jar_of_kidney_beans",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "jar_of_kidney_beans",
+      "settled_position": [
+        -0.33,
+        -2.105,
+        0.85711
+      ],
+      "settled_orientation": [
+        -0.0,
+        -0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.33141,
+        -2.10503,
+        0.87131
+      ],
+      "start_aabb_center": [
+        -0.33141,
+        -2.10503,
+        0.93509
+      ],
+      "authored_position": [
+        -0.33,
+        -2.105,
+        0.96586
+      ],
+      "bbox": [
+        0.093,
+        0.093,
+        0.13171
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.06378,
+      "aabb_low_z": 0.80494,
+      "mass": 0.28428,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_zucchini",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "zucchini",
+      "settled_position": [
+        -0.35118,
+        -2.00143,
+        0.82285
+      ],
+      "settled_orientation": [
+        0.6988,
+        -0.03376,
+        0.0705,
+        0.71103
+      ],
+      "settled_aabb_center": [
+        -0.35137,
+        -2.0012,
+        0.82275
+      ],
+      "start_aabb_center": [
+        -0.34991,
+        -1.97539,
+        0.87367
+      ],
+      "authored_position": [
+        -0.35,
+        -1.975,
+        0.91869
+      ],
+      "bbox": [
+        0.1,
+        0.04,
+        0.03738
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.02646,
+      "drift_z": -0.05088,
+      "aabb_low_z": 0.80329,
+      "mass": 0.273,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.85,
+  "support_z_measured": 0.80483,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "DRIFT",
+      "object": "distractor_zucchini",
+      "reason": "settled 0.0265 m from its authored XY"
+    }
+  ],
+  "no_images": false,
+  "verdict": "PASS"
+}

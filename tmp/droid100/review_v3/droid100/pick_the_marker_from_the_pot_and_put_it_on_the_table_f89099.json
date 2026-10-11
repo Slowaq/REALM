@@ -1,0 +1,253 @@
+{
+  "task": "pick_the_marker_from_the_pot_and_put_it_on_the_table_f89099",
+  "task_cfg_path": "REALM_DROID100/pick_the_marker_from_the_pot_and_put_it_on_the_table_f89099/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/pick_the_marker_from_the_pot_and_put_it_on_the_table_f89099/pick_the_marker_from_the_pot_and_put_it_on_the_table_f89099_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_the_marker_from_the_pot_and_put_it_on_the_table_f89099/pick_the_marker_from_the_pot_and_put_it_on_the_table_f89099_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_the_marker_from_the_pot_and_put_it_on_the_table_f89099/pick_the_marker_from_the_pot_and_put_it_on_the_table_f89099_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_the_marker_from_the_pot_and_put_it_on_the_table_f89099/pick_the_marker_from_the_pot_and_put_it_on_the_table_f89099_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/pick_the_marker_from_the_pot_and_put_it_on_the_table_f89099/pick_the_marker_from_the_pot_and_put_it_on_the_table_f89099_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/pick_the_marker_from_the_pot_and_put_it_on_the_table_f89099/pick_the_marker_from_the_pot_and_put_it_on_the_table_f89099_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "marker",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "marker",
+      "settled_position": [
+        5.32453,
+        6.65247,
+        0.74504
+      ],
+      "settled_orientation": [
+        0.6191,
+        -0.47535,
+        -0.38201,
+        0.4948
+      ],
+      "settled_aabb_center": [
+        5.32419,
+        6.64846,
+        0.74505
+      ],
+      "start_aabb_center": [
+        5.25504,
+        6.58,
+        0.99152
+      ],
+      "authored_position": [
+        5.25,
+        6.58,
+        1.03648
+      ],
+      "bbox": [
+        0.12682,
+        0.01519,
+        0.01513
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.10395,
+      "drift_z": -0.24647,
+      "aabb_low_z": 0.7375,
+      "mass": 0.02,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_jar_of_curry_powder",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "jar_of_curry_powder",
+      "settled_position": [
+        5.04942,
+        6.81998,
+        0.7797
+      ],
+      "settled_orientation": [
+        -0.00024,
+        0.00084,
+        -0.00583,
+        0.99998
+      ],
+      "settled_aabb_center": [
+        5.04919,
+        6.82011,
+        0.77357
+      ],
+      "start_aabb_center": [
+        5.04977,
+        6.8201,
+        0.90488
+      ],
+      "authored_position": [
+        5.05,
+        6.82,
+        0.95598
+      ],
+      "bbox": [
+        0.06,
+        0.0599,
+        0.07195
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00058,
+      "drift_z": -0.13131,
+      "aabb_low_z": 0.73764,
+      "mass": 0.12875,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_ground_cloves",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_ground_cloves",
+      "settled_position": [
+        5.25,
+        6.82001,
+        0.78012
+      ],
+      "settled_orientation": [
+        -0.00013,
+        -8e-05,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.25007,
+        6.82015,
+        0.7736
+      ],
+      "start_aabb_center": [
+        5.25008,
+        6.82014,
+        0.90446
+      ],
+      "authored_position": [
+        5.25,
+        6.82,
+        0.95594
+      ],
+      "bbox": [
+        0.06,
+        0.06,
+        0.07187
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 1e-05,
+      "drift_z": -0.13085,
+      "aabb_low_z": 0.73767,
+      "mass": 0.08218,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_shaker",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "shaker",
+      "settled_position": [
+        5.04998,
+        6.58002,
+        0.78609
+      ],
+      "settled_orientation": [
+        -0.00012,
+        -7e-05,
+        0.00016,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.04998,
+        6.58002,
+        0.78418
+      ],
+      "start_aabb_center": [
+        5.04999,
+        6.58,
+        0.91911
+      ],
+      "authored_position": [
+        5.05,
+        6.58,
+        0.96598
+      ],
+      "bbox": [
+        0.03577,
+        0.03592,
+        0.09196
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 3e-05,
+      "drift_z": -0.13493,
+      "aabb_low_z": 0.73769,
+      "mass": 0.15,
+      "explicitly_placed": true
+    },
+    {
+      "name": "pot",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "saucepot",
+      "settled_position": [
+        5.16674,
+        6.75463,
+        0.84301
+      ],
+      "settled_orientation": [
+        0.35295,
+        -0.61305,
+        0.2143,
+        0.67355
+      ],
+      "settled_aabb_center": [
+        5.14667,
+        6.73483,
+        0.84301
+      ],
+      "start_aabb_center": [
+        5.25001,
+        6.58006,
+        0.93694
+      ],
+      "authored_position": [
+        5.25,
+        6.58,
+        0.97196
+      ],
+      "bbox": [
+        0.2079,
+        0.28,
+        0.10391
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.19346,
+      "drift_z": -0.08398,
+      "aabb_low_z": 0.73763,
+      "mass": 0.63733,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.87,
+  "support_z_measured": 0.73764,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "UNSTABLE",
+      "object": "marker",
+      "reason": "settled 0.1040 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    },
+    {
+      "code": "UNSTABLE",
+      "object": "pot",
+      "reason": "settled 0.1935 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    }
+  ],
+  "no_images": false,
+  "verdict": "FAIL"
+}

@@ -1,0 +1,242 @@
+{
+  "task": "pick_the_bottle_from_the_black_box_and_place_it_on_the_table_2fff8e",
+  "task_cfg_path": "REALM_DROID100/pick_the_bottle_from_the_black_box_and_place_it_on_the_table_2fff8e/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/pick_the_bottle_from_the_black_box_and_place_it_on_the_table_2fff8e/pick_the_bottle_from_the_black_box_and_place_it_on_the_table_2fff8e_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_the_bottle_from_the_black_box_and_place_it_on_the_table_2fff8e/pick_the_bottle_from_the_black_box_and_place_it_on_the_table_2fff8e_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_the_bottle_from_the_black_box_and_place_it_on_the_table_2fff8e/pick_the_bottle_from_the_black_box_and_place_it_on_the_table_2fff8e_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_the_bottle_from_the_black_box_and_place_it_on_the_table_2fff8e/pick_the_bottle_from_the_black_box_and_place_it_on_the_table_2fff8e_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/pick_the_bottle_from_the_black_box_and_place_it_on_the_table_2fff8e/pick_the_bottle_from_the_black_box_and_place_it_on_the_table_2fff8e_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/pick_the_bottle_from_the_black_box_and_place_it_on_the_table_2fff8e/pick_the_bottle_from_the_black_box_and_place_it_on_the_table_2fff8e_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "bottle",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "bottle_of_water",
+      "settled_position": [
+        -0.24999,
+        -1.97502,
+        0.91229
+      ],
+      "settled_orientation": [
+        2e-05,
+        3e-05,
+        -3e-05,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.24999,
+        -1.97502,
+        0.92242
+      ],
+      "start_aabb_center": [
+        -0.25,
+        -1.975,
+        1.06569
+      ],
+      "authored_position": [
+        -0.25,
+        -1.975,
+        1.10051
+      ],
+      "bbox": [
+        0.07033,
+        0.07033,
+        0.22846
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 2e-05,
+      "drift_z": -0.14326,
+      "aabb_low_z": 0.80819,
+      "mass": 0.675,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_mug",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "mug",
+      "settled_position": [
+        -0.25001,
+        -2.13749,
+        0.84196
+      ],
+      "settled_orientation": [
+        -0.00013,
+        -0.00015,
+        1e-05,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.25122,
+        -2.1303,
+        0.8377
+      ],
+      "start_aabb_center": [
+        -0.2512,
+        -2.13031,
+        0.88311
+      ],
+      "authored_position": [
+        -0.25,
+        -2.1375,
+        0.93233
+      ],
+      "bbox": [
+        0.064,
+        0.08585,
+        0.06466
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 1e-05,
+      "drift_z": -0.04541,
+      "aabb_low_z": 0.80494,
+      "mass": 0.08604,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_mayonnaise",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_mayonnaise",
+      "settled_position": [
+        -0.25,
+        -1.7475,
+        0.91868
+      ],
+      "settled_orientation": [
+        0.0,
+        -1e-05,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.25041,
+        -1.74754,
+        0.92223
+      ],
+      "start_aabb_center": [
+        -0.25041,
+        -1.74753,
+        0.97506
+      ],
+      "authored_position": [
+        -0.25,
+        -1.7475,
+        1.01647
+      ],
+      "bbox": [
+        0.05989,
+        0.1,
+        0.23294
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.05282,
+      "aabb_low_z": 0.80494,
+      "mass": 0.7,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_wooden_spoon",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "wooden_spoon",
+      "settled_position": [
+        -0.17,
+        -2.105,
+        0.80681
+      ],
+      "settled_orientation": [
+        0.00013,
+        1e-05,
+        0.00023,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.17842,
+        -2.10516,
+        0.80692
+      ],
+      "start_aabb_center": [
+        -0.17842,
+        -2.10517,
+        0.85712
+      ],
+      "authored_position": [
+        -0.17,
+        -2.105,
+        0.90197
+      ],
+      "bbox": [
+        0.06077,
+        0.01513,
+        0.00395
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.0502,
+      "aabb_low_z": 0.80495,
+      "mass": 0.05,
+      "explicitly_placed": true
+    },
+    {
+      "name": "box",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "storage_box",
+      "settled_position": [
+        -0.25,
+        -1.97501,
+        0.86035
+      ],
+      "settled_orientation": [
+        1e-05,
+        -0.0,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.25,
+        -1.975,
+        0.87664
+      ],
+      "start_aabb_center": [
+        -0.25,
+        -1.975,
+        0.94303
+      ],
+      "authored_position": [
+        -0.25,
+        -1.975,
+        0.9717
+      ],
+      "bbox": [
+        0.20369,
+        0.20368,
+        0.1434
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 1e-05,
+      "drift_z": -0.06639,
+      "aabb_low_z": 0.80494,
+      "mass": 0.10672,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.85,
+  "support_z_measured": 0.80494,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

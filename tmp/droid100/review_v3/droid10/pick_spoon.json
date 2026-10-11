@@ -1,0 +1,286 @@
+{
+  "task": "pick_spoon",
+  "task_cfg_path": "REALM_DROID10/pick_spoon/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid10/pick_spoon/pick_spoon_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid10/pick_spoon/pick_spoon_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid10/pick_spoon/pick_spoon_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid10/pick_spoon/pick_spoon_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid10/pick_spoon/pick_spoon_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid10/pick_spoon/pick_spoon_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "teaspoon",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "teaspoon",
+      "settled_position": [
+        -0.4498,
+        7.97,
+        0.8143
+      ],
+      "settled_orientation": [
+        0.01026,
+        0.01018,
+        0.70705,
+        0.70701
+      ],
+      "settled_aabb_center": [
+        -0.44989,
+        7.9489,
+        0.81417
+      ],
+      "start_aabb_center": [
+        -0.45018,
+        7.9489,
+        1.05506
+      ],
+      "authored_position": [
+        -0.45,
+        7.97,
+        1.1
+      ],
+      "bbox": [
+        0.19,
+        0.04,
+        0.01
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0002,
+      "drift_z": -0.24074,
+      "aabb_low_z": 0.8094,
+      "mass": 0.027,
+      "explicitly_placed": true
+    },
+    {
+      "name": "can_of_soda",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "can_of_soda",
+      "settled_position": [
+        -0.58002,
+        7.49999,
+        0.87839
+      ],
+      "settled_orientation": [
+        -0.00016,
+        -0.00011,
+        -0.00085,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.57988,
+        7.50016,
+        0.87442
+      ],
+      "start_aabb_center": [
+        -0.57984,
+        7.50017,
+        0.95106
+      ],
+      "authored_position": [
+        -0.58,
+        7.5,
+        1.0
+      ],
+      "bbox": [
+        0.08,
+        0.08,
+        0.13
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 2e-05,
+      "drift_z": -0.07665,
+      "aabb_low_z": 0.8094,
+      "mass": 0.353,
+      "explicitly_placed": true
+    },
+    {
+      "name": "half_apple",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "half_apple",
+      "settled_position": [
+        -0.45857,
+        7.75503,
+        0.83966
+      ],
+      "settled_orientation": [
+        -0.03472,
+        -0.0308,
+        -0.08096,
+        0.99564
+      ],
+      "settled_aabb_center": [
+        -0.45514,
+        7.7535,
+        0.84436
+      ],
+      "start_aabb_center": [
+        -0.44697,
+        7.74959,
+        1.01171
+      ],
+      "authored_position": [
+        -0.45,
+        7.75,
+        1.05
+      ],
+      "bbox": [
+        0.1,
+        0.09,
+        0.04
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00994,
+      "drift_z": -0.16538,
+      "aabb_low_z": 0.8221,
+      "mass": 0.102,
+      "explicitly_placed": true
+    },
+    {
+      "name": "beaker",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "beaker",
+      "settled_position": [
+        -0.48,
+        7.55,
+        0.86061
+      ],
+      "settled_orientation": [
+        -1e-05,
+        0.0,
+        -1e-05,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.48,
+        7.55001,
+        0.85941
+      ],
+      "start_aabb_center": [
+        -0.48,
+        7.55,
+        0.95383
+      ],
+      "authored_position": [
+        -0.48,
+        7.55,
+        1.0
+      ],
+      "bbox": [
+        0.1,
+        0.1,
+        0.1
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.09443,
+      "aabb_low_z": 0.80941,
+      "mass": 0.07227,
+      "explicitly_placed": true
+    },
+    {
+      "name": "plate",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "plate",
+      "settled_position": [
+        -0.45,
+        7.75,
+        0.8236
+      ],
+      "settled_orientation": [
+        -8e-05,
+        0.00014,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.45011,
+        7.7501,
+        0.82442
+      ],
+      "start_aabb_center": [
+        -0.45012,
+        7.7501,
+        0.95587
+      ],
+      "authored_position": [
+        -0.45,
+        7.75,
+        1.0
+      ],
+      "bbox": [
+        0.2,
+        0.2,
+        0.03
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.13144,
+      "aabb_low_z": 0.80941,
+      "mass": 0.35802,
+      "explicitly_placed": true
+    },
+    {
+      "name": "tray",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "tray",
+      "settled_position": [
+        -0.85,
+        7.75,
+        0.84313
+      ],
+      "settled_orientation": [
+        -1e-05,
+        -1e-05,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.85,
+        7.74994,
+        0.8544
+      ],
+      "start_aabb_center": [
+        -0.85,
+        7.74994,
+        0.9663
+      ],
+      "authored_position": [
+        -0.85,
+        7.75,
+        1.0
+      ],
+      "bbox": [
+        0.33,
+        0.48,
+        0.09
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.11191,
+      "aabb_low_z": 0.80941,
+      "mass": 0.22165,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 1.0,
+  "support_z_measured": 0.8094,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

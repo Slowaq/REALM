@@ -1,0 +1,248 @@
+{
+  "task": "take_the_salt_cellar_out_of_the_white_pot_fbfd2e",
+  "task_cfg_path": "REALM_DROID100/take_the_salt_cellar_out_of_the_white_pot_fbfd2e/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/take_the_salt_cellar_out_of_the_white_pot_fbfd2e/take_the_salt_cellar_out_of_the_white_pot_fbfd2e_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/take_the_salt_cellar_out_of_the_white_pot_fbfd2e/take_the_salt_cellar_out_of_the_white_pot_fbfd2e_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/take_the_salt_cellar_out_of_the_white_pot_fbfd2e/take_the_salt_cellar_out_of_the_white_pot_fbfd2e_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/take_the_salt_cellar_out_of_the_white_pot_fbfd2e/take_the_salt_cellar_out_of_the_white_pot_fbfd2e_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/take_the_salt_cellar_out_of_the_white_pot_fbfd2e/take_the_salt_cellar_out_of_the_white_pot_fbfd2e_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/take_the_salt_cellar_out_of_the_white_pot_fbfd2e/take_the_salt_cellar_out_of_the_white_pot_fbfd2e_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "salt_shaker",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "salt_shaker",
+      "settled_position": [
+        1.99433,
+        5.031,
+        0.83365
+      ],
+      "settled_orientation": [
+        -0.25638,
+        -0.04493,
+        -0.03729,
+        0.96481
+      ],
+      "settled_aabb_center": [
+        1.99365,
+        5.03173,
+        0.83876
+      ],
+      "start_aabb_center": [
+        2.00029,
+        4.99949,
+        1.08929
+      ],
+      "authored_position": [
+        2.0,
+        5.0,
+        1.1229
+      ],
+      "bbox": [
+        0.05105,
+        0.05113,
+        0.13983
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.03151,
+      "drift_z": -0.24429,
+      "aabb_low_z": 0.77086,
+      "mass": 0.0129,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_can_of_tomato_paste",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "can_of_tomato_paste",
+      "settled_position": [
+        2.21393,
+        5.00006,
+        0.81818
+      ],
+      "settled_orientation": [
+        -0.0006,
+        0.0013,
+        0.00091,
+        1.0
+      ],
+      "settled_aabb_center": [
+        2.21351,
+        5.00004,
+        0.81732
+      ],
+      "start_aabb_center": [
+        2.20959,
+        4.99999,
+        0.96597
+      ],
+      "authored_position": [
+        2.21,
+        5.0,
+        1.01172
+      ],
+      "bbox": [
+        0.08046,
+        0.08041,
+        0.12345
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00393,
+      "drift_z": -0.14858,
+      "aabb_low_z": 0.75555,
+      "mass": 0.425,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_antihistamines",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_antihistamines",
+      "settled_position": [
+        1.85426,
+        5.00001,
+        0.81799
+      ],
+      "settled_orientation": [
+        -0.00088,
+        0.01439,
+        0.00198,
+        0.99989
+      ],
+      "settled_aabb_center": [
+        1.85432,
+        5.00009,
+        0.81931
+      ],
+      "start_aabb_center": [
+        1.8503,
+        5.00009,
+        0.96994
+      ],
+      "authored_position": [
+        1.85,
+        5.0,
+        1.0136
+      ],
+      "bbox": [
+        0.06797,
+        0.06569,
+        0.1272
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00426,
+      "drift_z": -0.15065,
+      "aabb_low_z": 0.75567,
+      "mass": 0.15,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_tweezers",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "tweezers",
+      "settled_position": [
+        2.12701,
+        4.91987,
+        0.75707
+      ],
+      "settled_orientation": [
+        -0.00073,
+        -0.00191,
+        -0.12452,
+        0.99221
+      ],
+      "settled_aabb_center": [
+        2.12762,
+        4.9185,
+        0.75722
+      ],
+      "start_aabb_center": [
+        2.12004,
+        4.91833,
+        0.90645
+      ],
+      "authored_position": [
+        2.12,
+        4.92,
+        0.95125
+      ],
+      "bbox": [
+        0.00485,
+        0.03209,
+        0.0025
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00701,
+      "drift_z": -0.14922,
+      "aabb_low_z": 0.75582,
+      "mass": 0.02,
+      "explicitly_placed": true
+    },
+    {
+      "name": "pot",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "saucepot",
+      "settled_position": [
+        2.00512,
+        4.99759,
+        0.81635
+      ],
+      "settled_orientation": [
+        0.00795,
+        -0.0031,
+        -0.01683,
+        0.99982
+      ],
+      "settled_aabb_center": [
+        2.00518,
+        4.99769,
+        0.82481
+      ],
+      "start_aabb_center": [
+        2.00049,
+        5.00108,
+        0.98258
+      ],
+      "authored_position": [
+        2.0,
+        5.0,
+        1.01897
+      ],
+      "bbox": [
+        0.20464,
+        0.28,
+        0.13794
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00566,
+      "drift_z": -0.15766,
+      "aabb_low_z": 0.75584,
+      "mass": 0.63958,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.9,
+  "support_z_measured": 0.75567,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "UNSTABLE",
+      "object": "salt_shaker",
+      "reason": "settled 0.0315 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    }
+  ],
+  "no_images": false,
+  "verdict": "FAIL"
+}

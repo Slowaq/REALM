@@ -1,0 +1,154 @@
+{
+  "task": "pick_up_the_bowl_and_put_it_in_the_sink_06bee8",
+  "task_cfg_path": "REALM_DROID100/pick_up_the_bowl_and_put_it_in_the_sink_06bee8/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/pick_up_the_bowl_and_put_it_in_the_sink_06bee8/pick_up_the_bowl_and_put_it_in_the_sink_06bee8_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_bowl_and_put_it_in_the_sink_06bee8/pick_up_the_bowl_and_put_it_in_the_sink_06bee8_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_bowl_and_put_it_in_the_sink_06bee8/pick_up_the_bowl_and_put_it_in_the_sink_06bee8_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_bowl_and_put_it_in_the_sink_06bee8/pick_up_the_bowl_and_put_it_in_the_sink_06bee8_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_bowl_and_put_it_in_the_sink_06bee8/pick_up_the_bowl_and_put_it_in_the_sink_06bee8_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_bowl_and_put_it_in_the_sink_06bee8/pick_up_the_bowl_and_put_it_in_the_sink_06bee8_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "bowl",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "bowl",
+      "settled_position": [
+        -0.25,
+        -1.7475,
+        0.83507
+      ],
+      "settled_orientation": [
+        1e-05,
+        -1e-05,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.25,
+        -1.74751,
+        0.83553
+      ],
+      "start_aabb_center": [
+        -0.25,
+        -1.74751,
+        0.88549
+      ],
+      "authored_position": [
+        -0.25,
+        -1.7475,
+        0.93
+      ],
+      "bbox": [
+        0.1077,
+        0.1077,
+        0.06
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.04997,
+      "aabb_low_z": 0.80494,
+      "mass": 0.1289,
+      "explicitly_placed": true
+    },
+    {
+      "name": "sink",
+      "present": true,
+      "authored": true,
+      "role": "target_objects",
+      "category": "drop_in_sink",
+      "settled_position": [
+        -0.24298,
+        -1.97489,
+        0.86122
+      ],
+      "settled_orientation": [
+        -4e-05,
+        0.07594,
+        0.00028,
+        0.99711
+      ],
+      "settled_aabb_center": [
+        -0.25061,
+        -1.97493,
+        0.89195
+      ],
+      "start_aabb_center": [
+        -0.25509,
+        -1.97504,
+        0.96389
+      ],
+      "authored_position": [
+        -0.25,
+        -1.975,
+        0.99337
+      ],
+      "bbox": [
+        0.28,
+        0.27031,
+        0.18674
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00702,
+      "drift_z": -0.08719,
+      "aabb_low_z": 0.80494,
+      "mass": 12.04177,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_chopstick",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "chopstick",
+      "settled_position": [
+        -0.25,
+        -2.13679,
+        0.80603
+      ],
+      "settled_orientation": [
+        -0.05869,
+        0.00032,
+        -0.00411,
+        0.99827
+      ],
+      "settled_aabb_center": [
+        -0.25536,
+        -2.13697,
+        0.80606
+      ],
+      "start_aabb_center": [
+        -0.25535,
+        -2.13752,
+        0.85621
+      ],
+      "authored_position": [
+        -0.25,
+        -2.1375,
+        0.90114
+      ],
+      "bbox": [
+        0.1,
+        0.00228,
+        0.00229
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00071,
+      "drift_z": -0.05015,
+      "aabb_low_z": 0.8049,
+      "mass": 0.013,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.85,
+  "support_z_measured": 0.80494,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

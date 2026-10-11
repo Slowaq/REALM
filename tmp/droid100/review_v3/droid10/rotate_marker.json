@@ -1,0 +1,286 @@
+{
+  "task": "rotate_marker",
+  "task_cfg_path": "REALM_DROID10/rotate_marker/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid10/rotate_marker/rotate_marker_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid10/rotate_marker/rotate_marker_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid10/rotate_marker/rotate_marker_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid10/rotate_marker/rotate_marker_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid10/rotate_marker/rotate_marker_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid10/rotate_marker/rotate_marker_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "marker",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "marker",
+      "settled_position": [
+        2.14998,
+        6.8,
+        0.90936
+      ],
+      "settled_orientation": [
+        -0.7071,
+        -0.00091,
+        -0.00091,
+        0.70711
+      ],
+      "settled_aabb_center": [
+        2.13366,
+        6.80017,
+        0.90953
+      ],
+      "start_aabb_center": [
+        2.13369,
+        6.80017,
+        0.95504
+      ],
+      "authored_position": [
+        2.15,
+        6.8,
+        1.0
+      ],
+      "bbox": [
+        0.17,
+        0.02,
+        0.02
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 2e-05,
+      "drift_z": -0.04568,
+      "aabb_low_z": 0.8995,
+      "mass": 0.02,
+      "explicitly_placed": true
+    },
+    {
+      "name": "ticket",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "ticket",
+      "settled_position": [
+        1.98,
+        6.7,
+        0.90075
+      ],
+      "settled_orientation": [
+        0.0,
+        0.0,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        1.98,
+        6.7,
+        0.90075
+      ],
+      "start_aabb_center": [
+        1.98,
+        6.7,
+        0.95504
+      ],
+      "authored_position": [
+        1.98,
+        6.7,
+        1.0
+      ],
+      "bbox": [
+        0.08,
+        0.04,
+        0.0025
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.05429,
+      "aabb_low_z": 0.8995,
+      "mass": 0.002,
+      "explicitly_placed": true
+    },
+    {
+      "name": "bowl",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bowl",
+      "settled_position": [
+        1.9,
+        6.6,
+        0.92984
+      ],
+      "settled_orientation": [
+        0.0,
+        -0.0,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        1.90071,
+        6.60017,
+        0.9295
+      ],
+      "start_aabb_center": [
+        1.90071,
+        6.60017,
+        0.9547
+      ],
+      "authored_position": [
+        1.9,
+        6.6,
+        1.0
+      ],
+      "bbox": [
+        0.12,
+        0.1,
+        0.06
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.0252,
+      "aabb_low_z": 0.8995,
+      "mass": 0.15499,
+      "explicitly_placed": true
+    },
+    {
+      "name": "jar_of_puree",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "jar_of_puree",
+      "settled_position": [
+        1.8251,
+        6.84995,
+        0.94155
+      ],
+      "settled_orientation": [
+        0.00058,
+        0.00114,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        1.82487,
+        6.84994,
+        0.93939
+      ],
+      "start_aabb_center": [
+        1.82477,
+        6.85,
+        0.97794
+      ],
+      "authored_position": [
+        1.825,
+        6.85,
+        1.025
+      ],
+      "bbox": [
+        0.07,
+        0.07,
+        0.08
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00011,
+      "drift_z": -0.03848,
+      "aabb_low_z": 0.89944,
+      "mass": 0.435,
+      "explicitly_placed": true
+    },
+    {
+      "name": "teaspoon",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "teaspoon",
+      "settled_position": [
+        1.875,
+        6.75,
+        0.90592
+      ],
+      "settled_orientation": [
+        -0.0,
+        -0.0,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        1.86064,
+        6.75015,
+        0.91029
+      ],
+      "start_aabb_center": [
+        1.86064,
+        6.75015,
+        0.9594
+      ],
+      "authored_position": [
+        1.875,
+        6.75,
+        1.0
+      ],
+      "bbox": [
+        0.13,
+        0.03,
+        0.02
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.04911,
+      "aabb_low_z": 0.8995,
+      "mass": 0.027,
+      "explicitly_placed": true
+    },
+    {
+      "name": "plate",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "plate",
+      "settled_position": [
+        1.95,
+        6.95,
+        0.91369
+      ],
+      "settled_orientation": [
+        -0.0001,
+        0.00022,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        1.94992,
+        6.95008,
+        0.91452
+      ],
+      "start_aabb_center": [
+        1.94991,
+        6.95008,
+        0.95587
+      ],
+      "authored_position": [
+        1.95,
+        6.95,
+        1.0
+      ],
+      "bbox": [
+        0.15,
+        0.15,
+        0.03
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.04135,
+      "aabb_low_z": 0.8995,
+      "mass": 0.35802,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 1.0,
+  "support_z_measured": 0.8995,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

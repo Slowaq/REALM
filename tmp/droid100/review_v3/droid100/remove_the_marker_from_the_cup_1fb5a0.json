@@ -1,0 +1,253 @@
+{
+  "task": "remove_the_marker_from_the_cup_1fb5a0",
+  "task_cfg_path": "REALM_DROID100/remove_the_marker_from_the_cup_1fb5a0/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/remove_the_marker_from_the_cup_1fb5a0/remove_the_marker_from_the_cup_1fb5a0_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_marker_from_the_cup_1fb5a0/remove_the_marker_from_the_cup_1fb5a0_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_marker_from_the_cup_1fb5a0/remove_the_marker_from_the_cup_1fb5a0_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_marker_from_the_cup_1fb5a0/remove_the_marker_from_the_cup_1fb5a0_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_marker_from_the_cup_1fb5a0/remove_the_marker_from_the_cup_1fb5a0_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_marker_from_the_cup_1fb5a0/remove_the_marker_from_the_cup_1fb5a0_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "marker",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "marker",
+      "settled_position": [
+        -0.16266,
+        -2.11932,
+        0.87276
+      ],
+      "settled_orientation": [
+        0.06172,
+        0.74046,
+        0.09816,
+        0.66202
+      ],
+      "settled_aabb_center": [
+        -0.161,
+        -2.12111,
+        0.87714
+      ],
+      "start_aabb_center": [
+        -0.16988,
+        -2.10501,
+        1.00004
+      ],
+      "authored_position": [
+        -0.17,
+        -2.105,
+        1.0405
+      ],
+      "bbox": [
+        0.14,
+        0.0132,
+        0.01321
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.01609,
+      "drift_z": -0.12278,
+      "aabb_low_z": 0.80939,
+      "mass": 0.02,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_jar_of_sugar",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "jar_of_sugar",
+      "settled_position": [
+        -0.49066,
+        -1.84509,
+        0.8374
+      ],
+      "settled_orientation": [
+        0.64454,
+        0.27167,
+        -0.59229,
+        0.39994
+      ],
+      "settled_aabb_center": [
+        -0.49054,
+        -1.8447,
+        0.83852
+      ],
+      "start_aabb_center": [
+        -0.33014,
+        -1.84484,
+        0.91151
+      ],
+      "authored_position": [
+        -0.33,
+        -1.845,
+        0.95228
+      ],
+      "bbox": [
+        0.06808,
+        0.06808,
+        0.10457
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.16066,
+      "drift_z": -0.06992,
+      "aabb_low_z": 0.80495,
+      "mass": 0.65332,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_lighter_fluid",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_lighter_fluid",
+      "settled_position": [
+        -0.17001,
+        -1.84499,
+        0.92458
+      ],
+      "settled_orientation": [
+        -5e-05,
+        -5e-05,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.16978,
+        -1.84503,
+        0.92533
+      ],
+      "start_aabb_center": [
+        -0.16977,
+        -1.84504,
+        0.97533
+      ],
+      "authored_position": [
+        -0.17,
+        -1.845,
+        1.01954
+      ],
+      "bbox": [
+        0.04503,
+        0.08753,
+        0.23909
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 1e-05,
+      "drift_z": -0.05,
+      "aabb_low_z": 0.80494,
+      "mass": 0.188,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_drill",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "drill",
+      "settled_position": [
+        -0.33,
+        -2.105,
+        0.87504
+      ],
+      "settled_orientation": [
+        -1e-05,
+        -1e-05,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.32979,
+        -2.11633,
+        0.868
+      ],
+      "start_aabb_center": [
+        -0.32979,
+        -2.11633,
+        0.91061
+      ],
+      "authored_position": [
+        -0.33,
+        -2.105,
+        0.96262
+      ],
+      "bbox": [
+        0.03723,
+        0.1,
+        0.12523
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.04261,
+      "aabb_low_z": 0.80494,
+      "mass": 1.5,
+      "explicitly_placed": true
+    },
+    {
+      "name": "cup",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "soda_cup",
+      "settled_position": [
+        -0.17002,
+        -2.10505,
+        0.85773
+      ],
+      "settled_orientation": [
+        7e-05,
+        0.00026,
+        0.00138,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.16996,
+        -2.10494,
+        0.85769
+      ],
+      "start_aabb_center": [
+        -0.16997,
+        -2.10488,
+        0.90775
+      ],
+      "authored_position": [
+        -0.17,
+        -2.105,
+        0.95275
+      ],
+      "bbox": [
+        0.09201,
+        0.09211,
+        0.1055
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 5e-05,
+      "drift_z": -0.05006,
+      "aabb_low_z": 0.80493,
+      "mass": 0.01122,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 0.85,
+  "support_z_measured": 0.80494,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "DRIFT",
+      "object": "marker",
+      "reason": "settled 0.0161 m from its authored XY"
+    },
+    {
+      "code": "UNSTABLE",
+      "object": "distractor_jar_of_sugar",
+      "reason": "settled 0.1607 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    }
+  ],
+  "no_images": false,
+  "verdict": "FAIL"
+}

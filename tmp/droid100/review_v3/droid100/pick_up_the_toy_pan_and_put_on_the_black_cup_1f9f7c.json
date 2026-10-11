@@ -1,0 +1,253 @@
+{
+  "task": "pick_up_the_toy_pan_and_put_on_the_black_cup_1f9f7c",
+  "task_cfg_path": "REALM_DROID100/pick_up_the_toy_pan_and_put_on_the_black_cup_1f9f7c/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/pick_up_the_toy_pan_and_put_on_the_black_cup_1f9f7c/pick_up_the_toy_pan_and_put_on_the_black_cup_1f9f7c_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_toy_pan_and_put_on_the_black_cup_1f9f7c/pick_up_the_toy_pan_and_put_on_the_black_cup_1f9f7c_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_toy_pan_and_put_on_the_black_cup_1f9f7c/pick_up_the_toy_pan_and_put_on_the_black_cup_1f9f7c_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_toy_pan_and_put_on_the_black_cup_1f9f7c/pick_up_the_toy_pan_and_put_on_the_black_cup_1f9f7c_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_toy_pan_and_put_on_the_black_cup_1f9f7c/pick_up_the_toy_pan_and_put_on_the_black_cup_1f9f7c_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/pick_up_the_toy_pan_and_put_on_the_black_cup_1f9f7c/pick_up_the_toy_pan_and_put_on_the_black_cup_1f9f7c_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "toy_pan",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "frying_pan",
+      "settled_position": [
+        2.08,
+        6.62,
+        0.90565
+      ],
+      "settled_orientation": [
+        0.0,
+        -0.0,
+        0.70711,
+        0.70711
+      ],
+      "settled_aabb_center": [
+        2.07996,
+        6.59851,
+        0.90879
+      ],
+      "start_aabb_center": [
+        2.07996,
+        6.59851,
+        1.01682
+      ],
+      "authored_position": [
+        2.08,
+        6.62,
+        1.05864
+      ],
+      "bbox": [
+        0.14,
+        0.08613,
+        0.01729
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.10803,
+      "aabb_low_z": 0.8995,
+      "mass": 0.79153,
+      "explicitly_placed": true
+    },
+    {
+      "name": "cup",
+      "present": true,
+      "authored": true,
+      "role": "target_objects",
+      "category": "mug",
+      "settled_position": [
+        1.91999,
+        6.78012,
+        0.96421
+      ],
+      "settled_orientation": [
+        -0.00106,
+        -4e-05,
+        -9e-05,
+        1.0
+      ],
+      "settled_aabb_center": [
+        1.91997,
+        6.79326,
+        0.96226
+      ],
+      "start_aabb_center": [
+        1.91999,
+        6.79309,
+        1.06514
+      ],
+      "authored_position": [
+        1.92,
+        6.78,
+        1.1121
+      ],
+      "bbox": [
+        0.09136,
+        0.12817,
+        0.1242
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00012,
+      "drift_z": -0.10293,
+      "aabb_low_z": 0.89947,
+      "mass": 0.13913,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_almond_oil",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_almond_oil",
+      "settled_position": [
+        1.87035,
+        7.12684,
+        0.88314
+      ],
+      "settled_orientation": [
+        -0.1648,
+        0.6851,
+        -0.20669,
+        0.67879
+      ],
+      "settled_aabb_center": [
+        1.88048,
+        7.12833,
+        0.8842
+      ],
+      "start_aabb_center": [
+        2.07932,
+        6.77985,
+        1.12672
+      ],
+      "authored_position": [
+        2.08,
+        6.78,
+        1.16098
+      ],
+      "bbox": [
+        0.0652,
+        0.0654,
+        0.22197
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.40528,
+      "drift_z": -0.23288,
+      "aabb_low_z": 0.84987,
+      "mass": 0.39313,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_jar_of_spaghetti_sauce",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "jar_of_spaghetti_sauce",
+      "settled_position": [
+        1.92,
+        6.62,
+        0.95177
+      ],
+      "settled_orientation": [
+        0.0,
+        0.0,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        1.92,
+        6.62,
+        0.95261
+      ],
+      "start_aabb_center": [
+        1.92,
+        6.62,
+        1.05898
+      ],
+      "authored_position": [
+        1.92,
+        6.62,
+        1.10311
+      ],
+      "bbox": [
+        0.06496,
+        0.06496,
+        0.10621
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.10637,
+      "aabb_low_z": 0.8995,
+      "mass": 0.6,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_tweezers",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "tweezers",
+      "settled_position": [
+        2.00168,
+        6.69991,
+        0.90072
+      ],
+      "settled_orientation": [
+        -0.00061,
+        -0.00202,
+        -0.06545,
+        0.99785
+      ],
+      "settled_aabb_center": [
+        2.00249,
+        6.69838,
+        0.90088
+      ],
+      "start_aabb_center": [
+        2.00005,
+        6.69833,
+        1.00645
+      ],
+      "authored_position": [
+        2.0,
+        6.7,
+        1.05125
+      ],
+      "bbox": [
+        0.00485,
+        0.03209,
+        0.0025
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00168,
+      "drift_z": -0.10557,
+      "aabb_low_z": 0.89948,
+      "mass": 0.02,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 1.0,
+  "support_z_measured": 0.89947,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "UNSTABLE",
+      "object": "distractor_bottle_of_almond_oil",
+      "reason": "settled 0.4053 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    },
+    {
+      "code": "PENETRATION",
+      "object": "distractor_bottle_of_almond_oil",
+      "reason": "lower face at z=0.8499 is 0.0496 m below the measured support surface at z=0.8995"
+    }
+  ],
+  "no_images": false,
+  "verdict": "FAIL"
+}

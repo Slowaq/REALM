@@ -1,0 +1,253 @@
+{
+  "task": "remove_the_shaker_from_the_bowl_and_put_it_on_the_table_b7e492",
+  "task_cfg_path": "REALM_DROID100/remove_the_shaker_from_the_bowl_and_put_it_on_the_table_b7e492/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v3/droid100/remove_the_shaker_from_the_bowl_and_put_it_on_the_table_b7e492/remove_the_shaker_from_the_bowl_and_put_it_on_the_table_b7e492_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_shaker_from_the_bowl_and_put_it_on_the_table_b7e492/remove_the_shaker_from_the_bowl_and_put_it_on_the_table_b7e492_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_shaker_from_the_bowl_and_put_it_on_the_table_b7e492/remove_the_shaker_from_the_bowl_and_put_it_on_the_table_b7e492_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v3/droid100/remove_the_shaker_from_the_bowl_and_put_it_on_the_table_b7e492/remove_the_shaker_from_the_bowl_and_put_it_on_the_table_b7e492_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_shaker_from_the_bowl_and_put_it_on_the_table_b7e492/remove_the_shaker_from_the_bowl_and_put_it_on_the_table_b7e492_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v3/droid100/remove_the_shaker_from_the_bowl_and_put_it_on_the_table_b7e492/remove_the_shaker_from_the_bowl_and_put_it_on_the_table_b7e492_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "shaker",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "shaker",
+      "settled_position": [
+        2.01564,
+        6.49795,
+        0.92622
+      ],
+      "settled_orientation": [
+        0.68036,
+        0.35724,
+        -0.43987,
+        -0.46477
+      ],
+      "settled_aabb_center": [
+        2.03088,
+        6.49349,
+        0.92814
+      ],
+      "start_aabb_center": [
+        2.08,
+        6.61985,
+        1.07291
+      ],
+      "authored_position": [
+        2.08,
+        6.62,
+        1.13478
+      ],
+      "bbox": [
+        0.04176,
+        0.04186,
+        0.09912
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.13798,
+      "drift_z": -0.1636,
+      "aabb_low_z": 0.8995,
+      "mass": 0.13135,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_can_of_icetea",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "can_of_icetea",
+      "settled_position": [
+        1.92,
+        6.78,
+        0.9718
+      ],
+      "settled_orientation": [
+        0.0,
+        -0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        1.92,
+        6.78,
+        0.97413
+      ],
+      "start_aabb_center": [
+        1.92,
+        6.78,
+        1.08199
+      ],
+      "authored_position": [
+        1.92,
+        6.78,
+        1.12462
+      ],
+      "bbox": [
+        0.0757,
+        0.0757,
+        0.14925
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.10786,
+      "aabb_low_z": 0.8995,
+      "mass": 0.35,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_teapot",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "teapot",
+      "settled_position": [
+        2.08011,
+        6.77991,
+        0.91786
+      ],
+      "settled_orientation": [
+        0.00194,
+        0.00758,
+        0.00064,
+        0.99997
+      ],
+      "settled_aabb_center": [
+        2.08271,
+        6.77992,
+        0.91957
+      ],
+      "start_aabb_center": [
+        2.08238,
+        6.77999,
+        1.02601
+      ],
+      "authored_position": [
+        2.08,
+        6.78,
+        1.06943
+      ],
+      "bbox": [
+        0.1,
+        0.06223,
+        0.03887
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00014,
+      "drift_z": -0.10661,
+      "aabb_low_z": 0.8995,
+      "mass": 0.3612,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_beer",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_beer",
+      "settled_position": [
+        1.92021,
+        6.61993,
+        0.97782
+      ],
+      "settled_orientation": [
+        0.00041,
+        0.00133,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        1.91801,
+        6.61965,
+        1.00206
+      ],
+      "start_aabb_center": [
+        1.91786,
+        6.61969,
+        1.13188
+      ],
+      "authored_position": [
+        1.92,
+        6.62,
+        1.15263
+      ],
+      "bbox": [
+        0.05661,
+        0.05653,
+        0.20525
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00022,
+      "drift_z": -0.12984,
+      "aabb_low_z": 0.89946,
+      "mass": 0.428,
+      "explicitly_placed": true
+    },
+    {
+      "name": "bowl",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "bowl",
+      "settled_position": [
+        2.07502,
+        6.49514,
+        0.94353
+      ],
+      "settled_orientation": [
+        -0.63662,
+        -0.11432,
+        0.75078,
+        0.13407
+      ],
+      "settled_aabb_center": [
+        2.07359,
+        6.49513,
+        0.94581
+      ],
+      "start_aabb_center": [
+        2.08,
+        6.62,
+        1.03386
+      ],
+      "authored_position": [
+        2.08,
+        6.62,
+        1.08
+      ],
+      "bbox": [
+        0.09344,
+        0.09344,
+        0.06
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.12496,
+      "drift_z": -0.09151,
+      "aabb_low_z": 0.8995,
+      "mass": 0.16705,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 1.0,
+  "support_z_measured": 0.8995,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "UNSTABLE",
+      "object": "shaker",
+      "reason": "settled 0.1380 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    },
+    {
+      "code": "UNSTABLE",
+      "object": "bowl",
+      "reason": "settled 0.1250 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    }
+  ],
+  "no_images": false,
+  "verdict": "FAIL"
+}

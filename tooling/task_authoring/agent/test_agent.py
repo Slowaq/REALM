@@ -750,7 +750,7 @@ class SettleDriftTest(unittest.TestCase):
         rows = render_review.probe(env, before)
         self.assertEqual(rows[0]["drift_xy"], 0.0)
         self.assertEqual(rows[0]["drift_z"], 0.0)
-        self.assertEqual(rows[0]["drift_reference"], "aabb_center")
+        self.assertEqual(rows[0]["drift_reference"], "origin")
         self.assertEqual(render_review.stability_findings(rows, 1.2, resting={"bear"}), [])
 
     def test_object_that_slid_is_unstable(self):
@@ -762,13 +762,28 @@ class SettleDriftTest(unittest.TestCase):
         self.assertAlmostEqual(drift["drift_xy"], 0.05)
         self.assertAlmostEqual(drift["drift_z"], -0.02)
 
-    def test_origin_is_the_fallback_and_no_snapshot_means_no_drift(self):
+    def test_drift_follows_the_physics_origin_even_when_the_aabb_is_stale(self):
+        """v2: all 493 AABBs read identical before and after the settle (stage not synced) while the
+        physics poses had fallen. The origin is the reading that is always current."""
         from tooling.task_authoring import render_review
 
         self.assertEqual(render_review.settle_drift(None, {"origin": [0, 0, 0]}), {})
-        drift = render_review.settle_drift({"origin": [0, 0, 0]}, {"origin": [0.0, 0.02, 0]})
+        before = {"origin": [0.1, 0.2, 1.0], "aabb_center": [0.1, 0.2, 1.05]}
+        after = {"origin": [0.1, 0.2, 0.82], "aabb_center": [0.1, 0.2, 1.05]}
+        drift = render_review.settle_drift(before, after)
         self.assertEqual(drift["drift_reference"], "origin")
+        self.assertAlmostEqual(drift["drift_z"], -0.18)
+        drift = render_review.settle_drift({"aabb_center": [0, 0, 0]}, {"aabb_center": [0.0, 0.02, 0]})
+        self.assertEqual(drift["drift_reference"], "aabb_center")
         self.assertAlmostEqual(drift["drift_xy"], 0.02)
+
+    def test_review_syncs_the_stage_before_reading_aabbs(self):
+        source = (Path(__file__).resolve().parents[1] / "render_review.py").read_text(encoding="utf-8")
+        body = source[source.index("def review_one("):]
+        self.assertLess(body.index("sync_stage()"), body.index("snapshot(env)"))
+        settle_at = body.index("settle(env")
+        self.assertLess(settle_at, body.index("sync_stage()", settle_at))
+        self.assertLess(body.index("sync_stage()", settle_at), body.index("probe(env, before)"))
 
     def test_review_snapshots_before_the_settle(self):
         source = (Path(__file__).resolve().parents[1] / "render_review.py").read_text(encoding="utf-8")

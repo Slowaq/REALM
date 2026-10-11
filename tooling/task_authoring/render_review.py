@@ -196,6 +196,20 @@ def live_pose(obj) -> dict:
     return pose
 
 
+def sync_stage() -> None:
+    """Bring the rendered stage (AABBs, camera buffers) up to the physics state.
+
+    Physics runs with `render_on_step(False)` during the settle, so nothing on the render side
+    moves until renders are issued; REALM's own warmup flushes 30 of them for the same reason.
+    """
+    try:
+        import omnigibson as og
+    except ImportError:
+        return
+    for _ in range(RENDER_FLUSH_PASSES):
+        og.sim.render()
+
+
 def snapshot(env) -> dict:
     """`live_pose` of every configured object present in the scene, keyed by name."""
     poses = {}
@@ -211,15 +225,17 @@ def snapshot(env) -> dict:
 
 
 def settle_drift(before: dict | None, after: dict) -> dict:
-    """How far the object moved while settling, like for like.
+    """How far the object moved while settling, like for like: origin before vs origin after.
 
-    The AABB centre is used when both readings have it (it does not depend on where the asset's
-    origin sits), the origin otherwise. Both readings come from the live scene, so no authored
-    number, frame or origin convention enters the comparison.
+    The origin comes from the physics engine and is always current. The world AABB is computed from
+    the rendered stage, which is only synced on a render: in v2 every object's AABB read exactly the
+    same before and after the settle (493 objects, drift 0.0) while the physics poses had fallen.
+    Where the origin sits on the asset does not matter when both readings use it. The AABB centre
+    is only the fallback when an origin is missing.
     """
     if not before:
         return {}
-    key = "aabb_center" if before.get("aabb_center") and after.get("aabb_center") else "origin"
+    key = "origin" if before.get("origin") and after.get("origin") else "aabb_center"
     start, end = before.get(key), after.get(key)
     if not start or not end:
         return {}
@@ -502,6 +518,7 @@ def review_one(task_cfg_path: str, out_dir: Path, *, robot: str = "DROID_mounted
         env.reset()
         # Live poses before the settle: drift is measured against these, never against the authored
         # bbox-centre `position` (see `settle_drift`).
+        sync_stage()
         before = snapshot(env)
         task_dir = out_dir / stem
         task_dir.mkdir(parents=True, exist_ok=True)
@@ -514,6 +531,8 @@ def review_one(task_cfg_path: str, out_dir: Path, *, robot: str = "DROID_mounted
         settle(env, steps=steps)
         region = getattr(env, "spawn_bbox", None)
         support_z = float(region[4]) if region is not None else None
+        # Without this the AABBs (and so PENETRATION and the measured surface) are the spawn pose.
+        sync_stage()
         rows = probe(env, before)
         record["objects"] = rows
         record["support_z"] = support_z

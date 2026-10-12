@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - 0.1222208
+  - 0.0022208
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -46,7 +46,7 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.42
-  - 0.19178
+  - 0.07178
 - type: DatasetObject
   name: distractor_broccoli
   category: broccoli
@@ -63,7 +63,7 @@ distractors:
   relative_bbox_position:
   - 0.15
   - 0.42
-  - 0.06093
+  - -0.05907
 - type: DatasetObject
   name: distractor_toasting_fork
   category: toasting_fork
@@ -80,7 +80,7 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.18
-  - 0.0526934
+  - -0.0673066
 immutables:
 - type: DatasetObject
   name: box
@@ -98,7 +98,7 @@ immutables:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - 0.07865
+  - -0.04135
 initial_state:
 - predicate: inside
   subject: banana

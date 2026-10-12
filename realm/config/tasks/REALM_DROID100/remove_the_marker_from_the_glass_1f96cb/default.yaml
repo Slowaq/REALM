@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.12
   - 0.15
-  - 0.1628101
+  - 0.04281
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -46,7 +46,7 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.35
-  - 0.111725
+  - -0.008275
 - type: DatasetObject
   name: distractor_bottle_of_beer
   category: bottle_of_beer
@@ -63,7 +63,7 @@ distractors:
   relative_bbox_position:
   - 0.12
   - 0.35
-  - 0.152625
+  - 0.032625
 - type: DatasetObject
   name: distractor_hammer
   category: hammer
@@ -80,7 +80,7 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.15
-  - 0.0561129
+  - -0.0638871
 immutables:
 - type: DatasetObject
   name: glass
@@ -98,7 +98,7 @@ immutables:
   relative_bbox_position:
   - 0.12
   - 0.15
-  - 0.0889051
+  - -0.031095
 initial_state:
 - predicate: inside
   subject: marker

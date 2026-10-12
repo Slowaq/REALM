@@ -1,0 +1,133 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the candy in the cup
+instruction_obj_to_replace: candy
+instruction_target_to_replace: cup
+instruction_verb_to_replace: put
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: candy
+  category: hard_candy
+  model: yuatcg
+  bounding_box:
+  - 0.02284
+  - 0.0547
+  - 0.024
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - -0.058
+target_objects:
+- type: DatasetObject
+  name: cup
+  category: coffee_cup
+  model: ykuftq
+  bounding_box:
+  - 0.09144
+  - 0.05695
+  - 0.07753
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - -0.031235
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_papaya_juice
+  category: bottle_of_papaya_juice
+  model: tcauim
+  bounding_box:
+  - 0.07262
+  - 0.07262
+  - 0.26166
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - 0.0608301
+- type: DatasetObject
+  name: distractor_sourdough
+  category: sourdough
+  model: jgydml
+  bounding_box:
+  - 0.08979
+  - 0.07987
+  - 0.05222
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - -0.04389
+- type: DatasetObject
+  name: distractor_can_of_beans
+  category: can_of_beans
+  model: ojqgjz
+  bounding_box:
+  - 0.0805
+  - 0.08261
+  - 0.09877
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.25
+  - 0.3
+  - -0.020615
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: candy
+  object: cup
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.0325537
+    - 0.3705079
+    - 0.4350823
+    rot:
+    - 0.248558
+    - -0.4292338
+    - -0.6415894
+    - 0.5850985
+  cam2:
+    pos:
+    - 0.0181695
+    - -0.2339652
+    - 0.2309245
+    rot:
+    - 0.4563598
+    - -0.381682
+    - -0.493135
+    - 0.6347223
+provenance:
+  task_id: d5506e13ef1e
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put a piece of candy in the cup
+  decisions:
+  - '"a piece of candy" grounded as one hard_candy; cup as coffee_cup ykuftq; "red" dropped'

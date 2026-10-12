@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.28
   - 0.42
-  - 0.0548699
+  - -0.0901301
 target_objects:
 - type: DatasetObject
   name: cup
@@ -45,7 +45,7 @@ target_objects:
   relative_bbox_position:
   - 0.12
   - 0.18
-  - 0.10271
+  - -0.04229
 distractors:
 - type: DatasetObject
   name: distractor_jar_of_kidney_beans
@@ -63,7 +63,7 @@ distractors:
   relative_bbox_position:
   - 0.12
   - 0.42
-  - 0.115855
+  - -0.029145
 - type: DatasetObject
   name: distractor_bottle_of_peanut_butter
   category: bottle_of_peanut_butter
@@ -80,7 +80,7 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.18
-  - 0.11573
+  - -0.02927
 - type: DatasetObject
   name: distractor_half_bagel
   category: half_bagel
@@ -97,7 +97,7 @@ distractors:
   relative_bbox_position:
   - 0.2
   - 0.3
-  - 0.06837
+  - -0.07663
 immutables: []
 target_state:
   rubric: put

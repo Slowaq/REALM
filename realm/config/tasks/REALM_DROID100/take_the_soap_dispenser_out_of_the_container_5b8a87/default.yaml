@@ -1,0 +1,139 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Take the soap dispenser out of the container
+instruction_obj_to_replace: soap dispenser
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+main_objects:
+- type: DatasetObject
+  name: soap_dispenser
+  category: soap_dispenser
+  model: edinmg
+  bounding_box:
+  - 0.08988
+  - 0.07978
+  - 0.20744
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.325
+  - 0.21026
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_lemon_sauce
+  category: bottle_of_lemon_sauce
+  model: iyijeb
+  bounding_box:
+  - 0.08535
+  - 0.08535
+  - 0.09369
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.1625
+  - 0.061845
+- type: DatasetObject
+  name: distractor_jar_of_jelly
+  category: jar_of_jelly
+  model: ytlmmb
+  bounding_box:
+  - 0.1
+  - 0.0750254
+  - 0.1103891
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.4875
+  - 0.0701946
+- type: DatasetObject
+  name: distractor_pill_bottle
+  category: pill_bottle
+  model: csvdbe
+  bounding_box:
+  - 0.03885
+  - 0.03885
+  - 0.05468
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.06
+  - 0.325
+  - 0.04234
+immutables:
+- type: DatasetObject
+  name: container
+  category: storage_box
+  model: aqdbdu
+  bounding_box:
+  - 0.20369
+  - 0.20368
+  - 0.1434
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.325
+  - 0.0867
+initial_state:
+- predicate: inside
+  subject: soap_dispenser
+  object: container
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: soap_dispenser
+  object: container
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2342164
+    - 0.5594445
+    - 0.5934627
+    rot:
+    - 0.060513
+    - -0.4245649
+    - -0.8767177
+    - 0.2178277
+  cam2:
+    pos:
+    - 0.197947
+    - -0.5449224
+    - 0.4535161
+    rot:
+    - 0.4806643
+    - -0.1142068
+    - -0.2585567
+    - 0.8301007
+provenance:
+  task_id: 5b8a87fbb5d7
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Take the soap dispenser out of the plastic container
+  decisions:
+  - '"plastic container" grounded as storage_box aqdbdu (an open container, 20.4 cm wide, 14.3 cm deep), instruction keeps
+    "container"; tupperware (21.9 cm) laid the 20.7 cm dispenser on its side'
+  - soap_dispenser edinmg stands upright ~6 cm above the rim

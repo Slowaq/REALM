@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.12
   - 0.15
-  - 0.0619646
+  - -0.0580354
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -46,7 +46,7 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.35
-  - 0.11798
+  - -0.00202
 - type: DatasetObject
   name: distractor_jar_of_honey
   category: jar_of_honey
@@ -63,7 +63,7 @@ distractors:
   relative_bbox_position:
   - 0.12
   - 0.35
-  - 0.1108649
+  - -0.0091351
 - type: DatasetObject
   name: distractor_bottle_of_rum
   category: bottle_of_rum
@@ -80,7 +80,7 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.15
-  - 0.200455
+  - 0.0804551
 immutables: []
 camera_extrinsics:
   cam1:

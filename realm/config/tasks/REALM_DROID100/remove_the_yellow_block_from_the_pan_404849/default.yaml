@@ -35,7 +35,7 @@ main_objects:
   relative_bbox_position:
   - 0.25
   - 0.3
-  - 0.0970702
+  - -0.0229298
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -54,7 +54,7 @@ distractors:
   relative_bbox_position:
   - 0.25
   - 0.15
-  - 0.20969
+  - 0.0896901
 - type: DatasetObject
   name: distractor_pocketknife
   category: pocketknife
@@ -71,7 +71,7 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.42
-  - 0.0529232
+  - -0.0670768
 - type: DatasetObject
   name: distractor_shaker
   category: shaker
@@ -88,7 +88,7 @@ distractors:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - 0.0959801
+  - -0.02402
 immutables:
 - type: DatasetObject
   name: pan
@@ -106,7 +106,7 @@ immutables:
   relative_bbox_position:
   - 0.25
   - 0.3
-  - 0.0672851
+  - -0.0527149
 initial_state:
 - predicate: inside
   subject: yellow_block

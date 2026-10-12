@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.35
   - 0.42
-  - 0.0619646
+  - -0.0580354
 target_objects:
 - type: DatasetObject
   name: bowl
@@ -45,7 +45,7 @@ target_objects:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - 0.106805
+  - -0.0131949
 distractors:
 - type: DatasetObject
   name: distractor_bottle_of_powder
@@ -63,7 +63,7 @@ distractors:
   relative_bbox_position:
   - 0.15
   - 0.42
-  - 0.155565
+  - 0.035565
 - type: DatasetObject
   name: distractor_allen_wrench
   category: allen_wrench
@@ -80,7 +80,7 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.18
-  - 0.0518716
+  - -0.0681284
 - type: DatasetObject
   name: distractor_pruner
   category: pruner
@@ -97,7 +97,7 @@ distractors:
   relative_bbox_position:
   - 0.25
   - 0.45
-  - 0.1639551
+  - 0.043955
 immutables: []
 target_state:
   rubric: put

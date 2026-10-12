@@ -1,0 +1,105 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Remove the mug from the sink
+instruction_obj_to_replace: mug
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Pomaria_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: mug
+  category: mug
+  model: ppzttc
+  bounding_box:
+  - 0.081
+  - 0.10911
+  - 0.08026
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.7071068
+  - 0.7071068
+  relative_bbox_position:
+  - 0.2
+  - 0.25
+  - 0.1368022
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_broccoli
+  category: broccoli
+  model: wsxavx
+  bounding_box:
+  - 0.02909
+  - 0.02903
+  - 0.02186
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.425
+  - -0.05907
+immutables:
+- type: DatasetObject
+  name: sink
+  category: drop_in_sink
+  model: wzpabm
+  bounding_box:
+  - 0.28
+  - 0.2703133
+  - 0.1867372
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.25
+  - 0.0233686
+initial_state:
+- predicate: inside
+  subject: mug
+  object: sink
+target_state:
+  rubric: pick
+  predicate: inside
+  subject: mug
+  object: sink
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.3312697
+    - 0.508108
+    - 0.4947605
+    rot:
+    - 0.1056721
+    - -0.3762458
+    - -0.8750233
+    - 0.2856689
+  cam2:
+    pos:
+    - 0.2206425
+    - -0.3627896
+    - 0.490456
+    rot:
+    - 0.4496412
+    - -0.1704577
+    - -0.2664808
+    - 0.8353173
+provenance:
+  task_id: ef7a360359b4
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Remove the cup from the sink
+  decisions:
+  - cup grounded as mug (cluster signature and variant "Remove the white and yellow mug from the sink"); instruction names
+    the mug; colours dropped
+  - sink grounded as drop_in_sink wzpabm (the smallest basin, authored at the 0.28 m ceiling)

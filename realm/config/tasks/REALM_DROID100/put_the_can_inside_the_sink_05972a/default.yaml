@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.09
   - 0.2
-  - 0.12678
+  - -0.00322
 target_objects:
 - type: DatasetObject
   name: sink
@@ -45,7 +45,7 @@ target_objects:
   relative_bbox_position:
   - 0.3
   - 0.2
-  - 0.1433687
+  - 0.0133686
 distractors:
 - type: DatasetObject
   name: distractor_hammer
@@ -63,7 +63,7 @@ distractors:
   relative_bbox_position:
   - 0.51
   - 0.2
-  - 0.0561129
+  - -0.0738871
 immutables: []
 target_state:
   rubric: put

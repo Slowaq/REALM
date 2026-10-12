@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.25
   - 0.45
-  - 0.08662
+  - -0.03338
 target_objects:
 - type: DatasetObject
   name: pot
@@ -45,7 +45,7 @@ target_objects:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - 0.1189706
+  - -0.0010294
 distractors:
 - type: DatasetObject
   name: distractor_bottle_of_cologne
@@ -63,7 +63,7 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.18
-  - 0.11
+  - -0.01
 - type: DatasetObject
   name: distractor_mouse
   category: mouse
@@ -80,7 +80,7 @@ distractors:
   relative_bbox_position:
   - 0.375
   - 0.3
-  - 0.05564
+  - -0.06436
 - type: DatasetObject
   name: distractor_broccoli
   category: broccoli
@@ -97,7 +97,7 @@ distractors:
   relative_bbox_position:
   - 0.425
   - 0.3
-  - 0.06093
+  - -0.05907
 immutables: []
 target_state:
   rubric: stack

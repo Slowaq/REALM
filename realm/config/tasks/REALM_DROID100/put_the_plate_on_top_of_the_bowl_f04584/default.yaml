@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.42
   - 0.28
-  - 0.062045
+  - -0.067955
 target_objects:
 - type: DatasetObject
   name: bowl
@@ -45,7 +45,7 @@ target_objects:
   relative_bbox_position:
   - 0.18
   - 0.12
-  - 0.086825
+  - -0.043175
 distractors:
 - type: DatasetObject
   name: distractor_hotdog_bun
@@ -63,7 +63,7 @@ distractors:
   relative_bbox_position:
   - 0.18
   - 0.28
-  - 0.0673212
+  - -0.0626788
 - type: DatasetObject
   name: distractor_jar_of_pepper_seasoning
   category: jar_of_pepper_seasoning
@@ -80,7 +80,7 @@ distractors:
   relative_bbox_position:
   - 0.42
   - 0.12
-  - 0.115855
+  - -0.014145
 - type: DatasetObject
   name: distractor_bottle_of_molasses
   category: bottle_of_molasses
@@ -97,7 +97,7 @@ distractors:
   relative_bbox_position:
   - 0.3
   - 0.2
-  - 0.145275
+  - 0.015275
 immutables: []
 target_state:
   rubric: stack

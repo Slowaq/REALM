@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.2
   - 0.425
-  - 0.09292
+  - -0.02708
 target_objects:
 - type: DatasetObject
   name: bowl
@@ -45,7 +45,7 @@ target_objects:
   relative_bbox_position:
   - 0.2
   - 0.25
-  - 0.106805
+  - -0.0131949
 distractors:
 - type: DatasetObject
   name: distractor_bottle_of_paint
@@ -63,7 +63,7 @@ distractors:
   relative_bbox_position:
   - 0.06
   - 0.25
-  - 0.133025
+  - 0.013025
 - type: DatasetObject
   name: distractor_can_of_bay_leaves
   category: can_of_bay_leaves
@@ -80,7 +80,7 @@ distractors:
   relative_bbox_position:
   - 0.34
   - 0.25
-  - 0.08706
+  - -0.03294
 - type: DatasetObject
   name: distractor_rubber_eraser
   category: rubber_eraser
@@ -97,7 +97,7 @@ distractors:
   relative_bbox_position:
   - 0.2
   - 0.125
-  - 0.0557
+  - -0.0643
 immutables: []
 target_state:
   rubric: put

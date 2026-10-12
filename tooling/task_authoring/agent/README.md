@@ -12,14 +12,15 @@ batch generator uses.
 
 ## Quick start
 
-Everything up to the render step runs on a laptop. The agent grounds against a small committed
-asset catalogue (`../asset_catalog.json`), not the 1k-asset dataset tree.
+Everything up to the render step runs on a laptop. The agent grounds against a catalogue snapshot
+(`../asset_catalog.json`, git-ignored, built in step 0), not the 1k-asset dataset tree.
 
 ```sh
 # 0. Once, on a machine that HAS the dataset (lab workstation; no GPU needed):
 python -m tooling.task_authoring.agent.catalog build \
-    --dataset "$REALM_DATA_PATH/datasets/behavior-1k-assets"      # then commit asset_catalog.json
-#    Until then the committed file is a ~35-category SEED taken from REALM's own task configs.
+    --dataset "$REALM_DATA_PATH/datasets/behavior-1k-assets"      # writes asset_catalog.json (untracked)
+#    Copy that file to any laptop that has no dataset. Without it, pass --dataset or run
+#    `catalog seed-from-configs` for a ~35-category SEED taken from REALM's own task configs.
 python -m tooling.task_authoring.agent.catalog show
 
 # 1. Offline smoke test: a scripted regex agent drives the six tools. Proves the plumbing, NOT a

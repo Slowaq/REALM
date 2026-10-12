@@ -64,7 +64,8 @@ class CatalogResolveTest(unittest.TestCase):
         self.assertIn(("mug", "waqrdy"), pairs)
         self.assertFalse({category for category, _ in pairs} & catalog.NON_TABLETOP)
 
-    def test_committed_catalogue_loads(self):
+    @unittest.skipUnless(catalog.DEFAULT_CATALOG.is_file(), "asset catalogue not built (it is untracked)")
+    def test_built_catalogue_loads(self):
         assets, info = catalog.resolve()
         self.assertTrue(assets)
         self.assertEqual(info["path"], str(catalog.DEFAULT_CATALOG))

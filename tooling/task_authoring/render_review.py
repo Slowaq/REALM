@@ -76,6 +76,9 @@ RENDER_FLUSH_PASSES = 30
 #: An object REALM authors above its support falls at least SUPPORT_CLEARANCE (5 cm) when physics
 #: runs. If no movable object moved even this much during the settle, the sim did not step.
 FROZEN_FALL_M = 0.005
+#: A lower face starting more than this above the settled surface is a drop the object may not
+#: survive upright (it bounces, rolls or tips before the policy starts).
+HIGH_DROP_M = 0.06
 
 
 def authored_names(cfg: dict) -> set:
@@ -281,6 +284,8 @@ def probe(env, before: dict | None = None) -> list[dict]:
             "settled_orientation": pose["orientation"],
             "settled_aabb_center": pose.get("aabb_center"),
             "start_aabb_center": (before.get(name) or {}).get("aabb_center"),
+            "start_aabb_low_z": (before.get(name) or {}).get("aabb_low_z"),
+            "start_origin": (before.get(name) or {}).get("origin"),
             "authored_position": [round(float(v), 5) for v in authored_pos]
             if authored_pos else None,
             "bbox": [round(float(v), 5) for v in bbox] if bbox else None,
@@ -362,6 +367,17 @@ def stability_findings(rows: list[dict], support_z: float, resting: set | None =
                 "code": "DRIFT", "object": row["name"],
                 "reason": f"settled {drift_xy:.4f} m from its authored XY",
             })
+        start_low = row.get("start_aabb_low_z")
+        if (start_low is not None and surface is not None and on_task_surface(row, support_z)
+                and row["name"] not in resting):
+            row["start_gap_m"] = round(float(start_low) - surface, 5)
+            if row["start_gap_m"] > HIGH_DROP_M:
+                findings.append({
+                    "code": "HIGH_DROP", "object": row["name"],
+                    "reason": (f"starts with its lower face {row['start_gap_m']:.3f} m above the "
+                               f"settled surface at z={surface:.4f}; it is dropped that far before "
+                               f"the policy starts"),
+                })
         bbox = row.get("bbox")
         lowest = row.get("aabb_low_z")
         if (lowest is not None and surface is not None and on_task_surface(row, support_z)

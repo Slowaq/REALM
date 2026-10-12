@@ -822,6 +822,19 @@ class SettleDriftTest(unittest.TestCase):
         body = source[source.index("def render("):source.index("def review_one(")]
         self.assertIn("range(RENDER_FLUSH_PASSES)", body)
 
+    def test_a_long_fall_before_the_policy_starts_is_reported(self):
+        from tooling.task_authoring import render_review
+
+        rows = [{"name": name, "present": True, "authored": True, "role": "distractors",
+                 "authored_position": [0, 0, 0.9], "bbox": [0.05, 0.05, 0.05],
+                 "drift_xy": 0.0, "drift_z": -0.01, "aabb_low_z": 0.85} for name in ("a", "b", "c")]
+        for row in rows:
+            row["start_aabb_low_z"] = 0.86
+        rows[0]["start_aabb_low_z"] = 1.0
+        findings = render_review.stability_findings(rows, 0.9)
+        self.assertEqual([(f["code"], f["object"]) for f in findings], [("HIGH_DROP", "a")])
+        self.assertAlmostEqual(rows[1]["start_gap_m"], 0.01)
+
     def test_floor_bound_skips_fixtures(self):
         """close_drawer/open_drawer author a table support fixture modelled 12.5 cm through the floor;
         it is pinned scene furniture, not an object the sim dropped."""

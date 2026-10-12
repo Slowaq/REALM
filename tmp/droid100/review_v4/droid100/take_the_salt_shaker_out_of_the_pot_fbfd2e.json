@@ -1,0 +1,276 @@
+{
+  "task": "take_the_salt_shaker_out_of_the_pot_fbfd2e",
+  "task_cfg_path": "REALM_DROID100/take_the_salt_shaker_out_of_the_pot_fbfd2e/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v4/droid100/take_the_salt_shaker_out_of_the_pot_fbfd2e/take_the_salt_shaker_out_of_the_pot_fbfd2e_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v4/droid100/take_the_salt_shaker_out_of_the_pot_fbfd2e/take_the_salt_shaker_out_of_the_pot_fbfd2e_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v4/droid100/take_the_salt_shaker_out_of_the_pot_fbfd2e/take_the_salt_shaker_out_of_the_pot_fbfd2e_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v4/droid100/take_the_salt_shaker_out_of_the_pot_fbfd2e/take_the_salt_shaker_out_of_the_pot_fbfd2e_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v4/droid100/take_the_salt_shaker_out_of_the_pot_fbfd2e/take_the_salt_shaker_out_of_the_pot_fbfd2e_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v4/droid100/take_the_salt_shaker_out_of_the_pot_fbfd2e/take_the_salt_shaker_out_of_the_pot_fbfd2e_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "salt_shaker",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "salt_shaker",
+      "settled_position": [
+        1.99944,
+        4.99825,
+        0.82962
+      ],
+      "settled_orientation": [
+        0.01022,
+        -0.01123,
+        0.00492,
+        0.99987
+      ],
+      "settled_aabb_center": [
+        1.99844,
+        4.99752,
+        0.84066
+      ],
+      "start_aabb_center": [
+        2.00029,
+        4.99949,
+        0.95929
+      ],
+      "start_aabb_low_z": 0.88888,
+      "start_origin": [
+        2.0,
+        5.0,
+        0.94794
+      ],
+      "authored_position": [
+        2.0,
+        5.0,
+        0.9929
+      ],
+      "bbox": [
+        0.05105,
+        0.05113,
+        0.13983
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00184,
+      "drift_z": -0.11832,
+      "aabb_low_z": 0.76985,
+      "mass": 0.0129,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_can_of_tomato_paste",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "can_of_tomato_paste",
+      "settled_position": [
+        2.21163,
+        4.99947,
+        0.81818
+      ],
+      "settled_orientation": [
+        -0.00065,
+        0.00128,
+        0.00445,
+        0.99999
+      ],
+      "settled_aabb_center": [
+        2.21121,
+        4.99945,
+        0.81732
+      ],
+      "start_aabb_center": [
+        2.20959,
+        4.99999,
+        0.83597
+      ],
+      "start_aabb_low_z": 0.77424,
+      "start_origin": [
+        2.21,
+        5.0,
+        0.83676
+      ],
+      "authored_position": [
+        2.21,
+        5.0,
+        0.88172
+      ],
+      "bbox": [
+        0.08046,
+        0.08041,
+        0.12345
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00171,
+      "drift_z": -0.01858,
+      "aabb_low_z": 0.75556,
+      "mass": 0.425,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01855
+    },
+    {
+      "name": "distractor_bottle_of_antihistamines",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_antihistamines",
+      "settled_position": [
+        1.85611,
+        5.00019,
+        0.818
+      ],
+      "settled_orientation": [
+        -0.00083,
+        0.014,
+        0.00046,
+        0.9999
+      ],
+      "settled_aabb_center": [
+        1.85617,
+        5.00026,
+        0.81933
+      ],
+      "start_aabb_center": [
+        1.8503,
+        5.00009,
+        0.83994
+      ],
+      "start_aabb_low_z": 0.77577,
+      "start_origin": [
+        1.85,
+        5.0,
+        0.83864
+      ],
+      "authored_position": [
+        1.85,
+        5.0,
+        0.8836
+      ],
+      "bbox": [
+        0.06797,
+        0.06569,
+        0.1272
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00611,
+      "drift_z": -0.02064,
+      "aabb_low_z": 0.75569,
+      "mass": 0.15,
+      "explicitly_placed": true,
+      "start_gap_m": 0.02008
+    },
+    {
+      "name": "distractor_tweezers",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "tweezers",
+      "settled_position": [
+        2.12114,
+        4.91995,
+        0.75707
+      ],
+      "settled_orientation": [
+        -0.00031,
+        -0.00202,
+        0.08882,
+        0.99605
+      ],
+      "settled_aabb_center": [
+        2.12046,
+        4.91849,
+        0.75722
+      ],
+      "start_aabb_center": [
+        2.12004,
+        4.91833,
+        0.77645
+      ],
+      "start_aabb_low_z": 0.77505,
+      "start_origin": [
+        2.12,
+        4.92,
+        0.77629
+      ],
+      "authored_position": [
+        2.12,
+        4.92,
+        0.82125
+      ],
+      "bbox": [
+        0.00485,
+        0.03209,
+        0.0025
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00114,
+      "drift_z": -0.01922,
+      "aabb_low_z": 0.75582,
+      "mass": 0.02,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01936
+    },
+    {
+      "name": "pot",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "saucepot",
+      "settled_position": [
+        2.00359,
+        4.99899,
+        0.81635
+      ],
+      "settled_orientation": [
+        0.008,
+        -0.00297,
+        4e-05,
+        0.99996
+      ],
+      "settled_aabb_center": [
+        2.00364,
+        4.99915,
+        0.82481
+      ],
+      "start_aabb_center": [
+        2.00049,
+        5.00108,
+        0.85258
+      ],
+      "start_aabb_low_z": 0.78214,
+      "start_origin": [
+        2.0,
+        5.0,
+        0.84401
+      ],
+      "authored_position": [
+        2.0,
+        5.0,
+        0.88897
+      ],
+      "bbox": [
+        0.20464,
+        0.28,
+        0.13794
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00373,
+      "drift_z": -0.02766,
+      "aabb_low_z": 0.75584,
+      "mass": 0.63958,
+      "explicitly_placed": true,
+      "start_gap_m": 0.02645
+    }
+  ],
+  "support_z": 0.9,
+  "support_z_measured": 0.75569,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

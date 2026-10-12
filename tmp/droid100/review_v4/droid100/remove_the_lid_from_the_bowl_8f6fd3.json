@@ -1,0 +1,287 @@
+{
+  "task": "remove_the_lid_from_the_bowl_8f6fd3",
+  "task_cfg_path": "REALM_DROID100/remove_the_lid_from_the_bowl_8f6fd3/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v4/droid100/remove_the_lid_from_the_bowl_8f6fd3/remove_the_lid_from_the_bowl_8f6fd3_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v4/droid100/remove_the_lid_from_the_bowl_8f6fd3/remove_the_lid_from_the_bowl_8f6fd3_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v4/droid100/remove_the_lid_from_the_bowl_8f6fd3/remove_the_lid_from_the_bowl_8f6fd3_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v4/droid100/remove_the_lid_from_the_bowl_8f6fd3/remove_the_lid_from_the_bowl_8f6fd3_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v4/droid100/remove_the_lid_from_the_bowl_8f6fd3/remove_the_lid_from_the_bowl_8f6fd3_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v4/droid100/remove_the_lid_from_the_bowl_8f6fd3/remove_the_lid_from_the_bowl_8f6fd3_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "lid",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "lid",
+      "settled_position": [
+        -10.65465,
+        -10.10423,
+        0.7577
+      ],
+      "settled_orientation": [
+        -0.00483,
+        0.04958,
+        0.90161,
+        -0.42966
+      ],
+      "settled_aabb_center": [
+        -10.65428,
+        -10.10501,
+        0.76144
+      ],
+      "start_aabb_center": [
+        -10.77963,
+        -10.12,
+        0.84986
+      ],
+      "start_aabb_low_z": 0.83581,
+      "start_origin": [
+        -10.78,
+        -10.12,
+        0.84373
+      ],
+      "authored_position": [
+        -10.78,
+        -10.12,
+        0.88869
+      ],
+      "bbox": [
+        0.09491,
+        0.09491,
+        0.02738
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.12634,
+      "drift_z": -0.08603,
+      "aabb_low_z": 0.74501,
+      "mass": 0.346,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_hammer",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "hammer",
+      "settled_position": [
+        -10.61992,
+        -9.88027,
+        0.7511
+      ],
+      "settled_orientation": [
+        0.02908,
+        0.00989,
+        0.00032,
+        0.99953
+      ],
+      "settled_aabb_center": [
+        -10.60856,
+        -9.87821,
+        0.75181
+      ],
+      "start_aabb_center": [
+        -10.60862,
+        -9.87792,
+        0.76613
+      ],
+      "start_aabb_low_z": 0.75949,
+      "start_origin": [
+        -10.62,
+        -9.88,
+        0.76615
+      ],
+      "authored_position": [
+        -10.62,
+        -9.88,
+        0.81111
+      ],
+      "bbox": [
+        0.1,
+        0.04141,
+        0.01223
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00028,
+      "drift_z": -0.01505,
+      "aabb_low_z": 0.74501,
+      "mass": 0.867,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01448
+    },
+    {
+      "name": "distractor_bottle_of_pumpkin_pie_spice",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_pumpkin_pie_spice",
+      "settled_position": [
+        -10.77994,
+        -9.88002,
+        0.786
+      ],
+      "settled_orientation": [
+        3e-05,
+        0.00076,
+        -3e-05,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -10.7799,
+        -9.87999,
+        0.79966
+      ],
+      "start_aabb_center": [
+        -10.77996,
+        -9.87997,
+        0.82768
+      ],
+      "start_aabb_low_z": 0.77302,
+      "start_origin": [
+        -10.78,
+        -9.88,
+        0.81404
+      ],
+      "authored_position": [
+        -10.78,
+        -9.88,
+        0.859
+      ],
+      "bbox": [
+        0.04325,
+        0.04323,
+        0.108
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 6e-05,
+      "drift_z": -0.02804,
+      "aabb_low_z": 0.74502,
+      "mass": 0.08007,
+      "explicitly_placed": true,
+      "start_gap_m": 0.02801
+    },
+    {
+      "name": "distractor_plier",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "plier",
+      "settled_position": [
+        -10.61994,
+        -10.12006,
+        0.74834
+      ],
+      "settled_orientation": [
+        1e-05,
+        -0.0,
+        0.00374,
+        0.99999
+      ],
+      "settled_aabb_center": [
+        -10.6168,
+        -10.11467,
+        0.74818
+      ],
+      "start_aabb_center": [
+        -10.6168,
+        -10.11459,
+        0.76273
+      ],
+      "start_aabb_low_z": 0.75957,
+      "start_origin": [
+        -10.62,
+        -10.12,
+        0.7629
+      ],
+      "authored_position": [
+        -10.62,
+        -10.12,
+        0.80786
+      ],
+      "bbox": [
+        0.1,
+        0.02908,
+        0.00572
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 8e-05,
+      "drift_z": -0.01456,
+      "aabb_low_z": 0.74501,
+      "mass": 0.11806,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01456
+    },
+    {
+      "name": "bowl",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "bowl",
+      "settled_position": [
+        -10.71083,
+        -10.12101,
+        0.78206
+      ],
+      "settled_orientation": [
+        -0.3993,
+        0.05634,
+        0.88598,
+        -0.22897
+      ],
+      "settled_aabb_center": [
+        -10.71812,
+        -10.12217,
+        0.78935
+      ],
+      "start_aabb_center": [
+        -10.78,
+        -10.12,
+        0.78886
+      ],
+      "start_aabb_low_z": 0.75886,
+      "start_origin": [
+        -10.78,
+        -10.12,
+        0.79004
+      ],
+      "authored_position": [
+        -10.78,
+        -10.12,
+        0.835
+      ],
+      "bbox": [
+        0.09344,
+        0.09344,
+        0.06
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.06918,
+      "drift_z": -0.00798,
+      "aabb_low_z": 0.74501,
+      "mass": 0.16705,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01385
+    }
+  ],
+  "support_z": 0.9,
+  "support_z_measured": 0.74501,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "UNSTABLE",
+      "object": "lid",
+      "reason": "settled 0.1263 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    },
+    {
+      "code": "UNSTABLE",
+      "object": "bowl",
+      "reason": "settled 0.0692 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    }
+  ],
+  "no_images": false,
+  "verdict": "FAIL"
+}

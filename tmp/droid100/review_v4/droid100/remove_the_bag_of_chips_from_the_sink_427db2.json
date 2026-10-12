@@ -1,0 +1,128 @@
+{
+  "task": "remove_the_bag_of_chips_from_the_sink_427db2",
+  "task_cfg_path": "REALM_DROID100/remove_the_bag_of_chips_from_the_sink_427db2/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v4/droid100/remove_the_bag_of_chips_from_the_sink_427db2/remove_the_bag_of_chips_from_the_sink_427db2_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v4/droid100/remove_the_bag_of_chips_from_the_sink_427db2/remove_the_bag_of_chips_from_the_sink_427db2_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v4/droid100/remove_the_bag_of_chips_from_the_sink_427db2/remove_the_bag_of_chips_from_the_sink_427db2_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v4/droid100/remove_the_bag_of_chips_from_the_sink_427db2/remove_the_bag_of_chips_from_the_sink_427db2_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v4/droid100/remove_the_bag_of_chips_from_the_sink_427db2/remove_the_bag_of_chips_from_the_sink_427db2_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v4/droid100/remove_the_bag_of_chips_from_the_sink_427db2/remove_the_bag_of_chips_from_the_sink_427db2_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "bag_of_chips",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "bag_of_chips",
+      "settled_position": [
+        2.09254,
+        6.70628,
+        0.98149
+      ],
+      "settled_orientation": [
+        0.0554,
+        0.78317,
+        -0.0475,
+        0.61752
+      ],
+      "settled_aabb_center": [
+        2.09228,
+        6.7059,
+        0.97812
+      ],
+      "start_aabb_center": [
+        2.01098,
+        6.69865,
+        1.12063
+      ],
+      "start_aabb_low_z": 1.09168,
+      "start_origin": [
+        2.00758,
+        6.699,
+        1.11832
+      ],
+      "authored_position": [
+        2.0,
+        6.7,
+        1.15862
+      ],
+      "bbox": [
+        0.14,
+        0.10491,
+        0.04754
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.08527,
+      "drift_z": -0.13683,
+      "aabb_low_z": 0.91129,
+      "mass": 0.15,
+      "explicitly_placed": true
+    },
+    {
+      "name": "sink",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "drop_in_sink",
+      "settled_position": [
+        2.00672,
+        6.70015,
+        0.95578
+      ],
+      "settled_orientation": [
+        -3e-05,
+        0.07596,
+        0.00028,
+        0.99711
+      ],
+      "settled_aabb_center": [
+        1.99909,
+        6.70011,
+        0.98651
+      ],
+      "start_aabb_center": [
+        1.99488,
+        6.69997,
+        1.02373
+      ],
+      "start_aabb_low_z": 0.92922,
+      "start_origin": [
+        1.99991,
+        6.70001,
+        1.00837
+      ],
+      "authored_position": [
+        2.0,
+        6.7,
+        1.05337
+      ],
+      "bbox": [
+        0.28,
+        0.27031,
+        0.18674
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00681,
+      "drift_z": -0.05259,
+      "aabb_low_z": 0.8995,
+      "mass": 12.04177,
+      "explicitly_placed": true
+    }
+  ],
+  "support_z": 1.0,
+  "support_z_measured": null,
+  "penetration_check": "floor only: fewer than two authored objects rest on the spawn plane",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "UNSTABLE",
+      "object": "bag_of_chips",
+      "reason": "settled 0.0853 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    }
+  ],
+  "no_images": false,
+  "verdict": "FAIL"
+}

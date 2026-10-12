@@ -1,0 +1,282 @@
+{
+  "task": "remove_the_marker_from_the_bowl_6facf8",
+  "task_cfg_path": "REALM_DROID100/remove_the_marker_from_the_bowl_6facf8/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v4/droid100/remove_the_marker_from_the_bowl_6facf8/remove_the_marker_from_the_bowl_6facf8_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v4/droid100/remove_the_marker_from_the_bowl_6facf8/remove_the_marker_from_the_bowl_6facf8_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v4/droid100/remove_the_marker_from_the_bowl_6facf8/remove_the_marker_from_the_bowl_6facf8_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v4/droid100/remove_the_marker_from_the_bowl_6facf8/remove_the_marker_from_the_bowl_6facf8_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v4/droid100/remove_the_marker_from_the_bowl_6facf8/remove_the_marker_from_the_bowl_6facf8_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v4/droid100/remove_the_marker_from_the_bowl_6facf8/remove_the_marker_from_the_bowl_6facf8_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "marker",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "marker",
+      "settled_position": [
+        -0.17004,
+        -2.10501,
+        0.82374
+      ],
+      "settled_orientation": [
+        0.00219,
+        -0.0032,
+        0.00044,
+        0.99999
+      ],
+      "settled_aabb_center": [
+        -0.16506,
+        -2.105,
+        0.82375
+      ],
+      "start_aabb_center": [
+        -0.16501,
+        -2.105,
+        0.91048
+      ],
+      "start_aabb_low_z": 0.903,
+      "start_origin": [
+        -0.17,
+        -2.105,
+        0.91048
+      ],
+      "authored_position": [
+        -0.17,
+        -2.105,
+        0.95544
+      ],
+      "bbox": [
+        0.12562,
+        0.01476,
+        0.01496
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 4e-05,
+      "drift_z": -0.08674,
+      "aabb_low_z": 0.81615,
+      "mass": 0.02,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_coconut_oil",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_coconut_oil",
+      "settled_position": [
+        -0.45889,
+        -1.84063,
+        0.83744
+      ],
+      "settled_orientation": [
+        0.13189,
+        -0.70093,
+        -0.31559,
+        0.62586
+      ],
+      "settled_aabb_center": [
+        -0.47107,
+        -1.8463,
+        0.83884
+      ],
+      "start_aabb_center": [
+        -0.32912,
+        -1.84478,
+        0.94952
+      ],
+      "start_aabb_low_z": 0.83558,
+      "start_origin": [
+        -0.33,
+        -1.845,
+        0.934
+      ],
+      "authored_position": [
+        -0.33,
+        -1.845,
+        0.97896
+      ],
+      "bbox": [
+        0.07104,
+        0.07104,
+        0.22792
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.12896,
+      "drift_z": -0.09656,
+      "aabb_low_z": 0.80218,
+      "mass": 0.5,
+      "explicitly_placed": true,
+      "start_gap_m": 0.03064
+    },
+    {
+      "name": "distractor_sushi",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "sushi",
+      "settled_position": [
+        -0.17,
+        -1.845,
+        0.82318
+      ],
+      "settled_orientation": [
+        -2e-05,
+        -1e-05,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.17046,
+        -1.84522,
+        0.81701
+      ],
+      "start_aabb_center": [
+        -0.17046,
+        -1.84522,
+        0.82593
+      ],
+      "start_aabb_low_z": 0.81386,
+      "start_origin": [
+        -0.17,
+        -1.845,
+        0.8321
+      ],
+      "authored_position": [
+        -0.17,
+        -1.845,
+        0.87706
+      ],
+      "bbox": [
+        0.03544,
+        0.03626,
+        0.02413
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.00892,
+      "aabb_low_z": 0.80494,
+      "mass": 0.043,
+      "explicitly_placed": true,
+      "start_gap_m": 0.00892
+    },
+    {
+      "name": "distractor_allen_wrench",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "allen_wrench",
+      "settled_position": [
+        -0.33,
+        -2.105,
+        0.80681
+      ],
+      "settled_orientation": [
+        3e-05,
+        -1e-05,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.33644,
+        -2.09813,
+        0.80682
+      ],
+      "start_aabb_center": [
+        -0.33644,
+        -2.09813,
+        0.82191
+      ],
+      "start_aabb_low_z": 0.82004,
+      "start_origin": [
+        -0.33,
+        -2.105,
+        0.82191
+      ],
+      "authored_position": [
+        -0.33,
+        -2.105,
+        0.86687
+      ],
+      "bbox": [
+        0.1,
+        0.0216,
+        0.00374
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.0151,
+      "aabb_low_z": 0.80494,
+      "mass": 0.066,
+      "explicitly_placed": true,
+      "start_gap_m": 0.0151
+    },
+    {
+      "name": "bowl",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "bowl",
+      "settled_position": [
+        -0.17,
+        -2.105,
+        0.83721
+      ],
+      "settled_orientation": [
+        -2e-05,
+        -2e-05,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.17,
+        -2.105,
+        0.84393
+      ],
+      "start_aabb_center": [
+        -0.17,
+        -2.105,
+        0.86574
+      ],
+      "start_aabb_low_z": 0.82675,
+      "start_origin": [
+        -0.17,
+        -2.105,
+        0.85902
+      ],
+      "authored_position": [
+        -0.17,
+        -2.105,
+        0.90398
+      ],
+      "bbox": [
+        0.17445,
+        0.17445,
+        0.07796
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.02181,
+      "aabb_low_z": 0.80494,
+      "mass": 0.13215,
+      "explicitly_placed": true,
+      "start_gap_m": 0.02181
+    }
+  ],
+  "support_z": 0.85,
+  "support_z_measured": 0.80494,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "UNSTABLE",
+      "object": "distractor_bottle_of_coconut_oil",
+      "reason": "settled 0.1290 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    }
+  ],
+  "no_images": false,
+  "verdict": "FAIL"
+}

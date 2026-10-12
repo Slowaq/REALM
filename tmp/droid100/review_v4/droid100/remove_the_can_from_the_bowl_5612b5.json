@@ -1,0 +1,276 @@
+{
+  "task": "remove_the_can_from_the_bowl_5612b5",
+  "task_cfg_path": "REALM_DROID100/remove_the_can_from_the_bowl_5612b5/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v4/droid100/remove_the_can_from_the_bowl_5612b5/remove_the_can_from_the_bowl_5612b5_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v4/droid100/remove_the_can_from_the_bowl_5612b5/remove_the_can_from_the_bowl_5612b5_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v4/droid100/remove_the_can_from_the_bowl_5612b5/remove_the_can_from_the_bowl_5612b5_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v4/droid100/remove_the_can_from_the_bowl_5612b5/remove_the_can_from_the_bowl_5612b5_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v4/droid100/remove_the_can_from_the_bowl_5612b5/remove_the_can_from_the_bowl_5612b5_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v4/droid100/remove_the_can_from_the_bowl_5612b5/remove_the_can_from_the_bowl_5612b5_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "can",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "can_of_soda",
+      "settled_position": [
+        -0.16932,
+        -2.10541,
+        0.88773
+      ],
+      "settled_orientation": [
+        0.00297,
+        0.00489,
+        2e-05,
+        0.99998
+      ],
+      "settled_aabb_center": [
+        -0.16951,
+        -2.10513,
+        0.88567
+      ],
+      "start_aabb_center": [
+        -0.1701,
+        -2.10479,
+        0.92739
+      ],
+      "start_aabb_low_z": 0.87045,
+      "start_origin": [
+        -0.17,
+        -2.105,
+        0.92949
+      ],
+      "authored_position": [
+        -0.17,
+        -2.105,
+        0.97445
+      ],
+      "bbox": [
+        0.06316,
+        0.06316,
+        0.11381
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00079,
+      "drift_z": -0.04176,
+      "aabb_low_z": 0.82848,
+      "mass": 0.353,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_alfredo_sauce",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_alfredo_sauce",
+      "settled_position": [
+        -0.33001,
+        -1.84502,
+        0.86271
+      ],
+      "settled_orientation": [
+        0.00014,
+        -0.0001,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.33001,
+        -1.845,
+        0.86251
+      ],
+      "start_aabb_center": [
+        -0.33001,
+        -1.845,
+        0.8768
+      ],
+      "start_aabb_low_z": 0.81922,
+      "start_origin": [
+        -0.33,
+        -1.845,
+        0.877
+      ],
+      "authored_position": [
+        -0.33,
+        -1.845,
+        0.92196
+      ],
+      "bbox": [
+        0.05973,
+        0.05973,
+        0.11393
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 2e-05,
+      "drift_z": -0.01429,
+      "aabb_low_z": 0.80494,
+      "mass": 0.45,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01428
+    },
+    {
+      "name": "distractor_teaspoon",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "teaspoon",
+      "settled_position": [
+        -0.17,
+        -1.845,
+        0.80817
+      ],
+      "settled_orientation": [
+        -2e-05,
+        -4e-05,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.18077,
+        -1.84498,
+        0.8093
+      ],
+      "start_aabb_center": [
+        -0.18077,
+        -1.84498,
+        0.82507
+      ],
+      "start_aabb_low_z": 0.82071,
+      "start_origin": [
+        -0.17,
+        -1.845,
+        0.82394
+      ],
+      "authored_position": [
+        -0.17,
+        -1.845,
+        0.8689
+      ],
+      "bbox": [
+        0.09894,
+        0.02218,
+        0.0078
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.01577,
+      "aabb_low_z": 0.80494,
+      "mass": 0.027,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01577
+    },
+    {
+      "name": "distractor_sourdough",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "sourdough",
+      "settled_position": [
+        -0.33069,
+        -2.10535,
+        0.82562
+      ],
+      "settled_orientation": [
+        3e-05,
+        -0.00192,
+        -0.00023,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.33266,
+        -2.10696,
+        0.83075
+      ],
+      "start_aabb_center": [
+        -0.33198,
+        -2.10662,
+        0.85117
+      ],
+      "start_aabb_low_z": 0.82502,
+      "start_origin": [
+        -0.33,
+        -2.105,
+        0.84615
+      ],
+      "authored_position": [
+        -0.33,
+        -2.105,
+        0.89111
+      ],
+      "bbox": [
+        0.08979,
+        0.07987,
+        0.05222
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00077,
+      "drift_z": -0.02053,
+      "aabb_low_z": 0.80464,
+      "mass": 0.5,
+      "explicitly_placed": true,
+      "start_gap_m": 0.02008
+    },
+    {
+      "name": "bowl",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "bowl",
+      "settled_position": [
+        -0.16999,
+        -2.1051,
+        0.84408
+      ],
+      "settled_orientation": [
+        0.00128,
+        9e-05,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.16992,
+        -2.10513,
+        0.8453
+      ],
+      "start_aabb_center": [
+        -0.16994,
+        -2.10493,
+        0.86179
+      ],
+      "start_aabb_low_z": 0.82131,
+      "start_origin": [
+        -0.17,
+        -2.105,
+        0.86054
+      ],
+      "authored_position": [
+        -0.17,
+        -2.105,
+        0.9055
+      ],
+      "bbox": [
+        0.16932,
+        0.16932,
+        0.081
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0001,
+      "drift_z": -0.01646,
+      "aabb_low_z": 0.80495,
+      "mass": 0.27416,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01637
+    }
+  ],
+  "support_z": 0.85,
+  "support_z_measured": 0.80494,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

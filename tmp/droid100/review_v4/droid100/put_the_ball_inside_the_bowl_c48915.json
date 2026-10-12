@@ -1,0 +1,283 @@
+{
+  "task": "put_the_ball_inside_the_bowl_c48915",
+  "task_cfg_path": "REALM_DROID100/put_the_ball_inside_the_bowl_c48915/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v4/droid100/put_the_ball_inside_the_bowl_c48915/put_the_ball_inside_the_bowl_c48915_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v4/droid100/put_the_ball_inside_the_bowl_c48915/put_the_ball_inside_the_bowl_c48915_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v4/droid100/put_the_ball_inside_the_bowl_c48915/put_the_ball_inside_the_bowl_c48915_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v4/droid100/put_the_ball_inside_the_bowl_c48915/put_the_ball_inside_the_bowl_c48915_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v4/droid100/put_the_ball_inside_the_bowl_c48915/put_the_ball_inside_the_bowl_c48915_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v4/droid100/put_the_ball_inside_the_bowl_c48915/put_the_ball_inside_the_bowl_c48915_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "ball",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "tennis_ball",
+      "settled_position": [
+        1.89373,
+        6.7834,
+        0.93072
+      ],
+      "settled_orientation": [
+        -0.05334,
+        -0.38579,
+        -0.04209,
+        0.92008
+      ],
+      "settled_aabb_center": [
+        1.89439,
+        6.78394,
+        0.9305
+      ],
+      "start_aabb_center": [
+        1.92047,
+        6.78032,
+        0.94823
+      ],
+      "start_aabb_low_z": 0.91528,
+      "start_origin": [
+        1.92,
+        6.78,
+        0.94803
+      ],
+      "authored_position": [
+        1.92,
+        6.78,
+        0.99299
+      ],
+      "bbox": [
+        0.06673,
+        0.06584,
+        0.06598
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.02649,
+      "drift_z": -0.01731,
+      "aabb_low_z": 0.89707,
+      "mass": 0.057,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01659
+    },
+    {
+      "name": "bowl",
+      "present": true,
+      "authored": true,
+      "role": "target_objects",
+      "category": "bowl",
+      "settled_position": [
+        2.08001,
+        6.6199,
+        0.93863
+      ],
+      "settled_orientation": [
+        0.00127,
+        8e-05,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        2.08008,
+        6.61987,
+        0.93985
+      ],
+      "start_aabb_center": [
+        2.08006,
+        6.62007,
+        0.95679
+      ],
+      "start_aabb_low_z": 0.91631,
+      "start_origin": [
+        2.08,
+        6.62,
+        0.95554
+      ],
+      "authored_position": [
+        2.08,
+        6.62,
+        1.0005
+      ],
+      "bbox": [
+        0.16932,
+        0.16932,
+        0.081
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0001,
+      "drift_z": -0.01691,
+      "aabb_low_z": 0.8995,
+      "mass": 0.27416,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01762
+    },
+    {
+      "name": "distractor_bottle_of_conditioner",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_conditioner",
+      "settled_position": [
+        2.07946,
+        6.78214,
+        0.90845
+      ],
+      "settled_orientation": [
+        -0.02799,
+        -0.00961,
+        -0.02343,
+        0.99929
+      ],
+      "settled_aabb_center": [
+        2.08177,
+        6.78254,
+        0.90871
+      ],
+      "start_aabb_center": [
+        2.08232,
+        6.78009,
+        0.92496
+      ],
+      "start_aabb_low_z": 0.91501,
+      "start_origin": [
+        2.08,
+        6.78,
+        0.92459
+      ],
+      "authored_position": [
+        2.08,
+        6.78,
+        0.96956
+      ],
+      "bbox": [
+        0.1,
+        0.04052,
+        0.01911
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00221,
+      "drift_z": -0.01614,
+      "aabb_low_z": 0.89869,
+      "mass": 0.46,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01632
+    },
+    {
+      "name": "distractor_stapler",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "stapler",
+      "settled_position": [
+        1.91999,
+        6.62,
+        0.91442
+      ],
+      "settled_orientation": [
+        0.0,
+        -0.00052,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        1.91893,
+        6.61961,
+        0.92238
+      ],
+      "start_aabb_center": [
+        1.91893,
+        6.61962,
+        0.9455
+      ],
+      "start_aabb_low_z": 0.92258,
+      "start_origin": [
+        1.92,
+        6.62,
+        0.93755
+      ],
+      "authored_position": [
+        1.92,
+        6.62,
+        0.98251
+      ],
+      "bbox": [
+        0.08743,
+        0.01823,
+        0.04502
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 1e-05,
+      "drift_z": -0.02313,
+      "aabb_low_z": 0.89941,
+      "mass": 0.2,
+      "explicitly_placed": true,
+      "start_gap_m": 0.02389
+    },
+    {
+      "name": "distractor_jar_of_dill_seed",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "jar_of_dill_seed",
+      "settled_position": [
+        1.90095,
+        6.69789,
+        0.94194
+      ],
+      "settled_orientation": [
+        0.01177,
+        0.01935,
+        0.01109,
+        0.99968
+      ],
+      "settled_aabb_center": [
+        1.90084,
+        6.69781,
+        0.93543
+      ],
+      "start_aabb_center": [
+        1.90016,
+        6.6998,
+        0.94561
+      ],
+      "start_aabb_low_z": 0.90852,
+      "start_origin": [
+        1.9,
+        6.7,
+        0.95213
+      ],
+      "authored_position": [
+        1.9,
+        6.7,
+        0.99709
+      ],
+      "bbox": [
+        0.06244,
+        0.06151,
+        0.07418
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00231,
+      "drift_z": -0.01019,
+      "aabb_low_z": 0.8995,
+      "mass": 0.15602,
+      "explicitly_placed": true,
+      "start_gap_m": 0.00983
+    }
+  ],
+  "support_z": 1.0,
+  "support_z_measured": 0.89869,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "DRIFT",
+      "object": "ball",
+      "reason": "settled 0.0265 m from its authored XY"
+    }
+  ],
+  "no_images": false,
+  "verdict": "PASS"
+}

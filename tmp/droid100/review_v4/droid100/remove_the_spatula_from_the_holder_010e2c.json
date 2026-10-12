@@ -1,0 +1,287 @@
+{
+  "task": "remove_the_spatula_from_the_holder_010e2c",
+  "task_cfg_path": "REALM_DROID100/remove_the_spatula_from_the_holder_010e2c/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v4/droid100/remove_the_spatula_from_the_holder_010e2c/remove_the_spatula_from_the_holder_010e2c_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v4/droid100/remove_the_spatula_from_the_holder_010e2c/remove_the_spatula_from_the_holder_010e2c_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v4/droid100/remove_the_spatula_from_the_holder_010e2c/remove_the_spatula_from_the_holder_010e2c_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v4/droid100/remove_the_spatula_from_the_holder_010e2c/remove_the_spatula_from_the_holder_010e2c_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v4/droid100/remove_the_spatula_from_the_holder_010e2c/remove_the_spatula_from_the_holder_010e2c_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v4/droid100/remove_the_spatula_from_the_holder_010e2c/remove_the_spatula_from_the_holder_010e2c_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "spatula",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "spatula",
+      "settled_position": [
+        -4.53809,
+        -1.86572,
+        0.92415
+      ],
+      "settled_orientation": [
+        0.00109,
+        -0.0083,
+        0.13567,
+        0.99072
+      ],
+      "settled_aabb_center": [
+        -4.53096,
+        -1.86906,
+        0.92655
+      ],
+      "start_aabb_center": [
+        -4.41783,
+        -1.84998,
+        1.03434
+      ],
+      "start_aabb_low_z": 0.96375,
+      "start_origin": [
+        -4.42,
+        -1.85,
+        1.04329
+      ],
+      "authored_position": [
+        -4.42,
+        -1.85,
+        1.08825
+      ],
+      "bbox": [
+        0.14,
+        0.03015,
+        0.01052
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.11913,
+      "drift_z": -0.11914,
+      "aabb_low_z": 0.91965,
+      "mass": 0.13,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_hamburger_bun",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "hamburger_bun",
+      "settled_position": [
+        -4.5799,
+        -1.65014,
+        0.92959
+      ],
+      "settled_orientation": [
+        0.00625,
+        0.00442,
+        -2e-05,
+        0.99997
+      ],
+      "settled_aabb_center": [
+        -4.58009,
+        -1.6502,
+        0.9325
+      ],
+      "start_aabb_center": [
+        -4.58012,
+        -1.65012,
+        0.95071
+      ],
+      "start_aabb_low_z": 0.93768,
+      "start_origin": [
+        -4.58,
+        -1.65,
+        0.94823
+      ],
+      "authored_position": [
+        -4.58,
+        -1.65,
+        0.9932
+      ],
+      "bbox": [
+        0.08664,
+        0.08494,
+        0.02639
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00017,
+      "drift_z": -0.01864,
+      "aabb_low_z": 0.91965,
+      "mass": 0.05,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01803
+    },
+    {
+      "name": "distractor_jar_of_peppercorns",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "jar_of_peppercorns",
+      "settled_position": [
+        -4.42,
+        -1.65,
+        0.94847
+      ],
+      "settled_orientation": [
+        -1e-05,
+        1e-05,
+        1e-05,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -4.42524,
+        -1.65089,
+        0.98604
+      ],
+      "start_aabb_center": [
+        -4.42525,
+        -1.65089,
+        1.03847
+      ],
+      "start_aabb_low_z": 0.97207,
+      "start_origin": [
+        -4.42,
+        -1.65,
+        1.00089
+      ],
+      "authored_position": [
+        -4.42,
+        -1.65,
+        1.04585
+      ],
+      "bbox": [
+        0.095,
+        0.095,
+        0.13171
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.05242,
+      "aabb_low_z": 0.91965,
+      "mass": 0.05783,
+      "explicitly_placed": true,
+      "start_gap_m": 0.05242
+    },
+    {
+      "name": "distractor_screwdriver",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "screwdriver",
+      "settled_position": [
+        -4.58003,
+        -1.84912,
+        0.9246
+      ],
+      "settled_orientation": [
+        -0.10045,
+        -0.00246,
+        0.00709,
+        0.99491
+      ],
+      "settled_aabb_center": [
+        -4.59502,
+        -1.849,
+        0.92463
+      ],
+      "start_aabb_center": [
+        -4.59499,
+        -1.85001,
+        0.93964
+      ],
+      "start_aabb_low_z": 0.93449,
+      "start_origin": [
+        -4.58,
+        -1.85,
+        0.93965
+      ],
+      "authored_position": [
+        -4.58,
+        -1.85,
+        0.98461
+      ],
+      "bbox": [
+        0.1,
+        0.00928,
+        0.00922
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00088,
+      "drift_z": -0.01505,
+      "aabb_low_z": 0.91965,
+      "mass": 0.125,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01484
+    },
+    {
+      "name": "holder",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "pencil_holder",
+      "settled_position": [
+        -4.48385,
+        -1.85177,
+        0.95222
+      ],
+      "settled_orientation": [
+        -0.00521,
+        -0.70709,
+        -0.00521,
+        0.70709
+      ],
+      "settled_aabb_center": [
+        -4.49008,
+        -1.85166,
+        0.95221
+      ],
+      "start_aabb_center": [
+        -4.42001,
+        -1.84999,
+        0.9779
+      ],
+      "start_aabb_low_z": 0.94127,
+      "start_origin": [
+        -4.42,
+        -1.85,
+        0.97166
+      ],
+      "authored_position": [
+        -4.42,
+        -1.85,
+        1.01663
+      ],
+      "bbox": [
+        0.06512,
+        0.07759,
+        0.07325
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.06387,
+      "drift_z": -0.01944,
+      "aabb_low_z": 0.91965,
+      "mass": 0.05055,
+      "explicitly_placed": true,
+      "start_gap_m": 0.02162
+    }
+  ],
+  "support_z": 1.05,
+  "support_z_measured": 0.91965,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "UNSTABLE",
+      "object": "spatula",
+      "reason": "settled 0.1191 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    },
+    {
+      "code": "UNSTABLE",
+      "object": "holder",
+      "reason": "settled 0.0639 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    }
+  ],
+  "no_images": false,
+  "verdict": "FAIL"
+}

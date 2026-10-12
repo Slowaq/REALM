@@ -1,0 +1,226 @@
+{
+  "task": "turn_the_bottle_5069c2",
+  "task_cfg_path": "REALM_DROID100/turn_the_bottle_5069c2/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v4/droid100/turn_the_bottle_5069c2/turn_the_bottle_5069c2_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v4/droid100/turn_the_bottle_5069c2/turn_the_bottle_5069c2_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v4/droid100/turn_the_bottle_5069c2/turn_the_bottle_5069c2_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v4/droid100/turn_the_bottle_5069c2/turn_the_bottle_5069c2_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v4/droid100/turn_the_bottle_5069c2/turn_the_bottle_5069c2_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v4/droid100/turn_the_bottle_5069c2/turn_the_bottle_5069c2_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "bottle",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "bottle_of_water",
+      "settled_position": [
+        5.25005,
+        6.57992,
+        0.79796
+      ],
+      "settled_orientation": [
+        -9e-05,
+        -7e-05,
+        0.00033,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.25005,
+        6.57992,
+        0.81307
+      ],
+      "start_aabb_center": [
+        5.25,
+        6.58,
+        0.8455
+      ],
+      "start_aabb_low_z": 0.77015,
+      "start_origin": [
+        5.25,
+        6.58,
+        0.83039
+      ],
+      "authored_position": [
+        5.25,
+        6.58,
+        0.87535
+      ],
+      "bbox": [
+        0.06471,
+        0.06538,
+        0.1507
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 9e-05,
+      "drift_z": -0.03243,
+      "aabb_low_z": 0.73772,
+      "mass": 0.675,
+      "explicitly_placed": true,
+      "start_gap_m": 0.03251
+    },
+    {
+      "name": "distractor_bottle_of_tomato_paste",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_tomato_paste",
+      "settled_position": [
+        5.05,
+        6.82002,
+        0.80292
+      ],
+      "settled_orientation": [
+        -0.00015,
+        -2e-05,
+        1e-05,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.05,
+        6.82004,
+        0.80526
+      ],
+      "start_aabb_center": [
+        5.05,
+        6.82,
+        0.82501
+      ],
+      "start_aabb_low_z": 0.75739,
+      "start_origin": [
+        5.05,
+        6.82,
+        0.82267
+      ],
+      "authored_position": [
+        5.05,
+        6.82,
+        0.86764
+      ],
+      "bbox": [
+        0.05845,
+        0.05271,
+        0.13527
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 2e-05,
+      "drift_z": -0.01975,
+      "aabb_low_z": 0.73764,
+      "mass": 0.2862,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01975
+    },
+    {
+      "name": "distractor_jar_of_jelly",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "jar_of_jelly",
+      "settled_position": [
+        5.24509,
+        6.81954,
+        0.79019
+      ],
+      "settled_orientation": [
+        0.00374,
+        -0.00059,
+        0.08532,
+        0.99635
+      ],
+      "settled_aabb_center": [
+        5.24984,
+        6.81931,
+        0.79324
+      ],
+      "start_aabb_center": [
+        5.25541,
+        6.81958,
+        0.81329
+      ],
+      "start_aabb_low_z": 0.75753,
+      "start_origin": [
+        5.25,
+        6.82,
+        0.81023
+      ],
+      "authored_position": [
+        5.25,
+        6.82,
+        0.85519
+      ],
+      "bbox": [
+        0.1,
+        0.07503,
+        0.11039
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00493,
+      "drift_z": -0.02004,
+      "aabb_low_z": 0.7376,
+      "mass": 0.19652,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01989
+    },
+    {
+      "name": "distractor_wire_cutter",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "wire_cutter",
+      "settled_position": [
+        5.05,
+        6.58,
+        0.74154
+      ],
+      "settled_orientation": [
+        -0.0001,
+        -7e-05,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.05411,
+        6.57999,
+        0.74176
+      ],
+      "start_aabb_center": [
+        5.05411,
+        6.57999,
+        0.7588
+      ],
+      "start_aabb_low_z": 0.75474,
+      "start_origin": [
+        5.05,
+        6.58,
+        0.75858
+      ],
+      "authored_position": [
+        5.05,
+        6.58,
+        0.80355
+      ],
+      "bbox": [
+        0.1,
+        0.03596,
+        0.00709
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.01704,
+      "aabb_low_z": 0.73769,
+      "mass": 0.275,
+      "explicitly_placed": true,
+      "start_gap_m": 0.0171
+    }
+  ],
+  "support_z": 0.87,
+  "support_z_measured": 0.73764,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

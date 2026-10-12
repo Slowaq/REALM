@@ -483,6 +483,36 @@ class SourceRelationTest(unittest.TestCase):
         self.assertEqual(set(result["alternatives"]), {"coffee_cup", "paper_cup", "teacup"})
 
 
+class MeasuredSurfaceTest(unittest.TestCase):
+    """v3 render: objects authored 5 cm above the spawn plane fell 10-16 cm in five of the six
+    DROID100 regions, because the spawn plane sits that far above the real table."""
+
+    def test_measured_region_starts_just_above_the_real_table(self):
+        from tooling.task_authoring.validation import SETTLE_CLEARANCE_M, resting_z
+
+        z = resting_z(0.10, "office_cubicles_left", "Office_Desk")
+        self.assertAlmostEqual(z, 0.05 + SETTLE_CLEARANCE_M - 0.11)
+        # An unmeasured region keeps the old convention rather than risk starting inside a table.
+        self.assertAlmostEqual(resting_z(0.10, "Merom_1_int", "Table"), 0.10)
+
+    def test_validator_follows_the_measured_surface(self):
+        from tooling.task_authoring.validation import resting_z, validate
+
+        def doc(z):
+            return {"supported_scenes": {"Wainscott_0_int": ["Dining_Table"]}, "task_type": "pick",
+                    "instruction": "Pick up the apple",
+                    "main_objects": [{"type": "DatasetObject", "name": "apple", "category": "apple",
+                                      "model": "a", "bounding_box": [0.08, 0.08, 0.08],
+                                      "orientation": [0, 0, 0, 1],
+                                      "relative_bbox_position": [0.2, 0.2, z]}]}
+
+        codes = lambda z: {f.code for f in validate(doc(z)).findings}  # noqa: E731
+        self.assertFalse(codes(resting_z(0.08, "Wainscott_0_int", "Dining_Table"))
+                         & {"FLOATING_OBJECT", "SUPPORT_PENETRATION", "SUPPORT_CLEARANCE"})
+        self.assertIn("FLOATING_OBJECT", codes(0.04 + 0.05))
+        self.assertIn("SUPPORT_PENETRATION", codes(0.04 - 0.085 - 0.01))
+
+
 class ExportFolderNameTest(unittest.TestCase):
     def test_folder_is_named_after_the_final_instruction(self):
         record = {"instruction": "Put the brush in the clear cup", "task_id": "bcc31e0000aa",

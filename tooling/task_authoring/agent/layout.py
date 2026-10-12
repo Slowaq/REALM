@@ -21,7 +21,12 @@ import random
 from pathlib import Path
 
 from tooling.task_authoring.agent.corrections import merge_document
-from tooling.task_authoring.validation import CAPACITY_MARGIN, fits_lengthwise
+from tooling.task_authoring.validation import (
+    CAPACITY_MARGIN,
+    fits_lengthwise,
+    resting_z,
+    vertical_extent,
+)
 from tooling.task_authoring.authoring import (
     discover_assets,
     load_camera_extrinsics,
@@ -30,7 +35,6 @@ from tooling.task_authoring.authoring import (
 )
 from tooling.task_authoring.generate_realm_droid100 import (
     ELLIPTICAL_SUPPORTS,
-    SUPPORT_CLEARANCE,
     UNSAFE_SCENE_REGIONS,
     dataset_object,
     ensure_receiver_capacity,
@@ -167,7 +171,9 @@ def place(config: dict, placed: list[dict], region: dict) -> None:
     for ux, uy in candidates:
         x = max(bx / 2, min(width - bx / 2, ux * width))
         y = max(by / 2, min(depth - by / 2, uy * depth))
-        z = float(config["bounding_box"][2]) / 2 + SUPPORT_CLEARANCE
+        # Just above the region's MEASURED surface, not 5 cm above the spawn plane: the spawn plane
+        # sits up to 11 cm above the real table, and a 10-16 cm drop tipped and rolled objects.
+        z = resting_z(float(config["bounding_box"][2]), region.get("scene"), region.get("support"))
         authored_z = math.ceil(z * 10_000_000) / 10_000_000
         config["relative_bbox_position"] = [round(x, 5), round(y, 5), authored_z]
         if bbox_fits_support(x, y, config["bounding_box"], width, depth, elliptical) and not overlaps(config, placed):
@@ -304,6 +310,7 @@ def solve_layout(
         relation = "on_top" if resolved_predicate == "on_top_of" else "inside"
         relation_audit = place_initial_relation(main_config, anchor, relation)
         if relation == "inside":
+            _lower_onto_measured_surface(main_config, anchor, region)
             relation_audit.update(_lie_flat_if_wide(main_config, anchor))
         placed.append(main_config)
         # A source task may still have a receiver ("take the pen out of the mug and put it in the
@@ -401,6 +408,20 @@ def _build_role(role: str, spec: dict, assets_by_category: dict, max_xy) -> tupl
         )
     config, audit = build_object(name, category, model, assets_by_category, max_xy)
     return config, ([audit] if audit else [])
+
+
+def _lower_onto_measured_surface(main: dict, container: dict, region: dict) -> None:
+    """Redo place_initial_relation's floor term against the measured surface.
+
+    It keeps the object at least `extent/2 + 5 cm` above the SPAWN plane. With the container now
+    resting on the real table (up to 11 cm lower), that floor would leave a pen hanging above its
+    mug instead of with its lower quarter inside the opening.
+    """
+    extent = vertical_extent(main["bounding_box"], main.get("orientation"))
+    source_top = float(container["relative_bbox_position"][2]) + float(container["bounding_box"][2]) / 2
+    z = max(resting_z(extent, region.get("scene"), region.get("support")), source_top + extent / 4)
+    x, y, _ = main["relative_bbox_position"]
+    main["relative_bbox_position"] = [x, y, round(z, 7)]
 
 
 #: Gap between the rim and the lower face of an object dropped into a container.

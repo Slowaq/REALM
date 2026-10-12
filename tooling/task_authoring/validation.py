@@ -31,6 +31,49 @@ DEFAULT_SCENES = REPO_ROOT / "realm" / "config" / "scenes" / "scenes.yaml"
 DEFAULT_PROGRESSIONS = REPO_ROOT / "realm" / "config" / "tasks" / "task_progressions.yaml"
 
 SUPPORT_CLEARANCE = 0.05
+#: How far the REAL support surface sits below scenes.yaml's spawn `z`, per region, measured from
+#: renders: the fall of objects authored at bbox/2 + SUPPORT_CLEARANCE, minus that 5 cm, using the
+#: lower quartile and rounded down to 5 mm so an object never starts inside the table. Authoring
+#: against the spawn plane dropped objects 10-16 cm in five of these six regions; they bounced,
+#: rolled, tipped and slid off bowls before the policy started. Measured on REALM_DROID100 render
+#: v3 (2026-10-12), 43-139 objects per region, interquartile range under 1 cm.
+MEASURED_SURFACE_BELOW_SPAWN_M = {
+    ("Benevolence_1_int", "Dining_Table"): 0.095,
+    ("Benevolence_1_int", "Kitchen_Counter"): 0.055,
+    ("Pomaria_1_int", "Kitchen_Counter"): 0.085,
+    ("Pomaria_1_int", "Table"): 0.0,
+    ("Wainscott_0_int", "Dining_Table"): 0.085,
+    ("office_cubicles_left", "Office_Desk"): 0.11,
+}
+#: Gap above a MEASURED surface: enough to clear mesh slop, small enough to settle, not drop.
+SETTLE_CLEARANCE_M = 0.015
+
+
+def surface_below_spawn(scene: str | None, support: str | None) -> float | None:
+    """Measured depth of the real support below the spawn plane, or None when not measured."""
+    return MEASURED_SURFACE_BELOW_SPAWN_M.get((str(scene), str(support)))
+
+
+def resting_z(bbox_height: float, scene: str | None = None, support: str | None = None) -> float:
+    """Relative z (bbox centre) at which an object authored on the support starts.
+
+    On a measured region: SETTLE_CLEARANCE_M above the real surface. Elsewhere the original
+    convention, SUPPORT_CLEARANCE above the spawn plane, because an unmeasured surface may sit
+    exactly at the spawn plane and starting lower would put the object inside it.
+    """
+    below = surface_below_spawn(scene, support)
+    if below is None:
+        return float(bbox_height) / 2 + SUPPORT_CLEARANCE
+    return float(bbox_height) / 2 + SETTLE_CLEARANCE_M - below
+
+
+def document_region(document: dict) -> tuple[str | None, str | None]:
+    supported = document.get("supported_scenes") or {}
+    if not isinstance(supported, dict) or not supported:
+        return None, None
+    scene = next(iter(supported))
+    supports = supported[scene] or []
+    return str(scene), (str(supports[0]) if supports else None)
 SUPPORT_EDGE_CLEARANCE = 0.025
 RELATION_CLEARANCE = 0.01
 OVERLAP_MARGIN = 0.012
@@ -392,6 +435,7 @@ def check_support_geometry(document: dict, region: dict[str, float] | None,
                            elliptical: bool) -> list[Finding]:
     findings = []
     relations = declared_relations(document)
+    scene, support = document_region(document)
     for role, index, config in all_objects(document):
         name = str(config.get("name", f"{role}[{index}]"))
         path = f"{role}[{index}].relative_bbox_position"
@@ -406,30 +450,31 @@ def check_support_geometry(document: dict, region: dict[str, float] | None,
             continue
         if bbox is None:
             continue
-        expected_z = bbox[2] / 2 + SUPPORT_CLEARANCE
+        expected_z = resting_z(bbox[2], scene, support)
+        floor = -(surface_below_spawn(scene, support) or 0.0)
         stacked = name in relations
         if not stacked:
-            if position[2] < bbox[2] / 2 - 1e-6:
+            if position[2] < floor + bbox[2] / 2 - 1e-6:
                 findings.append(Finding(
                     "SUPPORT_PENETRATION", "error",
-                    f"z={position[2]:.4f} puts the lower bbox face {bbox[2] / 2 - position[2]:.4f} m "
-                    "below the support; the first physics step resolves that as a large contact impulse",
+                    f"z={position[2]:.4f} puts the lower bbox face "
+                    f"{floor + bbox[2] / 2 - position[2]:.4f} m below the support; the first physics step resolves that as a large contact impulse",
                     obj=name, path=path,
                     fix={"path": path, "value": [position[0], position[1], round(expected_z, 7)]},
                 ))
             elif position[2] > expected_z + FLOAT_TOLERANCE:
                 findings.append(Finding(
                     "FLOATING_OBJECT", "error",
-                    f"z={position[2]:.4f} leaves a {position[2] - bbox[2] / 2:.4f} m gap above the "
-                    "support, which nothing in the scene holds up",
+                    f"z={position[2]:.4f} leaves a {position[2] - bbox[2] / 2 - floor:.4f} m gap "
+                    "above the support, which nothing in the scene holds up",
                     obj=name, path=path,
                     fix={"path": path, "value": [position[0], position[1], round(expected_z, 7)]},
                 ))
             elif abs(position[2] - expected_z) > 1e-6:
                 findings.append(Finding(
                     "SUPPORT_CLEARANCE", "warning",
-                    f"z={position[2]:.4f}; the authoring convention is bbox_height/2 + "
-                    f"{SUPPORT_CLEARANCE} = {expected_z:.4f}",
+                    f"z={position[2]:.4f}; the authoring convention for this region is "
+                    f"{expected_z:.4f} (see resting_z)",
                     obj=name, path=path,
                     fix={"path": path, "value": [position[0], position[1], round(expected_z, 7)]},
                 ))

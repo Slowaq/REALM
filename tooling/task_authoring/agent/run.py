@@ -469,7 +469,11 @@ def generate_one(
 
 
 def write_task(record: dict, output: Path, session: tools.Session | None = None) -> Path:
-    directory = output / f"{_slug(record['instruction'])[:72]}_{record['task_id'][:6]}"
+    # Named after the instruction the policy is given, not the DROID wording it came from: a folder
+    # called `..._black_cup` holding a white mug read as a broken task. The source wording stays in
+    # provenance.original_instruction, and the task_id suffix keeps the name unique and traceable.
+    final = (record.get("document") or {}).get("instruction") or record["instruction"]
+    directory = output / f"{_slug(final)[:72]}_{record['task_id'][:6]}"
     directory.mkdir(parents=True, exist_ok=True)
     (directory / "default.yaml").write_text(
         yaml.safe_dump(record["document"], sort_keys=False, width=120), encoding="utf-8"

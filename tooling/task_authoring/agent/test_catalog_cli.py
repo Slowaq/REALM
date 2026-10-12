@@ -483,6 +483,15 @@ class SourceRelationTest(unittest.TestCase):
         self.assertEqual(set(result["alternatives"]), {"coffee_cup", "paper_cup", "teacup"})
 
 
+class ExportFolderNameTest(unittest.TestCase):
+    def test_folder_is_named_after_the_final_instruction(self):
+        record = {"instruction": "Put the brush in the clear cup", "task_id": "bcc31e0000aa",
+                  "document": {"instruction": "Put the brush in the cup"}}
+        with tempfile.TemporaryDirectory() as tmp:
+            directory = run.write_task(record, Path(tmp))
+        self.assertEqual(directory.name, "put_the_brush_in_the_cup_bcc31e")
+
+
 class CameraFramingTest(unittest.TestCase):
     """The pink-plate render's external cameras saw mostly ceiling: one looked level, one up."""
 

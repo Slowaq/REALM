@@ -566,7 +566,9 @@ def review_one(task_cfg_path: str, out_dir: Path, *, robot: str = "DROID_mounted
         record["render_errors"] += errors
         # No images at all is a harness failure, not a clean scene: never let it read as a pass.
         record["no_images"] = not record["renders"]
-        hard = {"MISSING", "UNSTABLE", "PENETRATION", "DROPPED", "PHYSICS_FROZEN"}
+        # PHYSICS_FROZEN is reported, not failed: hand-authored configs (REALM_DROID10's drawers,
+        # switch, pour) place every object already at rest, so nothing moving is legitimate there.
+        hard = {"MISSING", "UNSTABLE", "PENETRATION", "DROPPED"}
         failed = any(finding["code"] in hard for finding in record["compute_findings"])
         record["verdict"] = "FAIL" if (failed or record["no_images"]) else "PASS"
     except Exception as error:

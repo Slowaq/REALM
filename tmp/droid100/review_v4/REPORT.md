@@ -4,7 +4,7 @@
 - Configs: `realm/config/tasks/REALM_DROID100` restored from `origin/pilot-configs` (aa9f2a5, "1.5 cm start above the measured table"), 103 task folders.
 - GPU: no pi05 server was running. robometer_server (9.8 GB, someone else's) shared the GPU; there were no out-of-memory errors.
 - Command: `tmp/gpu_session/run_in_container.sh tooling/task_authoring/render_review.py --family REALM_DROID100 --out tmp/droid100/review_v4/droid100` (default 60 steps). Log: `tmp/gpu_session/render_v4_droid100.log`.
-- Verdicts are taken from the VERDICT lines and JSONs only. Every task has a JSON: no NO_JSON and no ERROR.
+- Script verdicts are taken from the VERDICT lines and JSONs only. The FAIL section adds a visual verdict from the renders, which supersedes the script verdict. Every task has a JSON: no NO_JSON and no ERROR.
 - Images: the code writes t000 and t060. All image judgements below use **t060** (after the settle).
 
 ## Tally
@@ -46,24 +46,32 @@ The deciles are −0.048, −0.030, −0.024, −0.021, −0.019, −0.017, −0
 | take_the_soap_dispenser_out_of_the_container | soap_dispenser | −0.113 |
 | remove_the_spoon_from_the_basket | spoon | −0.108 |
 
-## Every FAIL (all UNSTABLE: drift_xy > 0.03 m)
+## Every FAIL: script verdict vs. visual verdict
 
-| task | findings |
-|---|---|
-| put_the_book_in_the_basket_5d00b8 | UNSTABLE distractor_pruner 0.146 |
-| put_the_marker_in_the_pot_f6f5d5 | UNSTABLE distractor_pruner 0.144 |
-| put_the_towel_in_the_bowl_22f218 | UNSTABLE distractor_pruner 0.146 |
-| put_the_towel_inside_the_paper_bag_e2867b | UNSTABLE distractor_bottle_of_mustard 0.033 |
-| remove_the_bag_of_chips_from_the_sink_427db2 | UNSTABLE bag_of_chips 0.085 |
-| remove_the_banana_from_the_box_859416 | UNSTABLE banana 0.039 |
-| remove_the_knife_from_the_cup_aec737 | UNSTABLE knife 0.099; UNSTABLE cup 0.070 |
-| remove_the_lid_from_the_bowl_8f6fd3 | UNSTABLE lid 0.126; UNSTABLE bowl 0.069 |
-| remove_the_marker_from_the_bowl_6facf8 | UNSTABLE distractor_bottle_of_coconut_oil 0.129 |
-| remove_the_mug_from_the_sink_ef7a36 | UNSTABLE mug 0.066 |
-| remove_the_spatula_from_the_holder_010e2c | UNSTABLE spatula 0.119; UNSTABLE holder 0.064 |
-| take_the_sunglasses_out_of_the_box_a46534 | UNSTABLE sunglasses 0.031; UNSTABLE box 0.035 |
+render_review marks UNSTABLE from one number: how far an object slid in XY (drift_xy > 0.03 m). It cannot tell an object that settled into a natural resting pose from one that fell over or left its container. The visual verdict below comes from reviewing the t060 renders, and it supersedes the script verdict.
 
-**distractor_pruner fails the same way in all three tasks that use it.** It moves about 0.145 m and its tilt changes about 90°. It is authored standing on edge and falls flat.
+| task | script findings | visual verdict |
+|---|---|---|
+| remove_the_knife_from_the_cup_aec737 | UNSTABLE knife 0.099; cup 0.070 | **real fail**: the knife knocked the cup over |
+| remove_the_lid_from_the_bowl_8f6fd3 | UNSTABLE lid 0.126; bowl 0.069 | **real fail**: the bowl tipped and the lid slid off onto the table |
+| remove_the_marker_from_the_bowl_6facf8 | UNSTABLE coconut-oil bottle 0.129 | **real fail**: the coconut-oil bottle fell over |
+| remove_the_spatula_from_the_holder_010e2c | UNSTABLE spatula 0.119; holder 0.064 | **real fail**: the spatula knocked the holder over |
+| take_the_sunglasses_out_of_the_box_a46534 | UNSTABLE sunglasses 0.031; box 0.035 | **unclear**: the sunglasses rest only halfway in the box; it is not clear they can be taken out |
+| remove_the_banana_from_the_box_859416 | UNSTABLE banana 0.039 | placement OK (the banana is in the box); **asset problem**: the banana renders black |
+| put_the_towel_inside_the_paper_bag_e2867b | UNSTABLE mustard bottle 0.033 | OK: the mustard bottle is slightly tilted but still standing |
+| remove_the_bag_of_chips_from_the_sink_427db2 | UNSTABLE bag_of_chips 0.085 | OK: the chips are in the sink |
+| remove_the_mug_from_the_sink_ef7a36 | UNSTABLE mug 0.066 | OK: the mug rests in the sink |
+| put_the_book_in_the_basket_5d00b8 | UNSTABLE pruner 0.146 | OK: the pruner rests flat, a normal resting pose |
+| put_the_marker_in_the_pot_f6f5d5 | UNSTABLE pruner 0.144 | OK: as above |
+| put_the_towel_in_the_bowl_22f218 | UNSTABLE pruner 0.146 | OK: as above |
+
+**Visual tally of the 12 script FAILs:**
+- 4 real fails
+- 1 unclear (sunglasses)
+- 1 asset problem (black banana)
+- 6 OK
+
+**One task the script PASSed has a visual problem.** In remove_the_pen_from_the_box_c9c5dd, the pen sank through the box floor (see below).
 
 DRIFT (warning only, all PASS):
 - place_the_mug_in_the_sink: sink
@@ -92,12 +100,15 @@ None. No object's lower face is more than 2 cm below the measured surface. v3's 
 ### Tipped over
 | task | object |
 |---|---|
-| remove_the_knife_from_the_cup | **cup** lies on its side |
-| remove_the_lid_from_the_bowl | **bowl** tipped about 48°, its opening facing sensor0 |
-| remove_the_spatula_from_the_holder | **holder** (white cube) lies on its side |
-| remove_the_marker_from_the_bowl | distractor coconut-oil bottle lies on its side (moved 0.13 m) |
-| put_the_book_in_the_basket / put_the_marker_in_the_pot / put_the_towel_in_the_bowl | distractor pruner fell from on-edge to flat (moved 0.14 m) |
-| remove_the_mug_from_the_sink | **mug** starts about 17 cm above the sink and ends leaning against the sink wall inside it |
+| remove_the_knife_from_the_cup | **cup** knocked over by the knife |
+| remove_the_lid_from_the_bowl | **bowl** tipped, its opening facing sensor0 |
+| remove_the_spatula_from_the_holder | **holder** knocked over by the spatula |
+| remove_the_marker_from_the_bowl | distractor coconut-oil bottle fell over |
+
+These are not tipped:
+- The pruner, flat in three tasks, is in a normal resting pose.
+- The mustard bottle (put_the_towel_inside_the_paper_bag) is slightly tilted but standing.
+- The mug in remove_the_mug_from_the_sink rests correctly in the sink.
 
 ### Left the container it starts in
 | task | what happened |
@@ -107,7 +118,7 @@ None. No object's lower face is more than 2 cm below the measured surface. v3's 
 | remove_the_spatula_from_the_holder | spatula fell out of the holder onto the counter (moved 0.12 m) |
 | remove_the_pen_from_the_box | **pen sank through the box floor.** At t000 it is inside the box; at t060 its lower face (0.8046) is below the box's lower face (0.8050), at table height, and it is not visible in either camera. render_review does not flag this. |
 
-Borderline: in take_the_sunglasses_out_of_the_box the sunglasses' lower face is also 0.3 mm below the box's lower face. However, they are clearly visible inside the box in both cameras.
+Unclear: in take_the_sunglasses_out_of_the_box the sunglasses rest only halfway in the box, and their lower face is 0.3 mm below the box's lower face. It is not clear they can be grasped and taken out.
 
 All other remove/take tasks keep their main object inside the starting container. I checked this numerically (settled XY within the container footprint) as well as in the images.
 

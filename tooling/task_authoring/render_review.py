@@ -81,9 +81,11 @@ FROZEN_FALL_M = 0.005
 HIGH_DROP_M = 0.06
 #: Tilt of an object's up-axis between reset and settle beyond which it has fallen over.
 TIPPED_DEG = 35.0
-#: An object declared inside a container whose lower face ends this close to (or below) the
-#: container's own lower face has gone through the container floor: floors are never this thin.
-THROUGH_FLOOR_M = 0.003
+#: An object declared inside a container whose lower face ends less than this above the
+#: container's own lower face has gone through the container floor. Render v4's pen and sunglasses
+#: ended 0.4 and 0.3 mm BELOW their box's lower face; render v5's banana resting correctly on a
+#: 1.8 mm storage-box floor ended 1.8 mm above it, which the earlier 3 mm threshold failed.
+THROUGH_FLOOR_M = 0.001
 
 
 def authored_names(cfg: dict) -> set:

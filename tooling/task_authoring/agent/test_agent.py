@@ -859,6 +859,13 @@ class SettleDriftTest(unittest.TestCase):
         self.assertEqual([(f["code"], f["object"]) for f in found], [("LEFT_CONTAINER", "pen")])
         pen["aabb_low_z"] = 0.815
         self.assertEqual(rr.relation_findings([box, pen], [("inside", "pen", "box")]), [])
+        # Render v5: a banana lying on a 1.8 mm box floor is inside, not through it.
+        pen["aabb_low_z"] = 0.8050 + 0.0018
+        self.assertEqual(rr.relation_findings([box, pen], [("inside", "pen", "box")]), [])
+        # v4's sunglasses ended 0.3 mm below the box's lower face.
+        pen["aabb_low_z"] = 0.8050 - 0.0003
+        self.assertEqual([f["code"] for f in rr.relation_findings([box, pen], [("inside", "pen", "box")])],
+                         ["LEFT_CONTAINER"])
 
         bowl = dict(box, name="bowl")
         lid = dict(pen, name="lid", aabb_low_z=0.80, settled_aabb_center=[0.35, 0.1, 0.81])

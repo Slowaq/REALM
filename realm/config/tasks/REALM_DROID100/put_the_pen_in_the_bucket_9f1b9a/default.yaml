@@ -1,0 +1,133 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the pen in the bucket
+instruction_obj_to_replace: pen
+instruction_target_to_replace: bucket
+instruction_verb_to_replace: put
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: pen
+  category: pen
+  model: nvyicz
+  bounding_box:
+  - 0.14
+  - 0.0100491
+  - 0.0118762
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - -0.0640619
+target_objects:
+- type: DatasetObject
+  name: bucket
+  category: bucket
+  model: lsmlzi
+  bounding_box:
+  - 0.230328
+  - 0.28
+  - 0.1694
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.0147
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_cranberry_juice
+  category: bottle_of_cranberry_juice
+  model: heoxnw
+  bounding_box:
+  - 0.0774
+  - 0.07708
+  - 0.22915
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - 0.044575
+- type: DatasetObject
+  name: distractor_erlenmeyer_flask
+  category: erlenmeyer_flask
+  model: bpwjxr
+  bounding_box:
+  - 0.0776
+  - 0.07761
+  - 0.15317
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - 0.006585
+- type: DatasetObject
+  name: distractor_stapler
+  category: stapler
+  model: kgnsas
+  bounding_box:
+  - 0.08743
+  - 0.01823
+  - 0.04502
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.375
+  - 0.3
+  - -0.04749
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: pen
+  object: bucket
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.3216046
+    - -0.2404684
+    - 0.2163349
+    rot:
+    - 0.3643387
+    - -0.1070027
+    - -0.3865395
+    - 0.8404731
+  cam2:
+    pos:
+    - 0.2646428
+    - 0.2966726
+    - 0.2662684
+    rot:
+    - 0.1614232
+    - -0.4352795
+    - -0.7609041
+    - 0.4533203
+provenance:
+  task_id: 9f1b9a9aa449
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up one pen and put it in the bucket
+  decisions:
+  - one pen nvyicz; bucket lsmlzi at the 28 cm receiver ceiling

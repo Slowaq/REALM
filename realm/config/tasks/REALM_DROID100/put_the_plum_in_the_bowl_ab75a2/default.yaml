@@ -1,0 +1,133 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the plum in the bowl
+instruction_obj_to_replace: plum
+instruction_target_to_replace: bowl
+instruction_verb_to_replace: put
+supported_scenes:
+  Benevolence_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: plum
+  category: plum
+  model: rhaemq
+  bounding_box:
+  - 0.0606
+  - 0.0401
+  - 0.03894
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.28
+  - -0.02053
+target_objects:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: kasebx
+  bounding_box:
+  - 0.14336
+  - 0.14336
+  - 0.08246
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.12
+  - 0.0012301
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_protein_powder
+  category: bottle_of_protein_powder
+  model: rbvrrp
+  bounding_box:
+  - 0.1
+  - 0.0999799
+  - 0.1644705
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.28
+  - 0.0422353
+- type: DatasetObject
+  name: distractor_mug
+  category: mug
+  model: kitxam
+  bounding_box:
+  - 0.064
+  - 0.08585
+  - 0.06466
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.12
+  - -0.00767
+- type: DatasetObject
+  name: distractor_chopstick
+  category: chopstick
+  model: bdvjuf
+  bounding_box:
+  - 0.1
+  - 0.0022835
+  - 0.0022879
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.3
+  - 0.2
+  - -0.038856
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: plum
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.0714691
+    - 0.5568909
+    - 0.3869353
+    rot:
+    - 0.2564326
+    - -0.5045213
+    - -0.7020004
+    - 0.4323147
+  cam2:
+    pos:
+    - 0.2176313
+    - -0.3124419
+    - 0.4189931
+    rot:
+    - 0.5023479
+    - -0.1254383
+    - -0.196634
+    - 0.8326145
+provenance:
+  task_id: ab75a23c704c
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the plum in the green bowl
+  decisions:
+  - plum rhaemq; "green" dropped (texture)

@@ -1,0 +1,133 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the cloth in the basket
+instruction_obj_to_replace: cloth
+instruction_target_to_replace: basket
+instruction_verb_to_replace: put
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: DatasetObject
+  name: cloth
+  category: dishtowel
+  model: dtfspn
+  bounding_box:
+  - 0.1170832
+  - 0.16
+  - 0.0239291
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - -0.0580354
+target_objects:
+- type: DatasetObject
+  name: basket
+  category: hamper
+  model: djrdum
+  bounding_box:
+  - 0.2029368
+  - 0.28
+  - 0.173886
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - 0.016943
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_catsup
+  category: bottle_of_catsup
+  model: ialodu
+  bounding_box:
+  - 0.05368
+  - 0.04877
+  - 0.20713
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - 0.033565
+- type: DatasetObject
+  name: distractor_jar_of_coffee
+  category: jar_of_coffee
+  model: bnrvcs
+  bounding_box:
+  - 0.09735
+  - 0.09735
+  - 0.19323
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - 0.026615
+- type: DatasetObject
+  name: distractor_banana
+  category: banana
+  model: verqwv
+  bounding_box:
+  - 0.1
+  - 0.0313702
+  - 0.015795
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.375
+  - 0.3
+  - -0.0621025
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: cloth
+  object: basket
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.0888519
+    - 0.4744742
+    - 0.411737
+    rot:
+    - 0.2135226
+    - -0.5566515
+    - -0.6865064
+    - 0.4162405
+  cam2:
+    pos:
+    - 0.288227
+    - -0.2992192
+    - 0.4030512
+    rot:
+    - 0.4915552
+    - -0.1894344
+    - -0.3066681
+    - 0.7927438
+provenance:
+  task_id: 2ae4bf361ce2
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the black cloth inside the laundry basket
+  decisions:
+  - cloth as a folded dishtowel dtfspn; laundry basket as hamper djrdum; "black" dropped (texture)

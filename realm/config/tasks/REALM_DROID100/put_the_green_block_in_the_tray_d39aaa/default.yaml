@@ -1,0 +1,141 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the green block in the tray
+instruction_obj_to_replace: green block
+instruction_target_to_replace: tray
+instruction_verb_to_replace: put
+supported_scenes:
+  Wainscott_0_int:
+  - Dining_Table
+main_objects:
+- type: PrimitiveObject
+  name: green_block
+  primitive_type: Cube
+  rgba:
+  - 0.55
+  - 0.85
+  - 0.2
+  - 1.0
+  bounding_box:
+  - 0.05
+  - 0.05
+  - 0.05
+  scale:
+  - 0.05
+  - 0.05
+  - 0.05
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.18
+  - -0.045
+target_objects:
+- type: DatasetObject
+  name: tray
+  category: tray
+  model: avotsj
+  bounding_box:
+  - 0.28
+  - 0.155591
+  - 0.0325348
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.25
+  - 0.3
+  - -0.0537326
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_supplements
+  category: bottle_of_supplements
+  model: oqakev
+  bounding_box:
+  - 0.06378
+  - 0.06379
+  - 0.11607
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.25
+  - 0.15
+  - -0.011965
+- type: DatasetObject
+  name: distractor_marker
+  category: marker
+  model: qemval
+  bounding_box:
+  - 0.1
+  - 0.0125735
+  - 0.0125636
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - -0.0637182
+- type: DatasetObject
+  name: distractor_tongs
+  category: tongs
+  model: rcpjld
+  bounding_box:
+  - 0.1
+  - 0.0257077
+  - 0.0243115
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - -0.0578442
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: green_block
+  object: tray
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2289857
+    - 0.749088
+    - 0.463839
+    rot:
+    - 0.1734427
+    - -0.5954593
+    - -0.7502968
+    - 0.2289117
+  cam2:
+    pos:
+    - 0.3561201
+    - -0.4265708
+    - 0.4952157
+    rot:
+    - 0.3221037
+    - -0.0858051
+    - -0.2436926
+    - 0.9107692
+provenance:
+  task_id: d39aaa4c51ce
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up the lime green block and put it in the wooden tray
+  decisions:
+  - lime green block as a primitive (colour guaranteed by rgba); "wooden" dropped (material)

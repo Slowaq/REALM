@@ -1,0 +1,134 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the grapes in the bowl
+instruction_obj_to_replace: grapes
+instruction_target_to_replace: bowl
+instruction_verb_to_replace: put
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+main_objects:
+- type: DatasetObject
+  name: grapes
+  category: grape
+  model: uprbwp
+  bounding_box:
+  - 0.13428
+  - 0.08294
+  - 0.08087
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.1625
+  - 0.055435
+target_objects:
+- type: DatasetObject
+  name: bowl
+  category: mixing_bowl
+  model: bsgybx
+  bounding_box:
+  - 0.2394
+  - 0.21172
+  - 0.11382
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.325
+  - 0.07191
+distractors:
+- type: DatasetObject
+  name: distractor_rubber_eraser
+  category: rubber_eraser
+  model: cungod
+  bounding_box:
+  - 0.05
+  - 0.02135
+  - 0.0114
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.455
+  - 0.0207
+- type: DatasetObject
+  name: distractor_jar_of_chilli_powder
+  category: jar_of_chilli_powder
+  model: mxhrcl
+  bounding_box:
+  - 0.09668
+  - 0.09666
+  - 0.13171
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.5525
+  - 0.080855
+- type: DatasetObject
+  name: distractor_stapler
+  category: stapler
+  model: kgnsas
+  bounding_box:
+  - 0.08743
+  - 0.01823
+  - 0.04502
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.455
+  - 0.03751
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: grapes
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.3451363
+    - -0.23962
+    - 0.3009046
+    rot:
+    - 0.4854453
+    - -0.1704863
+    - -0.3088512
+    - 0.7999301
+  cam2:
+    pos:
+    - 0.179433
+    - 0.3613671
+    - 0.6010246
+    rot:
+    - 0.2050649
+    - -0.3943956
+    - -0.6914519
+    - 0.5694688
+provenance:
+  task_id: a731f9a675eb
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the fake grapes in the bowl
+  decisions:
+  - grape bunch uprbwp (13x8 cm); "fake" dropped (a plastic bunch looks the same); mixing_bowl bsgybx, wide enough for the
+    bunch

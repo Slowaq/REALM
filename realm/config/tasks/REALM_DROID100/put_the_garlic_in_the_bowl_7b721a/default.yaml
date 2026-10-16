@@ -1,0 +1,133 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the garlic in the bowl
+instruction_obj_to_replace: garlic
+instruction_target_to_replace: bowl
+instruction_verb_to_replace: put
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+main_objects:
+- type: DatasetObject
+  name: garlic
+  category: garlic
+  model: thigpl
+  bounding_box:
+  - 0.05876
+  - 0.06
+  - 0.06485
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.455
+  - 0.047425
+target_objects:
+- type: DatasetObject
+  name: bowl
+  category: bowl
+  model: kasebx
+  bounding_box:
+  - 0.14336
+  - 0.14336
+  - 0.08246
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.195
+  - 0.05623
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_salsa
+  category: bottle_of_salsa
+  model: dvxotd
+  bounding_box:
+  - 0.07223
+  - 0.07223
+  - 0.25015
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.455
+  - 0.140075
+- type: DatasetObject
+  name: distractor_zucchini
+  category: zucchini
+  model: yhhkxf
+  bounding_box:
+  - 0.1
+  - 0.0399956
+  - 0.0373848
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.195
+  - 0.0336924
+- type: DatasetObject
+  name: distractor_jar_of_bath_salt
+  category: jar_of_bath_salt
+  model: erglwp
+  bounding_box:
+  - 0.06748
+  - 0.06736
+  - 0.06973
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.325
+  - 0.049865
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: garlic
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2108083
+    - -0.6186028
+    - 0.5508918
+    rot:
+    - 0.4224519
+    - 0.0333893
+    - -0.4194065
+    - 0.8028186
+  cam2:
+    pos:
+    - 0.1989475
+    - 0.5701976
+    - 0.5153318
+    rot:
+    - 0.0948078
+    - -0.4492741
+    - -0.8661481
+    - 0.1973621
+provenance:
+  task_id: 7b721ac96593
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Place the garlic bulbs in the glass bowl
+  decisions:
+  - garlic bulb thigpl (6 cm); "glass" dropped (material); plural bulbs reduced to one bulb

@@ -1,0 +1,117 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the tape in the bowl
+instruction_obj_to_replace: tape
+instruction_target_to_replace: bowl
+instruction_verb_to_replace: put
+supported_scenes:
+  Pomaria_1_int:
+  - Table
+main_objects:
+- type: DatasetObject
+  name: tape
+  category: duct_tape
+  model: htrage
+  bounding_box:
+  - 0.14
+  - 0.1264056
+  - 0.0410392
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.5525
+  - 0.0355196
+target_objects:
+- type: DatasetObject
+  name: bowl
+  category: mixing_bowl
+  model: deudkt
+  bounding_box:
+  - 0.26256
+  - 0.23221
+  - 0.12504
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.325
+  - 0.07752
+distractors:
+- type: DatasetObject
+  name: distractor_blackboard_eraser
+  category: blackboard_eraser
+  model: oynrtw
+  bounding_box:
+  - 0.1
+  - 0.0333333
+  - 0.0242267
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.1625
+  - 0.0271134
+- type: DatasetObject
+  name: distractor_chopstick
+  category: chopstick
+  model: bdvjuf
+  bounding_box:
+  - 0.1
+  - 0.0022835
+  - 0.0022879
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.195
+  - 0.016144
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: tape
+  object: bowl
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.11752
+    - 0.4979107
+    - 0.2071897
+    rot:
+    - 0.2944915
+    - -0.5522461
+    - -0.7023341
+    - 0.3391544
+  cam2:
+    pos:
+    - 0.2175054
+    - -0.3898636
+    - 0.4960248
+    rot:
+    - 0.4648538
+    - -0.1208495
+    - -0.2663269
+    - 0.8356891
+provenance:
+  task_id: be2b7fd9ebba
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the tape in the blue bowl
+  decisions:
+  - tape as duct_tape htrage (a roll); "blue" dropped (texture); mixing_bowl deudkt because the 14 cm bowls are too narrow
+    for the roll

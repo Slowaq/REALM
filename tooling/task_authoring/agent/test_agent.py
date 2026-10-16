@@ -835,6 +835,43 @@ class SettleDriftTest(unittest.TestCase):
         self.assertEqual([(f["code"], f["object"]) for f in findings], [("HIGH_DROP", "a")])
         self.assertAlmostEqual(rows[1]["start_gap_m"], 0.01)
 
+    def test_v4_visual_verdicts_are_reproduced(self):
+        """Render v4: the script failed six configs that looked fine and passed one where a pen had
+        sunk through its box. These rows are the v4 numbers for those cases."""
+        from tooling.task_authoring import render_review as rr
+
+        upright, on_side = [0, 0, 0, 1], [0.7071068, 0, 0, 0.7071068]
+        cup = {"name": "cup", "present": True, "role": "immutables", "drift_xy": 0.07, "drift_z": -0.02,
+               "start_orientation": upright, "settled_orientation": on_side,
+               "settled_aabb_low": [0, 0, 0.80], "settled_aabb_high": [0.1, 0.1, 0.9],
+               "settled_aabb_center": [0.05, 0.05, 0.85], "aabb_low_z": 0.80}
+        codes = {f["code"] for f in rr.relation_findings([cup], [])}
+        self.assertEqual(codes, {"TIPPED"})
+
+        box = {"name": "box", "present": True, "role": "immutables", "start_orientation": upright,
+               "settled_orientation": upright, "settled_aabb_low": [0, 0, 0.8050],
+               "settled_aabb_high": [0.2, 0.2, 0.86], "settled_aabb_center": [0.1, 0.1, 0.83],
+               "aabb_low_z": 0.8050}
+        pen = {"name": "pen", "present": True, "role": "main_objects", "start_orientation": upright,
+               "settled_orientation": upright, "settled_aabb_center": [0.1, 0.1, 0.81],
+               "aabb_low_z": 0.8046}
+        found = rr.relation_findings([box, pen], [("inside", "pen", "box")])
+        self.assertEqual([(f["code"], f["object"]) for f in found], [("LEFT_CONTAINER", "pen")])
+        pen["aabb_low_z"] = 0.815
+        self.assertEqual(rr.relation_findings([box, pen], [("inside", "pen", "box")]), [])
+
+        bowl = dict(box, name="bowl")
+        lid = dict(pen, name="lid", aabb_low_z=0.80, settled_aabb_center=[0.35, 0.1, 0.81])
+        found = rr.relation_findings([bowl, lid], [("on_top_of", "lid", "bowl")])
+        self.assertEqual([f["code"] for f in found], ["LEFT_SUPPORT"])
+
+        # A mug sliding about inside its sink and a pruner settling flat are not failures.
+        mug = {"name": "mug", "present": True, "role": "main_objects", "drift_xy": 0.066, "drift_z": -0.1}
+        pruner = {"name": "pruner", "present": True, "role": "distractors", "drift_xy": 0.146, "drift_z": -0.01}
+        codes = [f["code"] for f in rr.stability_findings([mug, pruner], None, resting={"mug"})]
+        self.assertNotIn("UNSTABLE", codes)
+        self.assertIn("DRIFT", codes)
+
     def test_floor_bound_skips_fixtures(self):
         """close_drawer/open_drawer author a table support fixture modelled 12.5 cm through the floor;
         it is pinned scene furniture, not an object the sim dropped."""

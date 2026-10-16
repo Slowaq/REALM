@@ -79,6 +79,11 @@ FROZEN_FALL_M = 0.005
 #: A lower face starting more than this above the settled surface is a drop the object may not
 #: survive upright (it bounces, rolls or tips before the policy starts).
 HIGH_DROP_M = 0.06
+#: Tilt of an object's up-axis between reset and settle beyond which it has fallen over.
+TIPPED_DEG = 35.0
+#: An object declared inside a container whose lower face ends this close to (or below) the
+#: container's own lower face has gone through the container floor: floors are never this thin.
+THROUGH_FLOOR_M = 0.003
 
 
 def authored_names(cfg: dict) -> set:
@@ -144,6 +149,75 @@ def measured_support_z(rows: list[dict], support_z: float | None = None,
     return lows[len(lows) // 4] if len(lows) >= 4 else lows[len(lows) // 2]
 
 
+def declared_relations(task_cfg_path: str) -> list[tuple[str, str, str]]:
+    """(predicate, subject, object) for every initial_state entry of the task YAML."""
+    import yaml
+
+    path = PROJECT_ROOT / "realm" / "config" / "tasks" / task_cfg_path
+    try:
+        document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    except (OSError, yaml.YAMLError):
+        return []
+    return [(str(entry.get("predicate")), str(entry.get("subject")), str(entry.get("object")))
+            for entry in document.get("initial_state") or []
+            if isinstance(entry, dict) and entry.get("subject") and entry.get("object")]
+
+
+def _up_axis(quaternion) -> np.ndarray:
+    x, y, z, w = (float(v) for v in quaternion)
+    return np.array([2 * (x * z + w * y), 2 * (y * z - w * x), 1 - 2 * (x * x + y * y)])
+
+
+def tilt_deg(start, end) -> float | None:
+    """Angle between an object's up-axis at reset and after the settle."""
+    if not start or not end:
+        return None
+    cosine = float(np.clip(np.dot(_up_axis(start), _up_axis(end)), -1.0, 1.0))
+    return float(np.degrees(np.arccos(cosine)))
+
+
+def relation_findings(rows: list[dict], relations: list[tuple[str, str, str]]) -> list[dict]:
+    """Start-state failures the drift numbers cannot see.
+
+    TIPPED: a manipulated object, receiver or fixture fell over during the settle (a knife knocked
+    its cup over, a spatula its holder). LEFT_CONTAINER: an object declared inside something ended
+    outside its footprint or through its floor (a pen sank through a box floor and vanished from
+    both cameras). LEFT_SUPPORT: an object declared on top of something slid down off it (a lid off
+    a tipped bowl). Distractors are not held to TIPPED: a bottle lying on its side is still clutter.
+    """
+    findings = []
+    by_name = {row.get("name"): row for row in rows if row.get("present")}
+    for row in by_name.values():
+        if row.get("role") in ("main_objects", "target_objects", "immutables"):
+            tilt = tilt_deg(row.get("start_orientation"), row.get("settled_orientation"))
+            if tilt is not None and tilt > TIPPED_DEG:
+                findings.append({"code": "TIPPED", "object": row["name"],
+                                 "reason": f"tilted {tilt:.0f} degrees during the settle (fell over)"})
+    for predicate, subject, container in relations:
+        inner, outer = by_name.get(subject), by_name.get(container)
+        if not inner or not outer:
+            continue
+        low, high = outer.get("settled_aabb_low"), outer.get("settled_aabb_high")
+        centre, inner_low = inner.get("settled_aabb_center"), inner.get("aabb_low_z")
+        if not low or not high or not centre or inner_low is None:
+            continue
+        inside_xy = low[0] <= centre[0] <= high[0] and low[1] <= centre[1] <= high[1]
+        if predicate == "inside":
+            if not inside_xy:
+                findings.append({"code": "LEFT_CONTAINER", "object": subject,
+                                 "reason": f"declared inside {container!r} but settled outside its footprint"})
+            elif inner_low < low[2] + THROUGH_FLOOR_M:
+                findings.append({"code": "LEFT_CONTAINER", "object": subject,
+                                 "reason": (f"declared inside {container!r} but its lower face "
+                                            f"{inner_low:.4f} is at or below the container's own "
+                                            f"lower face {low[2]:.4f}: it went through the floor")})
+        elif predicate == "on_top_of":
+            if not inside_xy or inner_low < low[2] + (high[2] - low[2]) / 2:
+                findings.append({"code": "LEFT_SUPPORT", "object": subject,
+                                 "reason": f"declared on top of {container!r} but slid off it"})
+    return findings
+
+
 def declared_resting(task_cfg_path: str) -> set:
     """Names the task YAML declares on/in another object (initial_state subjects)."""
     import yaml
@@ -194,6 +268,8 @@ def live_pose(obj) -> dict:
         low, high = _numpy(low), _numpy(high)
         pose["aabb_center"] = [round(float(v), 5) for v in (low + high) / 2]
         pose["aabb_low_z"] = round(float(low[2]), 5)
+        pose["aabb_low"] = [round(float(v), 5) for v in low]
+        pose["aabb_high"] = [round(float(v), 5) for v in high]
     except Exception:
         pass
     return pose
@@ -286,6 +362,9 @@ def probe(env, before: dict | None = None) -> list[dict]:
             "start_aabb_center": (before.get(name) or {}).get("aabb_center"),
             "start_aabb_low_z": (before.get(name) or {}).get("aabb_low_z"),
             "start_origin": (before.get(name) or {}).get("origin"),
+            "start_orientation": (before.get(name) or {}).get("orientation"),
+            "settled_aabb_low": pose.get("aabb_low"),
+            "settled_aabb_high": pose.get("aabb_high"),
             "authored_position": [round(float(v), 5) for v in authored_pos]
             if authored_pos else None,
             "bbox": [round(float(v), 5) for v in bbox] if bbox else None,
@@ -354,7 +433,11 @@ def stability_findings(rows: list[dict], support_z: float, resting: set | None =
                     f"smaller object."
                 ),
             })
-        elif drift_xy is not None and drift_xy > DRIFT_FAIL_M:
+        elif (drift_xy is not None and drift_xy > DRIFT_FAIL_M
+              and row.get("role", "main_objects") != "distractors" and row["name"] not in resting):
+            # Clutter sliding a few cm, or an object moving about INSIDE the container it starts in
+            # (a mug in a sink basin), is not a broken start state; tipping or leaving the
+            # container is, and relation_findings judges that directly.
             findings.append({
                 "code": "UNSTABLE", "object": row["name"],
                 "reason": (
@@ -560,6 +643,7 @@ def review_one(task_cfg_path: str, out_dir: Path, *, robot: str = "DROID_mounted
             else "floor only: fewer than two authored objects rest on the spawn plane")
         record["settle_steps"] = steps
         record["compute_findings"] = stability_findings(rows, support_z, resting)
+        record["compute_findings"] += relation_findings(rows, declared_relations(task_cfg_path))
         record["compute_findings"] += frozen_physics_findings(rows)
         paths, errors = render(env, task_dir, stem, "t060")
         record["renders"] += paths
@@ -568,7 +652,8 @@ def review_one(task_cfg_path: str, out_dir: Path, *, robot: str = "DROID_mounted
         record["no_images"] = not record["renders"]
         # PHYSICS_FROZEN is reported, not failed: hand-authored configs (REALM_DROID10's drawers,
         # switch, pour) place every object already at rest, so nothing moving is legitimate there.
-        hard = {"MISSING", "UNSTABLE", "PENETRATION", "DROPPED"}
+        hard = {"MISSING", "UNSTABLE", "PENETRATION", "DROPPED", "TIPPED", "LEFT_CONTAINER",
+                "LEFT_SUPPORT"}
         failed = any(finding["code"] in hard for finding in record["compute_findings"])
         record["verdict"] = "FAIL" if (failed or record["no_images"]) else "PASS"
     except Exception as error:

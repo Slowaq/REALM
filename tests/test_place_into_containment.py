@@ -1,11 +1,13 @@
-"""Pin what PLACE_INTO's containment test accepts and rejects, on the host, with no GPU.
+"""Pin what the strict PLACE_INTO containment test accepts and rejects, on the host, with no GPU.
 
-TaskProgressionMixin._is_inside marks which of the object's points are in the container's cavity
+Tasks whose cfg sets `strict_place_into: true` score PLACE_INTO with
+TaskProgressionMixin.check_place_inside_condition; every other task keeps `OnTop or Inside`.
+Its _is_inside marks which of the object's points are in the container's cavity
 (its `fillable` volume, else its AABB), then passes when realm.geometry.containment_fractions reports
 at least OmniGibson's Overlaid.OVERLAP_AREA_PERCENTAGE (0.5 in 3.9.1, pinned here because importing
 omnigibson boots Isaac) of the below-rim points in the cavity, and a depth fraction of at least
 PLACE_INSIDE_MIN_DEPTH_FRACTION. Each case is a point layout taken from a shipped `put` task or a
-simulated placement; the rejections are false successes the old Inside-or-OnTop check credited or
+simulated placement; the rejections are false successes `OnTop or Inside` credits or
 an earlier version of this one did.
 
     uv run python -m pytest -q tests/test_place_into_containment.py

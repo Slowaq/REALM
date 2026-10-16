@@ -242,8 +242,20 @@ class TaskProgressionMixin:
         self.place_inside_anchor = None
         self.place_inside_settled_steps = 0
 
-    def check_place_condition(self, obs, settle_steps=PLACE_INSIDE_SETTLE_STEPS):
-        """Main object released, substantially inside the target, and settled there.
+    def check_place_condition(self, obs):
+        if self.cfg.get("strict_place_into", False):
+            return self.check_place_inside_condition(obs)
+        mo = self.main_objects[0]
+        target = self.target_objects[0]
+        inside_or_on_top = mo.states[og.object_states.OnTop].get_value(target) or mo.states[og.object_states.Inside].get_value(target)
+        return inside_or_on_top and not self.is_grasping(obs, mo)
+
+    def check_place_inside_condition(self, obs, settle_steps=PLACE_INSIDE_SETTLE_STEPS):
+        """PLACE_INTO for tasks whose cfg sets `strict_place_into: true`: main object released,
+        substantially inside the target, and settled there.
+
+        For a large object in a small container `OnTop or Inside` credits an object lying across the
+        rim and misses one resting in it (Inside tests only the AABB centre).
 
         Settled means it stays within PLACE_INSIDE_SETTLE_POS_TOL / PLACE_INSIDE_SETTLE_ROT_TOL of
         the pose it had when it first counted as placed, for @settle_steps consecutive control

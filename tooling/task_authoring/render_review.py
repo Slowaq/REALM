@@ -86,6 +86,10 @@ TIPPED_DEG = 35.0
 #: ended 0.4 and 0.3 mm BELOW their box's lower face; render v5's banana resting correctly on a
 #: 1.8 mm storage-box floor ended 1.8 mm above it, which the earlier 3 mm threshold failed.
 THROUGH_FLOOR_M = 0.001
+#: An object declared on top of a support whose lower face ends less than this above the support's
+#: own base has slid off it onto the surface the support stands on. v5's blocks rested 5 and 11 mm
+#: above the base of a plate and a tray.
+SLID_OFF_M = 0.003
 
 
 def authored_names(cfg: dict) -> set:
@@ -181,16 +185,18 @@ def tilt_deg(start, end) -> float | None:
 def relation_findings(rows: list[dict], relations: list[tuple[str, str, str]]) -> list[dict]:
     """Start-state failures the drift numbers cannot see.
 
-    TIPPED: a manipulated object, receiver or fixture fell over during the settle (a knife knocked
-    its cup over, a spatula its holder). LEFT_CONTAINER: an object declared inside something ended
-    outside its footprint or through its floor (a pen sank through a box floor and vanished from
-    both cameras). LEFT_SUPPORT: an object declared on top of something slid down off it (a lid off
-    a tipped bowl). Distractors are not held to TIPPED: a bottle lying on its side is still clutter.
+    TIPPED: a receiver or fixture -- the cup, holder, bowl or box a task is about -- fell over during
+    the settle (v4: a knife knocked its cup over, a spatula its holder, a lid its bowl). Only targets
+    and immutables are judged: in v5 every main object that "tipped" was fine -- markers and pens
+    leaning against a cup rim, a rolling ball, a chip bag standing up in its sink -- and a fallen
+    distractor is still clutter. LEFT_CONTAINER: an object declared inside something ended outside
+    its footprint or through its floor (v4: a pen sank through a box floor). LEFT_SUPPORT: an object
+    declared on top of something ended outside it or down at its base (a lid slid off a bowl).
     """
     findings = []
     by_name = {row.get("name"): row for row in rows if row.get("present")}
     for row in by_name.values():
-        if row.get("role") in ("main_objects", "target_objects", "immutables"):
+        if row.get("role") in ("target_objects", "immutables"):
             tilt = tilt_deg(row.get("start_orientation"), row.get("settled_orientation"))
             if tilt is not None and tilt > TIPPED_DEG:
                 findings.append({"code": "TIPPED", "object": row["name"],
@@ -214,7 +220,9 @@ def relation_findings(rows: list[dict], relations: list[tuple[str, str, str]]) -
                                             f"{inner_low:.4f} is at or below the container's own "
                                             f"lower face {low[2]:.4f}: it went through the floor")})
         elif predicate == "on_top_of":
-            if not inside_xy or inner_low < low[2] + (high[2] - low[2]) / 2:
+            # Base, not half-height: a block resting on a rimmed tray (v5: 0.756 on a 0.745-0.771
+            # tray) or plate sits well below half the support's height and is still on it.
+            if not inside_xy or inner_low < low[2] + SLID_OFF_M:
                 findings.append({"code": "LEFT_SUPPORT", "object": subject,
                                  "reason": f"declared on top of {container!r} but slid off it"})
     return findings

@@ -847,6 +847,9 @@ class SettleDriftTest(unittest.TestCase):
                "settled_aabb_center": [0.05, 0.05, 0.85], "aabb_low_z": 0.80}
         codes = {f["code"] for f in rr.relation_findings([cup], [])}
         self.assertEqual(codes, {"TIPPED"})
+        # v5: a marker leaning 42 degrees against its cup's rim is its natural resting pose.
+        marker = dict(cup, name="marker", role="main_objects")
+        self.assertEqual(rr.relation_findings([marker], []), [])
 
         box = {"name": "box", "present": True, "role": "immutables", "start_orientation": upright,
                "settled_orientation": upright, "settled_aabb_low": [0, 0, 0.8050],
@@ -871,6 +874,10 @@ class SettleDriftTest(unittest.TestCase):
         lid = dict(pen, name="lid", aabb_low_z=0.80, settled_aabb_center=[0.35, 0.1, 0.81])
         found = rr.relation_findings([bowl, lid], [("on_top_of", "lid", "bowl")])
         self.assertEqual([f["code"] for f in found], ["LEFT_SUPPORT"])
+        # v5: a block resting on a rimmed tray sits below the tray's half-height but on it.
+        tray = dict(box, name="tray", settled_aabb_low=[0, 0, 0.745], settled_aabb_high=[0.3, 0.2, 0.771])
+        block = dict(pen, name="block", settled_aabb_center=[0.15, 0.1, 0.78], aabb_low_z=0.756)
+        self.assertEqual(rr.relation_findings([tray, block], [("on_top_of", "block", "tray")]), [])
 
         # A mug sliding about inside its sink and a pruner settling flat are not failures.
         mug = {"name": "mug", "present": True, "role": "main_objects", "drift_xy": 0.066, "drift_z": -0.1}

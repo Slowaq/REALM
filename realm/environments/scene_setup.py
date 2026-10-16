@@ -119,10 +119,26 @@ class SceneSetupMixin:
             if manage_sim_state:
                 og.sim.play()
 
+        self.apply_object_masses_from_cfg()
+
         # Hollowing the source and authoring its masses needs the simulator stopped, and this is
         # the one setup hook both paths enter in that state: the vector build stops once for every
         # member and calls in with manage_sim_state=False.
         prepare_pour_proxy_physics(self)
+
+    def apply_object_masses_from_cfg(self):
+        """Give every object whose cfg sets `mass` (kg) that total mass, split evenly over its links.
+
+        A dataset object otherwise gets its category's average density, which can make a small
+        container light enough for the object placed in it to tip it over.
+        """
+        for obj_cfg in self.cfg["objects"]:
+            if "mass" not in obj_cfg:
+                continue
+            obj = self.omnigibson_env.scene.object_registry("name", obj_cfg["name"])
+            links = [link for link in obj.links.values() if not link.is_meta_link]
+            for link in links:
+                link.mass = float(obj_cfg["mass"]) / len(links)
 
     def rebase_initial_file(self):
 

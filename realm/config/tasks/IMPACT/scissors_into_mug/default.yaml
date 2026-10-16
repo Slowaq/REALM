@@ -1,0 +1,101 @@
+###########################################################################################################################################
+# !!! The structure of the file should be: 1st object: Main object for interaction, 2nd obj: target (if applicable), then distractors !!! #
+###########################################################################################################################################
+task:
+  type: "DummyTask"
+  termination_config: {}
+  reward_config: {}
+
+task_type: "put"
+strict_place_into: true  # PLACE_INTO by containment and settling, see check_place_inside_condition
+instruction: "put the scissors into the mug"
+
+instruction_obj_to_replace: "scissors"
+instruction_target_to_replace: "mug"
+instruction_verb_to_replace: "put"
+
+supported_scenes:
+  IMPACT:
+    - "default"
+
+camera_extrinsics:
+  cam1: "default"
+  cam2: "CP3"
+
+main_objects:
+    - type: "USDObject"
+      usd_path: "/app/custom_assets/ycb/scissors.usd"
+      name: "scissors"
+      bounding_box: [0.080, 0.210, 0.020]  # measured real scissors, 70 g
+      position: [0.13, 0.0, 0.77]
+      orientation: [0, 0, 0, 1]
+
+target_objects:
+    - type: "DatasetObject"
+      name: "mug"
+      category: "mug"
+      model: "ycbmug"
+      bounding_box: [0.090, 0.115, 0.080]  # in the model's own frame (handle along y); measured real mug
+      mass: 1.0  # kg
+      position: [-0.10, 0.0, 0.79]
+      orientation: [0, 0, -0.7071068, 0.7071068]  # -90 deg about z: handle along +x, as before
+
+
+distractors: []
+immutables: []
+cached_semantic_perturbations:
+  S-LANG:
+    - "place the scissors inside the mug"
+    - "drop the scissors into the mug"
+    - "insert the scissors into the cup"
+    - "stand the scissors in the mug"
+    - "transfer the scissors to the mug"
+    - "move the scissors into the mug"
+    - "stick the scissors in the cup"
+    - "set the scissors down inside the mug"
+    - "get the scissors into the mug"
+    - "place the shears in the cup"
+  S-AFF:
+    - "put the thing you cut paper with into the mug"
+    - "store the cutting tool in the cup"
+    - "put the office tool in the pen holder"
+    - "tidy the scissors away into the thing you drink coffee from"
+    - "put the item used for crafts into the mug"
+    - "place the tool for opening packages in the cup"
+    - "put the sharp tool somewhere safe in the mug"
+    - "store the thing you cut tape with in the container you drink from"
+    - "put the item used to trim things into the mug, as if tidying a desk"
+    - "place the cutting tool into the drinking vessel for safekeeping"
+  S-INT:
+    - "put the two-bladed cutting tool into the mug"
+    - "place the pivoting hand tool in the cup"
+    - "insert the object with two finger loops into the mug"
+    - "put the tool that works like a pair of levers into the cup"
+    - "put the stationery item with metal blades into the ceramic container"
+    - "place the cutting implement in the cylindrical vessel"
+    - "put the shearing tool into the object with a handle"
+    - "deposit the tool with a hinge in the middle into the cup"
+    - "put the scissors into the container made for hot drinks"
+    - "insert the bladed tool into the open-topped cylinder"
+  S-PROP:
+    - "put the long, flat tool into the round container"
+    - "place the thin object with blades into the cup with a handle"
+    - "put the scissors into the cylindrical container"
+    - "insert the flat, pointed object into the mug"
+    - "put the object with metal blades into the hollow cup"
+    - "place the elongated tool into the object with an open top"
+    - "put the scissors into the taller object"
+    - "put the flat object into the object with a curved handle"
+    - "place the thin tool with plastic handles into the mug"
+    - "put the lighter, flatter object into the deeper one"
+  S-MO:
+    - "put the scissors into the object closest to the robot"
+    - "place the object farther from the robot into the mug"
+    - "put the scissors into the object between them and the robot"
+    - "put the object behind the mug into the mug"
+    - "place the scissors into the container nearest the robot"
+    - "put the scissors into the object whose handle points towards them"
+    - "put the farthest object into the closest one"
+    - "place the scissors into the object in front of them"
+    - "put the object lying past the mug into the mug"
+    - "put the scissors into the only container on the table"

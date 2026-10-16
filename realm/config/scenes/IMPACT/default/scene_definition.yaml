@@ -14,7 +14,7 @@ objects:
       category: "desk"
       model: "iotfzl"
       position: [0.0, 0.0, 0.62597]
-      scale: [1, 1.25, 0.975] #0.985
+      scale: [1, 0.638, 0.975] # base kept 5 cm inside the shortened top; was [1, 1.25, 0.975] #0.985
     - type: "DatasetObject"
       name: "robot_table_countertop"
       category: "countertop"
@@ -22,14 +22,14 @@ objects:
       fixed_base: True
       #visual_only: True
       position: [0.0, 0.0, 0.735]
-      scale: [1.4, 1.25, 0.25] # 0.1]
+      scale: [1.4, 0.978, 0.25] # y -0.5..0.5, clear of the back wall; was [1.4, 1.25, 0.25] # 0.1]
     - type: "DatasetObject"
       name: "work_desk"
       category: "desk"
       model: "iotfzl" #"wtlxfr"
-      position: [ 1.1425, -0.189, 0.625]
+      position: [ 1.1425, -0.189, 0.6865] # was 0.625
       orientation: [0, 0, 0.7071068, 0.7071068]
-      scale: [1, 1, 0.825]
+      scale: [1, 0.652, 1.005] # base inside its top and reaching it; was [1, 1, 0.825]
     - type: "DatasetObject"
       name: "work_desk_countertop"
       category: "countertop"
@@ -42,42 +42,46 @@ objects:
       category: "monitor"
       model: "acltvl"
       position: [1.1385, 0.062, 1.1]
-    - type: "DatasetObject"
-      name: "bookshelves_1a"
-      category: "shelf"
-      model: "opryhp" #"uriudf" #"vgzdul"
-      fixed_base: True
-      visual_only: True
-      position: [0, 0.822, 0.86658] #[0, 0.822, 0.55874]
-      orientation: [0, 0, 1, 0]
-      scale: [1.25, 1, 0.75] #[2, 1.75, 1.4]
-    - type: "DatasetObject"
-      name: "bookshelves_1b"
-      category: "shelf"
-      model: "opryhp" #"uriudf" #"vgzdul"
-      #fixed_base: True
-      visual_only: True
-      position: [0, 0.822, 0.35] #[0, 0.822, 0.55874]
-      orientation: [0, 0, 1, 0]
-      scale: [1.25, 1, 0.75] #[2, 1.75, 1.4]
-    - type: "DatasetObject"
-      name: "bookshelves_2a"
-      category: "shelf"
-      model: "opryhp" #"uriudf" #"vgzdul"
-      #fixed_base: True
-      visual_only: True
-      position: [1.35, 0.822, 0.86658] #[1.65, 0.822, 0.55874]
-      orientation: [0, 0, 1, 0]
-      scale: [1.25, 1, 0.75] #[2, 1.75, 1.4]
-    - type: "DatasetObject"
-      name: "bookshelves_2b"
-      category: "shelf"
-      model: "opryhp" #"uriudf" #"vgzdul"
-      fixed_base: True
-      visual_only: True
-      position: [1.35, 0.822, 0.35] #[1.65, 0.822, 0.55874]
-      orientation: [0, 0, 1, 0]
-      scale: [1.25, 1, 0.75] #[2, 1.75, 1.4]
+# shelf model not in local BEHAVIOR dataset, disabled
+#    - type: "DatasetObject"
+#      name: "bookshelves_1a"
+#      category: "shelf"
+#      model: "opryhp" #"uriudf" #"vgzdul"
+#      fixed_base: True
+#      visual_only: True
+#      position: [0, 0.822, 0.86658] #[0, 0.822, 0.55874]
+#      orientation: [0, 0, 1, 0]
+#      scale: [1.25, 1, 0.75] #[2, 1.75, 1.4]
+# shelf model not in local BEHAVIOR dataset, disabled
+#    - type: "DatasetObject"
+#      name: "bookshelves_1b"
+#      category: "shelf"
+#      model: "opryhp" #"uriudf" #"vgzdul"
+#      #fixed_base: True
+#      visual_only: True
+#      position: [0, 0.822, 0.35] #[0, 0.822, 0.55874]
+#      orientation: [0, 0, 1, 0]
+#      scale: [1.25, 1, 0.75] #[2, 1.75, 1.4]
+# shelf model not in local BEHAVIOR dataset, disabled
+#    - type: "DatasetObject"
+#      name: "bookshelves_2a"
+#      category: "shelf"
+#      model: "opryhp" #"uriudf" #"vgzdul"
+#      #fixed_base: True
+#      visual_only: True
+#      position: [1.35, 0.822, 0.86658] #[1.65, 0.822, 0.55874]
+#      orientation: [0, 0, 1, 0]
+#      scale: [1.25, 1, 0.75] #[2, 1.75, 1.4]
+# shelf model not in local BEHAVIOR dataset, disabled
+#    - type: "DatasetObject"
+#      name: "bookshelves_2b"
+#      category: "shelf"
+#      model: "opryhp" #"uriudf" #"vgzdul"
+#      fixed_base: True
+#      visual_only: True
+#      position: [1.35, 0.822, 0.35] #[1.65, 0.822, 0.55874]
+#      orientation: [0, 0, 1, 0]
+#      scale: [1.25, 1, 0.75] #[2, 1.75, 1.4]
     - type: "DatasetObject"
       name: "chair"
       category: "swivel_chair"
@@ -86,15 +90,16 @@ objects:
       visual_only: True
       position: [1.72898, -0.28923, 0.45957]
       orientation: [ 0, 0, 1, 0 ]
-    - type: "DatasetObject"
-      name: "shelf"
-      category: "shelf"
-      model: "xgvyyv"
-      fixed_base: True
-      visual_only: True
-      position: [-1.5, 0.15, 0.75]
-      orientation: [ 0, 0, 0, 1 ]
-      scale: [1, 1, 1.5]
+# shelf model not in local BEHAVIOR dataset, disabled
+#    - type: "DatasetObject"
+#      name: "shelf"
+#      category: "shelf"
+#      model: "xgvyyv"
+#      fixed_base: True
+#      visual_only: True
+#      position: [-1.5, 0.15, 0.75]
+#      orientation: [ 0, 0, 0, 1 ]
+#      scale: [1, 1, 1.5]
     # -------------------- construction --------------------
     - type: "DatasetObject"
       name: "wall_doors_1"

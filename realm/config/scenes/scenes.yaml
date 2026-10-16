@@ -193,7 +193,7 @@ Benevolence_1_int:
 
 IMPACT:
   default:
-    pos: [-0.45, 0, 0.73] #0.71]
+    pos: [-0.45, 0, -0.133891] # arm base at 0.73 = 0.73 - DROID_BASE_HEIGHT (0.863891), was [-0.45, 0, 0.73] #0.71]
     rot: [0, 0, 0]
   empty:
     pos: [ 0, 0, 0.73 ]

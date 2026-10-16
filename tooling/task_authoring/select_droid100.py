@@ -1,0 +1,145 @@
+"""Select the 100 most common groundable DROID tabletop instructions.
+
+This is the upstream stage of the REALM_DROID100 pipeline. It reads the DROID
+`language_instruction*` columns, ranks phrasings by episode frequency, and keeps only
+those `generate_realm_droid100.py` can actually ground: the instruction must infer a
+supported REALM task type and expose enough `CONCEPT_PATTERN` terms for that type.
+
+The emitted JSON is the `--source` consumed by `generate_realm_droid100.py`:
+
+    {"tasks": [{"rank": 1, "instruction": "...", "task_type": "put", "episodes": 8}, ...]}
+
+Candidates are validated through the generator's own `concepts()` so a phrasing that
+would raise mid-generation is dropped here instead of aborting a 100-task run.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import re
+from collections import Counter
+from pathlib import Path
+
+import pyarrow.parquet as pq
+
+from tooling.task_authoring.generate_realm_droid100 import concepts
+
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_EPISODES = REPO_ROOT / "data" / "droid_1.0.1" / "chunk-000"
+DEFAULT_OUTPUT = REPO_ROOT / "data" / "droid" / "DROID100_tabletop.json"
+INSTRUCTION_COLUMNS = ("language_instruction", "language_instruction_2", "language_instruction_3")
+
+# Fixture verbs and nouns REALM has no movable asset or task type for.
+FIXTURE_PATTERN = re.compile(
+    r"\b(oven|toaster|microwave|coffee\s?maker|coffeemaker|dishwasher|fridge|refrigerator|"
+    r"faucet|sink\s+handle|stove|burner|kettle|blender|door|cabinet|drawer|button|switch|"
+    r"lever|knob|light|lamp|keyboard|laptop|mouse|chair|curtain|blind)\b",
+    re.IGNORECASE,
+)
+# Multi-stage or non-manipulation phrasings the single-main contract cannot represent.
+UNSUPPORTED_PATTERN = re.compile(
+    r"\b(clean|wipe|sweep|pour|fold|open|close|press|turn\s+(?:on|off)|plug|unplug|"
+    r"throw|trash|organize|tidy|sort|assemble)\b",
+    re.IGNORECASE,
+)
+
+
+def infer_task_type(instruction: str) -> str | None:
+    """Apply the documented REALM interpretation rules; return None when unsupported."""
+    lowered = instruction.lower()
+    if re.search(r"\b(?:stack|on top of|onto)\b", lowered):
+        return "stack"
+    if re.search(r"\b(?:put|place|move|drop)\b", lowered) and re.search(r"\b(?:in|into|inside)\b", lowered):
+        return "put"
+    if re.search(r"\b(?:pick|grab|lift|take|remove)\b", lowered):
+        return "pick"
+    if re.search(r"\b(?:rotate|reorient|flip)\b", lowered):
+        return "rotate"
+    if re.search(r"\bpush\b", lowered):
+        return "push"
+    if re.search(r"\b(?:put|place|move|drop)\b", lowered) and re.search(r"\bon\b", lowered):
+        return "stack"
+    return None
+
+
+def normalize(instruction: str) -> str:
+    return re.sub(r"\s+", " ", instruction).strip().rstrip(".")
+
+
+def count_instructions(episodes: Path) -> Counter[str]:
+    """Count episodes mentioning each phrasing (deduplicated within an episode)."""
+    counts: Counter[str] = Counter()
+    for path in sorted(episodes.glob("*.parquet")):
+        try:
+            table = pq.read_table(path, columns=list(INSTRUCTION_COLUMNS))
+        except Exception:
+            continue
+        seen = set()
+        for column in INSTRUCTION_COLUMNS:
+            for value in table.column(column).to_pylist():
+                if isinstance(value, str) and value.strip():
+                    seen.add(normalize(value))
+        counts.update(seen)
+    return counts
+
+
+def groundable(instruction: str) -> str | None:
+    """Return the task type if the generator can ground this instruction, else None."""
+    if FIXTURE_PATTERN.search(instruction) or UNSUPPORTED_PATTERN.search(instruction):
+        return None
+    task_type = infer_task_type(instruction)
+    if task_type is None:
+        return None
+    try:
+        concepts(instruction, task_type)
+    except ValueError:
+        return None
+    return task_type
+
+
+def select(episodes: Path, limit: int = 100) -> dict[str, object]:
+    counts = count_instructions(episodes)
+    tasks, rejected = [], 0
+    for instruction, episode_count in counts.most_common():
+        if len(tasks) >= limit:
+            break
+        task_type = groundable(instruction)
+        if task_type is None:
+            rejected += 1
+            continue
+        tasks.append({
+            "rank": len(tasks) + 1,
+            "instruction": instruction,
+            "task_type": task_type,
+            "episodes": episode_count,
+        })
+    return {
+        "family": "REALM_DROID100",
+        # Names this ranking so rank-keyed reviewed overrides authored against a different
+        # DROID sample cannot silently attach to unrelated tasks.
+        "ranking_id": f"droid100-local-{episodes.name}",
+        "episode_source": str(episodes),
+        "unique_instructions": len(counts),
+        "rejected_candidates": rejected,
+        "tasks": tasks,
+    }
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--episodes", type=Path, default=DEFAULT_EPISODES)
+    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--limit", type=int, default=100)
+    args = parser.parse_args()
+    selection = select(args.episodes, args.limit)
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.write_text(json.dumps(selection, indent=2) + "\n", encoding="utf-8")
+    print(
+        f"Selected {len(selection['tasks'])} of {selection['unique_instructions']} "
+        f"unique instructions -> {args.output}"
+    )
+
+
+if __name__ == "__main__":
+    main()

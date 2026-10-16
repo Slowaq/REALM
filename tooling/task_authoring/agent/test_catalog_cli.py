@@ -514,6 +514,17 @@ class MeasuredSurfaceTest(unittest.TestCase):
         self.assertIn("SUPPORT_PENETRATION", codes(0.04 - 0.085 - 0.01))
 
 
+class RenderBrokenModelTest(unittest.TestCase):
+    def test_a_model_that_renders_black_is_never_offered(self):
+        assets = {"banana": [{"category": "banana", "model": "wmglhc", "bbox": [0.17, 0.09, 0.07]},
+                             {"category": "banana", "model": "znakxm", "bbox": [0.18, 0.09, 0.04]}]}
+        with tempfile.TemporaryDirectory() as tmp:
+            session = tools.Session("Pick up the banana", assets_by_category=assets,
+                                    corrections_dir=Path(tmp))
+        models = [c["model"] for c in session.search_assets("banana", "main")["candidates"]]
+        self.assertEqual(models, ["znakxm"])
+
+
 class ExportFolderNameTest(unittest.TestCase):
     def test_folder_is_named_after_the_final_instruction(self):
         record = {"instruction": "Put the brush in the clear cup", "task_id": "bcc31e0000aa",

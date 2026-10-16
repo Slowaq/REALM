@@ -214,7 +214,11 @@ class Session:
             # Raises CatalogError rather than handing the agent an empty catalogue: an empty index
             # declines every instruction and reads as a grounding failure, not a missing dataset.
             assets_by_category, _ = asset_catalog.resolve(dataset=dataset, catalog=catalog)
-        self.assets = assets_by_category
+        # Models the renders showed to be broken are never offered or accepted.
+        self.assets = {
+            category: [a for a in models if str(a.get("model")) not in RENDER_BROKEN_MODELS]
+            for category, models in assets_by_category.items()
+        }
         self.documents: list[dict] = []
         self.document: dict | None = None
         self.submission: dict | None = None
@@ -450,6 +454,12 @@ def _task_id_for(instruction: str, ranking_id: str | None) -> str:
     from tooling.task_authoring.agent.corrections import task_id
 
     return task_id(str(instruction), ranking_id)
+
+
+#: Asset models that load but render wrongly in REALM's renderer, found by render review.
+RENDER_BROKEN_MODELS = {
+    "wmglhc",  # banana: renders solid black (render v4, remove_the_banana_from_the_box)
+}
 
 
 def task_seed(base_seed: int, instruction: str, ranking_id: str | None) -> int:

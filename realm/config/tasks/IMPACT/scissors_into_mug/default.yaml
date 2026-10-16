@@ -7,6 +7,7 @@ task:
   reward_config: {}
 
 task_type: "put"
+strict_place_into: true  # PLACE_INTO by containment and settling, see check_place_inside_condition
 instruction: "put the scissors into the mug"
 
 instruction_obj_to_replace: "scissors"

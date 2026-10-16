@@ -38,6 +38,12 @@ UNSAFE_SCENE_REGIONS = {
     ("office_cubicles_left", "Circular_Table"),
 }
 ELLIPTICAL_SUPPORTS = {"Coffee_Table", "Circular_Table"}
+# The REVIEWED_* tables below address tasks by rank, which is a position in one specific
+# frequency ranking. They are only meaningful for the ranking they were authored against;
+# a source file built from a different DROID sample must declare its own ranking_id and
+# carry its own review. The corrected instructions do not record the originals they replaced,
+# so these cannot be re-keyed by instruction text after the fact.
+REVIEWED_RANKING_ID = "droid100-v1"
 REVIEWED_CAMERA_SOURCES = {
     82: ("droid_realm_ep_060817_cam1", "droid_realm_ep_060817_cam2"),
     98: ("droid_realm_ep_044890_cam1", "droid_realm_ep_044890_cam2"),
@@ -83,6 +89,42 @@ REVIEWED_TASK_OVERRIDES = {
     },
 }
 
+
+def reviewed_ranks() -> set[int]:
+    """Every rank the REVIEWED_* tables address, across all four tables."""
+    ranks = set(REVIEWED_CAMERA_SOURCES) | set(REVIEWED_MODEL_OVERRIDES) | set(REVIEWED_POSITION_OVERRIDES)
+    ranks |= set(REVIEWED_TASK_OVERRIDES)
+    return ranks
+
+
+def check_reviewed_alignment(selection: dict[str, object], apply_reviewed: bool, tasks: list[dict]) -> None:
+    """A source claiming `REVIEWED_RANKING_ID` must actually carry the reviewed tasks.
+
+    `apply_reviewed` keys off `ranking_id` alone, and every table is then read with `dict.get(rank)`.
+    A source that declares the reviewed ranking but whose ranks belong to a different DROID sample
+    therefore generates silently UNREVIEWED configs while the manifest reports
+    `reviewed_overrides_applied: true` -- the exact failure `ranking_id` exists to prevent. Only
+    REVIEWED_POSITION_OVERRIDES is self-checking, and only for the ranks it happens to list, so the
+    other three tables need this explicit audit. Raises rather than warning: a mis-keyed source has
+    already lost the review, and a warning would let it reach a measured family.
+    """
+    if not apply_reviewed:
+        return
+    expected = reviewed_ranks()
+    present = {int(task["rank"]) for task in tasks}
+    missing = sorted(expected - present)
+    # 90% because a deliberately sampled subset (a smoke run over 10 instructions) is legitimate;
+    # a full re-ranking that loses nearly every reviewed rank is not.
+    if missing and len(present & expected) < 0.9 * len(expected):
+        raise ValueError(
+            f"source declares ranking_id {REVIEWED_RANKING_ID!r} but carries only "
+            f"{len(present & expected)}/{len(expected)} of its reviewed ranks "
+            f"(missing e.g. {missing[:8]}); the reviewed overrides would be silently skipped. "
+            f"Re-run select_droid100.py against the same DROID sample, or declare the source's "
+            f"own ranking_id so the tables are not applied."
+        )
+
+
 CATEGORY_BY_CONCEPT = {
     "marker": "marker",
     "pen": "pen",
@@ -127,9 +169,11 @@ def slug(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", "_", value.lower()).strip("_")
 
 
-def reviewed_task(task: dict[str, object]) -> tuple[str, str, dict[str, str] | None]:
+def reviewed_task(
+    task: dict[str, object], apply_reviewed: bool = True
+) -> tuple[str, str, dict[str, str] | None]:
 
-    explicit = REVIEWED_TASK_OVERRIDES.get(int(task["rank"]))
+    explicit = REVIEWED_TASK_OVERRIDES.get(int(task["rank"])) if apply_reviewed else None
     if explicit:
         return explicit["instruction"], explicit["task_type"], explicit
     instruction = str(task["instruction"])
@@ -481,6 +525,8 @@ def generate(
     camera_rng = random.Random(seed + 1)
     distractor_rng = random.Random(seed + 2)
     selection = json.loads(source.read_text(encoding="utf-8"))
+    ranking_id = selection.get("ranking_id")
+    apply_reviewed = ranking_id == REVIEWED_RANKING_ID
     indexed = discover_assets(dataset)
     assets_by_category: dict[str, list[dict[str, object]]] = defaultdict(list)
     for asset in indexed:
@@ -505,6 +551,7 @@ def generate(
             eligible_distractors.append(category)
     if len({distractor_family(category) for category in eligible_distractors}) < 3:
         raise ValueError("DROID whitelist has fewer than three usable distractor families")
+    check_reviewed_alignment(selection, apply_reviewed, selection["tasks"])
     scene_order = list(regions)
     scene_rng.shuffle(scene_order)
     category_usage: Counter[str] = Counter()
@@ -518,7 +565,7 @@ def generate(
         elliptical = region["support"] in ELLIPTICAL_SUPPORTS
         rank = int(task["rank"])
         sampled_cameras = sample_camera_pair(camera_poses, camera_rng)
-        reviewed_camera_sources = REVIEWED_CAMERA_SOURCES.get(rank)
+        reviewed_camera_sources = REVIEWED_CAMERA_SOURCES.get(rank) if apply_reviewed else None
         if reviewed_camera_sources:
             sampled_cameras = {
                 f"cam{index}": {**camera_poses[source_name], "source": source_name}
@@ -530,7 +577,7 @@ def generate(
             for key, value in sampled_cameras.items()
         }
         original_instruction = task["instruction"]
-        instruction, task_type, reviewed_override = reviewed_task(task)
+        instruction, task_type, reviewed_override = reviewed_task(task, apply_reviewed)
         initial_relation = initial_relation_type(instruction, task_type)
         terms = instruction_terms(instruction, task_type)
         resolved = concepts(instruction, task_type)
@@ -542,7 +589,10 @@ def generate(
                 max_xy,
             )
             config["name"] = f"{config['name']}_{index + 1}" if resolved.count(concept) > 1 else config["name"]
-            model_override = REVIEWED_MODEL_OVERRIDES.get(rank, {}).get(str(config["name"]))
+            model_override = (
+                REVIEWED_MODEL_OVERRIDES.get(rank, {}).get(str(config["name"]))
+                if apply_reviewed else None
+            )
             if model_override:
                 audit = apply_model_override(config, model_override, assets_by_category, max_xy)
             configs.append(config)
@@ -589,12 +639,18 @@ def generate(
                 break
         if len(distractors) < 3:
             raise ValueError(f"could not place three distractors for rank {task['rank']}")
-        position_overrides = REVIEWED_POSITION_OVERRIDES.get(rank, {})
+        position_overrides = REVIEWED_POSITION_OVERRIDES.get(rank, {}) if apply_reviewed else {}
         if position_overrides:
             by_name = {str(item["name"]): item for item in configs + distractors}
+            missing = sorted(set(position_overrides) - set(by_name))
+            if missing:
+                raise ValueError(
+                    f"reviewed position override for rank {rank} names {missing}, "
+                    f"absent from this task; the source ranking does not match "
+                    f"{REVIEWED_RANKING_ID!r}"
+                )
             for name, xy in position_overrides.items():
-                config = by_name[name]
-                config["relative_bbox_position"][:2] = xy
+                by_name[name]["relative_bbox_position"][:2] = xy
         verb = {"put": "put", "pick": "pick", "stack": "stack", "rotate": "rotate"}[task_type]
         document = {
             "task": {"type": "DummyTask", "termination_config": {}, "reward_config": {}},
@@ -622,7 +678,10 @@ def generate(
             "directory": directory_name,
             "task_type": task_type,
             "instruction": instruction,
-            "original_instruction": original_instruction if reviewed_override else None,
+            # Recorded for EVERY rank, not only the overridden ones: the correction store keys a
+            # task by sha1(instruction + ranking_id), so a rank whose original text is absent
+            # cannot be re-keyed when the ranking is regenerated (AGENTIC_PIPELINE.md 4.5).
+            "original_instruction": original_instruction,
             "reviewed_override": reviewed_override,
             "concepts": resolved,
             "scene": {
@@ -640,13 +699,20 @@ def generate(
             "initial_relation": relation_audit,
             "render_review_overrides": {
                 "camera_sources": list(reviewed_camera_sources) if reviewed_camera_sources else None,
-                "model": REVIEWED_MODEL_OVERRIDES.get(rank),
-                "positions": REVIEWED_POSITION_OVERRIDES.get(rank),
+                "model": REVIEWED_MODEL_OVERRIDES.get(rank) if apply_reviewed else None,
+                "positions": REVIEWED_POSITION_OVERRIDES.get(rank) if apply_reviewed else None,
             },
         })
     audit = {
         "family": "REALM_DROID100",
         "source": str(source),
+        "ranking_id": ranking_id,
+        "reviewed_overrides_applied": apply_reviewed,
+        # The boolean alone cannot distinguish "reviewed" from "declared a ranking_id whose ranks
+        # matched nothing". The audited intersection makes that difference visible in the artifact.
+        "reviewed_ranks_in_source": sorted(
+            {int(task["rank"]) for task in selection["tasks"]} & reviewed_ranks()
+        ),
         "dataset": str(dataset),
         "seed": seed,
         "scene_pool_size": len(regions),

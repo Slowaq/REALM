@@ -1,0 +1,357 @@
+{
+  "task": "put_the_towel_inside_the_basket_59d5e3",
+  "task_cfg_path": "REALM_DROID100/put_the_towel_inside_the_basket_59d5e3/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v5/droid100/put_the_towel_inside_the_basket_59d5e3/put_the_towel_inside_the_basket_59d5e3_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v5/droid100/put_the_towel_inside_the_basket_59d5e3/put_the_towel_inside_the_basket_59d5e3_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v5/droid100/put_the_towel_inside_the_basket_59d5e3/put_the_towel_inside_the_basket_59d5e3_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v5/droid100/put_the_towel_inside_the_basket_59d5e3/put_the_towel_inside_the_basket_59d5e3_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v5/droid100/put_the_towel_inside_the_basket_59d5e3/put_the_towel_inside_the_basket_59d5e3_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v5/droid100/put_the_towel_inside_the_basket_59d5e3/put_the_towel_inside_the_basket_59d5e3_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "towel",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "dishtowel",
+      "settled_position": [
+        -0.33009,
+        -1.84514,
+        0.81113
+      ],
+      "settled_orientation": [
+        -0.00127,
+        0.00709,
+        0.00052,
+        0.99997
+      ],
+      "settled_aabb_center": [
+        -0.32846,
+        -1.8422,
+        0.81688
+      ],
+      "start_aabb_center": [
+        -0.32836,
+        -1.84206,
+        0.83693
+      ],
+      "start_aabb_low_z": 0.82495,
+      "start_origin": [
+        -0.33,
+        -1.845,
+        0.832
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        -0.38705,
+        -1.92228,
+        0.80483
+      ],
+      "settled_aabb_high": [
+        -0.26987,
+        -1.76213,
+        0.82892
+      ],
+      "authored_position": [
+        -0.33,
+        -1.845,
+        0.87696
+      ],
+      "bbox": [
+        0.11708,
+        0.16,
+        0.02393
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00017,
+      "drift_z": -0.02087,
+      "aabb_low_z": 0.80483,
+      "mass": 0.123,
+      "explicitly_placed": true,
+      "start_gap_m": 0.02012
+    },
+    {
+      "name": "basket",
+      "present": true,
+      "authored": true,
+      "role": "target_objects",
+      "category": "wicker_basket",
+      "settled_position": [
+        -0.16933,
+        -2.10498,
+        0.86471
+      ],
+      "settled_orientation": [
+        -0.00019,
+        0.00616,
+        0.0,
+        0.99998
+      ],
+      "settled_aabb_center": [
+        -0.16801,
+        -2.10703,
+        0.87237
+      ],
+      "start_aabb_center": [
+        -0.16948,
+        -2.10708,
+        0.89291
+      ],
+      "start_aabb_low_z": 0.8256,
+      "start_origin": [
+        -0.17,
+        -2.105,
+        0.88611
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        -0.25625,
+        -2.24777,
+        0.80494
+      ],
+      "settled_aabb_high": [
+        -0.07978,
+        -1.9663,
+        0.93979
+      ],
+      "authored_position": [
+        -0.17,
+        -2.105,
+        0.93107
+      ],
+      "bbox": [
+        0.17554,
+        0.28,
+        0.13213
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00067,
+      "drift_z": -0.0214,
+      "aabb_low_z": 0.80494,
+      "mass": 0.68175,
+      "explicitly_placed": true,
+      "start_gap_m": 0.02077
+    },
+    {
+      "name": "distractor_jug_of_milk",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "jug_of_milk",
+      "settled_position": [
+        -0.17,
+        -1.845,
+        0.86211
+      ],
+      "settled_orientation": [
+        -1e-05,
+        -1e-05,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.16935,
+        -1.84496,
+        0.8765
+      ],
+      "start_aabb_center": [
+        -0.16935,
+        -1.84496,
+        0.90549
+      ],
+      "start_aabb_low_z": 0.83393,
+      "start_origin": [
+        -0.17,
+        -1.845,
+        0.8911
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        -0.21989,
+        -1.8955,
+        0.80494
+      ],
+      "settled_aabb_high": [
+        -0.1188,
+        -1.79441,
+        0.94807
+      ],
+      "authored_position": [
+        -0.17,
+        -1.845,
+        0.93606
+      ],
+      "bbox": [
+        0.1,
+        0.1,
+        0.14212
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.02899,
+      "aabb_low_z": 0.80494,
+      "mass": 2.735,
+      "explicitly_placed": true,
+      "start_gap_m": 0.0291
+    },
+    {
+      "name": "distractor_jar_of_kidney_beans",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "jar_of_kidney_beans",
+      "settled_position": [
+        -0.33,
+        -2.105,
+        0.85711
+      ],
+      "settled_orientation": [
+        -0.0,
+        -0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.33141,
+        -2.10503,
+        0.87131
+      ],
+      "start_aabb_center": [
+        -0.33141,
+        -2.10503,
+        0.90009
+      ],
+      "start_aabb_low_z": 0.83373,
+      "start_origin": [
+        -0.33,
+        -2.105,
+        0.88589
+      ],
+      "start_orientation": [
+        0.0,
+        -0.0,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        -0.37858,
+        -2.15219,
+        0.80494
+      ],
+      "settled_aabb_high": [
+        -0.28425,
+        -2.05786,
+        0.93767
+      ],
+      "authored_position": [
+        -0.33,
+        -2.105,
+        0.93085
+      ],
+      "bbox": [
+        0.093,
+        0.093,
+        0.13171
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.02878,
+      "aabb_low_z": 0.80494,
+      "mass": 0.28428,
+      "explicitly_placed": true,
+      "start_gap_m": 0.0289
+    },
+    {
+      "name": "distractor_zucchini",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "zucchini",
+      "settled_position": [
+        -0.3488,
+        -1.97521,
+        0.82104
+      ],
+      "settled_orientation": [
+        0.00574,
+        0.03593,
+        -0.00123,
+        0.99934
+      ],
+      "settled_aabb_center": [
+        -0.34861,
+        -1.97559,
+        0.82073
+      ],
+      "start_aabb_center": [
+        -0.34991,
+        -1.97539,
+        0.83867
+      ],
+      "start_aabb_low_z": 0.81992,
+      "start_origin": [
+        -0.35,
+        -1.975,
+        0.83873
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        -0.3991,
+        -1.99585,
+        0.80349
+      ],
+      "settled_aabb_high": [
+        -0.29812,
+        -1.95533,
+        0.83798
+      ],
+      "authored_position": [
+        -0.35,
+        -1.975,
+        0.88369
+      ],
+      "bbox": [
+        0.1,
+        0.04,
+        0.03738
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00122,
+      "drift_z": -0.01769,
+      "aabb_low_z": 0.80349,
+      "mass": 0.273,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01509
+    }
+  ],
+  "support_z": 0.85,
+  "support_z_measured": 0.80483,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

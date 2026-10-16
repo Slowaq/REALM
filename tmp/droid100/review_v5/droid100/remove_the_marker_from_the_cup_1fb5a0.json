@@ -1,0 +1,367 @@
+{
+  "task": "remove_the_marker_from_the_cup_1fb5a0",
+  "task_cfg_path": "REALM_DROID100/remove_the_marker_from_the_cup_1fb5a0/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v5/droid100/remove_the_marker_from_the_cup_1fb5a0/remove_the_marker_from_the_cup_1fb5a0_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v5/droid100/remove_the_marker_from_the_cup_1fb5a0/remove_the_marker_from_the_cup_1fb5a0_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v5/droid100/remove_the_marker_from_the_cup_1fb5a0/remove_the_marker_from_the_cup_1fb5a0_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v5/droid100/remove_the_marker_from_the_cup_1fb5a0/remove_the_marker_from_the_cup_1fb5a0_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v5/droid100/remove_the_marker_from_the_cup_1fb5a0/remove_the_marker_from_the_cup_1fb5a0_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v5/droid100/remove_the_marker_from_the_cup_1fb5a0/remove_the_marker_from_the_cup_1fb5a0_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "marker",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "marker",
+      "settled_position": [
+        -0.17081,
+        -2.12664,
+        0.87104
+      ],
+      "settled_orientation": [
+        -0.62036,
+        0.1098,
+        0.69695,
+        0.34258
+      ],
+      "settled_aabb_center": [
+        -0.17099,
+        -2.12885,
+        0.87541
+      ],
+      "start_aabb_center": [
+        -0.16988,
+        -2.10501,
+        0.96504
+      ],
+      "start_aabb_low_z": 0.89504,
+      "start_origin": [
+        -0.17,
+        -2.105,
+        0.96053
+      ],
+      "start_orientation": [
+        0.0,
+        0.70711,
+        0.0,
+        0.70711
+      ],
+      "settled_aabb_low": [
+        -0.17774,
+        -2.15588,
+        0.80937
+      ],
+      "settled_aabb_high": [
+        -0.16424,
+        -2.10182,
+        0.94145
+      ],
+      "authored_position": [
+        -0.17,
+        -2.105,
+        1.0055
+      ],
+      "bbox": [
+        0.14,
+        0.0132,
+        0.01321
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.02166,
+      "drift_z": -0.08949,
+      "aabb_low_z": 0.80937,
+      "mass": 0.02,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_jar_of_sugar",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "jar_of_sugar",
+      "settled_position": [
+        -0.32994,
+        -1.84532,
+        0.85295
+      ],
+      "settled_orientation": [
+        -0.00022,
+        -0.00017,
+        -0.00059,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.33009,
+        -1.84514,
+        0.85713
+      ],
+      "start_aabb_center": [
+        -0.33014,
+        -1.84484,
+        0.87651
+      ],
+      "start_aabb_low_z": 0.82431,
+      "start_origin": [
+        -0.33,
+        -1.845,
+        0.87232
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        -0.36432,
+        -1.87937,
+        0.80492
+      ],
+      "settled_aabb_high": [
+        -0.29586,
+        -1.81091,
+        0.90934
+      ],
+      "authored_position": [
+        -0.33,
+        -1.845,
+        0.91729
+      ],
+      "bbox": [
+        0.06808,
+        0.06808,
+        0.10457
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00033,
+      "drift_z": -0.01937,
+      "aabb_low_z": 0.80492,
+      "mass": 0.65332,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01938
+    },
+    {
+      "name": "distractor_bottle_of_lighter_fluid",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_lighter_fluid",
+      "settled_position": [
+        -0.17001,
+        -1.84499,
+        0.92458
+      ],
+      "settled_orientation": [
+        -5e-05,
+        -5e-05,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.16978,
+        -1.84503,
+        0.92533
+      ],
+      "start_aabb_center": [
+        -0.16977,
+        -1.84504,
+        0.94033
+      ],
+      "start_aabb_low_z": 0.81994,
+      "start_origin": [
+        -0.17,
+        -1.845,
+        0.93958
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        -0.19335,
+        -1.88966,
+        0.80494
+      ],
+      "settled_aabb_high": [
+        -0.1462,
+        -1.80041,
+        1.04572
+      ],
+      "authored_position": [
+        -0.17,
+        -1.845,
+        0.98455
+      ],
+      "bbox": [
+        0.04503,
+        0.08753,
+        0.23909
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 1e-05,
+      "drift_z": -0.015,
+      "aabb_low_z": 0.80494,
+      "mass": 0.188,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01501
+    },
+    {
+      "name": "distractor_drill",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "drill",
+      "settled_position": [
+        -0.33,
+        -2.105,
+        0.87504
+      ],
+      "settled_orientation": [
+        -2e-05,
+        -1e-05,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.32979,
+        -2.11632,
+        0.868
+      ],
+      "start_aabb_center": [
+        -0.32979,
+        -2.11633,
+        0.87561
+      ],
+      "start_aabb_low_z": 0.81256,
+      "start_origin": [
+        -0.33,
+        -2.105,
+        0.88265
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        -0.34875,
+        -2.16659,
+        0.80494
+      ],
+      "settled_aabb_high": [
+        -0.31083,
+        -2.06606,
+        0.93106
+      ],
+      "authored_position": [
+        -0.33,
+        -2.105,
+        0.92762
+      ],
+      "bbox": [
+        0.03723,
+        0.1,
+        0.12523
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.00761,
+      "aabb_low_z": 0.80494,
+      "mass": 1.5,
+      "explicitly_placed": true,
+      "start_gap_m": 0.00763
+    },
+    {
+      "name": "cup",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "soda_cup",
+      "settled_position": [
+        -0.17003,
+        -2.10502,
+        0.85773
+      ],
+      "settled_orientation": [
+        3e-05,
+        0.00027,
+        0.00121,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -0.16997,
+        -2.1049,
+        0.85769
+      ],
+      "start_aabb_center": [
+        -0.16997,
+        -2.10488,
+        0.87275
+      ],
+      "start_aabb_low_z": 0.82,
+      "start_origin": [
+        -0.17,
+        -2.105,
+        0.87279
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        -0.21605,
+        -2.15106,
+        0.80493
+      ],
+      "settled_aabb_high": [
+        -0.12388,
+        -2.05874,
+        0.91046
+      ],
+      "authored_position": [
+        -0.17,
+        -2.105,
+        0.91775
+      ],
+      "bbox": [
+        0.09201,
+        0.09211,
+        0.1055
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 4e-05,
+      "drift_z": -0.01506,
+      "aabb_low_z": 0.80493,
+      "mass": 0.01122,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01507
+    }
+  ],
+  "support_z": 0.85,
+  "support_z_measured": 0.80493,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "DRIFT",
+      "object": "marker",
+      "reason": "settled 0.0217 m from its authored XY"
+    },
+    {
+      "code": "TIPPED",
+      "object": "marker",
+      "reason": "tilted 142 degrees during the settle (fell over)"
+    }
+  ],
+  "no_images": false,
+  "verdict": "FAIL"
+}

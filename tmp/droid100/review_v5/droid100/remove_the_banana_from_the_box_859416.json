@@ -1,0 +1,362 @@
+{
+  "task": "remove_the_banana_from_the_box_859416",
+  "task_cfg_path": "REALM_DROID100/remove_the_banana_from_the_box_859416/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v5/droid100/remove_the_banana_from_the_box_859416/remove_the_banana_from_the_box_859416_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v5/droid100/remove_the_banana_from_the_box_859416/remove_the_banana_from_the_box_859416_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v5/droid100/remove_the_banana_from_the_box_859416/remove_the_banana_from_the_box_859416_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v5/droid100/remove_the_banana_from_the_box_859416/remove_the_banana_from_the_box_859416_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v5/droid100/remove_the_banana_from_the_box_859416/remove_the_banana_from_the_box_859416_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v5/droid100/remove_the_banana_from_the_box_859416/remove_the_banana_from_the_box_859416_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "banana",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "banana",
+      "settled_position": [
+        5.24998,
+        6.58043,
+        0.75279
+      ],
+      "settled_orientation": [
+        -0.00174,
+        -0.00102,
+        0.70921,
+        0.705
+      ],
+      "settled_aabb_center": [
+        5.2571,
+        6.58166,
+        0.75452
+      ],
+      "start_aabb_center": [
+        5.25689,
+        6.58104,
+        0.82164
+      ],
+      "start_aabb_low_z": 0.80654,
+      "start_origin": [
+        5.25,
+        6.58,
+        0.81989
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.70711,
+        0.70711
+      ],
+      "settled_aabb_low": [
+        5.22108,
+        6.51168,
+        0.73945
+      ],
+      "settled_aabb_high": [
+        5.29312,
+        6.65164,
+        0.76958
+      ],
+      "authored_position": [
+        5.25,
+        6.58,
+        0.86485
+      ],
+      "bbox": [
+        0.14,
+        0.07168,
+        0.0302
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00043,
+      "drift_z": -0.0671,
+      "aabb_low_z": 0.73945,
+      "mass": 0.12,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_coconut_milk",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_coconut_milk",
+      "settled_position": [
+        5.04993,
+        6.82007,
+        0.86353
+      ],
+      "settled_orientation": [
+        -0.00046,
+        -0.00037,
+        1e-05,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.04991,
+        6.82006,
+        0.87933
+      ],
+      "start_aabb_center": [
+        5.04989,
+        6.81997,
+        0.91262
+      ],
+      "start_aabb_low_z": 0.77089,
+      "start_origin": [
+        5.05,
+        6.82,
+        0.89682
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        4.99991,
+        6.7703,
+        0.73758
+      ],
+      "settled_aabb_high": [
+        5.0999,
+        6.86982,
+        1.02108
+      ],
+      "authored_position": [
+        5.05,
+        6.82,
+        0.94178
+      ],
+      "bbox": [
+        0.09978,
+        0.09978,
+        0.28356
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0001,
+      "drift_z": -0.03329,
+      "aabb_low_z": 0.73758,
+      "mass": 1.115,
+      "explicitly_placed": true,
+      "start_gap_m": 0.03323
+    },
+    {
+      "name": "distractor_broccoli",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "broccoli",
+      "settled_position": [
+        5.24992,
+        6.82025,
+        0.74862
+      ],
+      "settled_orientation": [
+        -0.0049,
+        0.00477,
+        0.0001,
+        0.99998
+      ],
+      "settled_aabb_center": [
+        5.25414,
+        6.82048,
+        0.74873
+      ],
+      "start_aabb_center": [
+        5.25427,
+        6.82023,
+        0.76606
+      ],
+      "start_aabb_low_z": 0.75492,
+      "start_origin": [
+        5.25,
+        6.82,
+        0.76597
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        5.23944,
+        6.80589,
+        0.73766
+      ],
+      "settled_aabb_high": [
+        5.26884,
+        6.83507,
+        0.7598
+      ],
+      "authored_position": [
+        5.25,
+        6.82,
+        0.81093
+      ],
+      "bbox": [
+        0.02909,
+        0.02903,
+        0.02186
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00026,
+      "drift_z": -0.01735,
+      "aabb_low_z": 0.73766,
+      "mass": 0.036,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01726
+    },
+    {
+      "name": "distractor_toasting_fork",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "toasting_fork",
+      "settled_position": [
+        5.04985,
+        6.58011,
+        0.74021
+      ],
+      "settled_orientation": [
+        -0.00011,
+        -7e-05,
+        9e-05,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.04391,
+        6.58027,
+        0.74076
+      ],
+      "start_aabb_center": [
+        5.04406,
+        6.58017,
+        0.75828
+      ],
+      "start_aabb_low_z": 0.75521,
+      "start_origin": [
+        5.05,
+        6.58,
+        0.75773
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        4.99354,
+        6.57112,
+        0.73769
+      ],
+      "settled_aabb_high": [
+        5.09428,
+        6.58943,
+        0.74383
+      ],
+      "authored_position": [
+        5.05,
+        6.58,
+        0.80269
+      ],
+      "bbox": [
+        0.1,
+        0.01727,
+        0.00539
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00019,
+      "drift_z": -0.01752,
+      "aabb_low_z": 0.73769,
+      "mass": 0.15,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01755
+    },
+    {
+      "name": "box",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "storage_box",
+      "settled_position": [
+        5.24977,
+        6.58001,
+        0.75251
+      ],
+      "settled_orientation": [
+        -0.0001,
+        -7e-05,
+        -6e-05,
+        1.0
+      ],
+      "settled_aabb_center": [
+        5.24977,
+        6.58001,
+        0.76638
+      ],
+      "start_aabb_center": [
+        5.25,
+        6.58,
+        0.79755
+      ],
+      "start_aabb_low_z": 0.7689,
+      "start_origin": [
+        5.25,
+        6.58,
+        0.78369
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        5.13216,
+        6.45459,
+        0.73768
+      ],
+      "settled_aabb_high": [
+        5.36738,
+        6.70543,
+        0.79507
+      ],
+      "authored_position": [
+        5.25,
+        6.58,
+        0.82865
+      ],
+      "bbox": [
+        0.23519,
+        0.2508,
+        0.0573
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00023,
+      "drift_z": -0.03118,
+      "aabb_low_z": 0.73768,
+      "mass": 0.0792,
+      "explicitly_placed": true,
+      "start_gap_m": 0.03124
+    }
+  ],
+  "support_z": 0.87,
+  "support_z_measured": 0.73766,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "LEFT_CONTAINER",
+      "object": "banana",
+      "reason": "declared inside 'box' but its lower face 0.7395 is at or below the container's own lower face 0.7377: it went through the floor"
+    }
+  ],
+  "no_images": false,
+  "verdict": "FAIL"
+}

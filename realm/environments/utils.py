@@ -2,7 +2,10 @@ import yaml
 import os
 from collections import OrderedDict
 
+import torch as th
+
 import omnigibson as og
+from omnigibson.macros import macros
 from omnigibson.object_states.open_state import _get_relevant_joints
 from omnigibson.prims.joint_prim import JointPrim, JointType
 from omnigibson.prims.rigid_prim import RigidPrim
@@ -21,6 +24,31 @@ def load_task_progressions():
         task_progressions[task] = OrderedDict((stage, False) for stage in stages)
 
     return task_progressions
+
+
+def collision_mesh_points_world(obj):
+    """World positions of every vertex of @obj's collision meshes.
+
+    Not `obj.collision_points_world`, which in OG 3.9.1 is only the vertices of each link's convex
+    hull -- for scissors, the outline of the handle loops and a single point at the blade tip. The
+    transform is the one GeomPrim.aabb applies to the same points.
+    """
+    points = []
+    for link in obj.links.values():
+        for mesh in link.collision_meshes.values():
+            local = mesh.points
+            homogeneous = th.cat((local, th.ones((local.shape[0], 1))), dim=1)
+            points.append((homogeneous @ mesh.scaled_transform.T)[:, :3])
+    return th.cat(points, dim=0)
+
+
+def container_volume_link(obj):
+    """@obj's `fillable`/`openfillable` meta link -- the cavity OG's `Inside` tests against -- or None."""
+    container_types = macros.object_states.contains.CONTAINER_META_LINK_TYPES
+    for link in obj.links.values():
+        if getattr(link, "is_meta_link", False) and link.meta_link_type in container_types:
+            return link
+    return None
 
 
 def reset_joints(

@@ -33,9 +33,9 @@ from scipy.spatial.transform import Rotation as R
 
 import omnigibson as og
 import omnigibson.lazy as lazy
-from omnigibson.macros import macros
 
 from realm.environments.perturbations._helpers import sim_play, sim_stop
+from realm.environments.utils import container_volume_link
 from realm.config.shared import (
     FOAM_BALL_COUNT,
     FOAM_BALL_DIAMETER,
@@ -428,9 +428,7 @@ def _to_numpy(value):
 
 def _has_container_volume(obj):
     """Does @obj carry the meta link `Inside` needs to test containment against?"""
-    container_types = macros.object_states.contains.CONTAINER_META_LINK_TYPES
-    return any(getattr(link, "is_meta_link", False) and link.meta_link_type in container_types
-               for link in obj.links.values())
+    return container_volume_link(obj) is not None
 
 
 def _centre_within_aabb(inner, outer):

@@ -138,15 +138,16 @@ uv run python tests/run_suite.py --only local --strict \
     --out tmp/suite/results.json --junit-xml tmp/suite/results.xml
 uv run python -m pytest -q tests/test_perturbation_task_types.py \
     tests/test_cell_classification.py tests/test_robot_base_column.py \
-    tests/test_robot_definition_parity.py
+    tests/test_robot_definition_parity.py tests/test_place_into_containment.py
 ```
 
 Tier 2 needs the container/GPU and is the same driver against a RUNNING Slurm allocation:
 `python tests/run_suite.py --jobid <id> --mode stock --level smoke|suite --strict --out … --junit-xml …`.
 The tests are
 **script-style with printed verdicts** — do NOT run `pytest tests/` (collection boots Isaac); the
-four real pytest modules (`test_perturbation_task_types`, `test_cell_classification`,
-`test_robot_base_column`, `test_robot_definition_parity` — all host-safe, ast/yaml based) are run
+five real pytest modules (`test_perturbation_task_types`, `test_cell_classification`,
+`test_robot_base_column`, `test_robot_definition_parity`, `test_place_into_containment` — all
+host-safe) are run
 directly by filename. Exit codes are never
 trusted: Isaac exits 0 on unhandled exceptions and segfaults at teardown on passing runs.
 

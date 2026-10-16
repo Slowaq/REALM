@@ -36,7 +36,7 @@ target_objects:
       category: "mug"
       model: "ycbmug"
       bounding_box: [0.090, 0.115, 0.080]  # in the model's own frame (handle along y); measured real mug
-      mass: 0.200  # kg
+      mass: 1.0  # kg
       position: [-0.10, 0.0, 0.79]
       orientation: [0, 0, -0.7071068, 0.7071068]  # -90 deg about z: handle along +x, as before
 

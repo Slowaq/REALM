@@ -1,0 +1,45 @@
+{
+ "task": "remove_the_chopstick_from_the_cup_ae0509",
+ "task_type": "pick",
+ "instruction": "Remove the chopstick from the cup",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.67,
+ "success": false,
+ "stuck_at": "LIFT_LARGE",
+ "stages_reached": [
+  [
+   "REACH",
+   103
+  ],
+  [
+   "GRASP",
+   473
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_chopstick_from_the_cup_ae0509",
+  "perturbation": "Default",
+  "instruction": "Remove the chopstick from the cup",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.6666666666666666",
+  "task_progression_timestamps": "[103, 473]",
+  "stage": "LIFT_LARGE",
+  "binary_SR": "0.0",
+  "joint_vel_var": "25.258381999747105",
+  "joint_acc_var": "2853.3565210169613",
+  "joint_jerk": "79.43345047232906",
+  "joint_path_length": "15.414433940876734",
+  "cart_path_length": "2.674439",
+  "cart_jerk": "7.1517925",
+  "collisions_self": "0",
+  "collisions_env": "11",
+  "object_drops": "1"
+ }
+}

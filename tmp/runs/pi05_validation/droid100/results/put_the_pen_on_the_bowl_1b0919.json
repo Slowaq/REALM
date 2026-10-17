@@ -1,0 +1,57 @@
+{
+ "task": "put_the_pen_on_the_bowl_1b0919",
+ "task_type": "stack",
+ "instruction": "Put the pen on the bowl",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   44
+  ],
+  [
+   "GRASP",
+   64
+  ],
+  [
+   "LIFT_SLIGHT",
+   76
+  ],
+  [
+   "MOVE_CLOSE",
+   120
+  ],
+  [
+   "PLACE_ONTO",
+   138
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_pen_on_the_bowl_1b0919",
+  "perturbation": "Default",
+  "instruction": "Put the pen on the bowl",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[44, 64, 76, 120, 138]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "11.437831215772022",
+  "joint_acc_var": "731.1344622157246",
+  "joint_jerk": "77.33113920622435",
+  "joint_path_length": "6.132426873213322",
+  "cart_path_length": "1.3785775",
+  "cart_jerk": "8.546302",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "0"
+ }
+}

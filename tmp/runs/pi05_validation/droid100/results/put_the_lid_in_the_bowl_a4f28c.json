@@ -1,0 +1,45 @@
+{
+ "task": "put_the_lid_in_the_bowl_a4f28c",
+ "task_type": "put",
+ "instruction": "Put the lid in the bowl",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.4,
+ "success": false,
+ "stuck_at": "LIFT_SLIGHT",
+ "stages_reached": [
+  [
+   "REACH",
+   374
+  ],
+  [
+   "GRASP",
+   398
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_lid_in_the_bowl_a4f28c",
+  "perturbation": "Default",
+  "instruction": "Put the lid in the bowl",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.4",
+  "task_progression_timestamps": "[374, 398]",
+  "stage": "LIFT_SLIGHT",
+  "binary_SR": "0.0",
+  "joint_vel_var": "20.699754921150628",
+  "joint_acc_var": "2313.5055254499794",
+  "joint_jerk": "78.58321190897571",
+  "joint_path_length": "13.184945383928975",
+  "cart_path_length": "2.5289233",
+  "cart_jerk": "6.2462177",
+  "collisions_self": "0",
+  "collisions_env": "12",
+  "object_drops": "1"
+ }
+}

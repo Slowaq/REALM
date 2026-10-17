@@ -1,0 +1,49 @@
+{
+ "task": "put_the_spoon_in_the_holder_77da61",
+ "task_type": "put",
+ "instruction": "Put the spoon in the holder",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.6,
+ "success": false,
+ "stuck_at": "MOVE_CLOSE",
+ "stages_reached": [
+  [
+   "REACH",
+   122
+  ],
+  [
+   "GRASP",
+   216
+  ],
+  [
+   "LIFT_SLIGHT",
+   387
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_spoon_in_the_holder_77da61",
+  "perturbation": "Default",
+  "instruction": "Put the spoon in the holder",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.6000000000000001",
+  "task_progression_timestamps": "[122, 216, 387]",
+  "stage": "MOVE_CLOSE",
+  "binary_SR": "0.0",
+  "joint_vel_var": "10.48222875522825",
+  "joint_acc_var": "1468.804155437075",
+  "joint_jerk": "60.310082211462344",
+  "joint_path_length": "9.510482273860413",
+  "cart_path_length": "1.9765463",
+  "cart_jerk": "5.548947",
+  "collisions_self": "0",
+  "collisions_env": "13",
+  "object_drops": "3"
+ }
+}

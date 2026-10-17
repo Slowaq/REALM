@@ -1,0 +1,45 @@
+{
+ "task": "remove_the_spice_bottle_from_the_bowl_bfa457",
+ "task_type": "pick",
+ "instruction": "Remove the spice bottle from the bowl",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.67,
+ "success": false,
+ "stuck_at": "LIFT_LARGE",
+ "stages_reached": [
+  [
+   "REACH",
+   87
+  ],
+  [
+   "GRASP",
+   106
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_spice_bottle_from_the_bowl_bfa457",
+  "perturbation": "Default",
+  "instruction": "Remove the spice bottle from the bowl",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.6666666666666666",
+  "task_progression_timestamps": "[87, 106]",
+  "stage": "LIFT_LARGE",
+  "binary_SR": "0.0",
+  "joint_vel_var": "20.734619204330816",
+  "joint_acc_var": "2670.1446295610754",
+  "joint_jerk": "81.26708907901153",
+  "joint_path_length": "13.861251999399808",
+  "cart_path_length": "2.9411407",
+  "cart_jerk": "7.127802",
+  "collisions_self": "0",
+  "collisions_env": "1",
+  "object_drops": "1"
+ }
+}

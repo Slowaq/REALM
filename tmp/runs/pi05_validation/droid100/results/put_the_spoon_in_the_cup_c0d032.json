@@ -1,0 +1,53 @@
+{
+ "task": "put_the_spoon_in_the_cup_c0d032",
+ "task_type": "put",
+ "instruction": "Put the spoon in the cup",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.8,
+ "success": false,
+ "stuck_at": "PLACE_INTO",
+ "stages_reached": [
+  [
+   "REACH",
+   56
+  ],
+  [
+   "GRASP",
+   84
+  ],
+  [
+   "LIFT_SLIGHT",
+   401
+  ],
+  [
+   "MOVE_CLOSE",
+   465
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_spoon_in_the_cup_c0d032",
+  "perturbation": "Default",
+  "instruction": "Put the spoon in the cup",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.8",
+  "task_progression_timestamps": "[56, 84, 401, 465]",
+  "stage": "PLACE_INTO",
+  "binary_SR": "0.0",
+  "joint_vel_var": "28.368024865429163",
+  "joint_acc_var": "2521.79321206407",
+  "joint_jerk": "79.78918140913989",
+  "joint_path_length": "14.490611023485974",
+  "cart_path_length": "2.2534575",
+  "cart_jerk": "7.5244565",
+  "collisions_self": "0",
+  "collisions_env": "18",
+  "object_drops": "3"
+ }
+}

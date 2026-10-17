@@ -1,0 +1,57 @@
+{
+ "task": "put_the_plum_in_the_bowl_ab75a2",
+ "task_type": "put",
+ "instruction": "Put the plum in the bowl",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   39
+  ],
+  [
+   "GRASP",
+   64
+  ],
+  [
+   "LIFT_SLIGHT",
+   74
+  ],
+  [
+   "MOVE_CLOSE",
+   96
+  ],
+  [
+   "PLACE_INTO",
+   105
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_plum_in_the_bowl_ab75a2",
+  "perturbation": "Default",
+  "instruction": "Put the plum in the bowl",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[39, 64, 74, 96, 105]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "2.759408229865039",
+  "joint_acc_var": "279.4702554756223",
+  "joint_jerk": "56.174775621958666",
+  "joint_path_length": "2.8705384758379475",
+  "cart_path_length": "0.8009776",
+  "cart_jerk": "6.55177",
+  "collisions_self": "0",
+  "collisions_env": "1",
+  "object_drops": "0"
+ }
+}

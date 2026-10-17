@@ -1,0 +1,45 @@
+{
+ "task": "put_the_bag_of_chips_in_the_basket_e68620",
+ "task_type": "put",
+ "instruction": "Put the bag of chips in the basket",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.4,
+ "success": false,
+ "stuck_at": "LIFT_SLIGHT",
+ "stages_reached": [
+  [
+   "REACH",
+   42
+  ],
+  [
+   "GRASP",
+   77
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_bag_of_chips_in_the_basket_e68620",
+  "perturbation": "Default",
+  "instruction": "Put the bag of chips in the basket",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.4",
+  "task_progression_timestamps": "[42, 77]",
+  "stage": "LIFT_SLIGHT",
+  "binary_SR": "0.0",
+  "joint_vel_var": "23.28238314149564",
+  "joint_acc_var": "3501.058366874156",
+  "joint_jerk": "88.2161251450864",
+  "joint_path_length": "13.248864339699097",
+  "cart_path_length": "2.7971838",
+  "cart_jerk": "7.2652535",
+  "collisions_self": "0",
+  "collisions_env": "3",
+  "object_drops": "8"
+ }
+}

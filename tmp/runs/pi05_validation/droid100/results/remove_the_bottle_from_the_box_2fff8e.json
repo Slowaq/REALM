@@ -1,0 +1,49 @@
+{
+ "task": "remove_the_bottle_from_the_box_2fff8e",
+ "task_type": "pick",
+ "instruction": "Remove the bottle from the box",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   86
+  ],
+  [
+   "GRASP",
+   87
+  ],
+  [
+   "LIFT_LARGE",
+   100
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_bottle_from_the_box_2fff8e",
+  "perturbation": "Default",
+  "instruction": "Remove the bottle from the box",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[86, 87, 100]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "1.6816898520263233",
+  "joint_acc_var": "123.0804154594557",
+  "joint_jerk": "43.47498327670616",
+  "joint_path_length": "2.2087275095528702",
+  "cart_path_length": "0.5759597",
+  "cart_jerk": "4.7846866",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "0"
+ }
+}

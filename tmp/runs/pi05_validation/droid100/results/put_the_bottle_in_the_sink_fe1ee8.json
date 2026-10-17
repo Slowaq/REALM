@@ -1,0 +1,57 @@
+{
+ "task": "put_the_bottle_in_the_sink_fe1ee8",
+ "task_type": "put",
+ "instruction": "Put the bottle in the sink",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   102
+  ],
+  [
+   "GRASP",
+   169
+  ],
+  [
+   "LIFT_SLIGHT",
+   187
+  ],
+  [
+   "MOVE_CLOSE",
+   249
+  ],
+  [
+   "PLACE_INTO",
+   256
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_bottle_in_the_sink_fe1ee8",
+  "perturbation": "Default",
+  "instruction": "Put the bottle in the sink",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[102, 169, 187, 249, 256]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "6.213459765907556",
+  "joint_acc_var": "536.6629478394614",
+  "joint_jerk": "52.26208021363123",
+  "joint_path_length": "5.7115894563832175",
+  "cart_path_length": "1.4258122",
+  "cart_jerk": "5.1361003",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "0"
+ }
+}

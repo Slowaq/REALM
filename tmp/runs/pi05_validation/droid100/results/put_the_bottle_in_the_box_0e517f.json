@@ -1,0 +1,53 @@
+{
+ "task": "put_the_bottle_in_the_box_0e517f",
+ "task_type": "put",
+ "instruction": "Put the bottle in the box",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   94
+  ],
+  [
+   "GRASP",
+   103
+  ],
+  [
+   "LIFT_SLIGHT",
+   369
+  ],
+  [
+   "MOVE_CLOSE",
+   370
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_bottle_in_the_box_0e517f",
+  "perturbation": "Default",
+  "instruction": "Put the bottle in the box",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[94, 103, 369, 370]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "9.526573055831594",
+  "joint_acc_var": "809.1829319263908",
+  "joint_jerk": "50.990092944993094",
+  "joint_path_length": "7.353698153701715",
+  "cart_path_length": "1.7225434",
+  "cart_jerk": "6.08882",
+  "collisions_self": "0",
+  "collisions_env": "10",
+  "object_drops": "1"
+ }
+}

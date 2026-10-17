@@ -1,0 +1,53 @@
+{
+ "task": "put_the_orange_object_in_the_paper_bag_74a1ec",
+ "task_type": "put",
+ "instruction": "Put the orange object in the paper bag",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   74
+  ],
+  [
+   "GRASP",
+   99
+  ],
+  [
+   "LIFT_SLIGHT",
+   107
+  ],
+  [
+   "MOVE_CLOSE",
+   153
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_orange_object_in_the_paper_bag_74a1ec",
+  "perturbation": "Default",
+  "instruction": "Put the orange object in the paper bag",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[74, 99, 107, 153]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "5.74620302553921",
+  "joint_acc_var": "647.718197511491",
+  "joint_jerk": "76.2814177010205",
+  "joint_path_length": "4.702201249611415",
+  "cart_path_length": "1.210572",
+  "cart_jerk": "6.7813196",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "0"
+ }
+}

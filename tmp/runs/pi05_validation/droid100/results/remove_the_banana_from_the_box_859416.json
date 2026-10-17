@@ -1,0 +1,49 @@
+{
+ "task": "remove_the_banana_from_the_box_859416",
+ "task_type": "pick",
+ "instruction": "Remove the banana from the box",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   63
+  ],
+  [
+   "GRASP",
+   121
+  ],
+  [
+   "LIFT_LARGE",
+   140
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_banana_from_the_box_859416",
+  "perturbation": "Default",
+  "instruction": "Remove the banana from the box",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[63, 121, 140]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "7.310889868197999",
+  "joint_acc_var": "622.4495309769906",
+  "joint_jerk": "66.77249446622915",
+  "joint_path_length": "4.835735195355667",
+  "cart_path_length": "0.9836422",
+  "cart_jerk": "6.3499146",
+  "collisions_self": "0",
+  "collisions_env": "4",
+  "object_drops": "1"
+ }
+}

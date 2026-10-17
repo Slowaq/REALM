@@ -1,0 +1,45 @@
+{
+ "task": "remove_the_pineapple_from_the_pot_3fb906",
+ "task_type": "pick",
+ "instruction": "Remove the pineapple from the pot",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.67,
+ "success": false,
+ "stuck_at": "LIFT_LARGE",
+ "stages_reached": [
+  [
+   "REACH",
+   104
+  ],
+  [
+   "GRASP",
+   198
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_pineapple_from_the_pot_3fb906",
+  "perturbation": "Default",
+  "instruction": "Remove the pineapple from the pot",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.6666666666666666",
+  "task_progression_timestamps": "[104, 198]",
+  "stage": "LIFT_LARGE",
+  "binary_SR": "0.0",
+  "joint_vel_var": "8.931026442522485",
+  "joint_acc_var": "1189.2585246419064",
+  "joint_jerk": "66.05999035778713",
+  "joint_path_length": "9.64395447512659",
+  "cart_path_length": "2.096315",
+  "cart_jerk": "5.2708497",
+  "collisions_self": "0",
+  "collisions_env": "3",
+  "object_drops": "1"
+ }
+}

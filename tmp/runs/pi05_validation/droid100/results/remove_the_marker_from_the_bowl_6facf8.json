@@ -1,0 +1,49 @@
+{
+ "task": "remove_the_marker_from_the_bowl_6facf8",
+ "task_type": "pick",
+ "instruction": "Remove the marker from the bowl",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   53
+  ],
+  [
+   "GRASP",
+   65
+  ],
+  [
+   "LIFT_LARGE",
+   80
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_marker_from_the_bowl_6facf8",
+  "perturbation": "Default",
+  "instruction": "Remove the marker from the bowl",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[53, 65, 80]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "4.492084026756485",
+  "joint_acc_var": "411.9683312742214",
+  "joint_jerk": "79.79701371012321",
+  "joint_path_length": "3.2230346198325073",
+  "cart_path_length": "0.7552903",
+  "cart_jerk": "7.0849357",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "0"
+ }
+}

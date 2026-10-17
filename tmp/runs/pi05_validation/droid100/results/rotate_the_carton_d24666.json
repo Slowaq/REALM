@@ -1,0 +1,45 @@
+{
+ "task": "rotate_the_carton_d24666",
+ "task_type": "rotate",
+ "instruction": "Rotate the carton",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.67,
+ "success": false,
+ "stuck_at": "ROTATED",
+ "stages_reached": [
+  [
+   "REACH",
+   38
+  ],
+  [
+   "GRASP",
+   283
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "rotate_the_carton_d24666",
+  "perturbation": "Default",
+  "instruction": "Rotate the carton",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.6666666666666666",
+  "task_progression_timestamps": "[38, 283]",
+  "stage": "ROTATED",
+  "binary_SR": "0.0",
+  "joint_vel_var": "33.6788703873355",
+  "joint_acc_var": "5191.320766612164",
+  "joint_jerk": "115.2441993703673",
+  "joint_path_length": "17.03762797815895",
+  "cart_path_length": "2.7086687",
+  "cart_jerk": "7.672668",
+  "collisions_self": "0",
+  "collisions_env": "2",
+  "object_drops": "1"
+ }
+}

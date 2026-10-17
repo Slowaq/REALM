@@ -1,0 +1,45 @@
+{
+ "task": "remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054",
+ "task_type": "stack",
+ "instruction": "Remove the lid from the pot and put it on the towel",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.4,
+ "success": false,
+ "stuck_at": "LIFT_SLIGHT",
+ "stages_reached": [
+  [
+   "REACH",
+   67
+  ],
+  [
+   "GRASP",
+   116
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054",
+  "perturbation": "Default",
+  "instruction": "Remove the lid from the pot and put it on the towel",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.4",
+  "task_progression_timestamps": "[67, 116]",
+  "stage": "LIFT_SLIGHT",
+  "binary_SR": "0.0",
+  "joint_vel_var": "8.101035032735032",
+  "joint_acc_var": "899.8606234836401",
+  "joint_jerk": "48.83221611066046",
+  "joint_path_length": "8.197575385214535",
+  "cart_path_length": "2.28573",
+  "cart_jerk": "5.287811",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "2"
+ }
+}

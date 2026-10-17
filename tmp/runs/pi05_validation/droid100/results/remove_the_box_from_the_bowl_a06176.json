@@ -1,0 +1,49 @@
+{
+ "task": "remove_the_box_from_the_bowl_a06176",
+ "task_type": "pick",
+ "instruction": "Remove the box from the bowl",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   83
+  ],
+  [
+   "GRASP",
+   147
+  ],
+  [
+   "LIFT_LARGE",
+   320
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_box_from_the_bowl_a06176",
+  "perturbation": "Default",
+  "instruction": "Remove the box from the bowl",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[83, 147, 320]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "7.029542846396999",
+  "joint_acc_var": "634.843381463282",
+  "joint_jerk": "52.22193693294194",
+  "joint_path_length": "6.060221614172635",
+  "cart_path_length": "1.2331438",
+  "cart_jerk": "4.0502143",
+  "collisions_self": "0",
+  "collisions_env": "6",
+  "object_drops": "3"
+ }
+}

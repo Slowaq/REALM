@@ -1,0 +1,49 @@
+{
+ "task": "put_the_marker_in_the_cup_d31114",
+ "task_type": "put",
+ "instruction": "Put the marker in the cup",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.6,
+ "success": false,
+ "stuck_at": "MOVE_CLOSE",
+ "stages_reached": [
+  [
+   "REACH",
+   116
+  ],
+  [
+   "GRASP",
+   156
+  ],
+  [
+   "LIFT_SLIGHT",
+   170
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_marker_in_the_cup_d31114",
+  "perturbation": "Default",
+  "instruction": "Put the marker in the cup",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.6000000000000001",
+  "task_progression_timestamps": "[116, 156, 170]",
+  "stage": "MOVE_CLOSE",
+  "binary_SR": "0.0",
+  "joint_vel_var": "47.009871508013745",
+  "joint_acc_var": "4994.95680259952",
+  "joint_jerk": "120.53549812599047",
+  "joint_path_length": "22.108329694102093",
+  "cart_path_length": "2.7186644",
+  "cart_jerk": "7.449808",
+  "collisions_self": "0",
+  "collisions_env": "4",
+  "object_drops": "1"
+ }
+}

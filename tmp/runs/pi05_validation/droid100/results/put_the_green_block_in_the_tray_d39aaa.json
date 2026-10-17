@@ -1,0 +1,57 @@
+{
+ "task": "put_the_green_block_in_the_tray_d39aaa",
+ "task_type": "put",
+ "instruction": "Put the green block in the tray",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   81
+  ],
+  [
+   "GRASP",
+   104
+  ],
+  [
+   "LIFT_SLIGHT",
+   120
+  ],
+  [
+   "MOVE_CLOSE",
+   172
+  ],
+  [
+   "PLACE_INTO",
+   173
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_green_block_in_the_tray_d39aaa",
+  "perturbation": "Default",
+  "instruction": "Put the green block in the tray",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[81, 104, 120, 172, 173]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "8.261411459141836",
+  "joint_acc_var": "566.6041279839436",
+  "joint_jerk": "63.122352609274884",
+  "joint_path_length": "5.939741718893606",
+  "cart_path_length": "1.2968073",
+  "cart_jerk": "6.142195",
+  "collisions_self": "0",
+  "collisions_env": "3",
+  "object_drops": "0"
+ }
+}

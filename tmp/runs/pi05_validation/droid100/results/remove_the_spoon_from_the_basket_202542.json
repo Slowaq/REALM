@@ -1,0 +1,49 @@
+{
+ "task": "remove_the_spoon_from_the_basket_202542",
+ "task_type": "pick",
+ "instruction": "Remove the spoon from the basket",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   101
+  ],
+  [
+   "GRASP",
+   102
+  ],
+  [
+   "LIFT_LARGE",
+   114
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_spoon_from_the_basket_202542",
+  "perturbation": "Default",
+  "instruction": "Remove the spoon from the basket",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[101, 102, 114]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "8.336371436264903",
+  "joint_acc_var": "739.2741142209746",
+  "joint_jerk": "80.5712050991687",
+  "joint_path_length": "4.364443456137295",
+  "cart_path_length": "0.70086884",
+  "cart_jerk": "4.567237",
+  "collisions_self": "0",
+  "collisions_env": "2",
+  "object_drops": "0"
+ }
+}

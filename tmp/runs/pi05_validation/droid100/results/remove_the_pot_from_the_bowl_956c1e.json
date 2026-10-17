@@ -1,0 +1,49 @@
+{
+ "task": "remove_the_pot_from_the_bowl_956c1e",
+ "task_type": "pick",
+ "instruction": "Remove the pot from the bowl",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   43
+  ],
+  [
+   "GRASP",
+   73
+  ],
+  [
+   "LIFT_LARGE",
+   105
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_pot_from_the_bowl_956c1e",
+  "perturbation": "Default",
+  "instruction": "Remove the pot from the bowl",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[43, 73, 105]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "6.116270819261388",
+  "joint_acc_var": "817.5664229648962",
+  "joint_jerk": "103.37089223226954",
+  "joint_path_length": "3.6811024354621376",
+  "cart_path_length": "0.7290783",
+  "cart_jerk": "6.142472",
+  "collisions_self": "0",
+  "collisions_env": "5",
+  "object_drops": "0"
+ }
+}

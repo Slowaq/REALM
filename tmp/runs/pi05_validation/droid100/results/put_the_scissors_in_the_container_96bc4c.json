@@ -1,0 +1,45 @@
+{
+ "task": "put_the_scissors_in_the_container_96bc4c",
+ "task_type": "put",
+ "instruction": "Put the scissors in the container",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.4,
+ "success": false,
+ "stuck_at": "LIFT_SLIGHT",
+ "stages_reached": [
+  [
+   "REACH",
+   100
+  ],
+  [
+   "GRASP",
+   193
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_scissors_in_the_container_96bc4c",
+  "perturbation": "Default",
+  "instruction": "Put the scissors in the container",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.4",
+  "task_progression_timestamps": "[100, 193]",
+  "stage": "LIFT_SLIGHT",
+  "binary_SR": "0.0",
+  "joint_vel_var": "13.91333348734244",
+  "joint_acc_var": "2285.252386917418",
+  "joint_jerk": "77.41354928177799",
+  "joint_path_length": "11.061188928384698",
+  "cart_path_length": "1.6947918",
+  "cart_jerk": "5.376763",
+  "collisions_self": "0",
+  "collisions_env": "5",
+  "object_drops": "1"
+ }
+}

@@ -1,0 +1,49 @@
+{
+ "task": "put_the_towel_in_the_bin_fae721",
+ "task_type": "put",
+ "instruction": "Put the towel in the bin",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.6,
+ "success": false,
+ "stuck_at": "MOVE_CLOSE",
+ "stages_reached": [
+  [
+   "REACH",
+   69
+  ],
+  [
+   "GRASP",
+   207
+  ],
+  [
+   "LIFT_SLIGHT",
+   242
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_towel_in_the_bin_fae721",
+  "perturbation": "Default",
+  "instruction": "Put the towel in the bin",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.6000000000000001",
+  "task_progression_timestamps": "[69, 207, 242]",
+  "stage": "MOVE_CLOSE",
+  "binary_SR": "0.0",
+  "joint_vel_var": "13.322480487554966",
+  "joint_acc_var": "879.9390884618971",
+  "joint_jerk": "50.741734904552956",
+  "joint_path_length": "11.34956973209172",
+  "cart_path_length": "2.7546346",
+  "cart_jerk": "6.0467377",
+  "collisions_self": "0",
+  "collisions_env": "1",
+  "object_drops": "4"
+ }
+}

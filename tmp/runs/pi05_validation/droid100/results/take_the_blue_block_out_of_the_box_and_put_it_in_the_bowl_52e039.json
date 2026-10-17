@@ -1,0 +1,57 @@
+{
+ "task": "take_the_blue_block_out_of_the_box_and_put_it_in_the_bowl_52e039",
+ "task_type": "put",
+ "instruction": "Take the blue block out of the box and put it in the bowl",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   106
+  ],
+  [
+   "GRASP",
+   120
+  ],
+  [
+   "LIFT_SLIGHT",
+   135
+  ],
+  [
+   "MOVE_CLOSE",
+   195
+  ],
+  [
+   "PLACE_INTO",
+   202
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "take_the_blue_block_out_of_the_box_and_put_it_in_the_bowl_52e039",
+  "perturbation": "Default",
+  "instruction": "Take the blue block out of the box and put it in the bowl",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[106, 120, 135, 195, 202]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "5.939435699788369",
+  "joint_acc_var": "389.8064251075094",
+  "joint_jerk": "48.3195288766617",
+  "joint_path_length": "5.667520636089282",
+  "cart_path_length": "1.4337218",
+  "cart_jerk": "5.2615657",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "0"
+ }
+}

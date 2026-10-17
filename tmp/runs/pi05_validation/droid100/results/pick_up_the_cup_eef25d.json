@@ -1,0 +1,49 @@
+{
+ "task": "pick_up_the_cup_eef25d",
+ "task_type": "pick",
+ "instruction": "Pick up the cup",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   288
+  ],
+  [
+   "GRASP",
+   339
+  ],
+  [
+   "LIFT_LARGE",
+   367
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "pick_up_the_cup_eef25d",
+  "perturbation": "Default",
+  "instruction": "Pick up the cup",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[288, 339, 367]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "33.8298008530475",
+  "joint_acc_var": "3507.747971614311",
+  "joint_jerk": "121.09840904270996",
+  "joint_path_length": "15.90302988463965",
+  "cart_path_length": "2.4678836",
+  "cart_jerk": "6.8802366",
+  "collisions_self": "0",
+  "collisions_env": "2",
+  "object_drops": "0"
+ }
+}

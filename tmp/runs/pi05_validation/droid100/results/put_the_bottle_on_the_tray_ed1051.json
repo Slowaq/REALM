@@ -1,0 +1,57 @@
+{
+ "task": "put_the_bottle_on_the_tray_ed1051",
+ "task_type": "stack",
+ "instruction": "Put the bottle on the tray",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   78
+  ],
+  [
+   "GRASP",
+   81
+  ],
+  [
+   "LIFT_SLIGHT",
+   148
+  ],
+  [
+   "MOVE_CLOSE",
+   188
+  ],
+  [
+   "PLACE_ONTO",
+   208
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_bottle_on_the_tray_ed1051",
+  "perturbation": "Default",
+  "instruction": "Put the bottle on the tray",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[78, 81, 148, 188, 208]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "4.113629037276197",
+  "joint_acc_var": "359.2322500090111",
+  "joint_jerk": "55.51944309510119",
+  "joint_path_length": "4.470187922010815",
+  "cart_path_length": "1.0839097",
+  "cart_jerk": "5.608091",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "0"
+ }
+}

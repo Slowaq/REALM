@@ -1,0 +1,49 @@
+{
+ "task": "remove_the_lid_from_the_pot_8b4a39",
+ "task_type": "pick",
+ "instruction": "Remove the lid from the pot",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   21
+  ],
+  [
+   "GRASP",
+   56
+  ],
+  [
+   "LIFT_LARGE",
+   362
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_lid_from_the_pot_8b4a39",
+  "perturbation": "Default",
+  "instruction": "Remove the lid from the pot",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[21, 56, 362]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "10.075812274721331",
+  "joint_acc_var": "1762.242570187223",
+  "joint_jerk": "74.83086149079995",
+  "joint_path_length": "7.085277752814216",
+  "cart_path_length": "1.2198235",
+  "cart_jerk": "6.2667994",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "25"
+ }
+}

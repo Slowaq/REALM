@@ -1,0 +1,41 @@
+{
+ "task": "remove_the_shaker_from_the_bowl_b7e492",
+ "task_type": "pick",
+ "instruction": "Remove the shaker from the bowl",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.33,
+ "success": false,
+ "stuck_at": "GRASP",
+ "stages_reached": [
+  [
+   "REACH",
+   28
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_shaker_from_the_bowl_b7e492",
+  "perturbation": "Default",
+  "instruction": "Remove the shaker from the bowl",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.3333333333333333",
+  "task_progression_timestamps": "[28]",
+  "stage": "GRASP",
+  "binary_SR": "0.0",
+  "joint_vel_var": "29.21577991127285",
+  "joint_acc_var": "3413.208026258638",
+  "joint_jerk": "86.90529267896132",
+  "joint_path_length": "15.018405689380184",
+  "cart_path_length": "2.7854252",
+  "cart_jerk": "6.8813243",
+  "collisions_self": "0",
+  "collisions_env": "9",
+  "object_drops": "0"
+ }
+}

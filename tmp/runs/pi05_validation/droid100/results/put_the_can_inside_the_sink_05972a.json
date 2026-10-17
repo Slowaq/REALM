@@ -1,0 +1,49 @@
+{
+ "task": "put_the_can_inside_the_sink_05972a",
+ "task_type": "put",
+ "instruction": "Put the can inside the sink",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.6,
+ "success": false,
+ "stuck_at": "MOVE_CLOSE",
+ "stages_reached": [
+  [
+   "REACH",
+   34
+  ],
+  [
+   "GRASP",
+   56
+  ],
+  [
+   "LIFT_SLIGHT",
+   74
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_can_inside_the_sink_05972a",
+  "perturbation": "Default",
+  "instruction": "Put the can inside the sink",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.6000000000000001",
+  "task_progression_timestamps": "[34, 56, 74]",
+  "stage": "MOVE_CLOSE",
+  "binary_SR": "0.0",
+  "joint_vel_var": "25.70412621098996",
+  "joint_acc_var": "1776.6998728128087",
+  "joint_jerk": "60.59439150118963",
+  "joint_path_length": "15.009692149770549",
+  "cart_path_length": "3.7896714",
+  "cart_jerk": "7.875421",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "1"
+ }
+}

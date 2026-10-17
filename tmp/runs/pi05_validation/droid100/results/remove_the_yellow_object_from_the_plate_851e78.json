@@ -1,0 +1,45 @@
+{
+ "task": "remove_the_yellow_object_from_the_plate_851e78",
+ "task_type": "pick",
+ "instruction": "Remove the yellow object from the plate",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.67,
+ "success": false,
+ "stuck_at": "LIFT_LARGE",
+ "stages_reached": [
+  [
+   "REACH",
+   39
+  ],
+  [
+   "GRASP",
+   56
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_yellow_object_from_the_plate_851e78",
+  "perturbation": "Default",
+  "instruction": "Remove the yellow object from the plate",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.6666666666666666",
+  "task_progression_timestamps": "[39, 56]",
+  "stage": "LIFT_LARGE",
+  "binary_SR": "0.0",
+  "joint_vel_var": "20.87940015640906",
+  "joint_acc_var": "2390.2931001147786",
+  "joint_jerk": "78.16523359012035",
+  "joint_path_length": "12.850139223807298",
+  "cart_path_length": "1.6606438",
+  "cart_jerk": "4.846352",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "1"
+ }
+}

@@ -1,0 +1,41 @@
+{
+ "task": "put_the_glass_into_the_jar_780251",
+ "task_type": "put",
+ "instruction": "Put the glass into the jar",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.2,
+ "success": false,
+ "stuck_at": "GRASP",
+ "stages_reached": [
+  [
+   "REACH",
+   91
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_glass_into_the_jar_780251",
+  "perturbation": "Default",
+  "instruction": "Put the glass into the jar",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.2",
+  "task_progression_timestamps": "[91]",
+  "stage": "GRASP",
+  "binary_SR": "0.0",
+  "joint_vel_var": "6.5150576063454935",
+  "joint_acc_var": "847.489241975393",
+  "joint_jerk": "55.96172279957539",
+  "joint_path_length": "7.879340026407669",
+  "cart_path_length": "1.8740788",
+  "cart_jerk": "5.013102",
+  "collisions_self": "0",
+  "collisions_env": "7",
+  "object_drops": "0"
+ }
+}

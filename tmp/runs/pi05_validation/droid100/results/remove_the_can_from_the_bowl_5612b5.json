@@ -1,0 +1,49 @@
+{
+ "task": "remove_the_can_from_the_bowl_5612b5",
+ "task_type": "pick",
+ "instruction": "Remove the can from the bowl",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   73
+  ],
+  [
+   "GRASP",
+   112
+  ],
+  [
+   "LIFT_LARGE",
+   125
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_can_from_the_bowl_5612b5",
+  "perturbation": "Default",
+  "instruction": "Remove the can from the bowl",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[73, 112, 125]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "5.097801561765827",
+  "joint_acc_var": "326.9015726201189",
+  "joint_jerk": "60.460270715091795",
+  "joint_path_length": "3.9732213266162235",
+  "cart_path_length": "1.0790825",
+  "cart_jerk": "6.7489486",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "0"
+ }
+}

@@ -1,0 +1,49 @@
+{
+ "task": "remove_the_bag_of_chips_from_the_sink_427db2",
+ "task_type": "pick",
+ "instruction": "Remove the bag of chips from the sink",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   65
+  ],
+  [
+   "GRASP",
+   73
+  ],
+  [
+   "LIFT_LARGE",
+   317
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_bag_of_chips_from_the_sink_427db2",
+  "perturbation": "Default",
+  "instruction": "Remove the bag of chips from the sink",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[65, 73, 317]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "5.949329851807907",
+  "joint_acc_var": "538.3202170757878",
+  "joint_jerk": "53.62644233163189",
+  "joint_path_length": "5.629159683403525",
+  "cart_path_length": "1.0959423",
+  "cart_jerk": "6.332437",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "6"
+ }
+}

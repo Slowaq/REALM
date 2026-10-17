@@ -1,0 +1,45 @@
+{
+ "task": "turn_the_bottle_5069c2",
+ "task_type": "rotate",
+ "instruction": "Turn the bottle",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.67,
+ "success": false,
+ "stuck_at": "ROTATED",
+ "stages_reached": [
+  [
+   "REACH",
+   80
+  ],
+  [
+   "GRASP",
+   81
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "turn_the_bottle_5069c2",
+  "perturbation": "Default",
+  "instruction": "Turn the bottle",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.6666666666666666",
+  "task_progression_timestamps": "[80, 81]",
+  "stage": "ROTATED",
+  "binary_SR": "0.0",
+  "joint_vel_var": "13.641444532392075",
+  "joint_acc_var": "2305.4864074626453",
+  "joint_jerk": "67.606574884614",
+  "joint_path_length": "9.536205449699265",
+  "cart_path_length": "1.900922",
+  "cart_jerk": "5.630305",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "1"
+ }
+}

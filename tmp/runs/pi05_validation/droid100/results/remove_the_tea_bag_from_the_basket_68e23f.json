@@ -1,0 +1,49 @@
+{
+ "task": "remove_the_tea_bag_from_the_basket_68e23f",
+ "task_type": "pick",
+ "instruction": "Remove the tea bag from the basket",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   44
+  ],
+  [
+   "GRASP",
+   113
+  ],
+  [
+   "LIFT_LARGE",
+   154
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_tea_bag_from_the_basket_68e23f",
+  "perturbation": "Default",
+  "instruction": "Remove the tea bag from the basket",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[44, 113, 154]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "5.043346670909563",
+  "joint_acc_var": "435.45360990255773",
+  "joint_jerk": "66.01317140806995",
+  "joint_path_length": "4.44389170081846",
+  "cart_path_length": "0.94026816",
+  "cart_jerk": "6.9481435",
+  "collisions_self": "0",
+  "collisions_env": "7",
+  "object_drops": "1"
+ }
+}

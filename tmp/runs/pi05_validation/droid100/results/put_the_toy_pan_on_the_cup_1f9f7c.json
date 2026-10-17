@@ -1,0 +1,57 @@
+{
+ "task": "put_the_toy_pan_on_the_cup_1f9f7c",
+ "task_type": "stack",
+ "instruction": "Put the toy pan on the cup",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   100
+  ],
+  [
+   "GRASP",
+   291
+  ],
+  [
+   "LIFT_SLIGHT",
+   299
+  ],
+  [
+   "MOVE_CLOSE",
+   342
+  ],
+  [
+   "PLACE_ONTO",
+   400
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_toy_pan_on_the_cup_1f9f7c",
+  "perturbation": "Default",
+  "instruction": "Put the toy pan on the cup",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[100, 291, 299, 342, 400]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "7.058637693856293",
+  "joint_acc_var": "732.4330773012706",
+  "joint_jerk": "52.674151530996056",
+  "joint_path_length": "6.744046617530728",
+  "cart_path_length": "1.5029495",
+  "cart_jerk": "4.459786",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "0"
+ }
+}

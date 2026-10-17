@@ -1,0 +1,41 @@
+{
+ "task": "remove_the_marker_from_the_mug_e57716",
+ "task_type": "pick",
+ "instruction": "Remove the marker from the mug",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.33,
+ "success": false,
+ "stuck_at": "GRASP",
+ "stages_reached": [
+  [
+   "REACH",
+   34
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_marker_from_the_mug_e57716",
+  "perturbation": "Default",
+  "instruction": "Remove the marker from the mug",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.3333333333333333",
+  "task_progression_timestamps": "[34]",
+  "stage": "GRASP",
+  "binary_SR": "0.0",
+  "joint_vel_var": "59.84893774487313",
+  "joint_acc_var": "4686.434643158425",
+  "joint_jerk": "117.38009770442059",
+  "joint_path_length": "25.163028145157927",
+  "cart_path_length": "4.4502163",
+  "cart_jerk": "10.041353",
+  "collisions_self": "0",
+  "collisions_env": "2",
+  "object_drops": "0"
+ }
+}

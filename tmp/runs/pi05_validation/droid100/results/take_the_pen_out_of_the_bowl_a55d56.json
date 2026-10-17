@@ -1,0 +1,49 @@
+{
+ "task": "take_the_pen_out_of_the_bowl_a55d56",
+ "task_type": "pick",
+ "instruction": "Take the pen out of the bowl",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   56
+  ],
+  [
+   "GRASP",
+   67
+  ],
+  [
+   "LIFT_LARGE",
+   79
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "take_the_pen_out_of_the_bowl_a55d56",
+  "perturbation": "Default",
+  "instruction": "Take the pen out of the bowl",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[56, 67, 79]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "8.672480220689524",
+  "joint_acc_var": "651.6633222177882",
+  "joint_jerk": "99.40155921320064",
+  "joint_path_length": "4.596079508448192",
+  "cart_path_length": "0.78422844",
+  "cart_jerk": "7.3818574",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "0"
+ }
+}

@@ -1,0 +1,45 @@
+{
+ "task": "remove_the_yellow_block_from_the_pot_203104",
+ "task_type": "pick",
+ "instruction": "Remove the yellow block from the pot",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.67,
+ "success": false,
+ "stuck_at": "LIFT_LARGE",
+ "stages_reached": [
+  [
+   "REACH",
+   66
+  ],
+  [
+   "GRASP",
+   302
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_yellow_block_from_the_pot_203104",
+  "perturbation": "Default",
+  "instruction": "Remove the yellow block from the pot",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.6666666666666666",
+  "task_progression_timestamps": "[66, 302]",
+  "stage": "LIFT_LARGE",
+  "binary_SR": "0.0",
+  "joint_vel_var": "4.884985008086878",
+  "joint_acc_var": "462.76352024929787",
+  "joint_jerk": "40.8552873087107",
+  "joint_path_length": "6.879353262049954",
+  "cart_path_length": "1.6525214",
+  "cart_jerk": "4.040423",
+  "collisions_self": "0",
+  "collisions_env": "2",
+  "object_drops": "1"
+ }
+}

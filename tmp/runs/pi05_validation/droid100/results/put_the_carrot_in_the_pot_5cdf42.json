@@ -1,0 +1,57 @@
+{
+ "task": "put_the_carrot_in_the_pot_5cdf42",
+ "task_type": "put",
+ "instruction": "Put the carrot in the pot",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   115
+  ],
+  [
+   "GRASP",
+   142
+  ],
+  [
+   "LIFT_SLIGHT",
+   159
+  ],
+  [
+   "MOVE_CLOSE",
+   465
+  ],
+  [
+   "PLACE_INTO",
+   466
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_carrot_in_the_pot_5cdf42",
+  "perturbation": "Default",
+  "instruction": "Put the carrot in the pot",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[115, 142, 159, 465, 466]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "15.288430037947998",
+  "joint_acc_var": "1996.462200911594",
+  "joint_jerk": "72.66382601396849",
+  "joint_path_length": "11.7294562091428",
+  "cart_path_length": "2.4638557",
+  "cart_jerk": "5.344228",
+  "collisions_self": "0",
+  "collisions_env": "10",
+  "object_drops": "1"
+ }
+}

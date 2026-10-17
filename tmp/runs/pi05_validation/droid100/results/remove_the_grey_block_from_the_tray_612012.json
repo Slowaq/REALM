@@ -1,0 +1,49 @@
+{
+ "task": "remove_the_grey_block_from_the_tray_612012",
+ "task_type": "pick",
+ "instruction": "Remove the grey block from the tray",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   42
+  ],
+  [
+   "GRASP",
+   59
+  ],
+  [
+   "LIFT_LARGE",
+   74
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_grey_block_from_the_tray_612012",
+  "perturbation": "Default",
+  "instruction": "Remove the grey block from the tray",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[42, 59, 74]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "4.152141672823454",
+  "joint_acc_var": "372.7738753641825",
+  "joint_jerk": "70.40507431758498",
+  "joint_path_length": "2.949151509614371",
+  "cart_path_length": "0.7971371",
+  "cart_jerk": "7.4632964",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "0"
+ }
+}

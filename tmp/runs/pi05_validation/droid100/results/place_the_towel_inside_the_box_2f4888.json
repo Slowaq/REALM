@@ -1,0 +1,41 @@
+{
+ "task": "place_the_towel_inside_the_box_2f4888",
+ "task_type": "put",
+ "instruction": "Place the towel inside the box",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.2,
+ "success": false,
+ "stuck_at": "GRASP",
+ "stages_reached": [
+  [
+   "REACH",
+   40
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "place_the_towel_inside_the_box_2f4888",
+  "perturbation": "Default",
+  "instruction": "Place the towel inside the box",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.2",
+  "task_progression_timestamps": "[40]",
+  "stage": "GRASP",
+  "binary_SR": "0.0",
+  "joint_vel_var": "7.779736508081164",
+  "joint_acc_var": "711.1601540068139",
+  "joint_jerk": "38.84854703200733",
+  "joint_path_length": "5.9897487678045715",
+  "cart_path_length": "0.8670355",
+  "cart_jerk": "2.4863772",
+  "collisions_self": "0",
+  "collisions_env": "17",
+  "object_drops": "0"
+ }
+}

@@ -1,0 +1,41 @@
+{
+ "task": "remove_the_marker_from_the_glass_1f96cb",
+ "task_type": "pick",
+ "instruction": "Remove the marker from the glass",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.33,
+ "success": false,
+ "stuck_at": "GRASP",
+ "stages_reached": [
+  [
+   "REACH",
+   35
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_marker_from_the_glass_1f96cb",
+  "perturbation": "Default",
+  "instruction": "Remove the marker from the glass",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.3333333333333333",
+  "task_progression_timestamps": "[35]",
+  "stage": "GRASP",
+  "binary_SR": "0.0",
+  "joint_vel_var": "18.120178063026653",
+  "joint_acc_var": "2476.660802229108",
+  "joint_jerk": "77.30343719856762",
+  "joint_path_length": "12.305907370880526",
+  "cart_path_length": "2.1034176",
+  "cart_jerk": "5.634749",
+  "collisions_self": "0",
+  "collisions_env": "12",
+  "object_drops": "0"
+ }
+}

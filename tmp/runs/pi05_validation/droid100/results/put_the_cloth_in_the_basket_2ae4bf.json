@@ -1,0 +1,41 @@
+{
+ "task": "put_the_cloth_in_the_basket_2ae4bf",
+ "task_type": "put",
+ "instruction": "Put the cloth in the basket",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.2,
+ "success": false,
+ "stuck_at": "GRASP",
+ "stages_reached": [
+  [
+   "REACH",
+   67
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_cloth_in_the_basket_2ae4bf",
+  "perturbation": "Default",
+  "instruction": "Put the cloth in the basket",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.2",
+  "task_progression_timestamps": "[67]",
+  "stage": "GRASP",
+  "binary_SR": "0.0",
+  "joint_vel_var": "8.527643150078903",
+  "joint_acc_var": "954.2771492636529",
+  "joint_jerk": "47.246703156404685",
+  "joint_path_length": "7.856129713373041",
+  "cart_path_length": "1.6267605",
+  "cart_jerk": "4.2169743",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "0"
+ }
+}

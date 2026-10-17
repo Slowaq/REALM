@@ -1,0 +1,45 @@
+{
+ "task": "take_the_teddy_bear_out_of_the_box_d19562",
+ "task_type": "pick",
+ "instruction": "Take the teddy bear out of the box",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.67,
+ "success": false,
+ "stuck_at": "LIFT_LARGE",
+ "stages_reached": [
+  [
+   "REACH",
+   43
+  ],
+  [
+   "GRASP",
+   105
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "take_the_teddy_bear_out_of_the_box_d19562",
+  "perturbation": "Default",
+  "instruction": "Take the teddy bear out of the box",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.6666666666666666",
+  "task_progression_timestamps": "[43, 105]",
+  "stage": "LIFT_LARGE",
+  "binary_SR": "0.0",
+  "joint_vel_var": "13.0424314738618",
+  "joint_acc_var": "1714.1559428794128",
+  "joint_jerk": "70.0214787206264",
+  "joint_path_length": "9.969565263144567",
+  "cart_path_length": "1.6393182",
+  "cart_jerk": "5.3212223",
+  "collisions_self": "0",
+  "collisions_env": "20",
+  "object_drops": "3"
+ }
+}

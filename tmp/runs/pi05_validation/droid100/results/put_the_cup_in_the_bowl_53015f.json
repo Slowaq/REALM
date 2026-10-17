@@ -1,0 +1,57 @@
+{
+ "task": "put_the_cup_in_the_bowl_53015f",
+ "task_type": "put",
+ "instruction": "Put the cup in the bowl",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   26
+  ],
+  [
+   "GRASP",
+   53
+  ],
+  [
+   "LIFT_SLIGHT",
+   57
+  ],
+  [
+   "MOVE_CLOSE",
+   79
+  ],
+  [
+   "PLACE_INTO",
+   95
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_cup_in_the_bowl_53015f",
+  "perturbation": "Default",
+  "instruction": "Put the cup in the bowl",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[26, 53, 57, 79, 95]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "6.387411689010837",
+  "joint_acc_var": "779.8988702640114",
+  "joint_jerk": "119.33468874251443",
+  "joint_path_length": "4.073717369415429",
+  "cart_path_length": "0.79302716",
+  "cart_jerk": "7.510865",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "0"
+ }
+}

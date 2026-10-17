@@ -1,0 +1,45 @@
+{
+ "task": "remove_the_marker_from_the_cup_1fb5a0",
+ "task_type": "pick",
+ "instruction": "Remove the marker from the cup",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.67,
+ "success": false,
+ "stuck_at": "LIFT_LARGE",
+ "stages_reached": [
+  [
+   "REACH",
+   62
+  ],
+  [
+   "GRASP",
+   63
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_marker_from_the_cup_1fb5a0",
+  "perturbation": "Default",
+  "instruction": "Remove the marker from the cup",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.6666666666666666",
+  "task_progression_timestamps": "[62, 63]",
+  "stage": "LIFT_LARGE",
+  "binary_SR": "0.0",
+  "joint_vel_var": "25.358312765636438",
+  "joint_acc_var": "2963.86870724733",
+  "joint_jerk": "80.60349526235345",
+  "joint_path_length": "14.24102220707083",
+  "cart_path_length": "2.52074",
+  "cart_jerk": "6.1460657",
+  "collisions_self": "0",
+  "collisions_env": "6",
+  "object_drops": "1"
+ }
+}

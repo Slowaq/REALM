@@ -1,0 +1,49 @@
+{
+ "task": "remove_the_fork_from_the_mug_079e47",
+ "task_type": "pick",
+ "instruction": "Remove the fork from the mug",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   85
+  ],
+  [
+   "GRASP",
+   417
+  ],
+  [
+   "LIFT_LARGE",
+   459
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_fork_from_the_mug_079e47",
+  "perturbation": "Default",
+  "instruction": "Remove the fork from the mug",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[85, 417, 459]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "16.403928203472045",
+  "joint_acc_var": "1498.0332079543343",
+  "joint_jerk": "64.36858556869534",
+  "joint_path_length": "10.675461635794775",
+  "cart_path_length": "2.0241902",
+  "cart_jerk": "5.259206",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "1"
+ }
+}

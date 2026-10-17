@@ -1,0 +1,49 @@
+{
+ "task": "put_the_scoop_inside_the_bowl_dc3a3f",
+ "task_type": "put",
+ "instruction": "Put the scoop inside the bowl",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.6,
+ "success": false,
+ "stuck_at": "MOVE_CLOSE",
+ "stages_reached": [
+  [
+   "REACH",
+   85
+  ],
+  [
+   "GRASP",
+   111
+  ],
+  [
+   "LIFT_SLIGHT",
+   123
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_scoop_inside_the_bowl_dc3a3f",
+  "perturbation": "Default",
+  "instruction": "Put the scoop inside the bowl",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.6000000000000001",
+  "task_progression_timestamps": "[85, 111, 123]",
+  "stage": "MOVE_CLOSE",
+  "binary_SR": "0.0",
+  "joint_vel_var": "34.94924608428777",
+  "joint_acc_var": "2917.145532976186",
+  "joint_jerk": "80.81891705590542",
+  "joint_path_length": "17.736446532917302",
+  "cart_path_length": "2.9243908",
+  "cart_jerk": "6.8067093",
+  "collisions_self": "0",
+  "collisions_env": "7",
+  "object_drops": "1"
+ }
+}

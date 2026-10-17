@@ -1,0 +1,57 @@
+{
+ "task": "put_the_pen_in_the_bowl_f92409",
+ "task_type": "put",
+ "instruction": "Put the pen in the bowl",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   67
+  ],
+  [
+   "GRASP",
+   319
+  ],
+  [
+   "LIFT_SLIGHT",
+   333
+  ],
+  [
+   "MOVE_CLOSE",
+   377
+  ],
+  [
+   "PLACE_INTO",
+   378
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_pen_in_the_bowl_f92409",
+  "perturbation": "Default",
+  "instruction": "Put the pen in the bowl",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[67, 319, 333, 377, 378]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "17.458278334673928",
+  "joint_acc_var": "1422.3382193734183",
+  "joint_jerk": "62.42046637389812",
+  "joint_path_length": "11.119397154615733",
+  "cart_path_length": "2.5592475",
+  "cart_jerk": "7.8340545",
+  "collisions_self": "0",
+  "collisions_env": "6",
+  "object_drops": "0"
+ }
+}

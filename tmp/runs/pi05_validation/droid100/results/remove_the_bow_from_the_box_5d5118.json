@@ -1,0 +1,45 @@
+{
+ "task": "remove_the_bow_from_the_box_5d5118",
+ "task_type": "pick",
+ "instruction": "Remove the bow from the box",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.67,
+ "success": false,
+ "stuck_at": "LIFT_LARGE",
+ "stages_reached": [
+  [
+   "REACH",
+   26
+  ],
+  [
+   "GRASP",
+   271
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_bow_from_the_box_5d5118",
+  "perturbation": "Default",
+  "instruction": "Remove the bow from the box",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.6666666666666666",
+  "task_progression_timestamps": "[26, 271]",
+  "stage": "LIFT_LARGE",
+  "binary_SR": "0.0",
+  "joint_vel_var": "12.996004247045834",
+  "joint_acc_var": "1944.1196283963964",
+  "joint_jerk": "61.66652888588619",
+  "joint_path_length": "9.110273317151089",
+  "cart_path_length": "1.3184335",
+  "cart_jerk": "5.1113214",
+  "collisions_self": "0",
+  "collisions_env": "15",
+  "object_drops": "3"
+ }
+}

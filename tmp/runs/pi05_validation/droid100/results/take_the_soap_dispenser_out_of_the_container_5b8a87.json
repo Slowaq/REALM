@@ -1,0 +1,49 @@
+{
+ "task": "take_the_soap_dispenser_out_of_the_container_5b8a87",
+ "task_type": "pick",
+ "instruction": "Take the soap dispenser out of the container",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   112
+  ],
+  [
+   "GRASP",
+   114
+  ],
+  [
+   "LIFT_LARGE",
+   211
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "take_the_soap_dispenser_out_of_the_container_5b8a87",
+  "perturbation": "Default",
+  "instruction": "Take the soap dispenser out of the container",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[112, 114, 211]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "3.365788902233539",
+  "joint_acc_var": "360.53547718450284",
+  "joint_jerk": "53.25960586021797",
+  "joint_path_length": "3.625198379797273",
+  "cart_path_length": "0.8289471",
+  "cart_jerk": "6.3514094",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "5"
+ }
+}

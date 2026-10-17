@@ -1,0 +1,45 @@
+{
+ "task": "take_the_salt_shaker_out_of_the_pot_fbfd2e",
+ "task_type": "pick",
+ "instruction": "Take the salt shaker out of the pot",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   41
+  ],
+  [
+   "GRASP",
+   446
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "take_the_salt_shaker_out_of_the_pot_fbfd2e",
+  "perturbation": "Default",
+  "instruction": "Take the salt shaker out of the pot",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[41, 446]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "11.144744149003623",
+  "joint_acc_var": "940.0947499270535",
+  "joint_jerk": "53.03056568603036",
+  "joint_path_length": "10.11653658527798",
+  "cart_path_length": "1.9839048",
+  "cart_jerk": "5.8994737",
+  "collisions_self": "0",
+  "collisions_env": "9",
+  "object_drops": "2"
+ }
+}

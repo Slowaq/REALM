@@ -1,0 +1,45 @@
+{
+ "task": "rotate_the_pot_20a53e",
+ "task_type": "rotate",
+ "instruction": "Rotate the pot",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.67,
+ "success": false,
+ "stuck_at": "ROTATED",
+ "stages_reached": [
+  [
+   "REACH",
+   219
+  ],
+  [
+   "GRASP",
+   234
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "rotate_the_pot_20a53e",
+  "perturbation": "Default",
+  "instruction": "Rotate the pot",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.6666666666666666",
+  "task_progression_timestamps": "[219, 234]",
+  "stage": "ROTATED",
+  "binary_SR": "0.0",
+  "joint_vel_var": "20.0432058146306",
+  "joint_acc_var": "2884.074321429655",
+  "joint_jerk": "80.36466417741516",
+  "joint_path_length": "13.097086829871134",
+  "cart_path_length": "3.110055",
+  "cart_jerk": "6.7102613",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "1"
+ }
+}

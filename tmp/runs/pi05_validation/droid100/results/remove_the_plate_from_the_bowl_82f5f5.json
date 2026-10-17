@@ -1,0 +1,41 @@
+{
+ "task": "remove_the_plate_from_the_bowl_82f5f5",
+ "task_type": "pick",
+ "instruction": "Remove the plate from the bowl",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.33,
+ "success": false,
+ "stuck_at": "GRASP",
+ "stages_reached": [
+  [
+   "REACH",
+   37
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_plate_from_the_bowl_82f5f5",
+  "perturbation": "Default",
+  "instruction": "Remove the plate from the bowl",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.3333333333333333",
+  "task_progression_timestamps": "[37]",
+  "stage": "GRASP",
+  "binary_SR": "0.0",
+  "joint_vel_var": "17.60572379448275",
+  "joint_acc_var": "1473.4185835062683",
+  "joint_jerk": "64.87886714970321",
+  "joint_path_length": "12.344685344419979",
+  "cart_path_length": "2.8056412",
+  "cart_jerk": "6.328455",
+  "collisions_self": "0",
+  "collisions_env": "9",
+  "object_drops": "0"
+ }
+}

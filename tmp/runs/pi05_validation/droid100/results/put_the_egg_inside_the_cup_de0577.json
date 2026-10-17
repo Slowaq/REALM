@@ -1,0 +1,49 @@
+{
+ "task": "put_the_egg_inside_the_cup_de0577",
+ "task_type": "put",
+ "instruction": "Put the egg inside the cup",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.6,
+ "success": false,
+ "stuck_at": "MOVE_CLOSE",
+ "stages_reached": [
+  [
+   "REACH",
+   57
+  ],
+  [
+   "GRASP",
+   95
+  ],
+  [
+   "LIFT_SLIGHT",
+   107
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_egg_inside_the_cup_de0577",
+  "perturbation": "Default",
+  "instruction": "Put the egg inside the cup",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.6000000000000001",
+  "task_progression_timestamps": "[57, 95, 107]",
+  "stage": "MOVE_CLOSE",
+  "binary_SR": "0.0",
+  "joint_vel_var": "14.893924201271517",
+  "joint_acc_var": "1702.2007234849407",
+  "joint_jerk": "61.75641595394377",
+  "joint_path_length": "11.743649316415013",
+  "cart_path_length": "2.5084991",
+  "cart_jerk": "5.102834",
+  "collisions_self": "0",
+  "collisions_env": "2",
+  "object_drops": "2"
+ }
+}

@@ -1,0 +1,49 @@
+{
+ "task": "remove_the_spoon_from_the_mug_d3b3a7",
+ "task_type": "pick",
+ "instruction": "Remove the spoon from the mug",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   81
+  ],
+  [
+   "GRASP",
+   204
+  ],
+  [
+   "LIFT_LARGE",
+   223
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_spoon_from_the_mug_d3b3a7",
+  "perturbation": "Default",
+  "instruction": "Remove the spoon from the mug",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[81, 204, 223]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "8.533533732004246",
+  "joint_acc_var": "371.05943849565074",
+  "joint_jerk": "46.340297463557846",
+  "joint_path_length": "7.105224640368311",
+  "cart_path_length": "1.506135",
+  "cart_jerk": "5.4822903",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "0"
+ }
+}

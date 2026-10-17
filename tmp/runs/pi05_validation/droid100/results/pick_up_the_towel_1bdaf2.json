@@ -1,0 +1,41 @@
+{
+ "task": "pick_up_the_towel_1bdaf2",
+ "task_type": "pick",
+ "instruction": "Pick up the towel",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.33,
+ "success": false,
+ "stuck_at": "GRASP",
+ "stages_reached": [
+  [
+   "REACH",
+   29
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "pick_up_the_towel_1bdaf2",
+  "perturbation": "Default",
+  "instruction": "Pick up the towel",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.3333333333333333",
+  "task_progression_timestamps": "[29]",
+  "stage": "GRASP",
+  "binary_SR": "0.0",
+  "joint_vel_var": "9.73956803261315",
+  "joint_acc_var": "820.254938878157",
+  "joint_jerk": "40.30563902568571",
+  "joint_path_length": "7.96310235397685",
+  "cart_path_length": "1.4141308",
+  "cart_jerk": "4.1040573",
+  "collisions_self": "0",
+  "collisions_env": "5",
+  "object_drops": "0"
+ }
+}

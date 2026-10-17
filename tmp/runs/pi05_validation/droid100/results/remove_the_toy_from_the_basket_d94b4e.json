@@ -1,0 +1,45 @@
+{
+ "task": "remove_the_toy_from_the_basket_d94b4e",
+ "task_type": "pick",
+ "instruction": "Remove the toy from the basket",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.67,
+ "success": false,
+ "stuck_at": "LIFT_LARGE",
+ "stages_reached": [
+  [
+   "REACH",
+   70
+  ],
+  [
+   "GRASP",
+   95
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_toy_from_the_basket_d94b4e",
+  "perturbation": "Default",
+  "instruction": "Remove the toy from the basket",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.6666666666666666",
+  "task_progression_timestamps": "[70, 95]",
+  "stage": "LIFT_LARGE",
+  "binary_SR": "0.0",
+  "joint_vel_var": "6.491367438526481",
+  "joint_acc_var": "683.3151139880371",
+  "joint_jerk": "43.498733846141306",
+  "joint_path_length": "7.964343653397815",
+  "cart_path_length": "2.2641149",
+  "cart_jerk": "5.5984573",
+  "collisions_self": "0",
+  "collisions_env": "7",
+  "object_drops": "4"
+ }
+}

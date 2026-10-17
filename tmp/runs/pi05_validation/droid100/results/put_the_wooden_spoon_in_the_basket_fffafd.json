@@ -1,0 +1,45 @@
+{
+ "task": "put_the_wooden_spoon_in_the_basket_fffafd",
+ "task_type": "put",
+ "instruction": "Put the wooden spoon in the basket",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.4,
+ "success": false,
+ "stuck_at": "LIFT_SLIGHT",
+ "stages_reached": [
+  [
+   "REACH",
+   109
+  ],
+  [
+   "GRASP",
+   150
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_wooden_spoon_in_the_basket_fffafd",
+  "perturbation": "Default",
+  "instruction": "Put the wooden spoon in the basket",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.4",
+  "task_progression_timestamps": "[109, 150]",
+  "stage": "LIFT_SLIGHT",
+  "binary_SR": "0.0",
+  "joint_vel_var": "10.520264142493764",
+  "joint_acc_var": "2034.9619858327753",
+  "joint_jerk": "59.32609526648283",
+  "joint_path_length": "7.898087246760572",
+  "cart_path_length": "1.1882104",
+  "cart_jerk": "4.6306353",
+  "collisions_self": "0",
+  "collisions_env": "32",
+  "object_drops": "1"
+ }
+}

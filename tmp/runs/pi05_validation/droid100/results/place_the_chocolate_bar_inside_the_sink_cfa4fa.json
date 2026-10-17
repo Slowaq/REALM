@@ -1,0 +1,41 @@
+{
+ "task": "place_the_chocolate_bar_inside_the_sink_cfa4fa",
+ "task_type": "put",
+ "instruction": "Place the chocolate bar inside the sink",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.2,
+ "success": false,
+ "stuck_at": "GRASP",
+ "stages_reached": [
+  [
+   "REACH",
+   66
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "place_the_chocolate_bar_inside_the_sink_cfa4fa",
+  "perturbation": "Default",
+  "instruction": "Place the chocolate bar inside the sink",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.2",
+  "task_progression_timestamps": "[66]",
+  "stage": "GRASP",
+  "binary_SR": "0.0",
+  "joint_vel_var": "16.096283760381635",
+  "joint_acc_var": "2505.3594087473325",
+  "joint_jerk": "76.16114037816891",
+  "joint_path_length": "12.4705876707229",
+  "cart_path_length": "3.0616293",
+  "cart_jerk": "6.1448574",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "0"
+ }
+}

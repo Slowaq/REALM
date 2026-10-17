@@ -1,0 +1,57 @@
+{
+ "task": "put_the_bowl_on_the_plate_b4fe86",
+ "task_type": "stack",
+ "instruction": "Put the bowl on the plate",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   47
+  ],
+  [
+   "GRASP",
+   87
+  ],
+  [
+   "LIFT_SLIGHT",
+   90
+  ],
+  [
+   "MOVE_CLOSE",
+   170
+  ],
+  [
+   "PLACE_ONTO",
+   201
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_bowl_on_the_plate_b4fe86",
+  "perturbation": "Default",
+  "instruction": "Put the bowl on the plate",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[47, 87, 90, 170, 201]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "11.560963911477511",
+  "joint_acc_var": "883.3857669528721",
+  "joint_jerk": "87.83046753718035",
+  "joint_path_length": "7.355255243765132",
+  "cart_path_length": "1.357755",
+  "cart_jerk": "5.6600738",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "0"
+ }
+}

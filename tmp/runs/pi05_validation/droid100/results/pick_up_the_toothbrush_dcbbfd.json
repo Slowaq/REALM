@@ -1,0 +1,45 @@
+{
+ "task": "pick_up_the_toothbrush_dcbbfd",
+ "task_type": "pick",
+ "instruction": "Pick up the toothbrush",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.67,
+ "success": false,
+ "stuck_at": "LIFT_LARGE",
+ "stages_reached": [
+  [
+   "REACH",
+   32
+  ],
+  [
+   "GRASP",
+   63
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "pick_up_the_toothbrush_dcbbfd",
+  "perturbation": "Default",
+  "instruction": "Pick up the toothbrush",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.6666666666666666",
+  "task_progression_timestamps": "[32, 63]",
+  "stage": "LIFT_LARGE",
+  "binary_SR": "0.0",
+  "joint_vel_var": "45.545001217520074",
+  "joint_acc_var": "4938.758065488338",
+  "joint_jerk": "108.17459857122824",
+  "joint_path_length": "20.709576125386718",
+  "cart_path_length": "3.2182004",
+  "cart_jerk": "7.6836066",
+  "collisions_self": "0",
+  "collisions_env": "5",
+  "object_drops": "1"
+ }
+}

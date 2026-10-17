@@ -1,0 +1,41 @@
+{
+ "task": "put_the_lid_on_the_pot_6f9c1b",
+ "task_type": "stack",
+ "instruction": "Put the lid on the pot",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.2,
+ "success": false,
+ "stuck_at": "GRASP",
+ "stages_reached": [
+  [
+   "REACH",
+   110
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_lid_on_the_pot_6f9c1b",
+  "perturbation": "Default",
+  "instruction": "Put the lid on the pot",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.2",
+  "task_progression_timestamps": "[110]",
+  "stage": "GRASP",
+  "binary_SR": "0.0",
+  "joint_vel_var": "15.76215118821891",
+  "joint_acc_var": "1393.0364779526851",
+  "joint_jerk": "63.938884148533845",
+  "joint_path_length": "12.439504524350188",
+  "cart_path_length": "2.2919786",
+  "cart_jerk": "6.5564675",
+  "collisions_self": "0",
+  "collisions_env": "2",
+  "object_drops": "0"
+ }
+}

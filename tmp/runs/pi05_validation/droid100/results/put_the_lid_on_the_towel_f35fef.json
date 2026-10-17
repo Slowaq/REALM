@@ -1,0 +1,41 @@
+{
+ "task": "put_the_lid_on_the_towel_f35fef",
+ "task_type": "stack",
+ "instruction": "Put the lid on the towel",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.2,
+ "success": false,
+ "stuck_at": "GRASP",
+ "stages_reached": [
+  [
+   "REACH",
+   36
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_lid_on_the_towel_f35fef",
+  "perturbation": "Default",
+  "instruction": "Put the lid on the towel",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.2",
+  "task_progression_timestamps": "[36]",
+  "stage": "GRASP",
+  "binary_SR": "0.0",
+  "joint_vel_var": "8.910229846569742",
+  "joint_acc_var": "656.8812614230574",
+  "joint_jerk": "39.80000644289131",
+  "joint_path_length": "7.053498828385225",
+  "cart_path_length": "0.9723714",
+  "cart_jerk": "3.361647",
+  "collisions_self": "0",
+  "collisions_env": "28",
+  "object_drops": "0"
+ }
+}

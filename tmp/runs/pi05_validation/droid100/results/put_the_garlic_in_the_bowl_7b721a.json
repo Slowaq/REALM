@@ -1,0 +1,57 @@
+{
+ "task": "put_the_garlic_in_the_bowl_7b721a",
+ "task_type": "put",
+ "instruction": "Put the garlic in the bowl",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   57
+  ],
+  [
+   "GRASP",
+   80
+  ],
+  [
+   "LIFT_SLIGHT",
+   90
+  ],
+  [
+   "MOVE_CLOSE",
+   120
+  ],
+  [
+   "PLACE_INTO",
+   126
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_garlic_in_the_bowl_7b721a",
+  "perturbation": "Default",
+  "instruction": "Put the garlic in the bowl",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[57, 80, 90, 120, 126]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "7.304142389305558",
+  "joint_acc_var": "629.3697833498933",
+  "joint_jerk": "81.00062744175132",
+  "joint_path_length": "4.6763197566649275",
+  "cart_path_length": "1.2517898",
+  "cart_jerk": "9.757198",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "0"
+ }
+}

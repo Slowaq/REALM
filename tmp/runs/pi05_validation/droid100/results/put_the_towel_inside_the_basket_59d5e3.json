@@ -1,0 +1,45 @@
+{
+ "task": "put_the_towel_inside_the_basket_59d5e3",
+ "task_type": "put",
+ "instruction": "Put the towel inside the basket",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.4,
+ "success": false,
+ "stuck_at": "LIFT_SLIGHT",
+ "stages_reached": [
+  [
+   "REACH",
+   44
+  ],
+  [
+   "GRASP",
+   215
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_towel_inside_the_basket_59d5e3",
+  "perturbation": "Default",
+  "instruction": "Put the towel inside the basket",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.4",
+  "task_progression_timestamps": "[44, 215]",
+  "stage": "LIFT_SLIGHT",
+  "binary_SR": "0.0",
+  "joint_vel_var": "8.37372779888223",
+  "joint_acc_var": "869.4406560823043",
+  "joint_jerk": "54.16915391717168",
+  "joint_path_length": "8.648220816052067",
+  "cart_path_length": "1.4576792",
+  "cart_jerk": "5.715432",
+  "collisions_self": "0",
+  "collisions_env": "1",
+  "object_drops": "4"
+ }
+}

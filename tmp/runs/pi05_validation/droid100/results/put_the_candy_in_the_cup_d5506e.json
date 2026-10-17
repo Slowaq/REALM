@@ -1,0 +1,53 @@
+{
+ "task": "put_the_candy_in_the_cup_d5506e",
+ "task_type": "put",
+ "instruction": "Put the candy in the cup",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.8,
+ "success": false,
+ "stuck_at": "PLACE_INTO",
+ "stages_reached": [
+  [
+   "REACH",
+   150
+  ],
+  [
+   "GRASP",
+   185
+  ],
+  [
+   "LIFT_SLIGHT",
+   200
+  ],
+  [
+   "MOVE_CLOSE",
+   371
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_candy_in_the_cup_d5506e",
+  "perturbation": "Default",
+  "instruction": "Put the candy in the cup",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.8",
+  "task_progression_timestamps": "[150, 185, 200, 371]",
+  "stage": "PLACE_INTO",
+  "binary_SR": "0.0",
+  "joint_vel_var": "11.84783773334055",
+  "joint_acc_var": "1395.883734385024",
+  "joint_jerk": "57.42547992224769",
+  "joint_path_length": "10.918936991373842",
+  "cart_path_length": "2.7149367",
+  "cart_jerk": "5.8477488",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "1"
+ }
+}

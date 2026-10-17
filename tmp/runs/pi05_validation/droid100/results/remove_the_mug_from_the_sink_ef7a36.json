@@ -1,0 +1,49 @@
+{
+ "task": "remove_the_mug_from_the_sink_ef7a36",
+ "task_type": "pick",
+ "instruction": "Remove the mug from the sink",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   38
+  ],
+  [
+   "GRASP",
+   74
+  ],
+  [
+   "LIFT_LARGE",
+   115
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_mug_from_the_sink_ef7a36",
+  "perturbation": "Default",
+  "instruction": "Remove the mug from the sink",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[38, 74, 115]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "2.526283031754761",
+  "joint_acc_var": "472.9182734734447",
+  "joint_jerk": "78.25757571710295",
+  "joint_path_length": "2.685818402853312",
+  "cart_path_length": "0.50151575",
+  "cart_jerk": "6.484853",
+  "collisions_self": "0",
+  "collisions_env": "0",
+  "object_drops": "0"
+ }
+}

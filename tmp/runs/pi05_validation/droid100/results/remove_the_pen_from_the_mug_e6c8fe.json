@@ -1,0 +1,45 @@
+{
+ "task": "remove_the_pen_from_the_mug_e6c8fe",
+ "task_type": "pick",
+ "instruction": "Remove the pen from the mug",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.67,
+ "success": false,
+ "stuck_at": "LIFT_LARGE",
+ "stages_reached": [
+  [
+   "REACH",
+   16
+  ],
+  [
+   "GRASP",
+   434
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_pen_from_the_mug_e6c8fe",
+  "perturbation": "Default",
+  "instruction": "Remove the pen from the mug",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.6666666666666666",
+  "task_progression_timestamps": "[16, 434]",
+  "stage": "LIFT_LARGE",
+  "binary_SR": "0.0",
+  "joint_vel_var": "31.12069134452087",
+  "joint_acc_var": "4248.610001156859",
+  "joint_jerk": "106.33008700185779",
+  "joint_path_length": "15.80836738697474",
+  "cart_path_length": "2.03457",
+  "cart_jerk": "6.6423883",
+  "collisions_self": "0",
+  "collisions_env": "11",
+  "object_drops": "3"
+ }
+}

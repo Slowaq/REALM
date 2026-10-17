@@ -1,0 +1,49 @@
+{
+ "task": "remove_the_marker_from_the_pot_f89099",
+ "task_type": "pick",
+ "instruction": "Remove the marker from the pot",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   246
+  ],
+  [
+   "GRASP",
+   279
+  ],
+  [
+   "LIFT_LARGE",
+   302
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "remove_the_marker_from_the_pot_f89099",
+  "perturbation": "Default",
+  "instruction": "Remove the marker from the pot",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[246, 279, 302]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "16.95321337393612",
+  "joint_acc_var": "1586.7700764317437",
+  "joint_jerk": "76.9097323100424",
+  "joint_path_length": "10.363908352690792",
+  "cart_path_length": "1.594737",
+  "cart_jerk": "5.2580557",
+  "collisions_self": "0",
+  "collisions_env": "2",
+  "object_drops": "0"
+ }
+}

@@ -1,0 +1,49 @@
+{
+ "task": "place_the_lid_on_the_coffee_cup_456a7e",
+ "task_type": "stack",
+ "instruction": "Place the lid on the coffee cup",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.6,
+ "success": false,
+ "stuck_at": "MOVE_CLOSE",
+ "stages_reached": [
+  [
+   "REACH",
+   46
+  ],
+  [
+   "GRASP",
+   202
+  ],
+  [
+   "LIFT_SLIGHT",
+   244
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "place_the_lid_on_the_coffee_cup_456a7e",
+  "perturbation": "Default",
+  "instruction": "Place the lid on the coffee cup",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.6000000000000001",
+  "task_progression_timestamps": "[46, 202, 244]",
+  "stage": "MOVE_CLOSE",
+  "binary_SR": "0.0",
+  "joint_vel_var": "14.237523510346064",
+  "joint_acc_var": "1109.3576932426658",
+  "joint_jerk": "53.954416017026496",
+  "joint_path_length": "11.220479198820072",
+  "cart_path_length": "2.5375843",
+  "cart_jerk": "5.690041",
+  "collisions_self": "0",
+  "collisions_env": "1",
+  "object_drops": "3"
+ }
+}

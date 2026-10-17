@@ -1,0 +1,45 @@
+{
+ "task": "put_the_grapes_in_the_bowl_a731f9",
+ "task_type": "put",
+ "instruction": "Put the grapes in the bowl",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.4,
+ "success": false,
+ "stuck_at": "LIFT_SLIGHT",
+ "stages_reached": [
+  [
+   "REACH",
+   339
+  ],
+  [
+   "GRASP",
+   416
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_grapes_in_the_bowl_a731f9",
+  "perturbation": "Default",
+  "instruction": "Put the grapes in the bowl",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.4",
+  "task_progression_timestamps": "[339, 416]",
+  "stage": "LIFT_SLIGHT",
+  "binary_SR": "0.0",
+  "joint_vel_var": "9.093914279546619",
+  "joint_acc_var": "620.047102151613",
+  "joint_jerk": "44.92513492201229",
+  "joint_path_length": "9.494781685190562",
+  "cart_path_length": "2.2647338",
+  "cart_jerk": "6.1945863",
+  "collisions_self": "0",
+  "collisions_env": "5",
+  "object_drops": "7"
+ }
+}

@@ -1,0 +1,57 @@
+{
+ "task": "put_the_toy_in_the_bowl_1299a8",
+ "task_type": "put",
+ "instruction": "Put the toy in the bowl",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   27
+  ],
+  [
+   "GRASP",
+   44
+  ],
+  [
+   "LIFT_SLIGHT",
+   398
+  ],
+  [
+   "MOVE_CLOSE",
+   475
+  ],
+  [
+   "PLACE_INTO",
+   480
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_toy_in_the_bowl_1299a8",
+  "perturbation": "Default",
+  "instruction": "Put the toy in the bowl",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[27, 44, 398, 475, 480]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "15.037318563873336",
+  "joint_acc_var": "1716.5664914484391",
+  "joint_jerk": "65.51612759917855",
+  "joint_path_length": "10.09867280766025",
+  "cart_path_length": "1.9963921",
+  "cart_jerk": "5.8935647",
+  "collisions_self": "0",
+  "collisions_env": "4",
+  "object_drops": "3"
+ }
+}

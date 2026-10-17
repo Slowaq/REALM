@@ -1,0 +1,49 @@
+{
+ "task": "put_the_book_in_the_basket_5d00b8",
+ "task_type": "put",
+ "instruction": "Put the book in the basket",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 0.6,
+ "success": false,
+ "stuck_at": "MOVE_CLOSE",
+ "stages_reached": [
+  [
+   "REACH",
+   53
+  ],
+  [
+   "GRASP",
+   79
+  ],
+  [
+   "LIFT_SLIGHT",
+   143
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "put_the_book_in_the_basket_5d00b8",
+  "perturbation": "Default",
+  "instruction": "Put the book in the basket",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "0.6000000000000001",
+  "task_progression_timestamps": "[53, 79, 143]",
+  "stage": "MOVE_CLOSE",
+  "binary_SR": "0.0",
+  "joint_vel_var": "5.642549096673611",
+  "joint_acc_var": "585.7387611861035",
+  "joint_jerk": "39.228177561419415",
+  "joint_path_length": "6.850323705052775",
+  "cart_path_length": "1.511067",
+  "cart_jerk": "3.9512243",
+  "collisions_self": "0",
+  "collisions_env": "15",
+  "object_drops": "3"
+ }
+}

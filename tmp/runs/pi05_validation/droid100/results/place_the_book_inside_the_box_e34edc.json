@@ -1,0 +1,53 @@
+{
+ "task": "place_the_book_inside_the_box_e34edc",
+ "task_type": "put",
+ "instruction": "Place the book inside the box",
+ "log_found": true,
+ "traceback": 0,
+ "error_lines": [],
+ "n_error_lines": 0,
+ "status": "ran",
+ "progression": 1.0,
+ "success": true,
+ "stuck_at": "SUCCESS",
+ "stages_reached": [
+  [
+   "REACH",
+   50
+  ],
+  [
+   "GRASP",
+   223
+  ],
+  [
+   "LIFT_SLIGHT",
+   288
+  ],
+  [
+   "MOVE_CLOSE",
+   346
+  ]
+ ],
+ "report": {
+  "run_id": "0",
+  "task": "place_the_book_inside_the_box_e34edc",
+  "perturbation": "Default",
+  "instruction": "Place the book inside the box",
+  "model": "openpi",
+  "real2sim": "Simulated",
+  "env": "REALM",
+  "task_progression": "1.0",
+  "task_progression_timestamps": "[50, 223, 288, 346]",
+  "stage": "SUCCESS",
+  "binary_SR": "1.0",
+  "joint_vel_var": "8.505832828553745",
+  "joint_acc_var": "622.8706586100614",
+  "joint_jerk": "57.28204774826916",
+  "joint_path_length": "8.066873228163933",
+  "cart_path_length": "2.2139933",
+  "cart_jerk": "7.127822",
+  "collisions_self": "0",
+  "collisions_env": "2",
+  "object_drops": "1"
+ }
+}

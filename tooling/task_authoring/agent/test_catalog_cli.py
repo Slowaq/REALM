@@ -322,7 +322,8 @@ class LengthwiseInsertionTest(unittest.TestCase):
 
     def test_solver_keeps_the_pen_full_size(self):
         assets = {
-            "pen": [{"category": "pen", "model": "p1", "bbox": [0.16, 0.012, 0.012]}],
+            # 1.4 cm thick: the 14 cm length cap scales it to 1.225 cm, still above FLAT_MIN_HEIGHT_M.
+            "pen": [{"category": "pen", "model": "p1", "bbox": [0.16, 0.014, 0.014]}],
             "mug": [{"category": "mug", "model": "m1", "bbox": [0.08, 0.12, 0.14]}],
         }
         with tempfile.TemporaryDirectory() as tmp:
@@ -334,7 +335,7 @@ class LengthwiseInsertionTest(unittest.TestCase):
                 target={"name": "mug", "category": "mug", "model": "m1"})
             self.assertTrue(result["ok"], result)
             # Only the generic 14 cm main-object ceiling applies; no receiver-capacity shrink.
-            self.assertEqual(session.document["main_objects"][0]["bounding_box"], [0.14, 0.0105, 0.0105])
+            self.assertEqual(session.document["main_objects"][0]["bounding_box"], [0.14, 0.01225, 0.01225])
             self.assertFalse([a for a in result["audit"]["resized_assets"] if a["reason"] == "receiver_capacity"])
             self.assertTrue(result["audit"]["receiver_capacity"]["lengthwise_insertion"])
             self.assertTrue(session.validate_draft()["ok"])
@@ -523,6 +524,75 @@ class RenderBrokenModelTest(unittest.TestCase):
                                     corrections_dir=Path(tmp))
         models = [c["model"] for c in session.search_assets("banana", "main")["candidates"]]
         self.assertEqual(models, ["znakxm"])
+
+
+class MainGraspableTest(unittest.TestCase):
+    """pi05 sweep: every main object lying under ~1 cm tall failed, and 0 of 7 towel tasks succeeded."""
+
+    @staticmethod
+    def doc(category, bbox, initial_state=None):
+        return {"supported_scenes": {"Wainscott_0_int": ["Dining_Table"]}, "task_type": "pick",
+                "instruction": "Pick up the thing",
+                "main_objects": [{"type": "DatasetObject", "name": "thing", "category": category,
+                                  "model": "m", "bounding_box": bbox, "orientation": [0, 0, 0, 1],
+                                  "relative_bbox_position": [0.2, 0.2, bbox[2] / 2]}],
+                "initial_state": initial_state or []}
+
+    def codes(self, document):
+        from tooling.task_authoring.validation import check_main_graspable
+
+        return [f.code for f in check_main_graspable(document)]
+
+    def test_flat_object_on_the_table_is_ungraspable(self):
+        self.assertEqual(self.codes(self.doc("chocolate_bar", [0.14, 0.07, 0.005])), ["FLAT_UNGRASPABLE"])
+        self.assertEqual(self.codes(self.doc("pen", [0.14, 0.012, 0.012])), [])
+
+    def test_flat_object_resting_in_a_container_is_allowed(self):
+        state = [{"predicate": "inside", "subject": "thing", "object": "bowl"}]
+        self.assertEqual(self.codes(self.doc("pen", [0.14, 0.008, 0.008], state)), [])
+
+    def test_cloth_cannot_be_the_main_object(self):
+        self.assertEqual(self.codes(self.doc("dishtowel", [0.15, 0.21, 0.03])), ["CLOTH_MAIN_OBJECT"])
+        self.assertEqual(self.codes(self.doc("bath_towel", [0.15, 0.21, 0.03])), ["CLOTH_MAIN_OBJECT"])
+
+
+class VisibilityProbeTest(unittest.TestCase):
+    def test_contrast_separates_dark_on_dark_from_a_visible_object(self):
+        import numpy as np
+
+        from tooling.task_authoring import render_review as rr
+
+        mask = np.zeros((40, 40), bool)
+        mask[15:25, 10:30] = True
+        dark_table = np.full((40, 40, 3), 30, np.uint8)
+        black_marker = dark_table.copy()
+        black_marker[mask] = 22
+        red_marker = dark_table.copy()
+        red_marker[mask] = (200, 40, 40)
+        low = rr.mask_contrast(black_marker, mask)
+        high = rr.mask_contrast(red_marker, mask)
+        self.assertEqual(low["pixels"], 200)
+        self.assertLess(low["contrast"], 0.05)
+        self.assertGreater(high["contrast"], 0.15)
+
+    def test_instance_mask_matches_by_object_name_in_the_prim_path(self):
+        import numpy as np
+
+        from tooling.task_authoring import render_review as rr
+
+        seg = np.array([[0, 3], [3, 7]])
+        info = {0: "background", 3: "/World/scene_0/marker/base_link/visuals", 7: "/World/scene_0/bowl"}
+        self.assertEqual(rr._instance_mask(seg, info, "marker").tolist(), [[False, True], [True, False]])
+        self.assertIsNone(rr._instance_mask(seg, info, "pen"))
+
+    def test_not_visible_only_when_no_external_camera_sees_it(self):
+        from tooling.task_authoring import render_review as rr
+
+        vis = {"marker": {"external::external_sensor0": {"pixels": 10, "contrast": None},
+                          "external::external_sensor1": {"pixels": 400, "contrast": 0.3}}}
+        self.assertEqual(rr.visibility_findings(vis, "marker"), [])
+        vis["marker"]["external::external_sensor1"]["pixels"] = 5
+        self.assertEqual([f["code"] for f in rr.visibility_findings(vis, "marker")], ["NOT_VISIBLE"])
 
 
 class ExportFolderNameTest(unittest.TestCase):

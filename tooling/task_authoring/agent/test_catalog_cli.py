@@ -525,41 +525,21 @@ class RenderBrokenModelTest(unittest.TestCase):
         self.assertEqual(models, ["znakxm"])
 
 
-class MainGraspableTest(unittest.TestCase):
-    """Fabric cannot be the main object (0 of 7 towel tasks succeeded); thin objects can."""
+class ThinObjectSizeTest(unittest.TestCase):
+    """Thin hand objects (pens, scissors, spoons) stay in the benchmark at their natural thickness."""
 
-    @staticmethod
-    def doc(category, bbox, initial_state=None):
-        return {"supported_scenes": {"Wainscott_0_int": ["Dining_Table"]}, "task_type": "pick",
-                "instruction": "Pick up the thing",
-                "main_objects": [{"type": "DatasetObject", "name": "thing", "category": category,
-                                  "model": "m", "bounding_box": bbox, "orientation": [0, 0, 0, 1],
-                                  "relative_bbox_position": [0.2, 0.2, bbox[2] / 2]}],
-                "initial_state": initial_state or []}
-
-    def codes(self, document):
-        from tooling.task_authoring.validation import check_main_graspable
-
-        return [f.code for f in check_main_graspable(document)]
-
-    def test_thin_objects_are_allowed_and_keep_their_natural_size(self):
-        """Pens, scissors and spoons must stay in the benchmark; they are no longer shrunk thinner."""
-        self.assertEqual(self.codes(self.doc("shears", [0.128, 0.049, 0.005])), [])
+    def test_thin_objects_keep_their_natural_size(self):
         from tooling.task_authoring.agent import layout
 
         assets = {"wooden_spoon": [{"category": "wooden_spoon", "model": "w", "bbox": [0.188, 0.037, 0.01]}],
                   "pen": [{"category": "pen", "model": "p", "bbox": [0.04, 0.16, 0.012]}],
-                  "apple": [{"category": "apple", "model": "a", "bbox": [0.2, 0.2, 0.2]}]}
+                  "apple": [{"category": "apple", "model": "a", "bbox": [0.2, 0.2, 0.2]}],
+                  "toy_car": [{"category": "toy_car", "model": "c", "bbox": [0.448, 0.177, 0.247]}]}
         self.assertEqual(layout._main_ceiling({"category": "wooden_spoon", "model": "w"}, assets), (0.25, 0.14))
         self.assertEqual(layout._main_ceiling({"category": "pen", "model": "p"}, assets), (0.14, 0.25))
         self.assertEqual(layout._main_ceiling({"category": "apple", "model": "a"}, assets), layout.MAIN_MAX_XY)
         # Elongated but not thin: a toy car keeps the hand-object ceiling.
-        assets["toy_car"] = [{"category": "toy_car", "model": "c", "bbox": [0.448, 0.177, 0.247]}]
         self.assertEqual(layout._main_ceiling({"category": "toy_car", "model": "c"}, assets), layout.MAIN_MAX_XY)
-
-    def test_cloth_cannot_be_the_main_object(self):
-        self.assertEqual(self.codes(self.doc("dishtowel", [0.15, 0.21, 0.03])), ["CLOTH_MAIN_OBJECT"])
-        self.assertEqual(self.codes(self.doc("bath_towel", [0.15, 0.21, 0.03])), ["CLOTH_MAIN_OBJECT"])
 
 
 class VisibilityProbeTest(unittest.TestCase):

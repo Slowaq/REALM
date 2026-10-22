@@ -777,30 +777,6 @@ def check_relations(document: dict) -> list[Finding]:
     return findings
 
 
-#: Fabric the simulator can only load as a rigid board. Real cloth needs GPU dynamics, which REALM
-#: runs without, and REALM detects a grasp from rigid finger contacts, which cloth never has; the
-#: pi05 sweep succeeded on 0 of 7 towel tasks. Fabric stays usable as a target or clutter.
-CLOTH_WORDS = {"dishtowel", "towel", "rag", "cloth", "napkin", "washcloth", "tablecloth",
-               "pillowcase", "pillow_case", "sock", "shirt", "t_shirt", "scarf", "bandana", "apron"}
-
-
-def check_main_graspable(document: dict) -> list[Finding]:
-    """The manipulated object must be something the gripper can actually close on."""
-    findings = []
-    for index, main in enumerate(document.get("main_objects") or []):
-        name = str(main.get("name"))
-        category = str(main.get("category") or "")
-        if category and (category in CLOTH_WORDS or category_head(category) in CLOTH_WORDS):
-            findings.append(Finding(
-                "CLOTH_MAIN_OBJECT", "error",
-                f"{name!r} ({category}) is fabric: REALM simulates it as a rigid board and cannot "
-                f"register a grasp on real cloth. Choose another object, or use the fabric as the "
-                f"target or clutter",
-                obj=name, path=f"main_objects[{index}]",
-            ))
-    return findings
-
-
 def check_target_state(document: dict) -> list[Finding]:
     """`target_state` documents what the author believes success means; the rubric is the truth.
 
@@ -923,7 +899,6 @@ def validate(document: dict, *, task: str = "<draft>",
         *check_relations(document),
         *check_target_state(document),
         *check_instruction_closure(document),
-        *check_main_graspable(document),
     ]
     if profile == "authored":
         for finding in findings:

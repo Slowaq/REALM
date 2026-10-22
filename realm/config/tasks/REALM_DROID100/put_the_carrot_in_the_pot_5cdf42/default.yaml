@@ -16,9 +16,9 @@ main_objects:
   category: carrot
   model: qhmmmx
   bounding_box:
-  - 0.14
-  - 0.0229997
-  - 0.0230074
+  - 0.18042
+  - 0.02964
+  - 0.02965
   orientation:
   - 0.0
   - 0.0
@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.35
   - 0.42
-  - -0.0584963
+  - -0.055175
 target_objects:
 - type: DatasetObject
   name: pot

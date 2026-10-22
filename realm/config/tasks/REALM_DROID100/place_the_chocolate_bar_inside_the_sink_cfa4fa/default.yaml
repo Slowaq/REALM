@@ -3,22 +3,22 @@ task:
   termination_config: {}
   reward_config: {}
 task_type: put
-instruction: Place the granola bar inside the sink
-instruction_obj_to_replace: granola bar
+instruction: Place the chocolate bar inside the sink
+instruction_obj_to_replace: chocolate bar
 instruction_target_to_replace: sink
 instruction_verb_to_replace: put
 supported_scenes:
-  Pomaria_1_int:
-  - Kitchen_Counter
+  office_cubicles_left:
+  - Office_Desk
 main_objects:
 - type: DatasetObject
-  name: granola_bar
-  category: granola_bar
-  model: iurfsq
+  name: chocolate_bar
+  category: chocolate_bar
+  model: amutpr
   bounding_box:
-  - 0.10582
-  - 0.05316
-  - 0.01227
+  - 0.14
+  - 0.0863888
+  - 0.00523
   orientation:
   - 0.0
   - 0.0
@@ -26,8 +26,8 @@ main_objects:
   - 1.0
   relative_bbox_position:
   - 0.2
-  - 0.425
-  - -0.063865
+  - 0.51
+  - -0.092385
 target_objects:
 - type: DatasetObject
   name: sink
@@ -44,14 +44,48 @@ target_objects:
   - 1.0
   relative_bbox_position:
   - 0.2
-  - 0.25
-  - 0.0233686
-distractors: []
+  - 0.3
+  - -0.0016314
+distractors:
+- type: DatasetObject
+  name: distractor_chopstick
+  category: chopstick
+  model: bdvjuf
+  bounding_box:
+  - 0.1
+  - 0.0022835
+  - 0.0022879
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.15
+  - -0.093856
+- type: DatasetObject
+  name: distractor_pencil
+  category: pencil
+  model: fnlbpu
+  bounding_box:
+  - 0.1
+  - 0.0038263
+  - 0.0031886
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.45
+  - -0.0934057
 immutables: []
 target_state:
   rubric: put
   predicate: inside
-  subject: granola_bar
+  subject: chocolate_bar
   object: sink
 camera_extrinsics:
   cam1:
@@ -79,4 +113,5 @@ provenance:
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Place the snack bar inside the sink
   decisions:
-  - 'snack bar as granola_bar iurfsq (1.2 cm thick): every chocolate_bar model is 0.7 cm, too flat to grasp from a table (FLAT_UNGRASPABLE)'
+  - snack bar grounded as chocolate_bar (the variant names a Snickers, a chocolate bar) and named in the instruction
+  - sink as drop_in_sink wzpabm (smallest basin, at the 0.28 m ceiling)

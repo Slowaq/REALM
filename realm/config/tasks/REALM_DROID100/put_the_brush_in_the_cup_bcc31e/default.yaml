@@ -16,9 +16,9 @@ main_objects:
   category: toothbrush
   model: vkrjps
   bounding_box:
-  - 0.14
-  - 0.0108058
-  - 0.0166929
+  - 0.14744
+  - 0.01138
+  - 0.01758
   orientation:
   - 0.0
   - 0.0
@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.35
   - 0.42
-  - -0.0616535
+  - -0.06121
 target_objects:
 - type: DatasetObject
   name: cup

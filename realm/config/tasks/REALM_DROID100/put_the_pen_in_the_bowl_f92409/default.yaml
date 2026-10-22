@@ -16,9 +16,9 @@ main_objects:
   category: pen
   model: nvyicz
   bounding_box:
-  - 0.14
-  - 0.0100491
-  - 0.0118762
+  - 0.14865
+  - 0.01067
+  - 0.01261
   orientation:
   - 0.0
   - 0.0
@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.28
   - 0.42
-  - -0.0890619
+  - -0.088695
 target_objects:
 - type: DatasetObject
   name: bowl

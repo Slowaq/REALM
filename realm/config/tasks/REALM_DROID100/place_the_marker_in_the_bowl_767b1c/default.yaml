@@ -16,9 +16,9 @@ main_objects:
   category: marker
   model: oyjbhy
   bounding_box:
-  - 0.14
-  - 0.0155545
-  - 0.0128284
+  - 0.15355
+  - 0.01706
+  - 0.01407
   orientation:
   - 0.0
   - 0.0
@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.35
   - 0.42
-  - -0.0635858
+  - -0.062965
 target_objects:
 - type: DatasetObject
   name: bowl

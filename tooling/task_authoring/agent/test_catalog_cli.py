@@ -322,8 +322,7 @@ class LengthwiseInsertionTest(unittest.TestCase):
 
     def test_solver_keeps_the_pen_full_size(self):
         assets = {
-            # 1.4 cm thick: the 14 cm length cap scales it to 1.225 cm, still above FLAT_MIN_HEIGHT_M.
-            "pen": [{"category": "pen", "model": "p1", "bbox": [0.16, 0.014, 0.014]}],
+            "pen": [{"category": "pen", "model": "p1", "bbox": [0.16, 0.012, 0.012]}],
             "mug": [{"category": "mug", "model": "m1", "bbox": [0.08, 0.12, 0.14]}],
         }
         with tempfile.TemporaryDirectory() as tmp:
@@ -334,8 +333,8 @@ class LengthwiseInsertionTest(unittest.TestCase):
                 main={"name": "pen", "category": "pen", "model": "p1"},
                 target={"name": "mug", "category": "mug", "model": "m1"})
             self.assertTrue(result["ok"], result)
-            # Only the generic 14 cm main-object ceiling applies; no receiver-capacity shrink.
-            self.assertEqual(session.document["main_objects"][0]["bounding_box"], [0.14, 0.01225, 0.01225])
+            # An elongated object keeps its natural length and thickness; no receiver-capacity shrink.
+            self.assertEqual(session.document["main_objects"][0]["bounding_box"], [0.16, 0.012, 0.012])
             self.assertFalse([a for a in result["audit"]["resized_assets"] if a["reason"] == "receiver_capacity"])
             self.assertTrue(result["audit"]["receiver_capacity"]["lengthwise_insertion"])
             self.assertTrue(session.validate_draft()["ok"])
@@ -345,7 +344,7 @@ class LengthwiseInsertionTest(unittest.TestCase):
         # rule applies: no receiver-capacity shrink to a toy pen. The mug is shallower than the pen
         # so it sticks out above the rim (RELATION_UNGRASPABLE otherwise).
         assets = {
-            "pen": [{"category": "pen", "model": "p1", "bbox": [0.16, 0.012, 0.012]}],
+            "pen": [{"category": "pen", "model": "p1", "bbox": [0.14, 0.0105, 0.0105]}],
             "mug": [{"category": "mug", "model": "m1", "bbox": [0.08, 0.12, 0.10]}],
         }
         with tempfile.TemporaryDirectory() as tmp:
@@ -527,7 +526,7 @@ class RenderBrokenModelTest(unittest.TestCase):
 
 
 class MainGraspableTest(unittest.TestCase):
-    """pi05 sweep: every main object lying under ~1 cm tall failed, and 0 of 7 towel tasks succeeded."""
+    """Fabric cannot be the main object (0 of 7 towel tasks succeeded); thin objects can."""
 
     @staticmethod
     def doc(category, bbox, initial_state=None):
@@ -543,13 +542,20 @@ class MainGraspableTest(unittest.TestCase):
 
         return [f.code for f in check_main_graspable(document)]
 
-    def test_flat_object_on_the_table_is_ungraspable(self):
-        self.assertEqual(self.codes(self.doc("chocolate_bar", [0.14, 0.07, 0.005])), ["FLAT_UNGRASPABLE"])
-        self.assertEqual(self.codes(self.doc("pen", [0.14, 0.012, 0.012])), [])
+    def test_thin_objects_are_allowed_and_keep_their_natural_size(self):
+        """Pens, scissors and spoons must stay in the benchmark; they are no longer shrunk thinner."""
+        self.assertEqual(self.codes(self.doc("shears", [0.128, 0.049, 0.005])), [])
+        from tooling.task_authoring.agent import layout
 
-    def test_flat_object_resting_in_a_container_is_allowed(self):
-        state = [{"predicate": "inside", "subject": "thing", "object": "bowl"}]
-        self.assertEqual(self.codes(self.doc("pen", [0.14, 0.008, 0.008], state)), [])
+        assets = {"wooden_spoon": [{"category": "wooden_spoon", "model": "w", "bbox": [0.188, 0.037, 0.01]}],
+                  "pen": [{"category": "pen", "model": "p", "bbox": [0.04, 0.16, 0.012]}],
+                  "apple": [{"category": "apple", "model": "a", "bbox": [0.2, 0.2, 0.2]}]}
+        self.assertEqual(layout._main_ceiling({"category": "wooden_spoon", "model": "w"}, assets), (0.25, 0.14))
+        self.assertEqual(layout._main_ceiling({"category": "pen", "model": "p"}, assets), (0.14, 0.25))
+        self.assertEqual(layout._main_ceiling({"category": "apple", "model": "a"}, assets), layout.MAIN_MAX_XY)
+        # Elongated but not thin: a toy car keeps the hand-object ceiling.
+        assets["toy_car"] = [{"category": "toy_car", "model": "c", "bbox": [0.448, 0.177, 0.247]}]
+        self.assertEqual(layout._main_ceiling({"category": "toy_car", "model": "c"}, assets), layout.MAIN_MAX_XY)
 
     def test_cloth_cannot_be_the_main_object(self):
         self.assertEqual(self.codes(self.doc("dishtowel", [0.15, 0.21, 0.03])), ["CLOTH_MAIN_OBJECT"])

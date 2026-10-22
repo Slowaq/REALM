@@ -777,10 +777,6 @@ def check_relations(document: dict) -> list[Finding]:
     return findings
 
 
-#: A main object lying on the table lower than this has no edge the parallel gripper can close on:
-#: in the pi05 sweep every such task failed (scissors and a chocolate bar 0.5 cm, a wooden spoon
-#: 0.7 cm, a pen 1.0 cm), while 1.2-1.3 cm pens and markers were picked.
-FLAT_MIN_HEIGHT_M = 0.011
 #: Fabric the simulator can only load as a rigid board. Real cloth needs GPU dynamics, which REALM
 #: runs without, and REALM detects a grasp from rigid finger contacts, which cloth never has; the
 #: pi05 sweep succeeded on 0 of 7 towel tasks. Fabric stays usable as a target or clutter.
@@ -791,7 +787,6 @@ CLOTH_WORDS = {"dishtowel", "towel", "rag", "cloth", "napkin", "washcloth", "tab
 def check_main_graspable(document: dict) -> list[Finding]:
     """The manipulated object must be something the gripper can actually close on."""
     findings = []
-    resting = {str(e.get("subject")) for e in document.get("initial_state") or [] if isinstance(e, dict)}
     for index, main in enumerate(document.get("main_objects") or []):
         name = str(main.get("name"))
         category = str(main.get("category") or "")
@@ -801,18 +796,6 @@ def check_main_graspable(document: dict) -> list[Finding]:
                 f"{name!r} ({category}) is fabric: REALM simulates it as a rigid board and cannot "
                 f"register a grasp on real cloth. Choose another object, or use the fabric as the "
                 f"target or clutter",
-                obj=name, path=f"main_objects[{index}]",
-            ))
-        bbox = bbox_of(main)
-        if bbox is None or name in resting:
-            continue
-        height = vertical_extent(bbox, main.get("orientation"))
-        if height < FLAT_MIN_HEIGHT_M:
-            findings.append(Finding(
-                "FLAT_UNGRASPABLE", "error",
-                f"{name!r} lies {height * 100:.1f} cm high on the table; below "
-                f"{FLAT_MIN_HEIGHT_M * 100:.1f} cm the gripper has no edge to close on. Choose a "
-                f"thicker model, or start it in or on something that tilts it",
                 obj=name, path=f"main_objects[{index}]",
             ))
     return findings

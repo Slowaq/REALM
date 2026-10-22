@@ -65,6 +65,14 @@ ROLES = ("main", "target", "source", "distractor")
 #: are 0.22-0.5 m across, and a 0.17 m cap shrank every pot to a toy. 0.28 m still leaves room for
 #: the main object beside it on the narrowest (0.4 x 0.5 m) region.
 MAIN_MAX_XY = (0.14, 0.16)
+#: Long axis allowed for an ELONGATED main object (a pen, scissors, a spoon). Uniform scaling to
+#: the 14 cm hand-object ceiling also thinned them: a 15.8 cm pen came out 1.0 cm thick, an 18.8 cm
+#: wooden spoon 0.7 cm, and pi05 could not close on them. Length is not what makes an object hard to
+#: grasp -- width is -- so only the short axis keeps the hand-object ceiling.
+ELONGATED_MAX_LENGTH = 0.25
+#: ...but only for THIN objects. A toy car is elongated too, and at natural length came out 10 cm
+#: wide and 14 cm tall, wider than the gripper opens.
+THIN_MAX_WIDTH = 0.06
 OTHER_MAX_XY = (0.28, 0.28)
 #: Automatic clutter is drawn only from the DROID object categories in categories.yaml: real
 #: tabletop objects DROID scenes contain. The full catalogue also holds hundreds of food states
@@ -225,11 +233,16 @@ def solve_layout(
     # A plate or tray resting on a bowl is held by its overhang, so it too must be allowed to be
     # wider than the bowl (validation's RIM_OVERHANG); it is thin, so the gripper takes its edge.
     flat_resting = rests_on_source and bool(main_words & FLAT_RESTING_WORDS)
+    # Natural length only for an elongated object that starts lying on the table. Standing in a
+    # cup (pick from a container), more than half of a 19 cm fork would rise above an 8 cm mug and
+    # tip it, as the spatula tipped its holder in render v4.
+    starts_inside = bool(roles.get("source")) and _declared_predicate(roles) == "inside"
+    main_ceiling = MAIN_MAX_XY if starts_inside else _main_ceiling(roles["main"], assets_by_category)
     main_config, audits = _build_role(
         "main", roles["main"], assets_by_category,
         # Only a lid-like object needs to be as wide as what it rests on. Giving every resting
         # object the receiver ceiling let a "toy cart" on a box come out 28 x 20 x 30 cm.
-        OTHER_MAX_XY if ((rests_on_source and lid_like) or lid_goal or flat_resting) else MAIN_MAX_XY)
+        OTHER_MAX_XY if ((rests_on_source and lid_like) or lid_goal or flat_resting) else main_ceiling)
     target_config = source_config = None
     if roles.get("target"):
         target_config, audit = _build_role("target", roles["target"], assets_by_category, OTHER_MAX_XY)
@@ -237,6 +250,14 @@ def solve_layout(
     if roles.get("source"):
         source_config, audit = _build_role("source", roles["source"], assets_by_category, OTHER_MAX_XY)
         audits += audit
+
+    if (main_ceiling != MAIN_MAX_XY and target_config is not None and task_type == "put"
+            and not _fits_receiver(main_config["bounding_box"], target_config["bounding_box"])):
+        # At natural length it no longer fits the receiver (a 15.8 cm pen into an 8 cm-deep mug
+        # must stand at least half inside); fall back to the hand-object ceiling rather than let
+        # the capacity fit shrink it to a toy.
+        main_config, main_audits = _build_role("main", roles["main"], assets_by_category, MAIN_MAX_XY)
+        audits = [a for a in audits if a.get("name") != main_config["name"]] + main_audits
 
     if task_type in {"put", "stack"} and target_config is None:
         raise LayoutError(
@@ -383,6 +404,29 @@ def solve_layout(
         "distractors": distractor_audit,
     }
     return {"document": document, "audit": audit}
+
+
+def _fits_receiver(main_bbox, target_bbox) -> bool:
+    """A put receiver takes the object lying in its footprint (either yaw) or standing lengthwise."""
+    margin = CAPACITY_MARGIN["put"]
+    (mx, my), (tx, ty) = main_bbox[:2], target_bbox[:2]
+    flat = (tx >= mx * margin and ty >= my * margin) or (tx >= my * margin and ty >= mx * margin)
+    return flat or fits_lengthwise(main_bbox, target_bbox, margin)
+
+
+def _main_ceiling(spec: dict, assets_by_category: dict) -> tuple[float, float]:
+    """MAIN_MAX_XY, except that an elongated asset's long axis may reach ELONGATED_MAX_LENGTH."""
+    if not isinstance(spec, dict) or spec.get("primitive"):
+        return MAIN_MAX_XY
+    asset = next((item for item in assets_by_category.get(str(spec.get("category")), [])
+                  if str(item.get("model")) == str(spec.get("model"))), None)
+    if asset is None:
+        return MAIN_MAX_XY
+    x, y = float(asset["bbox"][0]), float(asset["bbox"][1])
+    if max(x, y) < 2 * min(x, y) or min(x, y) > THIN_MAX_WIDTH:
+        return MAIN_MAX_XY
+    short = min(MAIN_MAX_XY)
+    return (ELONGATED_MAX_LENGTH, short) if x >= y else (short, ELONGATED_MAX_LENGTH)
 
 
 def _build_role(role: str, spec: dict, assets_by_category: dict, max_xy) -> tuple[dict, list[dict]]:

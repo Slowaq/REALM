@@ -1,0 +1,133 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: stack
+instruction: Put the banana on the tray
+instruction_obj_to_replace: banana
+instruction_target_to_replace: tray
+instruction_verb_to_replace: stack
+supported_scenes:
+  Pomaria_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: banana
+  category: banana
+  model: znakxm
+  bounding_box:
+  - 0.14
+  - 0.071675
+  - 0.0302048
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.425
+  - -0.0548976
+target_objects:
+- type: DatasetObject
+  name: tray
+  category: tray
+  model: avotsj
+  bounding_box:
+  - 0.28
+  - 0.155591
+  - 0.0325348
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.25
+  - -0.0537326
+distractors:
+- type: DatasetObject
+  name: distractor_toasting_fork
+  category: toasting_fork
+  model: osrfkc
+  bounding_box:
+  - 0.1
+  - 0.0172667
+  - 0.0053867
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.15
+  - -0.0673066
+- type: DatasetObject
+  name: distractor_shaker
+  category: shaker
+  model: hbheag
+  bounding_box:
+  - 0.03577
+  - 0.03592
+  - 0.09196
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.125
+  - -0.02402
+- type: DatasetObject
+  name: distractor_mouse
+  category: mouse
+  model: oydobn
+  bounding_box:
+  - 0.0311
+  - 0.0196
+  - 0.01128
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.35
+  - -0.06436
+immutables: []
+target_state:
+  rubric: stack
+  predicate: on_top_of
+  subject: banana
+  object: tray
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.3724626
+    - 0.4647184
+    - 0.4654069
+    rot:
+    - 0.0735693
+    - -0.5459667
+    - -0.822396
+    - 0.1420307
+  cam2:
+    pos:
+    - 0.2370864
+    - -0.5795134
+    - 0.6090509
+    rot:
+    - 0.4532174
+    - -0.1715637
+    - -0.2845051
+    - 0.8271739
+provenance:
+  task_id: d44e73cab835
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up the banana plush toy and put it on the tray
+  decisions:
+  - banana znakxm (renders yellow; wmglhc renders black); "plush toy" dropped, the asset is a banana

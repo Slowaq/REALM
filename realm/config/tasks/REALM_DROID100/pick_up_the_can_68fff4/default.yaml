@@ -1,0 +1,112 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: pick
+instruction: Pick up the can
+instruction_obj_to_replace: can
+instruction_target_to_replace: ''
+instruction_verb_to_replace: pick
+supported_scenes:
+  Benevolence_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: can
+  category: can_of_soda
+  model: opivig
+  bounding_box:
+  - 0.06316
+  - 0.06316
+  - 0.11381
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.12
+  - 0.016905
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_parer
+  category: parer
+  model: zpkhwi
+  bounding_box:
+  - 0.1
+  - 0.0126275
+  - 0.0067316
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.28
+  - -0.0366342
+- type: DatasetObject
+  name: distractor_bottle_of_fruit_punch
+  category: bottle_of_fruit_punch
+  model: azcigi
+  bounding_box:
+  - 0.07625
+  - 0.07625
+  - 0.23397
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.28
+  - 0.0769851
+- type: DatasetObject
+  name: distractor_jar_of_kidney_beans
+  category: jar_of_kidney_beans
+  model: kfzxah
+  bounding_box:
+  - 0.093
+  - 0.093
+  - 0.13171
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.12
+  - 0.025855
+immutables: []
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.4181923
+    - 0.404914
+    - 0.4568273
+    rot:
+    - 0.1175922
+    - -0.385459
+    - -0.8965629
+    - 0.1837615
+  cam2:
+    pos:
+    - 0.084163
+    - -0.648562
+    - 0.324637
+    rot:
+    - 0.4723969
+    - -0.2046228
+    - -0.3276396
+    - 0.7922266
+provenance:
+  task_id: 68fff4c4d0af
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Pick up the yellow can and put it on the right side of the table
+  decisions:
+  - 'can as can_of_soda opivig (6.3 cm, graspable); colour and destination dropped: moving it along the table is a pick under
+    the closed task set'

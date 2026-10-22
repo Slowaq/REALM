@@ -1,0 +1,112 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: rotate
+instruction: Turn the toy car
+instruction_obj_to_replace: toy car
+instruction_target_to_replace: ''
+instruction_verb_to_replace: rotate
+supported_scenes:
+  Benevolence_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: toy_car
+  category: toy_car
+  model: ksijjl
+  bounding_box:
+  - 0.14
+  - 0.0552556
+  - 0.0772066
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.12
+  - -0.0013967
+target_objects: []
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_conditioner
+  category: bottle_of_conditioner
+  model: teafxb
+  bounding_box:
+  - 0.1
+  - 0.0405229
+  - 0.0191148
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.28
+  - -0.0304426
+- type: DatasetObject
+  name: distractor_tablefork
+  category: tablefork
+  model: uodzrq
+  bounding_box:
+  - 0.1
+  - 0.0126521
+  - 0.0063287
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.28
+  - -0.0368356
+- type: DatasetObject
+  name: distractor_hamburger
+  category: hamburger
+  model: fyswch
+  bounding_box:
+  - 0.1
+  - 0.0931673
+  - 0.0648088
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.12
+  - -0.0075956
+immutables: []
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2506134
+    - 0.5930276
+    - 0.297192
+    rot:
+    - 0.1531008
+    - -0.5091358
+    - -0.7974168
+    - 0.285425
+  cam2:
+    pos:
+    - 0.1228
+    - -0.3869196
+    - 0.3136476
+    rot:
+    - 0.4880554
+    - -0.2365599
+    - -0.4345449
+    - 0.7190355
+provenance:
+  task_id: a978c3c9da29
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Turn the toy car clockwise
+  decisions:
+  - toy car ksijjl scaled to the 14 cm hand-object ceiling; "clockwise" dropped because the rotate rubric scores the turn,
+    not its direction

@@ -1,0 +1,82 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the spoon in the colander
+instruction_obj_to_replace: spoon
+instruction_target_to_replace: colander
+instruction_verb_to_replace: put
+supported_scenes:
+  Pomaria_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: spoon
+  category: tablespoon
+  model: ubuhoz
+  bounding_box:
+  - 0.12372
+  - 0.02581
+  - 0.01504
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.425
+  - -0.06248
+target_objects:
+- type: DatasetObject
+  name: colander
+  category: colander
+  model: ambnzk
+  bounding_box:
+  - 0.27822
+  - 0.24017
+  - 0.12395
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.25
+  - -0.008025
+distractors: []
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: spoon
+  object: colander
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.2906188
+    - -0.6157014
+    - 0.3897871
+    rot:
+    - 0.6158753
+    - -0.1051635
+    - -0.4404994
+    - 0.6446694
+  cam2:
+    pos:
+    - 0.3428832
+    - 0.7061146
+    - 0.4891545
+    rot:
+    - 0.2489679
+    - -0.5292801
+    - -0.8077867
+    - 0.0731994
+provenance:
+  task_id: 6a3d1103e82c
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the spoon in the colander
+  decisions:
+  - tablespoon ubuhoz (1.5 cm high); colander ambnzk at the 28 cm receiver ceiling

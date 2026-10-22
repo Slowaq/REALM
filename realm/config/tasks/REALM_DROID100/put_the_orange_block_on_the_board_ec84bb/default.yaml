@@ -1,0 +1,142 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: stack
+instruction: Put the orange block on the board
+instruction_obj_to_replace: orange block
+instruction_target_to_replace: board
+instruction_verb_to_replace: stack
+supported_scenes:
+  Benevolence_1_int:
+  - Dining_Table
+main_objects:
+- type: PrimitiveObject
+  name: orange_block
+  primitive_type: Cube
+  rgba:
+  - 0.95
+  - 0.5
+  - 0.1
+  - 1.0
+  bounding_box:
+  - 0.05
+  - 0.05
+  - 0.05
+  scale:
+  - 0.05
+  - 0.05
+  - 0.05
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.2
+  - -0.055
+target_objects:
+- type: DatasetObject
+  name: board
+  category: chopping_board
+  model: ktxcvz
+  bounding_box:
+  - 0.1790401
+  - 0.28
+  - 0.0167047
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.3
+  - 0.2
+  - -0.0716476
+distractors:
+- type: DatasetObject
+  name: distractor_can_of_corn
+  category: can_of_corn
+  model: pddtfk
+  bounding_box:
+  - 0.08599
+  - 0.08598
+  - 0.0906
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.45
+  - 0.2
+  - -0.0347
+- type: DatasetObject
+  name: distractor_tweezers
+  category: tweezers
+  model: ngwoat
+  bounding_box:
+  - 0.00485
+  - 0.03209
+  - 0.0025
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.18
+  - 0.12
+  - -0.07875
+- type: DatasetObject
+  name: distractor_mouse
+  category: mouse
+  model: oydobn
+  bounding_box:
+  - 0.0311
+  - 0.0196
+  - 0.01128
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.42
+  - 0.28
+  - -0.07436
+immutables: []
+target_state:
+  rubric: stack
+  predicate: on_top_of
+  subject: orange_block
+  object: board
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.29232
+    - -0.4612698
+    - 0.2395069
+    rot:
+    - 0.4800059
+    - -0.1438917
+    - -0.3365439
+    - 0.7972627
+  cam2:
+    pos:
+    - 0.2880663
+    - 0.4091854
+    - 0.2299039
+    rot:
+    - 0.2290081
+    - -0.4685182
+    - -0.7642661
+    - 0.3793985
+provenance:
+  task_id: ec84bb6633ab
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the right orange round block on the wooden board
+  decisions:
+  - orange block as a primitive (colour guaranteed); wooden board as chopping_board ktxcvz; "right" and "round" dropped (single
+    block)

@@ -1,0 +1,133 @@
+task:
+  type: DummyTask
+  termination_config: {}
+  reward_config: {}
+task_type: put
+instruction: Put the ladle in the box
+instruction_obj_to_replace: ladle
+instruction_target_to_replace: box
+instruction_verb_to_replace: put
+supported_scenes:
+  Pomaria_1_int:
+  - Kitchen_Counter
+main_objects:
+- type: DatasetObject
+  name: ladle
+  category: soup_ladle
+  model: gxsrhh
+  bounding_box:
+  - 0.14
+  - 0.0328345
+  - 0.0277082
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.425
+  - -0.0561459
+target_objects:
+- type: DatasetObject
+  name: box
+  category: storage_box
+  model: aqdbdu
+  bounding_box:
+  - 0.20369
+  - 0.20368
+  - 0.1434
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.25
+  - 0.0017
+distractors:
+- type: DatasetObject
+  name: distractor_pill_bottle
+  category: pill_bottle
+  model: csvdbe
+  bounding_box:
+  - 0.03885
+  - 0.03885
+  - 0.05468
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.06
+  - 0.25
+  - -0.04266
+- type: DatasetObject
+  name: distractor_tablespoon
+  category: tablespoon
+  model: mwzxal
+  bounding_box:
+  - 0.1
+  - 0.0184019
+  - 0.0078269
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.125
+  - -0.0660865
+- type: DatasetObject
+  name: distractor_tea_bag
+  category: tea_bag
+  model: kmvcrb
+  bounding_box:
+  - 0.05079
+  - 0.03912
+  - 0.02506
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.34
+  - 0.25
+  - -0.05747
+immutables: []
+target_state:
+  rubric: put
+  predicate: inside
+  subject: ladle
+  object: box
+camera_extrinsics:
+  cam1:
+    pos:
+    - 0.0856753
+    - 0.4313735
+    - 0.4340258
+    rot:
+    - 0.2986895
+    - -0.5519565
+    - -0.6609778
+    - 0.4113841
+  cam2:
+    pos:
+    - 0.2509063
+    - -0.5344046
+    - 0.5044152
+    rot:
+    - 0.561603
+    - -0.1558131
+    - -0.1828204
+    - 0.7917709
+provenance:
+  task_id: 53eae7a53641
+  ranking_id: droid-clusters-1chunks-v1
+  original_instruction: Put the blue ladle inside the wooden box
+  decisions:
+  - ladle as soup_ladle gxsrhh scaled to 14 cm (2.8 cm high); wooden box as storage_box aqdbdu; colour and material dropped

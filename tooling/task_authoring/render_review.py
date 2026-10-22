@@ -595,6 +595,121 @@ def render(env, out_dir: Path, stem: str, timestep: str) -> tuple[list[str], lis
     return written, errors
 
 
+#: Pixels of the main object a camera must see for it to count as visible in that view.
+VISIBLE_MIN_PX = 60
+#: Ring around the object's mask, in pixels, that stands in for "what it is seen against".
+CONTRAST_RING_PX = 6
+
+
+def luminance(rgb) -> np.ndarray:
+    """Rec. 709 luma of an HxWx3 (or x4) uint8 image, 0-255."""
+    rgb = np.asarray(rgb, dtype=float)[..., :3]
+    return rgb[..., 0] * 0.2126 + rgb[..., 1] * 0.7152 + rgb[..., 2] * 0.0722
+
+
+def _dilate(mask: np.ndarray, radius: int) -> np.ndarray:
+    out = mask.copy()
+    for _ in range(radius):
+        grown = out.copy()
+        grown[1:, :] |= out[:-1, :]
+        grown[:-1, :] |= out[1:, :]
+        grown[:, 1:] |= out[:, :-1]
+        grown[:, :-1] |= out[:, 1:]
+        out = grown
+    return out
+
+
+def mask_contrast(rgb, mask) -> dict:
+    """How visible a masked object is: its pixel count and its luma against a ring around it.
+
+    `contrast` is |median luma of the object - median luma of the ring| / 255. A black marker on a
+    black table reads near 0 however many pixels it covers; pi05 failed exactly those scenes.
+    """
+    mask = np.asarray(mask, dtype=bool)
+    pixels = int(mask.sum())
+    if pixels == 0:
+        return {"pixels": 0, "contrast": None}
+    luma = luminance(rgb)
+    ring = _dilate(mask, CONTRAST_RING_PX) & ~mask
+    if not ring.any():
+        return {"pixels": pixels, "contrast": None}
+    inside, around = float(np.median(luma[mask])), float(np.median(luma[ring]))
+    return {"pixels": pixels, "object_luma": round(inside, 1), "surround_luma": round(around, 1),
+            "contrast": round(abs(inside - around) / 255.0, 3)}
+
+
+def _instance_mask(seg, info, name: str) -> np.ndarray | None:
+    """Pixels of object `name` in a seg_instance image, whose info maps id -> prim path or name."""
+    seg = seg.detach().cpu().numpy() if hasattr(seg, "detach") else np.asarray(seg)
+    if seg.ndim == 3:
+        seg = seg[..., 0]
+    ids = [int(key) for key, value in (info or {}).items()
+           if name == str(value) or f"/{name}/" in f"{value}/" or str(value).endswith(f"/{name}")]
+    if not ids:
+        return None
+    return np.isin(seg, ids)
+
+
+def visibility_probe(env, names: list[str]) -> tuple[dict, list[str]]:
+    """Per camera and per named object: visible pixel count and contrast against the surround.
+
+    Adds `seg_instance` to every vision sensor for this one read; the policy's observations are not
+    touched. Errors are returned, not raised: this probe must never turn a scene into an ERROR.
+    """
+    result: dict = {}
+    errors: list[str] = []
+    try:
+        import omnigibson as og
+        sensors = dict(getattr(env.omnigibson_env, "external_sensors", {}) or {})
+        robot = env.omnigibson_env.robots[0]
+        sensors.update({f"{robot.name}:{key}": value for key, value in robot.sensors.items()
+                        if hasattr(value, "add_modality")})
+        for sensor in sensors.values():
+            if hasattr(sensor, "add_modality") and "seg_instance" not in getattr(sensor, "modalities", []):
+                sensor.add_modality("seg_instance")
+        for _ in range(RENDER_FLUSH_PASSES):
+            og.sim.render()
+        for cam, sensor in sensors.items():
+            try:
+                obs, info = sensor.get_obs()
+                if "rgb" not in obs or "seg_instance" not in obs:
+                    errors.append(f"{cam}: no rgb/seg_instance in obs ({sorted(obs)})")
+                    continue
+                rgb = _to_uint8(obs["rgb"])
+                for name in names:
+                    mask = _instance_mask(obs["seg_instance"], info.get("seg_instance"), name)
+                    result.setdefault(name, {})[cam] = (mask_contrast(rgb, mask) if mask is not None
+                                                        else {"pixels": 0, "contrast": None})
+            except Exception as error:
+                errors.append(f"{cam}: {type(error).__name__}: {error}")
+    except Exception as error:
+        errors.append(f"visibility probe: {type(error).__name__}: {error}")
+    return result, errors
+
+
+def visibility_findings(visibility: dict, main: str, min_contrast: float | None = None) -> list[dict]:
+    """NOT_VISIBLE when no external camera sees the main object; LOW_CONTRAST when every camera that
+    sees it sees it against a surround of nearly the same brightness. Both are reported, not
+    failed, until the thresholds are calibrated against policy results."""
+    views = visibility.get(main) or {}
+    external = {cam: v for cam, v in views.items() if cam.startswith("external")}
+    seen = {cam: v for cam, v in views.items() if (v.get("pixels") or 0) >= VISIBLE_MIN_PX}
+    findings = []
+    if external and not any((v.get("pixels") or 0) >= VISIBLE_MIN_PX for v in external.values()):
+        findings.append({"code": "NOT_VISIBLE", "object": main,
+                         "reason": f"fewer than {VISIBLE_MIN_PX} px in every external camera"})
+    contrasts = [v["contrast"] for v in seen.values() if v.get("contrast") is not None]
+    if min_contrast is not None and contrasts and max(contrasts) < min_contrast:
+        findings.append({"code": "LOW_CONTRAST", "object": main,
+                         "reason": f"best contrast against its surround {max(contrasts):.3f} "
+                                   f"< {min_contrast} in every camera that sees it"})
+    return findings
+
+
+#: Calibrate from data before enforcing; None records the numbers without a finding.
+LOW_CONTRAST_MIN = None
+
+
 def review_one(task_cfg_path: str, out_dir: Path, *, robot: str = "DROID_mounted",
                steps: int = WARMUP_STEPS) -> dict:
     """Build, settle, probe and render ONE task config.
@@ -658,6 +773,10 @@ def review_one(task_cfg_path: str, out_dir: Path, *, robot: str = "DROID_mounted
         paths, errors = render(env, task_dir, stem, "t060")
         record["renders"] += paths
         record["render_errors"] += errors
+        main_names = [str(o.get("name")) for o in env.cfg.get("main_objects") or []]
+        record["visibility"], record["visibility_errors"] = visibility_probe(env, main_names)
+        for name in main_names:
+            record["compute_findings"] += visibility_findings(record["visibility"], name, LOW_CONTRAST_MIN)
         # No images at all is a harness failure, not a clean scene: never let it read as a pass.
         record["no_images"] = not record["renders"]
         # PHYSICS_FROZEN is reported, not failed: hand-authored configs (REALM_DROID10's drawers,

@@ -11,8 +11,24 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from tooling.task_authoring.agent import catalog, cli, run, tools
+from tooling.task_authoring.agent import catalog, cli, layout, run, tools
 from tooling.task_authoring.agent.test_agent import build_fixture
+
+
+
+#: The real size table, kept for the tests that exercise realistic sizing.
+REAL_SIZES = layout.real_sizes
+
+
+def setUpModule():
+    # The geometry tests below build hand-made fixtures whose dimensions ARE the point of the test;
+    # scaling them to the real-size table would test the table instead. Realistic sizing has its own
+    # tests (RealisticSizeTest), which restore the table.
+    layout.real_sizes = lambda path=None: {}
+
+
+def tearDownModule():
+    layout.real_sizes = REAL_SIZES
 
 
 class MatchCategoryTest(unittest.TestCase):
@@ -370,7 +386,7 @@ class SourceRelationTest(unittest.TestCase):
         self.addCleanup(self._tmp.cleanup)
         return tools.Session(instruction, assets_by_category=assets, corrections_dir=Path(self._tmp.name))
 
-    def test_lid_on_a_pot_keeps_a_rim_resting_size(self):
+    def test_lid_on_a_pot_is_sized_to_cover_it(self):
         assets = {
             "lid": [{"category": "lid", "model": "l1", "bbox": [0.136, 0.136, 0.03]}],
             "saucepot": [{"category": "saucepot", "model": "p1", "bbox": [0.118, 0.118, 0.12]}],
@@ -382,10 +398,13 @@ class SourceRelationTest(unittest.TestCase):
             source={"name": "saucepot", "category": "saucepot", "model": "p1"},
             initial_state=[{"predicate": "on_top_of", "subject": "lid", "object": "saucepot"}])
         self.assertTrue(result["ok"], result)
-        self.assertEqual(session.document["main_objects"][0]["bounding_box"], [0.136, 0.136, 0.03])
+        # The lid is sized by the pot it closes: 4 % over the pot's narrower side, shape kept.
+        lid = session.document["main_objects"][0]["bounding_box"]
+        self.assertAlmostEqual(lid[0], 0.118 * 1.04, places=5)
+        self.assertAlmostEqual(lid[2] / lid[0], 0.03 / 0.136, places=4)
         self.assertTrue(session.validate_draft()["ok"], session.validate_draft())
 
-    def test_put_the_lid_on_the_pot_keeps_a_full_size_lid(self):
+    def test_put_the_lid_on_the_pot_sizes_the_lid_to_the_pot(self):
         assets = {
             "lid": [{"category": "lid", "model": "l1", "bbox": [0.232, 0.232, 0.03]}],
             "saucepot": [{"category": "saucepot", "model": "p1", "bbox": [0.208, 0.208, 0.12]}],
@@ -396,7 +415,8 @@ class SourceRelationTest(unittest.TestCase):
             main={"name": "lid", "category": "lid", "model": "l1"},
             target={"name": "saucepot", "category": "saucepot", "model": "p1"})
         self.assertTrue(result["ok"], result)
-        self.assertEqual(session.document["main_objects"][0]["bounding_box"][:2], [0.232, 0.232])
+        lid = session.document["main_objects"][0]["bounding_box"]
+        self.assertAlmostEqual(lid[0], 0.208 * 1.04, places=5)
         self.assertTrue(session.validate_draft()["ok"], session.validate_draft())
 
     def test_marker_in_a_wide_pot_lies_flat(self):
@@ -525,21 +545,90 @@ class RenderBrokenModelTest(unittest.TestCase):
         self.assertEqual(models, ["znakxm"])
 
 
-class ThinObjectSizeTest(unittest.TestCase):
-    """Thin hand objects (pens, scissors, spoons) stay in the benchmark at their natural thickness."""
+class RealisticSizeTest(unittest.TestCase):
+    """Objects are scaled uniformly to a realistic size from real_sizes.json, never capped."""
 
-    def test_thin_objects_keep_their_natural_size(self):
-        from tooling.task_authoring.agent import layout
+    def setUp(self):
+        layout.real_sizes = REAL_SIZES
 
-        assets = {"wooden_spoon": [{"category": "wooden_spoon", "model": "w", "bbox": [0.188, 0.037, 0.01]}],
-                  "pen": [{"category": "pen", "model": "p", "bbox": [0.04, 0.16, 0.012]}],
-                  "apple": [{"category": "apple", "model": "a", "bbox": [0.2, 0.2, 0.2]}],
-                  "toy_car": [{"category": "toy_car", "model": "c", "bbox": [0.448, 0.177, 0.247]}]}
-        self.assertEqual(layout._main_ceiling({"category": "wooden_spoon", "model": "w"}, assets), (0.25, 0.14))
-        self.assertEqual(layout._main_ceiling({"category": "pen", "model": "p"}, assets), (0.14, 0.25))
-        self.assertEqual(layout._main_ceiling({"category": "apple", "model": "a"}, assets), layout.MAIN_MAX_XY)
-        # Elongated but not thin: a toy car keeps the hand-object ceiling.
-        self.assertEqual(layout._main_ceiling({"category": "toy_car", "model": "c"}, assets), layout.MAIN_MAX_XY)
+    def tearDown(self):
+        layout.real_sizes = lambda path=None: {}
+
+    def test_every_category_in_the_table_has_a_size_and_a_reason(self):
+        sizes = REAL_SIZES()
+        self.assertGreater(len(sizes), 200)
+        for category, entry in sizes.items():
+            self.assertTrue(0.02 <= entry["size_m"] <= 0.5, category)
+            self.assertTrue(entry["reason"].strip(), category)
+
+    def test_scaling_is_uniform_and_hits_the_typical_size(self):
+        bbox, scale = layout.scale_to_size([0.458, 0.286, 0.057], 0.40)
+        self.assertAlmostEqual(max(bbox), 0.40, places=6)
+        self.assertAlmostEqual(bbox[0] / bbox[2], 0.458 / 0.057, places=4)
+
+    def test_a_pot_is_no_longer_shrunk_into_a_toy(self):
+        size, source = layout.realistic_size("saucepot")
+        self.assertEqual(size, 0.30)
+        self.assertIn("typical size", source)
+
+    def test_task_override_needs_a_reason_and_stays_plausible(self):
+        size, source = layout.realistic_size("frying_pan", 0.14, "a toy pan, as the instruction says")
+        self.assertEqual(size, 0.14)
+        self.assertIn("toy pan", source)
+        with self.assertRaises(layout.LayoutError):
+            layout.realistic_size("frying_pan", 0.14)
+        with self.assertRaises(layout.LayoutError):
+            layout.realistic_size("frying_pan", 0.05, "tiny")
+
+    def test_search_reports_the_size_the_object_will_have(self):
+        assets = {"saucepot": [{"category": "saucepot", "model": "p1", "bbox": [0.288, 0.121, 0.142]}]}
+        with tempfile.TemporaryDirectory() as tmp:
+            session = tools.Session("Put the pot in the sink", assets_by_category=assets, corrections_dir=Path(tmp))
+            result = session.search_assets("saucepot", "target")
+        self.assertAlmostEqual(max(result["candidates"][0]["bbox"]), 0.30, places=4)
+        self.assertEqual(result["candidates"][0]["natural_bbox"], [0.288, 0.121, 0.142])
+
+
+class StandingFootprintTest(unittest.TestCase):
+    def test_a_standing_chopstick_has_a_small_footprint(self):
+        from tooling.task_authoring.validation import oriented_footprint
+
+        upright = [0.0, 0.7071068, 0.0, 0.7071068]  # long X axis pitched to vertical
+        fx, fy = oriented_footprint([0.23, 0.011, 0.012], upright)
+        self.assertLess(max(fx, fy), 0.02)
+        self.assertEqual(oriented_footprint([0.23, 0.011, 0.012], [0, 0, 0, 1]), (0.23, 0.011))
+
+
+class GraspFeasibilityTest(unittest.TestCase):
+    """The scene's final check: is the task doable at all?"""
+
+    @staticmethod
+    def doc(category, bbox):
+        return {"supported_scenes": {"Wainscott_0_int": ["Dining_Table"]}, "task_type": "pick",
+                "instruction": "Pick up the thing",
+                "main_objects": [{"type": "DatasetObject", "name": "thing", "category": category, "model": "m",
+                                  "bounding_box": bbox, "orientation": [0, 0, 0, 1],
+                                  "relative_bbox_position": [0.2, 0.2, 0.05]}]}
+
+    def test_a_chocolate_bar_flat_on_the_table_is_not_doable(self):
+        from tooling.task_authoring.validation import check_main_graspable
+
+        codes = [f.code for f in check_main_graspable(self.doc("chocolate_bar", [0.15, 0.093, 0.0059]))]
+        self.assertEqual(codes, ["GRASP_INFEASIBLE"])
+
+    def test_scissors_and_pens_stay_doable(self):
+        from tooling.task_authoring.validation import check_main_graspable
+
+        self.assertEqual(check_main_graspable(self.doc("shears", [0.20, 0.077, 0.0078])), [])
+        self.assertEqual(check_main_graspable(self.doc("pen", [0.14, 0.0097, 0.0097])), [])
+
+    def test_render_judges_the_settled_height(self):
+        from tooling.task_authoring import render_review as rr
+
+        row = {"name": "bar", "present": True, "settled_aabb_low": [0, 0, 0.80], "settled_aabb_high": [0.1, 0.1, 0.8059]}
+        self.assertEqual([f["code"] for f in rr.grasp_findings([row], ["bar"])], ["GRASP_INFEASIBLE"])
+        row["settled_aabb_high"] = [0.1, 0.1, 0.81]
+        self.assertEqual(rr.grasp_findings([row], ["bar"]), [])
 
 
 class VisibilityProbeTest(unittest.TestCase):

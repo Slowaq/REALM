@@ -49,6 +49,23 @@ def build_fixture(root: Path, categories=CATEGORIES) -> Path:
     return root
 
 
+
+
+def setUpModule():
+    # These tests exercise roles, validation and the driver on hand-made fixtures; scaling the
+    # fixtures to the real-size table would test the table instead (see test_catalog_cli).
+    from tooling.task_authoring.agent import layout
+
+    global _REAL_SIZES
+    _REAL_SIZES = layout.real_sizes
+    layout.real_sizes = lambda path=None: {}
+
+
+def tearDownModule():
+    from tooling.task_authoring.agent import layout
+
+    layout.real_sizes = _REAL_SIZES
+
 class LayoutTest(unittest.TestCase):
     def setUp(self):
         self._tmp = tempfile.TemporaryDirectory()
@@ -115,19 +132,22 @@ class LayoutTest(unittest.TestCase):
         self.assertEqual([item["name"] for item in document["immutables"]], ["saucepot"])
         self.assertTrue(validate(document).ok, validate(document).as_dict())
 
-    def test_receiver_capacity_shrinks_the_main_object_and_audits_it(self):
-        # A main object larger than the receiver must be uniformly shrunk, and the audit recorded.
+    def test_an_object_too_big_for_its_receiver_is_refused_not_shrunk(self):
+        # Shrinking the apple until it fits the mug would author a toy apple. At realistic sizes the
+        # pairing is reported, so the agent picks a larger receiver or a justified size.
         roles = {
             "task_type": "put", "instruction": "Put the apple in the mug",
             "main": {"name": "apple", "category": "apple", "model": "m1"},
             "target": {"name": "mug", "category": "mug", "model": "m1"},
             "distractors": [],
         }
-        result = layout.build_document(roles, dataset=self.dataset)
-        capacity = result["audit"]["receiver_capacity"]
-        self.assertIsNotNone(capacity)
-        if capacity["uniform_scale"] < 1:
-            self.assertTrue(any(item["reason"] == "receiver_capacity" for item in result["audit"]["resized_assets"]))
+        try:
+            result = layout.build_document(roles, dataset=self.dataset)
+        except layout.LayoutError as error:
+            self.assertIn("does not fit", str(error))
+        else:
+            self.assertFalse(any(item.get("reason") == "receiver_capacity"
+                                 for item in result["audit"]["resized_assets"]))
 
 
 class ToolsTest(unittest.TestCase):

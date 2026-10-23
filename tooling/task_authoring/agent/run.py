@@ -205,7 +205,7 @@ def build_roles(instruction: str, task_type: str, session: tools.Session) -> tup
             f"colour is guaranteed by the config"
         )
     else:
-        hit = session.search_assets(main_category, "main", (0.16, 0.18))
+        hit = session.search_assets(main_category, "main")
         if not hit["found"]:
             raise layout.LayoutError(
                 f"no indexed asset for {main_category!r}. Call report_ungroundable."
@@ -227,7 +227,7 @@ def build_roles(instruction: str, task_type: str, session: tools.Session) -> tup
         if receiver_category is None:
             word = next((item for item in RECEIVER_WORDS if re.search(rf"\b{item}\b", lowered)), None)
             receiver_category = CONCEPT_TO_CATEGORY.get(word, word) if word else "bowl"
-        hit = session.search_assets(receiver_category, "target", (0.28, 0.28))
+        hit = session.search_assets(receiver_category, "target")
         if not hit["found"]:
             raise layout.LayoutError(
                 f"task_type {task_type!r} needs a receiver and no indexed asset matches "
@@ -237,7 +237,7 @@ def build_roles(instruction: str, task_type: str, session: tools.Session) -> tup
 
     if task_type == "pick" and len(resolved) > 1:
         source_category = resolved[1]
-        hit = session.search_assets(source_category, "source", (0.28, 0.28))
+        hit = session.search_assets(source_category, "source")
         if hit["found"]:
             roles["source"] = {
                 "name": hit["category"], "category": hit["category"], "model": hit["candidates"][-1]["model"]

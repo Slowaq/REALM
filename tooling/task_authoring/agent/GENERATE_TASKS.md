@@ -89,6 +89,15 @@ Use these roles:
   settle drops it in.
 - Something resting on a bowl, pot or box rim that is not a lid (a plate on a bowl) must overhang
   the rim by 1.5 cm a side (`RIM_OVERHANG`). Pick a wider plate or a narrower bowl.
+- Every object is scaled uniformly to a realistic size: `agent/real_sizes.json` gives each
+  category's typical longest dimension, with the reason. `search_assets` shows the size each
+  candidate will have; models differ only in proportions, so pick the one whose shape fits the task.
+  When the instruction means another variant (a toy pan, a plush pineapple, a small saucepan, a large
+  serving bowl), add `size_m` and `size_reason` to that role, within 3x of the typical size. Never
+  shrink an object to make it fit: choose a larger receiver or a justified size instead.
+- A lid that starts on its pot, or must end on it, is sized to cover that pot automatically.
+- The task must be doable: a main object lying lower than 0.7 cm gives the gripper nothing to close
+  on (`GRASP_INFEASIBLE`). Pick a model with a graspable edge, or decline.
 - To redo a task you declined or submitted earlier, run
   `cli start "<instruction>" --ranking-id <id> --rank <n> --restart`.
 

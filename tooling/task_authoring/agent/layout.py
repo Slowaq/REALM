@@ -38,8 +38,6 @@ from tooling.task_authoring.generate_realm_droid100 import (
     UNSAFE_SCENE_REGIONS,
     dataset_object,
     ensure_receiver_capacity,
-    fit_bbox,
-    overlaps,
     place_initial_relation,
     primitive,
     sample_camera_pair,
@@ -60,27 +58,23 @@ TASK_TYPES = ("put", "pick", "rotate", "push", "stack", "open_drawer", "close_dr
 #: Roles the agent may assign, in the order the emitted document lists them.
 ROLES = ("main", "target", "source", "distractor")
 
-#: XY ceiling for the main object and for receivers/supports/sources. The receiver ceiling is
-#: 0.28 m, wider than the batch generator's 0.17 m: real saucepots, storage boxes and frying pans
-#: are 0.22-0.5 m across, and a 0.17 m cap shrank every pot to a toy. 0.28 m still leaves room for
-#: the main object beside it on the narrowest (0.4 x 0.5 m) region.
-MAIN_MAX_XY = (0.14, 0.16)
-#: Long axis allowed for an ELONGATED main object (a pen, scissors, a spoon). Uniform scaling to
-#: the 14 cm hand-object ceiling also thinned them: a 15.8 cm pen came out 1.0 cm thick, an 18.8 cm
-#: wooden spoon 0.7 cm, and pi05 could not close on them. Length is not what makes an object hard to
-#: grasp -- width is -- so only the short axis keeps the hand-object ceiling.
-ELONGATED_MAX_LENGTH = 0.25
-#: ...but only for THIN objects. A toy car is elongated too, and at natural length came out 10 cm
-#: wide and 14 cm tall, wider than the gripper opens.
-THIN_MAX_WIDTH = 0.06
-OTHER_MAX_XY = (0.28, 0.28)
+#: Every object is scaled uniformly to a realistic real-world size instead of being capped:
+#: real_sizes.json holds, per category, the typical LONGEST dimension of that object on a kitchen,
+#: dining or desk table, with the reason. A task overrides it for one object (`size_m` +
+#: `size_reason` in the role) when the instruction means another variant, e.g. a toy pan.
+#: The 14 x 16 cm cap this replaces (from REALM's batch generator) shrank pots into toys,
+#: miniaturised a third of the clutter and thinned pens and spoons until they could not be grasped.
+REAL_SIZES_PATH = Path(__file__).resolve().parent / "real_sizes.json"
+#: An agent-chosen size may differ from the category's typical size by at most this factor either
+#: way (a toy pan is a third of a real one); anything further is a typo or a different object.
+SIZE_OVERRIDE_RANGE = 3.0
+#: A lid is scaled to this fraction over its pot's narrower horizontal side, so it rests on the rim.
+LID_COVER_FACTOR = 1.04
 #: Automatic clutter is drawn only from the DROID object categories in categories.yaml: real
 #: tabletop objects DROID scenes contain. The full catalogue also holds hundreds of food states
 #: (cooked_*, diced_*, half_*) that no DROID table shows.
 DROID_CATEGORIES = REPO_ROOT / "realm" / "config" / "objects" / "categories.yaml"
 
-#: Largest bbox dimension a distractor may have, matching realm/config/shared.py.
-DISTRACTOR_MAX_DIM = 0.12
 
 
 class LayoutError(ValueError):
@@ -107,12 +101,52 @@ def index_assets(dataset: Path = DEFAULT_DATASET) -> dict[str, list[dict]]:
     return indexed
 
 
+@functools.lru_cache(maxsize=4)
+def real_sizes(path: Path = REAL_SIZES_PATH) -> dict[str, dict]:
+    """Category -> {size_m, reason}. Empty when the file is absent (objects then keep natural size)."""
+    import json
+
+    try:
+        return dict(json.loads(Path(path).read_text(encoding="utf-8")).get("sizes") or {})
+    except (OSError, ValueError):
+        return {}
+
+
+def realistic_size(category: str, size_m: float | None = None,
+                   size_reason: str | None = None) -> tuple[float | None, str]:
+    """The longest dimension an object of `category` should have, and where that number came from."""
+    typical = real_sizes().get(str(category))
+    if size_m is not None:
+        size_m = float(size_m)
+        if not str(size_reason or "").strip():
+            raise LayoutError(f"size_m={size_m} for {category!r} needs a size_reason saying why this object "
+                              f"is not the typical size")
+        if typical and not (1 / SIZE_OVERRIDE_RANGE <= size_m / float(typical["size_m"]) <= SIZE_OVERRIDE_RANGE):
+            raise LayoutError(
+                f"size_m={size_m} for {category!r} is more than {SIZE_OVERRIDE_RANGE:g}x away from its typical "
+                f"{typical['size_m']} m ({typical['reason']}); that is a different object, not a variant")
+        return size_m, f"task override: {size_reason}"
+    if typical:
+        return float(typical["size_m"]), f"typical size: {typical['reason']}"
+    return None, "natural size: no typical size on record for this category"
+
+
+def scale_to_size(bbox, size_m: float | None) -> tuple[list[float], float]:
+    """Uniform scale so the longest dimension equals `size_m` (natural size when None)."""
+    original = [float(v) for v in bbox]
+    if size_m is None or max(original) <= 0:
+        return [round(v, 7) for v in original], 1.0
+    scale = float(size_m) / max(original)
+    return [round(v * scale, 7) for v in original], scale
+
+
 def build_object(
     name: str,
     category: str,
     model: str,
     assets_by_category: dict[str, list[dict]],
-    max_xy: tuple[float, float],
+    size_m: float | None = None,
+    size_reason: str | None = None,
 ) -> tuple[dict, dict | None]:
     """One authored object config. Raises LayoutError when the (category, model) does not exist.
 
@@ -137,19 +171,18 @@ def build_object(
     config["name"] = name
     config["model"] = model
     original = [round(float(value), 7) for value in asset["bbox"]]
-    config["bounding_box"] = original
-    fitted, scale = fit_bbox(original, max_xy)
+    target, source = realistic_size(category, size_m, size_reason)
+    fitted, scale = scale_to_size(original, target)
     config["bounding_box"] = fitted
     config["orientation"] = [0.0, 0.0, 0.0, 1.0]
-    audit = None
-    if scale < 1:
-        audit = {
-            "name": name,
-            "original_bbox": original,
-            "authored_bbox": fitted,
-            "scale": round(scale, 5),
-            "reason": "max_footprint",
-        }
+    audit = {
+        "name": name,
+        "original_bbox": original,
+        "authored_bbox": fitted,
+        "scale": round(scale, 5),
+        "reason": "realistic_size",
+        "size_source": source,
+    }
     return config, audit
 
 
@@ -173,18 +206,32 @@ def place(config: dict, placed: list[dict], region: dict) -> None:
         (0.50, 0.50), (0.25, 0.50), (0.75, 0.50), (0.50, 0.25),
         (0.50, 0.75), (0.15, 0.50), (0.85, 0.50), (0.50, 0.85),
     )
-    from tooling.task_authoring.generate_realm_droid100 import bbox_fits_support
+    from tooling.task_authoring.generate_realm_droid100 import SUPPORT_EDGE_CLEARANCE, bbox_fits_support
 
-    bx, by, _ = config["bounding_box"]
-    for ux, uy in candidates:
-        x = max(bx / 2, min(width - bx / 2, ux * width))
-        y = max(by / 2, min(depth - by / 2, uy * depth))
+    from tooling.task_authoring.validation import oriented_footprint
+
+    # The footprint as ORIENTED: an object turned 90 degrees to fit its receiver occupies its rotated
+    # extent, which is what the validator measures; placing by the unrotated box overlapped
+    # neighbours and overhung the table edge once objects were realistically sized.
+    bx, by = oriented_footprint(config["bounding_box"], config.get("orientation"))
+    footprint = [bx, by, config["bounding_box"][2]]
+    # The 12 preferred spots first (same order as the batch generator), then a deterministic 2 cm grid:
+    # at realistic sizes a 30 cm sink and a 15 cm bowl fit a 50 x 60 cm table, but not on those 12.
+    grid = [(i / 20, j / 20) for j in range(21) for i in range(21)]
+    # 0.1 mm inside the clearance: positions are rounded to 5 decimals, and a spot exactly ON the
+    # clearance read as overhanging it after rounding.
+    edge = SUPPORT_EDGE_CLEARANCE + 1e-4
+    for ux, uy in list(candidates) + grid:
+        # Clamp INSIDE the edge clearance bbox_fits_support demands; clamping to the bare edge made
+        # every clamped spot fail for any object wider than a third of the table.
+        x = max(bx / 2 + edge, min(width - bx / 2 - edge, ux * width))
+        y = max(by / 2 + edge, min(depth - by / 2 - edge, uy * depth))
         # Just above the region's MEASURED surface, not 5 cm above the spawn plane: the spawn plane
         # sits up to 11 cm above the real table, and a 10-16 cm drop tipped and rolled objects.
         z = resting_z(float(config["bounding_box"][2]), region.get("scene"), region.get("support"))
         authored_z = math.ceil(z * 10_000_000) / 10_000_000
         config["relative_bbox_position"] = [round(x, 5), round(y, 5), authored_z]
-        if bbox_fits_support(x, y, config["bounding_box"], width, depth, elliptical) and not overlaps(config, placed):
+        if bbox_fits_support(x, y, footprint, width, depth, elliptical) and not _overlaps_oriented(config, placed):
             placed.append(config)
             return
     raise LayoutError(
@@ -222,42 +269,29 @@ def solve_layout(
     if "main" not in roles:
         raise LayoutError("a `main` role is required: exactly one object is manipulated")
 
-    # A main object that starts resting ON a source (a lid on a pot) must be at least as wide as
-    # the source's opening, so it gets the receiver ceiling, not the 14 cm hand-object ceiling.
+    # Only a SOURCE the object starts on (a lid on a pot) uses the stack margin below.
     rests_on_source = bool(roles.get("source")) and _declared_predicate(roles) in (None, "on_top_of")
-    # The same holds for the GOAL of a lid task: "put the lid on the pot" needs a lid as wide as the
-    # pot, so a lid that is the main object of a stack gets the receiver ceiling too.
-    main_words = set(str((roles.get("main") or {}).get("category") or "").split("_"))
-    lid_like = bool(main_words & {"lid", "cover", "cap"})
-    lid_goal = task_type == "stack" and lid_like
-    # A plate or tray resting on a bowl is held by its overhang, so it too must be allowed to be
-    # wider than the bowl (validation's RIM_OVERHANG); it is thin, so the gripper takes its edge.
-    flat_resting = rests_on_source and bool(main_words & FLAT_RESTING_WORDS)
-    # Natural length only for an elongated object that starts lying on the table. Standing in a
-    # cup (pick from a container), more than half of a 19 cm fork would rise above an 8 cm mug and
-    # tip it, as the spatula tipped its holder in render v4.
-    starts_inside = bool(roles.get("source")) and _declared_predicate(roles) == "inside"
-    main_ceiling = MAIN_MAX_XY if starts_inside else _main_ceiling(roles["main"], assets_by_category)
-    main_config, audits = _build_role(
-        "main", roles["main"], assets_by_category,
-        # Only a lid-like object needs to be as wide as what it rests on. Giving every resting
-        # object the receiver ceiling let a "toy cart" on a box come out 28 x 20 x 30 cm.
-        OTHER_MAX_XY if ((rests_on_source and lid_like) or lid_goal or flat_resting) else main_ceiling)
+    main_config, audits = _build_role("main", roles["main"], assets_by_category)
     target_config = source_config = None
     if roles.get("target"):
-        target_config, audit = _build_role("target", roles["target"], assets_by_category, OTHER_MAX_XY)
+        target_config, audit = _build_role("target", roles["target"], assets_by_category)
         audits += audit
     if roles.get("source"):
-        source_config, audit = _build_role("source", roles["source"], assets_by_category, OTHER_MAX_XY)
+        source_config, audit = _build_role("source", roles["source"], assets_by_category)
         audits += audit
-
-    if (main_ceiling != MAIN_MAX_XY and target_config is not None and task_type == "put"
-            and not _fits_receiver(main_config["bounding_box"], target_config["bounding_box"])):
-        # At natural length it no longer fits the receiver (a 15.8 cm pen into an 8 cm-deep mug
-        # must stand at least half inside); fall back to the hand-object ceiling rather than let
-        # the capacity fit shrink it to a toy.
-        main_config, main_audits = _build_role("main", roles["main"], assets_by_category, MAIN_MAX_XY)
-        audits = [a for a in audits if a.get("name") != main_config["name"]] + main_audits
+    # A lid's size is set by the pot it closes, not by a typical size: a 24 cm lid on a 20 cm pot
+    # slides off, on a 28 cm pot it falls in. Unless the agent sized it explicitly, a lid that starts
+    # on its pot or must end on it is scaled to cover that pot's narrower side.
+    main_words = set(str((roles.get("main") or {}).get("category") or "").split("_"))
+    lid_partner = (source_config if rests_on_source else None) or (target_config if task_type == "stack" else None)
+    if (main_words & {"lid", "cover"} and lid_partner is not None
+            and "size_m" not in (roles.get("main") or {}) and lid_partner.get("type") != "PrimitiveObject"):
+        opening = min(float(v) for v in lid_partner["bounding_box"][:2]) * LID_COVER_FACTOR
+        bbox = main_config["bounding_box"]
+        factor = opening / min(float(v) for v in bbox[:2])
+        main_config["bounding_box"] = [round(float(v) * factor, 7) for v in bbox]
+        audits.append({"name": main_config["name"], "reason": "lid_fits_its_pot", "scale": round(factor, 5),
+                       "size_source": f"covers {lid_partner['name']!r} ({opening:.3f} m)"})
 
     if task_type in {"put", "stack"} and target_config is None:
         raise LayoutError(
@@ -288,6 +322,10 @@ def solve_layout(
                     "main_bbox": list(main_config["bounding_box"]),
                     "target_bbox": list(lengthwise_container["bounding_box"])}
         receiver = None
+    if receiver is not None and receiver is source_config and rests_on_source:
+        # Resting ON its source (a lid on a pot, a plate across a bowl) the object may be wider than
+        # the source: it covers it. LID_SMALLER_THAN_OPENING and RIM_OVERHANG judge that geometry.
+        receiver = None
     if receiver is not None:
         # The margin follows the RELATION: resting on something (stack, or a lid on a pot) needs the
         # stack margin, which lets the object be wider than its support; being inside something
@@ -300,13 +338,15 @@ def solve_layout(
             capacity_type = task_type
         capacity = ensure_receiver_capacity(main_config, receiver, capacity_type)
         if capacity["uniform_scale"] < 1:
-            audits.append({
-                "name": main_config["name"],
-                "reason": "receiver_capacity",
-                "original_bbox": capacity["main_bbox_before_capacity_fit"],
-                "authored_bbox": capacity["main_bbox_after_capacity_fit"],
-                "scale": capacity["uniform_scale"],
-            })
+            # Shrinking the object until it fits would make it a toy. At realistic sizes it either
+            # fits or the pairing is wrong: say so, and let the agent choose.
+            raise LayoutError(
+                f"{main_config['name']!r} at its realistic size "
+                f"{[round(v, 3) for v in capacity['main_bbox_before_capacity_fit']]} does not fit "
+                f"{receiver['name']!r} {[round(v, 3) for v in receiver['bounding_box']]} "
+                f"({capacity_type} margin {CAPACITY_MARGIN.get(capacity_type, 1.0)}). Choose a larger "
+                f"receiver model, give the receiver a justified size_m, or a smaller variant of the object."
+            )
 
     placed: list[dict] = []
     relation_audit = None
@@ -327,7 +367,16 @@ def solve_layout(
     anchor = source_config
     if anchor is not None:
         resolved_predicate = predicate or "on_top_of"
-        place(anchor, placed, region)
+        if resolved_predicate == "on_top_of" and _wider(main_config, anchor):
+            # Something wider rests on the anchor (a lid on a pot, a plate across a bowl): choose the
+            # anchor's spot by the WIDER footprint, or the overhang can hang past the table edge.
+            proxy = dict(anchor, bounding_box=[max(float(a), float(m)) for a, m in
+                                               zip(anchor["bounding_box"][:2], main_config["bounding_box"][:2])]
+                         + [anchor["bounding_box"][2]])
+            place(proxy, placed, region)
+            anchor["relative_bbox_position"] = list(proxy["relative_bbox_position"])
+        else:
+            place(anchor, placed, region)
         relation = "on_top" if resolved_predicate == "on_top_of" else "inside"
         relation_audit = place_initial_relation(main_config, anchor, relation)
         if relation == "inside":
@@ -406,30 +455,7 @@ def solve_layout(
     return {"document": document, "audit": audit}
 
 
-def _fits_receiver(main_bbox, target_bbox) -> bool:
-    """A put receiver takes the object lying in its footprint (either yaw) or standing lengthwise."""
-    margin = CAPACITY_MARGIN["put"]
-    (mx, my), (tx, ty) = main_bbox[:2], target_bbox[:2]
-    flat = (tx >= mx * margin and ty >= my * margin) or (tx >= my * margin and ty >= mx * margin)
-    return flat or fits_lengthwise(main_bbox, target_bbox, margin)
-
-
-def _main_ceiling(spec: dict, assets_by_category: dict) -> tuple[float, float]:
-    """MAIN_MAX_XY, except that an elongated asset's long axis may reach ELONGATED_MAX_LENGTH."""
-    if not isinstance(spec, dict) or spec.get("primitive"):
-        return MAIN_MAX_XY
-    asset = next((item for item in assets_by_category.get(str(spec.get("category")), [])
-                  if str(item.get("model")) == str(spec.get("model"))), None)
-    if asset is None:
-        return MAIN_MAX_XY
-    x, y = float(asset["bbox"][0]), float(asset["bbox"][1])
-    if max(x, y) < 2 * min(x, y) or min(x, y) > THIN_MAX_WIDTH:
-        return MAIN_MAX_XY
-    short = min(MAIN_MAX_XY)
-    return (ELONGATED_MAX_LENGTH, short) if x >= y else (short, ELONGATED_MAX_LENGTH)
-
-
-def _build_role(role: str, spec: dict, assets_by_category: dict, max_xy) -> tuple[dict, list[dict]]:
+def _build_role(role: str, spec: dict, assets_by_category: dict) -> tuple[dict, list[dict]]:
     if not isinstance(spec, dict):
         raise LayoutError(f"the {role} role must be an object, got {type(spec).__name__}")
     name = str(spec.get("name") or "").strip()
@@ -450,7 +476,8 @@ def _build_role(role: str, spec: dict, assets_by_category: dict, max_xy) -> tupl
             f"the {role} role {name!r} needs both `category` and `model` from search_assets "
             f"(or `primitive` + `rgba` for a coloured block)"
         )
-    config, audit = build_object(name, category, model, assets_by_category, max_xy)
+    config, audit = build_object(name, category, model, assets_by_category,
+                                 spec.get("size_m"), spec.get("size_reason"))
     return config, ([audit] if audit else [])
 
 
@@ -470,8 +497,24 @@ def _lower_onto_measured_surface(main: dict, container: dict, region: dict) -> N
 
 #: Gap between the rim and the lower face of an object dropped into a container.
 RIM_DROP_CLEARANCE_M = 0.005
-#: Thin objects that rest across an opening (a plate on a bowl) rather than on a surface.
-FLAT_RESTING_WORDS = {"plate", "platter", "saucer", "tray", "dish"}
+
+
+def _overlaps_oriented(candidate: dict, placed: list[dict], margin: float = 0.012) -> bool:
+    """generate_realm_droid100.overlaps, on oriented footprints."""
+    from tooling.task_authoring.validation import oriented_footprint
+
+    x, y, _ = candidate["relative_bbox_position"]
+    cx, cy = oriented_footprint(candidate["bounding_box"], candidate.get("orientation"))
+    for other in placed:
+        ox, oy = oriented_footprint(other["bounding_box"], other.get("orientation"))
+        if (abs(x - other["relative_bbox_position"][0]) < (cx + ox) / 2 + margin
+                and abs(y - other["relative_bbox_position"][1]) < (cy + oy) / 2 + margin):
+            return True
+    return False
+
+
+def _wider(config: dict, other: dict) -> bool:
+    return any(float(c) > float(o) for c, o in zip(config["bounding_box"][:2], other["bounding_box"][:2]))
 
 
 def _lie_flat_if_wide(main: dict, container: dict) -> dict:
@@ -565,7 +608,7 @@ def _place_distractors(
         if not isinstance(spec, dict):
             continue
         try:
-            config, _ = _build_role("distractor", spec, assets_by_category, (DISTRACTOR_MAX_DIM, DISTRACTOR_MAX_DIM))
+            config, _ = _build_role("distractor", spec, assets_by_category)
         except LayoutError as error:
             audit.append({"name": spec.get("name"), "dropped": str(error)})
             continue
@@ -603,6 +646,10 @@ def _place_distractors(
         for candidate in extra:
             if len(chosen) >= count:
                 break
+            natural = next((a["bbox"] for a in assets_by_category.get(str(candidate["category"]), [])
+                            if str(a["model"]) == str(candidate["model"])), candidate["bounding_box"])
+            size, _ = realistic_size(str(candidate["category"]))
+            candidate["bounding_box"], _ = scale_to_size(natural, size)
             family = _family(str(candidate["category"]))
             if family in families:
                 continue

@@ -261,17 +261,25 @@ class Session:
             category = matches[0]
             exact = self.assets[category]
         candidates = []
+        typical, size_source = layout.realistic_size(category)
         for asset in exact:
-            bbox = [round(float(value), 5) for value in asset["bbox"]]
+            # `bbox` is the size the object will have in the scene: every asset is scaled uniformly to
+            # the category's realistic size, so models differ only in proportions -- pick the one
+            # whose shape fits the task (a thick enough handle, a deep enough bowl).
+            natural = [round(float(value), 5) for value in asset["bbox"]]
+            bbox = [round(value, 5) for value in layout.scale_to_size(natural, typical)[0]]
             if max_footprint_xy and (bbox[0] > float(max_footprint_xy[0]) or bbox[1] > float(max_footprint_xy[1])):
                 continue
-            candidates.append({"category": category, "model": str(asset["model"]), "bbox": bbox})
+            candidates.append({"category": category, "model": str(asset["model"]), "bbox": bbox,
+                               "natural_bbox": natural})
         candidates.sort(key=lambda item: (item["bbox"][0] * item["bbox"][1], item["model"]))
         alternatives = [name for name in asset_catalog.matching_categories(query, self.assets)
                         if name != category]
         return {
             "query": query, "role": role, "category": category, "found": bool(candidates),
             "alternatives": alternatives,
+            "size": {"longest_m": typical, "source": size_source,
+                     "override": "give the role size_m + size_reason if the instruction means another variant"},
             "candidates": candidates[:12],
             "note": (
                 "use `category` and `model` verbatim in propose_layout"

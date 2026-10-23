@@ -16,18 +16,18 @@ main_objects:
   category: tablespoon
   model: yxxfdj
   bounding_box:
-  - 0.14
-  - 0.030396
-  - 0.0103559
+  - 0.19
+  - 0.0412517
+  - 0.0140544
   orientation:
   - 0.0
+  - 0.7071068
   - 0.0
-  - 0.0
-  - 1.0
+  - 0.7071068
   relative_bbox_position:
-  - 0.3
-  - 0.2
-  - 0.0623127
+  - 0.18
+  - 0.1651
+  - 0.0996348
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,52 +35,52 @@ distractors:
   category: bell_pepper
   model: ukkycp
   bounding_box:
-  - 0.09409
-  - 0.06433
-  - 0.0685
+  - 0.1
+  - 0.0683707
+  - 0.0728026
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.15
-  - 0.2
-  - -0.04575
+  - 0.42
+  - 0.28
+  - -0.0435987
 - type: DatasetObject
   name: distractor_jar_of_spaghetti_sauce
   category: jar_of_spaghetti_sauce
   model: zahyds
   bounding_box:
-  - 0.06496
-  - 0.06496
-  - 0.10621
+  - 0.1039751
+  - 0.1039751
+  - 0.17
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.45
-  - 0.2
-  - -0.026895
-- type: DatasetObject
-  name: distractor_tweezers
-  category: tweezers
-  model: ngwoat
-  bounding_box:
-  - 0.00485
-  - 0.03209
-  - 0.0025
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.18
+  - 0.42
   - 0.12
-  - -0.07875
+  - 0.0050001
+- type: DatasetObject
+  name: distractor_bottle_of_strawberry_juice
+  category: bottle_of_strawberry_juice
+  model: mlnuza
+  bounding_box:
+  - 0.0851205
+  - 0.0851205
+  - 0.22
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.53234
+  - 0.06766
+  - 0.03
 immutables:
 - type: DatasetObject
   name: basket
@@ -96,8 +96,8 @@ immutables:
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.3
-  - 0.2
+  - 0.18
+  - 0.1651
   - -0.0139326
 initial_state:
 - predicate: inside
@@ -133,6 +133,3 @@ provenance:
   task_id: 202542c3a4cc
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Remove the black spoon from the basket
-  decisions:
-  - '"black" dropped (texture)'
-  - spoon grounded as tablespoon yxxfdj (authored at the 14 cm ceiling), lying in wicker_basket unasxd

@@ -8,63 +8,97 @@ instruction_obj_to_replace: mug
 instruction_target_to_replace: ''
 instruction_verb_to_replace: pick
 supported_scenes:
-  Pomaria_1_int:
-  - Kitchen_Counter
+  Benevolence_1_int:
+  - Dining_Table
 main_objects:
 - type: DatasetObject
   name: mug
   category: mug
   model: ppzttc
   bounding_box:
-  - 0.081
-  - 0.10911
-  - 0.08026
+  - 0.0890844
+  - 0.12
+  - 0.0882706
   orientation:
   - 0.0
   - 0.0
   - 0.7071068
   - 0.7071068
   relative_bbox_position:
-  - 0.2
-  - 0.25
-  - 0.1368022
+  - 0.2001
+  - 0.19405
+  - 0.1754892
 target_objects: []
 distractors:
 - type: DatasetObject
-  name: distractor_broccoli
-  category: broccoli
-  model: wsxavx
+  name: distractor_bottle_of_peanut_butter
+  category: bottle_of_peanut_butter
+  model: edcvwr
   bounding_box:
-  - 0.02909
-  - 0.02903
-  - 0.02186
+  - 0.0782808
+  - 0.0782808
+  - 0.13
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
+  - 0.45
   - 0.2
-  - 0.425
-  - -0.05907
+  - -0.015
+- type: DatasetObject
+  name: distractor_jar_of_dill_seed
+  category: jar_of_dill_seed
+  model: reavkt
+  bounding_box:
+  - 0.0841736
+  - 0.0829199
+  - 0.1
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.45
+  - 0.06656
+  - -0.03
+- type: DatasetObject
+  name: distractor_duct_tape
+  category: duct_tape
+  model: htrage
+  bounding_box:
+  - 0.13
+  - 0.1173766
+  - 0.0381079
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.48
+  - 0.31621
+  - -0.060946
 immutables:
 - type: DatasetObject
   name: sink
   category: drop_in_sink
   model: wzpabm
   bounding_box:
-  - 0.28
-  - 0.2703133
-  - 0.1867372
+  - 0.35
+  - 0.3378917
+  - 0.2334215
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.25
-  - 0.0233686
+  - 0.2001
+  - 0.19405
+  - 0.0367108
 initial_state:
 - predicate: inside
   subject: mug

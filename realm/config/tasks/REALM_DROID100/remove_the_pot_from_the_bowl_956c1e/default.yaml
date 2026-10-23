@@ -25,9 +25,9 @@ main_objects:
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.12
-  - 0.12
-  - 0.1169766
+  - 0.1251
+  - 0.12508
+  - 0.1246
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,26 +35,26 @@ distractors:
   category: can_of_oatmeal
   model: qyukhm
   bounding_box:
-  - 0.09218
-  - 0.09218
-  - 0.13596
+  - 0.1220388
+  - 0.1220388
+  - 0.18
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.28
-  - 0.28
-  - 0.02798
+  - 0.3
+  - 0.2
+  - 0.05
 - type: DatasetObject
   name: distractor_bottle_of_lotion
   category: bottle_of_lotion
   model: tkryrh
   bounding_box:
-  - 0.07293
-  - 0.07293
-  - 0.1809
+  - 0.0725672
+  - 0.0725672
+  - 0.18
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.12
   - 0.28
-  - 0.05045
+  - 0.05
 - type: DatasetObject
-  name: distractor_teacup
-  category: teacup
-  model: tfzfam
+  name: distractor_jar_of_clove
+  category: jar_of_clove
+  model: dlvall
   bounding_box:
-  - 0.07268
-  - 0.07268
-  - 0.05212
+  - 0.0723939
+  - 0.0723863
+  - 0.1
   orientation:
   - 0.0
   - 0.0
@@ -79,26 +79,26 @@ distractors:
   - 1.0
   relative_bbox_position:
   - 0.28
-  - 0.12
-  - -0.01394
+  - 0.06129
+  - 0.0100001
 immutables:
 - type: DatasetObject
   name: bowl
   category: bowl
   model: tvtive
   bounding_box:
-  - 0.1878
-  - 0.18777
-  - 0.11735
+  - 0.2
+  - 0.1999681
+  - 0.1249734
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.12
-  - 0.12
-  - 0.018675
+  - 0.1251
+  - 0.12508
+  - 0.0224867
 initial_state:
 - predicate: inside
   subject: pot
@@ -134,6 +134,7 @@ provenance:
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Remove the orange pot from the green bowl and put it on the table
   decisions:
-  - shortened to the removal; colours dropped (texture)
-  - 'the variants call it a small pot: saucepot obuxbe authored at the 14 cm hand-object ceiling, inside bowl tvtive (18.8
-    cm)'
+  - 'pot sized 0.14 m: small toy pot that sits inside a bowl, as the instruction implies'
+  - 'bowl sized 0.2 m: bowl large enough to hold the toy pot'
+  - 'pot sized 0.14 m: small toy pot that sits inside a bowl, as the instruction implies'
+  - 'bowl sized 0.2 m: bowl large enough to hold the toy pot'

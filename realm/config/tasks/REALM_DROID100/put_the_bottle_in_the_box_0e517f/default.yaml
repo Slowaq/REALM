@@ -16,88 +16,88 @@ main_objects:
   category: bottle_of_water
   model: migvlt
   bounding_box:
-  - 0.07033
-  - 0.07033
-  - 0.22846
+  - 0.0677256
+  - 0.0677256
+  - 0.22
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.425
-  - 0.0442301
+  - 0.28
+  - 0.35
+  - 0.04
 target_objects:
 - type: DatasetObject
   name: box
   category: storage_box
   model: aqdbdu
   bounding_box:
-  - 0.20369
-  - 0.20368
-  - 0.1434
+  - 0.25
+  - 0.2499877
+  - 0.1760027
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.25
-  - 0.0017
+  - 0.1501
+  - 0.15009
+  - 0.0180014
 distractors:
+- type: DatasetObject
+  name: distractor_can_of_oatmeal
+  category: can_of_oatmeal
+  model: qyukhm
+  bounding_box:
+  - 0.1220388
+  - 0.1220388
+  - 0.18
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.35
+  - 0.02
 - type: DatasetObject
   name: distractor_teaspoon
   category: teaspoon
   model: wzsvzv
   bounding_box:
-  - 0.09894
-  - 0.02218
-  - 0.0078
+  - 0.14
+  - 0.0313847
+  - 0.011037
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.125
-  - -0.0661
+  - 0.28
+  - 0.425
+  - -0.0644815
 - type: DatasetObject
-  name: distractor_shaker
-  category: shaker
-  model: hbheag
+  name: distractor_bottle_of_peanut_butter
+  category: bottle_of_peanut_butter
+  model: edcvwr
   bounding_box:
-  - 0.03577
-  - 0.03592
-  - 0.09196
+  - 0.0782808
+  - 0.0782808
+  - 0.13
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.06
+  - 0.33576
   - 0.25
-  - -0.02402
-- type: DatasetObject
-  name: distractor_pencil
-  category: pencil
-  model: fnlbpu
-  bounding_box:
-  - 0.1
-  - 0.0038263
-  - 0.0031886
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.2
-  - 0.375
-  - -0.0684057
+  - -0.005
 immutables: []
 target_state:
   rubric: put
@@ -130,6 +130,3 @@ provenance:
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Pick up the bottle from the table and put it in the grey box, place the grey box on top of the black
     box
-  decisions:
-  - shortened to the first scoreable clause (bottle into box); stacking the box onto a second box is a second main object
-  - colours dropped; bottle_of_water migvlt, storage_box aqdbdu

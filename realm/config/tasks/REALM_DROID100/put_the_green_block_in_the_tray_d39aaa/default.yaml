@@ -33,8 +33,8 @@ main_objects:
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.15
-  - 0.18
+  - 0.35
+  - 0.42
   - -0.045
 target_objects:
 - type: DatasetObject
@@ -42,9 +42,44 @@ target_objects:
   category: tray
   model: avotsj
   bounding_box:
-  - 0.28
-  - 0.155591
-  - 0.0325348
+  - 0.32
+  - 0.1778183
+  - 0.0371826
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.1851
+  - 0.18
+  - -0.0514087
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_supplements
+  category: bottle_of_supplements
+  model: oqakev
+  bounding_box:
+  - 0.0549496
+  - 0.0549582
+  - 0.1
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - -0.02
+- type: DatasetObject
+  name: distractor_marker
+  category: marker
+  model: qemval
+  bounding_box:
+  - 0.14
+  - 0.017603
+  - 0.017589
   orientation:
   - 0.0
   - 0.0
@@ -53,16 +88,15 @@ target_objects:
   relative_bbox_position:
   - 0.25
   - 0.3
-  - -0.0537326
-distractors:
+  - -0.0612055
 - type: DatasetObject
-  name: distractor_bottle_of_supplements
-  category: bottle_of_supplements
-  model: oqakev
+  name: distractor_tongs
+  category: tongs
+  model: rcpjld
   bounding_box:
-  - 0.06378
-  - 0.06379
-  - 0.11607
+  - 0.24
+  - 0.0616985
+  - 0.0583475
   orientation:
   - 0.0
   - 0.0
@@ -70,42 +104,8 @@ distractors:
   - 1.0
   relative_bbox_position:
   - 0.25
-  - 0.15
-  - -0.011965
-- type: DatasetObject
-  name: distractor_marker
-  category: marker
-  model: qemval
-  bounding_box:
-  - 0.1
-  - 0.0125735
-  - 0.0125636
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.35
-  - 0.42
-  - -0.0637182
-- type: DatasetObject
-  name: distractor_tongs
-  category: tongs
-  model: rcpjld
-  bounding_box:
-  - 0.1
-  - 0.0257077
-  - 0.0243115
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.15
-  - 0.42
-  - -0.0578442
+  - 0.51
+  - -0.0408262
 immutables: []
 target_state:
   rubric: put

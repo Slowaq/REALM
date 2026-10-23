@@ -16,88 +16,88 @@ main_objects:
   category: lid
   model: vkepll
   bounding_box:
-  - 0.13442
-  - 0.13442
-  - 0.04776
+  - 0.16
+  - 0.16
+  - 0.0568487
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.28
-  - 0.35
-  - -0.04612
+  - 0.2
+  - 0.375
+  - -0.0415756
 target_objects:
 - type: DatasetObject
   name: bowl
   category: bowl
   model: kdkrov
   bounding_box:
-  - 0.17852
-  - 0.17852
-  - 0.11503
+  - 0.24
+  - 0.24
+  - 0.1546449
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.12
+  - 0.1451
   - 0.15
-  - -0.012485
+  - 0.0073225
 distractors:
 - type: DatasetObject
   name: distractor_bottle_of_soy_sauce
   category: bottle_of_soy_sauce
   model: afxisg
   bounding_box:
-  - 0.09698
-  - 0.09701
-  - 0.20581
+  - 0.084818
+  - 0.0848443
+  - 0.18
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.12
-  - 0.35
-  - 0.032905
+  - 0.32
+  - 0.06752
+  - 0.02
 - type: DatasetObject
-  name: distractor_table_knife
-  category: table_knife
-  model: nmkend
+  name: distractor_round_bottom_flask
+  category: round_bottom_flask
+  model: hmzafz
   bounding_box:
-  - 0.1
-  - 0.0105597
-  - 0.0021863
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.28
+  - 0.0563853
+  - 0.0563853
   - 0.15
-  - -0.0689068
-- type: DatasetObject
-  name: distractor_hammer
-  category: hammer
-  model: fcrlbo
-  bounding_box:
-  - 0.1
-  - 0.0414117
-  - 0.0122257
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.3
+  - 0.34
   - 0.25
-  - -0.0638871
+  - 0.005
+- type: DatasetObject
+  name: distractor_water_bottle
+  category: water_bottle
+  model: lzdzkk
+  bounding_box:
+  - 0.0754012
+  - 0.0745729
+  - 0.22
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.0628
+  - 0.325
+  - 0.04
 immutables: []
 target_state:
   rubric: put
@@ -130,8 +130,7 @@ provenance:
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Pick up the lid from the pot and put it in the bowl
   decisions:
-  - 'redone: the first draft started the lid on long-handled saucepot obuxbe, where the solver''s bbox-centred placement puts
-    the lid ~8 cm off the pot body'
-  - 'a symmetric pot needs a ~23 cm lid and a 27.6 cm bowl, which does not pack on any region with the pot, so the cluster
-    variant "Put the lid in the bowl" is used: same scored put, lid starts on the table'
-  - lid vkepll (13.4 cm), bowl kdkrov (17.9 cm)
+  - 'lid sized 0.16 m: lid of a small saucepan'
+  - 'bowl sized 0.24 m: large bowl that holds the lid'
+  - 'lid sized 0.16 m: lid of a small saucepan'
+  - 'bowl sized 0.24 m: large bowl that holds the lid'

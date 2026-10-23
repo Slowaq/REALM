@@ -16,45 +16,28 @@ main_objects:
   category: bow
   model: puwdwq
   bounding_box:
-  - 0.10003
-  - 0.05289
-  - 0.01266
+  - 0.12
+  - 0.063449
+  - 0.0151874
   orientation:
   - 0.0
   - 0.0
   - 0.7071068
   - 0.7071068
   relative_bbox_position:
-  - 0.2
-  - 0.2
-  - 0.020465
+  - 0.14232
+  - 0.1501
+  - 0.0209142
 target_objects: []
 distractors:
 - type: DatasetObject
-  name: distractor_tweezers
-  category: tweezers
-  model: ngwoat
+  name: distractor_bottle_of_glue
+  category: bottle_of_glue
+  model: evtytd
   bounding_box:
-  - 0.00485
-  - 0.03209
-  - 0.0025
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.06
-  - 0.2
-  - -0.03875
-- type: DatasetObject
-  name: distractor_chopstick
-  category: chopstick
-  model: bdvjuf
-  bounding_box:
-  - 0.1
-  - 0.0022835
-  - 0.0022879
+  - 0.12
+  - 0.0534788
+  - 0.0232592
   orientation:
   - 0.0
   - 0.0
@@ -63,25 +46,59 @@ distractors:
   relative_bbox_position:
   - 0.2
   - 0.34
-  - -0.038856
-immutables:
+  - -0.0283704
 - type: DatasetObject
-  name: box
-  category: storage_box
-  model: bwbpvg
+  name: distractor_tweezers
+  category: tweezers
+  model: ngwoat
   bounding_box:
-  - 0.23519
-  - 0.2508
-  - 0.0573
+  - 0.0151137
+  - 0.1
+  - 0.0077906
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.2
-  - -0.01135
+  - 0.28
+  - 0.28
+  - -0.0361047
+- type: DatasetObject
+  name: distractor_can_of_tomatoes
+  category: can_of_tomatoes
+  model: ckdouu
+  bounding_box:
+  - 0.0788983
+  - 0.0788983
+  - 0.11
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.32
+  - 0.06455
+  - 0.0150001
+immutables:
+- type: DatasetObject
+  name: box
+  category: storage_box
+  model: bwbpvg
+  bounding_box:
+  - 0.2344398
+  - 0.25
+  - 0.0571172
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.14232
+  - 0.1501
+  - -0.0114413
 initial_state:
 - predicate: inside
   subject: bow

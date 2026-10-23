@@ -16,9 +16,9 @@ main_objects:
   category: plum
   model: rhaemq
   bounding_box:
-  - 0.0606
-  - 0.0401
-  - 0.03894
+  - 0.06
+  - 0.039703
+  - 0.0385545
   orientation:
   - 0.0
   - 0.0
@@ -27,16 +27,16 @@ main_objects:
   relative_bbox_position:
   - 0.28
   - 0.28
-  - -0.02053
+  - -0.0207227
 target_objects:
 - type: DatasetObject
   name: bowl
   category: bowl
   model: kasebx
   bounding_box:
-  - 0.14336
-  - 0.14336
-  - 0.08246
+  - 0.15
+  - 0.15
+  - 0.0862793
   orientation:
   - 0.0
   - 0.0
@@ -45,16 +45,16 @@ target_objects:
   relative_bbox_position:
   - 0.12
   - 0.12
-  - 0.0012301
+  - 0.0031397
 distractors:
 - type: DatasetObject
   name: distractor_bottle_of_protein_powder
   category: bottle_of_protein_powder
   model: rbvrrp
   bounding_box:
-  - 0.1
-  - 0.0999799
-  - 0.1644705
+  - 0.1337626
+  - 0.1337357
+  - 0.22
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.12
   - 0.28
-  - 0.0422353
+  - 0.0700001
 - type: DatasetObject
   name: distractor_mug
   category: mug
   model: kitxam
   bounding_box:
-  - 0.064
-  - 0.08585
-  - 0.06466
+  - 0.0894584
+  - 0.12
+  - 0.0903809
   orientation:
   - 0.0
   - 0.0
@@ -80,24 +80,24 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.12
-  - -0.00767
+  - 0.0051905
 - type: DatasetObject
   name: distractor_chopstick
   category: chopstick
   model: bdvjuf
   bounding_box:
-  - 0.1
-  - 0.0022835
-  - 0.0022879
+  - 0.23
+  - 0.0052519
+  - 0.0052623
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.3
-  - 0.2
-  - -0.038856
+  - 0.1401
+  - 0.02773
+  - -0.0373688
 immutables: []
 target_state:
   rubric: put

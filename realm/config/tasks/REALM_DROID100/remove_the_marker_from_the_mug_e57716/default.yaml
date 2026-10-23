@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.18
   - 0.12
-  - 0.03954
+  - 0.0514978
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,9 +35,9 @@ distractors:
   category: plier
   model: zwzncq
   bounding_box:
-  - 0.1
-  - 0.0290771
-  - 0.0057154
+  - 0.18
+  - 0.0523388
+  - 0.0102877
   orientation:
   - 0.0
   - 0.0
@@ -46,15 +46,15 @@ distractors:
   relative_bbox_position:
   - 0.42
   - 0.28
-  - -0.0771423
+  - -0.0748561
 - type: DatasetObject
   name: distractor_bottle_of_poppy_seeds
   category: bottle_of_poppy_seeds
   model: xdtrgi
   bounding_box:
-  - 0.066
-  - 0.066
-  - 0.07904
+  - 0.0918522
+  - 0.0918522
+  - 0.11
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.18
   - 0.28
-  - -0.04048
+  - -0.0249999
 - type: DatasetObject
-  name: distractor_sourdough
-  category: sourdough
-  model: jgydml
+  name: distractor_jar_of_strawberry_jam
+  category: jar_of_strawberry_jam
+  model: busiti
   bounding_box:
-  - 0.08979
-  - 0.07987
-  - 0.05222
+  - 0.0903907
+  - 0.0903907
+  - 0.12
   orientation:
   - 0.0
   - 0.0
@@ -80,16 +80,16 @@ distractors:
   relative_bbox_position:
   - 0.42
   - 0.12
-  - -0.05389
+  - -0.02
 immutables:
 - type: DatasetObject
   name: mug
   category: mug
   model: lgxhsc
   bounding_box:
-  - 0.07725
-  - 0.10513
-  - 0.08454
+  - 0.0881765
+  - 0.12
+  - 0.0964977
   orientation:
   - 0.0
   - 0.0
@@ -98,7 +98,7 @@ immutables:
   relative_bbox_position:
   - 0.18
   - 0.12
-  - -0.03773
+  - -0.0317511
 initial_state:
 - predicate: inside
   subject: marker

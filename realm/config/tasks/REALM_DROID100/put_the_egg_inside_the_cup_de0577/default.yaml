@@ -16,9 +16,9 @@ main_objects:
   category: egg
   model: brkitw
   bounding_box:
-  - 0.06979
-  - 0.05514
-  - 0.05528
+  - 0.06
+  - 0.0474051
+  - 0.0475254
   orientation:
   - 0.0
   - 0.0
@@ -27,16 +27,16 @@ main_objects:
   relative_bbox_position:
   - 0.42
   - 0.28
-  - -0.05236
+  - -0.0562373
 target_objects:
 - type: DatasetObject
   name: cup
   category: mug
   model: ycbmug
   bounding_box:
-  - 0.09308
-  - 0.11697
-  - 0.08138
+  - 0.0954912
+  - 0.12
+  - 0.0834881
   orientation:
   - 0.0
   - 0.0
@@ -45,7 +45,7 @@ target_objects:
   relative_bbox_position:
   - 0.18
   - 0.12
-  - -0.03931
+  - -0.0382559
 distractors:
 - type: DatasetObject
   name: distractor_bottle_of_dish_soap
@@ -69,9 +69,9 @@ distractors:
   category: can_of_oatmeal
   model: qyukhm
   bounding_box:
-  - 0.09218
-  - 0.09218
-  - 0.13596
+  - 0.1220388
+  - 0.1220388
+  - 0.18
   orientation:
   - 0.0
   - 0.0
@@ -80,7 +80,7 @@ distractors:
   relative_bbox_position:
   - 0.42
   - 0.12
-  - -0.01202
+  - 0.01
 - type: DatasetObject
   name: distractor_pocketknife
   category: pocketknife
@@ -96,7 +96,7 @@ distractors:
   - 1.0
   relative_bbox_position:
   - 0.3
-  - 0.2
+  - 0.3
   - -0.0770768
 immutables: []
 target_state:

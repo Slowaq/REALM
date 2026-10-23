@@ -16,79 +16,9 @@ main_objects:
   category: marker
   model: qemval
   bounding_box:
-  - 0.10029
-  - 0.01261
-  - 0.0126
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.15
-  - 0.2
-  - -0.0737
-target_objects:
-- type: DatasetObject
-  name: pot
-  category: saucepot
-  model: tfzijn
-  bounding_box:
-  - 0.1747322
-  - 0.28
-  - 0.1341529
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.3
-  - 0.2
-  - -0.0129235
-distractors:
-- type: DatasetObject
-  name: distractor_jar_of_bath_salt
-  category: jar_of_bath_salt
-  model: erglwp
-  bounding_box:
-  - 0.06748
-  - 0.06736
-  - 0.06973
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.45
-  - 0.2
-  - -0.045135
-- type: DatasetObject
-  name: distractor_pruner
-  category: pruner
-  model: lucqrs
-  bounding_box:
-  - 0.0293
-  - 0.06691
-  - 0.22791
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.18
-  - 0.12
-  - 0.033955
-- type: DatasetObject
-  name: distractor_tweezers
-  category: tweezers
-  model: ngwoat
-  bounding_box:
-  - 0.00485
-  - 0.03209
-  - 0.0025
+  - 0.14
+  - 0.017603
+  - 0.017589
   orientation:
   - 0.0
   - 0.0
@@ -97,7 +27,77 @@ distractors:
   relative_bbox_position:
   - 0.42
   - 0.28
-  - -0.07875
+  - -0.0712055
+target_objects:
+- type: DatasetObject
+  name: pot
+  category: saucepot
+  model: tfzijn
+  bounding_box:
+  - 0.1872131
+  - 0.3
+  - 0.1437353
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.18
+  - 0.1751
+  - -0.0081323
+distractors:
+- type: DatasetObject
+  name: distractor_jar_of_bath_salt
+  category: jar_of_bath_salt
+  model: erglwp
+  bounding_box:
+  - 0.1161279
+  - 0.1159214
+  - 0.12
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.42
+  - 0.12
+  - -0.02
+- type: DatasetObject
+  name: distractor_allen_wrench
+  category: allen_wrench
+  model: neqlcn
+  bounding_box:
+  - 0.08
+  - 0.0172808
+  - 0.0029945
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.45
+  - 0.2
+  - -0.0785027
+- type: DatasetObject
+  name: distractor_can_of_cat_food
+  category: can_of_cat_food
+  model: omiuox
+  bounding_box:
+  - 0.0493589
+  - 0.0493589
+  - 0.08
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.54
+  - 0.04978
+  - -0.04
 immutables: []
 target_state:
   rubric: put

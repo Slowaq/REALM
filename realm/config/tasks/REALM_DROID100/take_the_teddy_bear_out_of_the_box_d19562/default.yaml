@@ -16,18 +16,18 @@ main_objects:
   category: teddy_bear
   model: ecvxmu
   bounding_box:
-  - 0.14
-  - 0.1022868
-  - 0.0808114
+  - 0.18
+  - 0.1315116
+  - 0.1039004
   orientation:
   - 0.0
   - 0.0
   - 0.7071068
   - 0.7071068
   relative_bbox_position:
-  - 0.2
-  - 0.3
-  - -0.0174972
+  - 0.14232
+  - 0.18
+  - -0.0119077
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,9 +35,43 @@ distractors:
   category: bottle_of_sesame_oil
   model: jipawg
   bounding_box:
-  - 0.05867
-  - 0.05851
-  - 0.2665
+  - 0.04403
+  - 0.0439099
+  - 0.2
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.42
+  - 0.0050001
+- type: DatasetObject
+  name: distractor_allen_wrench
+  category: allen_wrench
+  model: neqlcn
+  bounding_box:
+  - 0.08
+  - 0.0172808
+  - 0.0029945
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.42
+  - -0.0935027
+- type: DatasetObject
+  name: distractor_wooden_spoon
+  category: wooden_spoon
+  model: aeubta
+  bounding_box:
+  - 0.3
+  - 0.0746915
+  - 0.0194998
   orientation:
   - 0.0
   - 0.0
@@ -46,59 +80,25 @@ distractors:
   relative_bbox_position:
   - 0.2
   - 0.51
-  - 0.03825
-- type: DatasetObject
-  name: distractor_allen_wrench
-  category: allen_wrench
-  model: neqlcn
-  bounding_box:
-  - 0.1
-  - 0.021601
-  - 0.0037431
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.2
-  - 0.15
-  - -0.0931284
-- type: DatasetObject
-  name: distractor_wooden_spoon
-  category: wooden_spoon
-  model: aeubta
-  bounding_box:
-  - 0.06077
-  - 0.01513
-  - 0.00395
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.2
-  - 0.45
-  - -0.093025
+  - -0.0852501
 immutables:
 - type: DatasetObject
   name: box
   category: storage_box
   model: bwbpvg
   bounding_box:
-  - 0.23519
-  - 0.2508
-  - 0.0573
+  - 0.2344398
+  - 0.25
+  - 0.0571172
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.3
-  - -0.06635
+  - 0.14232
+  - 0.18
+  - -0.0664414
 initial_state:
 - predicate: inside
   subject: teddy_bear
@@ -134,7 +134,4 @@ provenance:
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Remove a tissue from the box
   decisions:
-  - cluster is pick-from-box; the lead wording (a tissue from a tissue box) has no tissue asset that can start inside a box,
-    so the variant "Take the stuffed animal out of the wooden box" is used
-  - stuffed animal grounded as teddy_bear and named in the instruction; "wooden" dropped (texture)
-  - shallow storage_box bwbpvg (5.7 cm deep) so the bear stays graspable
+  - 'teddy_bear sized 0.18 m: small plush teddy bear that fits in the box'

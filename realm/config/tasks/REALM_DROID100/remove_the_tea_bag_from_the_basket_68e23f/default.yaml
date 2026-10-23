@@ -16,9 +16,9 @@ main_objects:
   category: tea_bag
   model: kmvcrb
   bounding_box:
-  - 0.05079
-  - 0.03912
-  - 0.02506
+  - 0.07
+  - 0.0539161
+  - 0.0345383
   orientation:
   - 0.0
   - 0.0
@@ -27,17 +27,17 @@ main_objects:
   relative_bbox_position:
   - 0.12
   - 0.195
-  - 0.1533998
+  - 0.1557694
 target_objects: []
 distractors:
 - type: DatasetObject
-  name: distractor_toasting_fork
-  category: toasting_fork
-  model: osrfkc
+  name: distractor_bottle_of_poppy_seeds
+  category: bottle_of_poppy_seeds
+  model: xdtrgi
   bounding_box:
-  - 0.1
-  - 0.0172667
-  - 0.0053867
+  - 0.0918522
+  - 0.0918522
+  - 0.11
   orientation:
   - 0.0
   - 0.0
@@ -46,24 +46,7 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.455
-  - 0.0176934
-- type: DatasetObject
-  name: distractor_bottle_of_poppy_seeds
-  category: bottle_of_poppy_seeds
-  model: xdtrgi
-  bounding_box:
-  - 0.066
-  - 0.066
-  - 0.07904
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.12
-  - 0.455
-  - 0.05452
+  - 0.0700001
 - type: DatasetObject
   name: distractor_half_bagel
   category: half_bagel
@@ -78,9 +61,26 @@ distractors:
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.28
-  - 0.195
+  - 0.12
+  - 0.455
   - 0.03337
+- type: DatasetObject
+  name: distractor_open_end_wrench
+  category: open_end_wrench
+  model: klnawb
+  bounding_box:
+  - 0.18
+  - 0.0491334
+  - 0.0092231
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.5525
+  - 0.0196116
 immutables:
 - type: DatasetObject
   name: basket

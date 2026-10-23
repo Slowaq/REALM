@@ -9,45 +9,96 @@ instruction_target_to_replace: ''
 instruction_verb_to_replace: pick
 supported_scenes:
   Benevolence_1_int:
-  - Kitchen_Counter
+  - Dining_Table
 main_objects:
 - type: DatasetObject
   name: bag_of_chips
   category: bag_of_chips
   model: ennnjj
   bounding_box:
-  - 0.14
-  - 0.1049052
-  - 0.0475426
+  - 0.25
+  - 0.1873308
+  - 0.0848975
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.2
-  - 0.1586229
+  - 0.2001
+  - 0.19405
+  - 0.1746459
 target_objects: []
-distractors: []
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_chili_pepper
+  category: bottle_of_chili_pepper
+  model: hjalqq
+  bounding_box:
+  - 0.0916156
+  - 0.0916003
+  - 0.11
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.45
+  - 0.2
+  - -0.0249999
+- type: DatasetObject
+  name: distractor_jar_of_coffee
+  category: jar_of_coffee
+  model: bnrvcs
+  bounding_box:
+  - 0.0755706
+  - 0.0755706
+  - 0.15
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.45
+  - 0.06289
+  - -0.005
+- type: DatasetObject
+  name: distractor_stapler
+  category: stapler
+  model: kgnsas
+  bounding_box:
+  - 0.15
+  - 0.0312764
+  - 0.0772389
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.48
+  - 0.28
+  - -0.0413805
 immutables:
 - type: DatasetObject
   name: sink
   category: drop_in_sink
   model: wzpabm
   bounding_box:
-  - 0.28
-  - 0.2703133
-  - 0.1867372
+  - 0.35
+  - 0.3378917
+  - 0.2334215
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.2
-  - 0.0533686
+  - 0.2001
+  - 0.19405
+  - 0.0367108
 initial_state:
 - predicate: inside
   subject: bag_of_chips

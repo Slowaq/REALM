@@ -16,9 +16,9 @@ main_objects:
   category: hard_candy
   model: yuatcg
   bounding_box:
-  - 0.02284
-  - 0.0547
-  - 0.024
+  - 0.0125265
+  - 0.03
+  - 0.0131627
   orientation:
   - 0.0
   - 0.0
@@ -27,16 +27,16 @@ main_objects:
   relative_bbox_position:
   - 0.35
   - 0.42
-  - -0.058
+  - -0.0634186
 target_objects:
 - type: DatasetObject
   name: cup
   category: coffee_cup
   model: ykuftq
   bounding_box:
-  - 0.09144
-  - 0.05695
-  - 0.07753
+  - 0.1
+  - 0.0622813
+  - 0.0847878
   orientation:
   - 0.0
   - 0.0
@@ -45,16 +45,16 @@ target_objects:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - -0.031235
+  - -0.0276061
 distractors:
 - type: DatasetObject
   name: distractor_bottle_of_papaya_juice
   category: bottle_of_papaya_juice
   model: tcauim
   bounding_box:
-  - 0.07262
-  - 0.07262
-  - 0.26166
+  - 0.0610579
+  - 0.0610579
+  - 0.22
   orientation:
   - 0.0
   - 0.0
@@ -63,41 +63,41 @@ distractors:
   relative_bbox_position:
   - 0.15
   - 0.42
-  - 0.0608301
+  - 0.04
 - type: DatasetObject
   name: distractor_sourdough
   category: sourdough
   model: jgydml
   bounding_box:
-  - 0.08979
-  - 0.07987
-  - 0.05222
+  - 0.25
+  - 0.22238
+  - 0.1453948
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.35
+  - 0.3499
   - 0.18
-  - -0.04389
+  - 0.0026974
 - type: DatasetObject
   name: distractor_can_of_beans
   category: can_of_beans
   model: ojqgjz
   bounding_box:
-  - 0.0805
-  - 0.08261
-  - 0.09877
+  - 0.0896527
+  - 0.0920026
+  - 0.11
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.25
+  - 0.125
   - 0.3
-  - -0.020615
+  - -0.015
 immutables: []
 target_state:
   rubric: put

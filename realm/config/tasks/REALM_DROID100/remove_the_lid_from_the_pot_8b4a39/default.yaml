@@ -16,55 +16,89 @@ main_objects:
   category: lid
   model: ppkjuy
   bounding_box:
-  - 0.23193
-  - 0.23193
-  - 0.0624
+  - 0.2316608
+  - 0.2316608
+  - 0.0623276
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.2
-  - 0.1051131
+  - 0.14093
+  - 0.1751
+  - 0.1124992
 target_objects: []
 distractors:
 - type: DatasetObject
-  name: distractor_tweezers
-  category: tweezers
-  model: ngwoat
+  name: distractor_bottle_of_milkshake
+  category: bottle_of_milkshake
+  model: naxqya
   bounding_box:
-  - 0.00485
-  - 0.03209
-  - 0.0025
+  - 0.0975168
+  - 0.0975168
+  - 0.2
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.06
+  - 0.32614
   - 0.2
-  - -0.03875
+  - 0.06
+- type: DatasetObject
+  name: distractor_sushi
+  category: sushi
+  model: akpnxn
+  bounding_box:
+  - 0.0586431
+  - 0.06
+  - 0.0399283
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.3
+  - 0.0551
+  - -0.0200358
+- type: DatasetObject
+  name: distractor_jar_of_mayonnaise
+  category: jar_of_mayonnaise
+  model: ktmjvg
+  bounding_box:
+  - 0.0907044
+  - 0.0907044
+  - 0.14
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.32
+  - 0.32
+  - 0.0300001
 immutables:
 - type: DatasetObject
   name: pot
   category: saucepot
   model: uvzmss
   bounding_box:
-  - 0.2079007
-  - 0.28
-  - 0.103913
+  - 0.2227508
+  - 0.3
+  - 0.1113354
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.2
-  - 0.0119566
+  - 0.14093
+  - 0.1751
+  - 0.0156677
 initial_state:
 - predicate: on_top_of
   subject: lid
@@ -99,6 +133,3 @@ provenance:
   task_id: 8b4a39636cb8
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Remove the lid from the pot
-  decisions:
-  - pot grounded as saucepot uvzmss (~21 cm body after the 0.28 m cap); lid ppkjuy (23 cm) wider than the pot so it rests
-    on the rim

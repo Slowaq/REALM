@@ -16,18 +16,18 @@ main_objects:
   category: salt_shaker
   model: iomwtn
   bounding_box:
-  - 0.05105
-  - 0.05113
-  - 0.13983
+  - 0.0328578
+  - 0.0329092
+  - 0.09
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.3
-  - 0.2
-  - 0.0928986
+  - 0.18
+  - 0.1751
+  - 0.0902941
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,26 +35,43 @@ distractors:
   category: can_of_tomato_paste
   model: sqqdzb
   bounding_box:
-  - 0.08046
-  - 0.08041
-  - 0.12345
+  - 0.0521409
+  - 0.0521085
+  - 0.08
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.09
-  - 0.2
-  - -0.018275
+  - 0.42
+  - 0.28
+  - -0.04
 - type: DatasetObject
   name: distractor_bottle_of_antihistamines
   category: bottle_of_antihistamines
   model: agavwx
   bounding_box:
-  - 0.06797
-  - 0.06569
-  - 0.1272
+  - 0.0427484
+  - 0.0413145
+  - 0.08
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.42
+  - 0.12
+  - -0.04
+- type: DatasetObject
+  name: distractor_jar_of_pepper_seasoning
+  category: jar_of_pepper_seasoning
+  model: iuydyz
+  bounding_box:
+  - 0.0702832
+  - 0.0702832
+  - 0.1
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +80,16 @@ distractors:
   relative_bbox_position:
   - 0.45
   - 0.2
-  - -0.0163999
+  - -0.03
+immutables:
 - type: DatasetObject
-  name: distractor_tweezers
-  category: tweezers
-  model: ngwoat
+  name: pot
+  category: saucepot
+  model: vqtkwq
   bounding_box:
-  - 0.00485
-  - 0.03209
-  - 0.0025
+  - 0.219256
+  - 0.3
+  - 0.147794
   orientation:
   - 0.0
   - 0.0
@@ -79,26 +97,8 @@ distractors:
   - 1.0
   relative_bbox_position:
   - 0.18
-  - 0.12
-  - -0.07875
-immutables:
-- type: DatasetObject
-  name: pot
-  category: saucepot
-  model: vqtkwq
-  bounding_box:
-  - 0.2046389
-  - 0.28
-  - 0.1379411
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.3
-  - 0.2
-  - -0.0110294
+  - 0.1751
+  - -0.0061029
 initial_state:
 - predicate: inside
   subject: salt_shaker

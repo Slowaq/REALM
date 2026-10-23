@@ -16,36 +16,36 @@ main_objects:
   category: grape
   model: uprbwp
   bounding_box:
-  - 0.13428
-  - 0.08294
-  - 0.08087
+  - 0.15
+  - 0.0926497
+  - 0.0903374
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.1625
-  - 0.055435
+  - 0.28
+  - 0.455
+  - 0.0601687
 target_objects:
 - type: DatasetObject
   name: bowl
   category: mixing_bowl
   model: bsgybx
   bounding_box:
-  - 0.2394
-  - 0.21172
-  - 0.11382
+  - 0.26
+  - 0.2299382
+  - 0.123614
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.325
-  - 0.07191
+  - 0.1551
+  - 0.195
+  - 0.076807
 distractors:
 - type: DatasetObject
   name: distractor_rubber_eraser
@@ -61,7 +61,7 @@ distractors:
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.28
+  - 0.12
   - 0.455
   - 0.0207
 - type: DatasetObject
@@ -69,35 +69,35 @@ distractors:
   category: jar_of_chilli_powder
   model: mxhrcl
   bounding_box:
-  - 0.09668
-  - 0.09666
-  - 0.13171
+  - 0.0734037
+  - 0.0733885
+  - 0.1
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.5525
-  - 0.080855
+  - 0.3382
+  - 0.325
+  - 0.065
 - type: DatasetObject
-  name: distractor_stapler
-  category: stapler
-  model: kgnsas
+  name: distractor_can
+  category: can
+  model: moeqjz
   bounding_box:
-  - 0.08743
-  - 0.01823
-  - 0.04502
+  - 0.0924277
+  - 0.0924277
+  - 0.12
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.12
-  - 0.455
-  - 0.03751
+  - 0.07131
+  - 0.5525
+  - 0.075
 immutables: []
 target_state:
   rubric: put

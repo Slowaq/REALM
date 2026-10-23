@@ -16,9 +16,9 @@ main_objects:
   category: lid
   model: zkderg
   bounding_box:
-  - 0.07612
-  - 0.07612
-  - 0.03305
+  - 0.0828886
+  - 0.0828886
+  - 0.0359888
   orientation:
   - 0.0
   - 0.0
@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - 0.070095
+  - 0.0779944
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,9 +35,9 @@ distractors:
   category: bottle_of_rum
   model: oidmvy
   bounding_box:
-  - 0.07702
-  - 0.07702
-  - 0.30091
+  - 0.0716679
+  - 0.0716679
+  - 0.28
   orientation:
   - 0.0
   - 0.0
@@ -46,7 +46,7 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.42
-  - 0.0804551
+  - 0.0700001
 - type: DatasetObject
   name: distractor_rubber_eraser
   category: rubber_eraser
@@ -69,9 +69,9 @@ distractors:
   category: sponge
   model: aewrov
   bounding_box:
-  - 0.1
-  - 0.0666667
-  - 0.02
+  - 0.11
+  - 0.0733333
+  - 0.022
   orientation:
   - 0.0
   - 0.0
@@ -80,16 +80,16 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.18
-  - -0.06
+  - -0.059
 immutables:
 - type: DatasetObject
   name: jar
   category: hingeless_jar
   model: waousd
   bounding_box:
-  - 0.07543
-  - 0.07543
-  - 0.11357
+  - 0.0797006
+  - 0.0797006
+  - 0.12
   orientation:
   - 0.0
   - 0.0
@@ -98,7 +98,7 @@ immutables:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - -0.013215
+  - -0.01
 initial_state:
 - predicate: on_top_of
   subject: lid

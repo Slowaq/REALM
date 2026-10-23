@@ -16,9 +16,45 @@ main_objects:
   category: tablespoon
   model: ubuhoz
   bounding_box:
-  - 0.12372
-  - 0.02581
-  - 0.01504
+  - 0.19
+  - 0.0396371
+  - 0.0230973
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2799
+  - 0.35
+  - -0.0584513
+target_objects:
+- type: DatasetObject
+  name: colander
+  category: colander
+  model: ambnzk
+  bounding_box:
+  - 0.26
+  - 0.2244418
+  - 0.1158328
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.1551
+  - 0.15
+  - -0.0120836
+distractors:
+- type: DatasetObject
+  name: distractor_mouse
+  category: mouse
+  model: oydobn
+  bounding_box:
+  - 0.11
+  - 0.0693248
+  - 0.0398971
   orientation:
   - 0.0
   - 0.0
@@ -27,26 +63,41 @@ main_objects:
   relative_bbox_position:
   - 0.2
   - 0.425
-  - -0.06248
-target_objects:
+  - -0.0500514
 - type: DatasetObject
-  name: colander
-  category: colander
-  model: ambnzk
+  name: distractor_bottle_of_alcohol
+  category: bottle_of_alcohol
+  model: qvhrjh
   bounding_box:
-  - 0.27822
-  - 0.24017
-  - 0.12395
+  - 0.0766731
+  - 0.152306
+  - 0.3
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.25
-  - -0.008025
-distractors: []
+  - 0.33656
+  - 0.10125
+  - 0.08
+- type: DatasetObject
+  name: distractor_jar_of_jelly
+  category: jar_of_jelly
+  model: ytlmmb
+  bounding_box:
+  - 0.1087064
+  - 0.0815574
+  - 0.12
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.07945
+  - 0.325
+  - -0.01
 immutables: []
 target_state:
   rubric: put

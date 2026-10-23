@@ -16,9 +16,9 @@ main_objects:
   category: water_glass
   model: ybhepe
   bounding_box:
-  - 0.04173
-  - 0.04173
-  - 0.05912
+  - 0.0847023
+  - 0.0847023
+  - 0.12
   orientation:
   - 0.0
   - 0.0
@@ -27,16 +27,16 @@ main_objects:
   relative_bbox_position:
   - 0.35
   - 0.42
-  - -0.04044
+  - -0.01
 target_objects:
 - type: DatasetObject
   name: jar
   category: hingeless_jar
   model: ifgcmr
   bounding_box:
-  - 0.09365
-  - 0.09365
-  - 0.10072
+  - 0.1115766
+  - 0.1115766
+  - 0.12
   orientation:
   - 0.0
   - 0.0
@@ -45,16 +45,16 @@ target_objects:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - -0.01964
+  - -0.01
 distractors:
 - type: DatasetObject
   name: distractor_hamburger_bun
   category: hamburger_bun
   model: fqxumh
   bounding_box:
-  - 0.08664
-  - 0.08494
-  - 0.02639
+  - 0.1
+  - 0.0980379
+  - 0.0304594
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.15
   - 0.42
-  - -0.056805
+  - -0.0547703
 - type: DatasetObject
   name: distractor_bottle_of_coke
   category: bottle_of_coke
   model: bmtvvb
   bounding_box:
-  - 0.1
-  - 0.0991774
-  - 0.3090119
+  - 0.0776669
+  - 0.077028
+  - 0.24
   orientation:
   - 0.0
   - 0.0
@@ -80,24 +80,24 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.18
-  - 0.084506
+  - 0.05
 - type: DatasetObject
   name: distractor_duct_tape
   category: duct_tape
   model: htrage
   bounding_box:
-  - 0.1
-  - 0.0902897
-  - 0.0293137
+  - 0.13
+  - 0.1173766
+  - 0.0381079
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.25
+  - 0.375
   - 0.3
-  - -0.0553431
+  - -0.050946
 immutables: []
 target_state:
   rubric: put

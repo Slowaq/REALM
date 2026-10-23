@@ -16,9 +16,9 @@ main_objects:
   category: garlic
   model: nlclql
   bounding_box:
-  - 0.06628
-  - 0.06594
-  - 0.06655
+  - 0.0597566
+  - 0.05945
+  - 0.06
   orientation:
   - 0.0
   - 0.0
@@ -27,34 +27,34 @@ main_objects:
   relative_bbox_position:
   - 0.35
   - 0.42
-  - -0.036725
+  - -0.04
 target_objects:
 - type: DatasetObject
   name: casserole
   category: casserole
   model: ncbsee
   bounding_box:
-  - 0.24506
-  - 0.24506
-  - 0.1197
+  - 0.28
+  - 0.28
+  - 0.1367665
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.15
+  - 0.1651
   - 0.18
-  - -0.01015
+  - -0.0016167
 distractors:
 - type: DatasetObject
   name: distractor_bottle_of_peanut_butter
   category: bottle_of_peanut_butter
   model: edcvwr
   bounding_box:
-  - 0.07916
-  - 0.07916
-  - 0.13146
+  - 0.0782808
+  - 0.0782808
+  - 0.13
   orientation:
   - 0.0
   - 0.0
@@ -63,32 +63,32 @@ distractors:
   relative_bbox_position:
   - 0.15
   - 0.42
-  - -0.00427
+  - -0.005
 - type: DatasetObject
   name: distractor_chopstick
   category: chopstick
   model: bdvjuf
   bounding_box:
-  - 0.1
-  - 0.0022835
-  - 0.0022879
+  - 0.23
+  - 0.0052519
+  - 0.0052623
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.35
-  - 0.18
-  - -0.068856
+  - 0.25
+  - 0.51
+  - -0.0673688
 - type: DatasetObject
   name: distractor_jar_of_cumin
   category: jar_of_cumin
   model: tsktnz
   bounding_box:
-  - 0.06
-  - 0.06
-  - 0.07186
+  - 0.0834957
+  - 0.0834957
+  - 0.1
   orientation:
   - 0.0
   - 0.0
@@ -97,7 +97,7 @@ distractors:
   relative_bbox_position:
   - 0.375
   - 0.3
-  - -0.03407
+  - -0.02
 immutables: []
 target_state:
   rubric: put

@@ -33,9 +33,9 @@ main_objects:
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.3
-  - 0.0021798
+  - 0.13494
+  - 0.18
+  - 0.0082283
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -43,70 +43,70 @@ distractors:
   category: bottle_of_paint
   model: volzrj
   bounding_box:
-  - 0.06233
-  - 0.06233
-  - 0.16605
+  - 0.0563053
+  - 0.0563053
+  - 0.15
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.51
-  - -0.011975
+  - 0.28
+  - 0.42
+  - -0.02
 - type: DatasetObject
   name: distractor_broccoli
   category: broccoli
   model: wsxavx
   bounding_box:
-  - 0.02909
-  - 0.02903
-  - 0.02186
+  - 0.18
+  - 0.1796287
+  - 0.135263
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.06
-  - 0.3
-  - -0.08407
+  - 0.1151
+  - 0.45
+  - -0.0273685
 - type: DatasetObject
-  name: distractor_beaker
-  category: beaker
-  model: fxrsyi
+  name: distractor_jar_of_clove
+  category: jar_of_clove
+  model: dlvall
   bounding_box:
-  - 0.04578
-  - 0.04578
-  - 0.06632
+  - 0.0723939
+  - 0.0723863
+  - 0.1
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.34
   - 0.3
-  - -0.06184
+  - 0.3
+  - -0.045
 immutables:
 - type: DatasetObject
   name: pot
   category: saucepot
   model: wfryvm
   bounding_box:
-  - 0.2050415
-  - 0.28
-  - 0.0846798
+  - 0.2196873
+  - 0.3
+  - 0.0907283
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.3
-  - -0.0526601
+  - 0.13494
+  - 0.18
+  - -0.0496358
 initial_state:
 - predicate: inside
   subject: yellow_block
@@ -141,6 +141,3 @@ provenance:
   task_id: 2031046d45c5
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Remove the yellow block from the silver pot and put it on the table
-  decisions:
-  - shortened to the removal; table is the support; "silver" dropped (material)
-  - yellow block authored as a block primitive with rgba set; pot grounded as saucepot wfryvm

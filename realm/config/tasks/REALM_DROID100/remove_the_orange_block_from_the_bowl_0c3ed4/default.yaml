@@ -35,7 +35,7 @@ main_objects:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - 0.0235
+  - 0.0142576
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -43,9 +43,9 @@ distractors:
   category: bottle_of_baby_oil
   model: xpdlrr
   bounding_box:
-  - 0.0544
-  - 0.07569
-  - 0.17518
+  - 0.0558968
+  - 0.0777726
+  - 0.18
   orientation:
   - 0.0
   - 0.0
@@ -54,15 +54,15 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.42
-  - 0.01759
+  - 0.02
 - type: DatasetObject
   name: distractor_screwdriver
   category: screwdriver
   model: uajlga
   bounding_box:
-  - 0.1
-  - 0.0092764
-  - 0.0092203
+  - 0.2
+  - 0.0185527
+  - 0.0184405
   orientation:
   - 0.0
   - 0.0
@@ -71,15 +71,15 @@ distractors:
   relative_bbox_position:
   - 0.15
   - 0.42
-  - -0.0653898
+  - -0.0607797
 - type: DatasetObject
   name: distractor_tablefork
   category: tablefork
   model: uodzrq
   bounding_box:
-  - 0.1
-  - 0.0126521
-  - 0.0063287
+  - 0.19
+  - 0.0240391
+  - 0.0120246
   orientation:
   - 0.0
   - 0.0
@@ -88,16 +88,16 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.18
-  - -0.0668356
+  - -0.0639877
 immutables:
 - type: DatasetObject
   name: bowl
   category: bowl
   model: jblalf
   bounding_box:
-  - 0.16932
-  - 0.16932
-  - 0.081
+  - 0.15
+  - 0.15
+  - 0.0717576
   orientation:
   - 0.0
   - 0.0
@@ -106,7 +106,7 @@ immutables:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - -0.0295
+  - -0.0341212
 initial_state:
 - predicate: inside
   subject: orange_block

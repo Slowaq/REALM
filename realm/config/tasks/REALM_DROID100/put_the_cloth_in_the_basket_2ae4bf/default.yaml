@@ -34,9 +34,9 @@ target_objects:
   category: hamper
   model: djrdum
   bounding_box:
-  - 0.2029368
-  - 0.28
-  - 0.173886
+  - 0.2174322
+  - 0.3
+  - 0.1863065
   orientation:
   - 0.0
   - 0.0
@@ -45,16 +45,16 @@ target_objects:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - 0.016943
+  - 0.0231533
 distractors:
 - type: DatasetObject
   name: distractor_bottle_of_catsup
   category: bottle_of_catsup
   model: ialodu
   bounding_box:
-  - 0.05368
-  - 0.04877
-  - 0.20713
+  - 0.0518322
+  - 0.0470912
+  - 0.2
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.15
   - 0.42
-  - 0.033565
+  - 0.03
 - type: DatasetObject
   name: distractor_jar_of_coffee
   category: jar_of_coffee
   model: bnrvcs
   bounding_box:
-  - 0.09735
-  - 0.09735
-  - 0.19323
+  - 0.0755706
+  - 0.0755706
+  - 0.15
   orientation:
   - 0.0
   - 0.0
@@ -80,15 +80,15 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.18
-  - 0.026615
+  - 0.005
 - type: DatasetObject
   name: distractor_banana
   category: banana
   model: verqwv
   bounding_box:
-  - 0.1
-  - 0.0313702
-  - 0.015795
+  - 0.19
+  - 0.0596034
+  - 0.0300105
   orientation:
   - 0.0
   - 0.0
@@ -96,8 +96,8 @@ distractors:
   - 1.0
   relative_bbox_position:
   - 0.375
-  - 0.3
-  - -0.0621025
+  - 0.0549
+  - -0.0549947
 immutables: []
 target_state:
   rubric: put
@@ -131,3 +131,7 @@ provenance:
   original_instruction: Put the black cloth inside the laundry basket
   decisions:
   - cloth as a folded dishtowel dtfspn; laundry basket as hamper djrdum; "black" dropped (texture)
+  - 'cloth sized 0.16 m: dish towel folded in quarters'
+  - 'basket sized 0.3 m: small laundry basket that fits on the table'
+  - 'cloth sized 0.16 m: dish towel folded in quarters'
+  - 'basket sized 0.3 m: small laundry basket that fits on the table'

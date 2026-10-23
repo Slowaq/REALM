@@ -16,18 +16,18 @@ main_objects:
   category: toothbrush
   model: ifxlss
   bounding_box:
-  - 0.16973
-  - 0.01386
-  - 0.01896
+  - 0.19
+  - 0.0155152
+  - 0.0212243
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.12
+  - 0.1201
   - 0.195
-  - 0.0244801
+  - 0.0256122
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,9 +35,9 @@ distractors:
   category: can_of_sardines
   model: dpgmry
   bounding_box:
-  - 0.08483
-  - 0.08483
-  - 0.11827
+  - 0.0788983
+  - 0.0788983
+  - 0.11
   orientation:
   - 0.0
   - 0.0
@@ -46,15 +46,15 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.455
-  - 0.0741351
+  - 0.0700001
 - type: DatasetObject
   name: distractor_bottle_of_soy_sauce
   category: bottle_of_soy_sauce
   model: afxisg
   bounding_box:
-  - 0.09698
-  - 0.09701
-  - 0.20581
+  - 0.084818
+  - 0.0848443
+  - 0.18
   orientation:
   - 0.0
   - 0.0
@@ -63,24 +63,24 @@ distractors:
   relative_bbox_position:
   - 0.12
   - 0.455
-  - 0.117905
+  - 0.105
 - type: DatasetObject
-  name: distractor_toasting_fork
-  category: toasting_fork
-  model: osrfkc
+  name: distractor_pen
+  category: pen
+  model: ubwjqa
   bounding_box:
-  - 0.1
-  - 0.0172667
-  - 0.0053867
+  - 0.14
+  - 0.0124773
+  - 0.0110192
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.28
-  - 0.195
-  - 0.0176934
+  - 0.2
+  - 0.325
+  - 0.0205096
 immutables: []
 camera_extrinsics:
   cam1:

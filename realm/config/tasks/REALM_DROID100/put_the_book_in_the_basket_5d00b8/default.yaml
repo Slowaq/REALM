@@ -16,88 +16,88 @@ main_objects:
   category: hardback
   model: kzdjtz
   bounding_box:
-  - 0.13318
-  - 0.0969
-  - 0.01393
+  - 0.24
+  - 0.1746208
+  - 0.0251029
   orientation:
   - 0.0
   - 0.0
   - 0.7071068
   - 0.7071068
   relative_bbox_position:
-  - 0.28
-  - 0.455
-  - 0.021965
+  - 0.2
+  - 0.4875
+  - 0.0275515
 target_objects:
 - type: DatasetObject
   name: basket
   category: wicker_basket
-  model: dgkhyn
+  model: jqfftz
   bounding_box:
-  - 0.175541
+  - 0.2799456
   - 0.28
-  - 0.1321348
+  - 0.2577176
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.12
+  - 0.16507
   - 0.195
-  - 0.0810674
+  - 0.1438588
 distractors:
 - type: DatasetObject
   name: distractor_bottle_of_lighter_fluid
   category: bottle_of_lighter_fluid
   model: qudpzo
   bounding_box:
-  - 0.04503
-  - 0.08753
-  - 0.23909
+  - 0.033901
+  - 0.0658974
+  - 0.18
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.12
-  - 0.455
-  - 0.134545
+  - 0.34
+  - 0.325
+  - 0.105
 - type: DatasetObject
   name: distractor_pruner
   category: pruner
   model: lucqrs
   bounding_box:
-  - 0.0293
-  - 0.06691
-  - 0.22791
+  - 0.0257119
+  - 0.0587162
+  - 0.2
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.28
-  - 0.195
-  - 0.128955
+  - 0.34
+  - 0.05446
+  - 0.115
 - type: DatasetObject
   name: distractor_tweezers
   category: tweezers
   model: ngwoat
   bounding_box:
-  - 0.00485
-  - 0.03209
-  - 0.0025
+  - 0.0151137
+  - 0.1
+  - 0.0077906
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.3
-  - 0.325
-  - 0.01625
+  - 0.34
+  - 0.1625
+  - 0.0188953
 immutables: []
 target_state:
   rubric: put
@@ -130,5 +130,5 @@ provenance:
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Put the book in the black basket
   decisions:
-  - '"black" dropped (texture)'
-  - book grounded as hardback kzdjtz, basket as wicker_basket dgkhyn (authored at the 0.28 m ceiling)
+  - 'basket model jqfftz: square proportions so the object fits at realistic size'
+  - 'basket model jqfftz: square proportions so the object fits at realistic size'

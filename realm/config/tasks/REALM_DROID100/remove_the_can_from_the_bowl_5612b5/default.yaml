@@ -16,9 +16,9 @@ main_objects:
   category: can_of_soda
   model: opivig
   bounding_box:
-  - 0.06316
-  - 0.06316
-  - 0.11381
+  - 0.0665952
+  - 0.0665952
+  - 0.12
   orientation:
   - 0.0
   - 0.0
@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.12
   - 0.195
-  - 0.1244525
+  - 0.1167576
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,9 +35,9 @@ distractors:
   category: bottle_of_alfredo_sauce
   model: xwzqjr
   bounding_box:
-  - 0.05973
-  - 0.05973
-  - 0.11393
+  - 0.0786404
+  - 0.0786404
+  - 0.15
   orientation:
   - 0.0
   - 0.0
@@ -46,15 +46,15 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.455
-  - 0.071965
+  - 0.09
 - type: DatasetObject
   name: distractor_teaspoon
   category: teaspoon
   model: wzsvzv
   bounding_box:
-  - 0.09894
-  - 0.02218
-  - 0.0078
+  - 0.14
+  - 0.0313847
+  - 0.011037
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.12
   - 0.455
-  - 0.0189
+  - 0.0205185
 - type: DatasetObject
-  name: distractor_sourdough
-  category: sourdough
-  model: jgydml
+  name: distractor_allen_wrench
+  category: allen_wrench
+  model: neqlcn
   bounding_box:
-  - 0.08979
-  - 0.07987
-  - 0.05222
+  - 0.08
+  - 0.0172808
+  - 0.0029945
   orientation:
   - 0.0
   - 0.0
@@ -80,16 +80,16 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.195
-  - 0.04111
+  - 0.0164973
 immutables:
 - type: DatasetObject
   name: bowl
   category: bowl
   model: jblalf
   bounding_box:
-  - 0.16932
-  - 0.16932
-  - 0.081
+  - 0.15
+  - 0.15
+  - 0.0717576
   orientation:
   - 0.0
   - 0.0
@@ -98,7 +98,7 @@ immutables:
   relative_bbox_position:
   - 0.12
   - 0.195
-  - 0.0555
+  - 0.0508788
 initial_state:
 - predicate: inside
   subject: can

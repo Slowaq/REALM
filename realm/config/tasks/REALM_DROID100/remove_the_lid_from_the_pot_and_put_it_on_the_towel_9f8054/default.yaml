@@ -8,7 +8,7 @@ instruction_obj_to_replace: lid
 instruction_target_to_replace: towel
 instruction_verb_to_replace: stack
 supported_scenes:
-  Wainscott_0_int:
+  Benevolence_1_int:
   - Dining_Table
 main_objects:
 - type: DatasetObject
@@ -16,106 +16,106 @@ main_objects:
   category: lid
   model: geesvf
   bounding_box:
-  - 0.22608
-  - 0.22608
-  - 0.07324
+  - 0.2316608
+  - 0.2316608
+  - 0.075048
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.15
   - 0.18
-  - 0.080533
+  - 0.1751
+  - 0.0788594
 target_objects:
 - type: DatasetObject
   name: towel
   category: dishtowel
   model: ltydgg
   bounding_box:
-  - 0.15747
-  - 0.2175
-  - 0.02594
+  - 0.15928
+  - 0.22
+  - 0.0262382
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.35
   - 0.42
-  - -0.05703
+  - 0.2649
+  - -0.0668808
 distractors:
 - type: DatasetObject
   name: distractor_bottle_of_pumpkin_pie_spice
   category: bottle_of_pumpkin_pie_spice
   model: oindrv
   bounding_box:
-  - 0.04325
-  - 0.04323
-  - 0.108
+  - 0.0440509
+  - 0.0440306
+  - 0.11
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.15
   - 0.42
-  - -0.016
+  - 0.12
+  - -0.0249999
 - type: DatasetObject
   name: distractor_coffee_cup
   category: coffee_cup
   model: ykuftq
   bounding_box:
-  - 0.09144
-  - 0.05695
-  - 0.07753
+  - 0.1
+  - 0.0622813
+  - 0.0847878
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.35
-  - 0.18
-  - -0.031235
+  - 0.51
+  - 0.05624
+  - -0.0376061
 - type: DatasetObject
-  name: distractor_tweezers
-  category: tweezers
-  model: ngwoat
+  name: distractor_pen
+  category: pen
+  model: ubwjqa
   bounding_box:
-  - 0.00485
-  - 0.03209
-  - 0.0025
+  - 0.14
+  - 0.0124773
+  - 0.0110192
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.25
-  - 0.45
-  - -0.06875
+  - 0.0951
+  - 0.36
+  - -0.0744904
 immutables:
 - type: DatasetObject
   name: pot
   category: saucepot
   model: uvzmss
   bounding_box:
-  - 0.2079007
-  - 0.28
-  - 0.103913
+  - 0.2227508
+  - 0.3
+  - 0.1113354
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.15
   - 0.18
-  - -0.0180435
+  - 0.1751
+  - -0.0243323
 initial_state:
 - predicate: on_top_of
   subject: lid
@@ -150,6 +150,3 @@ provenance:
   task_id: 9f8054c88301
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Remove the glass lid from the silver pot and put it on the blue towel on the table
-  decisions:
-  - 'stack with a source: the lid starts on the pot and must end on the towel; material/colour words dropped'
-  - symmetric saucepot uvzmss (~21 cm body) with lid geesvf (22.6 cm, wider than the pot); dishtowel ltydgg as the goal support

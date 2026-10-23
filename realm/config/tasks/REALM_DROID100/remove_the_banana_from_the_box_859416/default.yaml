@@ -16,9 +16,9 @@ main_objects:
   category: banana
   model: znakxm
   bounding_box:
-  - 0.14
-  - 0.071675
-  - 0.0302048
+  - 0.19
+  - 0.0972732
+  - 0.0409922
   orientation:
   - 0.0
   - 0.0
@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - -0.0051488
+  - -0.0026348
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,9 +35,9 @@ distractors:
   category: bottle_of_coconut_milk
   model: idenxg
   bounding_box:
-  - 0.09978
-  - 0.09978
-  - 0.28356
+  - 0.0703766
+  - 0.0703766
+  - 0.2
   orientation:
   - 0.0
   - 0.0
@@ -46,15 +46,15 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.42
-  - 0.07178
+  - 0.03
 - type: DatasetObject
   name: distractor_broccoli
   category: broccoli
   model: wsxavx
   bounding_box:
-  - 0.02909
-  - 0.02903
-  - 0.02186
+  - 0.18
+  - 0.1796287
+  - 0.135263
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.15
   - 0.42
-  - -0.05907
+  - -0.0023685
 - type: DatasetObject
-  name: distractor_toasting_fork
-  category: toasting_fork
-  model: osrfkc
+  name: distractor_duct_tape
+  category: duct_tape
+  model: htrage
   bounding_box:
-  - 0.1
-  - 0.0172667
-  - 0.0053867
+  - 0.13
+  - 0.1173766
+  - 0.0381079
   orientation:
   - 0.0
   - 0.0
@@ -80,16 +80,16 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.18
-  - -0.0673066
+  - -0.050946
 immutables:
 - type: DatasetObject
   name: box
   category: storage_box
   model: bwbpvg
   bounding_box:
-  - 0.23519
-  - 0.2508
-  - 0.0573
+  - 0.2344398
+  - 0.25
+  - 0.0571172
   orientation:
   - 0.0
   - 0.0
@@ -98,7 +98,7 @@ immutables:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - -0.04135
+  - -0.0414414
 initial_state:
 - predicate: inside
   subject: banana

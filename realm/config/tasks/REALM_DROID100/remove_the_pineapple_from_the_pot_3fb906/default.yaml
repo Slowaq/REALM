@@ -16,18 +16,18 @@ main_objects:
   category: pineapple
   model: wfaybl
   bounding_box:
-  - 0.14
-  - 0.0575334
-  - 0.0554397
+  - 0.18
+  - 0.0739715
+  - 0.0712796
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.3
-  - 0.2
-  - 0.0566329
+  - 0.18
+  - 0.1751
+  - 0.0719752
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,70 +35,70 @@ distractors:
   category: bottle_of_sake
   model: swlykk
   bounding_box:
-  - 0.05731
-  - 0.05779
-  - 0.24463
+  - 0.0702816
+  - 0.0708703
+  - 0.3
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.15
-  - 0.2
-  - 0.042315
+  - 0.42
+  - 0.28
+  - 0.07
 - type: DatasetObject
   name: distractor_beer_bottle
   category: beer_bottle
   model: nigfha
   bounding_box:
-  - 0.07544
-  - 0.07544
-  - 0.25865
+  - 0.0670837
+  - 0.0670837
+  - 0.23
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.51
-  - 0.2
-  - 0.049325
+  - 0.42
+  - 0.12
+  - 0.0350001
 - type: DatasetObject
-  name: distractor_mouse
-  category: mouse
-  model: oydobn
+  name: distractor_rubber_eraser
+  category: rubber_eraser
+  model: cungod
   bounding_box:
-  - 0.0311
-  - 0.0196
-  - 0.01128
+  - 0.05
+  - 0.02135
+  - 0.0114
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.09
+  - 0.45
   - 0.2
-  - -0.07436
+  - -0.0743
 immutables:
 - type: DatasetObject
   name: pot
   category: saucepot
   model: uvzmss
   bounding_box:
-  - 0.2079007
-  - 0.28
-  - 0.103913
+  - 0.2227508
+  - 0.3
+  - 0.1113354
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.3
-  - 0.2
-  - -0.0280435
+  - 0.18
+  - 0.1751
+  - -0.0243323
 initial_state:
 - predicate: inside
   subject: pineapple
@@ -134,6 +134,4 @@ provenance:
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Remove the pineapple plush toy from the black pot and put it on the table
   decisions:
-  - plush toy grounded as the pineapple asset (same shape and role; plush is a material the config cannot show), so the instruction
-    names "the pineapple"; shortened to the removal; "black" dropped
-  - pineapple authored at the 14 cm hand-object ceiling, inside saucepot uvzmss
+  - 'pineapple sized 0.18 m: pineapple plush toy, as the DROID instruction says'

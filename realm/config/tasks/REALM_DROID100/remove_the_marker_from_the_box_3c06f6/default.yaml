@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - -0.0012862
+  - -0.001469
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,9 +35,9 @@ distractors:
   category: can_of_icetea
   model: ifrjsc
   bounding_box:
-  - 0.0757
-  - 0.0757
-  - 0.14925
+  - 0.0608643
+  - 0.0608643
+  - 0.12
   orientation:
   - 0.0
   - 0.0
@@ -46,15 +46,15 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.42
-  - 0.004625
+  - -0.01
 - type: DatasetObject
   name: distractor_bottle_of_lacquer
   category: bottle_of_lacquer
   model: cykzcp
   bounding_box:
-  - 0.07728
-  - 0.07695
-  - 0.16014
+  - 0.0723867
+  - 0.0720776
+  - 0.15
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.15
   - 0.42
-  - 0.01007
+  - 0.005
 - type: DatasetObject
   name: distractor_reagent_bottle
   category: reagent_bottle
   model: uaijua
   bounding_box:
-  - 0.09029
-  - 0.09029
-  - 0.18476
+  - 0.0586426
+  - 0.0586426
+  - 0.12
   orientation:
   - 0.0
   - 0.0
@@ -80,16 +80,16 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.18
-  - 0.02238
+  - -0.01
 immutables:
 - type: DatasetObject
   name: box
   category: storage_box
   model: bwbpvg
   bounding_box:
-  - 0.23519
-  - 0.2508
-  - 0.0573
+  - 0.2344398
+  - 0.25
+  - 0.0571172
   orientation:
   - 0.0
   - 0.0
@@ -98,7 +98,7 @@ immutables:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - -0.04135
+  - -0.0414414
 initial_state:
 - predicate: inside
   subject: marker

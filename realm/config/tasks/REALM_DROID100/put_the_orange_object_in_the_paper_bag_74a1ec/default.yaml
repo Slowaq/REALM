@@ -42,9 +42,9 @@ target_objects:
   category: paper_bag
   model: ruryqd
   bounding_box:
-  - 0.11539
-  - 0.20192
-  - 0.19921
+  - 0.1714392
+  - 0.3
+  - 0.2959737
   orientation:
   - 0.0
   - 0.0
@@ -53,16 +53,16 @@ target_objects:
   relative_bbox_position:
   - 0.12
   - 0.195
-  - 0.114605
+  - 0.1629869
 distractors:
 - type: DatasetObject
   name: distractor_bottle_of_vodka
   category: bottle_of_vodka
   model: nwegts
   bounding_box:
-  - 0.0852
-  - 0.0852
-  - 0.28572
+  - 0.0894582
+  - 0.0894582
+  - 0.3
   orientation:
   - 0.0
   - 0.0
@@ -71,32 +71,15 @@ distractors:
   relative_bbox_position:
   - 0.12
   - 0.455
-  - 0.15786
+  - 0.165
 - type: DatasetObject
   name: distractor_can_of_baking_mix
   category: can_of_baking_mix
   model: blrqqz
   bounding_box:
-  - 0.094
-  - 0.094
-  - 0.10953
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.28
-  - 0.195
-  - 0.069765
-- type: DatasetObject
-  name: distractor_tray
-  category: tray
-  model: coqeme
-  bounding_box:
-  - 0.0638129
-  - 0.1
-  - 0.0080665
+  - 0.1287319
+  - 0.1287319
+  - 0.15
   orientation:
   - 0.0
   - 0.0
@@ -105,7 +88,24 @@ distractors:
   relative_bbox_position:
   - 0.3
   - 0.325
-  - 0.0190333
+  - 0.09
+- type: DatasetObject
+  name: distractor_pill_bottle
+  category: pill_bottle
+  model: csvdbe
+  bounding_box:
+  - 0.0568398
+  - 0.0568398
+  - 0.08
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.28
+  - 0.195
+  - 0.055
 immutables: []
 target_state:
   rubric: put

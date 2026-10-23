@@ -16,9 +16,9 @@ main_objects:
   category: hardback
   model: ewktjc
   bounding_box:
-  - 0.13911
-  - 0.1208
-  - 0.02627
+  - 0.24
+  - 0.2084106
+  - 0.0453224
   orientation:
   - 0.0
   - 0.0
@@ -26,44 +26,78 @@ main_objects:
   - 0.7071068
   relative_bbox_position:
   - 0.2
-  - 0.5525
-  - 0.028135
+  - 0.4875
+  - 0.0376612
 target_objects:
 - type: DatasetObject
   name: box
   category: storage_box
   model: eicujj
   bounding_box:
-  - 0.2611098
-  - 0.28
-  - 0.0641603
+  - 0.2984111
+  - 0.32
+  - 0.0733261
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.325
-  - 0.0470802
+  - 0.17431
+  - 0.195
+  - 0.0516631
 distractors:
 - type: DatasetObject
-  name: distractor_wooden_spoon
-  category: wooden_spoon
-  model: aeubta
+  name: distractor_rubber_eraser
+  category: rubber_eraser
+  model: cungod
   bounding_box:
-  - 0.06077
-  - 0.01513
-  - 0.00395
+  - 0.05
+  - 0.02135
+  - 0.0114
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
+  - 0.0501
+  - 0.39
+  - 0.0207
+- type: DatasetObject
+  name: distractor_pruner
+  category: pruner
+  model: lucqrs
+  bounding_box:
+  - 0.0257119
+  - 0.0587162
   - 0.2
-  - 0.1625
-  - 0.016975
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.36
+  - 0.05446
+  - 0.115
+- type: DatasetObject
+  name: distractor_sushi
+  category: sushi
+  model: akpnxn
+  bounding_box:
+  - 0.0586431
+  - 0.06
+  - 0.0399283
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.34558
+  - 0.4225
+  - 0.0349642
 immutables: []
 target_state:
   rubric: put
@@ -96,5 +130,6 @@ provenance:
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Place the yellow and white book inside the black box
   decisions:
-  - colours dropped (texture)
-  - book grounded as hardback ewktjc (13.9x12.1x2.6 cm), box as storage_box eicujj
+  - 'box sized 0.32 m: storage box big enough for a hardback book'
+  - 'box sized 0.32 m: storage box big enough for a hardback book'
+  - 'box sized 0.32 m: storage box big enough for a hardback book'

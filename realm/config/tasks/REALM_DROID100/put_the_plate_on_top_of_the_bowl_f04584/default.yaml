@@ -16,79 +16,62 @@ main_objects:
   category: plate
   model: uumkbl
   bounding_box:
-  - 0.12128
-  - 0.12136
-  - 0.02409
+  - 0.2598286
+  - 0.26
+  - 0.0516101
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.42
-  - 0.28
-  - -0.067955
+  - 0.18
+  - 0.1551
+  - -0.0541949
 target_objects:
 - type: DatasetObject
   name: bowl
   category: bowl
   model: hitnkv
   bounding_box:
-  - 0.12491
-  - 0.12491
-  - 0.07365
+  - 0.2
+  - 0.2
+  - 0.1179249
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.18
-  - 0.12
-  - -0.043175
+  - 0.45
+  - 0.2
+  - -0.0210375
 distractors:
 - type: DatasetObject
   name: distractor_hotdog_bun
   category: hotdog_bun
   model: ajlvvj
   bounding_box:
-  - 0.1
-  - 0.0479192
-  - 0.0346424
+  - 0.16
+  - 0.0766707
+  - 0.0554279
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.18
-  - 0.28
-  - -0.0626788
+  - 0.1051
+  - 0.33656
+  - -0.052286
 - type: DatasetObject
   name: distractor_jar_of_pepper_seasoning
   category: jar_of_pepper_seasoning
   model: iuydyz
   bounding_box:
-  - 0.09257
-  - 0.09257
-  - 0.13171
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.42
-  - 0.12
-  - -0.014145
-- type: DatasetObject
-  name: distractor_bottle_of_molasses
-  category: bottle_of_molasses
-  model: jvsjop
-  bounding_box:
-  - 0.08084
-  - 0.08074
-  - 0.19055
+  - 0.0702832
+  - 0.0702832
+  - 0.1
   orientation:
   - 0.0
   - 0.0
@@ -96,8 +79,25 @@ distractors:
   - 1.0
   relative_bbox_position:
   - 0.3
-  - 0.2
-  - 0.015275
+  - 0.33976
+  - -0.03
+- type: DatasetObject
+  name: distractor_toy_figure
+  category: toy_figure
+  model: jddrck
+  bounding_box:
+  - 0.05488
+  - 0.05804
+  - 0.1
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.36
+  - 0.05412
+  - -0.03
 immutables: []
 target_state:
   rubric: stack
@@ -130,4 +130,4 @@ provenance:
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Put the plate on top of the bowl
   decisions:
-  - plate uumkbl (12.1 cm), bowl hitnkv (12.5 cm); instruction unchanged
+  - 'bowl sized 0.2 m: bowl wide enough to carry the plate on its rim'

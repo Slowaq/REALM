@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - 0.04954
+  - 0.0614978
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,9 +35,9 @@ distractors:
   category: can_of_tomato_paste
   model: sqqdzb
   bounding_box:
-  - 0.08046
-  - 0.08041
-  - 0.12345
+  - 0.0521409
+  - 0.0521085
+  - 0.08
   orientation:
   - 0.0
   - 0.0
@@ -46,15 +46,15 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.42
-  - -0.008275
+  - -0.03
 - type: DatasetObject
   name: distractor_reagent_bottle
   category: reagent_bottle
   model: uaijua
   bounding_box:
-  - 0.09029
-  - 0.09029
-  - 0.18476
+  - 0.0586426
+  - 0.0586426
+  - 0.12
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.15
   - 0.42
-  - 0.02238
+  - -0.01
 - type: DatasetObject
   name: distractor_bottle_of_tea
   category: bottle_of_tea
   model: iladfg
   bounding_box:
-  - 0.06586
-  - 0.06586
-  - 0.21996
+  - 0.065872
+  - 0.065872
+  - 0.22
   orientation:
   - 0.0
   - 0.0
@@ -80,16 +80,16 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.18
-  - 0.03998
+  - 0.04
 immutables:
 - type: DatasetObject
   name: mug
   category: mug
   model: lgxhsc
   bounding_box:
-  - 0.07725
-  - 0.10513
-  - 0.08454
+  - 0.0881765
+  - 0.12
+  - 0.0964977
   orientation:
   - 0.0
   - 0.0
@@ -98,7 +98,7 @@ immutables:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - -0.02773
+  - -0.0217511
 initial_state:
 - predicate: inside
   subject: spoon

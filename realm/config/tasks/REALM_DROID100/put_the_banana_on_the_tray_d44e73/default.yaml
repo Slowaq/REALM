@@ -16,45 +16,79 @@ main_objects:
   category: banana
   model: znakxm
   bounding_box:
-  - 0.14
-  - 0.071675
-  - 0.0302048
+  - 0.19
+  - 0.0972732
+  - 0.0409922
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.425
-  - -0.0548976
+  - 0.2799
+  - 0.35
+  - -0.0495039
 target_objects:
 - type: DatasetObject
   name: tray
   category: tray
   model: avotsj
   bounding_box:
-  - 0.28
-  - 0.155591
-  - 0.0325348
+  - 0.32
+  - 0.1778183
+  - 0.0371826
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.25
-  - -0.0537326
+  - 0.1851
+  - 0.15
+  - -0.0514087
 distractors:
 - type: DatasetObject
-  name: distractor_toasting_fork
-  category: toasting_fork
-  model: osrfkc
+  name: distractor_hamburger
+  category: hamburger
+  model: fyswch
   bounding_box:
-  - 0.1
-  - 0.0172667
-  - 0.0053867
+  - 0.11
+  - 0.102484
+  - 0.0712897
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.0801
+  - 0.325
+  - -0.0343551
+- type: DatasetObject
+  name: distractor_bottle_of_coconut_oil
+  category: bottle_of_coconut_oil
+  model: rrwzkq
+  bounding_box:
+  - 0.0467532
+  - 0.0467532
+  - 0.15
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.04848
+  - 0.425
+  - 0.005
+- type: DatasetObject
+  name: distractor_reagent_bottle
+  category: reagent_bottle
+  model: uaijua
+  bounding_box:
+  - 0.0586426
+  - 0.0586426
+  - 0.12
   orientation:
   - 0.0
   - 0.0
@@ -62,42 +96,8 @@ distractors:
   - 1.0
   relative_bbox_position:
   - 0.12
-  - 0.15
-  - -0.0673066
-- type: DatasetObject
-  name: distractor_shaker
-  category: shaker
-  model: hbheag
-  bounding_box:
-  - 0.03577
-  - 0.03592
-  - 0.09196
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.2
-  - 0.125
-  - -0.02402
-- type: DatasetObject
-  name: distractor_mouse
-  category: mouse
-  model: oydobn
-  bounding_box:
-  - 0.0311
-  - 0.0196
-  - 0.01128
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.28
-  - 0.35
-  - -0.06436
+  - 0.425
+  - -0.01
 immutables: []
 target_state:
   rubric: stack

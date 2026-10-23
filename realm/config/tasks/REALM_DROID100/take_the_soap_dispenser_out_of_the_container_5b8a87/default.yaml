@@ -16,18 +16,18 @@ main_objects:
   category: soap_dispenser
   model: edinmg
   bounding_box:
-  - 0.08988
-  - 0.07978
-  - 0.20744
+  - 0.0779907
+  - 0.0692268
+  - 0.18
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.325
-  - 0.21026
+  - 0.1501
+  - 0.195
+  - 0.2360027
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,70 +35,70 @@ distractors:
   category: bottle_of_lemon_sauce
   model: iyijeb
   bounding_box:
-  - 0.08535
-  - 0.08535
-  - 0.09369
+  - 0.1639769
+  - 0.1639769
+  - 0.18
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.1625
-  - 0.061845
+  - 0.28
+  - 0.455
+  - 0.105
 - type: DatasetObject
   name: distractor_jar_of_jelly
   category: jar_of_jelly
   model: ytlmmb
   bounding_box:
-  - 0.1
-  - 0.0750254
-  - 0.1103891
+  - 0.1087064
+  - 0.0815574
+  - 0.12
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.4875
-  - 0.0701946
+  - 0.12
+  - 0.455
+  - 0.075
 - type: DatasetObject
-  name: distractor_pill_bottle
-  category: pill_bottle
-  model: csvdbe
+  name: distractor_canned_food
+  category: canned_food
+  model: byakrm
   bounding_box:
-  - 0.03885
-  - 0.03885
-  - 0.05468
+  - 0.0777167
+  - 0.0777167
+  - 0.11
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.06
-  - 0.325
-  - 0.04234
+  - 0.33604
+  - 0.06396
+  - 0.0700001
 immutables:
 - type: DatasetObject
   name: container
   category: storage_box
   model: aqdbdu
   bounding_box:
-  - 0.20369
-  - 0.20368
-  - 0.1434
+  - 0.25
+  - 0.2499877
+  - 0.1760027
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.325
-  - 0.0867
+  - 0.1501
+  - 0.195
+  - 0.1030014
 initial_state:
 - predicate: inside
   subject: soap_dispenser

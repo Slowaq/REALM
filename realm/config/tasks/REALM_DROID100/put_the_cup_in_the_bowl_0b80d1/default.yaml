@@ -16,88 +16,88 @@ main_objects:
   category: coffee_cup
   model: nhzrei
   bounding_box:
-  - 0.10229
-  - 0.07373
-  - 0.08584
+  - 0.1
+  - 0.0720794
+  - 0.0839183
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.425
-  - -0.02708
+  - 0.28
+  - 0.35
+  - -0.0280408
 target_objects:
 - type: DatasetObject
   name: bowl
   category: bowl
   model: hynhgz
   bounding_box:
-  - 0.19223
-  - 0.19223
-  - 0.11361
+  - 0.15
+  - 0.15
+  - 0.0886516
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.25
-  - -0.0131949
+  - 0.12
+  - 0.15
+  - -0.0256742
 distractors:
 - type: DatasetObject
   name: distractor_bottle_of_paint
   category: bottle_of_paint
   model: volzrj
   bounding_box:
-  - 0.06233
-  - 0.06233
-  - 0.16605
+  - 0.0563053
+  - 0.0563053
+  - 0.15
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.06
-  - 0.25
-  - 0.013025
+  - 0.12
+  - 0.35
+  - 0.005
 - type: DatasetObject
   name: distractor_can_of_bay_leaves
   category: can_of_bay_leaves
   model: ppwvjf
   bounding_box:
-  - 0.06254
-  - 0.06118
-  - 0.07412
+  - 0.0843767
+  - 0.0825418
+  - 0.1
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.34
-  - 0.25
-  - -0.03294
+  - 0.28
+  - 0.15
+  - -0.02
 - type: DatasetObject
-  name: distractor_rubber_eraser
-  category: rubber_eraser
-  model: cungod
+  name: distractor_round_bottom_flask
+  category: round_bottom_flask
+  model: hmzafz
   bounding_box:
-  - 0.05
-  - 0.02135
-  - 0.0114
+  - 0.0563853
+  - 0.0563853
+  - 0.15
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.125
-  - -0.0643
+  - 0.3
+  - 0.25
+  - 0.005
 immutables: []
 target_state:
   rubric: put

@@ -16,9 +16,9 @@ main_objects:
   category: shaker
   model: nbjgci
   bounding_box:
-  - 0.04176
-  - 0.04186
-  - 0.09912
+  - 0.0505569
+  - 0.050678
+  - 0.12
   orientation:
   - 0.0
   - 0.0
@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.12
   - 0.12
-  - 0.04478
+  - 0.0863185
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,61 +35,61 @@ distractors:
   category: can_of_icetea
   model: ifrjsc
   bounding_box:
-  - 0.0757
-  - 0.0757
-  - 0.14925
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.28
-  - 0.28
-  - 0.034625
-- type: DatasetObject
-  name: distractor_teapot
-  category: teapot
-  model: mvrhya
-  bounding_box:
-  - 0.1
-  - 0.0622272
-  - 0.0388681
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
+  - 0.0608643
+  - 0.0608643
   - 0.12
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
   - 0.28
-  - -0.0205659
+  - 0.28
+  - 0.02
 - type: DatasetObject
   name: distractor_bottle_of_beer
   category: bottle_of_beer
   model: rdnopv
   bounding_box:
-  - 0.05661
-  - 0.05653
-  - 0.20525
+  - 0.0634363
+  - 0.0633467
+  - 0.23
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.28
   - 0.12
-  - 0.062625
+  - 0.28
+  - 0.0750001
+- type: DatasetObject
+  name: distractor_chopstick
+  category: chopstick
+  model: bdvjuf
+  bounding_box:
+  - 0.23
+  - 0.0052519
+  - 0.0052623
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2
+  - 0.34
+  - -0.0373688
 immutables:
 - type: DatasetObject
   name: bowl
   category: bowl
   model: kthvrl
   bounding_box:
-  - 0.09344
-  - 0.09344
-  - 0.06
+  - 0.15
+  - 0.15
+  - 0.0963185
   orientation:
   - 0.0
   - 0.0
@@ -98,7 +98,7 @@ immutables:
   relative_bbox_position:
   - 0.12
   - 0.12
-  - -0.01
+  - 0.0081593
 initial_state:
 - predicate: inside
   subject: shaker

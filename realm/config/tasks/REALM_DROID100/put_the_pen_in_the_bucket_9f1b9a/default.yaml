@@ -16,9 +16,9 @@ main_objects:
   category: pen
   model: nvyicz
   bounding_box:
-  - 0.14865
-  - 0.01067
-  - 0.01261
+  - 0.14
+  - 0.0100491
+  - 0.0118762
   orientation:
   - 0.0
   - 0.0
@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.35
   - 0.42
-  - -0.063695
+  - -0.0640619
 target_objects:
 - type: DatasetObject
   name: bucket
@@ -52,9 +52,9 @@ distractors:
   category: bottle_of_cranberry_juice
   model: heoxnw
   bounding_box:
-  - 0.0774
-  - 0.07708
-  - 0.22915
+  - 0.0844425
+  - 0.0840934
+  - 0.25
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.15
   - 0.42
-  - 0.044575
+  - 0.0550001
 - type: DatasetObject
   name: distractor_erlenmeyer_flask
   category: erlenmeyer_flask
   model: bpwjxr
   bounding_box:
-  - 0.0776
-  - 0.07761
-  - 0.15317
+  - 0.075994
+  - 0.0760038
+  - 0.15
   orientation:
   - 0.0
   - 0.0
@@ -80,15 +80,15 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.18
-  - 0.006585
+  - 0.005
 - type: DatasetObject
   name: distractor_stapler
   category: stapler
   model: kgnsas
   bounding_box:
-  - 0.08743
-  - 0.01823
-  - 0.04502
+  - 0.15
+  - 0.0312764
+  - 0.0772389
   orientation:
   - 0.0
   - 0.0
@@ -97,7 +97,7 @@ distractors:
   relative_bbox_position:
   - 0.375
   - 0.3
-  - -0.04749
+  - -0.0313805
 immutables: []
 target_state:
   rubric: put

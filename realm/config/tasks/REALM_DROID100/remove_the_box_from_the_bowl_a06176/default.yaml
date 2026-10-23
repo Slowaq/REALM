@@ -16,9 +16,9 @@ main_objects:
   category: match_box
   model: xpnfjz
   bounding_box:
-  - 0.10484
-  - 0.05
-  - 0.01597
+  - 0.06
+  - 0.028615
+  - 0.0091396
   orientation:
   - 0.0
   - 0.0
@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - 0.023985
+  - 0.0113274
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,9 +35,9 @@ distractors:
   category: bottle_of_oil
   model: ueanhf
   bounding_box:
-  - 0.09056
-  - 0.0906
-  - 0.31938
+  - 0.0793938
+  - 0.0794289
+  - 0.28
   orientation:
   - 0.0
   - 0.0
@@ -46,15 +46,15 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.42
-  - 0.0896901
+  - 0.0700001
 - type: DatasetObject
   name: distractor_screwdriver
   category: screwdriver
   model: uajlga
   bounding_box:
-  - 0.1
-  - 0.0092764
-  - 0.0092203
+  - 0.2
+  - 0.0185527
+  - 0.0184405
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.15
   - 0.42
-  - -0.0653898
+  - -0.0607797
 - type: DatasetObject
   name: distractor_jar_of_kidney_beans
   category: jar_of_kidney_beans
   model: kfzxah
   bounding_box:
-  - 0.093
-  - 0.093
-  - 0.13171
+  - 0.0917926
+  - 0.0917926
+  - 0.13
   orientation:
   - 0.0
   - 0.0
@@ -80,16 +80,16 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.18
-  - -0.004145
+  - -0.005
 immutables:
 - type: DatasetObject
   name: bowl
   category: bowl
   model: jblalf
   bounding_box:
-  - 0.16932
-  - 0.16932
-  - 0.081
+  - 0.15
+  - 0.15
+  - 0.0717576
   orientation:
   - 0.0
   - 0.0
@@ -98,7 +98,7 @@ immutables:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - -0.0295
+  - -0.0341212
 initial_state:
 - predicate: inside
   subject: box

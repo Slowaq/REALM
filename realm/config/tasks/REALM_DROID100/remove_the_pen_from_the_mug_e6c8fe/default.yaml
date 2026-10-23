@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.12
   - 0.15
-  - 0.04954
+  - 0.0614978
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,9 +35,9 @@ distractors:
   category: bottle_of_alfredo_sauce
   model: xwzqjr
   bounding_box:
-  - 0.05973
-  - 0.05973
-  - 0.11393
+  - 0.0786404
+  - 0.0786404
+  - 0.15
   orientation:
   - 0.0
   - 0.0
@@ -46,15 +46,15 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.35
-  - -0.013035
+  - 0.005
 - type: DatasetObject
   name: distractor_scone
   category: scone
   model: gwdhyj
   bounding_box:
-  - 0.1
-  - 0.0635379
-  - 0.0342788
+  - 0.09
+  - 0.0571841
+  - 0.0308509
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.12
   - 0.35
-  - -0.0528606
+  - -0.0545745
 - type: DatasetObject
   name: distractor_parer
   category: parer
   model: zpkhwi
   bounding_box:
-  - 0.1
-  - 0.0126275
-  - 0.0067316
+  - 0.18
+  - 0.0227295
+  - 0.0121169
   orientation:
   - 0.0
   - 0.0
@@ -80,16 +80,16 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.15
-  - -0.0666342
+  - -0.0639415
 immutables:
 - type: DatasetObject
   name: mug
   category: mug
   model: lgxhsc
   bounding_box:
-  - 0.07725
-  - 0.10513
-  - 0.08454
+  - 0.0881765
+  - 0.12
+  - 0.0964977
   orientation:
   - 0.0
   - 0.0
@@ -98,7 +98,7 @@ immutables:
   relative_bbox_position:
   - 0.12
   - 0.15
-  - -0.02773
+  - -0.0217511
 initial_state:
 - predicate: inside
   subject: pen

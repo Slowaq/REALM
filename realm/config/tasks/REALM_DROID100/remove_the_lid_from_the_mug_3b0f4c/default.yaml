@@ -16,18 +16,18 @@ main_objects:
   category: lid
   model: pwgbsb
   bounding_box:
-  - 0.08975
-  - 0.08974
-  - 0.02248
+  - 0.0930471
+  - 0.0930367
+  - 0.0233058
   orientation:
   - 0.0
   - 0.0
-  - 0.7071068
-  - 0.7071068
+  - 0.0
+  - 1.0
   relative_bbox_position:
   - 0.12
   - 0.18
-  - -0.0091
+  - 0.0170339
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,9 +35,9 @@ distractors:
   category: bottle_of_perfume
   model: ipurzb
   bounding_box:
-  - 0.06637
-  - 0.06637
-  - 0.1524
+  - 0.0435499
+  - 0.0435499
+  - 0.1
   orientation:
   - 0.0
   - 0.0
@@ -46,15 +46,15 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.42
-  - -0.0187999
+  - -0.045
 - type: DatasetObject
   name: distractor_can_of_beans
   category: can_of_beans
   model: ojqgjz
   bounding_box:
-  - 0.0805
-  - 0.08261
-  - 0.09877
+  - 0.0896527
+  - 0.0920026
+  - 0.11
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.12
   - 0.42
-  - -0.045615
+  - -0.0399999
 - type: DatasetObject
   name: distractor_jar_of_tumeric
   category: jar_of_tumeric
   model: miivhi
   bounding_box:
-  - 0.09321
-  - 0.09321
-  - 0.13171
+  - 0.0707691
+  - 0.0707691
+  - 0.1
   orientation:
   - 0.0
   - 0.0
@@ -80,16 +80,16 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.18
-  - -0.029145
+  - -0.045
 immutables:
 - type: DatasetObject
   name: mug
   category: mug
   model: kitxam
   bounding_box:
-  - 0.064
-  - 0.08585
-  - 0.06466
+  - 0.0894584
+  - 0.12
+  - 0.0903809
   orientation:
   - 0.0
   - 0.0
@@ -98,7 +98,7 @@ immutables:
   relative_bbox_position:
   - 0.12
   - 0.18
-  - -0.06267
+  - -0.0498095
 initial_state:
 - predicate: on_top_of
   subject: lid

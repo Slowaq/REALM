@@ -16,9 +16,62 @@ main_objects:
   category: bottle_of_water
   model: suytyi
   bounding_box:
-  - 0.06107
-  - 0.06107
-  - 0.165
+  - 0.0814267
+  - 0.0814267
+  - 0.22
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.42
+  - 0.04
+target_objects:
+- type: DatasetObject
+  name: sink
+  category: drop_in_sink
+  model: wzpabm
+  bounding_box:
+  - 0.35
+  - 0.3378917
+  - 0.2334215
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2001
+  - 0.19405
+  - 0.0467108
+distractors:
+- type: DatasetObject
+  name: distractor_bottle_of_fruit_punch
+  category: bottle_of_fruit_punch
+  model: azcigi
+  bounding_box:
+  - 0.0814741
+  - 0.0814741
+  - 0.25
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.15
+  - 0.42
+  - 0.0550001
+- type: DatasetObject
+  name: distractor_pocketknife
+  category: pocketknife
+  model: ngtgdn
+  bounding_box:
+  - 0.1
+  - 0.0215902
+  - 0.0058464
   orientation:
   - 0.0
   - 0.0
@@ -27,77 +80,24 @@ main_objects:
   relative_bbox_position:
   - 0.25
   - 0.51
-  - 0.0125
-target_objects:
+  - -0.0670768
 - type: DatasetObject
-  name: sink
-  category: drop_in_sink
-  model: wzpabm
+  name: distractor_jar_of_cocoa
+  category: jar_of_cocoa
+  model: sjwgfn
   bounding_box:
-  - 0.28
-  - 0.2703133
-  - 0.1867372
+  - 0.099569
+  - 0.0969361
+  - 0.13
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.25
-  - 0.3
-  - 0.0233686
-distractors:
-- type: DatasetObject
-  name: distractor_box_of_cereal
-  category: box_of_cereal
-  model: pfwgkm
-  bounding_box:
-  - 0.035
-  - 0.1
-  - 0.115
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.075
-  - 0.3
-  - -0.0124999
-- type: DatasetObject
-  name: distractor_pill_bottle
-  category: pill_bottle
-  model: csvdbe
-  bounding_box:
-  - 0.03885
-  - 0.03885
-  - 0.05468
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.425
-  - 0.3
-  - -0.04266
-- type: DatasetObject
-  name: distractor_pencil
-  category: pencil
-  model: fnlbpu
-  bounding_box:
-  - 0.1
-  - 0.0038263
-  - 0.0031886
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.25
-  - 0.15
-  - -0.0684057
+  - 0.07488
+  - 0.52643
+  - -0.005
 immutables: []
 target_state:
   rubric: put
@@ -129,6 +129,3 @@ provenance:
   task_id: fe1ee8cde3f6
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Move the bottle from the base top and put it in the sink
-  decisions:
-  - shortened to the scored put (variant wording, colour dropped); "base top" is the support
-  - bottle grounded as bottle_of_water suytyi; sink as drop_in_sink wzpabm (smallest basin, at the 0.28 m ceiling)

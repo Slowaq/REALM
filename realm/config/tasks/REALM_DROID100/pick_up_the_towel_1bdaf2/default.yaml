@@ -16,9 +16,9 @@ main_objects:
   category: dishtowel
   model: dtfspn
   bounding_box:
-  - 0.1170832
-  - 0.16
-  - 0.0239291
+  - 0.1609894
+  - 0.22
+  - 0.0329025
   orientation:
   - 0.0
   - 0.0
@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.12
   - 0.15
-  - -0.0580354
+  - -0.0535487
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,9 +35,9 @@ distractors:
   category: can_of_oatmeal
   model: qyukhm
   bounding_box:
-  - 0.09218
-  - 0.09218
-  - 0.13596
+  - 0.1220388
+  - 0.1220388
+  - 0.18
   orientation:
   - 0.0
   - 0.0
@@ -46,15 +46,15 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.35
-  - -0.00202
+  - 0.02
 - type: DatasetObject
   name: distractor_jar_of_honey
   category: jar_of_honey
   model: wdxfaq
   bounding_box:
-  - 0.0891374
-  - 0.1
-  - 0.1217298
+  - 0.0951933
+  - 0.1067939
+  - 0.13
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.12
   - 0.35
-  - -0.0091351
+  - -0.005
 - type: DatasetObject
   name: distractor_bottle_of_rum
   category: bottle_of_rum
   model: oidmvy
   bounding_box:
-  - 0.07702
-  - 0.07702
-  - 0.30091
+  - 0.0716679
+  - 0.0716679
+  - 0.28
   orientation:
   - 0.0
   - 0.0
@@ -80,7 +80,7 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.15
-  - 0.0804551
+  - 0.0700001
 immutables: []
 camera_extrinsics:
   cam1:

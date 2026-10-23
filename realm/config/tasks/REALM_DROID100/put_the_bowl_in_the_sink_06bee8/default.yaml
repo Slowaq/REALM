@@ -16,54 +16,88 @@ main_objects:
   category: bowl
   model: eipwho
   bounding_box:
-  - 0.1077
-  - 0.1077
-  - 0.06
+  - 0.15
+  - 0.15
+  - 0.0835655
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.5525
-  - 0.045
+  - 0.28
+  - 0.455
+  - 0.0567828
 target_objects:
 - type: DatasetObject
   name: sink
   category: drop_in_sink
   model: wzpabm
   bounding_box:
-  - 0.28
-  - 0.2703133
-  - 0.1867372
+  - 0.3
+  - 0.2896214
+  - 0.2000755
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.325
-  - 0.1083686
+  - 0.1751
+  - 0.195
+  - 0.1150378
 distractors:
 - type: DatasetObject
-  name: distractor_chopstick
-  category: chopstick
-  model: bdvjuf
+  name: distractor_bottle_of_poppy_seeds
+  category: bottle_of_poppy_seeds
+  model: xdtrgi
   bounding_box:
-  - 0.1
-  - 0.0022835
-  - 0.0022879
+  - 0.0918522
+  - 0.0918522
+  - 0.11
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
+  - 0.12
+  - 0.455
+  - 0.0700001
+- type: DatasetObject
+  name: distractor_pruner
+  category: pruner
+  model: lucqrs
+  bounding_box:
+  - 0.0257119
+  - 0.0587162
   - 0.2
-  - 0.1625
-  - 0.016144
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.36
+  - 0.05446
+  - 0.115
+- type: DatasetObject
+  name: distractor_beaker
+  category: beaker
+  model: fxrsyi
+  bounding_box:
+  - 0.0828347
+  - 0.0828347
+  - 0.12
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.06652
+  - 0.58348
+  - 0.075
 immutables: []
 target_state:
   rubric: put
@@ -96,5 +130,4 @@ provenance:
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Pick up the bowl and put it in the sink
   decisions:
-  - variant wording; the pick-up clause is REACH/GRASP
-  - bowl eipwho (10.8 cm), sink as drop_in_sink wzpabm (smallest basin, at the 0.28 m ceiling)
+  - 'sink sized 0.3 m: compact bar sink, so the bowl and the sink both fit the 40 cm deep counter'

@@ -8,7 +8,7 @@ instruction_obj_to_replace: towel
 instruction_target_to_replace: box
 instruction_verb_to_replace: put
 supported_scenes:
-  Benevolence_1_int:
+  Wainscott_0_int:
   - Dining_Table
 main_objects:
 - type: DatasetObject
@@ -25,62 +25,79 @@ main_objects:
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.09
-  - 0.2
-  - -0.0704588
+  - 0.35
+  - 0.42
+  - -0.0604588
 target_objects:
 - type: DatasetObject
   name: box
   category: storage_box
   model: eicujj
   bounding_box:
-  - 0.2611098
-  - 0.28
-  - 0.0641603
+  - 0.2331337
+  - 0.25
+  - 0.057286
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.3
-  - 0.2
-  - -0.0479198
+  - 0.15
+  - 0.18
+  - -0.041357
 distractors:
 - type: DatasetObject
   name: distractor_can_of_corn
   category: can_of_corn
   model: pddtfk
   bounding_box:
-  - 0.08599
-  - 0.08598
-  - 0.0906
+  - 0.1044029
+  - 0.1043907
+  - 0.11
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.51
-  - 0.2
-  - -0.0347
+  - 0.15
+  - 0.42
+  - -0.015
 - type: DatasetObject
-  name: distractor_tweezers
-  category: tweezers
-  model: ngwoat
+  name: distractor_bottle_of_ground_nutmeg
+  category: bottle_of_ground_nutmeg
+  model: qebruq
   bounding_box:
-  - 0.00485
-  - 0.03209
-  - 0.0025
+  - 0.0917226
+  - 0.0918447
+  - 0.11
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.45
-  - 0.2
-  - -0.07875
+  - 0.35
+  - 0.18
+  - -0.015
+- type: DatasetObject
+  name: distractor_carving_knife
+  category: carving_knife
+  model: awvoox
+  bounding_box:
+  - 0.3
+  - 0.0401052
+  - 0.0226463
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.1751
+  - 0.54
+  - -0.0586768
 immutables: []
 target_state:
   rubric: put
@@ -113,5 +130,4 @@ provenance:
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Place the white towel inside the black box
   decisions:
-  - colours dropped (texture)
-  - towel grounded as dishtowel ltydgg (folded), box as storage_box eicujj
+  - 'towel sized 0.16 m: dish towel folded in quarters'

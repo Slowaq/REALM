@@ -48,13 +48,13 @@ target_objects:
   - 0.0810674
 distractors:
 - type: DatasetObject
-  name: distractor_jug_of_milk
-  category: jug_of_milk
-  model: xbvdpc
+  name: distractor_jar_of_kidney_beans
+  category: jar_of_kidney_beans
+  model: kfzxah
   bounding_box:
-  - 0.1
-  - 0.1
-  - 0.1421228
+  - 0.0917926
+  - 0.0917926
+  - 0.13
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.12
   - 0.455
-  - 0.0860614
+  - 0.08
 - type: DatasetObject
-  name: distractor_jar_of_kidney_beans
-  category: jar_of_kidney_beans
-  model: kfzxah
+  name: distractor_bottle_of_molasses
+  category: bottle_of_molasses
+  model: jvsjop
   bounding_box:
-  - 0.093
-  - 0.093
-  - 0.13171
+  - 0.0763642
+  - 0.0762697
+  - 0.18
   orientation:
   - 0.0
   - 0.0
@@ -80,24 +80,24 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.195
-  - 0.080855
+  - 0.105
 - type: DatasetObject
-  name: distractor_zucchini
-  category: zucchini
-  model: yhhkxf
+  name: distractor_banana
+  category: banana
+  model: verqwv
   bounding_box:
-  - 0.1
-  - 0.0399956
-  - 0.0373848
+  - 0.19
+  - 0.0596034
+  - 0.0300105
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.3
-  - 0.325
-  - 0.0336924
+  - 0.1201
+  - 0.585
+  - 0.0300053
 immutables: []
 target_state:
   rubric: put
@@ -130,5 +130,4 @@ provenance:
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Put the white towel inside the black basket
   decisions:
-  - colours dropped (texture)
-  - towel grounded as dishtowel dtfspn (folded), basket as wicker_basket unasxd (authored at the 0.28 m ceiling)
+  - 'towel sized 0.16 m: dish towel folded in quarters'

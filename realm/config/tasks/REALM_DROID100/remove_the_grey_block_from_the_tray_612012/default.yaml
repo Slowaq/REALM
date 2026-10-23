@@ -33,9 +33,9 @@ main_objects:
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.3
-  - -0.03436
+  - 0.1851
+  - 0.1851
+  - -0.0292634
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -43,70 +43,70 @@ distractors:
   category: bottle_of_liquid_soap
   model: bhquvg
   bounding_box:
-  - 0.1
-  - 0.0426254
-  - 0.0243745
+  - 0.18
+  - 0.0767257
+  - 0.0438741
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
+  - 0.28
+  - 0.42
+  - -0.0730629
+- type: DatasetObject
+  name: distractor_jar_of_cocoa
+  category: jar_of_cocoa
+  model: sjwgfn
+  bounding_box:
+  - 0.099569
+  - 0.0969361
+  - 0.13
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.42
+  - -0.03
+- type: DatasetObject
+  name: distractor_sushi
+  category: sushi
+  model: akpnxn
+  bounding_box:
+  - 0.0586431
+  - 0.06
+  - 0.0399283
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.22
   - 0.51
-  - -0.0828127
-- type: DatasetObject
-  name: distractor_pen
-  category: pen
-  model: ubwjqa
-  bounding_box:
-  - 0.1
-  - 0.0089124
-  - 0.0078709
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.2
-  - 0.15
-  - -0.0910645
-- type: DatasetObject
-  name: distractor_pencil
-  category: pencil
-  model: fnlbpu
-  bounding_box:
-  - 0.1
-  - 0.0038263
-  - 0.0031886
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.2
-  - 0.45
-  - -0.0934057
+  - -0.0750358
 immutables:
 - type: DatasetObject
   name: tray
   category: tray
   model: zsddtq
   bounding_box:
-  - 0.26694
-  - 0.26694
-  - 0.02564
+  - 0.32
+  - 0.32
+  - 0.0307365
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.3
-  - -0.08218
+  - 0.1851
+  - 0.1851
+  - -0.0796317
 initial_state:
 - predicate: on_top_of
   subject: grey_block

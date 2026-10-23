@@ -16,9 +16,9 @@ main_objects:
   category: toothbrush
   model: vkrjps
   bounding_box:
-  - 0.14744
-  - 0.01138
-  - 0.01758
+  - 0.19
+  - 0.0146649
+  - 0.0226546
   orientation:
   - 0.0
   - 0.0
@@ -27,16 +27,16 @@ main_objects:
   relative_bbox_position:
   - 0.35
   - 0.42
-  - -0.06121
+  - -0.0586727
 target_objects:
 - type: DatasetObject
   name: cup
   category: soda_cup
   model: vicaqs
   bounding_box:
-  - 0.07836
-  - 0.07836
-  - 0.12904
+  - 0.091088
+  - 0.091088
+  - 0.15
   orientation:
   - 0.0
   - 0.0
@@ -45,16 +45,16 @@ target_objects:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - -0.00548
+  - 0.005
 distractors:
 - type: DatasetObject
   name: distractor_glue_stick
   category: glue_stick
   model: sqzyci
   bounding_box:
-  - 0.09478
-  - 0.01923
-  - 0.01928
+  - 0.1
+  - 0.0202891
+  - 0.0203418
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.15
   - 0.42
-  - -0.06036
+  - -0.0598291
 - type: DatasetObject
   name: distractor_bottle_of_pesto
   category: bottle_of_pesto
   model: hyeetr
   bounding_box:
-  - 0.05451
-  - 0.05695
-  - 0.1169
+  - 0.0466296
+  - 0.0487169
+  - 0.1
   orientation:
   - 0.0
   - 0.0
@@ -80,15 +80,15 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.18
-  - -0.01155
+  - -0.02
 - type: DatasetObject
   name: distractor_jar_of_pepper_seasoning
   category: jar_of_pepper_seasoning
   model: iuydyz
   bounding_box:
-  - 0.09257
-  - 0.09257
-  - 0.13171
+  - 0.0702832
+  - 0.0702832
+  - 0.1
   orientation:
   - 0.0
   - 0.0
@@ -97,7 +97,7 @@ distractors:
   relative_bbox_position:
   - 0.25
   - 0.3
-  - -0.004145
+  - -0.02
 immutables: []
 target_state:
   rubric: put

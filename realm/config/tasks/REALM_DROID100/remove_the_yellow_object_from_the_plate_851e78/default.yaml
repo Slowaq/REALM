@@ -33,9 +33,9 @@ main_objects:
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.12
-  - 0.15
-  - -0.01552
+  - 0.1551
+  - 0.1551
+  - -0.0052822
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -43,9 +43,9 @@ distractors:
   category: can_of_bay_leaves
   model: ppwvjf
   bounding_box:
-  - 0.06254
-  - 0.06118
-  - 0.07412
+  - 0.0843767
+  - 0.0825418
+  - 0.1
   orientation:
   - 0.0
   - 0.0
@@ -54,59 +54,59 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.35
-  - -0.03294
-- type: DatasetObject
-  name: distractor_bottle_of_lemonade
-  category: bottle_of_lemonade
-  model: hqobwj
-  bounding_box:
-  - 0.1
-  - 0.0374057
-  - 0.0172126
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.12
-  - 0.35
-  - -0.0613937
+  - -0.02
 - type: DatasetObject
   name: distractor_zucchini
   category: zucchini
   model: yhhkxf
   bounding_box:
-  - 0.1
-  - 0.0399956
-  - 0.0373848
+  - 0.2
+  - 0.0799911
+  - 0.0747695
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.28
-  - 0.15
-  - -0.0513076
+  - 0.1251
+  - 0.35
+  - -0.0326152
+- type: DatasetObject
+  name: distractor_shaker
+  category: shaker
+  model: hbheag
+  bounding_box:
+  - 0.0466768
+  - 0.0468726
+  - 0.12
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.34
+  - 0.25
+  - -0.01
 immutables:
 - type: DatasetObject
   name: plate
   category: plate
   model: aewthq
   bounding_box:
-  - 0.17043
-  - 0.17043
-  - 0.01948
+  - 0.26
+  - 0.26
+  - 0.0297178
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.12
-  - 0.15
-  - -0.06026
+  - 0.1551
+  - 0.1551
+  - -0.0551411
 initial_state:
 - predicate: on_top_of
   subject: yellow_block

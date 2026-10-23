@@ -16,9 +16,9 @@ main_objects:
   category: plate
   model: lixwwc
   bounding_box:
-  - 0.11556
-  - 0.11556
-  - 0.02836
+  - 0.18
+  - 0.18
+  - 0.0441745
   orientation:
   - 0.0
   - 0.0
@@ -27,16 +27,16 @@ main_objects:
   relative_bbox_position:
   - 0.42
   - 0.28
-  - -0.06582
+  - -0.0579127
 target_objects:
 - type: DatasetObject
   name: bowl
   category: bowl
   model: hpqjug
   bounding_box:
-  - 0.16194
-  - 0.16194
-  - 0.07924
+  - 0.24
+  - 0.24
+  - 0.1174361
   orientation:
   - 0.0
   - 0.0
@@ -44,34 +44,17 @@ target_objects:
   - 1.0
   relative_bbox_position:
   - 0.18
-  - 0.12
-  - -0.04038
+  - 0.1451
+  - -0.0212819
 distractors:
 - type: DatasetObject
-  name: distractor_bottle_of_lemon_sauce
-  category: bottle_of_lemon_sauce
-  model: iyijeb
+  name: distractor_jar_of_puree
+  category: jar_of_puree
+  model: raagvm
   bounding_box:
-  - 0.08535
-  - 0.08535
-  - 0.09369
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.18
-  - 0.28
-  - -0.033155
-- type: DatasetObject
-  name: distractor_jug
-  category: jug
-  model: gjgwvi
-  bounding_box:
-  - 0.0716459
+  - 0.087102
+  - 0.085908
   - 0.1
-  - 0.152124
   orientation:
   - 0.0
   - 0.0
@@ -80,24 +63,41 @@ distractors:
   relative_bbox_position:
   - 0.42
   - 0.12
-  - -0.0039379
+  - -0.03
 - type: DatasetObject
-  name: distractor_jar_of_puree
-  category: jar_of_puree
-  model: raagvm
+  name: distractor_tea_bag
+  category: tea_bag
+  model: kmvcrb
   bounding_box:
-  - 0.07003
-  - 0.06907
-  - 0.0804
+  - 0.07
+  - 0.0539161
+  - 0.0345383
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.3
-  - 0.3
-  - -0.0398
+  - 0.5399
+  - 0.05206
+  - -0.0627308
+- type: DatasetObject
+  name: distractor_chopstick
+  category: chopstick
+  model: bdvjuf
+  bounding_box:
+  - 0.23
+  - 0.0052519
+  - 0.0052623
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.18
+  - 0.28
+  - -0.0773688
 immutables: []
 target_state:
   rubric: put
@@ -130,7 +130,7 @@ provenance:
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Pick up the paper bowl on the left and put it in the paper bowl on the right
   decisions:
-  - the lead (paper bowl into paper bowl) has main and target of one category that the instruction can only tell apart by
-    left/right, which the config does not pin; the cluster variant "put the white paper plate in the blue bowl" is used, minus
-    colours
-  - plate lixwwc (11.6 cm), bowl hpqjug (16.2 cm)
+  - 'plate sized 0.18 m: small paper plate'
+  - 'bowl sized 0.24 m: large paper bowl'
+  - 'plate sized 0.18 m: small paper plate'
+  - 'bowl sized 0.24 m: large paper bowl'

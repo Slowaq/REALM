@@ -16,9 +16,9 @@ main_objects:
   category: bottle_of_water
   model: cyzaue
   bounding_box:
-  - 0.05437
-  - 0.05078
-  - 0.17502
+  - 0.068343
+  - 0.0638304
+  - 0.22
   orientation:
   - 0.0
   - 0.0
@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.12
   - 0.195
-  - 0.113055
+  - 0.1261337
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,9 +35,9 @@ distractors:
   category: bottle_of_paint_remover
   model: abrsty
   bounding_box:
-  - 0.06355
-  - 0.06355
-  - 0.2429
+  - 0.0470935
+  - 0.0470935
+  - 0.18
   orientation:
   - 0.0
   - 0.0
@@ -46,15 +46,15 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.455
-  - 0.1364501
+  - 0.105
 - type: DatasetObject
   name: distractor_jar_of_spaghetti_sauce
   category: jar_of_spaghetti_sauce
   model: zahyds
   bounding_box:
-  - 0.06496
-  - 0.06496
-  - 0.10621
+  - 0.1039751
+  - 0.1039751
+  - 0.17
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.12
   - 0.455
-  - 0.068105
-- type: DatasetObject
-  name: distractor_hammer
-  category: hammer
-  model: fcrlbo
-  bounding_box:
   - 0.1
-  - 0.0414117
-  - 0.0122257
+- type: DatasetObject
+  name: distractor_toy_figure
+  category: toy_figure
+  model: jddrck
+  bounding_box:
+  - 0.05488
+  - 0.05804
+  - 0.1
   orientation:
   - 0.0
   - 0.0
@@ -80,16 +80,16 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.195
-  - 0.0211129
+  - 0.065
 immutables:
 - type: DatasetObject
   name: bowl
   category: bowl
   model: aspeds
   bounding_box:
-  - 0.1451
-  - 0.14509
-  - 0.0543
+  - 0.15
+  - 0.1499897
+  - 0.0561337
   orientation:
   - 0.0
   - 0.0
@@ -98,7 +98,7 @@ immutables:
   relative_bbox_position:
   - 0.12
   - 0.195
-  - 0.04215
+  - 0.0430669
 initial_state:
 - predicate: inside
   subject: bottle

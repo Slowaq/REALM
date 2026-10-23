@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.18
   - 0.12
-  - 0.0100399
+  - 0.0007975
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,9 +35,9 @@ distractors:
   category: jar_of_curry_powder
   model: ozhftu
   bounding_box:
-  - 0.06
-  - 0.0599
-  - 0.07195
+  - 0.0833912
+  - 0.0832523
+  - 0.1
   orientation:
   - 0.0
   - 0.0
@@ -46,15 +46,15 @@ distractors:
   relative_bbox_position:
   - 0.42
   - 0.28
-  - -0.044025
+  - -0.03
 - type: DatasetObject
   name: distractor_can_of_bay_leaves
   category: can_of_bay_leaves
   model: ppwvjf
   bounding_box:
-  - 0.06254
-  - 0.06118
-  - 0.07412
+  - 0.0843767
+  - 0.0825418
+  - 0.1
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.18
   - 0.28
-  - -0.04294
+  - -0.03
 - type: DatasetObject
   name: distractor_bottle_of_maple_syrup
   category: bottle_of_maple_syrup
   model: qfgewi
   bounding_box:
-  - 0.1
-  - 0.0803425
-  - 0.109391
+  - 0.1828304
+  - 0.1468905
+  - 0.2
   orientation:
   - 0.0
   - 0.0
@@ -80,16 +80,16 @@ distractors:
   relative_bbox_position:
   - 0.42
   - 0.12
-  - -0.0253045
+  - 0.0200001
 immutables:
 - type: DatasetObject
   name: bowl
   category: bowl
   model: jblalf
   bounding_box:
-  - 0.16932
-  - 0.16932
-  - 0.081
+  - 0.15
+  - 0.15
+  - 0.0717576
   orientation:
   - 0.0
   - 0.0
@@ -98,7 +98,7 @@ immutables:
   relative_bbox_position:
   - 0.18
   - 0.12
-  - -0.0395
+  - -0.0441212
 initial_state:
 - predicate: inside
   subject: pen

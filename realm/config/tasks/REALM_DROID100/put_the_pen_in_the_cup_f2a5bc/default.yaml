@@ -16,9 +16,9 @@ main_objects:
   category: pen
   model: gzrbrx
   bounding_box:
-  - 0.15826
-  - 0.01141
-  - 0.01101
+  - 0.14
+  - 0.0100935
+  - 0.0097397
   orientation:
   - 0.0
   - 0.0
@@ -27,16 +27,16 @@ main_objects:
   relative_bbox_position:
   - 0.28
   - 0.42
-  - -0.089495
+  - -0.0901301
 target_objects:
 - type: DatasetObject
   name: cup
   category: paper_cup
   model: guobeq
   bounding_box:
-  - 0.07407
-  - 0.07043
-  - 0.10542
+  - 0.0702618
+  - 0.066809
+  - 0.1
   orientation:
   - 0.0
   - 0.0
@@ -45,16 +45,16 @@ target_objects:
   relative_bbox_position:
   - 0.12
   - 0.18
-  - -0.04229
+  - -0.045
 distractors:
 - type: DatasetObject
   name: distractor_jar_of_kidney_beans
   category: jar_of_kidney_beans
   model: kfzxah
   bounding_box:
-  - 0.093
-  - 0.093
-  - 0.13171
+  - 0.0917926
+  - 0.0917926
+  - 0.13
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.12
   - 0.42
-  - -0.029145
+  - -0.03
 - type: DatasetObject
   name: distractor_bottle_of_peanut_butter
   category: bottle_of_peanut_butter
   model: edcvwr
   bounding_box:
-  - 0.07916
-  - 0.07916
-  - 0.13146
+  - 0.0782808
+  - 0.0782808
+  - 0.13
   orientation:
   - 0.0
   - 0.0
@@ -80,7 +80,7 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.18
-  - -0.02927
+  - -0.03
 - type: DatasetObject
   name: distractor_half_bagel
   category: half_bagel

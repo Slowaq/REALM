@@ -16,9 +16,9 @@ main_objects:
   category: measuring_cup
   model: ahtzhp
   bounding_box:
-  - 0.14
-  - 0.0829225
-  - 0.0610097
+  - 0.15
+  - 0.0888455
+  - 0.0653675
   orientation:
   - 0.0
   - 0.0
@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - 0.0626024
+  - 0.0713153
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,9 +35,9 @@ distractors:
   category: can
   model: moeqjz
   bounding_box:
-  - 0.1
-  - 0.1
-  - 0.1298312
+  - 0.0924277
+  - 0.0924277
+  - 0.12
   orientation:
   - 0.0
   - 0.0
@@ -46,15 +46,15 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.42
-  - -0.0050844
+  - -0.01
 - type: DatasetObject
   name: distractor_bottle_of_face_cream
   category: bottle_of_face_cream
   model: dztaed
   bounding_box:
-  - 0.07659
-  - 0.0767
-  - 0.05407
+  - 0.0798853
+  - 0.08
+  - 0.0563963
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.15
   - 0.42
-  - -0.042965
+  - -0.0418018
 - type: DatasetObject
   name: distractor_jug
   category: jug
   model: gjgwvi
   bounding_box:
-  - 0.0716459
-  - 0.1
-  - 0.152124
+  - 0.1177426
+  - 0.1643396
+  - 0.25
   orientation:
   - 0.0
   - 0.0
@@ -80,16 +80,16 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.18
-  - 0.006062
+  - 0.0550001
 immutables:
 - type: DatasetObject
   name: bowl
   category: bowl
   model: tvtive
   bounding_box:
-  - 0.1878
-  - 0.18777
-  - 0.11735
+  - 0.2
+  - 0.1999681
+  - 0.1249734
   orientation:
   - 0.0
   - 0.0
@@ -98,7 +98,7 @@ immutables:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - -0.011325
+  - -0.0075133
 initial_state:
 - predicate: inside
   subject: measuring_cup
@@ -134,6 +134,4 @@ provenance:
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Remove the measuring cup from the green bowl and put it on the counter
   decisions:
-  - shortened to the removal; counter is the support; "green" dropped (texture)
-  - measuring_cup ahtzhp is the only model (27 cm incl. handle) and is authored at the 14 cm hand-object ceiling; bowl tvtive
-    (18.8 cm) holds it
+  - 'bowl sized 0.2 m: mixing-size bowl the measuring cup sits in'

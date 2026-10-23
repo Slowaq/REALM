@@ -16,88 +16,88 @@ main_objects:
   category: coffee_cup
   model: ibhhfj
   bounding_box:
-  - 0.09864
-  - 0.07897
-  - 0.06391
+  - 0.1
+  - 0.0800588
+  - 0.0647912
   orientation:
   - 0.0
   - 0.0
   - 0.7071068
   - 0.7071068
   relative_bbox_position:
-  - 0.2
-  - 0.5525
-  - 0.046955
+  - 0.28
+  - 0.455
+  - 0.0473956
 target_objects:
 - type: DatasetObject
   name: pot
   category: saucepot
   model: uvzmss
   bounding_box:
-  - 0.2079007
-  - 0.28
-  - 0.103913
+  - 0.2227508
+  - 0.3
+  - 0.1113354
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.325
-  - 0.0669565
+  - 0.13648
+  - 0.195
+  - 0.0706677
 distractors:
 - type: DatasetObject
   name: distractor_bottle_of_apple_juice
   category: bottle_of_apple_juice
   model: xvrbdy
   bounding_box:
-  - 0.04331
-  - 0.04344
-  - 0.20251
+  - 0.0534665
+  - 0.053627
+  - 0.25
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.06
-  - 0.325
-  - 0.116255
+  - 0.12
+  - 0.455
+  - 0.1400001
 - type: DatasetObject
-  name: distractor_pill_bottle
-  category: pill_bottle
-  model: csvdbe
+  name: distractor_jar_of_peppercorns
+  category: jar_of_peppercorns
+  model: gkakwk
   bounding_box:
-  - 0.03885
-  - 0.03885
-  - 0.05468
+  - 0.0721282
+  - 0.0721282
+  - 0.1
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.34
+  - 0.3
   - 0.325
-  - 0.04234
+  - 0.065
 - type: DatasetObject
-  name: distractor_mouse
-  category: mouse
-  model: oydobn
+  name: distractor_can_of_corn
+  category: can_of_corn
+  model: pddtfk
   bounding_box:
-  - 0.0311
-  - 0.0196
-  - 0.01128
+  - 0.1044029
+  - 0.1043907
+  - 0.11
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.1625
-  - 0.02064
+  - 0.32
+  - 0.0773
+  - 0.0700001
 immutables: []
 target_state:
   rubric: put

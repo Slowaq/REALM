@@ -16,9 +16,9 @@ main_objects:
   category: mug
   model: kewbyf
   bounding_box:
-  - 0.06449
-  - 0.0877
-  - 0.06463
+  - 0.0882417
+  - 0.12
+  - 0.0884333
   orientation:
   - 0.0
   - 0.0
@@ -27,16 +27,16 @@ main_objects:
   relative_bbox_position:
   - 0.28
   - 0.28
-  - -0.0076849
+  - 0.0042167
 target_objects:
 - type: DatasetObject
   name: bowl
   category: bowl
   model: tvtive
   bounding_box:
-  - 0.1878
-  - 0.18777
-  - 0.11735
+  - 0.15
+  - 0.149976
+  - 0.09373
   orientation:
   - 0.0
   - 0.0
@@ -45,33 +45,33 @@ target_objects:
   relative_bbox_position:
   - 0.12
   - 0.12
-  - 0.018675
+  - 0.006865
 distractors:
-- type: DatasetObject
-  name: distractor_bottle_of_conditioner
-  category: bottle_of_conditioner
-  model: teafxb
-  bounding_box:
-  - 0.1
-  - 0.0405229
-  - 0.0191148
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.12
-  - 0.28
-  - -0.0304426
 - type: DatasetObject
   name: distractor_scone
   category: scone
   model: gwdhyj
   bounding_box:
+  - 0.09
+  - 0.0571841
+  - 0.0308509
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.28
+  - -0.0245745
+- type: DatasetObject
+  name: distractor_toy_figure
+  category: toy_figure
+  model: jddrck
+  bounding_box:
+  - 0.05488
+  - 0.05804
   - 0.1
-  - 0.0635379
-  - 0.0342788
   orientation:
   - 0.0
   - 0.0
@@ -80,15 +80,15 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.12
-  - -0.0228606
+  - 0.0100001
 - type: DatasetObject
-  name: distractor_zucchini
-  category: zucchini
-  model: yhhkxf
+  name: distractor_shaker
+  category: shaker
+  model: hbheag
   bounding_box:
-  - 0.1
-  - 0.0399956
-  - 0.0373848
+  - 0.0466768
+  - 0.0468726
+  - 0.12
   orientation:
   - 0.0
   - 0.0
@@ -97,7 +97,7 @@ distractors:
   relative_bbox_position:
   - 0.3
   - 0.2
-  - -0.0213076
+  - 0.02
 immutables: []
 target_state:
   rubric: put

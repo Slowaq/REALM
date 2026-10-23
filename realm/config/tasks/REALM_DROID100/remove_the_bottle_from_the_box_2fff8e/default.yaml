@@ -16,18 +16,18 @@ main_objects:
   category: bottle_of_water
   model: migvlt
   bounding_box:
-  - 0.07033
-  - 0.07033
-  - 0.22846
+  - 0.0677256
+  - 0.0677256
+  - 0.22
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.325
-  - 0.215515
+  - 0.1501
+  - 0.195
+  - 0.2460027
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,43 +35,26 @@ distractors:
   category: mug
   model: kitxam
   bounding_box:
-  - 0.064
-  - 0.08585
-  - 0.06466
+  - 0.0894584
+  - 0.12
+  - 0.0903809
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.1625
-  - 0.04733
+  - 0.28
+  - 0.455
+  - 0.0601905
 - type: DatasetObject
   name: distractor_bottle_of_mayonnaise
   category: bottle_of_mayonnaise
   model: cirpak
   bounding_box:
-  - 0.0598903
-  - 0.1
-  - 0.2329414
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.2
-  - 0.5525
-  - 0.1314707
-- type: DatasetObject
-  name: distractor_wooden_spoon
-  category: wooden_spoon
-  model: aeubta
-  bounding_box:
-  - 0.06077
-  - 0.01513
-  - 0.00395
+  - 0.0462788
+  - 0.0772727
+  - 0.18
   orientation:
   - 0.0
   - 0.0
@@ -79,26 +62,43 @@ distractors:
   - 1.0
   relative_bbox_position:
   - 0.12
-  - 0.195
-  - 0.016975
-immutables:
+  - 0.455
+  - 0.105
 - type: DatasetObject
-  name: box
-  category: storage_box
-  model: aqdbdu
+  name: distractor_jar_of_jam
+  category: jar_of_jam
+  model: vxjbjf
   bounding_box:
-  - 0.20369
-  - 0.20368
-  - 0.1434
+  - 0.0876267
+  - 0.0870046
+  - 0.12
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
+  - 0.33109
   - 0.325
-  - 0.0867
+  - 0.075
+immutables:
+- type: DatasetObject
+  name: box
+  category: storage_box
+  model: aqdbdu
+  bounding_box:
+  - 0.25
+  - 0.2499877
+  - 0.1760027
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.1501
+  - 0.195
+  - 0.1030014
 initial_state:
 - predicate: inside
   subject: bottle
@@ -133,8 +133,3 @@ provenance:
   task_id: 2fff8e25f540
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Pick the bottle from the black box and place it on the table
-  decisions:
-  - shortened to the removal (table is the support); "black" dropped (texture)
-  - bottle grounded as bottle_of_water lojipo (6.7 cm wide, graspable); cluster signature ink_bottle is a classifier artefact
-  - 'bottle_of_water migvlt (22.8 cm) in storage_box aqdbdu (14 cm deep, 20 cm wide): taller than the box is wide, so it stands
-    upright and protrudes ~9 cm (an 18.5 cm bottle was laid flat)'

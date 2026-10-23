@@ -16,45 +16,62 @@ main_objects:
   category: bottle_of_water
   model: cyzaue
   bounding_box:
-  - 0.05437
-  - 0.05078
-  - 0.17502
+  - 0.068343
+  - 0.0638304
+  - 0.22
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.06
-  - 0.25
-  - 0.01751
+  - 0.28
+  - 0.35
+  - 0.04
 target_objects:
 - type: DatasetObject
   name: bowl
   category: bowl
   model: hynhgz
   bounding_box:
-  - 0.19223
-  - 0.19223
-  - 0.11361
+  - 0.15
+  - 0.15
+  - 0.0886516
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.25
-  - -0.0131949
+  - 0.12
+  - 0.15
+  - -0.0256742
 distractors:
 - type: DatasetObject
   name: distractor_bottle_of_soda
   category: bottle_of_soda
   model: eqyqlx
   bounding_box:
-  - 0.0693
-  - 0.06002
-  - 0.22373
+  - 0.0743396
+  - 0.0643847
+  - 0.24
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.12
+  - 0.35
+  - 0.05
+- type: DatasetObject
+  name: distractor_banana
+  category: banana
+  model: verqwv
+  bounding_box:
+  - 0.19
+  - 0.0596034
+  - 0.0300105
   orientation:
   - 0.0
   - 0.0
@@ -63,41 +80,24 @@ distractors:
   relative_bbox_position:
   - 0.2
   - 0.425
-  - 0.041865
+  - -0.0549947
 - type: DatasetObject
-  name: distractor_banana
-  category: banana
-  model: verqwv
+  name: distractor_scone
+  category: scone
+  model: gwdhyj
   bounding_box:
-  - 0.1
-  - 0.0313702
-  - 0.015795
+  - 0.09
+  - 0.0571841
+  - 0.0308509
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.2
-  - 0.125
-  - -0.0621025
-- type: DatasetObject
-  name: distractor_table_knife
-  category: table_knife
-  model: nmkend
-  bounding_box:
-  - 0.1
-  - 0.0105597
-  - 0.0021863
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.2
-  - 0.375
-  - -0.0689068
+  - 0.28
+  - 0.15
+  - -0.0545745
 immutables: []
 target_state:
   rubric: put

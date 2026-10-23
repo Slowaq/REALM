@@ -16,79 +16,45 @@ main_objects:
   category: wooden_spoon
   model: gpiftn
   bounding_box:
-  - 0.18788
-  - 0.03661
-  - 0.00954
+  - 0.3
+  - 0.0584575
+  - 0.0152331
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.35
+  - 0.3249
   - 0.42
-  - -0.06523
+  - -0.0623834
 target_objects:
 - type: DatasetObject
   name: basket
   category: wicker_basket
-  model: unasxd
+  model: jqfftz
   bounding_box:
-  - 0.175541
+  - 0.2799456
   - 0.28
-  - 0.1321348
+  - 0.2577176
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.15
+  - 0.16507
   - 0.18
-  - -0.0039326
+  - 0.0588588
 distractors:
 - type: DatasetObject
   name: distractor_mouse
   category: mouse
   model: oydobn
   bounding_box:
-  - 0.0311
-  - 0.0196
-  - 0.01128
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.15
-  - 0.42
-  - -0.06436
-- type: DatasetObject
-  name: distractor_bottle_of_onion_powder
-  category: bottle_of_onion_powder
-  model: xruqod
-  bounding_box:
-  - 0.05411
-  - 0.05409
-  - 0.15346
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.35
-  - 0.18
-  - 0.00673
-- type: DatasetObject
-  name: distractor_hamburger_bun
-  category: hamburger_bun
-  model: fqxumh
-  bounding_box:
-  - 0.08664
-  - 0.08494
-  - 0.02639
+  - 0.11
+  - 0.0693248
+  - 0.0398971
   orientation:
   - 0.0
   - 0.0
@@ -97,7 +63,41 @@ distractors:
   relative_bbox_position:
   - 0.375
   - 0.3
-  - -0.056805
+  - -0.0500514
+- type: DatasetObject
+  name: distractor_bottle_of_onion_powder
+  category: bottle_of_onion_powder
+  model: xruqod
+  bounding_box:
+  - 0.038786
+  - 0.0387717
+  - 0.11
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.35
+  - 0.18
+  - -0.015
+- type: DatasetObject
+  name: distractor_hamburger_bun
+  category: hamburger_bun
+  model: fqxumh
+  bounding_box:
+  - 0.1
+  - 0.0980379
+  - 0.0304594
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.375
+  - 0.07412
+  - -0.0547703
 immutables: []
 target_state:
   rubric: put
@@ -130,6 +130,5 @@ provenance:
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Remove the blue spoon from the silver object and put it inside the basket
   decisions:
-  - the variant names a blue wooden spoon in a metal holder; the holder (an unidentified "silver object") is dropped and the
-    scored put kept
-  - wooden_spoon gpiftn ("wooden" is the category, not a texture claim), basket wicker_basket unasxd; "blue" dropped
+  - 'basket model jqfftz: square proportions so the object fits at realistic size'
+  - 'basket model jqfftz: square proportions so the object fits at realistic size'

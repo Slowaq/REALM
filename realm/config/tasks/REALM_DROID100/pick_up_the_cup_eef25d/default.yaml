@@ -16,9 +16,9 @@ main_objects:
   category: coffee_cup
   model: siksnl
   bounding_box:
-  - 0.09516
-  - 0.07883
-  - 0.07979
+  - 0.1
+  - 0.0828394
+  - 0.0838483
   orientation:
   - 0.0
   - 0.0
@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.12
   - 0.195
-  - 0.054895
+  - 0.0569242
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,9 +35,9 @@ distractors:
   category: sponge
   model: aewrov
   bounding_box:
-  - 0.1
-  - 0.0666667
-  - 0.02
+  - 0.11
+  - 0.0733333
+  - 0.022
   orientation:
   - 0.0
   - 0.0
@@ -46,15 +46,15 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.455
-  - 0.025
+  - 0.026
 - type: DatasetObject
   name: distractor_bottle_of_cocoa
   category: bottle_of_cocoa
   model: ganhpw
   bounding_box:
-  - 0.1
-  - 0.0888848
-  - 0.1190936
+  - 0.1259513
+  - 0.1119516
+  - 0.15
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.12
   - 0.455
-  - 0.0745468
+  - 0.09
 - type: DatasetObject
   name: distractor_bowl
   category: bowl
   model: kthvrl
   bounding_box:
-  - 0.09344
-  - 0.09344
-  - 0.06
+  - 0.15
+  - 0.15
+  - 0.0963185
   orientation:
   - 0.0
   - 0.0
@@ -80,7 +80,7 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.195
-  - 0.045
+  - 0.0631593
 immutables: []
 camera_extrinsics:
   cam1:

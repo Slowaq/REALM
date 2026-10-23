@@ -16,9 +16,9 @@ main_objects:
   category: marker
   model: zmimhb
   bounding_box:
-  - 0.12682
-  - 0.01519
-  - 0.01513
+  - 0.14
+  - 0.0167686
+  - 0.0167024
   orientation:
   - 0.0
   - 0.0
@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - 0.046478
+  - 0.0546866
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,9 +35,9 @@ distractors:
   category: jar_of_curry_powder
   model: ozhftu
   bounding_box:
-  - 0.06
-  - 0.0599
-  - 0.07195
+  - 0.0833912
+  - 0.0832523
+  - 0.1
   orientation:
   - 0.0
   - 0.0
@@ -46,15 +46,15 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.42
-  - -0.034025
+  - -0.02
 - type: DatasetObject
   name: distractor_bottle_of_ground_cloves
   category: bottle_of_ground_cloves
   model: vzamzb
   bounding_box:
-  - 0.06
-  - 0.06
-  - 0.07187
+  - 0.0918325
+  - 0.0918325
+  - 0.11
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.15
   - 0.42
-  - -0.034065
+  - -0.015
 - type: DatasetObject
   name: distractor_shaker
   category: shaker
   model: hbheag
   bounding_box:
-  - 0.03577
-  - 0.03592
-  - 0.09196
+  - 0.0466768
+  - 0.0468726
+  - 0.12
   orientation:
   - 0.0
   - 0.0
@@ -80,16 +80,16 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.18
-  - -0.02402
+  - -0.01
 immutables:
 - type: DatasetObject
   name: pot
   category: saucepot
   model: uvzmss
   bounding_box:
-  - 0.2079007
-  - 0.28
-  - 0.103913
+  - 0.2227508
+  - 0.3
+  - 0.1113354
   orientation:
   - 0.0
   - 0.0
@@ -98,7 +98,7 @@ immutables:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - -0.0180435
+  - -0.0143323
 initial_state:
 - predicate: inside
   subject: marker

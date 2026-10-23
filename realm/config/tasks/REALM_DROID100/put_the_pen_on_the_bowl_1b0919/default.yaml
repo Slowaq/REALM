@@ -16,9 +16,9 @@ main_objects:
   category: pen
   model: enfumt
   bounding_box:
-  - 0.17455
-  - 0.01021
-  - 0.0158
+  - 0.14
+  - 0.0081891
+  - 0.0126726
   orientation:
   - 0.0
   - 0.0
@@ -27,16 +27,16 @@ main_objects:
   relative_bbox_position:
   - 0.28
   - 0.42
-  - -0.0871
+  - -0.0886637
 target_objects:
 - type: DatasetObject
   name: bowl
   category: bowl
   model: aspeds
   bounding_box:
-  - 0.1451
-  - 0.14509
-  - 0.0543
+  - 0.15
+  - 0.1499897
+  - 0.0561337
   orientation:
   - 0.0
   - 0.0
@@ -45,16 +45,16 @@ target_objects:
   relative_bbox_position:
   - 0.12
   - 0.18
-  - -0.0678499
+  - -0.0669331
 distractors:
 - type: DatasetObject
   name: distractor_bottle_of_beer
   category: bottle_of_beer
   model: rdnopv
   bounding_box:
-  - 0.05661
-  - 0.05653
-  - 0.20525
+  - 0.0634363
+  - 0.0633467
+  - 0.23
   orientation:
   - 0.0
   - 0.0
@@ -63,32 +63,32 @@ distractors:
   relative_bbox_position:
   - 0.12
   - 0.42
-  - 0.007625
+  - 0.0200001
 - type: DatasetObject
   name: distractor_wooden_spoon
   category: wooden_spoon
   model: aeubta
   bounding_box:
-  - 0.06077
-  - 0.01513
-  - 0.00395
+  - 0.3
+  - 0.0746915
+  - 0.0194998
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.28
-  - 0.18
-  - -0.093025
+  - 0.2
+  - 0.51
+  - -0.0852501
 - type: DatasetObject
   name: distractor_table_knife
   category: table_knife
   model: nmkend
   bounding_box:
-  - 0.1
-  - 0.0105597
-  - 0.0021863
+  - 0.22
+  - 0.0232313
+  - 0.0048098
   orientation:
   - 0.0
   - 0.0
@@ -97,7 +97,7 @@ distractors:
   relative_bbox_position:
   - 0.2
   - 0.3
-  - -0.0939068
+  - -0.0925951
 immutables: []
 target_state:
   rubric: stack

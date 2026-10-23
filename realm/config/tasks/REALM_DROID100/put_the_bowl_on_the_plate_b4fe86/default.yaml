@@ -16,9 +16,9 @@ main_objects:
   category: bowl
   model: kthvrl
   bounding_box:
-  - 0.09344
-  - 0.09344
-  - 0.06
+  - 0.15
+  - 0.15
+  - 0.0963185
   orientation:
   - 0.0
   - 0.0
@@ -27,34 +27,34 @@ main_objects:
   relative_bbox_position:
   - 0.28
   - 0.42
-  - -0.065
+  - -0.0468407
 target_objects:
 - type: DatasetObject
   name: plate
   category: plate
   model: aewthq
   bounding_box:
-  - 0.17043
-  - 0.17043
-  - 0.01948
+  - 0.22
+  - 0.22
+  - 0.0251458
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.12
+  - 0.1351
   - 0.18
-  - -0.08526
+  - -0.0824271
 distractors:
 - type: DatasetObject
   name: distractor_drill
   category: drill
   model: nzgmza
   bounding_box:
-  - 0.0372288
-  - 0.1
-  - 0.1252306
+  - 0.0743205
+  - 0.1996317
+  - 0.25
   orientation:
   - 0.0
   - 0.0
@@ -63,7 +63,7 @@ distractors:
   relative_bbox_position:
   - 0.12
   - 0.42
-  - -0.0323847
+  - 0.0300001
 - type: DatasetObject
   name: distractor_pocketknife
   category: pocketknife
@@ -78,17 +78,17 @@ distractors:
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.28
-  - 0.18
+  - 0.3249
+  - 0.3
   - -0.0920768
 - type: DatasetObject
   name: distractor_jar_of_dill_seed
   category: jar_of_dill_seed
   model: reavkt
   bounding_box:
-  - 0.06244
-  - 0.06151
-  - 0.07418
+  - 0.0841736
+  - 0.0829199
+  - 0.1
   orientation:
   - 0.0
   - 0.0
@@ -96,8 +96,8 @@ distractors:
   - 1.0
   relative_bbox_position:
   - 0.3
-  - 0.3
-  - -0.05791
+  - 0.06656
+  - -0.045
 immutables: []
 target_state:
   rubric: stack
@@ -130,6 +130,4 @@ provenance:
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Remove the white bowl from the plate and put it on the cupboard
   decisions:
-  - the lead removes the bowl to a cupboard (no cupboard support on the tabletop); the variant "put it on the plate" is the
-    scoreable stack
-  - bowl kthvrl (9.3 cm), plate aewthq (17 cm)
+  - 'plate sized 0.22 m: side plate, so plate, bowl and clutter fit the table'

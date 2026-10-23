@@ -16,9 +16,9 @@ main_objects:
   category: shears
   model: iizidc
   bounding_box:
-  - 0.12755
-  - 0.04904
-  - 0.00451
+  - 0.2
+  - 0.0768953
+  - 0.0070717
   orientation:
   - 0.0
   - 0.0
@@ -27,16 +27,16 @@ main_objects:
   relative_bbox_position:
   - 0.35
   - 0.42
-  - -0.067745
+  - -0.0664641
 target_objects:
 - type: DatasetObject
   name: container
   category: tupperware
   model: mkstwr
   bounding_box:
-  - 0.21893
-  - 0.21893
-  - 0.13605
+  - 0.18
+  - 0.18
+  - 0.1118577
   orientation:
   - 0.0
   - 0.0
@@ -45,16 +45,16 @@ target_objects:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - -0.001975
+  - -0.0140711
 distractors:
 - type: DatasetObject
   name: distractor_teaspoon
   category: teaspoon
   model: wzsvzv
   bounding_box:
-  - 0.09894
-  - 0.02218
-  - 0.0078
+  - 0.14
+  - 0.0313847
+  - 0.011037
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.15
   - 0.42
-  - -0.0661
+  - -0.0644815
 - type: DatasetObject
   name: distractor_blackboard_eraser
   category: blackboard_eraser
   model: oynrtw
   bounding_box:
-  - 0.1
-  - 0.0333333
-  - 0.0242267
+  - 0.15
+  - 0.05
+  - 0.03634
   orientation:
   - 0.0
   - 0.0
@@ -80,15 +80,15 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.18
-  - -0.0578866
+  - -0.05183
 - type: DatasetObject
   name: distractor_bottle_of_liquid_soap
   category: bottle_of_liquid_soap
   model: bhquvg
   bounding_box:
-  - 0.1
-  - 0.0426254
-  - 0.0243745
+  - 0.18
+  - 0.0767257
+  - 0.0438741
   orientation:
   - 0.0
   - 0.0
@@ -97,7 +97,7 @@ distractors:
   relative_bbox_position:
   - 0.375
   - 0.3
-  - -0.0578127
+  - -0.0480629
 immutables: []
 target_state:
   rubric: put

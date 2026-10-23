@@ -16,9 +16,9 @@ main_objects:
   category: toy_figure
   model: fekpjq
   bounding_box:
-  - 0.10324
-  - 0.11427
-  - 0.08317
+  - 0.0903474
+  - 0.1
+  - 0.0727838
   orientation:
   - 0.0
   - 0.0
@@ -27,7 +27,7 @@ main_objects:
   relative_bbox_position:
   - 0.12
   - 0.195
-  - 0.1679273
+  - 0.1653307
 target_objects: []
 distractors:
 - type: DatasetObject
@@ -35,9 +35,9 @@ distractors:
   category: bottle_of_aspirin
   model: psvktc
   bounding_box:
-  - 0.04428
-  - 0.04428
-  - 0.08861
+  - 0.0399774
+  - 0.0399774
+  - 0.08
   orientation:
   - 0.0
   - 0.0
@@ -46,15 +46,15 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.455
-  - 0.059305
+  - 0.055
 - type: DatasetObject
   name: distractor_sushi
   category: sushi
   model: akpnxn
   bounding_box:
-  - 0.03544
-  - 0.03626
-  - 0.02413
+  - 0.0586431
+  - 0.06
+  - 0.0399283
   orientation:
   - 0.0
   - 0.0
@@ -63,24 +63,24 @@ distractors:
   relative_bbox_position:
   - 0.12
   - 0.455
-  - 0.027065
+  - 0.0349642
 - type: DatasetObject
   name: distractor_parer
   category: parer
   model: zpkhwi
   bounding_box:
-  - 0.1
-  - 0.0126275
-  - 0.0067316
+  - 0.18
+  - 0.0227295
+  - 0.0121169
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.28
-  - 0.195
-  - 0.0183658
+  - 0.2
+  - 0.5525
+  - 0.0210585
 immutables:
 - type: DatasetObject
   name: basket

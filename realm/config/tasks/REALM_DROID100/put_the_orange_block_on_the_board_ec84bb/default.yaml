@@ -8,8 +8,8 @@ instruction_obj_to_replace: orange block
 instruction_target_to_replace: board
 instruction_verb_to_replace: stack
 supported_scenes:
-  Benevolence_1_int:
-  - Dining_Table
+  Pomaria_1_int:
+  - Kitchen_Counter
 main_objects:
 - type: PrimitiveObject
   name: orange_block
@@ -33,79 +33,79 @@ main_objects:
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.15
-  - 0.2
-  - -0.055
+  - 0.3
+  - 0.25
+  - -0.045
 target_objects:
 - type: DatasetObject
   name: board
   category: chopping_board
   model: ktxcvz
   bounding_box:
-  - 0.1790401
-  - 0.28
-  - 0.0167047
+  - 0.2238001
+  - 0.35
+  - 0.0208808
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.3
-  - 0.2
-  - -0.0716476
+  - 0.137
+  - 0.2001
+  - -0.0595596
 distractors:
 - type: DatasetObject
   name: distractor_can_of_corn
   category: can_of_corn
   model: pddtfk
   bounding_box:
-  - 0.08599
-  - 0.08598
-  - 0.0906
+  - 0.1044029
+  - 0.1043907
+  - 0.11
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.45
+  - 0.32
+  - 0.0773
+  - -0.015
+- type: DatasetObject
+  name: distractor_tablespoon
+  category: tablespoon
+  model: mwzxal
+  bounding_box:
+  - 0.19
+  - 0.0349636
+  - 0.0148712
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
   - 0.2
-  - -0.0347
+  - 0.425
+  - -0.0625644
 - type: DatasetObject
-  name: distractor_tweezers
-  category: tweezers
-  model: ngwoat
+  name: distractor_bottle_of_alfredo_sauce
+  category: bottle_of_alfredo_sauce
+  model: xwzqjr
   bounding_box:
-  - 0.00485
-  - 0.03209
-  - 0.0025
+  - 0.0786404
+  - 0.0786404
+  - 0.15
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.18
-  - 0.12
-  - -0.07875
-- type: DatasetObject
-  name: distractor_mouse
-  category: mouse
-  model: oydobn
-  bounding_box:
-  - 0.0311
-  - 0.0196
-  - 0.01128
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.42
-  - 0.28
-  - -0.07436
+  - 0.32
+  - 0.35
+  - 0.005
 immutables: []
 target_state:
   rubric: stack

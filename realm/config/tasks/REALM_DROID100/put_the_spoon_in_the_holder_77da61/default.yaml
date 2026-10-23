@@ -16,9 +16,9 @@ main_objects:
   category: teaspoon
   model: piqabk
   bounding_box:
-  - 0.14718
-  - 0.03145
-  - 0.01591
+  - 0.14
+  - 0.0299157
+  - 0.0151338
   orientation:
   - 0.0
   - 0.0
@@ -27,16 +27,16 @@ main_objects:
   relative_bbox_position:
   - 0.35
   - 0.42
-  - -0.062045
+  - -0.0624331
 target_objects:
 - type: DatasetObject
   name: holder
   category: pencil_holder
   model: eodvyo
   bounding_box:
-  - 0.09876
-  - 0.09876
-  - 0.14196
+  - 0.0695689
+  - 0.0695689
+  - 0.1
   orientation:
   - 0.0
   - 0.0
@@ -45,16 +45,16 @@ target_objects:
   relative_bbox_position:
   - 0.15
   - 0.18
-  - 0.00098
+  - -0.02
 distractors:
 - type: DatasetObject
   name: distractor_bottle_of_black_pepper
   category: bottle_of_black_pepper
   model: honise
   bounding_box:
-  - 0.04484
-  - 0.04782
-  - 0.10726
+  - 0.0459855
+  - 0.0490416
+  - 0.11
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.15
   - 0.42
-  - -0.01637
+  - -0.015
 - type: DatasetObject
   name: distractor_jug
   category: jug
   model: gjgwvi
   bounding_box:
-  - 0.0716459
-  - 0.1
-  - 0.152124
+  - 0.1177426
+  - 0.1643396
+  - 0.25
   orientation:
   - 0.0
   - 0.0
@@ -80,24 +80,24 @@ distractors:
   relative_bbox_position:
   - 0.35
   - 0.18
-  - 0.006062
+  - 0.0550001
 - type: DatasetObject
   name: distractor_jar_of_cocoa
   category: jar_of_cocoa
   model: sjwgfn
   bounding_box:
-  - 0.1
-  - 0.0973557
-  - 0.1305627
+  - 0.099569
+  - 0.0969361
+  - 0.13
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.25
+  - 0.125
   - 0.3
-  - -0.0047186
+  - -0.005
 immutables: []
 target_state:
   rubric: put

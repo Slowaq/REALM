@@ -8,8 +8,8 @@ instruction_obj_to_replace: towel
 instruction_target_to_replace: bowl
 instruction_verb_to_replace: put
 supported_scenes:
-  Wainscott_0_int:
-  - Dining_Table
+  Pomaria_1_int:
+  - Kitchen_Counter
 main_objects:
 - type: DatasetObject
   name: towel
@@ -25,8 +25,8 @@ main_objects:
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.35
-  - 0.42
+  - 0.2
+  - 0.375
   - -0.0580354
 target_objects:
 - type: DatasetObject
@@ -34,70 +34,70 @@ target_objects:
   category: bowl
   model: hynhgz
   bounding_box:
-  - 0.19223
-  - 0.19223
-  - 0.11361
+  - 0.24
+  - 0.24
+  - 0.1418426
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
+  - 0.1451
   - 0.15
-  - 0.18
-  - -0.0131949
+  - 0.0009213
 distractors:
 - type: DatasetObject
   name: distractor_bottle_of_powder
   category: bottle_of_powder
   model: vfabau
   bounding_box:
-  - 0.08228
-  - 0.06173
-  - 0.21113
+  - 0.0467655
+  - 0.0350855
+  - 0.12
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.15
-  - 0.42
-  - 0.035565
+  - 0.34
+  - 0.25
+  - -0.01
 - type: DatasetObject
   name: distractor_allen_wrench
   category: allen_wrench
   model: neqlcn
   bounding_box:
-  - 0.1
-  - 0.021601
-  - 0.0037431
+  - 0.08
+  - 0.0172808
+  - 0.0029945
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.35
-  - 0.18
-  - -0.0681284
+  - 0.32
+  - 0.03374
+  - -0.0685027
 - type: DatasetObject
-  name: distractor_pruner
-  category: pruner
-  model: lucqrs
+  name: distractor_can_of_cat_food
+  category: can_of_cat_food
+  model: omiuox
   bounding_box:
-  - 0.0293
-  - 0.06691
-  - 0.22791
+  - 0.0493589
+  - 0.0493589
+  - 0.08
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.25
-  - 0.45
-  - 0.043955
+  - 0.32
+  - 0.1
+  - -0.03
 immutables: []
 target_state:
   rubric: put
@@ -130,4 +130,7 @@ provenance:
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Put the towel in the bowl
   decisions:
-  - towel grounded as dishtowel dtfspn (folded, authored at the hand-object ceiling); bowl hynhgz (19 cm)
+  - 'towel sized 0.16 m: dish towel folded in quarters'
+  - 'bowl sized 0.24 m: large serving bowl that holds a folded towel'
+  - 'towel sized 0.16 m: dish towel folded in quarters'
+  - 'bowl sized 0.24 m: large serving bowl that holds a folded towel'

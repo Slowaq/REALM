@@ -16,9 +16,9 @@ main_objects:
   category: tennis_ball
   model: rgekxe
   bounding_box:
-  - 0.06673
-  - 0.06584
-  - 0.06598
+  - 0.067
+  - 0.0661064
+  - 0.066247
   orientation:
   - 0.0
   - 0.0
@@ -27,16 +27,16 @@ main_objects:
   relative_bbox_position:
   - 0.28
   - 0.28
-  - -0.00701
+  - -0.0068765
 target_objects:
 - type: DatasetObject
   name: bowl
   category: bowl
   model: jblalf
   bounding_box:
-  - 0.16932
-  - 0.16932
-  - 0.081
+  - 0.15
+  - 0.15
+  - 0.0717576
   orientation:
   - 0.0
   - 0.0
@@ -45,33 +45,50 @@ target_objects:
   relative_bbox_position:
   - 0.12
   - 0.12
-  - 0.0005001
+  - -0.0041211
 distractors:
 - type: DatasetObject
   name: distractor_bottle_of_conditioner
   category: bottle_of_conditioner
   model: teafxb
   bounding_box:
-  - 0.1
-  - 0.0405229
-  - 0.0191148
+  - 0.2
+  - 0.0810458
+  - 0.0382296
   orientation:
   - 0.0
   - 0.0
   - 0.0
   - 1.0
   relative_bbox_position:
-  - 0.12
+  - 0.1251
   - 0.28
-  - -0.0304426
+  - -0.0208852
 - type: DatasetObject
   name: distractor_stapler
   category: stapler
   model: kgnsas
   bounding_box:
-  - 0.08743
-  - 0.01823
-  - 0.04502
+  - 0.15
+  - 0.0312764
+  - 0.0772389
+  orientation:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  relative_bbox_position:
+  - 0.2999
+  - 0.2
+  - -0.0013805
+- type: DatasetObject
+  name: distractor_jar_of_dill_seed
+  category: jar_of_dill_seed
+  model: reavkt
+  bounding_box:
+  - 0.0841736
+  - 0.0829199
+  - 0.1
   orientation:
   - 0.0
   - 0.0
@@ -80,24 +97,7 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.12
-  - -0.01749
-- type: DatasetObject
-  name: distractor_jar_of_dill_seed
-  category: jar_of_dill_seed
-  model: reavkt
-  bounding_box:
-  - 0.06244
-  - 0.06151
-  - 0.07418
-  orientation:
-  - 0.0
-  - 0.0
-  - 0.0
-  - 1.0
-  relative_bbox_position:
-  - 0.3
-  - 0.2
-  - -0.00291
+  - 0.0100001
 immutables: []
 target_state:
   rubric: put

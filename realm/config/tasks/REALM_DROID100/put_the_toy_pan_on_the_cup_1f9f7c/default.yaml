@@ -34,9 +34,9 @@ target_objects:
   category: mug
   model: yxaapv
   bounding_box:
-  - 0.09136
-  - 0.12817
-  - 0.1242
+  - 0.0855364
+  - 0.12
+  - 0.1162831
   orientation:
   - 0.0
   - 0.0
@@ -45,16 +45,16 @@ target_objects:
   relative_bbox_position:
   - 0.28
   - 0.28
-  - 0.0221001
+  - 0.0181416
 distractors:
 - type: DatasetObject
   name: distractor_bottle_of_almond_oil
   category: bottle_of_almond_oil
   model: nlokfa
   bounding_box:
-  - 0.0652
-  - 0.0654
-  - 0.22197
+  - 0.0587467
+  - 0.0589269
+  - 0.2
   orientation:
   - 0.0
   - 0.0
@@ -63,15 +63,15 @@ distractors:
   relative_bbox_position:
   - 0.12
   - 0.28
-  - 0.0709851
+  - 0.06
 - type: DatasetObject
   name: distractor_jar_of_spaghetti_sauce
   category: jar_of_spaghetti_sauce
   model: zahyds
   bounding_box:
-  - 0.06496
-  - 0.06496
-  - 0.10621
+  - 0.1039751
+  - 0.1039751
+  - 0.17
   orientation:
   - 0.0
   - 0.0
@@ -80,15 +80,15 @@ distractors:
   relative_bbox_position:
   - 0.28
   - 0.12
-  - 0.013105
+  - 0.0450001
 - type: DatasetObject
   name: distractor_tweezers
   category: tweezers
   model: ngwoat
   bounding_box:
-  - 0.00485
-  - 0.03209
-  - 0.0025
+  - 0.0151137
+  - 0.1
+  - 0.0077906
   orientation:
   - 0.0
   - 0.0
@@ -97,7 +97,7 @@ distractors:
   relative_bbox_position:
   - 0.2
   - 0.2
-  - -0.03875
+  - -0.0361047
 immutables: []
 target_state:
   rubric: stack
@@ -130,5 +130,4 @@ provenance:
   ranking_id: droid-clusters-1chunks-v1
   original_instruction: Pick up the toy pan and put on the black cup
   decisions:
-  - toy pan grounded as a frying_pan authored at the 14 cm hand-object ceiling (a toy-sized pan); "black" dropped
-  - cup grounded as mug yxaapv (9 cm wide), wide enough to support the toy pan at the stack margin
+  - 'toy_pan sized 0.14 m: a toy pan, as the instruction says'

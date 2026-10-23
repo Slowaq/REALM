@@ -259,9 +259,20 @@ def vertical_extent(bbox: list[float], orientation: list[float] | None) -> float
 
 
 def oriented_footprint(bbox: list[float], orientation: list[float] | None) -> tuple[float, float]:
-    """XY extent after a yaw of 0 or 90 degrees; any other yaw uses the circumscribed extent."""
+    """XY extent after a yaw of 0 or 90 degrees; any other yaw uses the circumscribed extent.
+
+    An object with roll or pitch (a chopstick standing in a cup) is measured through its full
+    rotation: read as if it were lying, a standing 23 cm chopstick overhung the table edge.
+    """
     if orientation is None:
         return bbox[0], bbox[1]
+    if not yaw_only(orientation):
+        x, y, z, w = (float(v) for v in orientation)
+        rows = (
+            (1 - 2 * (y * y + z * z), 2 * (x * y - w * z), 2 * (x * z + w * y)),
+            (2 * (x * y + w * z), 1 - 2 * (x * x + z * z), 2 * (y * z - w * x)),
+        )
+        return tuple(sum(abs(r) * float(b) for r, b in zip(row, bbox)) for row in rows)
     z, w = float(orientation[2]), float(orientation[3])
     yaw = 2 * math.atan2(z, w)
     if abs(math.sin(yaw)) > 0.99:
@@ -777,6 +788,42 @@ def check_relations(document: dict) -> list[Finding]:
     return findings
 
 
+#: Lower than this, an object lying on a surface gives the parallel gripper nothing to close on:
+#: its fingertips meet the surface first. At realistic size a chocolate bar lies 0.59 cm high and is
+#: not graspable from a table, while scissors (0.78 cm) and pens (~1 cm) are, and must stay in the
+#: benchmark. The same threshold judges the settled scene in render_review (GRASP_INFEASIBLE).
+GRASP_MIN_HEIGHT_M = 0.007
+
+
+def check_main_graspable(document: dict) -> list[Finding]:
+    """Is the task doable at all: can the gripper close on the main object as it starts?"""
+    findings = []
+    objects = {str(config.get("name")): config for _, _, config in all_objects(document)}
+    for index, main in enumerate(document.get("main_objects") or []):
+        bbox = bbox_of(main)
+        if bbox is None:
+            continue
+        # Resting ON something narrower than itself (a plate across a bowl) it overhangs: the fingers
+        # close under the overhang, however thin it is.
+        support = next((objects.get(str(e.get("object"))) for e in document.get("initial_state") or []
+                        if isinstance(e, dict) and e.get("predicate") == "on_top_of"
+                        and str(e.get("subject")) == str(main.get("name"))), None)
+        support_bbox = bbox_of(support) if support else None
+        if support_bbox and min(bbox[:2]) > min(support_bbox[:2]):
+            continue
+        height = vertical_extent(bbox, main.get("orientation"))
+        if height < GRASP_MIN_HEIGHT_M:
+            name = str(main.get("name"))
+            findings.append(Finding(
+                "GRASP_INFEASIBLE", "error",
+                f"{name!r} starts only {height * 100:.2f} cm high: the gripper's fingertips reach the "
+                f"surface before they reach the object, so the task cannot be done. Choose a model whose "
+                f"proportions give it a graspable edge, or start it leaning in a container",
+                obj=name, path=f"main_objects[{index}]",
+            ))
+    return findings
+
+
 def check_target_state(document: dict) -> list[Finding]:
     """`target_state` documents what the author believes success means; the rubric is the truth.
 
@@ -899,6 +946,7 @@ def validate(document: dict, *, task: str = "<draft>",
         *check_relations(document),
         *check_target_state(document),
         *check_instruction_closure(document),
+        *check_main_graspable(document),
     ]
     if profile == "authored":
         for finding in findings:

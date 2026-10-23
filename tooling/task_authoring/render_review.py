@@ -228,6 +228,29 @@ def relation_findings(rows: list[dict], relations: list[tuple[str, str, str]]) -
     return findings
 
 
+def grasp_findings(rows: list[dict], main_names: list[str], overhanging: set | None = None) -> list[dict]:
+    """The final doability check: after settling, can the gripper close on the main object at all?
+
+    Judged from the SETTLED world AABB, so it also catches an object that tipped flat or slid down
+    into a slot. Same threshold as the host check (validation.GRASP_MIN_HEIGHT_M).
+    """
+    from tooling.task_authoring.validation import GRASP_MIN_HEIGHT_M
+
+    findings = []
+    for row in rows:
+        if row.get("name") not in main_names or not row.get("present") or row.get("name") in (overhanging or set()):
+            continue
+        low, high = row.get("settled_aabb_low"), row.get("settled_aabb_high")
+        if not low or not high:
+            continue
+        height = float(high[2]) - float(low[2])
+        if height < GRASP_MIN_HEIGHT_M:
+            findings.append({"code": "GRASP_INFEASIBLE", "object": row["name"],
+                             "reason": (f"settled only {height * 100:.2f} cm high: the fingertips meet "
+                                        f"the surface before the object; the task cannot be done")})
+    return findings
+
+
 def declared_resting(task_cfg_path: str) -> set:
     """Names the task YAML declares on/in another object (initial_state subjects)."""
     import yaml
@@ -774,6 +797,17 @@ def review_one(task_cfg_path: str, out_dir: Path, *, robot: str = "DROID_mounted
         record["renders"] += paths
         record["render_errors"] += errors
         main_names = [str(o.get("name")) for o in env.cfg.get("main_objects") or []]
+        # A main object declared on top of something and still on it (no LEFT_SUPPORT) is held off
+        # the table by that support, so its edge is reachable however thin it is.
+        # ...but only when it overhangs that support (a plate across a bowl); a bar lying on a wide
+        # tray is as ungraspable as on the table.
+        left = {f["object"] for f in record["compute_findings"] if f["code"] == "LEFT_SUPPORT"}
+        bboxes = {row["name"]: row.get("bbox") for row in rows if row.get("bbox")}
+        on_support = {subject for predicate, subject, support in declared_relations(task_cfg_path)
+                      if predicate == "on_top_of" and subject not in left
+                      and bboxes.get(subject) and bboxes.get(support)
+                      and min(bboxes[subject][:2]) > min(bboxes[support][:2])}
+        record["compute_findings"] += grasp_findings(rows, main_names, on_support)
         record["visibility"], record["visibility_errors"] = visibility_probe(env, main_names)
         for name in main_names:
             record["compute_findings"] += visibility_findings(record["visibility"], name, LOW_CONTRAST_MIN)
@@ -782,7 +816,7 @@ def review_one(task_cfg_path: str, out_dir: Path, *, robot: str = "DROID_mounted
         # PHYSICS_FROZEN is reported, not failed: hand-authored configs (REALM_DROID10's drawers,
         # switch, pour) place every object already at rest, so nothing moving is legitimate there.
         hard = {"MISSING", "UNSTABLE", "PENETRATION", "DROPPED", "TIPPED", "LEFT_CONTAINER",
-                "LEFT_SUPPORT"}
+                "LEFT_SUPPORT", "GRASP_INFEASIBLE"}
         failed = any(finding["code"] in hard for finding in record["compute_findings"])
         record["verdict"] = "FAIL" if (failed or record["no_images"]) else "PASS"
     except Exception as error:

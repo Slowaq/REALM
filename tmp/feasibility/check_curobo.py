@@ -90,7 +90,7 @@ def level2(rec: dict) -> None:
         tensor_args.to_device([[0.0, -1.3, 0.0, -2.5, 0.0, 1.0, 0.0]]),
         joint_names=[f"panda_joint{i}" for i in range(1, 8)])
     # Keep the start orientation (from FK) so the test does not depend on panda_hand's frame convention.
-    start_quat = mg.compute_kinematics(start).ee_quaternion[:1].clone()
+    start_quat = mg.compute_kinematics(start).ee_quat_seq.reshape(-1, 4)[:1].clone()
     rec["plans"] = []
     # one goal in front of the wall, one behind it (forces the planner around the obstacle)
     for name, pos in [("open_space", [0.35, 0.30, 0.25]), ("behind_wall", [0.60, 0.0, 0.15])]:

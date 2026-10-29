@@ -36,7 +36,8 @@ def load_report(run_dir):
         with open(os.path.join(rep_dir, fn)) as f:
             for row in csv.DictReader(f):
                 try:
-                    out[int(row["run_id"])] = (float(row["task_progression"]), row["stage"])
+                    key = (row["task"], row["perturbation"], int(row["run_id"]))
+                    out[key] = (float(row["task_progression"]), row["stage"])
                 except (KeyError, ValueError):
                     pass
     return out
@@ -69,7 +70,7 @@ def main():
                 print(f"  {pq}: not an MP4 container (magic {bytes(blob[:8])!r}) -- skipped")
                 continue
             idx = int(row.get("repeat", written))
-            tp, stage = report.get(idx, (None, None))
+            tp, stage = report.get((row["task"], row["perturbation"], idx), (None, None))
             tag = f"_TP{tp:.2f}_{stage}" if tp is not None else ""
             name = f"{args.prefix}{row['task']}_{row['perturbation']}_run{idx:03d}{tag}.mp4"
             with open(os.path.join(outdir, name), "wb") as f:

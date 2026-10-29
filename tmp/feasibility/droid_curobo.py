@@ -263,7 +263,8 @@ def s4_spheres(robot, info):
         big = mesh.extents.max() > 0.06
         fitted = None
         try:
-            c, r, _ = greedy_spheres(mesh, max_n=32 if big else 12, overhang=0.008 if big else 0.003)
+            max_n = 48 if mesh.extents.max() > 0.15 else (32 if big else 12)
+            c, r, _ = greedy_spheres(mesh, max_n=max_n, overhang=0.008 if big else 0.003)
             if len(r):
                 fitted = (c, r, "greedy_inscribed")
         except Exception as error:
@@ -472,8 +473,18 @@ def s7_load(env, yml, usd, base_link, spheres):
     from omnigibson.action_primitives.curobo import CuRoboMotionGenerator
     robot = env.robot
     t0 = time.time()
-    cmg = CuRoboMotionGenerator(robot, robot_cfg_path=yml, robot_usd_path=usd["path"],
-                                use_default_embodiment_only=True, batch_size=1)
+    # batch_size=2 is OmniGibson's own default (the path its warmup asserts are exercised on). If the
+    # post-warmup CUDA-graph asserts still fire, retry once without CUDA graphs and record why.
+    try:
+        cmg = CuRoboMotionGenerator(robot, robot_cfg_path=yml, robot_usd_path=usd["path"],
+                                    use_default_embodiment_only=True, batch_size=2)
+        REC["cuda_graph"] = True
+    except AssertionError:
+        REC["load_first_try_traceback"] = traceback.format_exc()
+        print(REC["load_first_try_traceback"])
+        cmg = CuRoboMotionGenerator(robot, robot_cfg_path=yml, robot_usd_path=usd["path"],
+                                    use_default_embodiment_only=True, batch_size=2, use_cuda_graph=False)
+        REC["cuda_graph"] = False
     REC["load_s"] = round(time.time() - t0, 1)
     mg = cmg.mg[E.DEFAULT]
     REC["curobo_joint_names"] = list(mg.kinematics.joint_names)
@@ -637,6 +648,9 @@ def main() -> int:
     keys = ["stages", "usd", "tcp", "sphere_total", "reset_collision", "reset_self_overlaps_not_ignored",
             "fk_reset", "fk_worst", "plans", "problems", "verdict"]
     summary = {k: REC.get(k) for k in keys}
+    summary["cuda_graph"] = REC.get("cuda_graph")
+    for k in [k for k in REC if k.endswith("traceback")]:
+        summary[k + "_tail"] = REC[k].strip().splitlines()[-6:]
     summary["sphere_table"] = {l: f"{e.get('source')} n={e.get('fitted_n') if e.get('source') == 'fitted' else e.get('franka_n')}"
                                   f" cov={e.get('coverage')} gap={e.get('gap')} (fitted {e.get('fitted_cov')}, franka {e.get('franka_cov')})"
                                for l, e in (REC.get("spheres") or {}).items()}

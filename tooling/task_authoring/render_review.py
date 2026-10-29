@@ -730,10 +730,19 @@ def _set_cast_shadows(obj, cast: bool) -> bool:
     could not be set; the probe then still runs, shadow included, and says so.
     """
     try:
+        import contextlib
+
+        import omnigibson as og
         from pxr import Sdf, Usd, UsdGeom
 
-        for prim in Usd.PrimRange(obj.prim):
-            if prim.IsA(UsdGeom.Gprim):
+        gprims = [prim for prim in Usd.PrimRange(obj.prim) if prim.IsA(UsdGeom.Gprim)]
+        # OG 3.9.1 (Fabric Scene Delegate) only accepts raw USD writes inside editing_usd(): a
+        # notice listener records an edit made outside it and re-raises it from a LATER call, which
+        # is how the first version of this probe lost every measurement. The context must not be
+        # nested, so nothing in here may call an OmniGibson setter (obj.visible opens its own).
+        editing = getattr(og.sim, "editing_usd", None)
+        with (editing() if editing is not None else contextlib.nullcontext()):
+            for prim in gprims:
                 primvar = UsdGeom.PrimvarsAPI(prim).CreatePrimvar("doNotCastShadows", Sdf.ValueTypeNames.Bool)
                 primvar.Set(not cast)
         return True
@@ -814,6 +823,11 @@ def visibility_findings(visibility: dict, main: str, min_contrast: float | None 
     external = {cam: v for cam, v in views.items() if cam.startswith("external")}
     seen = {cam: v for cam, v in views.items() if (v.get("pixels") or 0) >= VISIBLE_MIN_PX}
     findings = []
+    if not external:
+        # A probe that measured nothing must not read as "visible": the smoke test of 916d13b
+        # passed both tasks with an empty visibility block.
+        return [{"code": "VISIBILITY_UNMEASURED", "object": main,
+                 "reason": "no external camera has a visibility measurement; see visibility_errors"}]
     if external and not any((v.get("pixels") or 0) >= VISIBLE_MIN_PX for v in external.values()):
         findings.append({"code": "NOT_VISIBLE", "object": main,
                          "reason": f"fewer than {VISIBLE_MIN_PX} px in every external camera"})
@@ -1022,6 +1036,8 @@ def _report(record: dict) -> None:
         print(f"  {finding['code']:<12} [{finding['object']}] {finding['reason']}", flush=True)
     for error in record.get("render_errors") or []:
         print(f"  {'RENDER':<12} {error}", flush=True)
+    for error in record.get("visibility_errors") or []:
+        print(f"  {'VISIBILITY':<12} {error}", flush=True)
     if record.get("error"):
         print(f"  ERROR {record['error']}", flush=True)
 

@@ -696,6 +696,61 @@ class VisibilityProbeTest(unittest.TestCase):
         mask, _ = rr.change_mask(speckled, base)
         self.assertEqual(int(mask.sum()), 0)
 
+    def test_an_empty_measurement_is_reported_not_passed(self):
+        from tooling.task_authoring import render_review as rr
+
+        self.assertEqual([f["code"] for f in rr.visibility_findings({}, "marker")], ["VISIBILITY_UNMEASURED"])
+        wrist_only = {"marker": {"robot/robot:link:Camera:0": {"pixels": 500, "contrast": 0.3}}}
+        self.assertEqual([f["code"] for f in rr.visibility_findings(wrist_only, "marker")],
+                         ["VISIBILITY_UNMEASURED"])
+
+    def test_shadow_edit_happens_inside_editing_usd_and_is_not_nested(self):
+        import sys
+        import types
+
+        from tooling.task_authoring import render_review as rr
+
+        log = []
+
+        class Editing:
+            depth = 0
+
+            def __enter__(self):
+                Editing.depth += 1
+                assert Editing.depth == 1, "editing_usd nested"
+                log.append("enter")
+
+            def __exit__(self, *exc):
+                Editing.depth -= 1
+                log.append("exit")
+
+        class Primvar:
+            def Set(self, value):
+                log.append(("set", value, Editing.depth))
+
+        class Gprim:
+            def IsA(self, kind):
+                return True
+
+        usd_geom = types.SimpleNamespace(
+            Gprim=object, PrimvarsAPI=lambda prim: types.SimpleNamespace(CreatePrimvar=lambda *a: Primvar()))
+        fake_pxr = types.SimpleNamespace(
+            Sdf=types.SimpleNamespace(ValueTypeNames=types.SimpleNamespace(Bool="bool")),
+            Usd=types.SimpleNamespace(PrimRange=lambda root: [Gprim(), Gprim()]),
+            UsdGeom=usd_geom)
+        fake_og = types.SimpleNamespace(sim=types.SimpleNamespace(editing_usd=Editing))
+        saved = {name: sys.modules.get(name) for name in ("pxr", "omnigibson")}
+        sys.modules["pxr"], sys.modules["omnigibson"] = fake_pxr, fake_og
+        try:
+            self.assertTrue(rr._set_cast_shadows(types.SimpleNamespace(prim=None), False))
+        finally:
+            for name, module in saved.items():
+                if module is None:
+                    sys.modules.pop(name, None)
+                else:
+                    sys.modules[name] = module
+        self.assertEqual(log, ["enter", ("set", True, 1), ("set", True, 1), "exit"])
+
     def test_not_visible_only_when_no_external_camera_sees_it(self):
         from tooling.task_authoring import render_review as rr
 

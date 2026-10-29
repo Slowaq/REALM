@@ -24,8 +24,8 @@ STROKE_USABLE = 0.080      # 2F-85 stroke 85 mm minus 5 mm margin
 FRICTION_DEG = 20.0        # contact normal within this of the closing axis
 APPROACH_MAX_DEG = 70.0    # approach direction within this of straight down
 PAD_BACKOFF = 0.02         # TCP is this far behind the fingertip (droid_curobo.py)
-MAX_PAD_SHIFT = 0.015      # TCP may be pulled back this far to keep fingertips off the support
-TIP_CLEARANCE = 0.004      # fingertips stay this far above the support surface
+MAX_PAD_SHIFT = PAD_BACKOFF - 0.003  # contact may sit as close as 3 mm behind the fingertip
+TIP_CLEARANCE = 0.001      # fingertips may come down to 1 mm above the support (flat objects: spoons, towels)
 PREGRASP = 0.10
 LIFT = 0.10
 LIFT_OK = 0.07
@@ -174,6 +174,11 @@ def sample_grasps(pieces, support_z, n_keep=12, seed=0, max_pairs=600):
             pass  # keep both directions; the pair (j, i) gives the same grasp, the dedupe below handles it
         pairs.append((i, nbrs[k], w[k], u[k]))
     stats["antipodal_pairs"] = len(pairs)
+    if pairs:
+        h = np.array([(pts[i][2] + pts[j][2]) / 2 - support_z for i, j, _, _ in pairs])
+        stats["pair_height_above_support"] = {"max": round(float(h.max()), 4),
+                                              "p90": round(float(np.percentile(h, 90)), 4),
+                                              "median": round(float(np.median(h)), 4)}
     if len(pairs) > max_pairs:
         pairs = [pairs[k] for k in rng.choice(len(pairs), max_pairs, replace=False)]
     # 2) approach directions around each closing axis, vectorised over the 12 angles
@@ -234,7 +239,7 @@ def baseline_grasp(pieces, support_z):
     tcp = top.copy()
     tip_z = tcp[2] - PAD_BACKOFF
     if tip_z < support_z + TIP_CLEARANCE:
-        tcp[2] += support_z + TIP_CLEARANCE - tip_z
+        tcp[2] += support_z + TIP_CLEARANCE - tip_z   # OmniGibson's pose would put the tips in the table
     return {"G": grasp_frame(tcp, closing, a), "width": float(min(ext[0], ext[1])), "score": None,
             "shift": 0.0, "topdown_deg": 0.0, "baseline": True}
 
@@ -296,6 +301,21 @@ def plan(cmg, G, timeout=4.0):
 
 def tcp_world(robot, tcp_in_eef):
     return (link_mat(robot, "panda_link8") @ np.r_[tcp_in_eef, 1.0])[:3]
+
+
+def finger_min_z(robot, fingers):
+    """Lowest point of the finger links' collision geometry, world z."""
+    zs = []
+    try:
+        for f in fingers:
+            for cm in robot.links[f].collision_meshes.values():
+                tm = geom_trimesh(cm)
+                tm.vertices = tm.vertices * np_(cm.get_world_scale())
+                tm.apply_transform(mat(*cm.get_position_orientation()))
+                zs.append(float(tm.vertices[:, 2].min()))
+    except Exception:  # a diagnostic only: never let it end an attempt
+        return float("nan")
+    return min(zs) if zs else float("nan")
 
 
 def finger_gap(robot, fingers):
@@ -379,10 +399,16 @@ def attempt(env, cmg, obj, cand, arm_idx, tcp_in_eef, fingers):
         step_hold(env, q, 1, OPEN)
     q_grasp = app[-1, arm_idx]
     r["tcp_err_at_grasp"] = round(float(np.linalg.norm(tcp_world(robot, tcp_in_eef) - G[:3, 3])), 4)
+    support_top = max((float(np_(o.aabb[1])[2]) for o in supports_of(robot, obj)),
+                      default=float(np_(obj.aabb[0])[2]))
+    r["tip_above_support_open"] = round(finger_min_z(robot, fingers) - support_top, 4)
     obj_before = np_(obj.get_position_orientation()[0])
     r["obj_moved_on_approach"] = round(float(np.linalg.norm(obj_before - obj0)), 4)
     step_hold(env, q_grasp, 25, CLOSE)
     r["finger_gap_closed"] = round(finger_gap(robot, fingers), 4)
+    r["tip_above_support_closed"] = round(finger_min_z(robot, fingers) - support_top, 4)
+    empty = REC.get("gripper_calibration", {}).get("gap_closed_empty")
+    r["closed_on_something"] = None if empty is None else bool(r["finger_gap_closed"] > empty + 0.003)
     L = G.copy()
     L[2, 3] += LIFT
     build_world(cmg, robot, ignore=(obj, *supports))   # straight up off the support
@@ -402,7 +428,12 @@ def attempt(env, cmg, obj, cand, arm_idx, tcp_in_eef, fingers):
     r.update(rise=round(rise, 4), hold_drift=round(drift, 4),
              is_grasping=str(robot.is_grasping(candidate_obj=obj)))
     ok = rise >= LIFT_OK and drift <= HOLD_DRIFT_OK
-    r["result"] = "LIFTED" if ok else ("DROPPED" if rise < 0.02 else "SLIPPED")
+    if ok:
+        r["result"] = "LIFTED"
+    elif r.get("closed_on_something") is False:
+        r["result"] = "MISSED"          # fingers closed all the way: nothing between the pads
+    else:
+        r["result"] = "DROPPED" if rise < 0.02 else "SLIPPED"
     return r, True
 
 
@@ -538,7 +569,8 @@ def run_one(args) -> int:
                                      "baseline_result", "sampled_lifted", "verdict")}
     short["attempts"] = [{k: a.get(k) for k in ("index", "baseline", "result", "width", "topdown_deg",
                                                 "variant", "rise", "hold_drift", "is_grasping",
-                                                "finger_gap_closed", "tcp_err_at_grasp")}
+                                                "finger_gap_closed", "closed_on_something", "tcp_err_at_grasp",
+                                                "tip_above_support_open", "tip_above_support_closed")}
                          for a in REC.get("attempts") or []]
     print("=" * 30 + " SUMMARY " + "=" * 30)
     print(json.dumps(short, indent=1, default=str))

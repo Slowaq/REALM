@@ -650,15 +650,51 @@ class VisibilityProbeTest(unittest.TestCase):
         self.assertLess(low["contrast"], 0.05)
         self.assertGreater(high["contrast"], 0.15)
 
-    def test_instance_mask_matches_by_object_name_in_the_prim_path(self):
+    def test_hiding_the_object_finds_its_pixels_above_render_noise(self):
         import numpy as np
 
         from tooling.task_authoring import render_review as rr
 
-        seg = np.array([[0, 3], [3, 7]])
-        info = {0: "background", 3: "/World/scene_0/marker/base_link/visuals", 7: "/World/scene_0/bowl"}
-        self.assertEqual(rr._instance_mask(seg, info, "marker").tolist(), [[False, True], [True, False]])
-        self.assertIsNone(rr._instance_mask(seg, info, "pen"))
+        rng = np.random.default_rng(0)
+
+        def frame(with_object):
+            # The renderer's noise differs on every frame, even of the same scene.
+            image = np.full((60, 60, 3), 30, np.int16)
+            if with_object:
+                image[20:30, 10:40] = (200, 40, 40)
+            return (image + rng.integers(-4, 5, image.shape)).clip(0, 255).astype(np.uint8)
+
+        shown, repeat, hidden = frame(True), frame(True), frame(False)
+        vis = rr.object_visibility(shown, hidden, repeat)
+        self.assertEqual(vis["pixels"], 300)
+        self.assertGreater(vis["contrast_behind"], 0.15)
+        # Noise alone is never an object, however many pixels it touches.
+        empty, empty_repeat = frame(False), frame(False)
+        self.assertEqual(rr.object_visibility(empty, hidden, empty_repeat)["pixels"], 0)
+
+    def test_a_dark_object_on_a_dark_table_is_found_but_reads_low_contrast(self):
+        import numpy as np
+
+        from tooling.task_authoring import render_review as rr
+
+        table = np.full((60, 60, 3), 30, np.uint8)
+        marker = table.copy()
+        marker[20:30, 10:40] = 14
+        vis = rr.object_visibility(marker, table, marker)
+        self.assertEqual(vis["pixels"], 300)
+        self.assertLess(vis["contrast"], 0.1)
+        self.assertLess(vis["contrast_behind"], 0.1)
+
+    def test_isolated_speckle_is_removed(self):
+        import numpy as np
+
+        from tooling.task_authoring import render_review as rr
+
+        base = np.zeros((40, 40, 3), np.uint8)
+        speckled = base.copy()
+        speckled[::5, ::5] = 255
+        mask, _ = rr.change_mask(speckled, base)
+        self.assertEqual(int(mask.sum()), 0)
 
     def test_not_visible_only_when_no_external_camera_sees_it(self):
         from tooling.task_authoring import render_review as rr

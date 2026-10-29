@@ -661,52 +661,148 @@ def mask_contrast(rgb, mask) -> dict:
             "contrast": round(abs(inside - around) / 255.0, 3)}
 
 
-def _instance_mask(seg, info, name: str) -> np.ndarray | None:
-    """Pixels of object `name` in a seg_instance image, whose info maps id -> prim path or name."""
-    seg = seg.detach().cpu().numpy() if hasattr(seg, "detach") else np.asarray(seg)
-    if seg.ndim == 3:
-        seg = seg[..., 0]
-    ids = [int(key) for key, value in (info or {}).items()
-           if name == str(value) or f"/{name}/" in f"{value}/" or str(value).endswith(f"/{name}")]
-    if not ids:
-        return None
-    return np.isin(seg, ids)
+#: Smallest per-pixel change (max over RGB, 0-255) counted as the object, whatever the noise floor.
+CHANGE_MIN_LEVEL = 10
+#: Margin added to the noise floor measured by rendering the same scene twice.
+CHANGE_NOISE_MARGIN = 3
 
 
-def visibility_probe(env, names: list[str]) -> tuple[dict, list[str]]:
-    """Per camera and per named object: visible pixel count and contrast against the surround.
+def _open3(mask: np.ndarray) -> np.ndarray:
+    """Morphological opening with a 3x3 square: drops specks thinner than 3 px, keeps blob corners."""
+    padded = np.pad(mask, 1)
+    h, w = mask.shape
+    shifts = [padded[dy:dy + h, dx:dx + w] for dy in range(3) for dx in range(3)]
+    eroded = np.logical_and.reduce(shifts)
+    padded = np.pad(eroded, 1)
+    return np.logical_or.reduce([padded[dy:dy + h, dx:dx + w] for dy in range(3) for dx in range(3)])
 
-    Adds `seg_instance` to every vision sensor for this one read; the policy's observations are not
-    touched. Errors are returned, not raised: this probe must never turn a scene into an ERROR.
+
+def change_mask(with_rgb, without_rgb, repeat_rgb=None) -> tuple[np.ndarray, int]:
+    """Pixels that change when the object is hidden: the object as that camera sees it.
+
+    `repeat_rgb` is the with-object frame rendered a second time; their difference is the renderer's
+    own noise, and the threshold sits above it. A 3x3 opening removes isolated speckle, so noise
+    can never add up to an object's worth of pixels.
+    """
+    a = np.asarray(with_rgb, dtype=np.int16)[..., :3]
+    b = np.asarray(without_rgb, dtype=np.int16)[..., :3]
+    diff = np.abs(a - b).max(axis=-1)
+    threshold = CHANGE_MIN_LEVEL
+    if repeat_rgb is not None:
+        noise = np.abs(a - np.asarray(repeat_rgb, dtype=np.int16)[..., :3]).max(axis=-1)
+        threshold = max(threshold, int(np.percentile(noise, 99.5)) + CHANGE_NOISE_MARGIN)
+    mask = diff > threshold
+    return _open3(mask) & mask, threshold
+
+
+def object_visibility(with_rgb, without_rgb, repeat_rgb=None) -> dict:
+    """Pixel count and contrast of one object in one camera, from a with/without pair of frames.
+
+    `contrast` is the ring measure of `mask_contrast` (object vs the pixels around it).
+    `contrast_behind` compares the object with what the camera sees in its place once it is hidden:
+    the background it is actually seen against.
+    """
+    mask, threshold = change_mask(with_rgb, without_rgb, repeat_rgb)
+    out = mask_contrast(with_rgb, mask)
+    out["threshold"] = threshold
+    if out["pixels"]:
+        inside = float(np.median(luminance(with_rgb)[mask]))
+        behind = float(np.median(luminance(without_rgb)[mask]))
+        out["contrast_behind"] = round(abs(inside - behind) / 255.0, 3)
+    return out
+
+
+def _frames(env) -> dict:
+    """Every camera's rgb, rendered the same way `render()` does (flush, then read)."""
+    import omnigibson as og
+
+    for _ in range(RENDER_FLUSH_PASSES):
+        og.sim.render()
+    obs, _ = env.omnigibson_env.get_obs()
+    return {name: _to_uint8(array) for name, array in collect_rgb(obs)}
+
+
+def _set_cast_shadows(obj, cast: bool) -> bool:
+    """Turn the object's shadow off (or back on) so hiding it changes only its own pixels.
+
+    Without this, the shadow it casts on the table counts as "the object", and an object hidden
+    behind a box but casting a visible shadow would read as visible. Returns False if the primvar
+    could not be set; the probe then still runs, shadow included, and says so.
+    """
+    try:
+        from pxr import Sdf, Usd, UsdGeom
+
+        for prim in Usd.PrimRange(obj.prim):
+            if prim.IsA(UsdGeom.Gprim):
+                primvar = UsdGeom.PrimvarsAPI(prim).CreatePrimvar("doNotCastShadows", Sdf.ValueTypeNames.Bool)
+                primvar.Set(not cast)
+        return True
+    except Exception:
+        return False
+
+
+def _save_overlay(shown, hidden, repeat, path: Path) -> None:
+    from PIL import Image
+
+    mask, _ = change_mask(shown, hidden, repeat)
+    overlay = np.asarray(shown, dtype=np.uint8)[..., :3].copy()
+    overlay[mask] = (overlay[mask] * 0.3 + np.array([255, 0, 0]) * 0.7).astype(np.uint8)
+    Image.fromarray(overlay).save(path)
+
+
+def visibility_probe(env, names: list[str], mask_dir: Path | None = None) -> tuple[dict, list[str]]:
+    """Per camera and per named object: visible pixel count and contrast, from the RGB renders only.
+
+    Each object is hidden for one render and the frames are compared with it shown. This replaced
+    a `seg_instance` probe: adding that modality to the external cameras at runtime segfaulted Isaac
+    inside `og.sim.render()` on a third of the DROID100 scenes (deterministically, per scene), which
+    lost the task's JSON. Hiding a prim and rendering is what every task already does, so no new
+    render products or annotators are created. The scene is restored afterwards (visibility and
+    shadows); physics is not stepped. Errors are returned, not raised. With `mask_dir`, each
+    camera's found pixels are saved as a red overlay on its frame, to check the probe by eye.
     """
     result: dict = {}
     errors: list[str] = []
-    try:
-        import omnigibson as og
-        sensors = dict(getattr(env.omnigibson_env, "external_sensors", {}) or {})
-        robot = env.omnigibson_env.robots[0]
-        sensors.update({f"{robot.name}:{key}": value for key, value in robot.sensors.items()
-                        if hasattr(value, "add_modality")})
-        for sensor in sensors.values():
-            if hasattr(sensor, "add_modality") and "seg_instance" not in getattr(sensor, "modalities", []):
-                sensor.add_modality("seg_instance")
-        for _ in range(RENDER_FLUSH_PASSES):
-            og.sim.render()
-        for cam, sensor in sensors.items():
+    for name in names:
+        try:
+            obj = env.omnigibson_env.scene.object_registry("name", name)
+        except Exception:
+            obj = None
+        if obj is None:
+            errors.append(f"{name}: not in the scene")
+            continue
+        shadows_off = False
+        try:
+            shadows_off = _set_cast_shadows(obj, False)
+            shown = _frames(env)
+            repeat = _frames(env)
+            obj.visible = False
+            hidden = _frames(env)
+        except Exception as error:
+            errors.append(f"{name}: {type(error).__name__}: {error}")
+            continue
+        finally:
             try:
-                obs, info = sensor.get_obs()
-                if "rgb" not in obs or "seg_instance" not in obs:
-                    errors.append(f"{cam}: no rgb/seg_instance in obs ({sorted(obs)})")
-                    continue
-                rgb = _to_uint8(obs["rgb"])
-                for name in names:
-                    mask = _instance_mask(obs["seg_instance"], info.get("seg_instance"), name)
-                    result.setdefault(name, {})[cam] = (mask_contrast(rgb, mask) if mask is not None
-                                                        else {"pixels": 0, "contrast": None})
+                obj.visible = True
+            except Exception as error:
+                errors.append(f"{name}: could not show it again: {error}")
+            if shadows_off:
+                _set_cast_shadows(obj, True)
+        if not shadows_off:
+            errors.append(f"{name}: shadow could not be turned off; pixel counts include it")
+        for cam in sorted(set(shown) & set(hidden)):
+            try:
+                result.setdefault(name, {})[cam] = object_visibility(shown[cam], hidden[cam], repeat.get(cam))
+                if mask_dir is not None:
+                    _save_overlay(shown[cam], hidden[cam], repeat.get(cam),
+                                  Path(mask_dir) / f"vis_{name}_{cam.replace('/', '_').replace(':', '_')}.png")
             except Exception as error:
                 errors.append(f"{cam}: {type(error).__name__}: {error}")
-    except Exception as error:
-        errors.append(f"visibility probe: {type(error).__name__}: {error}")
+    if names:
+        try:
+            sync_stage()
+        except Exception:
+            pass
     return result, errors
 
 
@@ -733,8 +829,21 @@ def visibility_findings(visibility: dict, main: str, min_contrast: float | None 
 LOW_CONTRAST_MIN = None
 
 
+#: Findings that fail a task. PHYSICS_FROZEN is reported, not failed: hand-authored configs
+#: (REALM_DROID10's drawers, switch, pour) place every object already at rest.
+HARD_FINDINGS = {"MISSING", "UNSTABLE", "PENETRATION", "DROPPED", "TIPPED", "LEFT_CONTAINER",
+                 "LEFT_SUPPORT", "GRASP_INFEASIBLE"}
+
+
+def _verdict(record: dict) -> str:
+    # No images at all is a harness failure, not a clean scene: never let it read as a pass.
+    record["no_images"] = not record["renders"]
+    failed = any(finding["code"] in HARD_FINDINGS for finding in record.get("compute_findings") or [])
+    return "FAIL" if (failed or record["no_images"]) else "PASS"
+
+
 def review_one(task_cfg_path: str, out_dir: Path, *, robot: str = "DROID_mounted",
-               steps: int = WARMUP_STEPS) -> dict:
+               steps: int = WARMUP_STEPS, save_masks: bool = False) -> dict:
     """Build, settle, probe and render ONE task config.
 
     Process lifetime is the caller's problem, not this function's: `og.shutdown()` is terminal, so a
@@ -808,17 +917,17 @@ def review_one(task_cfg_path: str, out_dir: Path, *, robot: str = "DROID_mounted
                       and bboxes.get(subject) and bboxes.get(support)
                       and min(bboxes[subject][:2]) > min(bboxes[support][:2])}
         record["compute_findings"] += grasp_findings(rows, main_names, on_support)
-        record["visibility"], record["visibility_errors"] = visibility_probe(env, main_names)
+        # Everything measured so far is written BEFORE the visibility probe, so a crash inside it
+        # (it renders with objects hidden) still leaves a reviewable record and its images.
+        record["visibility"] = {}
+        record["visibility_errors"] = ["visibility probe did not finish: the process died inside it"]
+        record["verdict"] = _verdict(record)
+        out_json.write_text(json.dumps(record, indent=2, default=str) + "\n", encoding="utf-8")
+        record["visibility"], record["visibility_errors"] = visibility_probe(
+            env, main_names, mask_dir=task_dir if save_masks else None)
         for name in main_names:
             record["compute_findings"] += visibility_findings(record["visibility"], name, LOW_CONTRAST_MIN)
-        # No images at all is a harness failure, not a clean scene: never let it read as a pass.
-        record["no_images"] = not record["renders"]
-        # PHYSICS_FROZEN is reported, not failed: hand-authored configs (REALM_DROID10's drawers,
-        # switch, pour) place every object already at rest, so nothing moving is legitimate there.
-        hard = {"MISSING", "UNSTABLE", "PENETRATION", "DROPPED", "TIPPED", "LEFT_CONTAINER",
-                "LEFT_SUPPORT", "GRASP_INFEASIBLE"}
-        failed = any(finding["code"] in hard for finding in record["compute_findings"])
-        record["verdict"] = "FAIL" if (failed or record["no_images"]) else "PASS"
+        record["verdict"] = _verdict(record)
     except Exception as error:
         record["error"] = f"{type(error).__name__}: {error}"
         record["traceback"] = traceback.format_exc()
@@ -831,7 +940,7 @@ def review_one(task_cfg_path: str, out_dir: Path, *, robot: str = "DROID_mounted
 def _child_command(target: str, out: Path, args: argparse.Namespace) -> list[str]:
     return [sys.executable, "-u", str(Path(__file__).resolve()),
             "--task_cfg_path", target, "--out", str(out),
-            "--robot", args.robot, "--steps", str(args.steps)]
+            "--robot", args.robot, "--steps", str(args.steps)] + (["--save-masks"] if args.save_masks else [])
 
 
 def _read_record(out: Path, target: str) -> dict:
@@ -859,6 +968,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--out", type=Path, default=PROJECT_ROOT / "tmp" / "droid100" / "review")
     parser.add_argument("--robot", default="DROID_mounted")
     parser.add_argument("--steps", type=int, default=WARMUP_STEPS)
+    parser.add_argument("--save-masks", action="store_true",
+                        help="save each camera's main-object pixels as a red overlay (vis_*.png)")
     parser.add_argument("--timeout", type=int, default=1800,
                         help="per-config wall clock for --family children")
     args = parser.parse_args(argv)
@@ -868,7 +979,8 @@ def main(argv: list[str] | None = None) -> int:
         return 2
 
     if args.task_cfg_path:
-        record = review_one(args.task_cfg_path, args.out, robot=args.robot, steps=args.steps)
+        record = review_one(args.task_cfg_path, args.out, robot=args.robot, steps=args.steps,
+                            save_masks=args.save_masks)
         _report(record)
         return 0
 

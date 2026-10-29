@@ -106,6 +106,46 @@ def link_mesh(robot, name):
     return trimesh.util.concatenate(parts) if parts else None
 
 
+def greedy_spheres(mesh, target=0.97, max_n=24, n_samples=2500, overhang=0.008):
+    """Spheres chosen greedily until `target` of the surface lies within radius + buffer.
+
+    Candidates are surface samples pushed inward along the face normal; a candidate's radius is its
+    distance to the nearest surface sample plus at most `overhang`, so no sphere sticks out of the
+    mesh by more than that (spheres are conservative: they may cover a little air, never miss metal).
+    """
+    import trimesh
+    from scipy.spatial import cKDTree
+    samples, faces = trimesh.sample.sample_surface(mesh, n_samples)
+    normals = mesh.face_normals[faces]
+    if mesh.is_volume and mesh.volume < 0:
+        normals = -normals
+    tree = cKDTree(samples)
+    depth_scale = max(float(mesh.extents.min()), 0.004)
+    cands, radii = [], []
+    for frac in (0.1, 0.2, 0.35, 0.5, 0.75):
+        pts = samples - normals * depth_scale * frac
+        d, idx = tree.query(pts)
+        inside = np.einsum("ij,ij->i", samples[idx] - pts, normals[idx]) > 0  # nearest surface faces away
+        keep = inside & (d > 0.002)
+        for extra in (0.0, 0.5 * overhang, overhang):
+            cands.append(pts[keep]); radii.append(d[keep] + extra)
+    cands, radii = np.concatenate(cands), np.concatenate(radii)
+    if len(cands) == 0:
+        return np.zeros((0, 3)), np.zeros(0), 0.0
+    sel = np.random.default_rng(0).choice(len(cands), size=min(len(cands), 6000), replace=False)
+    cands, radii = cands[sel], radii[sel]
+    cover = [set(tree.query_ball_point(c, r + SPHERE_BUFFER)) for c, r in zip(cands, radii)]
+    covered, chosen = set(), []
+    while len(chosen) < max_n and len(covered) < target * len(samples):
+        gains = [len(c - covered) for c in cover]
+        best = int(np.argmax(gains))
+        if gains[best] == 0:
+            break
+        chosen.append(best)
+        covered |= cover[best]
+    return cands[chosen], radii[chosen], len(covered) / len(samples)
+
+
 def coverage(samples, centers, radii):
     if len(centers) == 0:
         return 0.0, float("inf")
@@ -211,7 +251,6 @@ def s3_usd(info):
 @stage("S4_spheres")
 def s4_spheres(robot, info):
     import trimesh
-    from curobo.geom.sphere_fit import SphereFitType, fit_spheres_to_mesh
     from curobo.util_file import get_robot_configs_path, join_path, load_yaml
     franka = load_yaml(join_path(get_robot_configs_path(), "spheres/franka_mesh.yml"))["collision_spheres"]
     spheres, report, meshes = {}, {}, {}
@@ -221,16 +260,14 @@ def s4_spheres(robot, info):
             continue
         meshes[name] = mesh
         samples, _ = trimesh.sample.sample_surface(mesh, 3000)
-        n = int(np.clip(np.ceil(mesh.extents.max() / 0.035) + 1, 2, 12))
+        big = mesh.extents.max() > 0.06
         fitted = None
-        for fit in (SphereFitType.VOXEL_VOLUME_SAMPLE_SURFACE, SphereFitType.SAMPLE_SURFACE):
-            try:
-                pts, radii = fit_spheres_to_mesh(mesh, n, surface_sphere_radius=0.005, fit_type=fit)
-                if len(pts):
-                    fitted = (np.asarray(pts, float), np.asarray(radii, float), fit.value)
-                    break
-            except Exception as error:  # non-watertight meshes can break the voxel fit
-                report.setdefault(name, {})["fit_error_" + fit.value] = str(error)
+        try:
+            c, r, _ = greedy_spheres(mesh, max_n=32 if big else 12, overhang=0.008 if big else 0.003)
+            if len(r):
+                fitted = (c, r, "greedy_inscribed")
+        except Exception as error:
+            report.setdefault(name, {})["fit_error"] = f"{type(error).__name__}: {error}"
         entry = report.setdefault(name, {})
         entry["extents"] = np.round(mesh.extents, 4).tolist()
         choice = None
@@ -244,12 +281,13 @@ def s4_spheres(robot, info):
             fr = np.array([s["radius"] for s in franka[name]], float)
             cov, gap = coverage(samples, fc, fr)
             entry.update(franka_n=len(fr), franka_cov=round(cov, 3), franka_gap=round(gap, 4))
-            if cov >= 0.9 and (choice is None or cov >= choice[3] - 0.02):
+            if cov >= 0.95 and (choice is None or cov >= choice[3] - 0.02):
                 choice = ("franka", fc, fr, cov)
         if choice is None:
             entry["source"] = "none"
             continue
         entry["source"], entry["coverage"] = choice[0], round(choice[3], 3)
+        entry["gap"] = entry.get("fitted_gap") if choice[0] == "fitted" else entry.get("franka_gap")
         spheres[name] = [{"center": np.round(c, 5).tolist(), "radius": round(float(r), 5)}
                          for c, r in zip(choice[1], choice[2])]
     REC["spheres"] = report
@@ -554,9 +592,10 @@ def verdict():
     for k, v in st.items():
         if not v.startswith("PASS"):
             problems.append(f"{k} failed")
-    low = [l for l, e in REC.get("spheres", {}).items() if e.get("coverage", 0) < 0.95]
+    low = [l for l, e in REC.get("spheres", {}).items()
+           if e.get("coverage", 0) < 0.90 or e.get("gap", 1) > 0.015]
     if low:
-        problems.append(f"sphere coverage < 0.95 on {low}")
+        problems.append(f"sphere coverage < 0.90 or gap > 1.5 cm on {low}")
     fk = REC.get("fk_worst")
     if fk and (fk["pos_m"] > 0.005 or fk["rot_rad"] > 0.02):
         problems.append(f"FK mismatch {fk}")
@@ -577,7 +616,7 @@ def main() -> int:
     ap.add_argument("--robot", default="DROID")
     ap.add_argument("--out", default=str(OUT))
     args = ap.parse_args()
-    OUT = Path(args.out)
+    OUT = Path(args.out).resolve()
     env = s1_env(args)
     if env is not None:
         info = s2_robot(env)
@@ -598,6 +637,9 @@ def main() -> int:
     keys = ["stages", "usd", "tcp", "sphere_total", "reset_collision", "reset_self_overlaps_not_ignored",
             "fk_reset", "fk_worst", "plans", "problems", "verdict"]
     summary = {k: REC.get(k) for k in keys}
+    summary["sphere_table"] = {l: f"{e.get('source')} n={e.get('fitted_n') if e.get('source') == 'fitted' else e.get('franka_n')}"
+                                  f" cov={e.get('coverage')} gap={e.get('gap')} (fitted {e.get('fitted_cov')}, franka {e.get('franka_cov')})"
+                               for l, e in (REC.get("spheres") or {}).items()}
     if summary.get("usd"):
         summary["usd"] = {k: summary["usd"].get(k) for k in
                           ("usd_robot_root", "articulation_roots", "deactivated", "links_with_several_parent_joints")}

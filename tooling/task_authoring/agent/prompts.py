@@ -7,7 +7,11 @@ different prompt version is a different family, so the version is recorded in th
 from __future__ import annotations
 
 #: Bump on every edit to GENERATOR_SYSTEM or to a tool description in tools.py.
-PROMPT_VERSION = 1
+PROMPT_VERSION = 2
+
+#: Bump on every edit to REVIEW_SYSTEM. Kept apart so a critic edit doesn't invalidate generator caches.
+#: 2: closed code set for the image critic (NOT_VISIBLE, LOW_CONTRAST, SCALE, MISMATCH, NOT_DOABLE, ...).
+REVIEW_PROMPT_VERSION = 2
 
 GENERATOR_SYSTEM = """\
 You ground one natural-language robot-manipulation instruction into a REALM simulation task
@@ -87,34 +91,37 @@ regeneration reads to avoid re-making a rejected choice.
 """
 
 REVIEW_SYSTEM = """\
-You are reviewing a rendered REALM task config for physical plausibility. The scene has already
-passed every arithmetic check that can be run without a simulator -- support clearance, bbox
-overlap, receiver capacity, orientation, instruction grounding. Your job is to find what only an
-image shows.
+You are the critic for a generated REALM task. You see the scene as the policy will: the camera
+images after the scene has settled, from both external cameras and the wrist camera. The config, the
+instruction and every number the simulator already measured are supplied alongside. Those numbers
+already settle drift, sinking, falling, tipping of containers, leaving a container and the minimum
+graspable height; do not re-report them. Your job is what only an image shows.
 
-You are looking at real renders of an OmniGibson scene. The config text, the computed geometry,
-and a pose probe are supplied alongside the images; trust the computed numbers over your reading
-of a low-resolution image, and never report a defect the numbers already rule out.
+Expected outcome: `pass`. Most tasks are fine. Report a finding only when the images show a
+problem a policy would actually face, and name the object exactly as it appears in the config.
 
-Expected outcome: `pass`. Most configs are correct. Report a finding only when the image shows
-something the numbers cannot: an object visibly intersecting another, an object floating or
-half-buried, a container that could not hold what it is holding, an item standing on a table
-edge, a scale that is obviously wrong for a tabletop.
+Codes (closed set):
+  NOT_VISIBLE   the main object cannot be made out in any external camera (hidden behind or inside
+                something, out of frame)
+  LOW_CONTRAST  the main object is visible but barely distinguishable from what is around it, e.g.
+                a dark object on a dark surface
+  SCALE         an object looks implausibly large or small for the scene or for the instruction
+  MISMATCH      the scene does not show what the instruction says (wrong kind of object, the named
+                container or support is missing)
+  NOT_DOABLE    the robot could not do this task as shown: no reachable or graspable part, the
+                target is blocked, the object is wedged
+  PENETRATION   two objects visibly occupy the same space
+  FLOATING      an object hangs in the air with nothing under it
+  BURIED        an object is sunk into its support or into another object
+  ORIENTATION   an object rests in a way it physically would not
+  CONTAINMENT   a container could not hold what it is holding at the rendered size
+  OFF_SUPPORT   an object rests beyond the edge of its support
+  MISSING       an object the instruction names is not in the scene at all
 
-For each finding give: the object name exactly as it appears in the config, one code from the
-closed set, and a one-sentence reason. Do not propose coordinates. If you cannot name a specific
-object, do not file the finding.
-
-Codes:
-  PENETRATION      two objects visibly occupy the same space
-  FLOATING         an object hangs above its support with nothing under it
-  BURIED           an object is sunk into the support or another object
-  ORIENTATION      an object stands in a way it physically would not
-  CONTAINMENT      a container could not hold its contents at the rendered size
-  OFF_SUPPORT      an object rests beyond the edge of its support
-  SCALE            an object is implausibly large or small for the scene
-  MISSING          an object the instruction names is not visible
+For each finding give the code, the object, a one-sentence reason, and optionally a suggestion for
+the task author (for example "a lighter-coloured model", "the next camera pair", "a bowl about
+20 cm across"). Never give coordinates.
 
 Answer with JSON only: {"verdict": "pass"|"fail", "findings": [{"code": ..., "object": ...,
-"reason": ...}], "notes": "..."}.
+"reason": ..., "suggestion": ...}], "notes": "..."}.
 """

@@ -108,8 +108,10 @@ def cmd_start(args, assets, info) -> int:
     existing = store.path(key)
     if existing.is_file() and not args.restart and store.load(key).get("catalog_fingerprint") == info["fingerprint"]:
         state = store.load(key)
-        return _emit({"task_id": key, "resumed": True, "outcome": state.get("outcome"),
-                      "note": "session exists; pass --restart to begin again"})
+        payload = {"task_id": key, "resumed": True, "outcome": state.get("outcome"),
+                   "note": "session exists; pass --restart to begin again"}
+        payload.update(_review_context(state))
+        return _emit(payload)
     state = {
         "task_id": key, "instruction": args.instruction, "ranking_id": args.ranking_id,
         "rank": args.rank, "seed": args.seed, "prompt_version": PROMPT_VERSION,
@@ -134,6 +136,7 @@ def cmd_call(args, assets, info) -> int:
     if state.get("outcome"):
         return _emit({"ok": False, "reason": f"this task is already {state['outcome']['status']}; "
                                               f"`start --restart` to redo it"})
+    first_call_after_review = bool(state.get("review_findings")) and not state.get("review_seen")
     if state.get("catalog_fingerprint") != info["fingerprint"]:
         return _emit({"ok": False, "reason": "the asset catalogue changed since `start`; `start --restart`"})
     if args.tool not in TOOL_NAMES:
@@ -156,10 +159,32 @@ def cmd_call(args, assets, info) -> int:
     if session.submission:
         record = _record(state, session, info)
         state["outcome"] = {"status": "submitted", "record": record}
+        # The resubmission answers the review; the next render + review judges it afresh.
+        state.pop("review_findings", None)
+        state.pop("review_seen", None)
     elif session.ungroundable:
         state["outcome"] = {"status": "declined", "record": _record(state, session, info)}
+    if first_call_after_review and isinstance(result, dict):
+        # Repeat the critic's findings once, in-band, so an agent that resumed without reading
+        # `start` still sees why the task was reopened.
+        state["review_seen"] = True
+        result = {**result, **_review_context(state)}
     store.save(state)
     return _emit(result)
+
+
+def _review_context(state: dict) -> dict:
+    """What the vision critic said about this task's last render, for the generating agent."""
+    findings = state.get("review_findings")
+    if not findings:
+        return {}
+    return {
+        "review_findings": findings,
+        "review_iteration": len([r for r in state.get("reviews") or [] if r.get("verdict") == "fail"]),
+        "review_note": ("the vision critic rejected the last render of this task; fix the findings "
+                        "with propose_layout (see GENERATE_TASKS.md, 'Answering a vision review') "
+                        "and submit again, or report_ungroundable if the instruction cannot be staged"),
+    }
 
 
 def _record(state: dict, session: tools.Session, info: dict) -> dict:
@@ -202,17 +227,20 @@ def cmd_next(args, assets, info) -> int:
 def cmd_status(args, assets, info) -> int:
     store = Store(args.sessions)
     states = store.all()
-    counts = {"submitted": 0, "declined": 0, "open": 0, "stale": 0}
+    counts = {"submitted": 0, "declined": 0, "escalated": 0, "open": 0, "stale": 0}
     rows = []
     for state in states:
         status = (state.get("outcome") or {}).get("status", "open")
         if state.get("catalog_fingerprint") != info["fingerprint"]:
             status = "stale"
+        if status == "open" and state.get("review_findings"):
+            status = "reviewed"  # reopened by the vision critic, waiting for a fix
         counts[status] = counts.get(status, 0) + 1
         rows.append(f"{status:9} {state['task_id']}  {state['instruction'][:70]}")
     if args.instructions:
         entries, _ = _load_entries(args.instructions)
-        counts["remaining_in_list"] = max(0, len(entries) - counts["submitted"] - counts["declined"])
+        counts["remaining_in_list"] = max(
+            0, len(entries) - counts["submitted"] - counts["declined"] - counts["escalated"])
         # `stale` = made against a different asset catalogue; `next` offers those again.
     if not args.quiet:
         print("\n".join(rows))
@@ -265,7 +293,12 @@ def cmd_export(args, assets, info) -> int:
     if stale:
         print(f"skipping {len(stale)} session(s) made against a different asset catalogue; "
               f"`next` will offer them again", file=sys.stderr)
-    records = [state["outcome"]["record"] for state in states if state not in stale]
+    escalated = [state for state in states if state["outcome"].get("status") == "escalated"]
+    if escalated:
+        print(f"leaving out {len(escalated)} task(s) the vision critic failed twice; "
+              f"see `review_cli status`", file=sys.stderr)
+    records = [state["outcome"]["record"] for state in states
+               if state not in stale and state not in escalated]
     records.sort(key=lambda record: (record.get("rank") is None, record.get("rank") or 0, record["task_id"]))
     seen: dict[tuple, str] = {}
     written, duplicates = [], []
@@ -304,6 +337,11 @@ and read the JSON it prints. `start` gives you the task_id. A task ends when sub
 ok:true or you call report_ungroundable; after that, call `next` for the following instruction.
 Never edit a YAML file or a session file by hand -- that is the solver's job, and a hand edit is
 exactly the non-reproducible number this pipeline exists to prevent.
+
+If `start` or a `call` shows `review_findings`, a vision critic rejected this task's render. Fix
+each finding with the tools (NOT_VISIBLE -> "camera_skip": 1 in propose_layout; LOW_CONTRAST ->
+a lighter model or another region; SCALE -> size_m + size_reason; MISMATCH or NOT_DOABLE ->
+reground or decline) and submit again. GENERATE_TASKS.md has the full table.
 """
 
 

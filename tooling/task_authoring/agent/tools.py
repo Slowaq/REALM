@@ -43,6 +43,12 @@ ASSET_REF = {
             "description": "colour for a primitive, 0..1",
         },
         "extent": {"type": "number", "description": "primitive cube edge in metres (0.01..0.2)"},
+        "size_m": {
+            "type": "number",
+            "description": ("longest dimension in metres when the instruction means another variant "
+                            "than the category's typical size (a toy pan); within 3x of typical"),
+        },
+        "size_reason": {"type": "string", "description": "why this object is not the typical size"},
     },
     "required": ["name"],
     "additionalProperties": False,
@@ -128,6 +134,12 @@ def tool_schemas() -> list[dict]:
                     "decisions": {
                         "type": "array", "items": {"type": "string"},
                         "description": "short notes on substitutions or instruction rewrites",
+                    },
+                    "camera_skip": {
+                        "type": "integer", "minimum": 0,
+                        "description": ("use the next workspace-facing DROID camera pair instead: 1 skips "
+                                        "the first one. Only when a review found the main object hidden "
+                                        "or badly framed"),
                     },
                 },
                 "required": ["task_type", "instruction", "main"],

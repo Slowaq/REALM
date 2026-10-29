@@ -20,7 +20,7 @@ from pathlib import Path
 
 from tooling.task_authoring.agent import layout
 from tooling.task_authoring.agent.corrections import DEFAULT_CORRECTIONS_DIR, record_correction
-from tooling.task_authoring.agent.prompts import PROMPT_VERSION, REVIEW_SYSTEM
+from tooling.task_authoring.agent.prompts import REVIEW_PROMPT_VERSION, REVIEW_SYSTEM
 from tooling.task_authoring.validation import validate
 
 #: A model finding maps to one of these. Anything else is dropped: an unrecognized code cannot be
@@ -36,6 +36,12 @@ CORRECTION_TRANSFORMS = {
     "MISSING": "escalate",
     "UNSTABLE": "move_apart",
     "DRIFT": "move_apart",
+    # Codes only an image can settle. They are not patched in place: the task is reopened with the
+    # finding and the generating agent fixes it through its tools (review_cli.py).
+    "NOT_VISIBLE": "reopen",
+    "LOW_CONTRAST": "reopen",
+    "MISMATCH": "reopen",
+    "NOT_DOABLE": "reopen",
 }
 
 MAX_ITERATIONS = 2
@@ -105,11 +111,14 @@ def parse_findings(text: str) -> dict:
             continue
         if not item.get("object"):
             continue
-        findings.append({
+        finding = {
             "code": code,
             "object": str(item["object"]),
             "reason": str(item.get("reason", ""))[:400],
-        })
+        }
+        if item.get("suggestion"):
+            finding["suggestion"] = str(item["suggestion"])[:300]
+        findings.append(finding)
     verdict = "fail" if findings else "pass"
     return {"verdict": verdict, "findings": findings, "notes": str(payload.get("notes", ""))[:400]}
 
@@ -206,7 +215,7 @@ def review_once(
     report = validate(document, task=str(record.get("task", "")))
     return {
         "iteration": iteration,
-        "prompt_version": PROMPT_VERSION,
+        "prompt_version": REVIEW_PROMPT_VERSION,
         "verdict": parsed["verdict"],
         "notes": parsed["notes"],
         "applied": applied,

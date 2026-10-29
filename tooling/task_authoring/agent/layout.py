@@ -743,12 +743,22 @@ def build_document(
         raise LayoutError(f"no camera poses in {camera_extrinsics}")
     sampled = sample_camera_pair(poses, camera_rng)
     first, redraws = sampled, 0
+    # A review that finds the main object hidden or badly framed asks for the NEXT workspace-facing
+    # pair from the same stream: deterministic, recorded in the proposal, and 0 leaves every other
+    # task's cameras exactly as they were.
+    camera_skip = max(0, int(roles.get("camera_skip") or 0))
+    skip = camera_skip
+    redraw_limit = CAMERA_MAX_REDRAWS * (1 + camera_skip)
     # Some DROID calibrations are wrong or the camera was mounted looking past the table; the
     # pink-plate render showed mostly ceiling. Redraw from the same stream until both cameras look
     # at the workspace, so a task whose first pair already does keeps exactly the same cameras.
-    while not all(looks_at_workspace(pose) for pose in sampled.values()):
+    while True:
+        if all(looks_at_workspace(pose) for pose in sampled.values()):
+            if skip == 0:
+                break
+            skip -= 1
         redraws += 1
-        if redraws > CAMERA_MAX_REDRAWS:
+        if redraws > redraw_limit:
             sampled = first
             break
         sampled = sample_camera_pair(poses, camera_rng)
@@ -757,7 +767,9 @@ def build_document(
     }
     audit = dict(solved["audit"])
     audit["camera_extrinsic_sources"] = {key: value["source"] for key, value in sampled.items()}
-    audit["camera_redraws"] = redraws if redraws <= CAMERA_MAX_REDRAWS else "none looked at the workspace"
+    audit["camera_redraws"] = redraws if redraws <= redraw_limit else "none looked at the workspace"
+    if camera_skip:
+        audit["camera_skip"] = camera_skip
     if provenance:
         # Set BEFORE the merge: the store is keyed by provenance.task_id (the ORIGINAL instruction),
         # and a document whose instruction the agent rewrote would otherwise look itself up under

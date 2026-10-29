@@ -116,8 +116,28 @@ Either add that object as a role or rewrite the instruction. Don't ignore it.
 ### Never
 
 - Never write or edit a YAML or session file by hand.
-- Never put a number in metres, a quaternion or a scale into any argument. The tools reject coordinates on purpose.
+- Never put a position, a quaternion or a scale into any argument. The tools reject coordinates on purpose.
+  The one number you may give is a role's `size_m` (with `size_reason`), and only for a real size variant.
 - Never swap in an unrelated asset just to get a "grounded" result.
+
+### Answering a vision review
+
+After the render pass, a vision critic looks at the settled camera images and judges what the numbers
+can't (`review_cli.py`). A task it fails is reopened: `next` offers it again, `status` shows it as
+`reviewed`, and `start` (and your first `call`) print its `review_findings`, each with a code, the
+object, a reason and often a suggestion. Fix it with the tools, then `submit_task` again:
+
+| Code | What to change |
+|---|---|
+| `NOT_VISIBLE` | The main object is hidden or out of frame. Add `"camera_skip": 1` (then 2) to `propose_layout`, or move it out from behind a taller object by choosing another region. |
+| `LOW_CONTRAST` | Dark object on a dark table (or light on light). Pick a lighter or more colourful model of the same category, or another `region_index`. |
+| `SCALE` | Looks the wrong size next to the rest. Set `size_m` + `size_reason` on that role, or pick another model. |
+| `MISMATCH` | The scene doesn't show what the instruction says (wrong kind of object, a lid that isn't a lid). Reground the noun with `search_assets`, or decline. |
+| `NOT_DOABLE` | The robot couldn't do it as shown (flat on the table, wedged, inside something closed). Another model with a graspable edge, another relation, or decline. |
+| `PENETRATION`, `FLOATING`, `BURIED`, `ORIENTATION`, `CONTAINMENT`, `OFF_SUPPORT`, `MISSING` | Physical faults the solver should have caught. Change the model or region; if it persists, decline and say why, so the solver can be fixed. |
+
+The critic never moves anything itself, and its suggestion is advice, not an instruction. A task that
+fails review twice is escalated to a person and left out of `export`.
 
 ## 2. When the batch is done
 
@@ -131,4 +151,7 @@ python -m tooling.task_authoring.validation realm/config/tasks/REALM_DROID100
 "marker in the mug". The report goes to `tmp/droid100/interactive_report.json`.
 
 Generated configs are not yet benchmark tasks. They still need the container render and probe pass
-(`render_review.py`) before anyone measures a policy on them.
+(`render_review.py`) and the vision review (`review_cli.py`, see its docstring) before anyone measures
+a policy on them. Bring the verdicts back with
+`python -m tooling.task_authoring.agent.review_cli ingest --git-ref <branch>`, fix what it reopens,
+then `export` again.

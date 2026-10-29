@@ -286,8 +286,14 @@ def s4_spheres(robot, info):
         fitted = None
         try:
             # ~150 spheres in total keeps cuRobo on its fast self-collision kernel (< 16384 pair checks)
-            max_n = 14 if mesh.extents.max() > 0.15 else (12 if big else 5)
-            c, r, _ = greedy_spheres(mesh, target=0.95, max_n=max_n, overhang=0.012 if big else 0.004)
+            # Start small, and only spend more spheres on a link that is still under-covered
+            # (thin outer fingers, the base plate), so the total stays near 150.
+            max_n, cap = (14, 20) if mesh.extents.max() > 0.15 else ((12, 16) if big else (5, 10))
+            while True:
+                c, r, cov_fit = greedy_spheres(mesh, target=0.95, max_n=max_n, overhang=0.012 if big else 0.004)
+                if cov_fit >= 0.9 or max_n >= cap:
+                    break
+                max_n = min(cap, max_n + 3)
             if len(r):
                 fitted = (c, r, "greedy_inscribed")
         except Exception as error:

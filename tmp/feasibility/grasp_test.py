@@ -33,13 +33,17 @@ HOLD_DRIFT_OK = 0.02
 OBSTACLE_RADIUS = 1.5
 MAX_OBSTACLE_MESHES = 1800
 GRASP_TYPES = {"pick", "put", "rotate", "stack", "pour", "pour_proxy"}
-OPEN, CLOSE = 1.0, -1.0
+# Gripper command sign is MEASURED at start-up (calibrate_gripper): on REALM's DROID, -1 opens and +1
+# closes (the gap between the inner fingers is ~11.6 cm after -1 and ~3.3 cm after +1).
+OPEN, CLOSE = -1.0, 1.0
 # finger and palm envelopes in the grasp frame (x = y cross z, y = closing, z = approach; origin = TCP),
 # with the gripper fully open (pads at |y| = 42.5 mm)
 FINGER_Y = (0.0425, 0.056)
 FINGER_X = 0.012
 FINGER_Z = (-0.045, PAD_BACKOFF)
 PALM_Z = -0.05
+FINGER_CORNERS = np.array([[x, y, z] for x in (-FINGER_X, FINGER_X) for y in (-FINGER_Y[1], FINGER_Y[1])
+                           for z in FINGER_Z], float)
 PALM_XY = (0.03, 0.06)
 
 REC: dict = {"stages": {}}
@@ -184,9 +188,10 @@ def sample_grasps(pieces, support_z, n_keep=12, seed=0, max_pairs=600):
         A = A[-A[:, 2] >= cos_a]
         if len(A) == 0:
             continue
-        tip_z = center[2] + A[:, 2] * PAD_BACKOFF
-        shift = np.where(tip_z < support_z + TIP_CLEARANCE,
-                         (support_z + TIP_CLEARANCE - tip_z) / np.maximum(-A[:, 2], 1e-3), 0.0)
+        # lowest corner of the two OPEN fingers must clear the support; the TCP may back off along -a
+        G0 = np.stack([grasp_frame(center, u, a) for a in A])
+        low = (G0[:, 2, :3] @ FINGER_CORNERS.T).min(axis=1) + center[2]
+        shift = np.maximum(0.0, support_z + TIP_CLEARANCE - low) / np.maximum(-A[:, 2], 1e-3)
         bad = shift > MAX_PAD_SHIFT
         stats["rejected_support"] += int(bad.sum())
         A, shift = A[~bad], shift[~bad]
@@ -311,6 +316,23 @@ def supports_of(robot, obj):
     return out
 
 
+def calibrate_gripper(env):
+    """Command +1 then -1 and keep whichever leaves the fingers wider apart as OPEN."""
+    global OPEN, CLOSE
+    robot = env.robot
+    fingers = list(robot.finger_link_names[robot.default_arm])
+    q = np.asarray(env.reset_qpos[:7], float)
+    step_hold(env, q, 25, 1.0)
+    gap_pos = finger_gap(robot, fingers)
+    step_hold(env, q, 25, -1.0)
+    gap_neg = finger_gap(robot, fingers)
+    OPEN, CLOSE = (1.0, -1.0) if gap_pos > gap_neg else (-1.0, 1.0)
+    REC["gripper_calibration"] = {"gap_after_plus1": round(gap_pos, 4), "gap_after_minus1": round(gap_neg, 4),
+                                  "open_command": OPEN, "close_command": CLOSE,
+                                  "gap_open": round(max(gap_pos, gap_neg), 4),
+                                  "gap_closed_empty": round(min(gap_pos, gap_neg), 4)}
+
+
 def settle_open(env, steps=20):
     step_hold(env, np.asarray(env.reset_qpos[:7], float), steps, OPEN)
 
@@ -417,6 +439,7 @@ def s1_env(args):
     env = RealmEnvironmentDynamic(task_cfg_path=args.task_cfg_path, perturbations=["Default"],
                                   robot=args.robot, rendering_mode="rt", no_rendering=False)
     env.reset()
+    calibrate_gripper(env)
     settle_open(env, 30)
     return env
 
@@ -511,7 +534,7 @@ def run_one(args) -> int:
             s4_attempts(env, *res, *g, args)
     verdict()
     save()
-    short = {k: REC.get(k) for k in ("task_name", "stages", "object", "sampling", "finger_gap_open",
+    short = {k: REC.get(k) for k in ("task_name", "stages", "object", "sampling", "gripper_calibration",
                                      "baseline_result", "sampled_lifted", "verdict")}
     short["attempts"] = [{k: a.get(k) for k in ("index", "baseline", "result", "width", "topdown_deg",
                                                 "variant", "rise", "hold_drift", "is_grasping",

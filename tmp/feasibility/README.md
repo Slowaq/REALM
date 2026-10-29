@@ -106,7 +106,7 @@ arm_idx = [cmg.robot_joint_names.index(j) for j in env.robot.arm_joint_names[env
 traj = cmg.path_to_joint_trajectory(paths[0]).cpu().numpy()[:, arm_idx]   # one row per env step
 with og.sim.render_on_step(False):
     for q in traj:
-        env.omnigibson_env.step(np.r_[q, 1.0])   # gripper: +1 open, -1 close
+        env.omnigibson_env.step(np.r_[q, -1.0])  # gripper on DROID: -1 open, +1 close
 ```
 
 The interpolation dt is the sim step (1/15 s for DROID), so a trajectory has one waypoint per
@@ -137,8 +137,12 @@ The interpolation dt is the sim step (1/15 s for DROID), so a trajectory has one
    - primitive shapes converted to meshes
    - at most 1800 meshes
    - then `cmg.mg[DEFAULT].update_world(...)`, and plan with `skip_obstacle_update=True`.
-6. **The gripper sign: −1 closes, +1 opens.** REALM's `settle()` holds −1, so after a settle the
-   gripper is closed.
+6. **The gripper sign on DROID: −1 opens, +1 closes.** This is measured, not taken from the docs:
+   the gap between the inner finger links is ~11.6 cm after −1 and ~3.3 cm after +1. OmniGibson's
+   controller docstring says "grasp is negative", but with the Robotiq's joint direction and
+   `inverted: false`, the effect on DROID is the reverse. REALM's `settle()` holds −1, so after a
+   settle the gripper is open. `grasp_test.py` re-measures the sign at start-up
+   (`gripper_calibration` in its JSON), so a change in the robot config cannot silently break it.
 7. **The API differs from upstream cuRobo docs.** In this fork, `MotionGen.compute_kinematics()`
    returns `ee_pos_seq` / `ee_quat_seq`, not `ee_quaternion`.
 8. **The scene load dominates run time** (200–325 s for `pick_spoon`). Everything cuRobo does here
@@ -160,13 +164,14 @@ For each grasped main object (task types pick, put, rotate, stack, pour, pour_pr
    - contact normals within 20° of the closing axis
    - width ≤ 80 mm (85 mm stroke minus 5 mm margin)
    - approach within 70° of straight down
-   - fingers and palm not intersecting the object, fingertips above the support surface
+   - open fingers and palm not intersecting the object; every corner of both open fingers above the
+     support surface
    - ranked by verticality, centrality and width margin
    - plus OmniGibson's AABB top-centre pose as a baseline
 2. **Execute** each candidate in turn:
    - plan to a pre-grasp 10 cm back with the object as an obstacle
    - approach with the object removed from the world
-   - close the gripper (−1), plan a 10 cm lift, hold
+   - close the gripper, plan a 10 cm lift, hold. The open/close sign is measured at start-up.
 3. **Judge.** Success means the object rose ≥ 7 cm and stayed within 2 cm of the TCP. The report also
    records OmniGibson's `robot.is_grasping(candidate_obj=...)`.
 4. **Reset and retry.** After a failure the task resets and the next candidate runs. The baseline gets

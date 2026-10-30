@@ -1,0 +1,12 @@
+{
+ "task": "remove_the_box_from_the_bowl_a06176",
+ "task_id": "a06176bb2745",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "the box is a matchbox-sized blue item lying in the white bowl: visible in sensor1, hidden by the bowl rim in sensor0; small but it is the only thing in the bowl",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

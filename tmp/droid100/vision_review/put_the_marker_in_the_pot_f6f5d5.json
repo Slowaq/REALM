@@ -1,0 +1,12 @@
+{
+ "task": "put_the_marker_in_the_pot_f6f5d5",
+ "task_id": "f6f5d508fc4e",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "dark marker visible next to the pot in sensor0 and in the wrist view, at the bottom edge of sensor1; steel pot clear",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

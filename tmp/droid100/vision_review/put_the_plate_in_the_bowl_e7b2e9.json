@@ -1,0 +1,12 @@
+{
+ "task": "put_the_plate_in_the_bowl_e7b2e9",
+ "task_id": "e7b2e9a790c4",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "white deep-rimmed plate and larger glass bowl both clear in both external views; the plate fits inside the bowl",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

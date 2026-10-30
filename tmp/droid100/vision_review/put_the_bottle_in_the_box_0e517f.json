@@ -1,0 +1,12 @@
+{
+ "task": "put_the_bottle_in_the_box_0e517f",
+ "task_id": "0e517f13df89",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "water bottle clear in sensor1, only its cap shows behind the box in sensor0; the box is a round teal container that reads more like a tub, but it is the only container so the target is unambiguous",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

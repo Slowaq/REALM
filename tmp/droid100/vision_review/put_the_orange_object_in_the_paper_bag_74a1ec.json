@@ -1,0 +1,19 @@
+{
+ "task": "put_the_orange_object_in_the_paper_bag_74a1ec",
+ "task_id": "74a1ecf13e0c",
+ "verdict": "fail",
+ "findings": [
+  {
+   "code": "MISMATCH",
+   "object": "orange_block",
+   "reason": "the instruction identifies the object only by its colour, but the block renders yellow in sensor1, close to the tan paper bag, so \"the orange object\" does not describe anything the camera shows",
+   "suggestion": "a more saturated orange rgba, or name the block"
+  }
+ ],
+ "notes": "block hidden behind the paper bag in sensor0 (the bag fills that view); visible in sensor1; the bag is open and large enough",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

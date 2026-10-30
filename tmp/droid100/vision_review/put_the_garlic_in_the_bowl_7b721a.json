@@ -1,0 +1,12 @@
+{
+ "task": "put_the_garlic_in_the_bowl_7b721a",
+ "task_id": "7b721ac96593",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "garlic bulb visible in both external views; white ramekin-style bowl clear",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

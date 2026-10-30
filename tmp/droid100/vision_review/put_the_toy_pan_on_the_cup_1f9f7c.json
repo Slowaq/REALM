@@ -1,0 +1,12 @@
+{
+ "task": "put_the_toy_pan_on_the_cup_1f9f7c",
+ "task_id": "1f9f7c831aaa",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "small dark toy pan visible behind the mug in sensor0 and clearly in sensor1; white mug clear. sensor1 is strongly rolled again",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

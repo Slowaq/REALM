@@ -1,0 +1,12 @@
+{
+ "task": "place_the_mug_in_the_sink_7598ed",
+ "task_id": "7598ede20c4b",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "white mug visible beside the sink in sensor0 and the wrist view, hidden in sensor1; sink open and large enough",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

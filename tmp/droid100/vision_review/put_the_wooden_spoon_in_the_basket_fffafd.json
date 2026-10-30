@@ -1,0 +1,19 @@
+{
+ "task": "put_the_wooden_spoon_in_the_basket_fffafd",
+ "task_id": "fffafd65bfc5",
+ "verdict": "fail",
+ "findings": [
+  {
+   "code": "NOT_VISIBLE",
+   "object": "wooden_spoon",
+   "reason": "the wooden spoon lies behind the large wicker basket from both external viewpoints; only a pale fragment of its bowl peeks out beside the basket, not enough to recognise it as a spoon",
+   "suggestion": "place the spoon on the camera side of the basket, or the next camera pair"
+  }
+ ],
+ "notes": "basket itself is clear and open; not visible in the wrist view either",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

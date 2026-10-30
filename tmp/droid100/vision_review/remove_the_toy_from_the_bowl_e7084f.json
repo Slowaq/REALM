@@ -1,0 +1,12 @@
+{
+ "task": "remove_the_toy_from_the_bowl_e7084f",
+ "task_id": "e7084feb5056",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "small grey toy figure lies in the white-lined bowl: distinguishable by its shading in sensor0, only a speck in sensor1; pale on pale, borderline contrast but it is the only thing in the bowl",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

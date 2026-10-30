@@ -1,0 +1,406 @@
+{
+  "task": "remove_the_lid_from_the_mug_3b0f4c",
+  "task_cfg_path": "REALM_DROID100/remove_the_lid_from_the_mug_3b0f4c/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_mug_3b0f4c/remove_the_lid_from_the_mug_3b0f4c_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_mug_3b0f4c/remove_the_lid_from_the_mug_3b0f4c_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_mug_3b0f4c/remove_the_lid_from_the_mug_3b0f4c_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_mug_3b0f4c/remove_the_lid_from_the_mug_3b0f4c_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_mug_3b0f4c/remove_the_lid_from_the_mug_3b0f4c_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_mug_3b0f4c/remove_the_lid_from_the_mug_3b0f4c_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "lid",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "lid",
+      "settled_position": [
+        -10.71385,
+        -10.02852,
+        0.78227
+      ],
+      "settled_orientation": [
+        -0.23438,
+        0.32062,
+        0.13539,
+        0.90771
+      ],
+      "settled_aabb_center": [
+        -10.71588,
+        -10.03052,
+        0.77951
+      ],
+      "start_aabb_center": [
+        -10.78003,
+        -10.12003,
+        0.87845
+      ],
+      "start_aabb_low_z": 0.86679,
+      "start_origin": [
+        -10.78,
+        -10.12,
+        0.87207
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        -10.75614,
+        -10.07095,
+        0.74494
+      ],
+      "settled_aabb_high": [
+        -10.67562,
+        -9.9901,
+        0.81407
+      ],
+      "authored_position": [
+        -10.78,
+        -10.12,
+        0.91703
+      ],
+      "bbox": [
+        0.09305,
+        0.09304,
+        0.02331
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.11289,
+      "drift_z": -0.0898,
+      "aabb_low_z": 0.74494,
+      "mass": 0.346,
+      "explicitly_placed": true
+    },
+    {
+      "name": "distractor_bottle_of_perfume",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_perfume",
+      "settled_position": [
+        -10.62,
+        -9.88,
+        0.78351
+      ],
+      "settled_orientation": [
+        -0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -10.62,
+        -9.88,
+        0.79501
+      ],
+      "start_aabb_center": [
+        -10.62,
+        -9.88,
+        0.82153
+      ],
+      "start_aabb_low_z": 0.77154,
+      "start_origin": [
+        -10.62,
+        -9.88,
+        0.81004
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        -10.64178,
+        -9.90177,
+        0.74502
+      ],
+      "settled_aabb_high": [
+        -10.59823,
+        -9.85822,
+        0.845
+      ],
+      "authored_position": [
+        -10.62,
+        -9.88,
+        0.855
+      ],
+      "bbox": [
+        0.04355,
+        0.04355,
+        0.1
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.02653,
+      "aabb_low_z": 0.74502,
+      "mass": 0.22,
+      "explicitly_placed": true,
+      "start_gap_m": 0.02653
+    },
+    {
+      "name": "distractor_can_of_beans",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "can_of_beans",
+      "settled_position": [
+        -10.78,
+        -9.88,
+        0.80001
+      ],
+      "settled_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -10.78,
+        -9.88,
+        0.80002
+      ],
+      "start_aabb_center": [
+        -10.78,
+        -9.88,
+        0.81504
+      ],
+      "start_aabb_low_z": 0.76004,
+      "start_origin": [
+        -10.78,
+        -9.88,
+        0.81504
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        -10.82483,
+        -9.926,
+        0.74502
+      ],
+      "settled_aabb_high": [
+        -10.73518,
+        -9.834,
+        0.85502
+      ],
+      "authored_position": [
+        -10.78,
+        -9.88,
+        0.86
+      ],
+      "bbox": [
+        0.08965,
+        0.092,
+        0.11
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.01503,
+      "aabb_low_z": 0.74502,
+      "mass": 0.425,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01503
+    },
+    {
+      "name": "distractor_jar_of_tumeric",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "jar_of_tumeric",
+      "settled_position": [
+        -10.62,
+        -10.12,
+        0.78538
+      ],
+      "settled_orientation": [
+        0.0,
+        -0.0,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -10.62039,
+        -10.1201,
+        0.79501
+      ],
+      "start_aabb_center": [
+        -10.62039,
+        -10.1201,
+        0.81967
+      ],
+      "start_aabb_low_z": 0.76967,
+      "start_origin": [
+        -10.62,
+        -10.12,
+        0.81004
+      ],
+      "start_orientation": [
+        -0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        -10.65578,
+        -10.15548,
+        0.74501
+      ],
+      "settled_aabb_high": [
+        -10.585,
+        -10.08471,
+        0.84501
+      ],
+      "authored_position": [
+        -10.62,
+        -10.12,
+        0.855
+      ],
+      "bbox": [
+        0.07077,
+        0.07077,
+        0.1
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.02466,
+      "aabb_low_z": 0.74501,
+      "mass": 0.04295,
+      "explicitly_placed": true,
+      "start_gap_m": 0.02466
+    },
+    {
+      "name": "mug",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "mug",
+      "settled_position": [
+        -10.74942,
+        -10.09817,
+        0.79691
+      ],
+      "settled_orientation": [
+        -0.29415,
+        0.28735,
+        -0.00202,
+        0.91154
+      ],
+      "settled_aabb_center": [
+        -10.74537,
+        -10.09184,
+        0.80234
+      ],
+      "start_aabb_center": [
+        -10.78168,
+        -10.10995,
+        0.79927
+      ],
+      "start_aabb_low_z": 0.75348,
+      "start_origin": [
+        -10.78,
+        -10.12,
+        0.80523
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        -10.79953,
+        -10.15037,
+        0.74464
+      ],
+      "settled_aabb_high": [
+        -10.6912,
+        -10.03332,
+        0.86004
+      ],
+      "authored_position": [
+        -10.78,
+        -10.12,
+        0.85019
+      ],
+      "bbox": [
+        0.08946,
+        0.12,
+        0.09038
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.03757,
+      "drift_z": -0.00832,
+      "aabb_low_z": 0.74464,
+      "mass": 0.08604,
+      "explicitly_placed": true,
+      "start_gap_m": 0.00847
+    }
+  ],
+  "support_z": 0.9,
+  "support_z_measured": 0.74501,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "DRIFT",
+      "object": "lid",
+      "reason": "settled 0.1129 m from its authored XY"
+    },
+    {
+      "code": "UNSTABLE",
+      "object": "mug",
+      "reason": "settled 0.0376 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    },
+    {
+      "code": "TIPPED",
+      "object": "mug",
+      "reason": "tilted 49 degrees during the settle (fell over)"
+    },
+    {
+      "code": "LEFT_SUPPORT",
+      "object": "lid",
+      "reason": "declared on top of 'mug' but slid off it"
+    }
+  ],
+  "visibility": {
+    "lid": {
+      "DROID_mounted/DROID_mounted:base_link:Camera:0": {
+        "pixels": 4179,
+        "object_luma": 235.0,
+        "surround_luma": 153.2,
+        "contrast": 0.321,
+        "threshold": 10,
+        "contrast_behind": 0.295
+      },
+      "external/external_sensor0": {
+        "pixels": 2015,
+        "object_luma": 236.9,
+        "surround_luma": 102.8,
+        "contrast": 0.526,
+        "threshold": 10,
+        "contrast_behind": 0.309
+      },
+      "external/external_sensor1": {
+        "pixels": 726,
+        "object_luma": 208.6,
+        "surround_luma": 165.4,
+        "contrast": 0.17,
+        "threshold": 10,
+        "contrast_behind": 0.169
+      }
+    }
+  },
+  "visibility_errors": [],
+  "no_images": false,
+  "verdict": "FAIL"
+}

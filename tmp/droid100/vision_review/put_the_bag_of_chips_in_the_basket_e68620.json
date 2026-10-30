@@ -1,0 +1,12 @@
+{
+ "task": "put_the_bag_of_chips_in_the_basket_e68620",
+ "task_id": "e686209fa880",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "green chips bag clear in sensor1 and the wrist view; in sensor0 it is behind the basket (seen only through the handle slot); basket open and large",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

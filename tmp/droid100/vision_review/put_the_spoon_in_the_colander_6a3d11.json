@@ -1,0 +1,12 @@
+{
+ "task": "put_the_spoon_in_the_colander_6a3d11",
+ "task_id": "6a3d1103e82c",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "metal spoon clear on the counter in sensor0 (camera is tilted but the scene is framed); hidden behind the colander in sensor1; dark colander clear",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

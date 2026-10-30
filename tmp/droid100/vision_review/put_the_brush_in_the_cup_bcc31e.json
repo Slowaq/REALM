@@ -1,0 +1,12 @@
+{
+ "task": "put_the_brush_in_the_cup_bcc31e",
+ "task_id": "bcc31ebaf0d1",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "brown brush on the dark table is visible in sensor0 (light bristles, clear outline) and small in sensor1; tall paper cup clear",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

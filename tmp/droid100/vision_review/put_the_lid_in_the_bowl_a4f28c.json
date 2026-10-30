@@ -1,0 +1,12 @@
+{
+ "task": "put_the_lid_in_the_bowl_a4f28c",
+ "task_id": "a4f28c767baa",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "grey dome lid clear in sensor1, out of frame in sensor0; large dark bowl clear; the water bottle label is a black-and-white checkerboard that may be a placeholder texture (distractor only)",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

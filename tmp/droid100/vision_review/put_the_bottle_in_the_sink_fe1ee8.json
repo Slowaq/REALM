@@ -1,0 +1,19 @@
+{
+ "task": "put_the_bottle_in_the_sink_fe1ee8",
+ "task_id": "fe1ee8cde3f6",
+ "verdict": "fail",
+ "findings": [
+  {
+   "code": "MISMATCH",
+   "object": "distractor_bottle_of_fruit_punch",
+   "reason": "the yellow fruit-punch bottle stands right next to the white target bottle, so \"the bottle\" does not single out the target",
+   "suggestion": "a distractor that is not a bottle"
+  }
+ ],
+ "notes": "white bottle and sink otherwise clear in both external views",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

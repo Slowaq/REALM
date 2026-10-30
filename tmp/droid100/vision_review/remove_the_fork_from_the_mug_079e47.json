@@ -1,0 +1,12 @@
+{
+ "task": "remove_the_fork_from_the_mug_079e47",
+ "task_id": "079e4761c572",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "fork stands in the white mug with its tines up, clear in both external views. both external cameras are strongly rolled in this scene",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

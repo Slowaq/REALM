@@ -1,0 +1,319 @@
+{
+  "task": "pick_up_the_towel_1bdaf2",
+  "task_cfg_path": "REALM_DROID100/pick_up_the_towel_1bdaf2/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v8/droid100/pick_up_the_towel_1bdaf2/pick_up_the_towel_1bdaf2_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v8/droid100/pick_up_the_towel_1bdaf2/pick_up_the_towel_1bdaf2_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v8/droid100/pick_up_the_towel_1bdaf2/pick_up_the_towel_1bdaf2_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v8/droid100/pick_up_the_towel_1bdaf2/pick_up_the_towel_1bdaf2_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v8/droid100/pick_up_the_towel_1bdaf2/pick_up_the_towel_1bdaf2_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v8/droid100/pick_up_the_towel_1bdaf2/pick_up_the_towel_1bdaf2_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "towel",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "dishtowel",
+      "settled_position": [
+        -4.41987,
+        -1.8499,
+        0.92817
+      ],
+      "settled_orientation": [
+        -0.0012,
+        0.00707,
+        0.00017,
+        0.99997
+      ],
+      "settled_aabb_center": [
+        -4.41767,
+        -1.84586,
+        0.93606
+      ],
+      "start_aabb_center": [
+        -4.41775,
+        -1.84596,
+        0.95826
+      ],
+      "start_aabb_low_z": 0.9418,
+      "start_origin": [
+        -4.42,
+        -1.85,
+        0.95149
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        -4.49823,
+        -1.95599,
+        0.91951
+      ],
+      "settled_aabb_high": [
+        -4.33711,
+        -1.73574,
+        0.95262
+      ],
+      "authored_position": [
+        -4.42,
+        -1.85,
+        0.99645
+      ],
+      "bbox": [
+        0.16099,
+        0.22,
+        0.0329
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00016,
+      "drift_z": -0.02332,
+      "aabb_low_z": 0.91951,
+      "mass": 0.123,
+      "explicitly_placed": true,
+      "start_gap_m": 0.02216
+    },
+    {
+      "name": "distractor_can_of_oatmeal",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "can_of_oatmeal",
+      "settled_position": [
+        -4.58,
+        -1.65,
+        1.01036
+      ],
+      "settled_orientation": [
+        1e-05,
+        1e-05,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -4.57999,
+        -1.65,
+        1.00965
+      ],
+      "start_aabb_center": [
+        -4.58,
+        -1.65,
+        1.02432
+      ],
+      "start_aabb_low_z": 0.93432,
+      "start_origin": [
+        -4.58,
+        -1.65,
+        1.02504
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        -4.64103,
+        -1.71102,
+        0.91965
+      ],
+      "settled_aabb_high": [
+        -4.51896,
+        -1.58898,
+        1.09965
+      ],
+      "authored_position": [
+        -4.58,
+        -1.65,
+        1.07
+      ],
+      "bbox": [
+        0.12204,
+        0.12204,
+        0.18
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.0,
+      "drift_z": -0.01468,
+      "aabb_low_z": 0.91965,
+      "mass": 0.452,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01468
+    },
+    {
+      "name": "distractor_jar_of_honey",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "jar_of_honey",
+      "settled_position": [
+        -4.42001,
+        -1.65002,
+        0.9893
+      ],
+      "settled_orientation": [
+        0.00014,
+        -6e-05,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -4.42401,
+        -1.65003,
+        0.98499
+      ],
+      "start_aabb_center": [
+        -4.424,
+        -1.65,
+        0.99572
+      ],
+      "start_aabb_low_z": 0.93038,
+      "start_origin": [
+        -4.42,
+        -1.65,
+        1.00004
+      ],
+      "start_orientation": [
+        0.0,
+        -0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        -4.47161,
+        -1.70343,
+        0.91965
+      ],
+      "settled_aabb_high": [
+        -4.3764,
+        -1.59663,
+        1.05033
+      ],
+      "authored_position": [
+        -4.42,
+        -1.65,
+        1.045
+      ],
+      "bbox": [
+        0.09519,
+        0.10679,
+        0.13
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 2e-05,
+      "drift_z": -0.01074,
+      "aabb_low_z": 0.91965,
+      "mass": 1.16468,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01074
+    },
+    {
+      "name": "distractor_bottle_of_rum",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_rum",
+      "settled_position": [
+        -4.58001,
+        -1.84996,
+        1.0377
+      ],
+      "settled_orientation": [
+        -0.00017,
+        -4e-05,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_center": [
+        -4.58195,
+        -1.84991,
+        1.06077
+      ],
+      "start_aabb_center": [
+        -4.58193,
+        -1.84997,
+        1.09811
+      ],
+      "start_aabb_low_z": 0.95698,
+      "start_origin": [
+        -4.58,
+        -1.85,
+        1.07504
+      ],
+      "start_orientation": [
+        0.0,
+        -0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        -4.61946,
+        -1.887,
+        0.91964
+      ],
+      "settled_aabb_high": [
+        -4.54444,
+        -1.81281,
+        1.20191
+      ],
+      "authored_position": [
+        -4.58,
+        -1.85,
+        1.12
+      ],
+      "bbox": [
+        0.07167,
+        0.07167,
+        0.28
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 4e-05,
+      "drift_z": -0.03734,
+      "aabb_low_z": 0.91964,
+      "mass": 1.01313,
+      "explicitly_placed": true,
+      "start_gap_m": 0.03734
+    }
+  ],
+  "support_z": 1.05,
+  "support_z_measured": 0.91964,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [],
+  "visibility": {
+    "towel": {
+      "DROID_mounted/DROID_mounted:base_link:Camera:0": {
+        "pixels": 60143,
+        "object_luma": 192.5,
+        "surround_luma": 181.7,
+        "contrast": 0.042,
+        "threshold": 10,
+        "contrast_behind": 0.047
+      },
+      "external/external_sensor0": {
+        "pixels": 28588,
+        "object_luma": 193.6,
+        "surround_luma": 170.8,
+        "contrast": 0.089,
+        "threshold": 10,
+        "contrast_behind": 0.047
+      },
+      "external/external_sensor1": {
+        "pixels": 38230,
+        "object_luma": 185.3,
+        "surround_luma": 169.0,
+        "contrast": 0.064,
+        "threshold": 10,
+        "contrast_behind": 0.021
+      }
+    }
+  },
+  "visibility_errors": [],
+  "no_images": false,
+  "verdict": "PASS"
+}

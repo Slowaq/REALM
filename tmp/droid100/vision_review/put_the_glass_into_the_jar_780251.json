@@ -1,0 +1,12 @@
+{
+ "task": "put_the_glass_into_the_jar_780251",
+ "task_id": "7802519e1367",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "clear drinking glass visible by its highlights in both external views (next to the duct tape); the larger open jar is clear; both are transparent but differ in size",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

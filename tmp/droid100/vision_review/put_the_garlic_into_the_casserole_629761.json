@@ -1,0 +1,12 @@
+{
+ "task": "put_the_garlic_into_the_casserole_629761",
+ "task_id": "629761349468",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "white garlic bulb stands out on the dark table in both external views; the casserole is a deep glass dish that reads more like a mixing bowl, but it is the only container",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

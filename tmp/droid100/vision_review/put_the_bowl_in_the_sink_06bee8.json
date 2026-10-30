@@ -1,0 +1,12 @@
+{
+ "task": "put_the_bowl_in_the_sink_06bee8",
+ "task_id": "06bee81e5ea3",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "wooden bowl clear beside the sink in sensor0, partly visible behind the sink in sensor1; sink large enough; distractor_pruner not visible, consistent with the measured PENETRATION",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

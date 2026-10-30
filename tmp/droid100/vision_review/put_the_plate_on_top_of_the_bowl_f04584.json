@@ -1,0 +1,12 @@
+{
+ "task": "put_the_plate_on_top_of_the_bowl_f04584",
+ "task_id": "f045846e1d54",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "large white plate and dark glass bowl clear in both external views; plate is wider than the bowl so it can rest on top",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

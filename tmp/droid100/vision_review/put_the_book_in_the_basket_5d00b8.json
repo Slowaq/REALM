@@ -1,0 +1,12 @@
+{
+ "task": "put_the_book_in_the_basket_5d00b8",
+ "task_id": "5d00b8cf0c0b",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "green book flat beside the basket, clear in sensor0 and the wrist view, mostly hidden behind the basket in sensor1; distractor_pruner not visible anywhere, consistent with the measured PENETRATION",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

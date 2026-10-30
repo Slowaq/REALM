@@ -1,0 +1,12 @@
+{
+ "task": "remove_the_marker_from_the_cup_1fb5a0",
+ "task_id": "1fb5a0b7d5a0",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "green marker leans in the red party cup with its end above the rim: clear in sensor1, only its tip shows in sensor0; graspable from above",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

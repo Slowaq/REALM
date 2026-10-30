@@ -1,0 +1,474 @@
+{
+  "task": "remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054",
+  "task_cfg_path": "REALM_DROID100/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054/default.yaml",
+  "renders": [
+    "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+    "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054_external_external_sensor0_t000.png",
+    "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054_external_external_sensor1_t000.png",
+    "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+    "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054_external_external_sensor0_t060.png",
+    "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054_external_external_sensor1_t060.png"
+  ],
+  "render_errors": [],
+  "objects": [
+    {
+      "name": "lid",
+      "present": true,
+      "authored": true,
+      "role": "main_objects",
+      "category": "lid",
+      "settled_position": [
+        3.06798,
+        4.25825,
+        0.02099
+      ],
+      "settled_orientation": [
+        1e-05,
+        -1e-05,
+        0.99943,
+        0.03383
+      ],
+      "settled_aabb_center": [
+        3.06798,
+        4.25823,
+        0.03776
+      ],
+      "start_aabb_center": [
+        2.11999,
+        4.97511,
+        0.95066
+      ],
+      "start_aabb_low_z": 0.9119,
+      "start_origin": [
+        2.12,
+        4.9751,
+        0.9339
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        2.95115,
+        4.1414,
+        -0.001
+      ],
+      "settled_aabb_high": [
+        3.18482,
+        4.37507,
+        0.07652
+      ],
+      "authored_position": [
+        2.12,
+        4.9751,
+        0.97886
+      ],
+      "bbox": [
+        0.23166,
+        0.23166,
+        0.07505
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 1.1885,
+      "drift_z": -0.91291,
+      "aabb_low_z": -0.001,
+      "mass": 0.346,
+      "explicitly_placed": true
+    },
+    {
+      "name": "towel",
+      "present": true,
+      "authored": true,
+      "role": "target_objects",
+      "category": "dishtowel",
+      "settled_position": [
+        1.85975,
+        5.07171,
+        0.76275
+      ],
+      "settled_orientation": [
+        -0.00228,
+        0.00671,
+        0.11339,
+        0.99353
+      ],
+      "settled_aabb_center": [
+        1.86288,
+        5.07621,
+        0.76907
+      ],
+      "start_aabb_center": [
+        1.88329,
+        5.06724,
+        0.79332
+      ],
+      "start_aabb_low_z": 0.78015,
+      "start_origin": [
+        1.88,
+        5.0649,
+        0.78816
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        1.76495,
+        4.95288,
+        0.75584
+      ],
+      "settled_aabb_high": [
+        1.96082,
+        5.19953,
+        0.78229
+      ],
+      "authored_position": [
+        1.88,
+        5.0649,
+        0.83312
+      ],
+      "bbox": [
+        0.15928,
+        0.22,
+        0.02624
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.02136,
+      "drift_z": -0.02541,
+      "aabb_low_z": 0.75584,
+      "mass": 0.123,
+      "explicitly_placed": true,
+      "start_gap_m": 0.02431
+    },
+    {
+      "name": "distractor_bottle_of_pumpkin_pie_spice",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "bottle_of_pumpkin_pie_spice",
+      "settled_position": [
+        1.8853,
+        4.92055,
+        0.79759
+      ],
+      "settled_orientation": [
+        0.00014,
+        0.00077,
+        0.01147,
+        0.99993
+      ],
+      "settled_aabb_center": [
+        1.88534,
+        4.92057,
+        0.8115
+      ],
+      "start_aabb_center": [
+        1.88003,
+        4.92003,
+        0.84393
+      ],
+      "start_aabb_low_z": 0.78826,
+      "start_origin": [
+        1.88,
+        4.92,
+        0.83004
+      ],
+      "start_orientation": [
+        -0.0,
+        0.0,
+        -0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        1.86236,
+        4.89765,
+        0.75584
+      ],
+      "settled_aabb_high": [
+        1.90832,
+        4.9435,
+        0.86717
+      ],
+      "authored_position": [
+        1.88,
+        4.92,
+        0.875
+      ],
+      "bbox": [
+        0.04405,
+        0.04403,
+        0.11
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00533,
+      "drift_z": -0.03245,
+      "aabb_low_z": 0.75584,
+      "mass": 0.08007,
+      "explicitly_placed": true,
+      "start_gap_m": 0.03242
+    },
+    {
+      "name": "distractor_coffee_cup",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "coffee_cup",
+      "settled_position": [
+        1.79496,
+        4.85626,
+        0.79551
+      ],
+      "settled_orientation": [
+        8e-05,
+        3e-05,
+        -0.00438,
+        0.99999
+      ],
+      "settled_aabb_center": [
+        1.8095,
+        4.85632,
+        0.79874
+      ],
+      "start_aabb_center": [
+        1.80453,
+        4.85625,
+        0.82066
+      ],
+      "start_aabb_low_z": 0.77776,
+      "start_origin": [
+        1.79,
+        4.85624,
+        0.81743
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        1.75893,
+        4.82462,
+        0.75584
+      ],
+      "settled_aabb_high": [
+        1.86007,
+        4.88801,
+        0.84164
+      ],
+      "authored_position": [
+        1.79,
+        4.85624,
+        0.86239
+      ],
+      "bbox": [
+        0.1,
+        0.06228,
+        0.08479
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00496,
+      "drift_z": -0.02192,
+      "aabb_low_z": 0.75584,
+      "mass": 0.15409,
+      "explicitly_placed": true,
+      "start_gap_m": 0.02192
+    },
+    {
+      "name": "distractor_pen",
+      "present": true,
+      "authored": true,
+      "role": "distractors",
+      "category": "pen",
+      "settled_position": [
+        2.20305,
+        5.16001,
+        0.76084
+      ],
+      "settled_orientation": [
+        0.0002,
+        0.0,
+        -0.00241,
+        1.0
+      ],
+      "settled_aabb_center": [
+        2.21143,
+        5.15986,
+        0.76135
+      ],
+      "start_aabb_center": [
+        2.21328,
+        5.15972,
+        0.78106
+      ],
+      "start_aabb_low_z": 0.77555,
+      "start_origin": [
+        2.2049,
+        5.16,
+        0.78055
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        2.14045,
+        5.15352,
+        0.75584
+      ],
+      "settled_aabb_high": [
+        2.28242,
+        5.1662,
+        0.76686
+      ],
+      "authored_position": [
+        2.2049,
+        5.16,
+        0.82551
+      ],
+      "bbox": [
+        0.14,
+        0.01248,
+        0.01102
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.00185,
+      "drift_z": -0.01971,
+      "aabb_low_z": 0.75584,
+      "mass": 0.05,
+      "explicitly_placed": true,
+      "start_gap_m": 0.01971
+    },
+    {
+      "name": "pot",
+      "present": true,
+      "authored": true,
+      "role": "immutables",
+      "category": "saucepot",
+      "settled_position": [
+        1.99838,
+        5.08613,
+        0.81135
+      ],
+      "settled_orientation": [
+        -0.00011,
+        0.0555,
+        0.43888,
+        0.89683
+      ],
+      "settled_aabb_center": [
+        2.00359,
+        5.08873,
+        0.8233
+      ],
+      "start_aabb_center": [
+        2.12001,
+        4.97516,
+        0.84137
+      ],
+      "start_aabb_low_z": 0.78417,
+      "start_origin": [
+        2.12,
+        4.9751,
+        0.8307
+      ],
+      "start_orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "settled_aabb_low": [
+        1.87218,
+        4.97078,
+        0.75584
+      ],
+      "settled_aabb_high": [
+        2.135,
+        5.20668,
+        0.89076
+      ],
+      "authored_position": [
+        2.12,
+        4.9751,
+        0.87567
+      ],
+      "bbox": [
+        0.22275,
+        0.3,
+        0.11134
+      ],
+      "drift_reference": "origin",
+      "drift_xy": 0.16468,
+      "drift_z": -0.01935,
+      "aabb_low_z": 0.75584,
+      "mass": 0.63733,
+      "explicitly_placed": true,
+      "start_gap_m": 0.02833
+    }
+  ],
+  "support_z": 0.9,
+  "support_z_measured": 0.75584,
+  "penetration_check": "measured task surface and floor",
+  "settle_steps": 30,
+  "compute_findings": [
+    {
+      "code": "DRIFT",
+      "object": "lid",
+      "reason": "settled 1.1885 m from its authored XY"
+    },
+    {
+      "code": "PENETRATION",
+      "object": "lid",
+      "reason": "lower face at z=-0.0010 is 0.7568 m below the measured support surface at z=0.7558"
+    },
+    {
+      "code": "DRIFT",
+      "object": "towel",
+      "reason": "settled 0.0214 m from its authored XY"
+    },
+    {
+      "code": "UNSTABLE",
+      "object": "pot",
+      "reason": "settled 0.1647 m from its authored XY, past the 0.03 m threshold: the layout is not resting where it was placed"
+    },
+    {
+      "code": "LEFT_SUPPORT",
+      "object": "lid",
+      "reason": "declared on top of 'pot' but slid off it"
+    },
+    {
+      "code": "NOT_VISIBLE",
+      "object": "lid",
+      "reason": "fewer than 60 px in every external camera"
+    }
+  ],
+  "visibility": {
+    "lid": {
+      "DROID_mounted/DROID_mounted:base_link:Camera:0": {
+        "pixels": 0,
+        "contrast": null,
+        "threshold": 10
+      },
+      "external/external_sensor0": {
+        "pixels": 0,
+        "contrast": null,
+        "threshold": 10
+      },
+      "external/external_sensor1": {
+        "pixels": 0,
+        "contrast": null,
+        "threshold": 10
+      }
+    }
+  },
+  "visibility_errors": [],
+  "no_images": false,
+  "verdict": "FAIL"
+}

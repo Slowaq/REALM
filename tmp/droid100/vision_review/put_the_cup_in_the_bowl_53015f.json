@@ -1,0 +1,12 @@
+{
+ "task": "put_the_cup_in_the_bowl_53015f",
+ "task_id": "53015f21419e",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "white mug and blue-patterned bowl clear in all views; the mug fits the bowl opening",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

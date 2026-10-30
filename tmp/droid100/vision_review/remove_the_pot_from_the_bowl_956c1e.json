@@ -1,0 +1,19 @@
+{
+ "task": "remove_the_pot_from_the_bowl_956c1e",
+ "task_id": "956c1ee60030",
+ "verdict": "fail",
+ "findings": [
+  {
+   "code": "SCALE",
+   "object": "pot",
+   "reason": "the pot is a tiny steel cup about 14 cm across with its handle, sitting inside a cereal bowl; at that size it reads as a creamer or measuring cup, not a pot, which is implausible for the instruction",
+   "suggestion": "a pot about 20 cm across with a larger receiver, or rename the object"
+  }
+ ],
+ "notes": "object is visible in the bowl in both external views (small in sensor0)",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

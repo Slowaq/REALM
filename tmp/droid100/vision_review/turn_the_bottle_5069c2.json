@@ -1,0 +1,12 @@
+{
+ "task": "turn_the_bottle_5069c2",
+ "task_id": "5069c205ffd2",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "tall red-brown bottle clear on the dark table in both external views; the small tomato-paste bottle reads as a jar at half the height, so \"the bottle\" still points at the main object",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

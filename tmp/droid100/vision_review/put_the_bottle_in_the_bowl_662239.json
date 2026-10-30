@@ -1,0 +1,19 @@
+{
+ "task": "put_the_bottle_in_the_bowl_662239",
+ "task_id": "662239f12a32",
+ "verdict": "fail",
+ "findings": [
+  {
+   "code": "MISMATCH",
+   "object": "distractor_bottle_of_soda",
+   "reason": "the purple soda bottle stands next to the brown target bottle and is the same shape and size, so \"the bottle\" does not single out the target",
+   "suggestion": "a distractor that is not a bottle"
+  }
+ ],
+ "notes": "brown bottle and printed bowl are otherwise clear in both external views",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

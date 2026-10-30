@@ -1,0 +1,12 @@
+{
+ "task": "put_the_candy_in_the_cup_d5506e",
+ "task_id": "d5506e13ef1e",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "the candy is tiny but can be made out in sensor1 as a red-and-yellow piece on the dark table; hidden behind the bread and bottle in sensor0; small mug-like cup clear",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

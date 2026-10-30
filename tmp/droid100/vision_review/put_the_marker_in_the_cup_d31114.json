@@ -1,0 +1,12 @@
+{
+ "task": "put_the_marker_in_the_cup_d31114",
+ "task_id": "d311145a2995",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "dark marker hidden behind the jar in sensor0 but visible lying in front of the sponge in sensor1 (dark on dark, outline still readable); tall white cup clear",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

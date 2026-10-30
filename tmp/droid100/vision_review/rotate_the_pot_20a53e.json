@@ -1,0 +1,12 @@
+{
+ "task": "rotate_the_pot_20a53e",
+ "task_id": "20a53e71a252",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "steel pot with two handles clear in sensor1 and the wrist view; sensor0 is framed high and shows it only at the bottom edge; graspable by a handle",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

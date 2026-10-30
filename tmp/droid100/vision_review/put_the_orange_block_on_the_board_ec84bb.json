@@ -1,0 +1,19 @@
+{
+ "task": "put_the_orange_block_on_the_board_ec84bb",
+ "task_id": "ec84bb6633ab",
+ "verdict": "fail",
+ "findings": [
+  {
+   "code": "MISMATCH",
+   "object": "orange_block",
+   "reason": "the block the instruction calls orange renders clearly yellow in both external views, so the colour word does not match what the camera shows (it is still the only block on the table)",
+   "suggestion": "a more saturated orange rgba, or drop the colour word"
+  }
+ ],
+ "notes": "block and cutting board otherwise clear and reachable; board is large enough",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

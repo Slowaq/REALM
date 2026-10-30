@@ -1,0 +1,12 @@
+{
+ "task": "remove_the_yellow_object_from_the_plate_851e78",
+ "task_id": "851e78224c57",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "yellow block on the white plate, very clear in all views; the cucumber nearby is green, so \"yellow object\" is unambiguous",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

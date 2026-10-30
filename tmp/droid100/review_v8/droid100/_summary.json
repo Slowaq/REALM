@@ -1,0 +1,2024 @@
+{
+  "results": [
+    {
+      "task": "pick_up_the_bowl_3a9ab3",
+      "task_cfg_path": "REALM_DROID100/pick_up_the_bowl_3a9ab3/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/pick_up_the_bowl_3a9ab3/pick_up_the_bowl_3a9ab3_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_bowl_3a9ab3/pick_up_the_bowl_3a9ab3_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_bowl_3a9ab3/pick_up_the_bowl_3a9ab3_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_bowl_3a9ab3/pick_up_the_bowl_3a9ab3_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_bowl_3a9ab3/pick_up_the_bowl_3a9ab3_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_bowl_3a9ab3/pick_up_the_bowl_3a9ab3_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.0,
+      "support_z_measured": 0.89944,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "pick_up_the_can_68fff4",
+      "task_cfg_path": "REALM_DROID100/pick_up_the_can_68fff4/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/pick_up_the_can_68fff4/pick_up_the_can_68fff4_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_can_68fff4/pick_up_the_can_68fff4_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_can_68fff4/pick_up_the_can_68fff4_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_can_68fff4/pick_up_the_can_68fff4_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_can_68fff4/pick_up_the_can_68fff4_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_can_68fff4/pick_up_the_can_68fff4_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.0,
+      "support_z_measured": 0.8995,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "pick_up_the_cup_eef25d",
+      "task_cfg_path": "REALM_DROID100/pick_up_the_cup_eef25d/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/pick_up_the_cup_eef25d/pick_up_the_cup_eef25d_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_cup_eef25d/pick_up_the_cup_eef25d_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_cup_eef25d/pick_up_the_cup_eef25d_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_cup_eef25d/pick_up_the_cup_eef25d_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_cup_eef25d/pick_up_the_cup_eef25d_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_cup_eef25d/pick_up_the_cup_eef25d_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.80494,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "pick_up_the_toothbrush_dcbbfd",
+      "task_cfg_path": "REALM_DROID100/pick_up_the_toothbrush_dcbbfd/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/pick_up_the_toothbrush_dcbbfd/pick_up_the_toothbrush_dcbbfd_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_toothbrush_dcbbfd/pick_up_the_toothbrush_dcbbfd_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_toothbrush_dcbbfd/pick_up_the_toothbrush_dcbbfd_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_toothbrush_dcbbfd/pick_up_the_toothbrush_dcbbfd_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_toothbrush_dcbbfd/pick_up_the_toothbrush_dcbbfd_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_toothbrush_dcbbfd/pick_up_the_toothbrush_dcbbfd_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.80493,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "pick_up_the_towel_1bdaf2",
+      "task_cfg_path": "REALM_DROID100/pick_up_the_towel_1bdaf2/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/pick_up_the_towel_1bdaf2/pick_up_the_towel_1bdaf2_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_towel_1bdaf2/pick_up_the_towel_1bdaf2_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_towel_1bdaf2/pick_up_the_towel_1bdaf2_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_towel_1bdaf2/pick_up_the_towel_1bdaf2_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_towel_1bdaf2/pick_up_the_towel_1bdaf2_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/pick_up_the_towel_1bdaf2/pick_up_the_towel_1bdaf2_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.05,
+      "support_z_measured": 0.91964,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "place_the_book_inside_the_box_e34edc",
+      "task_cfg_path": "REALM_DROID100/place_the_book_inside_the_box_e34edc/default.yaml",
+      "verdict": "FAIL",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/place_the_book_inside_the_box_e34edc/place_the_book_inside_the_box_e34edc_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/place_the_book_inside_the_box_e34edc/place_the_book_inside_the_box_e34edc_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/place_the_book_inside_the_box_e34edc/place_the_book_inside_the_box_e34edc_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/place_the_book_inside_the_box_e34edc/place_the_book_inside_the_box_e34edc_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/place_the_book_inside_the_box_e34edc/place_the_book_inside_the_box_e34edc_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/place_the_book_inside_the_box_e34edc/place_the_book_inside_the_box_e34edc_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.80493,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "place_the_chocolate_bar_inside_the_sink_cfa4fa",
+      "task_cfg_path": "REALM_DROID100/place_the_chocolate_bar_inside_the_sink_cfa4fa/default.yaml",
+      "verdict": "FAIL",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/place_the_chocolate_bar_inside_the_sink_cfa4fa/place_the_chocolate_bar_inside_the_sink_cfa4fa_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/place_the_chocolate_bar_inside_the_sink_cfa4fa/place_the_chocolate_bar_inside_the_sink_cfa4fa_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/place_the_chocolate_bar_inside_the_sink_cfa4fa/place_the_chocolate_bar_inside_the_sink_cfa4fa_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/place_the_chocolate_bar_inside_the_sink_cfa4fa/place_the_chocolate_bar_inside_the_sink_cfa4fa_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/place_the_chocolate_bar_inside_the_sink_cfa4fa/place_the_chocolate_bar_inside_the_sink_cfa4fa_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/place_the_chocolate_bar_inside_the_sink_cfa4fa/place_the_chocolate_bar_inside_the_sink_cfa4fa_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.74498,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "place_the_lid_on_the_coffee_cup_456a7e",
+      "task_cfg_path": "REALM_DROID100/place_the_lid_on_the_coffee_cup_456a7e/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/place_the_lid_on_the_coffee_cup_456a7e/place_the_lid_on_the_coffee_cup_456a7e_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/place_the_lid_on_the_coffee_cup_456a7e/place_the_lid_on_the_coffee_cup_456a7e_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/place_the_lid_on_the_coffee_cup_456a7e/place_the_lid_on_the_coffee_cup_456a7e_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/place_the_lid_on_the_coffee_cup_456a7e/place_the_lid_on_the_coffee_cup_456a7e_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/place_the_lid_on_the_coffee_cup_456a7e/place_the_lid_on_the_coffee_cup_456a7e_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/place_the_lid_on_the_coffee_cup_456a7e/place_the_lid_on_the_coffee_cup_456a7e_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.80494,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "place_the_marker_in_the_bowl_767b1c",
+      "task_cfg_path": "REALM_DROID100/place_the_marker_in_the_bowl_767b1c/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/place_the_marker_in_the_bowl_767b1c/place_the_marker_in_the_bowl_767b1c_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/place_the_marker_in_the_bowl_767b1c/place_the_marker_in_the_bowl_767b1c_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/place_the_marker_in_the_bowl_767b1c/place_the_marker_in_the_bowl_767b1c_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/place_the_marker_in_the_bowl_767b1c/place_the_marker_in_the_bowl_767b1c_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/place_the_marker_in_the_bowl_767b1c/place_the_marker_in_the_bowl_767b1c_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/place_the_marker_in_the_bowl_767b1c/place_the_marker_in_the_bowl_767b1c_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73763,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "place_the_mug_in_the_sink_7598ed",
+      "task_cfg_path": "REALM_DROID100/place_the_mug_in_the_sink_7598ed/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/place_the_mug_in_the_sink_7598ed/place_the_mug_in_the_sink_7598ed_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/place_the_mug_in_the_sink_7598ed/place_the_mug_in_the_sink_7598ed_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/place_the_mug_in_the_sink_7598ed/place_the_mug_in_the_sink_7598ed_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/place_the_mug_in_the_sink_7598ed/place_the_mug_in_the_sink_7598ed_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/place_the_mug_in_the_sink_7598ed/place_the_mug_in_the_sink_7598ed_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/place_the_mug_in_the_sink_7598ed/place_the_mug_in_the_sink_7598ed_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.75584,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "place_the_towel_inside_the_box_2f4888",
+      "task_cfg_path": "REALM_DROID100/place_the_towel_inside_the_box_2f4888/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/place_the_towel_inside_the_box_2f4888/place_the_towel_inside_the_box_2f4888_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/place_the_towel_inside_the_box_2f4888/place_the_towel_inside_the_box_2f4888_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/place_the_towel_inside_the_box_2f4888/place_the_towel_inside_the_box_2f4888_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/place_the_towel_inside_the_box_2f4888/place_the_towel_inside_the_box_2f4888_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/place_the_towel_inside_the_box_2f4888/place_the_towel_inside_the_box_2f4888_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/place_the_towel_inside_the_box_2f4888/place_the_towel_inside_the_box_2f4888_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73762,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_bag_of_chips_in_the_basket_e68620",
+      "task_cfg_path": "REALM_DROID100/put_the_bag_of_chips_in_the_basket_e68620/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_bag_of_chips_in_the_basket_e68620/put_the_bag_of_chips_in_the_basket_e68620_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_bag_of_chips_in_the_basket_e68620/put_the_bag_of_chips_in_the_basket_e68620_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_bag_of_chips_in_the_basket_e68620/put_the_bag_of_chips_in_the_basket_e68620_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_bag_of_chips_in_the_basket_e68620/put_the_bag_of_chips_in_the_basket_e68620_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_bag_of_chips_in_the_basket_e68620/put_the_bag_of_chips_in_the_basket_e68620_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_bag_of_chips_in_the_basket_e68620/put_the_bag_of_chips_in_the_basket_e68620_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.74493,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_ball_inside_the_bowl_c48915",
+      "task_cfg_path": "REALM_DROID100/put_the_ball_inside_the_bowl_c48915/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_ball_inside_the_bowl_c48915/put_the_ball_inside_the_bowl_c48915_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_ball_inside_the_bowl_c48915/put_the_ball_inside_the_bowl_c48915_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_ball_inside_the_bowl_c48915/put_the_ball_inside_the_bowl_c48915_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_ball_inside_the_bowl_c48915/put_the_ball_inside_the_bowl_c48915_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_ball_inside_the_bowl_c48915/put_the_ball_inside_the_bowl_c48915_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_ball_inside_the_bowl_c48915/put_the_ball_inside_the_bowl_c48915_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.0,
+      "support_z_measured": 0.89788,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_banana_on_the_tray_d44e73",
+      "task_cfg_path": "REALM_DROID100/put_the_banana_on_the_tray_d44e73/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_banana_on_the_tray_d44e73/put_the_banana_on_the_tray_d44e73_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_banana_on_the_tray_d44e73/put_the_banana_on_the_tray_d44e73_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_banana_on_the_tray_d44e73/put_the_banana_on_the_tray_d44e73_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_banana_on_the_tray_d44e73/put_the_banana_on_the_tray_d44e73_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_banana_on_the_tray_d44e73/put_the_banana_on_the_tray_d44e73_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_banana_on_the_tray_d44e73/put_the_banana_on_the_tray_d44e73_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.05,
+      "support_z_measured": 0.91936,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_book_in_the_basket_5d00b8",
+      "task_cfg_path": "REALM_DROID100/put_the_book_in_the_basket_5d00b8/default.yaml",
+      "verdict": "FAIL",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_book_in_the_basket_5d00b8/put_the_book_in_the_basket_5d00b8_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_book_in_the_basket_5d00b8/put_the_book_in_the_basket_5d00b8_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_book_in_the_basket_5d00b8/put_the_book_in_the_basket_5d00b8_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_book_in_the_basket_5d00b8/put_the_book_in_the_basket_5d00b8_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_book_in_the_basket_5d00b8/put_the_book_in_the_basket_5d00b8_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_book_in_the_basket_5d00b8/put_the_book_in_the_basket_5d00b8_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.80481,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_bottle_in_the_bowl_662239",
+      "task_cfg_path": "REALM_DROID100/put_the_bottle_in_the_bowl_662239/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_bottle_in_the_bowl_662239/put_the_bottle_in_the_bowl_662239_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_bottle_in_the_bowl_662239/put_the_bottle_in_the_bowl_662239_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_bottle_in_the_bowl_662239/put_the_bottle_in_the_bowl_662239_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_bottle_in_the_bowl_662239/put_the_bottle_in_the_bowl_662239_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_bottle_in_the_bowl_662239/put_the_bottle_in_the_bowl_662239_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_bottle_in_the_bowl_662239/put_the_bottle_in_the_bowl_662239_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.05,
+      "support_z_measured": 0.91954,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_bottle_in_the_box_0e517f",
+      "task_cfg_path": "REALM_DROID100/put_the_bottle_in_the_box_0e517f/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_bottle_in_the_box_0e517f/put_the_bottle_in_the_box_0e517f_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_bottle_in_the_box_0e517f/put_the_bottle_in_the_box_0e517f_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_bottle_in_the_box_0e517f/put_the_bottle_in_the_box_0e517f_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_bottle_in_the_box_0e517f/put_the_bottle_in_the_box_0e517f_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_bottle_in_the_box_0e517f/put_the_bottle_in_the_box_0e517f_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_bottle_in_the_box_0e517f/put_the_bottle_in_the_box_0e517f_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.05,
+      "support_z_measured": 0.91965,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_bottle_in_the_sink_fe1ee8",
+      "task_cfg_path": "REALM_DROID100/put_the_bottle_in_the_sink_fe1ee8/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_bottle_in_the_sink_fe1ee8/put_the_bottle_in_the_sink_fe1ee8_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_bottle_in_the_sink_fe1ee8/put_the_bottle_in_the_sink_fe1ee8_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_bottle_in_the_sink_fe1ee8/put_the_bottle_in_the_sink_fe1ee8_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_bottle_in_the_sink_fe1ee8/put_the_bottle_in_the_sink_fe1ee8_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_bottle_in_the_sink_fe1ee8/put_the_bottle_in_the_sink_fe1ee8_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_bottle_in_the_sink_fe1ee8/put_the_bottle_in_the_sink_fe1ee8_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73764,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_bottle_on_the_tray_ed1051",
+      "task_cfg_path": "REALM_DROID100/put_the_bottle_on_the_tray_ed1051/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_bottle_on_the_tray_ed1051/put_the_bottle_on_the_tray_ed1051_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_bottle_on_the_tray_ed1051/put_the_bottle_on_the_tray_ed1051_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_bottle_on_the_tray_ed1051/put_the_bottle_on_the_tray_ed1051_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_bottle_on_the_tray_ed1051/put_the_bottle_on_the_tray_ed1051_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_bottle_on_the_tray_ed1051/put_the_bottle_on_the_tray_ed1051_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_bottle_on_the_tray_ed1051/put_the_bottle_on_the_tray_ed1051_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.8049,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_bowl_in_the_sink_06bee8",
+      "task_cfg_path": "REALM_DROID100/put_the_bowl_in_the_sink_06bee8/default.yaml",
+      "verdict": "FAIL",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_bowl_in_the_sink_06bee8/put_the_bowl_in_the_sink_06bee8_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_bowl_in_the_sink_06bee8/put_the_bowl_in_the_sink_06bee8_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_bowl_in_the_sink_06bee8/put_the_bowl_in_the_sink_06bee8_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_bowl_in_the_sink_06bee8/put_the_bowl_in_the_sink_06bee8_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_bowl_in_the_sink_06bee8/put_the_bowl_in_the_sink_06bee8_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_bowl_in_the_sink_06bee8/put_the_bowl_in_the_sink_06bee8_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.80494,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_bowl_on_the_plate_b4fe86",
+      "task_cfg_path": "REALM_DROID100/put_the_bowl_on_the_plate_b4fe86/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_bowl_on_the_plate_b4fe86/put_the_bowl_on_the_plate_b4fe86_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_bowl_on_the_plate_b4fe86/put_the_bowl_on_the_plate_b4fe86_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_bowl_on_the_plate_b4fe86/put_the_bowl_on_the_plate_b4fe86_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_bowl_on_the_plate_b4fe86/put_the_bowl_on_the_plate_b4fe86_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_bowl_on_the_plate_b4fe86/put_the_bowl_on_the_plate_b4fe86_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_bowl_on_the_plate_b4fe86/put_the_bowl_on_the_plate_b4fe86_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.74501,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_brush_in_the_cup_bcc31e",
+      "task_cfg_path": "REALM_DROID100/put_the_brush_in_the_cup_bcc31e/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_brush_in_the_cup_bcc31e/put_the_brush_in_the_cup_bcc31e_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_brush_in_the_cup_bcc31e/put_the_brush_in_the_cup_bcc31e_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_brush_in_the_cup_bcc31e/put_the_brush_in_the_cup_bcc31e_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_brush_in_the_cup_bcc31e/put_the_brush_in_the_cup_bcc31e_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_brush_in_the_cup_bcc31e/put_the_brush_in_the_cup_bcc31e_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_brush_in_the_cup_bcc31e/put_the_brush_in_the_cup_bcc31e_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73767,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_can_inside_the_sink_05972a",
+      "task_cfg_path": "REALM_DROID100/put_the_can_inside_the_sink_05972a/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_can_inside_the_sink_05972a/put_the_can_inside_the_sink_05972a_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_can_inside_the_sink_05972a/put_the_can_inside_the_sink_05972a_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_can_inside_the_sink_05972a/put_the_can_inside_the_sink_05972a_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_can_inside_the_sink_05972a/put_the_can_inside_the_sink_05972a_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_can_inside_the_sink_05972a/put_the_can_inside_the_sink_05972a_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_can_inside_the_sink_05972a/put_the_can_inside_the_sink_05972a_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.75509,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_candy_in_the_cup_d5506e",
+      "task_cfg_path": "REALM_DROID100/put_the_candy_in_the_cup_d5506e/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_candy_in_the_cup_d5506e/put_the_candy_in_the_cup_d5506e_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_candy_in_the_cup_d5506e/put_the_candy_in_the_cup_d5506e_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_candy_in_the_cup_d5506e/put_the_candy_in_the_cup_d5506e_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_candy_in_the_cup_d5506e/put_the_candy_in_the_cup_d5506e_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_candy_in_the_cup_d5506e/put_the_candy_in_the_cup_d5506e_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_candy_in_the_cup_d5506e/put_the_candy_in_the_cup_d5506e_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73765,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_cap_in_the_bowl_f98bfa",
+      "task_cfg_path": "REALM_DROID100/put_the_cap_in_the_bowl_f98bfa/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_cap_in_the_bowl_f98bfa/put_the_cap_in_the_bowl_f98bfa_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_cap_in_the_bowl_f98bfa/put_the_cap_in_the_bowl_f98bfa_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_cap_in_the_bowl_f98bfa/put_the_cap_in_the_bowl_f98bfa_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_cap_in_the_bowl_f98bfa/put_the_cap_in_the_bowl_f98bfa_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_cap_in_the_bowl_f98bfa/put_the_cap_in_the_bowl_f98bfa_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_cap_in_the_bowl_f98bfa/put_the_cap_in_the_bowl_f98bfa_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73764,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_carrot_in_the_pot_5cdf42",
+      "task_cfg_path": "REALM_DROID100/put_the_carrot_in_the_pot_5cdf42/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_carrot_in_the_pot_5cdf42/put_the_carrot_in_the_pot_5cdf42_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_carrot_in_the_pot_5cdf42/put_the_carrot_in_the_pot_5cdf42_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_carrot_in_the_pot_5cdf42/put_the_carrot_in_the_pot_5cdf42_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_carrot_in_the_pot_5cdf42/put_the_carrot_in_the_pot_5cdf42_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_carrot_in_the_pot_5cdf42/put_the_carrot_in_the_pot_5cdf42_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_carrot_in_the_pot_5cdf42/put_the_carrot_in_the_pot_5cdf42_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.7538,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_cloth_in_the_basket_2ae4bf",
+      "task_cfg_path": "REALM_DROID100/put_the_cloth_in_the_basket_2ae4bf/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_cloth_in_the_basket_2ae4bf/put_the_cloth_in_the_basket_2ae4bf_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_cloth_in_the_basket_2ae4bf/put_the_cloth_in_the_basket_2ae4bf_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_cloth_in_the_basket_2ae4bf/put_the_cloth_in_the_basket_2ae4bf_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_cloth_in_the_basket_2ae4bf/put_the_cloth_in_the_basket_2ae4bf_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_cloth_in_the_basket_2ae4bf/put_the_cloth_in_the_basket_2ae4bf_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_cloth_in_the_basket_2ae4bf/put_the_cloth_in_the_basket_2ae4bf_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73756,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_cup_in_the_bowl_0b80d1",
+      "task_cfg_path": "REALM_DROID100/put_the_cup_in_the_bowl_0b80d1/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_cup_in_the_bowl_0b80d1/put_the_cup_in_the_bowl_0b80d1_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_cup_in_the_bowl_0b80d1/put_the_cup_in_the_bowl_0b80d1_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_cup_in_the_bowl_0b80d1/put_the_cup_in_the_bowl_0b80d1_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_cup_in_the_bowl_0b80d1/put_the_cup_in_the_bowl_0b80d1_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_cup_in_the_bowl_0b80d1/put_the_cup_in_the_bowl_0b80d1_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_cup_in_the_bowl_0b80d1/put_the_cup_in_the_bowl_0b80d1_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.05,
+      "support_z_measured": 0.91965,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_cup_in_the_bowl_53015f",
+      "task_cfg_path": "REALM_DROID100/put_the_cup_in_the_bowl_53015f/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_cup_in_the_bowl_53015f/put_the_cup_in_the_bowl_53015f_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_cup_in_the_bowl_53015f/put_the_cup_in_the_bowl_53015f_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_cup_in_the_bowl_53015f/put_the_cup_in_the_bowl_53015f_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_cup_in_the_bowl_53015f/put_the_cup_in_the_bowl_53015f_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_cup_in_the_bowl_53015f/put_the_cup_in_the_bowl_53015f_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_cup_in_the_bowl_53015f/put_the_cup_in_the_bowl_53015f_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.0,
+      "support_z_measured": 0.89879,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_cup_in_the_pot_0b379b",
+      "task_cfg_path": "REALM_DROID100/put_the_cup_in_the_pot_0b379b/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_cup_in_the_pot_0b379b/put_the_cup_in_the_pot_0b379b_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_cup_in_the_pot_0b379b/put_the_cup_in_the_pot_0b379b_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_cup_in_the_pot_0b379b/put_the_cup_in_the_pot_0b379b_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_cup_in_the_pot_0b379b/put_the_cup_in_the_pot_0b379b_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_cup_in_the_pot_0b379b/put_the_cup_in_the_pot_0b379b_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_cup_in_the_pot_0b379b/put_the_cup_in_the_pot_0b379b_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.80465,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_egg_inside_the_cup_de0577",
+      "task_cfg_path": "REALM_DROID100/put_the_egg_inside_the_cup_de0577/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_egg_inside_the_cup_de0577/put_the_egg_inside_the_cup_de0577_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_egg_inside_the_cup_de0577/put_the_egg_inside_the_cup_de0577_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_egg_inside_the_cup_de0577/put_the_egg_inside_the_cup_de0577_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_egg_inside_the_cup_de0577/put_the_egg_inside_the_cup_de0577_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_egg_inside_the_cup_de0577/put_the_egg_inside_the_cup_de0577_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_egg_inside_the_cup_de0577/put_the_egg_inside_the_cup_de0577_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.75582,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_garlic_in_the_bowl_7b721a",
+      "task_cfg_path": "REALM_DROID100/put_the_garlic_in_the_bowl_7b721a/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_garlic_in_the_bowl_7b721a/put_the_garlic_in_the_bowl_7b721a_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_garlic_in_the_bowl_7b721a/put_the_garlic_in_the_bowl_7b721a_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_garlic_in_the_bowl_7b721a/put_the_garlic_in_the_bowl_7b721a_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_garlic_in_the_bowl_7b721a/put_the_garlic_in_the_bowl_7b721a_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_garlic_in_the_bowl_7b721a/put_the_garlic_in_the_bowl_7b721a_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_garlic_in_the_bowl_7b721a/put_the_garlic_in_the_bowl_7b721a_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.80494,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_garlic_into_the_casserole_629761",
+      "task_cfg_path": "REALM_DROID100/put_the_garlic_into_the_casserole_629761/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_garlic_into_the_casserole_629761/put_the_garlic_into_the_casserole_629761_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_garlic_into_the_casserole_629761/put_the_garlic_into_the_casserole_629761_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_garlic_into_the_casserole_629761/put_the_garlic_into_the_casserole_629761_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_garlic_into_the_casserole_629761/put_the_garlic_into_the_casserole_629761_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_garlic_into_the_casserole_629761/put_the_garlic_into_the_casserole_629761_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_garlic_into_the_casserole_629761/put_the_garlic_into_the_casserole_629761_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73754,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_glass_into_the_jar_780251",
+      "task_cfg_path": "REALM_DROID100/put_the_glass_into_the_jar_780251/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_glass_into_the_jar_780251/put_the_glass_into_the_jar_780251_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_glass_into_the_jar_780251/put_the_glass_into_the_jar_780251_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_glass_into_the_jar_780251/put_the_glass_into_the_jar_780251_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_glass_into_the_jar_780251/put_the_glass_into_the_jar_780251_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_glass_into_the_jar_780251/put_the_glass_into_the_jar_780251_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_glass_into_the_jar_780251/put_the_glass_into_the_jar_780251_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73764,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_grapes_in_the_bowl_a731f9",
+      "task_cfg_path": "REALM_DROID100/put_the_grapes_in_the_bowl_a731f9/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_grapes_in_the_bowl_a731f9/put_the_grapes_in_the_bowl_a731f9_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_grapes_in_the_bowl_a731f9/put_the_grapes_in_the_bowl_a731f9_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_grapes_in_the_bowl_a731f9/put_the_grapes_in_the_bowl_a731f9_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_grapes_in_the_bowl_a731f9/put_the_grapes_in_the_bowl_a731f9_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_grapes_in_the_bowl_a731f9/put_the_grapes_in_the_bowl_a731f9_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_grapes_in_the_bowl_a731f9/put_the_grapes_in_the_bowl_a731f9_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.80492,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_green_block_in_the_tray_d39aaa",
+      "task_cfg_path": "REALM_DROID100/put_the_green_block_in_the_tray_d39aaa/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_green_block_in_the_tray_d39aaa/put_the_green_block_in_the_tray_d39aaa_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_green_block_in_the_tray_d39aaa/put_the_green_block_in_the_tray_d39aaa_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_green_block_in_the_tray_d39aaa/put_the_green_block_in_the_tray_d39aaa_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_green_block_in_the_tray_d39aaa/put_the_green_block_in_the_tray_d39aaa_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_green_block_in_the_tray_d39aaa/put_the_green_block_in_the_tray_d39aaa_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_green_block_in_the_tray_d39aaa/put_the_green_block_in_the_tray_d39aaa_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73764,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_ladle_in_the_box_53eae7",
+      "task_cfg_path": "REALM_DROID100/put_the_ladle_in_the_box_53eae7/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_ladle_in_the_box_53eae7/put_the_ladle_in_the_box_53eae7_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_ladle_in_the_box_53eae7/put_the_ladle_in_the_box_53eae7_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_ladle_in_the_box_53eae7/put_the_ladle_in_the_box_53eae7_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_ladle_in_the_box_53eae7/put_the_ladle_in_the_box_53eae7_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_ladle_in_the_box_53eae7/put_the_ladle_in_the_box_53eae7_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_ladle_in_the_box_53eae7/put_the_ladle_in_the_box_53eae7_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.05,
+      "support_z_measured": 0.91962,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_lid_in_the_bowl_a4f28c",
+      "task_cfg_path": "REALM_DROID100/put_the_lid_in_the_bowl_a4f28c/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_lid_in_the_bowl_a4f28c/put_the_lid_in_the_bowl_a4f28c_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_lid_in_the_bowl_a4f28c/put_the_lid_in_the_bowl_a4f28c_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_lid_in_the_bowl_a4f28c/put_the_lid_in_the_bowl_a4f28c_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_lid_in_the_bowl_a4f28c/put_the_lid_in_the_bowl_a4f28c_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_lid_in_the_bowl_a4f28c/put_the_lid_in_the_bowl_a4f28c_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_lid_in_the_bowl_a4f28c/put_the_lid_in_the_bowl_a4f28c_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.05,
+      "support_z_measured": 0.91965,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_lid_on_the_bowl_fdb025",
+      "task_cfg_path": "REALM_DROID100/put_the_lid_on_the_bowl_fdb025/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_lid_on_the_bowl_fdb025/put_the_lid_on_the_bowl_fdb025_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_lid_on_the_bowl_fdb025/put_the_lid_on_the_bowl_fdb025_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_lid_on_the_bowl_fdb025/put_the_lid_on_the_bowl_fdb025_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_lid_on_the_bowl_fdb025/put_the_lid_on_the_bowl_fdb025_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_lid_on_the_bowl_fdb025/put_the_lid_on_the_bowl_fdb025_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_lid_on_the_bowl_fdb025/put_the_lid_on_the_bowl_fdb025_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.0,
+      "support_z_measured": 0.8995,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_lid_on_the_pot_6f9c1b",
+      "task_cfg_path": "REALM_DROID100/put_the_lid_on_the_pot_6f9c1b/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_lid_on_the_pot_6f9c1b/put_the_lid_on_the_pot_6f9c1b_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_lid_on_the_pot_6f9c1b/put_the_lid_on_the_pot_6f9c1b_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_lid_on_the_pot_6f9c1b/put_the_lid_on_the_pot_6f9c1b_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_lid_on_the_pot_6f9c1b/put_the_lid_on_the_pot_6f9c1b_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_lid_on_the_pot_6f9c1b/put_the_lid_on_the_pot_6f9c1b_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_lid_on_the_pot_6f9c1b/put_the_lid_on_the_pot_6f9c1b_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.05,
+      "support_z_measured": 0.91961,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_lid_on_the_towel_f35fef",
+      "task_cfg_path": "REALM_DROID100/put_the_lid_on_the_towel_f35fef/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_lid_on_the_towel_f35fef/put_the_lid_on_the_towel_f35fef_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_lid_on_the_towel_f35fef/put_the_lid_on_the_towel_f35fef_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_lid_on_the_towel_f35fef/put_the_lid_on_the_towel_f35fef_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_lid_on_the_towel_f35fef/put_the_lid_on_the_towel_f35fef_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_lid_on_the_towel_f35fef/put_the_lid_on_the_towel_f35fef_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_lid_on_the_towel_f35fef/put_the_lid_on_the_towel_f35fef_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.05,
+      "support_z_measured": 0.91965,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_marker_in_the_cup_d31114",
+      "task_cfg_path": "REALM_DROID100/put_the_marker_in_the_cup_d31114/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_marker_in_the_cup_d31114/put_the_marker_in_the_cup_d31114_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_marker_in_the_cup_d31114/put_the_marker_in_the_cup_d31114_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_marker_in_the_cup_d31114/put_the_marker_in_the_cup_d31114_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_marker_in_the_cup_d31114/put_the_marker_in_the_cup_d31114_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_marker_in_the_cup_d31114/put_the_marker_in_the_cup_d31114_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_marker_in_the_cup_d31114/put_the_marker_in_the_cup_d31114_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73766,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_marker_in_the_pot_f6f5d5",
+      "task_cfg_path": "REALM_DROID100/put_the_marker_in_the_pot_f6f5d5/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_marker_in_the_pot_f6f5d5/put_the_marker_in_the_pot_f6f5d5_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_marker_in_the_pot_f6f5d5/put_the_marker_in_the_pot_f6f5d5_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_marker_in_the_pot_f6f5d5/put_the_marker_in_the_pot_f6f5d5_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_marker_in_the_pot_f6f5d5/put_the_marker_in_the_pot_f6f5d5_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_marker_in_the_pot_f6f5d5/put_the_marker_in_the_pot_f6f5d5_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_marker_in_the_pot_f6f5d5/put_the_marker_in_the_pot_f6f5d5_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.75584,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_orange_block_on_the_board_ec84bb",
+      "task_cfg_path": "REALM_DROID100/put_the_orange_block_on_the_board_ec84bb/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_orange_block_on_the_board_ec84bb/put_the_orange_block_on_the_board_ec84bb_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_orange_block_on_the_board_ec84bb/put_the_orange_block_on_the_board_ec84bb_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_orange_block_on_the_board_ec84bb/put_the_orange_block_on_the_board_ec84bb_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_orange_block_on_the_board_ec84bb/put_the_orange_block_on_the_board_ec84bb_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_orange_block_on_the_board_ec84bb/put_the_orange_block_on_the_board_ec84bb_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_orange_block_on_the_board_ec84bb/put_the_orange_block_on_the_board_ec84bb_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.05,
+      "support_z_measured": 0.91965,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_orange_object_in_the_paper_bag_74a1ec",
+      "task_cfg_path": "REALM_DROID100/put_the_orange_object_in_the_paper_bag_74a1ec/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_orange_object_in_the_paper_bag_74a1ec/put_the_orange_object_in_the_paper_bag_74a1ec_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_orange_object_in_the_paper_bag_74a1ec/put_the_orange_object_in_the_paper_bag_74a1ec_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_orange_object_in_the_paper_bag_74a1ec/put_the_orange_object_in_the_paper_bag_74a1ec_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_orange_object_in_the_paper_bag_74a1ec/put_the_orange_object_in_the_paper_bag_74a1ec_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_orange_object_in_the_paper_bag_74a1ec/put_the_orange_object_in_the_paper_bag_74a1ec_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_orange_object_in_the_paper_bag_74a1ec/put_the_orange_object_in_the_paper_bag_74a1ec_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.80494,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_pen_in_the_bowl_f92409",
+      "task_cfg_path": "REALM_DROID100/put_the_pen_in_the_bowl_f92409/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_pen_in_the_bowl_f92409/put_the_pen_in_the_bowl_f92409_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_pen_in_the_bowl_f92409/put_the_pen_in_the_bowl_f92409_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_pen_in_the_bowl_f92409/put_the_pen_in_the_bowl_f92409_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_pen_in_the_bowl_f92409/put_the_pen_in_the_bowl_f92409_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_pen_in_the_bowl_f92409/put_the_pen_in_the_bowl_f92409_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_pen_in_the_bowl_f92409/put_the_pen_in_the_bowl_f92409_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.74501,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_pen_in_the_bucket_9f1b9a",
+      "task_cfg_path": "REALM_DROID100/put_the_pen_in_the_bucket_9f1b9a/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_pen_in_the_bucket_9f1b9a/put_the_pen_in_the_bucket_9f1b9a_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_pen_in_the_bucket_9f1b9a/put_the_pen_in_the_bucket_9f1b9a_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_pen_in_the_bucket_9f1b9a/put_the_pen_in_the_bucket_9f1b9a_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_pen_in_the_bucket_9f1b9a/put_the_pen_in_the_bucket_9f1b9a_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_pen_in_the_bucket_9f1b9a/put_the_pen_in_the_bucket_9f1b9a_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_pen_in_the_bucket_9f1b9a/put_the_pen_in_the_bucket_9f1b9a_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.7375,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_pen_in_the_cup_f2a5bc",
+      "task_cfg_path": "REALM_DROID100/put_the_pen_in_the_cup_f2a5bc/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_pen_in_the_cup_f2a5bc/put_the_pen_in_the_cup_f2a5bc_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_pen_in_the_cup_f2a5bc/put_the_pen_in_the_cup_f2a5bc_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_pen_in_the_cup_f2a5bc/put_the_pen_in_the_cup_f2a5bc_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_pen_in_the_cup_f2a5bc/put_the_pen_in_the_cup_f2a5bc_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_pen_in_the_cup_f2a5bc/put_the_pen_in_the_cup_f2a5bc_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_pen_in_the_cup_f2a5bc/put_the_pen_in_the_cup_f2a5bc_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.74484,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_pen_on_the_bowl_1b0919",
+      "task_cfg_path": "REALM_DROID100/put_the_pen_on_the_bowl_1b0919/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_pen_on_the_bowl_1b0919/put_the_pen_on_the_bowl_1b0919_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_pen_on_the_bowl_1b0919/put_the_pen_on_the_bowl_1b0919_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_pen_on_the_bowl_1b0919/put_the_pen_on_the_bowl_1b0919_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_pen_on_the_bowl_1b0919/put_the_pen_on_the_bowl_1b0919_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_pen_on_the_bowl_1b0919/put_the_pen_on_the_bowl_1b0919_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_pen_on_the_bowl_1b0919/put_the_pen_on_the_bowl_1b0919_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.74497,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_plate_in_the_bowl_e7b2e9",
+      "task_cfg_path": "REALM_DROID100/put_the_plate_in_the_bowl_e7b2e9/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_plate_in_the_bowl_e7b2e9/put_the_plate_in_the_bowl_e7b2e9_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_plate_in_the_bowl_e7b2e9/put_the_plate_in_the_bowl_e7b2e9_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_plate_in_the_bowl_e7b2e9/put_the_plate_in_the_bowl_e7b2e9_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_plate_in_the_bowl_e7b2e9/put_the_plate_in_the_bowl_e7b2e9_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_plate_in_the_bowl_e7b2e9/put_the_plate_in_the_bowl_e7b2e9_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_plate_in_the_bowl_e7b2e9/put_the_plate_in_the_bowl_e7b2e9_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.75571,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_plate_on_top_of_the_bowl_f04584",
+      "task_cfg_path": "REALM_DROID100/put_the_plate_on_top_of_the_bowl_f04584/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_plate_on_top_of_the_bowl_f04584/put_the_plate_on_top_of_the_bowl_f04584_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_plate_on_top_of_the_bowl_f04584/put_the_plate_on_top_of_the_bowl_f04584_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_plate_on_top_of_the_bowl_f04584/put_the_plate_on_top_of_the_bowl_f04584_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_plate_on_top_of_the_bowl_f04584/put_the_plate_on_top_of_the_bowl_f04584_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_plate_on_top_of_the_bowl_f04584/put_the_plate_on_top_of_the_bowl_f04584_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_plate_on_top_of_the_bowl_f04584/put_the_plate_on_top_of_the_bowl_f04584_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.75584,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_plum_in_the_bowl_ab75a2",
+      "task_cfg_path": "REALM_DROID100/put_the_plum_in_the_bowl_ab75a2/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_plum_in_the_bowl_ab75a2/put_the_plum_in_the_bowl_ab75a2_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_plum_in_the_bowl_ab75a2/put_the_plum_in_the_bowl_ab75a2_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_plum_in_the_bowl_ab75a2/put_the_plum_in_the_bowl_ab75a2_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_plum_in_the_bowl_ab75a2/put_the_plum_in_the_bowl_ab75a2_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_plum_in_the_bowl_ab75a2/put_the_plum_in_the_bowl_ab75a2_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_plum_in_the_bowl_ab75a2/put_the_plum_in_the_bowl_ab75a2_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.0,
+      "support_z_measured": 0.8995,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_scissors_in_the_container_96bc4c",
+      "task_cfg_path": "REALM_DROID100/put_the_scissors_in_the_container_96bc4c/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_scissors_in_the_container_96bc4c/put_the_scissors_in_the_container_96bc4c_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_scissors_in_the_container_96bc4c/put_the_scissors_in_the_container_96bc4c_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_scissors_in_the_container_96bc4c/put_the_scissors_in_the_container_96bc4c_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_scissors_in_the_container_96bc4c/put_the_scissors_in_the_container_96bc4c_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_scissors_in_the_container_96bc4c/put_the_scissors_in_the_container_96bc4c_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_scissors_in_the_container_96bc4c/put_the_scissors_in_the_container_96bc4c_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73766,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_scoop_inside_the_bowl_dc3a3f",
+      "task_cfg_path": "REALM_DROID100/put_the_scoop_inside_the_bowl_dc3a3f/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_scoop_inside_the_bowl_dc3a3f/put_the_scoop_inside_the_bowl_dc3a3f_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_scoop_inside_the_bowl_dc3a3f/put_the_scoop_inside_the_bowl_dc3a3f_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_scoop_inside_the_bowl_dc3a3f/put_the_scoop_inside_the_bowl_dc3a3f_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_scoop_inside_the_bowl_dc3a3f/put_the_scoop_inside_the_bowl_dc3a3f_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_scoop_inside_the_bowl_dc3a3f/put_the_scoop_inside_the_bowl_dc3a3f_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_scoop_inside_the_bowl_dc3a3f/put_the_scoop_inside_the_bowl_dc3a3f_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.74497,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_spoon_in_the_bowl_7bd8a5",
+      "task_cfg_path": "REALM_DROID100/put_the_spoon_in_the_bowl_7bd8a5/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_bowl_7bd8a5/put_the_spoon_in_the_bowl_7bd8a5_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_bowl_7bd8a5/put_the_spoon_in_the_bowl_7bd8a5_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_bowl_7bd8a5/put_the_spoon_in_the_bowl_7bd8a5_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_bowl_7bd8a5/put_the_spoon_in_the_bowl_7bd8a5_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_bowl_7bd8a5/put_the_spoon_in_the_bowl_7bd8a5_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_bowl_7bd8a5/put_the_spoon_in_the_bowl_7bd8a5_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.75584,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_spoon_in_the_colander_6a3d11",
+      "task_cfg_path": "REALM_DROID100/put_the_spoon_in_the_colander_6a3d11/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_colander_6a3d11/put_the_spoon_in_the_colander_6a3d11_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_colander_6a3d11/put_the_spoon_in_the_colander_6a3d11_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_colander_6a3d11/put_the_spoon_in_the_colander_6a3d11_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_colander_6a3d11/put_the_spoon_in_the_colander_6a3d11_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_colander_6a3d11/put_the_spoon_in_the_colander_6a3d11_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_colander_6a3d11/put_the_spoon_in_the_colander_6a3d11_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.05,
+      "support_z_measured": 0.91933,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_spoon_in_the_cup_c0d032",
+      "task_cfg_path": "REALM_DROID100/put_the_spoon_in_the_cup_c0d032/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_cup_c0d032/put_the_spoon_in_the_cup_c0d032_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_cup_c0d032/put_the_spoon_in_the_cup_c0d032_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_cup_c0d032/put_the_spoon_in_the_cup_c0d032_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_cup_c0d032/put_the_spoon_in_the_cup_c0d032_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_cup_c0d032/put_the_spoon_in_the_cup_c0d032_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_cup_c0d032/put_the_spoon_in_the_cup_c0d032_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.75584,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_spoon_in_the_holder_77da61",
+      "task_cfg_path": "REALM_DROID100/put_the_spoon_in_the_holder_77da61/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_holder_77da61/put_the_spoon_in_the_holder_77da61_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_holder_77da61/put_the_spoon_in_the_holder_77da61_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_holder_77da61/put_the_spoon_in_the_holder_77da61_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_holder_77da61/put_the_spoon_in_the_holder_77da61_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_holder_77da61/put_the_spoon_in_the_holder_77da61_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_spoon_in_the_holder_77da61/put_the_spoon_in_the_holder_77da61_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73751,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_tape_in_the_bowl_be2b7f",
+      "task_cfg_path": "REALM_DROID100/put_the_tape_in_the_bowl_be2b7f/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_tape_in_the_bowl_be2b7f/put_the_tape_in_the_bowl_be2b7f_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_tape_in_the_bowl_be2b7f/put_the_tape_in_the_bowl_be2b7f_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_tape_in_the_bowl_be2b7f/put_the_tape_in_the_bowl_be2b7f_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_tape_in_the_bowl_be2b7f/put_the_tape_in_the_bowl_be2b7f_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_tape_in_the_bowl_be2b7f/put_the_tape_in_the_bowl_be2b7f_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_tape_in_the_bowl_be2b7f/put_the_tape_in_the_bowl_be2b7f_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.80483,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_towel_in_the_bin_fae721",
+      "task_cfg_path": "REALM_DROID100/put_the_towel_in_the_bin_fae721/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_towel_in_the_bin_fae721/put_the_towel_in_the_bin_fae721_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_towel_in_the_bin_fae721/put_the_towel_in_the_bin_fae721_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_towel_in_the_bin_fae721/put_the_towel_in_the_bin_fae721_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_towel_in_the_bin_fae721/put_the_towel_in_the_bin_fae721_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_towel_in_the_bin_fae721/put_the_towel_in_the_bin_fae721_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_towel_in_the_bin_fae721/put_the_towel_in_the_bin_fae721_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73754,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_towel_in_the_bowl_22f218",
+      "task_cfg_path": "REALM_DROID100/put_the_towel_in_the_bowl_22f218/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_towel_in_the_bowl_22f218/put_the_towel_in_the_bowl_22f218_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_towel_in_the_bowl_22f218/put_the_towel_in_the_bowl_22f218_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_towel_in_the_bowl_22f218/put_the_towel_in_the_bowl_22f218_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_towel_in_the_bowl_22f218/put_the_towel_in_the_bowl_22f218_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_towel_in_the_bowl_22f218/put_the_towel_in_the_bowl_22f218_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_towel_in_the_bowl_22f218/put_the_towel_in_the_bowl_22f218_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.05,
+      "support_z_measured": 0.91954,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_towel_inside_the_basket_59d5e3",
+      "task_cfg_path": "REALM_DROID100/put_the_towel_inside_the_basket_59d5e3/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_towel_inside_the_basket_59d5e3/put_the_towel_inside_the_basket_59d5e3_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_towel_inside_the_basket_59d5e3/put_the_towel_inside_the_basket_59d5e3_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_towel_inside_the_basket_59d5e3/put_the_towel_inside_the_basket_59d5e3_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_towel_inside_the_basket_59d5e3/put_the_towel_inside_the_basket_59d5e3_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_towel_inside_the_basket_59d5e3/put_the_towel_inside_the_basket_59d5e3_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_towel_inside_the_basket_59d5e3/put_the_towel_inside_the_basket_59d5e3_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.80483,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_towel_inside_the_paper_bag_e2867b",
+      "task_cfg_path": "REALM_DROID100/put_the_towel_inside_the_paper_bag_e2867b/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_towel_inside_the_paper_bag_e2867b/put_the_towel_inside_the_paper_bag_e2867b_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_towel_inside_the_paper_bag_e2867b/put_the_towel_inside_the_paper_bag_e2867b_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_towel_inside_the_paper_bag_e2867b/put_the_towel_inside_the_paper_bag_e2867b_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_towel_inside_the_paper_bag_e2867b/put_the_towel_inside_the_paper_bag_e2867b_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_towel_inside_the_paper_bag_e2867b/put_the_towel_inside_the_paper_bag_e2867b_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_towel_inside_the_paper_bag_e2867b/put_the_towel_inside_the_paper_bag_e2867b_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.0,
+      "support_z_measured": 0.8995,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_toy_in_the_bowl_1299a8",
+      "task_cfg_path": "REALM_DROID100/put_the_toy_in_the_bowl_1299a8/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_toy_in_the_bowl_1299a8/put_the_toy_in_the_bowl_1299a8_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_toy_in_the_bowl_1299a8/put_the_toy_in_the_bowl_1299a8_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_toy_in_the_bowl_1299a8/put_the_toy_in_the_bowl_1299a8_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_toy_in_the_bowl_1299a8/put_the_toy_in_the_bowl_1299a8_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_toy_in_the_bowl_1299a8/put_the_toy_in_the_bowl_1299a8_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_toy_in_the_bowl_1299a8/put_the_toy_in_the_bowl_1299a8_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.0,
+      "support_z_measured": 0.8995,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_toy_pan_on_the_cup_1f9f7c",
+      "task_cfg_path": "REALM_DROID100/put_the_toy_pan_on_the_cup_1f9f7c/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_toy_pan_on_the_cup_1f9f7c/put_the_toy_pan_on_the_cup_1f9f7c_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_toy_pan_on_the_cup_1f9f7c/put_the_toy_pan_on_the_cup_1f9f7c_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_toy_pan_on_the_cup_1f9f7c/put_the_toy_pan_on_the_cup_1f9f7c_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_toy_pan_on_the_cup_1f9f7c/put_the_toy_pan_on_the_cup_1f9f7c_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_toy_pan_on_the_cup_1f9f7c/put_the_toy_pan_on_the_cup_1f9f7c_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_toy_pan_on_the_cup_1f9f7c/put_the_toy_pan_on_the_cup_1f9f7c_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.0,
+      "support_z_measured": 0.89947,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "put_the_wooden_spoon_in_the_basket_fffafd",
+      "task_cfg_path": "REALM_DROID100/put_the_wooden_spoon_in_the_basket_fffafd/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/put_the_wooden_spoon_in_the_basket_fffafd/put_the_wooden_spoon_in_the_basket_fffafd_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_wooden_spoon_in_the_basket_fffafd/put_the_wooden_spoon_in_the_basket_fffafd_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_wooden_spoon_in_the_basket_fffafd/put_the_wooden_spoon_in_the_basket_fffafd_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/put_the_wooden_spoon_in_the_basket_fffafd/put_the_wooden_spoon_in_the_basket_fffafd_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_wooden_spoon_in_the_basket_fffafd/put_the_wooden_spoon_in_the_basket_fffafd_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/put_the_wooden_spoon_in_the_basket_fffafd/put_the_wooden_spoon_in_the_basket_fffafd_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73754,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_bag_of_chips_from_the_sink_427db2",
+      "task_cfg_path": "REALM_DROID100/remove_the_bag_of_chips_from_the_sink_427db2/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_bag_of_chips_from_the_sink_427db2/remove_the_bag_of_chips_from_the_sink_427db2_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_bag_of_chips_from_the_sink_427db2/remove_the_bag_of_chips_from_the_sink_427db2_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_bag_of_chips_from_the_sink_427db2/remove_the_bag_of_chips_from_the_sink_427db2_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_bag_of_chips_from_the_sink_427db2/remove_the_bag_of_chips_from_the_sink_427db2_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_bag_of_chips_from_the_sink_427db2/remove_the_bag_of_chips_from_the_sink_427db2_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_bag_of_chips_from_the_sink_427db2/remove_the_bag_of_chips_from_the_sink_427db2_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.75584,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_banana_from_the_box_859416",
+      "task_cfg_path": "REALM_DROID100/remove_the_banana_from_the_box_859416/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_banana_from_the_box_859416/remove_the_banana_from_the_box_859416_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_banana_from_the_box_859416/remove_the_banana_from_the_box_859416_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_banana_from_the_box_859416/remove_the_banana_from_the_box_859416_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_banana_from_the_box_859416/remove_the_banana_from_the_box_859416_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_banana_from_the_box_859416/remove_the_banana_from_the_box_859416_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_banana_from_the_box_859416/remove_the_banana_from_the_box_859416_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73759,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_bottle_from_the_bowl_fa72b1",
+      "task_cfg_path": "REALM_DROID100/remove_the_bottle_from_the_bowl_fa72b1/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_bottle_from_the_bowl_fa72b1/remove_the_bottle_from_the_bowl_fa72b1_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_bottle_from_the_bowl_fa72b1/remove_the_bottle_from_the_bowl_fa72b1_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_bottle_from_the_bowl_fa72b1/remove_the_bottle_from_the_bowl_fa72b1_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_bottle_from_the_bowl_fa72b1/remove_the_bottle_from_the_bowl_fa72b1_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_bottle_from_the_bowl_fa72b1/remove_the_bottle_from_the_bowl_fa72b1_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_bottle_from_the_bowl_fa72b1/remove_the_bottle_from_the_bowl_fa72b1_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.80492,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_bottle_from_the_box_2fff8e",
+      "task_cfg_path": "REALM_DROID100/remove_the_bottle_from_the_box_2fff8e/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_bottle_from_the_box_2fff8e/remove_the_bottle_from_the_box_2fff8e_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_bottle_from_the_box_2fff8e/remove_the_bottle_from_the_box_2fff8e_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_bottle_from_the_box_2fff8e/remove_the_bottle_from_the_box_2fff8e_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_bottle_from_the_box_2fff8e/remove_the_bottle_from_the_box_2fff8e_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_bottle_from_the_box_2fff8e/remove_the_bottle_from_the_box_2fff8e_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_bottle_from_the_box_2fff8e/remove_the_bottle_from_the_box_2fff8e_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.80494,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_bow_from_the_box_5d5118",
+      "task_cfg_path": "REALM_DROID100/remove_the_bow_from_the_box_5d5118/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_bow_from_the_box_5d5118/remove_the_bow_from_the_box_5d5118_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_bow_from_the_box_5d5118/remove_the_bow_from_the_box_5d5118_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_bow_from_the_box_5d5118/remove_the_bow_from_the_box_5d5118_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_bow_from_the_box_5d5118/remove_the_bow_from_the_box_5d5118_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_bow_from_the_box_5d5118/remove_the_bow_from_the_box_5d5118_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_bow_from_the_box_5d5118/remove_the_bow_from_the_box_5d5118_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.0,
+      "support_z_measured": 0.89944,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_box_from_the_bowl_a06176",
+      "task_cfg_path": "REALM_DROID100/remove_the_box_from_the_bowl_a06176/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_box_from_the_bowl_a06176/remove_the_box_from_the_bowl_a06176_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_box_from_the_bowl_a06176/remove_the_box_from_the_bowl_a06176_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_box_from_the_bowl_a06176/remove_the_box_from_the_bowl_a06176_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_box_from_the_bowl_a06176/remove_the_box_from_the_bowl_a06176_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_box_from_the_bowl_a06176/remove_the_box_from_the_bowl_a06176_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_box_from_the_bowl_a06176/remove_the_box_from_the_bowl_a06176_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73767,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_can_from_the_bowl_5612b5",
+      "task_cfg_path": "REALM_DROID100/remove_the_can_from_the_bowl_5612b5/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_can_from_the_bowl_5612b5/remove_the_can_from_the_bowl_5612b5_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_can_from_the_bowl_5612b5/remove_the_can_from_the_bowl_5612b5_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_can_from_the_bowl_5612b5/remove_the_can_from_the_bowl_5612b5_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_can_from_the_bowl_5612b5/remove_the_can_from_the_bowl_5612b5_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_can_from_the_bowl_5612b5/remove_the_can_from_the_bowl_5612b5_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_can_from_the_bowl_5612b5/remove_the_can_from_the_bowl_5612b5_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.80494,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_chopstick_from_the_cup_ae0509",
+      "task_cfg_path": "REALM_DROID100/remove_the_chopstick_from_the_cup_ae0509/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_chopstick_from_the_cup_ae0509/remove_the_chopstick_from_the_cup_ae0509_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_chopstick_from_the_cup_ae0509/remove_the_chopstick_from_the_cup_ae0509_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_chopstick_from_the_cup_ae0509/remove_the_chopstick_from_the_cup_ae0509_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_chopstick_from_the_cup_ae0509/remove_the_chopstick_from_the_cup_ae0509_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_chopstick_from_the_cup_ae0509/remove_the_chopstick_from_the_cup_ae0509_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_chopstick_from_the_cup_ae0509/remove_the_chopstick_from_the_cup_ae0509_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.80494,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_fork_from_the_mug_079e47",
+      "task_cfg_path": "REALM_DROID100/remove_the_fork_from_the_mug_079e47/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_fork_from_the_mug_079e47/remove_the_fork_from_the_mug_079e47_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_fork_from_the_mug_079e47/remove_the_fork_from_the_mug_079e47_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_fork_from_the_mug_079e47/remove_the_fork_from_the_mug_079e47_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_fork_from_the_mug_079e47/remove_the_fork_from_the_mug_079e47_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_fork_from_the_mug_079e47/remove_the_fork_from_the_mug_079e47_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_fork_from_the_mug_079e47/remove_the_fork_from_the_mug_079e47_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.74501,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_grey_block_from_the_tray_612012",
+      "task_cfg_path": "REALM_DROID100/remove_the_grey_block_from_the_tray_612012/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_grey_block_from_the_tray_612012/remove_the_grey_block_from_the_tray_612012_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_grey_block_from_the_tray_612012/remove_the_grey_block_from_the_tray_612012_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_grey_block_from_the_tray_612012/remove_the_grey_block_from_the_tray_612012_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_grey_block_from_the_tray_612012/remove_the_grey_block_from_the_tray_612012_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_grey_block_from_the_tray_612012/remove_the_grey_block_from_the_tray_612012_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_grey_block_from_the_tray_612012/remove_the_grey_block_from_the_tray_612012_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.74501,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_lid_from_the_jar_6f67e1",
+      "task_cfg_path": "REALM_DROID100/remove_the_lid_from_the_jar_6f67e1/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_jar_6f67e1/remove_the_lid_from_the_jar_6f67e1_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_jar_6f67e1/remove_the_lid_from_the_jar_6f67e1_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_jar_6f67e1/remove_the_lid_from_the_jar_6f67e1_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_jar_6f67e1/remove_the_lid_from_the_jar_6f67e1_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_jar_6f67e1/remove_the_lid_from_the_jar_6f67e1_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_jar_6f67e1/remove_the_lid_from_the_jar_6f67e1_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73767,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_lid_from_the_mug_3b0f4c",
+      "task_cfg_path": "REALM_DROID100/remove_the_lid_from_the_mug_3b0f4c/default.yaml",
+      "verdict": "FAIL",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_mug_3b0f4c/remove_the_lid_from_the_mug_3b0f4c_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_mug_3b0f4c/remove_the_lid_from_the_mug_3b0f4c_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_mug_3b0f4c/remove_the_lid_from_the_mug_3b0f4c_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_mug_3b0f4c/remove_the_lid_from_the_mug_3b0f4c_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_mug_3b0f4c/remove_the_lid_from_the_mug_3b0f4c_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_mug_3b0f4c/remove_the_lid_from_the_mug_3b0f4c_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.74501,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_lid_from_the_pot_8b4a39",
+      "task_cfg_path": "REALM_DROID100/remove_the_lid_from_the_pot_8b4a39/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_pot_8b4a39/remove_the_lid_from_the_pot_8b4a39_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_pot_8b4a39/remove_the_lid_from_the_pot_8b4a39_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_pot_8b4a39/remove_the_lid_from_the_pot_8b4a39_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_pot_8b4a39/remove_the_lid_from_the_pot_8b4a39_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_pot_8b4a39/remove_the_lid_from_the_pot_8b4a39_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_pot_8b4a39/remove_the_lid_from_the_pot_8b4a39_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.0,
+      "support_z_measured": 0.89949,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054",
+      "task_cfg_path": "REALM_DROID100/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054/default.yaml",
+      "verdict": "FAIL",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054/remove_the_lid_from_the_pot_and_put_it_on_the_towel_9f8054_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.75584,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_marker_from_the_bowl_6facf8",
+      "task_cfg_path": "REALM_DROID100/remove_the_marker_from_the_bowl_6facf8/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_bowl_6facf8/remove_the_marker_from_the_bowl_6facf8_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_bowl_6facf8/remove_the_marker_from_the_bowl_6facf8_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_bowl_6facf8/remove_the_marker_from_the_bowl_6facf8_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_bowl_6facf8/remove_the_marker_from_the_bowl_6facf8_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_bowl_6facf8/remove_the_marker_from_the_bowl_6facf8_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_bowl_6facf8/remove_the_marker_from_the_bowl_6facf8_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.80494,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_marker_from_the_box_3c06f6",
+      "task_cfg_path": "REALM_DROID100/remove_the_marker_from_the_box_3c06f6/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_box_3c06f6/remove_the_marker_from_the_box_3c06f6_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_box_3c06f6/remove_the_marker_from_the_box_3c06f6_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_box_3c06f6/remove_the_marker_from_the_box_3c06f6_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_box_3c06f6/remove_the_marker_from_the_box_3c06f6_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_box_3c06f6/remove_the_marker_from_the_box_3c06f6_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_box_3c06f6/remove_the_marker_from_the_box_3c06f6_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73765,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_marker_from_the_cup_1fb5a0",
+      "task_cfg_path": "REALM_DROID100/remove_the_marker_from_the_cup_1fb5a0/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_cup_1fb5a0/remove_the_marker_from_the_cup_1fb5a0_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_cup_1fb5a0/remove_the_marker_from_the_cup_1fb5a0_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_cup_1fb5a0/remove_the_marker_from_the_cup_1fb5a0_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_cup_1fb5a0/remove_the_marker_from_the_cup_1fb5a0_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_cup_1fb5a0/remove_the_marker_from_the_cup_1fb5a0_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_cup_1fb5a0/remove_the_marker_from_the_cup_1fb5a0_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.80493,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_marker_from_the_glass_1f96cb",
+      "task_cfg_path": "REALM_DROID100/remove_the_marker_from_the_glass_1f96cb/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_glass_1f96cb/remove_the_marker_from_the_glass_1f96cb_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_glass_1f96cb/remove_the_marker_from_the_glass_1f96cb_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_glass_1f96cb/remove_the_marker_from_the_glass_1f96cb_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_glass_1f96cb/remove_the_marker_from_the_glass_1f96cb_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_glass_1f96cb/remove_the_marker_from_the_glass_1f96cb_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_glass_1f96cb/remove_the_marker_from_the_glass_1f96cb_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.05,
+      "support_z_measured": 0.91961,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_marker_from_the_mug_e57716",
+      "task_cfg_path": "REALM_DROID100/remove_the_marker_from_the_mug_e57716/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_mug_e57716/remove_the_marker_from_the_mug_e57716_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_mug_e57716/remove_the_marker_from_the_mug_e57716_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_mug_e57716/remove_the_marker_from_the_mug_e57716_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_mug_e57716/remove_the_marker_from_the_mug_e57716_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_mug_e57716/remove_the_marker_from_the_mug_e57716_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_mug_e57716/remove_the_marker_from_the_mug_e57716_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.75584,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_marker_from_the_pot_f89099",
+      "task_cfg_path": "REALM_DROID100/remove_the_marker_from_the_pot_f89099/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_pot_f89099/remove_the_marker_from_the_pot_f89099_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_pot_f89099/remove_the_marker_from_the_pot_f89099_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_pot_f89099/remove_the_marker_from_the_pot_f89099_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_pot_f89099/remove_the_marker_from_the_pot_f89099_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_pot_f89099/remove_the_marker_from_the_pot_f89099_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_marker_from_the_pot_f89099/remove_the_marker_from_the_pot_f89099_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73764,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_measuring_cup_from_the_bowl_32dd4a",
+      "task_cfg_path": "REALM_DROID100/remove_the_measuring_cup_from_the_bowl_32dd4a/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_measuring_cup_from_the_bowl_32dd4a/remove_the_measuring_cup_from_the_bowl_32dd4a_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_measuring_cup_from_the_bowl_32dd4a/remove_the_measuring_cup_from_the_bowl_32dd4a_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_measuring_cup_from_the_bowl_32dd4a/remove_the_measuring_cup_from_the_bowl_32dd4a_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_measuring_cup_from_the_bowl_32dd4a/remove_the_measuring_cup_from_the_bowl_32dd4a_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_measuring_cup_from_the_bowl_32dd4a/remove_the_measuring_cup_from_the_bowl_32dd4a_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_measuring_cup_from_the_bowl_32dd4a/remove_the_measuring_cup_from_the_bowl_32dd4a_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73751,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_mug_from_the_sink_ef7a36",
+      "task_cfg_path": "REALM_DROID100/remove_the_mug_from_the_sink_ef7a36/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_mug_from_the_sink_ef7a36/remove_the_mug_from_the_sink_ef7a36_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_mug_from_the_sink_ef7a36/remove_the_mug_from_the_sink_ef7a36_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_mug_from_the_sink_ef7a36/remove_the_mug_from_the_sink_ef7a36_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_mug_from_the_sink_ef7a36/remove_the_mug_from_the_sink_ef7a36_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_mug_from_the_sink_ef7a36/remove_the_mug_from_the_sink_ef7a36_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_mug_from_the_sink_ef7a36/remove_the_mug_from_the_sink_ef7a36_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.7558,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_orange_block_from_the_bowl_0c3ed4",
+      "task_cfg_path": "REALM_DROID100/remove_the_orange_block_from_the_bowl_0c3ed4/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_orange_block_from_the_bowl_0c3ed4/remove_the_orange_block_from_the_bowl_0c3ed4_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_orange_block_from_the_bowl_0c3ed4/remove_the_orange_block_from_the_bowl_0c3ed4_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_orange_block_from_the_bowl_0c3ed4/remove_the_orange_block_from_the_bowl_0c3ed4_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_orange_block_from_the_bowl_0c3ed4/remove_the_orange_block_from_the_bowl_0c3ed4_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_orange_block_from_the_bowl_0c3ed4/remove_the_orange_block_from_the_bowl_0c3ed4_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_orange_block_from_the_bowl_0c3ed4/remove_the_orange_block_from_the_bowl_0c3ed4_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73767,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_pen_from_the_mug_e6c8fe",
+      "task_cfg_path": "REALM_DROID100/remove_the_pen_from_the_mug_e6c8fe/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_pen_from_the_mug_e6c8fe/remove_the_pen_from_the_mug_e6c8fe_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_pen_from_the_mug_e6c8fe/remove_the_pen_from_the_mug_e6c8fe_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_pen_from_the_mug_e6c8fe/remove_the_pen_from_the_mug_e6c8fe_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_pen_from_the_mug_e6c8fe/remove_the_pen_from_the_mug_e6c8fe_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_pen_from_the_mug_e6c8fe/remove_the_pen_from_the_mug_e6c8fe_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_pen_from_the_mug_e6c8fe/remove_the_pen_from_the_mug_e6c8fe_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.05,
+      "support_z_measured": 0.91964,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_pineapple_from_the_pot_3fb906",
+      "task_cfg_path": "REALM_DROID100/remove_the_pineapple_from_the_pot_3fb906/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_pineapple_from_the_pot_3fb906/remove_the_pineapple_from_the_pot_3fb906_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_pineapple_from_the_pot_3fb906/remove_the_pineapple_from_the_pot_3fb906_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_pineapple_from_the_pot_3fb906/remove_the_pineapple_from_the_pot_3fb906_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_pineapple_from_the_pot_3fb906/remove_the_pineapple_from_the_pot_3fb906_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_pineapple_from_the_pot_3fb906/remove_the_pineapple_from_the_pot_3fb906_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_pineapple_from_the_pot_3fb906/remove_the_pineapple_from_the_pot_3fb906_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.75555,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_plate_from_the_bowl_82f5f5",
+      "task_cfg_path": "REALM_DROID100/remove_the_plate_from_the_bowl_82f5f5/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_plate_from_the_bowl_82f5f5/remove_the_plate_from_the_bowl_82f5f5_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_plate_from_the_bowl_82f5f5/remove_the_plate_from_the_bowl_82f5f5_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_plate_from_the_bowl_82f5f5/remove_the_plate_from_the_bowl_82f5f5_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_plate_from_the_bowl_82f5f5/remove_the_plate_from_the_bowl_82f5f5_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_plate_from_the_bowl_82f5f5/remove_the_plate_from_the_bowl_82f5f5_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_plate_from_the_bowl_82f5f5/remove_the_plate_from_the_bowl_82f5f5_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.75584,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_pot_from_the_bowl_956c1e",
+      "task_cfg_path": "REALM_DROID100/remove_the_pot_from_the_bowl_956c1e/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_pot_from_the_bowl_956c1e/remove_the_pot_from_the_bowl_956c1e_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_pot_from_the_bowl_956c1e/remove_the_pot_from_the_bowl_956c1e_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_pot_from_the_bowl_956c1e/remove_the_pot_from_the_bowl_956c1e_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_pot_from_the_bowl_956c1e/remove_the_pot_from_the_bowl_956c1e_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_pot_from_the_bowl_956c1e/remove_the_pot_from_the_bowl_956c1e_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_pot_from_the_bowl_956c1e/remove_the_pot_from_the_bowl_956c1e_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.0,
+      "support_z_measured": 0.8995,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_shaker_from_the_bowl_b7e492",
+      "task_cfg_path": "REALM_DROID100/remove_the_shaker_from_the_bowl_b7e492/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_shaker_from_the_bowl_b7e492/remove_the_shaker_from_the_bowl_b7e492_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_shaker_from_the_bowl_b7e492/remove_the_shaker_from_the_bowl_b7e492_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_shaker_from_the_bowl_b7e492/remove_the_shaker_from_the_bowl_b7e492_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_shaker_from_the_bowl_b7e492/remove_the_shaker_from_the_bowl_b7e492_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_shaker_from_the_bowl_b7e492/remove_the_shaker_from_the_bowl_b7e492_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_shaker_from_the_bowl_b7e492/remove_the_shaker_from_the_bowl_b7e492_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.0,
+      "support_z_measured": 0.89946,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_spice_bottle_from_the_bowl_bfa457",
+      "task_cfg_path": "REALM_DROID100/remove_the_spice_bottle_from_the_bowl_bfa457/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_spice_bottle_from_the_bowl_bfa457/remove_the_spice_bottle_from_the_bowl_bfa457_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_spice_bottle_from_the_bowl_bfa457/remove_the_spice_bottle_from_the_bowl_bfa457_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_spice_bottle_from_the_bowl_bfa457/remove_the_spice_bottle_from_the_bowl_bfa457_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_spice_bottle_from_the_bowl_bfa457/remove_the_spice_bottle_from_the_bowl_bfa457_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_spice_bottle_from_the_bowl_bfa457/remove_the_spice_bottle_from_the_bowl_bfa457_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_spice_bottle_from_the_bowl_bfa457/remove_the_spice_bottle_from_the_bowl_bfa457_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.74501,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_spoon_from_the_basket_202542",
+      "task_cfg_path": "REALM_DROID100/remove_the_spoon_from_the_basket_202542/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_spoon_from_the_basket_202542/remove_the_spoon_from_the_basket_202542_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_spoon_from_the_basket_202542/remove_the_spoon_from_the_basket_202542_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_spoon_from_the_basket_202542/remove_the_spoon_from_the_basket_202542_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_spoon_from_the_basket_202542/remove_the_spoon_from_the_basket_202542_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_spoon_from_the_basket_202542/remove_the_spoon_from_the_basket_202542_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_spoon_from_the_basket_202542/remove_the_spoon_from_the_basket_202542_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.75584,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_spoon_from_the_mug_d3b3a7",
+      "task_cfg_path": "REALM_DROID100/remove_the_spoon_from_the_mug_d3b3a7/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_spoon_from_the_mug_d3b3a7/remove_the_spoon_from_the_mug_d3b3a7_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_spoon_from_the_mug_d3b3a7/remove_the_spoon_from_the_mug_d3b3a7_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_spoon_from_the_mug_d3b3a7/remove_the_spoon_from_the_mug_d3b3a7_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_spoon_from_the_mug_d3b3a7/remove_the_spoon_from_the_mug_d3b3a7_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_spoon_from_the_mug_d3b3a7/remove_the_spoon_from_the_mug_d3b3a7_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_spoon_from_the_mug_d3b3a7/remove_the_spoon_from_the_mug_d3b3a7_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73762,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_tea_bag_from_the_basket_68e23f",
+      "task_cfg_path": "REALM_DROID100/remove_the_tea_bag_from_the_basket_68e23f/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_tea_bag_from_the_basket_68e23f/remove_the_tea_bag_from_the_basket_68e23f_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_tea_bag_from_the_basket_68e23f/remove_the_tea_bag_from_the_basket_68e23f_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_tea_bag_from_the_basket_68e23f/remove_the_tea_bag_from_the_basket_68e23f_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_tea_bag_from_the_basket_68e23f/remove_the_tea_bag_from_the_basket_68e23f_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_tea_bag_from_the_basket_68e23f/remove_the_tea_bag_from_the_basket_68e23f_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_tea_bag_from_the_basket_68e23f/remove_the_tea_bag_from_the_basket_68e23f_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.8049,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_toy_from_the_basket_d94b4e",
+      "task_cfg_path": "REALM_DROID100/remove_the_toy_from_the_basket_d94b4e/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_toy_from_the_basket_d94b4e/remove_the_toy_from_the_basket_d94b4e_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_toy_from_the_basket_d94b4e/remove_the_toy_from_the_basket_d94b4e_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_toy_from_the_basket_d94b4e/remove_the_toy_from_the_basket_d94b4e_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_toy_from_the_basket_d94b4e/remove_the_toy_from_the_basket_d94b4e_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_toy_from_the_basket_d94b4e/remove_the_toy_from_the_basket_d94b4e_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_toy_from_the_basket_d94b4e/remove_the_toy_from_the_basket_d94b4e_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.80494,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_toy_from_the_bowl_e7084f",
+      "task_cfg_path": "REALM_DROID100/remove_the_toy_from_the_bowl_e7084f/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_toy_from_the_bowl_e7084f/remove_the_toy_from_the_bowl_e7084f_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_toy_from_the_bowl_e7084f/remove_the_toy_from_the_bowl_e7084f_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_toy_from_the_bowl_e7084f/remove_the_toy_from_the_bowl_e7084f_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_toy_from_the_bowl_e7084f/remove_the_toy_from_the_bowl_e7084f_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_toy_from_the_bowl_e7084f/remove_the_toy_from_the_bowl_e7084f_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_toy_from_the_bowl_e7084f/remove_the_toy_from_the_bowl_e7084f_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73763,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_yellow_block_from_the_pan_404849",
+      "task_cfg_path": "REALM_DROID100/remove_the_yellow_block_from_the_pan_404849/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_yellow_block_from_the_pan_404849/remove_the_yellow_block_from_the_pan_404849_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_yellow_block_from_the_pan_404849/remove_the_yellow_block_from_the_pan_404849_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_yellow_block_from_the_pan_404849/remove_the_yellow_block_from_the_pan_404849_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_yellow_block_from_the_pan_404849/remove_the_yellow_block_from_the_pan_404849_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_yellow_block_from_the_pan_404849/remove_the_yellow_block_from_the_pan_404849_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_yellow_block_from_the_pan_404849/remove_the_yellow_block_from_the_pan_404849_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73765,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_yellow_block_from_the_pot_203104",
+      "task_cfg_path": "REALM_DROID100/remove_the_yellow_block_from_the_pot_203104/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_yellow_block_from_the_pot_203104/remove_the_yellow_block_from_the_pot_203104_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_yellow_block_from_the_pot_203104/remove_the_yellow_block_from_the_pot_203104_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_yellow_block_from_the_pot_203104/remove_the_yellow_block_from_the_pot_203104_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_yellow_block_from_the_pot_203104/remove_the_yellow_block_from_the_pot_203104_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_yellow_block_from_the_pot_203104/remove_the_yellow_block_from_the_pot_203104_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_yellow_block_from_the_pot_203104/remove_the_yellow_block_from_the_pot_203104_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.74493,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "remove_the_yellow_object_from_the_plate_851e78",
+      "task_cfg_path": "REALM_DROID100/remove_the_yellow_object_from_the_plate_851e78/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/remove_the_yellow_object_from_the_plate_851e78/remove_the_yellow_object_from_the_plate_851e78_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_yellow_object_from_the_plate_851e78/remove_the_yellow_object_from_the_plate_851e78_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_yellow_object_from_the_plate_851e78/remove_the_yellow_object_from_the_plate_851e78_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/remove_the_yellow_object_from_the_plate_851e78/remove_the_yellow_object_from_the_plate_851e78_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_yellow_object_from_the_plate_851e78/remove_the_yellow_object_from_the_plate_851e78_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/remove_the_yellow_object_from_the_plate_851e78/remove_the_yellow_object_from_the_plate_851e78_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.05,
+      "support_z_measured": 0.91964,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "rotate_the_carton_d24666",
+      "task_cfg_path": "REALM_DROID100/rotate_the_carton_d24666/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/rotate_the_carton_d24666/rotate_the_carton_d24666_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/rotate_the_carton_d24666/rotate_the_carton_d24666_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/rotate_the_carton_d24666/rotate_the_carton_d24666_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/rotate_the_carton_d24666/rotate_the_carton_d24666_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/rotate_the_carton_d24666/rotate_the_carton_d24666_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/rotate_the_carton_d24666/rotate_the_carton_d24666_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.0,
+      "support_z_measured": 0.8995,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "rotate_the_pot_20a53e",
+      "task_cfg_path": "REALM_DROID100/rotate_the_pot_20a53e/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/rotate_the_pot_20a53e/rotate_the_pot_20a53e_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/rotate_the_pot_20a53e/rotate_the_pot_20a53e_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/rotate_the_pot_20a53e/rotate_the_pot_20a53e_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/rotate_the_pot_20a53e/rotate_the_pot_20a53e_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/rotate_the_pot_20a53e/rotate_the_pot_20a53e_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/rotate_the_pot_20a53e/rotate_the_pot_20a53e_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.80465,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "take_the_blue_block_out_of_the_box_and_put_it_in_the_bowl_52e039",
+      "task_cfg_path": "REALM_DROID100/take_the_blue_block_out_of_the_box_and_put_it_in_the_bowl_52e039/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/take_the_blue_block_out_of_the_box_and_put_it_in_the_bowl_52e039/take_the_blue_block_out_of_the_box_and_put_it_in_the_bowl_52e039_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/take_the_blue_block_out_of_the_box_and_put_it_in_the_bowl_52e039/take_the_blue_block_out_of_the_box_and_put_it_in_the_bowl_52e039_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/take_the_blue_block_out_of_the_box_and_put_it_in_the_bowl_52e039/take_the_blue_block_out_of_the_box_and_put_it_in_the_bowl_52e039_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/take_the_blue_block_out_of_the_box_and_put_it_in_the_bowl_52e039/take_the_blue_block_out_of_the_box_and_put_it_in_the_bowl_52e039_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/take_the_blue_block_out_of_the_box_and_put_it_in_the_bowl_52e039/take_the_blue_block_out_of_the_box_and_put_it_in_the_bowl_52e039_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/take_the_blue_block_out_of_the_box_and_put_it_in_the_bowl_52e039/take_the_blue_block_out_of_the_box_and_put_it_in_the_bowl_52e039_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.74501,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "take_the_pen_out_of_the_bowl_a55d56",
+      "task_cfg_path": "REALM_DROID100/take_the_pen_out_of_the_bowl_a55d56/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/take_the_pen_out_of_the_bowl_a55d56/take_the_pen_out_of_the_bowl_a55d56_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/take_the_pen_out_of_the_bowl_a55d56/take_the_pen_out_of_the_bowl_a55d56_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/take_the_pen_out_of_the_bowl_a55d56/take_the_pen_out_of_the_bowl_a55d56_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/take_the_pen_out_of_the_bowl_a55d56/take_the_pen_out_of_the_bowl_a55d56_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/take_the_pen_out_of_the_bowl_a55d56/take_the_pen_out_of_the_bowl_a55d56_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/take_the_pen_out_of_the_bowl_a55d56/take_the_pen_out_of_the_bowl_a55d56_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.75583,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "take_the_salt_shaker_out_of_the_pot_fbfd2e",
+      "task_cfg_path": "REALM_DROID100/take_the_salt_shaker_out_of_the_pot_fbfd2e/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/take_the_salt_shaker_out_of_the_pot_fbfd2e/take_the_salt_shaker_out_of_the_pot_fbfd2e_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/take_the_salt_shaker_out_of_the_pot_fbfd2e/take_the_salt_shaker_out_of_the_pot_fbfd2e_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/take_the_salt_shaker_out_of_the_pot_fbfd2e/take_the_salt_shaker_out_of_the_pot_fbfd2e_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/take_the_salt_shaker_out_of_the_pot_fbfd2e/take_the_salt_shaker_out_of_the_pot_fbfd2e_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/take_the_salt_shaker_out_of_the_pot_fbfd2e/take_the_salt_shaker_out_of_the_pot_fbfd2e_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/take_the_salt_shaker_out_of_the_pot_fbfd2e/take_the_salt_shaker_out_of_the_pot_fbfd2e_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.75574,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "take_the_soap_dispenser_out_of_the_container_5b8a87",
+      "task_cfg_path": "REALM_DROID100/take_the_soap_dispenser_out_of_the_container_5b8a87/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/take_the_soap_dispenser_out_of_the_container_5b8a87/take_the_soap_dispenser_out_of_the_container_5b8a87_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/take_the_soap_dispenser_out_of_the_container_5b8a87/take_the_soap_dispenser_out_of_the_container_5b8a87_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/take_the_soap_dispenser_out_of_the_container_5b8a87/take_the_soap_dispenser_out_of_the_container_5b8a87_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/take_the_soap_dispenser_out_of_the_container_5b8a87/take_the_soap_dispenser_out_of_the_container_5b8a87_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/take_the_soap_dispenser_out_of_the_container_5b8a87/take_the_soap_dispenser_out_of_the_container_5b8a87_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/take_the_soap_dispenser_out_of_the_container_5b8a87/take_the_soap_dispenser_out_of_the_container_5b8a87_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.85,
+      "support_z_measured": 0.80493,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "take_the_teddy_bear_out_of_the_box_d19562",
+      "task_cfg_path": "REALM_DROID100/take_the_teddy_bear_out_of_the_box_d19562/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/take_the_teddy_bear_out_of_the_box_d19562/take_the_teddy_bear_out_of_the_box_d19562_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/take_the_teddy_bear_out_of_the_box_d19562/take_the_teddy_bear_out_of_the_box_d19562_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/take_the_teddy_bear_out_of_the_box_d19562/take_the_teddy_bear_out_of_the_box_d19562_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/take_the_teddy_bear_out_of_the_box_d19562/take_the_teddy_bear_out_of_the_box_d19562_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/take_the_teddy_bear_out_of_the_box_d19562/take_the_teddy_bear_out_of_the_box_d19562_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/take_the_teddy_bear_out_of_the_box_d19562/take_the_teddy_bear_out_of_the_box_d19562_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.9,
+      "support_z_measured": 0.74501,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "turn_the_bottle_5069c2",
+      "task_cfg_path": "REALM_DROID100/turn_the_bottle_5069c2/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/turn_the_bottle_5069c2/turn_the_bottle_5069c2_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/turn_the_bottle_5069c2/turn_the_bottle_5069c2_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/turn_the_bottle_5069c2/turn_the_bottle_5069c2_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/turn_the_bottle_5069c2/turn_the_bottle_5069c2_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/turn_the_bottle_5069c2/turn_the_bottle_5069c2_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/turn_the_bottle_5069c2/turn_the_bottle_5069c2_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 0.87,
+      "support_z_measured": 0.73764,
+      "penetration_check": "measured task surface and floor"
+    },
+    {
+      "task": "turn_the_toy_car_a978c3",
+      "task_cfg_path": "REALM_DROID100/turn_the_toy_car_a978c3/default.yaml",
+      "verdict": "PASS",
+      "renders": [
+        "tmp/droid100/review_v8/droid100/turn_the_toy_car_a978c3/turn_the_toy_car_a978c3_DROID_mounted_DROID_mounted_base_link_Camera_0_t000.png",
+        "tmp/droid100/review_v8/droid100/turn_the_toy_car_a978c3/turn_the_toy_car_a978c3_external_external_sensor0_t000.png",
+        "tmp/droid100/review_v8/droid100/turn_the_toy_car_a978c3/turn_the_toy_car_a978c3_external_external_sensor1_t000.png",
+        "tmp/droid100/review_v8/droid100/turn_the_toy_car_a978c3/turn_the_toy_car_a978c3_DROID_mounted_DROID_mounted_base_link_Camera_0_t060.png",
+        "tmp/droid100/review_v8/droid100/turn_the_toy_car_a978c3/turn_the_toy_car_a978c3_external_external_sensor0_t060.png",
+        "tmp/droid100/review_v8/droid100/turn_the_toy_car_a978c3/turn_the_toy_car_a978c3_external_external_sensor1_t060.png"
+      ],
+      "render_errors": [],
+      "error": null,
+      "support_z": 1.0,
+      "support_z_measured": 0.89896,
+      "penetration_check": "measured task surface and floor"
+    }
+  ],
+  "tally": {
+    "PASS": 106,
+    "FAIL": 6
+  }
+}

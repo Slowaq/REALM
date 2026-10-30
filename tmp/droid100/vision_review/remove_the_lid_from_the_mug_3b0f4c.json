@@ -1,0 +1,19 @@
+{
+ "task": "remove_the_lid_from_the_mug_3b0f4c",
+ "task_id": "3b0f4c911d46",
+ "verdict": "fail",
+ "findings": [
+  {
+   "code": "MISMATCH",
+   "object": "lid",
+   "reason": "after the settle the mug lies on its side and the lid has slid off beside it, so the scene no longer shows a lid on a mug to remove (consistent with the measured TIPPED and LEFT_SUPPORT)",
+   "suggestion": "a mug and lid that fit and stay seated, e.g. a wider lid or a mug with a flat rim"
+  }
+ ],
+ "notes": "visible in all three views",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

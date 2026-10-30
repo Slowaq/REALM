@@ -1,0 +1,19 @@
+{
+ "task": "remove_the_orange_block_from_the_bowl_0c3ed4",
+ "task_id": "0c3ed4fdf84f",
+ "verdict": "fail",
+ "findings": [
+  {
+   "code": "MISMATCH",
+   "object": "orange_block",
+   "reason": "the block the instruction calls orange renders clearly yellow in both external views (same asset colour as the other orange-block tasks), so the colour word does not match what the camera shows",
+   "suggestion": "a more saturated orange rgba, or drop the colour word"
+  }
+ ],
+ "notes": "block sits in the white bowl and is otherwise clear and reachable",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

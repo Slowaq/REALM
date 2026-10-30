@@ -1,0 +1,12 @@
+{
+ "task": "put_the_spoon_in_the_cup_c0d032",
+ "task_id": "c0d0323c76f5",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "white spoon very clear in sensor0 and visible in sensor1; green mug clear (partly behind the glass jar in sensor0)",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

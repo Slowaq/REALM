@@ -1,0 +1,12 @@
+{
+ "task": "remove_the_toy_from_the_basket_d94b4e",
+ "task_id": "d94b4ed1b090",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "red plush toy in the wicker basket, very clear in sensor0 and glimpsed through the weave in sensor1",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

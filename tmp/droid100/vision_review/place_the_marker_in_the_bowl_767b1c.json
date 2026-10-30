@@ -1,0 +1,12 @@
+{
+ "task": "place_the_marker_in_the_bowl_767b1c",
+ "task_id": "767b1c25388a",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "pink marker is small but distinct against the dark table in sensor0, between the tongs and the milk bottle; out of frame in sensor1 and the wrist view; bowl clear",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

@@ -1,0 +1,12 @@
+{
+ "task": "place_the_book_inside_the_box_e34edc",
+ "task_id": "e34edc151127",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "book (plain cream cover) and open box both clear and the book fits the box; distractor_pruner is not visible in any view, consistent with the measured PENETRATION",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

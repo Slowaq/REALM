@@ -1,0 +1,12 @@
+{
+ "task": "remove_the_shaker_from_the_bowl_b7e492",
+ "task_id": "b7e492cf4b8a",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "dark shaker sits deep in the pink bowl: its top is visible inside the bowl in sensor0 and it sticks out tilted in sensor1; graspable from above",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

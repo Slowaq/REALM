@@ -1,0 +1,12 @@
+{
+ "task": "put_the_cup_in_the_bowl_0b80d1",
+ "task_id": "0b80d1e9d0df",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "grey mug with handle is the only cup and is visible in both external views; the printed paper bowl is open and large enough; the blue paint bottle reads as a spray can, not a cup",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

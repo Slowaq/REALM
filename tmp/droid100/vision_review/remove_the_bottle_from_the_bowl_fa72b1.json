@@ -1,0 +1,12 @@
+{
+ "task": "remove_the_bottle_from_the_bowl_fa72b1",
+ "task_id": "fa72b15d2534",
+ "verdict": "pass",
+ "findings": [],
+ "notes": "faceted purple-grey bottle stands upright in the shallow square bowl, clear in both external views; \"from the bowl\" singles it out from the spray can",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

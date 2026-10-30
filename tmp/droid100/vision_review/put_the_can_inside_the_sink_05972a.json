@@ -1,0 +1,19 @@
+{
+ "task": "put_the_can_inside_the_sink_05972a",
+ "task_id": "05972ad9c939",
+ "verdict": "fail",
+ "findings": [
+  {
+   "code": "NOT_VISIBLE",
+   "object": "can",
+   "reason": "the can stands behind the large sink from both external viewpoints; at most a sliver of its top shows at the sink edge in sensor1 (251 px) and nothing recognisable in sensor0 (186 px), it is only clear in the wrist view",
+   "suggestion": "place the can on the camera side of the sink, or the next camera pair"
+  }
+ ],
+ "notes": "sink itself is clear and open",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

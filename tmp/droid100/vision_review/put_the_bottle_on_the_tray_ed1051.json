@@ -1,0 +1,19 @@
+{
+ "task": "put_the_bottle_on_the_tray_ed1051",
+ "task_id": "ed105146e2a4",
+ "verdict": "fail",
+ "findings": [
+  {
+   "code": "MISMATCH",
+   "object": "distractor_bottle_of_beer",
+   "reason": "a beer bottle of the same height stands beside the red-brown target bottle (with a pill bottle nearby), so \"the bottle\" does not single out the target",
+   "suggestion": "distractors that are not bottles"
+  }
+ ],
+ "notes": "target bottle and white tray otherwise clear in both external views",
+ "iteration": 1,
+ "render_id": "review_v8/droid100",
+ "prompt_version": 2,
+ "critic": "interactive",
+ "date": "2026-10-30"
+}

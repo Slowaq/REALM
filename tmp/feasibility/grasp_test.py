@@ -47,6 +47,19 @@ FINGER_CORNERS = np.array([[x, y, z] for x in (-FINGER_X, FINGER_X) for y in (-F
 PALM_XY = (0.03, 0.06)
 
 REC: dict = {"stages": {}}
+
+
+def sync_stage(passes=10):
+    """Bring the render-side stage up to the physics state.
+
+    Physics runs under `render_on_step(False)`, and collision-geom poses and AABBs are read from the
+    render side, so without this they stay at the SPAWN pose (objects before they dropped onto the
+    table, robot fingers at the reset pose). Link and object poses read through physics are fresh
+    either way. REALM's render_review.py does the same with 30 passes.
+    """
+    import omnigibson as og
+    for _ in range(passes):
+        og.sim.render()
 OUT = Path("tmp/feasibility/grasp")
 
 
@@ -260,6 +273,7 @@ def build_world(cmg, robot, ignore=()):
     from curobo.geom.types import Mesh, WorldConfig
     from scipy.spatial.transform import Rotation as R
     from omnigibson.action_primitives.curobo import CuRoboEmbodimentSelection as E
+    sync_stage(3)
     base = link_mat(robot, "panda_link0")
     inv_b = np.linalg.inv(base)
     found = []
@@ -307,6 +321,7 @@ def finger_min_z(robot, fingers):
     """Lowest point of the finger links' collision geometry, world z."""
     zs = []
     try:
+        sync_stage(3)
         for f in fingers:
             for cm in robot.links[f].collision_meshes.values():
                 tm = geom_trimesh(cm)
@@ -496,7 +511,14 @@ def s2_curobo(env, args):
 @stage("S3_grasps")
 def s3_grasps(env, args):
     obj = env.main_objects[0]
+    phys = np_(obj.get_position_orientation()[0])
+    stale = np.concatenate([p.vertices for p in world_pieces(obj)]).mean(0)
+    sync_stage(30)
     pieces = world_pieces(obj)
+    fresh = np.concatenate([p.vertices for p in pieces]).mean(0)
+    REC["render_sync_check"] = {
+        "mesh_centroid_moved_by_sync_m": round(float(np.linalg.norm(fresh - stale)), 4),
+        "mesh_centroid_minus_physics_origin_after_sync": np.round(fresh - phys, 4).tolist()}
     lo, hi = (np_(v) for v in obj.aabb)
     support_z = float(lo[2])
     cands, stats, _ = sample_grasps(pieces, support_z, n_keep=args.max_exec * 3)
@@ -534,6 +556,7 @@ def s4_attempts(env, cmg, tcp, obj, pieces, support_z, cands, args):
         if ran:  # put the scene back before the next try
             env.reset()
             settle_open(env, 20)
+            sync_stage(30)
             obj = env.main_objects[0]
     REC["attempts"] = attempts
 
@@ -565,7 +588,8 @@ def run_one(args) -> int:
             s4_attempts(env, *res, *g, args)
     verdict()
     save()
-    short = {k: REC.get(k) for k in ("task_name", "stages", "object", "sampling", "gripper_calibration",
+    short = {k: REC.get(k) for k in ("task_name", "stages", "object", "render_sync_check", "sampling",
+                                     "gripper_calibration",
                                      "baseline_result", "sampled_lifted", "verdict")}
     short["attempts"] = [{k: a.get(k) for k in ("index", "baseline", "result", "width", "topdown_deg",
                                                 "variant", "rise", "hold_drift", "is_grasping",

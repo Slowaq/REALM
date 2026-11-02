@@ -143,9 +143,16 @@ The interpolation dt is the sim step (1/15 s for DROID), so a trajectory has one
    `inverted: false`, the effect on DROID is the reverse. REALM's `settle()` holds −1, so after a
    settle the gripper is open. `grasp_test.py` re-measures the sign at start-up
    (`gripper_calibration` in its JSON), so a change in the robot config cannot silently break it.
-7. **The API differs from upstream cuRobo docs.** In this fork, `MotionGen.compute_kinematics()`
+7. **Collision-geom poses and AABBs go stale under `render_on_step(False)`.** They are read from the
+   render side, which only catches up with physics on `og.sim.render()`. Without a sync they report
+   the SPAWN pose: objects before they dropped onto the table, robot fingers at the reset pose. Link
+   and object poses read through physics (`get_position_orientation()`) are fresh either way. Call
+   `og.sim.render()` a few times before reading meshes or AABBs (render_review.py uses 30). This cost
+   the first grasp sweep 6 of 8 tasks: the grasp targets sat above the real objects. Only the tall
+   bottles still had their body between the pads.
+8. **The API differs from upstream cuRobo docs.** In this fork, `MotionGen.compute_kinematics()`
    returns `ee_pos_seq` / `ee_quat_seq`, not `ee_quaternion`.
-8. **The scene load dominates run time** (200–325 s for `pick_spoon`). Everything cuRobo does here
+9. **The scene load dominates run time** (200–325 s for `pick_spoon`). Everything cuRobo does here
    takes well under a minute.
 
 ### Not usable as-is: OmniGibson's starter primitives

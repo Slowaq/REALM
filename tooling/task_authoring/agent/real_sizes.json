@@ -1,0 +1,1053 @@
+{
+ "description": "Typical real-world size of each object category as it appears on a kitchen, dining or desk table in a DROID scene: the LONGEST bounding-box dimension in metres, with the reason. The solver scales every asset uniformly to this size, so shapes are never distorted. A task may override it for one object (size_m + size_reason) when the instruction means a different variant, e.g. a toy pan.",
+ "sizes": {
+  "allen_wrench": {
+   "size_m": 0.08,
+   "reason": "hex key, about 8 cm"
+  },
+  "bag_of_chips": {
+   "size_m": 0.25,
+   "reason": "snack bag of chips, about 25 cm"
+  },
+  "banana": {
+   "size_m": 0.19,
+   "reason": "banana, about 19 cm long"
+  },
+  "beaker": {
+   "size_m": 0.12,
+   "reason": "250 ml beaker, about 12 cm"
+  },
+  "beer_bottle": {
+   "size_m": 0.23,
+   "reason": "beer bottle, about 23 cm tall"
+  },
+  "bell_pepper": {
+   "size_m": 0.1,
+   "reason": "bell pepper, about 10 cm"
+  },
+  "blackboard_eraser": {
+   "size_m": 0.15,
+   "reason": "board eraser, about 15 cm"
+  },
+  "bottle_of_alcohol": {
+   "size_m": 0.3,
+   "reason": "wine or spirits bottle, about 30 cm tall"
+  },
+  "bottle_of_alfredo_sauce": {
+   "size_m": 0.15,
+   "reason": "pasta-sauce jar or bottle, about 15 cm tall"
+  },
+  "bottle_of_almond_oil": {
+   "size_m": 0.2,
+   "reason": "small oil bottle, about 20 cm tall"
+  },
+  "bottle_of_ammonia": {
+   "size_m": 0.28,
+   "reason": "household cleaner jug, about 28 cm tall"
+  },
+  "bottle_of_antihistamines": {
+   "size_m": 0.08,
+   "reason": "pill bottle or small cream jar, about 8 cm"
+  },
+  "bottle_of_apple_cider": {
+   "size_m": 0.28,
+   "reason": "cider bottle, about 28 cm tall"
+  },
+  "bottle_of_apple_juice": {
+   "size_m": 0.25,
+   "reason": "juice or milk bottle, about 25 cm tall"
+  },
+  "bottle_of_aspirin": {
+   "size_m": 0.08,
+   "reason": "pill bottle or small cream jar, about 8 cm"
+  },
+  "bottle_of_baby_oil": {
+   "size_m": 0.18,
+   "reason": "baby-oil bottle, about 18 cm tall"
+  },
+  "bottle_of_barbecue_sauce": {
+   "size_m": 0.2,
+   "reason": "squeeze or sauce bottle, about 20 cm tall"
+  },
+  "bottle_of_beer": {
+   "size_m": 0.23,
+   "reason": "beer bottle, about 23 cm tall"
+  },
+  "bottle_of_black_pepper": {
+   "size_m": 0.11,
+   "reason": "spice or seasoning bottle, about 11 cm tall"
+  },
+  "bottle_of_bug_repellent": {
+   "size_m": 0.15,
+   "reason": "sunscreen or repellent bottle, about 15 cm tall"
+  },
+  "bottle_of_carrot_juice": {
+   "size_m": 0.22,
+   "reason": "small drink bottle, about 22 cm tall"
+  },
+  "bottle_of_catsup": {
+   "size_m": 0.2,
+   "reason": "squeeze or sauce bottle, about 20 cm tall"
+  },
+  "bottle_of_champagne": {
+   "size_m": 0.3,
+   "reason": "wine or spirits bottle, about 30 cm tall"
+  },
+  "bottle_of_chili_pepper": {
+   "size_m": 0.11,
+   "reason": "spice or seasoning bottle, about 11 cm tall"
+  },
+  "bottle_of_chocolate_sauce": {
+   "size_m": 0.2,
+   "reason": "squeeze or sauce bottle, about 20 cm tall"
+  },
+  "bottle_of_cleaner": {
+   "size_m": 0.25,
+   "reason": "spray or cleaner bottle, about 25 cm tall"
+  },
+  "bottle_of_cocoa": {
+   "size_m": 0.15,
+   "reason": "cocoa tin, about 15 cm tall"
+  },
+  "bottle_of_coconut_milk": {
+   "size_m": 0.2,
+   "reason": "drink carton or bottle, about 20 cm tall"
+  },
+  "bottle_of_coconut_oil": {
+   "size_m": 0.15,
+   "reason": "coconut-oil jar, about 15 cm tall"
+  },
+  "bottle_of_coconut_water": {
+   "size_m": 0.2,
+   "reason": "drink carton or bottle, about 20 cm tall"
+  },
+  "bottle_of_coffee": {
+   "size_m": 0.2,
+   "reason": "drink carton or bottle, about 20 cm tall"
+  },
+  "bottle_of_coke": {
+   "size_m": 0.24,
+   "reason": "soda bottle, about 24 cm tall"
+  },
+  "bottle_of_cold_cream": {
+   "size_m": 0.08,
+   "reason": "pill bottle or small cream jar, about 8 cm"
+  },
+  "bottle_of_cologne": {
+   "size_m": 0.12,
+   "reason": "cologne bottle, about 12 cm tall"
+  },
+  "bottle_of_conditioner": {
+   "size_m": 0.2,
+   "reason": "shampoo or conditioner bottle, about 20 cm tall"
+  },
+  "bottle_of_cooking_oil": {
+   "size_m": 0.28,
+   "reason": "cooking-oil bottle, about 28 cm tall"
+  },
+  "bottle_of_cranberry_juice": {
+   "size_m": 0.25,
+   "reason": "juice or milk bottle, about 25 cm tall"
+  },
+  "bottle_of_deicer": {
+   "size_m": 0.25,
+   "reason": "spray or cleaner bottle, about 25 cm tall"
+  },
+  "bottle_of_detergent": {
+   "size_m": 0.28,
+   "reason": "household cleaner jug, about 28 cm tall"
+  },
+  "bottle_of_dish_soap": {
+   "size_m": 0.22,
+   "reason": "dish-soap bottle, about 22 cm tall"
+  },
+  "bottle_of_disinfectant": {
+   "size_m": 0.25,
+   "reason": "spray or cleaner bottle, about 25 cm tall"
+  },
+  "bottle_of_essential_oil": {
+   "size_m": 0.08,
+   "reason": "essential-oil vial, about 8 cm tall"
+  },
+  "bottle_of_fabric_softener": {
+   "size_m": 0.28,
+   "reason": "household cleaner jug, about 28 cm tall"
+  },
+  "bottle_of_face_cream": {
+   "size_m": 0.08,
+   "reason": "pill bottle or small cream jar, about 8 cm"
+  },
+  "bottle_of_fennel": {
+   "size_m": 0.11,
+   "reason": "spice or seasoning bottle, about 11 cm tall"
+  },
+  "bottle_of_frosting": {
+   "size_m": 0.12,
+   "reason": "tomato-paste or frosting container, about 12 cm"
+  },
+  "bottle_of_fruit_punch": {
+   "size_m": 0.25,
+   "reason": "juice or milk bottle, about 25 cm tall"
+  },
+  "bottle_of_garlic_sauce": {
+   "size_m": 0.18,
+   "reason": "condiment or sauce bottle, about 18 cm tall"
+  },
+  "bottle_of_gin": {
+   "size_m": 0.28,
+   "reason": "spirits bottle, about 28 cm tall"
+  },
+  "bottle_of_ginger": {
+   "size_m": 0.11,
+   "reason": "spice or seasoning bottle, about 11 cm tall"
+  },
+  "bottle_of_ginger_beer": {
+   "size_m": 0.22,
+   "reason": "small drink bottle, about 22 cm tall"
+  },
+  "bottle_of_glass_cleaner": {
+   "size_m": 0.28,
+   "reason": "household cleaner jug, about 28 cm tall"
+  },
+  "bottle_of_glue": {
+   "size_m": 0.12,
+   "reason": "glue bottle, about 12 cm tall"
+  },
+  "bottle_of_ground_cloves": {
+   "size_m": 0.11,
+   "reason": "spice or seasoning bottle, about 11 cm tall"
+  },
+  "bottle_of_ground_mace": {
+   "size_m": 0.11,
+   "reason": "spice or seasoning bottle, about 11 cm tall"
+  },
+  "bottle_of_ground_nutmeg": {
+   "size_m": 0.11,
+   "reason": "spice or seasoning bottle, about 11 cm tall"
+  },
+  "bottle_of_hot_sauce": {
+   "size_m": 0.15,
+   "reason": "small hot-sauce bottle, about 15 cm"
+  },
+  "bottle_of_lacquer": {
+   "size_m": 0.15,
+   "reason": "small paint or lacquer can, about 15 cm"
+  },
+  "bottle_of_lavender_oil": {
+   "size_m": 0.08,
+   "reason": "essential-oil vial, about 8 cm tall"
+  },
+  "bottle_of_lemon_juice": {
+   "size_m": 0.15,
+   "reason": "lemon or lime juice bottle, about 15 cm tall"
+  },
+  "bottle_of_lemon_sauce": {
+   "size_m": 0.18,
+   "reason": "condiment or sauce bottle, about 18 cm tall"
+  },
+  "bottle_of_lemonade": {
+   "size_m": 0.25,
+   "reason": "juice or milk bottle, about 25 cm tall"
+  },
+  "bottle_of_lighter_fluid": {
+   "size_m": 0.18,
+   "reason": "solvent bottle, about 18 cm tall"
+  },
+  "bottle_of_lime_juice": {
+   "size_m": 0.15,
+   "reason": "lemon or lime juice bottle, about 15 cm tall"
+  },
+  "bottle_of_liquid_soap": {
+   "size_m": 0.18,
+   "reason": "lotion or soap bottle, about 18 cm tall"
+  },
+  "bottle_of_lotion": {
+   "size_m": 0.18,
+   "reason": "lotion or soap bottle, about 18 cm tall"
+  },
+  "bottle_of_maple_syrup": {
+   "size_m": 0.2,
+   "reason": "squeeze or sauce bottle, about 20 cm tall"
+  },
+  "bottle_of_mayonnaise": {
+   "size_m": 0.18,
+   "reason": "condiment or sauce bottle, about 18 cm tall"
+  },
+  "bottle_of_medicine": {
+   "size_m": 0.1,
+   "reason": "medicine or supplement bottle, about 10 cm tall"
+  },
+  "bottle_of_milk": {
+   "size_m": 0.25,
+   "reason": "juice or milk bottle, about 25 cm tall"
+  },
+  "bottle_of_milkshake": {
+   "size_m": 0.2,
+   "reason": "drink carton or bottle, about 20 cm tall"
+  },
+  "bottle_of_molasses": {
+   "size_m": 0.18,
+   "reason": "condiment or sauce bottle, about 18 cm tall"
+  },
+  "bottle_of_mushroom_sauce": {
+   "size_m": 0.18,
+   "reason": "condiment or sauce bottle, about 18 cm tall"
+  },
+  "bottle_of_mustard": {
+   "size_m": 0.18,
+   "reason": "condiment or sauce bottle, about 18 cm tall"
+  },
+  "bottle_of_mustard_seeds": {
+   "size_m": 0.11,
+   "reason": "spice or seasoning bottle, about 11 cm tall"
+  },
+  "bottle_of_oil": {
+   "size_m": 0.28,
+   "reason": "cooking-oil bottle, about 28 cm tall"
+  },
+  "bottle_of_olive_oil": {
+   "size_m": 0.28,
+   "reason": "cooking-oil bottle, about 28 cm tall"
+  },
+  "bottle_of_onion_powder": {
+   "size_m": 0.11,
+   "reason": "spice or seasoning bottle, about 11 cm tall"
+  },
+  "bottle_of_orange_juice": {
+   "size_m": 0.25,
+   "reason": "juice or milk bottle, about 25 cm tall"
+  },
+  "bottle_of_paint": {
+   "size_m": 0.15,
+   "reason": "small paint or lacquer can, about 15 cm"
+  },
+  "bottle_of_paint_remover": {
+   "size_m": 0.18,
+   "reason": "solvent bottle, about 18 cm tall"
+  },
+  "bottle_of_papaya_juice": {
+   "size_m": 0.22,
+   "reason": "small drink bottle, about 22 cm tall"
+  },
+  "bottle_of_paprika": {
+   "size_m": 0.11,
+   "reason": "spice or seasoning bottle, about 11 cm tall"
+  },
+  "bottle_of_peanut_butter": {
+   "size_m": 0.13,
+   "reason": "salsa or peanut-butter jar, about 13 cm tall"
+  },
+  "bottle_of_perfume": {
+   "size_m": 0.1,
+   "reason": "perfume bottle, about 10 cm tall"
+  },
+  "bottle_of_pesticide": {
+   "size_m": 0.25,
+   "reason": "spray or cleaner bottle, about 25 cm tall"
+  },
+  "bottle_of_pesto": {
+   "size_m": 0.1,
+   "reason": "small jar of pesto or sour cream tub, about 10 cm"
+  },
+  "bottle_of_pizza_sauce": {
+   "size_m": 0.15,
+   "reason": "pasta-sauce jar or bottle, about 15 cm tall"
+  },
+  "bottle_of_pop": {
+   "size_m": 0.24,
+   "reason": "soda bottle, about 24 cm tall"
+  },
+  "bottle_of_poppy_seeds": {
+   "size_m": 0.11,
+   "reason": "spice or seasoning bottle, about 11 cm tall"
+  },
+  "bottle_of_powder": {
+   "size_m": 0.12,
+   "reason": "powder container, about 12 cm tall"
+  },
+  "bottle_of_protein_powder": {
+   "size_m": 0.22,
+   "reason": "protein-powder tub, about 22 cm tall"
+  },
+  "bottle_of_pumpkin_pie_spice": {
+   "size_m": 0.11,
+   "reason": "spice or seasoning bottle, about 11 cm tall"
+  },
+  "bottle_of_rum": {
+   "size_m": 0.28,
+   "reason": "spirits bottle, about 28 cm tall"
+  },
+  "bottle_of_sage": {
+   "size_m": 0.11,
+   "reason": "spice or seasoning bottle, about 11 cm tall"
+  },
+  "bottle_of_sake": {
+   "size_m": 0.3,
+   "reason": "wine or spirits bottle, about 30 cm tall"
+  },
+  "bottle_of_salsa": {
+   "size_m": 0.13,
+   "reason": "salsa or peanut-butter jar, about 13 cm tall"
+  },
+  "bottle_of_seasoning": {
+   "size_m": 0.11,
+   "reason": "spice or seasoning bottle, about 11 cm tall"
+  },
+  "bottle_of_sesame_oil": {
+   "size_m": 0.2,
+   "reason": "small oil bottle, about 20 cm tall"
+  },
+  "bottle_of_sesame_seeds": {
+   "size_m": 0.11,
+   "reason": "spice or seasoning bottle, about 11 cm tall"
+  },
+  "bottle_of_shampoo": {
+   "size_m": 0.2,
+   "reason": "shampoo or conditioner bottle, about 20 cm tall"
+  },
+  "bottle_of_skin_cream": {
+   "size_m": 0.1,
+   "reason": "medicine or supplement bottle, about 10 cm tall"
+  },
+  "bottle_of_soda": {
+   "size_m": 0.24,
+   "reason": "soda bottle, about 24 cm tall"
+  },
+  "bottle_of_solvent": {
+   "size_m": 0.2,
+   "reason": "solvent bottle, about 20 cm tall"
+  },
+  "bottle_of_soup": {
+   "size_m": 0.18,
+   "reason": "condiment or sauce bottle, about 18 cm tall"
+  },
+  "bottle_of_sour_cream": {
+   "size_m": 0.1,
+   "reason": "small jar of pesto or sour cream tub, about 10 cm"
+  },
+  "bottle_of_soy_milk": {
+   "size_m": 0.24,
+   "reason": "soda bottle, about 24 cm tall"
+  },
+  "bottle_of_soy_sauce": {
+   "size_m": 0.18,
+   "reason": "condiment or sauce bottle, about 18 cm tall"
+  },
+  "bottle_of_sriracha": {
+   "size_m": 0.2,
+   "reason": "squeeze or sauce bottle, about 20 cm tall"
+  },
+  "bottle_of_strawberry_juice": {
+   "size_m": 0.22,
+   "reason": "small drink bottle, about 22 cm tall"
+  },
+  "bottle_of_sunscreen": {
+   "size_m": 0.15,
+   "reason": "sunscreen or repellent bottle, about 15 cm tall"
+  },
+  "bottle_of_supplements": {
+   "size_m": 0.1,
+   "reason": "medicine or supplement bottle, about 10 cm tall"
+  },
+  "bottle_of_tea": {
+   "size_m": 0.22,
+   "reason": "small drink bottle, about 22 cm tall"
+  },
+  "bottle_of_tea_leaves": {
+   "size_m": 0.11,
+   "reason": "spice or seasoning bottle, about 11 cm tall"
+  },
+  "bottle_of_tequila": {
+   "size_m": 0.28,
+   "reason": "spirits bottle, about 28 cm tall"
+  },
+  "bottle_of_tomato_paste": {
+   "size_m": 0.12,
+   "reason": "tomato-paste or frosting container, about 12 cm"
+  },
+  "bottle_of_tonic": {
+   "size_m": 0.2,
+   "reason": "drink carton or bottle, about 20 cm tall"
+  },
+  "bottle_of_vinegar": {
+   "size_m": 0.25,
+   "reason": "vinegar bottle, about 25 cm tall"
+  },
+  "bottle_of_vodka": {
+   "size_m": 0.3,
+   "reason": "wine or spirits bottle, about 30 cm tall"
+  },
+  "bottle_of_water": {
+   "size_m": 0.22,
+   "reason": "small drink bottle, about 22 cm tall"
+  },
+  "bottle_of_whiskey": {
+   "size_m": 0.28,
+   "reason": "spirits bottle, about 28 cm tall"
+  },
+  "bottle_of_wine": {
+   "size_m": 0.3,
+   "reason": "wine or spirits bottle, about 30 cm tall"
+  },
+  "bow": {
+   "size_m": 0.12,
+   "reason": "gift bow, about 12 cm"
+  },
+  "bowl": {
+   "size_m": 0.15,
+   "reason": "cereal or soup bowl, about 15 cm across"
+  },
+  "box_of_cereal": {
+   "size_m": 0.3,
+   "reason": "cereal box, about 30 cm tall"
+  },
+  "broccoli": {
+   "size_m": 0.18,
+   "reason": "head of broccoli, about 18 cm"
+  },
+  "bucket": {
+   "size_m": 0.28,
+   "reason": "small bucket, about 28 cm"
+  },
+  "can": {
+   "size_m": 0.12,
+   "reason": "drink or food can, about 12 cm tall"
+  },
+  "can_of_baking_mix": {
+   "size_m": 0.15,
+   "reason": "coffee or baking-mix canister, about 15 cm"
+  },
+  "can_of_bay_leaves": {
+   "size_m": 0.1,
+   "reason": "spice tin, about 10 cm"
+  },
+  "can_of_beans": {
+   "size_m": 0.11,
+   "reason": "food can, about 11 cm tall"
+  },
+  "can_of_cat_food": {
+   "size_m": 0.08,
+   "reason": "small can, about 8 cm"
+  },
+  "can_of_coffee": {
+   "size_m": 0.15,
+   "reason": "coffee or baking-mix canister, about 15 cm"
+  },
+  "can_of_corn": {
+   "size_m": 0.11,
+   "reason": "food can, about 11 cm tall"
+  },
+  "can_of_icetea": {
+   "size_m": 0.12,
+   "reason": "drink or food can, about 12 cm tall"
+  },
+  "can_of_oatmeal": {
+   "size_m": 0.18,
+   "reason": "oatmeal canister, about 18 cm tall"
+  },
+  "can_of_sardines": {
+   "size_m": 0.11,
+   "reason": "food can, about 11 cm tall"
+  },
+  "can_of_soda": {
+   "size_m": 0.12,
+   "reason": "drink or food can, about 12 cm tall"
+  },
+  "can_of_tomato_paste": {
+   "size_m": 0.08,
+   "reason": "small can, about 8 cm"
+  },
+  "can_of_tomatoes": {
+   "size_m": 0.11,
+   "reason": "food can, about 11 cm tall"
+  },
+  "canned_food": {
+   "size_m": 0.11,
+   "reason": "food can, about 11 cm tall"
+  },
+  "cap": {
+   "size_m": 0.04,
+   "reason": "bottle cap, about 4 cm"
+  },
+  "carafe": {
+   "size_m": 0.25,
+   "reason": "carafe, about 25 cm tall"
+  },
+  "carrot": {
+   "size_m": 0.18,
+   "reason": "carrot, about 18 cm long"
+  },
+  "carton_of_milk": {
+   "size_m": 0.2,
+   "reason": "milk carton, about 20 cm tall"
+  },
+  "carving_knife": {
+   "size_m": 0.3,
+   "reason": "carving knife, about 30 cm"
+  },
+  "casserole": {
+   "size_m": 0.28,
+   "reason": "casserole dish including handles, about 28 cm"
+  },
+  "chocolate_bar": {
+   "size_m": 0.15,
+   "reason": "chocolate bar, about 15 cm long"
+  },
+  "chopping_board": {
+   "size_m": 0.35,
+   "reason": "chopping board, about 35 cm long"
+  },
+  "chopstick": {
+   "size_m": 0.23,
+   "reason": "chopstick, about 23 cm"
+  },
+  "coffee_cup": {
+   "size_m": 0.1,
+   "reason": "coffee cup, about 10 cm"
+  },
+  "colander": {
+   "size_m": 0.26,
+   "reason": "colander, about 26 cm across"
+  },
+  "dishtowel": {
+   "size_m": 0.22,
+   "reason": "folded dish towel, about 22 cm"
+  },
+  "drill": {
+   "size_m": 0.25,
+   "reason": "cordless drill, about 25 cm"
+  },
+  "drop_in_sink": {
+   "size_m": 0.35,
+   "reason": "drop-in bar sink, about 35 cm across"
+  },
+  "duct_tape": {
+   "size_m": 0.13,
+   "reason": "roll of duct tape, about 13 cm across"
+  },
+  "egg": {
+   "size_m": 0.06,
+   "reason": "egg, about 6 cm"
+  },
+  "erlenmeyer_flask": {
+   "size_m": 0.15,
+   "reason": "Erlenmeyer or round-bottom flask, about 15 cm"
+  },
+  "frying_pan": {
+   "size_m": 0.4,
+   "reason": "frying pan including its handle, about 40 cm"
+  },
+  "garlic": {
+   "size_m": 0.06,
+   "reason": "garlic bulb, about 6 cm"
+  },
+  "glue_stick": {
+   "size_m": 0.1,
+   "reason": "glue stick, about 10 cm"
+  },
+  "grape": {
+   "size_m": 0.15,
+   "reason": "bunch of grapes, about 15 cm"
+  },
+  "half_bagel": {
+   "size_m": 0.1,
+   "reason": "bagel or bun half, about 10 cm"
+  },
+  "half_hamburger_bun": {
+   "size_m": 0.1,
+   "reason": "bagel or bun half, about 10 cm"
+  },
+  "hamburger": {
+   "size_m": 0.11,
+   "reason": "hamburger, about 11 cm"
+  },
+  "hamburger_bun": {
+   "size_m": 0.1,
+   "reason": "bagel or bun half, about 10 cm"
+  },
+  "hammer": {
+   "size_m": 0.3,
+   "reason": "claw hammer, about 30 cm"
+  },
+  "hamper": {
+   "size_m": 0.4,
+   "reason": "laundry hamper, about 40 cm"
+  },
+  "hard_candy": {
+   "size_m": 0.03,
+   "reason": "wrapped hard candy, about 3 cm"
+  },
+  "hardback": {
+   "size_m": 0.24,
+   "reason": "hardback book, about 24 cm"
+  },
+  "hingeless_jar": {
+   "size_m": 0.12,
+   "reason": "jam or sauce jar, about 12 cm tall"
+  },
+  "hotdog_bun": {
+   "size_m": 0.16,
+   "reason": "hot-dog bun, about 16 cm"
+  },
+  "jar_of_bath_salt": {
+   "size_m": 0.12,
+   "reason": "jam or sauce jar, about 12 cm tall"
+  },
+  "jar_of_chilli_powder": {
+   "size_m": 0.1,
+   "reason": "spice jar, about 10 cm tall"
+  },
+  "jar_of_clove": {
+   "size_m": 0.1,
+   "reason": "spice jar, about 10 cm tall"
+  },
+  "jar_of_cocoa": {
+   "size_m": 0.13,
+   "reason": "jar, about 13 cm tall"
+  },
+  "jar_of_coffee": {
+   "size_m": 0.15,
+   "reason": "coffee or sugar jar, about 15 cm tall"
+  },
+  "jar_of_cumin": {
+   "size_m": 0.1,
+   "reason": "spice jar, about 10 cm tall"
+  },
+  "jar_of_curry_powder": {
+   "size_m": 0.1,
+   "reason": "spice jar, about 10 cm tall"
+  },
+  "jar_of_dill_seed": {
+   "size_m": 0.1,
+   "reason": "spice jar, about 10 cm tall"
+  },
+  "jar_of_grains": {
+   "size_m": 0.18,
+   "reason": "storage jar of grains, about 18 cm tall"
+  },
+  "jar_of_honey": {
+   "size_m": 0.13,
+   "reason": "jar, about 13 cm tall"
+  },
+  "jar_of_jam": {
+   "size_m": 0.12,
+   "reason": "jam or sauce jar, about 12 cm tall"
+  },
+  "jar_of_jelly": {
+   "size_m": 0.12,
+   "reason": "jam or sauce jar, about 12 cm tall"
+  },
+  "jar_of_kidney_beans": {
+   "size_m": 0.13,
+   "reason": "jar, about 13 cm tall"
+  },
+  "jar_of_mayonnaise": {
+   "size_m": 0.14,
+   "reason": "mayonnaise jar, about 14 cm tall"
+  },
+  "jar_of_orange_sauce": {
+   "size_m": 0.12,
+   "reason": "jam or sauce jar, about 12 cm tall"
+  },
+  "jar_of_pepper": {
+   "size_m": 0.1,
+   "reason": "spice jar, about 10 cm tall"
+  },
+  "jar_of_pepper_seasoning": {
+   "size_m": 0.1,
+   "reason": "spice jar, about 10 cm tall"
+  },
+  "jar_of_peppercorns": {
+   "size_m": 0.1,
+   "reason": "spice jar, about 10 cm tall"
+  },
+  "jar_of_puree": {
+   "size_m": 0.1,
+   "reason": "spice jar, about 10 cm tall"
+  },
+  "jar_of_sesame_seed": {
+   "size_m": 0.1,
+   "reason": "spice jar, about 10 cm tall"
+  },
+  "jar_of_spaghetti_sauce": {
+   "size_m": 0.17,
+   "reason": "pasta-sauce jar, about 17 cm tall"
+  },
+  "jar_of_strawberry_jam": {
+   "size_m": 0.12,
+   "reason": "jam or sauce jar, about 12 cm tall"
+  },
+  "jar_of_sugar": {
+   "size_m": 0.15,
+   "reason": "coffee or sugar jar, about 15 cm tall"
+  },
+  "jar_of_tumeric": {
+   "size_m": 0.1,
+   "reason": "spice jar, about 10 cm tall"
+  },
+  "jug": {
+   "size_m": 0.25,
+   "reason": "jug, about 25 cm tall"
+  },
+  "jug_of_milk": {
+   "size_m": 0.27,
+   "reason": "gallon milk jug, about 27 cm tall"
+  },
+  "lid": {
+   "size_m": 0.24,
+   "reason": "pot lid, about 24 cm across"
+  },
+  "marker": {
+   "size_m": 0.14,
+   "reason": "marker, about 14 cm"
+  },
+  "match_box": {
+   "size_m": 0.06,
+   "reason": "matchbox, about 6 cm"
+  },
+  "measuring_cup": {
+   "size_m": 0.15,
+   "reason": "measuring cup including its handle, about 15 cm"
+  },
+  "mixing_bowl": {
+   "size_m": 0.26,
+   "reason": "mixing bowl, about 26 cm across"
+  },
+  "mouse": {
+   "size_m": 0.11,
+   "reason": "computer mouse, about 11 cm"
+  },
+  "mug": {
+   "size_m": 0.12,
+   "reason": "mug including its handle, about 12 cm"
+  },
+  "open_end_wrench": {
+   "size_m": 0.18,
+   "reason": "open-end wrench, about 18 cm"
+  },
+  "paper_bag": {
+   "size_m": 0.3,
+   "reason": "paper grocery bag, about 30 cm tall"
+  },
+  "paper_cup": {
+   "size_m": 0.1,
+   "reason": "coffee cup, about 10 cm"
+  },
+  "parer": {
+   "size_m": 0.18,
+   "reason": "paring knife, about 18 cm"
+  },
+  "pen": {
+   "size_m": 0.14,
+   "reason": "pen, about 14 cm"
+  },
+  "pencil": {
+   "size_m": 0.19,
+   "reason": "pencil, about 19 cm"
+  },
+  "pencil_holder": {
+   "size_m": 0.1,
+   "reason": "pencil holder, about 10 cm tall"
+  },
+  "pill_bottle": {
+   "size_m": 0.08,
+   "reason": "pill bottle or small cream jar, about 8 cm"
+  },
+  "pineapple": {
+   "size_m": 0.3,
+   "reason": "whole pineapple with crown, about 30 cm"
+  },
+  "plate": {
+   "size_m": 0.26,
+   "reason": "dinner plate, about 26 cm across"
+  },
+  "plier": {
+   "size_m": 0.18,
+   "reason": "pliers, about 18 cm"
+  },
+  "plum": {
+   "size_m": 0.06,
+   "reason": "plum, about 6 cm"
+  },
+  "pocketknife": {
+   "size_m": 0.1,
+   "reason": "folded pocketknife, about 10 cm"
+  },
+  "pruner": {
+   "size_m": 0.2,
+   "reason": "garden pruner, about 20 cm"
+  },
+  "reagent_bottle": {
+   "size_m": 0.12,
+   "reason": "reagent bottle, about 12 cm"
+  },
+  "round_bottom_flask": {
+   "size_m": 0.15,
+   "reason": "Erlenmeyer or round-bottom flask, about 15 cm"
+  },
+  "rubber_eraser": {
+   "size_m": 0.05,
+   "reason": "rubber eraser, about 5 cm"
+  },
+  "salt_shaker": {
+   "size_m": 0.09,
+   "reason": "salt shaker, about 9 cm tall"
+  },
+  "saucepot": {
+   "size_m": 0.3,
+   "reason": "saucepot including its handles, about 30 cm"
+  },
+  "scone": {
+   "size_m": 0.09,
+   "reason": "scone, about 9 cm"
+  },
+  "scoop": {
+   "size_m": 0.15,
+   "reason": "scoop, about 15 cm"
+  },
+  "screwdriver": {
+   "size_m": 0.2,
+   "reason": "screwdriver, about 20 cm"
+  },
+  "shaker": {
+   "size_m": 0.12,
+   "reason": "spice shaker, about 12 cm tall"
+  },
+  "shears": {
+   "size_m": 0.2,
+   "reason": "scissors, about 20 cm"
+  },
+  "soap_dispenser": {
+   "size_m": 0.18,
+   "reason": "soap dispenser, about 18 cm tall"
+  },
+  "soda_cup": {
+   "size_m": 0.15,
+   "reason": "large soda cup, about 15 cm tall"
+  },
+  "soup_ladle": {
+   "size_m": 0.3,
+   "reason": "soup ladle, about 30 cm"
+  },
+  "sourdough": {
+   "size_m": 0.25,
+   "reason": "sourdough loaf, about 25 cm"
+  },
+  "sponge": {
+   "size_m": 0.11,
+   "reason": "kitchen sponge, about 11 cm"
+  },
+  "stapler": {
+   "size_m": 0.15,
+   "reason": "stapler, about 15 cm"
+  },
+  "storage_box": {
+   "size_m": 0.25,
+   "reason": "small storage box, about 25 cm"
+  },
+  "sushi": {
+   "size_m": 0.06,
+   "reason": "sushi piece, about 6 cm"
+  },
+  "table_knife": {
+   "size_m": 0.22,
+   "reason": "table knife, about 22 cm"
+  },
+  "tablefork": {
+   "size_m": 0.19,
+   "reason": "dinner fork, about 19 cm"
+  },
+  "tablespoon": {
+   "size_m": 0.19,
+   "reason": "tablespoon, about 19 cm"
+  },
+  "tea_bag": {
+   "size_m": 0.07,
+   "reason": "tea bag with tag, about 7 cm"
+  },
+  "teacup": {
+   "size_m": 0.12,
+   "reason": "teacup including its handle, about 12 cm"
+  },
+  "teapot": {
+   "size_m": 0.25,
+   "reason": "teapot including spout, about 25 cm"
+  },
+  "teaspoon": {
+   "size_m": 0.14,
+   "reason": "teaspoon, about 14 cm"
+  },
+  "teddy_bear": {
+   "size_m": 0.25,
+   "reason": "teddy bear, about 25 cm"
+  },
+  "tennis_ball": {
+   "size_m": 0.067,
+   "reason": "tennis ball, 6.7 cm"
+  },
+  "toasting_fork": {
+   "size_m": 0.35,
+   "reason": "toasting fork, about 35 cm"
+  },
+  "tongs": {
+   "size_m": 0.24,
+   "reason": "kitchen tongs, about 24 cm"
+  },
+  "toothbrush": {
+   "size_m": 0.19,
+   "reason": "toothbrush, about 19 cm"
+  },
+  "toy_car": {
+   "size_m": 0.15,
+   "reason": "hand-sized toy car, about 15 cm"
+  },
+  "toy_figure": {
+   "size_m": 0.1,
+   "reason": "toy figure, about 10 cm"
+  },
+  "trash_can": {
+   "size_m": 0.3,
+   "reason": "small waste bin, about 30 cm tall"
+  },
+  "tray": {
+   "size_m": 0.32,
+   "reason": "serving tray, about 32 cm long"
+  },
+  "tupperware": {
+   "size_m": 0.18,
+   "reason": "food container, about 18 cm"
+  },
+  "tweezers": {
+   "size_m": 0.1,
+   "reason": "tweezers, about 10 cm"
+  },
+  "water_bottle": {
+   "size_m": 0.22,
+   "reason": "water bottle, about 22 cm tall"
+  },
+  "water_glass": {
+   "size_m": 0.12,
+   "reason": "drinking glass, about 12 cm tall"
+  },
+  "wicker_basket": {
+   "size_m": 0.28,
+   "reason": "tabletop wicker basket, about 28 cm"
+  },
+  "wine_bottle": {
+   "size_m": 0.3,
+   "reason": "wine or spirits bottle, about 30 cm tall"
+  },
+  "wire_cutter": {
+   "size_m": 0.17,
+   "reason": "wire cutter, about 17 cm"
+  },
+  "wooden_spoon": {
+   "size_m": 0.3,
+   "reason": "wooden spoon, about 30 cm"
+  },
+  "zucchini": {
+   "size_m": 0.2,
+   "reason": "zucchini, about 20 cm"
+  }
+ }
+}

@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="737.316pt" height="556.85pt" viewBox="0 0 737.316 556.85" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M -0 556.85 
+L 737.316 556.85 
+L 737.316 0 
+L -0 0 
+L -0 556.85 
+z
+" style="fill: none"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 61.680828 253.303448 
+L 198.191172 253.303448 
+L 198.191172 89.491034 
+L 61.680828 89.491034 
+z
+" clip-path="url(#pe2e79fb7fc)" style="fill: #f0efec; stroke: #c3c2b7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 94.44331 146.825379 
+L 110.824552 146.825379 
+L 110.824552 130.444138 
+L 94.44331 130.444138 
+z
+" clip-path="url(#pe2e79fb7fc)" style="fill: #b9b7af; opacity: 0.9"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 148.370357 213.027436 
+L 166.105781 213.027436 
+L 166.105781 195.292012 
+L 148.370357 195.292012 
+z
+" clip-path="url(#pe2e79fb7fc)" style="fill: #b9b7af; opacity: 0.9"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 116.284966 180.497936 
+L 143.587034 180.497936 
+L 143.587034 162.296547 
+L 116.284966 162.296547 
+z
+" clip-path="url(#pe2e79fb7fc)" style="fill: #b9b7af; opacity: 0.9"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 61.680828 262.859172 
+L 88.982897 262.859172 
+" clip-path="url(#pe2e79fb7fc)" style="fill: none; stroke: #52514e; stroke-width: 1.6"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 91.429162 215.363128 
+L 113.8387 215.363128 
+L 113.8387 192.95632 
+L 91.429162 192.95632 
+z
+" clip-path="url(#pe2e79fb7fc)" style="fill: #eb6834; stroke: #0b0b0b; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #52514e" x="75.331862" y="271.212223" transform="rotate(-0 75.331862 271.212223)">10 cm</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 9.2px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #0b0b0b" transform="translate(53.490207 59.538012)">“Put the marker in the cup”</text>
+    <text style="font-size: 9.2px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #0b0b0b" transform="translate(53.490207 69.84)">put · Wainscott_0</text>
+   </g>
+   <g id="patch_7">
+    <path d="M 142.441713 140.666033 
+L 172.034425 140.666033 
+L 172.034425 136.603485 
+L 142.441713 136.603485 
+z
+" clip-path="url(#pe2e79fb7fc)" style="fill: #2a78d6; stroke: #0b0b0b; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_3">
+    <g id="patch_8">
+     <path d="M 143.447475 133.766345 
+L 171.028663 133.766345 
+L 171.028663 125.420532 
+L 143.447475 125.420532 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #0b0b0b" x="157.238069" y="131.635376" transform="rotate(-0 157.238069 131.635376)">marker</text>
+   </g>
+   <g id="text_4">
+    <g id="patch_9">
+     <path d="M 85.330072 225.847148 
+L 119.93779 225.847148 
+L 119.93779 217.501335 
+L 85.330072 217.501335 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #0b0b0b" x="102.633931" y="223.716179" transform="rotate(-0 102.633931 223.716179)">soda cup</text>
+   </g>
+   <g id="text_5">
+    <g id="patch_10">
+     <path d="M 66.168697 157.309399 
+L 139.099165 157.309399 
+L 139.099165 148.963586 
+L 66.168697 148.963586 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #52514e" x="102.633931" y="155.17843" transform="rotate(-0 102.633931 155.17843)">bottle of tea leaves</text>
+   </g>
+   <g id="text_6">
+    <g id="patch_11">
+     <path d="M 116.441522 223.511456 
+L 198.034616 223.511456 
+L 198.034616 215.165643 
+L 116.441522 215.165643 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #52514e" x="157.238069" y="221.380487" transform="rotate(-0 157.238069 221.380487)">jar of spaghetti sauce</text>
+   </g>
+   <g id="text_7">
+    <g id="patch_12">
+     <path d="M 115.833219 190.981955 
+L 144.038781 190.981955 
+L 144.038781 182.636142 
+L 115.833219 182.636142 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #52514e" x="129.936" y="188.850986" transform="rotate(-0 129.936 188.850986)">sponge</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_13">
+    <path d="M 295.250286 245.502857 
+L 446.061714 245.502857 
+L 446.061714 94.691429 
+L 295.250286 94.691429 
+z
+" clip-path="url(#p259592eb9c)" style="fill: #f0efec; stroke: #c3c2b7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 316.957706 176.146566 
+L 318.786294 176.146566 
+L 318.786294 164.047719 
+L 316.957706 164.047719 
+z
+" clip-path="url(#p259592eb9c)" style="fill: #b9b7af; opacity: 0.9"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 331.463748 222.881143 
+L 409.848252 222.881143 
+L 409.848252 117.313143 
+L 331.463748 117.313143 
+z
+" clip-path="url(#p259592eb9c)" style="fill: #1baf7a; stroke: #0b0b0b; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 295.250286 258.698857 
+L 332.953143 258.698857 
+" clip-path="url(#p259592eb9c)" style="fill: none; stroke: #52514e; stroke-width: 1.6"/>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #52514e" x="314.101714" y="268.091987" transform="rotate(-0 314.101714 268.091987)">10 cm</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 9.2px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #0b0b0b" transform="translate(283.939429 59.538012)">“Remove the lid from the pot”</text>
+    <text style="font-size: 9.2px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #0b0b0b" transform="translate(283.939429 69.84)">pick · Benevolence_1</text>
+   </g>
+   <g id="patch_16">
+    <path d="M 326.933882 213.819261 
+L 414.378118 213.819261 
+L 414.378118 126.375025 
+L 326.933882 126.375025 
+z
+" clip-path="url(#p259592eb9c)" style="fill: #2a78d6; stroke: #0b0b0b; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_10">
+    <g id="patch_17">
+     <path d="M 365.659266 123.196739 
+L 375.652734 123.196739 
+L 375.652734 114.850926 
+L 365.659266 114.850926 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #0b0b0b" x="370.656" y="121.06577" transform="rotate(-0 370.656 121.06577)">lid</text>
+   </g>
+   <g id="text_11">
+    <g id="patch_18">
+     <path d="M 353.149797 234.405241 
+L 388.162203 234.405241 
+L 388.162203 226.059429 
+L 353.149797 226.059429 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #0b0b0b" x="370.656" y="232.274272" transform="rotate(-0 370.656 232.274272)">saucepot</text>
+   </g>
+   <g id="text_12">
+    <g id="patch_19">
+     <path d="M 300.583172 187.670665 
+L 335.160828 187.670665 
+L 335.160828 179.324852 
+L 300.583172 179.324852 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #52514e" x="317.872" y="185.539696" transform="rotate(-0 317.872 185.539696)">tweezers</text>
+   </g>
+  </g>
+  <g id="axes_3">
+   <g id="patch_20">
+    <path d="M 506.703273 240.230455 
+L 716.048727 240.230455 
+L 716.048727 100.666818 
+L 506.703273 100.666818 
+z
+" clip-path="url(#p44c09b65f0)" style="fill: #f0efec; stroke: #c3c2b7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_21">
+    <path d="M 552.061455 150.895631 
+L 586.952364 150.895631 
+L 586.952364 134.176187 
+L 552.061455 134.176187 
+z
+" clip-path="url(#p44c09b65f0)" style="fill: #b9b7af; opacity: 0.9"/>
+   </g>
+   <g id="patch_22">
+    <path d="M 637.095834 214.510621 
+L 669.394348 214.510621 
+L 669.394348 182.212106 
+L 637.095834 182.212106 
+z
+" clip-path="url(#p44c09b65f0)" style="fill: #b9b7af; opacity: 0.9"/>
+   </g>
+   <g id="patch_23">
+    <path d="M 597.273095 184.534096 
+L 625.478905 184.534096 
+L 625.478905 156.363176 
+L 597.273095 156.363176 
+z
+" clip-path="url(#p44c09b65f0)" style="fill: #b9b7af; opacity: 0.9"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 506.703273 252.442273 
+L 541.594182 252.442273 
+" clip-path="url(#p44c09b65f0)" style="fill: none; stroke: #52514e; stroke-width: 1.6"/>
+   </g>
+   <g id="patch_24">
+    <path d="M 547.715792 220.152481 
+L 591.298026 220.152481 
+L 591.298026 176.570246 
+L 547.715792 176.570246 
+z
+" clip-path="url(#p44c09b65f0)" style="fill: #eb6834; stroke: #0b0b0b; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #52514e" x="524.148727" y="261.554207" transform="rotate(-0 524.148727 261.554207)">10 cm</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 9.2px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #0b0b0b" transform="translate(496.236 66.919376)">“Put the plate on top of the bowl”</text>
+    <text style="font-size: 9.2px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #0b0b0b" transform="translate(496.236 77.221364)">stack · Benevolence_1</text>
+   </g>
+   <g id="patch_25">
+    <path d="M 632.087244 163.707713 
+L 674.402938 163.707713 
+L 674.402938 121.364105 
+L 632.087244 121.364105 
+z
+" clip-path="url(#p44c09b65f0)" style="fill: #2a78d6; stroke: #0b0b0b; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_15">
+    <g id="patch_26">
+     <path d="M 643.281685 118.467015 
+L 663.208497 118.467015 
+L 663.208497 110.121202 
+L 643.281685 110.121202 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #0b0b0b" x="653.245091" y="116.336046" transform="rotate(-0 653.245091 116.336046)">plate</text>
+   </g>
+   <g id="text_16">
+    <g id="patch_27">
+     <path d="M 560.248237 231.395384 
+L 578.765581 231.395384 
+L 578.765581 223.049572 
+L 560.248237 223.049572 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #0b0b0b" x="569.506909" y="229.264416" transform="rotate(-0 569.506909 229.264416)">bowl</text>
+   </g>
+   <g id="text_17">
+    <g id="patch_28">
+     <path d="M 547.679222 162.138535 
+L 591.334597 162.138535 
+L 591.334597 153.792722 
+L 547.679222 153.792722 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #52514e" x="569.506909" y="160.007566" transform="rotate(-0 569.506909 160.007566)">hotdog bun</text>
+   </g>
+   <g id="text_18">
+    <g id="patch_29">
+     <path d="M 608.891919 225.753524 
+L 697.598263 225.753524 
+L 697.598263 217.407712 
+L 608.891919 217.407712 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #52514e" x="653.245091" y="223.622556" transform="rotate(-0 653.245091 223.622556)">jar of pepper seasoning</text>
+   </g>
+   <g id="text_19">
+    <g id="patch_30">
+     <path d="M 576.824938 195.777 
+L 645.927063 195.777 
+L 645.927063 187.431187 
+L 576.824938 187.431187 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #52514e" x="611.376" y="193.646031" transform="rotate(-0 611.376 193.646031)">bottle of molasses</text>
+   </g>
+  </g>
+  <g id="axes_4">
+   <g id="patch_31">
+    <path d="M 25.263273 473.510455 
+L 234.608727 473.510455 
+L 234.608727 333.946818 
+L 25.263273 333.946818 
+z
+" clip-path="url(#p20543f00e1)" style="fill: #f0efec; stroke: #c3c2b7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_32">
+    <path d="M 154.359636 380.888541 
+L 189.250545 380.888541 
+L 189.250545 370.743277 
+L 154.359636 370.743277 
+z
+" clip-path="url(#p20543f00e1)" style="fill: #b9b7af; opacity: 0.9"/>
+   </g>
+   <g id="patch_33">
+    <path d="M 76.552909 387.329909 
+L 99.580909 387.329909 
+L 99.580909 364.301909 
+L 76.552909 364.301909 
+z
+" clip-path="url(#p20543f00e1)" style="fill: #b9b7af; opacity: 0.9"/>
+   </g>
+   <g id="patch_34">
+    <path d="M 156.140817 445.575048 
+L 187.469365 445.575048 
+L 187.469365 417.707679 
+L 156.140817 417.707679 
+z
+" clip-path="url(#p20543f00e1)" style="fill: #b9b7af; opacity: 0.9"/>
+   </g>
+   <g id="patch_35">
+    <path d="M 74.590295 449.98177 
+L 101.543523 449.98177 
+L 101.543523 413.300957 
+L 74.590295 413.300957 
+z
+" clip-path="url(#p20543f00e1)" style="fill: #1baf7a; stroke: #0b0b0b; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 25.263273 485.722273 
+L 60.154182 485.722273 
+" clip-path="url(#p20543f00e1)" style="fill: none; stroke: #52514e; stroke-width: 1.6"/>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #52514e" x="42.708727" y="494.834207" transform="rotate(-0 42.708727 494.834207)">10 cm</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 9.2px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #0b0b0b" transform="translate(14.796 300.199376)">“Remove the marker from the mug”</text>
+    <text style="font-size: 9.2px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #0b0b0b" transform="translate(14.796 310.501364)">pick · Benevolence_1</text>
+   </g>
+   <g id="patch_36">
+    <path d="M 112.490545 428.90712 
+L 63.643273 428.90712 
+L 63.643273 434.375607 
+L 112.490545 434.375607 
+z
+" clip-path="url(#p20543f00e1)" style="fill: #2a78d6; stroke: #0b0b0b; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_22">
+    <g id="patch_37">
+     <path d="M 74.276315 425.255182 
+L 101.857503 425.255182 
+L 101.857503 416.909369 
+L 74.276315 416.909369 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #0b0b0b" x="88.066909" y="423.124213" transform="rotate(-0 88.066909 423.124213)">marker</text>
+   </g>
+   <g id="text_23">
+    <g id="patch_38">
+     <path d="M 79.177081 461.224673 
+L 96.956737 461.224673 
+L 96.956737 452.878861 
+L 79.177081 452.878861 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #0b0b0b" x="88.066909" y="459.093705" transform="rotate(-0 88.066909 459.093705)">mug</text>
+   </g>
+   <g id="text_24">
+    <g id="patch_39">
+     <path d="M 163.010653 392.131445 
+L 180.599528 392.131445 
+L 180.599528 383.785632 
+L 163.010653 383.785632 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #52514e" x="171.805091" y="390.000476" transform="rotate(-0 171.805091 390.000476)">plier</text>
+   </g>
+   <g id="text_25">
+    <g id="patch_40">
+     <path d="M 47.304472 398.572813 
+L 128.829347 398.572813 
+L 128.829347 390.227 
+L 47.304472 390.227 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #52514e" x="88.066909" y="396.441844" transform="rotate(-0 88.066909 396.441844)">bottle of poppy seeds</text>
+   </g>
+   <g id="text_26">
+    <g id="patch_41">
+     <path d="M 151.568982 456.817952 
+L 192.0412 456.817952 
+L 192.0412 448.472139 
+L 151.568982 448.472139 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #52514e" x="171.805091" y="454.686983" transform="rotate(-0 171.805091 454.686983)">sourdough</text>
+   </g>
+  </g>
+  <g id="axes_5">
+   <g id="patch_42">
+    <path d="M 302.400828 486.583448 
+L 438.911172 486.583448 
+L 438.911172 322.771034 
+L 302.400828 322.771034 
+z
+" clip-path="url(#p048edd9e41)" style="fill: #f0efec; stroke: #c3c2b7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_43">
+    <path d="M 329.702897 385.565793 
+L 357.004966 385.565793 
+L 357.004966 358.263724 
+L 329.702897 358.263724 
+z
+" clip-path="url(#p048edd9e41)" style="fill: #b9b7af; opacity: 0.9"/>
+   </g>
+   <g id="patch_44">
+    <path d="M 390.065041 445.332752 
+L 405.851097 445.332752 
+L 405.851097 429.546696 
+L 390.065041 429.546696 
+z
+" clip-path="url(#p048edd9e41)" style="fill: #b9b7af; opacity: 0.9"/>
+   </g>
+   <g id="patch_45">
+    <path d="M 391.132552 408.646566 
+L 418.434621 408.646566 
+L 418.434621 400.707916 
+L 391.132552 400.707916 
+z
+" clip-path="url(#p048edd9e41)" style="fill: #b9b7af; opacity: 0.9"/>
+   </g>
+   <g id="patch_46">
+    <path d="M 311.248063 471.676519 
+L 375.459799 471.676519 
+L 375.459799 403.20293 
+L 311.248063 403.20293 
+z
+" clip-path="url(#p048edd9e41)" style="fill: #1baf7a; stroke: #0b0b0b; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_5">
+    <path d="M 302.400828 496.139172 
+L 329.702897 496.139172 
+" clip-path="url(#p048edd9e41)" style="fill: none; stroke: #52514e; stroke-width: 1.6"/>
+   </g>
+   <g id="patch_47">
+    <path d="M 374.844137 395.02869 
+L 421.072001 395.02869 
+L 421.072001 348.800827 
+L 374.844137 348.800827 
+z
+" clip-path="url(#p048edd9e41)" style="fill: #eb6834; stroke: #0b0b0b; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_27">
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #52514e" x="316.051862" y="504.492223" transform="rotate(-0 316.051862 504.492223)">10 cm</text>
+   </g>
+   <g id="text_28">
+    <text style="font-size: 9.2px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #0b0b0b" transform="translate(294.210207 292.818012)">“Take the blue block out of the box and put it in the bowl”</text>
+    <text style="font-size: 9.2px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #0b0b0b" transform="translate(294.210207 303.12)">put · Wainscott_0</text>
+   </g>
+   <g id="patch_48">
+    <path d="M 336.528414 444.265241 
+L 350.179448 444.265241 
+L 350.179448 430.614207 
+L 336.528414 430.614207 
+z
+" clip-path="url(#p048edd9e41)" style="fill: #2a78d6; stroke: #0b0b0b; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_29">
+    <g id="patch_49">
+     <path d="M 323.769947 428.476 
+L 362.937915 428.476 
+L 362.937915 420.130187 
+L 323.769947 420.130187 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #0b0b0b" x="343.353931" y="426.345031" transform="rotate(-0 343.353931 426.345031)">blue block</text>
+   </g>
+   <g id="text_30">
+    <g id="patch_50">
+     <path d="M 388.699397 405.51271 
+L 407.216741 405.51271 
+L 407.216741 397.166897 
+L 388.699397 397.166897 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #0b0b0b" x="397.958069" y="403.381741" transform="rotate(-0 397.958069 403.381741)">bowl</text>
+   </g>
+   <g id="text_31">
+    <g id="patch_51">
+     <path d="M 320.8429 482.160538 
+L 365.864962 482.160538 
+L 365.864962 473.814726 
+L 320.8429 473.814726 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #0b0b0b" x="343.353931" y="480.029569" transform="rotate(-0 343.353931 480.029569)">storage box</text>
+   </g>
+   <g id="text_32">
+    <g id="patch_52">
+     <path d="M 336.115228 396.049812 
+L 350.592634 396.049812 
+L 350.592634 387.704 
+L 336.115228 387.704 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #52514e" x="343.353931" y="393.918844" transform="rotate(-0 343.353931 393.918844)">can</text>
+   </g>
+   <g id="text_33">
+    <g id="patch_53">
+     <path d="M 363.608772 455.816772 
+L 432.307366 455.816772 
+L 432.307366 447.470959 
+L 363.608772 447.470959 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #52514e" x="397.958069" y="453.685803" transform="rotate(-0 397.958069 453.685803)">bottle of shampoo</text>
+   </g>
+   <g id="text_34">
+    <g id="patch_54">
+     <path d="M 395.989149 419.130586 
+L 413.578024 419.130586 
+L 413.578024 410.784773 
+L 395.989149 410.784773 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #52514e" x="404.783586" y="416.999617" transform="rotate(-0 404.783586 416.999617)">plier</text>
+   </g>
+  </g>
+  <g id="axes_6">
+   <g id="patch_55">
+    <path d="M 560.29471 487.904516 
+L 662.45729 487.904516 
+L 662.45729 321.890323 
+L 560.29471 321.890323 
+z
+" clip-path="url(#p63b76643d9)" style="fill: #f0efec; stroke: #c3c2b7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_56">
+    <path d="M 627.240572 376.281681 
+L 636.376461 376.281681 
+L 636.376461 367.107481 
+L 627.240572 367.107481 
+z
+" clip-path="url(#p63b76643d9)" style="fill: #b9b7af; opacity: 0.9"/>
+   </g>
+   <g id="patch_57">
+    <path d="M 580.619955 382.005339 
+L 601.267013 382.005339 
+L 601.267013 361.383822 
+L 580.619955 361.383822 
+z
+" clip-path="url(#p63b76643d9)" style="fill: #b9b7af; opacity: 0.9"/>
+   </g>
+   <g id="patch_58">
+    <path d="M 619.79292 446.315407 
+L 643.824113 446.315407 
+L 643.824113 429.88511 
+L 619.79292 429.88511 
+z
+" clip-path="url(#p63b76643d9)" style="fill: #b9b7af; opacity: 0.9"/>
+   </g>
+   <g id="line2d_6">
+    <path d="M 560.29471 496.843742 
+L 585.835355 496.843742 
+" clip-path="url(#p63b76643d9)" style="fill: none; stroke: #52514e; stroke-width: 1.6"/>
+   </g>
+   <g id="text_35">
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #52514e" x="573.065032" y="505.02065" transform="rotate(-0 573.065032 505.02065)">10 cm</text>
+   </g>
+   <g id="text_36">
+    <text style="font-size: 9.2px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #0b0b0b" transform="translate(552.632516 292.818012)">“Rotate the pot”</text>
+    <text style="font-size: 9.2px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #0b0b0b" transform="translate(552.632516 303.12)">rotate · Pomaria_1</text>
+   </g>
+   <g id="patch_59">
+    <path d="M 575.77229 458.532774 
+L 606.114678 458.532774 
+L 606.114678 417.667742 
+L 575.77229 417.667742 
+z
+" clip-path="url(#p63b76643d9)" style="fill: #2a78d6; stroke: #0b0b0b; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_37">
+    <g id="patch_60">
+     <path d="M 573.437281 415.705677 
+L 608.449687 415.705677 
+L 608.449687 407.359865 
+L 573.437281 407.359865 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #0b0b0b" x="590.943484" y="413.574709" transform="rotate(-0 590.943484 413.574709)">saucepot</text>
+   </g>
+   <g id="text_38">
+    <g id="patch_61">
+     <path d="M 618.870657 386.589558 
+L 644.746376 386.589558 
+L 644.746376 378.243745 
+L 618.870657 378.243745 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #52514e" x="631.808516" y="384.458589" transform="rotate(-0 631.808516 384.458589)">shaker</text>
+   </g>
+   <g id="text_39">
+    <g id="patch_62">
+     <path d="M 556.392421 392.313216 
+L 625.494546 392.313216 
+L 625.494546 383.967404 
+L 556.392421 383.967404 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #52514e" x="590.943484" y="390.182247" transform="rotate(-0 590.943484 390.182247)">bottle of molasses</text>
+   </g>
+   <g id="text_40">
+    <g id="patch_63">
+     <path d="M 610.238094 456.623284 
+L 653.378938 456.623284 
+L 653.378938 448.277471 
+L 610.238094 448.277471 
+z
+" style="fill: #f0efec; opacity: 0.85"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #52514e" x="631.808516" y="454.492315" transform="rotate(-0 631.808516 454.492315)">bell pepper</text>
+   </g>
+  </g>
+  <g id="text_41">
+   <text style="font-weight: 700; font-size: 12px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0b0b0b" x="10.8" y="19.918125" transform="rotate(-0 10.8 19.918125)">Generated layouts seen from above, in each table region's own frame</text>
+  </g>
+  <g id="legend_1">
+   <g id="patch_64">
+    <path d="M 187.794359 540.274297 
+L 206.794359 540.274297 
+L 206.794359 533.624297 
+L 187.794359 533.624297 
+z
+" style="fill: #2a78d6"/>
+   </g>
+   <g id="text_42">
+    <text style="font-size: 9.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #52514e" x="214.394359" y="540.274297" transform="rotate(-0 214.394359 540.274297)">main object</text>
+   </g>
+   <g id="patch_65">
+    <path d="M 289.425063 540.274297 
+L 308.425063 540.274297 
+L 308.425063 533.624297 
+L 289.425063 533.624297 
+z
+" style="fill: #eb6834"/>
+   </g>
+   <g id="text_43">
+    <text style="font-size: 9.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #52514e" x="316.025063" y="540.274297" transform="rotate(-0 316.025063 540.274297)">target</text>
+   </g>
+   <g id="patch_66">
+    <path d="M 363.911 540.274297 
+L 382.911 540.274297 
+L 382.911 533.624297 
+L 363.911 533.624297 
+z
+" style="fill: #1baf7a"/>
+   </g>
+   <g id="text_44">
+    <text style="font-size: 9.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #52514e" x="390.511" y="540.274297" transform="rotate(-0 390.511 540.274297)">source / fixture</text>
+   </g>
+   <g id="patch_67">
+    <path d="M 481.181078 540.274297 
+L 500.181078 540.274297 
+L 500.181078 533.624297 
+L 481.181078 533.624297 
+z
+" style="fill: #b9b7af; opacity: 0.9"/>
+   </g>
+   <g id="text_45">
+    <text style="font-size: 9.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #52514e" x="507.781078" y="540.274297" transform="rotate(-0 507.781078 540.274297)">distractor</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pe2e79fb7fc">
+   <rect x="53.490207" y="75.84" width="152.891586" height="197.94"/>
+  </clipPath>
+  <clipPath id="p259592eb9c">
+   <rect x="283.939429" y="75.84" width="173.433143" height="197.94"/>
+  </clipPath>
+  <clipPath id="p44c09b65f0">
+   <rect x="496.236" y="83.221364" width="230.28" height="183.177273"/>
+  </clipPath>
+  <clipPath id="p20543f00e1">
+   <rect x="14.796" y="316.501364" width="230.28" height="183.177273"/>
+  </clipPath>
+  <clipPath id="p048edd9e41">
+   <rect x="294.210207" y="309.12" width="152.891586" height="197.94"/>
+  </clipPath>
+  <clipPath id="p63b76643d9">
+   <rect x="552.632516" y="309.12" width="117.486968" height="197.94"/>
+  </clipPath>
+ </defs>
+</svg>

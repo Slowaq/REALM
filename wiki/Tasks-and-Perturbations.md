@@ -362,7 +362,50 @@ OmniGibson and check:
 - the instruction matches the initial state;
 - both external cameras and the wrist camera show the task.
 
+### Agentic generation at scale
+
+The dashboard drafts one task at a time from a hand-typed instruction. For a whole family — say 100
+tasks from a DROID instruction ranking — use the agentic pipeline in
+`tooling/task_authoring/agent/`. It turns each instruction into a validated config, and the operator
+guide is [`agent/README.md`](../tooling/task_authoring/agent/README.md).
+
+The division of labour is fixed and is the reason the output is reproducible: **the model proposes
+semantics, code disposes geometry.** A model names objects, picks a candidate asset, asserts a
+spatial relation and reads a rendered image. It cannot emit a coordinate, extent, quaternion or
+scale factor, because no tool on its surface accepts one. Positions, orientations and uniform scales
+come from the same solver the batch generator uses, so a family regenerates byte-identically under
+a seed.
+
+Generate on the authoring host:
+
+```sh
+uv run python -m tooling.task_authoring.agent.run instructions.json \
+    --offline --dataset /path/to/behavior-1k-assets \
+    --output realm/config/tasks/REALM_DROID100
+```
+
+Run it with `--offline` first. The offline path drives the same six tools with a scripted agent and
+needs no API key, so it proves the tool contract is complete before any model is billed. Drop
+`--offline` to have Claude drive the tools, which needs `uv add anthropic` and `ANTHROPIC_API_KEY`.
+
+Then settle, probe and render each config inside the container:
+
+```sh
+./scripts/run_apptainer.sh python -u tooling/task_authoring/render_review.py \
+    --family REALM_DROID100 --out tmp/droid100/review
+```
+
+`render_review.py` loads each config, lets it settle, and compares authored poses against settled
+ones before rendering anything. Drift, penetration, instability and floating objects are computed,
+not judged by eye. **Read its JSON, not its exit code** — Isaac exits 0 on unhandled exceptions.
+
+A generated family is still a benchmark, so the usual discipline applies: the same host-side
+validation the dashboard runs (`python -m tooling.task_authoring.validation <dir> --profile
+authored`), and the S5 render check for everything arithmetic cannot see. Bounding boxes cannot see
+mesh interiors, so a config that passes validation has not been proven reachable or collision-free.
+
 ## See also
 
 - [Running evaluations](Running-Evaluations) — the full flag surface
 - [Cluster and parallel runs](Cluster-and-Parallel-Runs) — running the full REALM_DROID10 evaluation
+- [`tooling/task_authoring/agent/README.md`](../tooling/task_authoring/agent/README.md) — the agentic generation operator guide

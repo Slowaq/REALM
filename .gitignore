@@ -196,3 +196,6 @@ realm/config/tasks/REALM_DROID100/
 realm/robots/r1lite/
 realm/robots/widowx/
 
+
+# Built per machine with `python -m tooling.task_authoring.agent.catalog build --dataset ...`
+tooling/task_authoring/asset_catalog.json

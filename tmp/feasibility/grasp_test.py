@@ -154,21 +154,37 @@ def collides_many(Gs, pts):
     return (fingers | palm).sum(axis=1)
 
 
-def sample_grasps(pieces, support_z, n_keep=12, seed=0, max_pairs=600):
+def sample_grasps(pieces, support_z, n_keep=12, seed=0, max_pairs=600, approach_ref=(0.0, 0.0, -1.0),
+                  approach_max_deg=APPROACH_MAX_DEG, contact_mask=None, obstacle_pts=None):
+    """Antipodal grasps on `pieces`.
+
+    approach_ref / approach_max_deg: the approach direction must lie within this cone (default: from
+    above). support_z: None skips the support-clearance check (e.g. a drawer handle). contact_mask:
+    optional fn(points) -> bool mask of samples allowed as contacts (e.g. only the drawer front).
+    obstacle_pts: extra surface points the open fingers and palm must not hit (e.g. the cabinet body).
+    """
     from scipy.spatial import cKDTree
     rng = np.random.default_rng(seed)
     pts, nrm = surface_samples(pieces, seed=seed)
+    ref = np.asarray(approach_ref, float)
+    ref = ref / np.linalg.norm(ref)
+    allowed = np.ones(len(pts), bool) if contact_mask is None else np.asarray(contact_mask(pts), bool)
+    obstacle_pts = np.zeros((0, 3)) if obstacle_pts is None else np.asarray(obstacle_pts, float)
+    obst_tree = cKDTree(obstacle_pts) if len(obstacle_pts) else None
     allv = np.concatenate([p.vertices for p in pieces])
     com = allv.mean(0)
     size = float(np.linalg.norm(allv.max(0) - allv.min(0)))
     tree = cKDTree(pts)
     cos_f = np.cos(np.radians(FRICTION_DEG))
-    cos_a = np.cos(np.radians(APPROACH_MAX_DEG))
+    cos_a = np.cos(np.radians(approach_max_deg))
     stats = {"samples": len(pts), "antipodal_pairs": 0, "rejected_collision": 0, "rejected_support": 0}
     # 1) antipodal pairs: best partner per sample, vectorised per sample
     pairs = []
     for i, nbrs in enumerate(tree.query_ball_point(pts, STROKE_USABLE)):
         nbrs = np.asarray(nbrs)
+        if not allowed[i] or len(nbrs) == 0:
+            continue
+        nbrs = nbrs[allowed[nbrs]]
         if len(nbrs) == 0:
             continue
         d = pts[nbrs] - pts[i]
@@ -187,7 +203,7 @@ def sample_grasps(pieces, support_z, n_keep=12, seed=0, max_pairs=600):
             pass  # keep both directions; the pair (j, i) gives the same grasp, the dedupe below handles it
         pairs.append((i, nbrs[k], w[k], u[k]))
     stats["antipodal_pairs"] = len(pairs)
-    if pairs:
+    if pairs and support_z is not None:
         h = np.array([(pts[i][2] + pts[j][2]) / 2 - support_z for i, j, _, _ in pairs])
         stats["pair_height_above_support"] = {"max": round(float(h.max()), 4),
                                               "p90": round(float(np.percentile(h, 90)), 4),
@@ -203,13 +219,16 @@ def sample_grasps(pieces, support_z, n_keep=12, seed=0, max_pairs=600):
         e1 /= np.linalg.norm(e1)
         e2 = np.cross(u, e1)
         A = np.cos(thetas)[:, None] * e1 + np.sin(thetas)[:, None] * e2
-        A = A[-A[:, 2] >= cos_a]
+        A = A[A @ ref >= cos_a]
         if len(A) == 0:
             continue
-        # lowest corner of the two OPEN fingers must clear the support; the TCP may back off along -a
-        G0 = np.stack([grasp_frame(center, u, a) for a in A])
-        low = (G0[:, 2, :3] @ FINGER_CORNERS.T).min(axis=1) + center[2]
-        shift = np.maximum(0.0, support_z + TIP_CLEARANCE - low) / np.maximum(-A[:, 2], 1e-3)
+        if support_z is None:
+            shift = np.zeros(len(A))
+        else:
+            # lowest corner of the two OPEN fingers must clear the support; the TCP may back off along -a
+            G0 = np.stack([grasp_frame(center, u, a) for a in A])
+            low = (G0[:, 2, :3] @ FINGER_CORNERS.T).min(axis=1) + center[2]
+            shift = np.maximum(0.0, support_z + TIP_CLEARANCE - low) / np.maximum(-A[:, 2], 1e-3)
         bad = shift > MAX_PAD_SHIFT
         stats["rejected_support"] += int(bad.sum())
         A, shift = A[~bad], shift[~bad]
@@ -217,16 +236,18 @@ def sample_grasps(pieces, support_z, n_keep=12, seed=0, max_pairs=600):
             continue
         Gs = np.stack([grasp_frame(center - a * s_, u, a) for a, s_ in zip(A, shift)])
         local_pts = pts[tree.query_ball_point(center, 0.16)]
+        if obst_tree is not None:
+            local_pts = np.concatenate([local_pts, obstacle_pts[obst_tree.query_ball_point(center, 0.16)]])
         hits = collides_many(Gs, local_pts)
         stats["rejected_collision"] += int((hits > 2).sum())
         central = 1.0 - min(1.0, np.linalg.norm((center - com)[:2]) / max(size, 1e-3))
         for G, a, s_, h in zip(Gs, A, shift, hits):
             if h > 2:
                 continue
-            down = float(-a[2])
+            along = float(a @ ref)   # 1 = exactly along the preferred approach (straight down by default)
             cands.append({"G": G, "width": float(w), "shift": float(s_),
-                          "score": 1.5 * down + central + 0.5 * (1 - w / STROKE_USABLE),
-                          "topdown_deg": float(np.degrees(np.arccos(np.clip(down, -1, 1))))})
+                          "score": 1.5 * along + central + 0.5 * (1 - w / STROKE_USABLE),
+                          "topdown_deg": float(np.degrees(np.arccos(np.clip(along, -1, 1))))})
     cands.sort(key=lambda c: -c["score"])
     chosen = []
     for c in cands:  # diversity: >= 1 cm or >= 25 deg from every chosen grasp
@@ -440,6 +461,8 @@ def attempt(env, cmg, obj, cand, arm_idx, tcp_in_eef, fingers):
     rel0 = obj_before - G[:3, 3]
     rel1 = p1 - tcp_world(robot, tcp_in_eef)
     drift = float(np.linalg.norm(rel1 - rel0))
+    # is_grasping is recorded for information only: with physical grasping on REALM's Robotiq linkage it
+    # reports 0/-1 on lifts that clearly succeeded (REALM_DROID10 run, 2026-11-02). The lift test decides.
     r.update(rise=round(rise, 4), hold_drift=round(drift, 4),
              is_grasping=str(robot.is_grasping(candidate_obj=obj)))
     ok = rise >= LIFT_OK and drift <= HOLD_DRIFT_OK
@@ -535,10 +558,12 @@ def s4_attempts(env, cmg, tcp, obj, pieces, support_z, cands, args):
     arm_idx = [cmg.robot_joint_names.index(j) for j in robot.arm_joint_names[robot.default_arm]]
     fingers = list(robot.finger_link_names[robot.default_arm])
     REC["finger_gap_open"] = round(finger_gap(robot, fingers), 4)
-    attempts, executed = [], 0
+    attempts, executed, resampled = [], 0, 0
     queue = [baseline_grasp(pieces, support_z)] + cands
     T0 = mat(*obj.get_position_orientation())
-    for i, cand in enumerate(queue):
+    i = 0
+    while i < len(queue):
+        cand = queue[i]
         if not cand.get("baseline") and executed >= args.max_exec:
             break
         D = mat(*obj.get_position_orientation()) @ np.linalg.inv(T0)
@@ -558,6 +583,19 @@ def s4_attempts(env, cmg, tcp, obj, pieces, support_z, cands, args):
             settle_open(env, 20)
             sync_stage(30)
             obj = env.main_objects[0]
+            # REALM's reset can place the object somewhere new (up to 37 cm on put_banana_into_box).
+            # Moving the old grasps along with it is only valid if it lands the same way up, so
+            # sample again on the new pose whenever it moved more than 1 cm.
+            now = mat(*obj.get_position_orientation())
+            if np.linalg.norm(now[:3, 3] - T0[:3, 3]) > 0.01:
+                pieces = world_pieces(obj)
+                support_z = float(np_(obj.aabb[0])[2])
+                fresh, _, _ = sample_grasps(pieces, support_z, n_keep=args.max_exec * 3, seed=resampled + 1)
+                queue = queue[: i + 1] + fresh
+                T0 = now
+                resampled += 1
+                REC["resampled_after_reset"] = resampled
+        i += 1
     REC["attempts"] = attempts
 
 
@@ -589,7 +627,7 @@ def run_one(args) -> int:
     verdict()
     save()
     short = {k: REC.get(k) for k in ("task_name", "stages", "object", "render_sync_check", "sampling",
-                                     "gripper_calibration",
+                                     "resampled_after_reset", "gripper_calibration",
                                      "baseline_result", "sampled_lifted", "verdict")}
     short["attempts"] = [{k: a.get(k) for k in ("index", "baseline", "result", "width", "topdown_deg",
                                                 "variant", "rise", "hold_drift", "is_grasping",

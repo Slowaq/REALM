@@ -16,6 +16,7 @@ Run everything on the GPU machine, from the repo root, through the container:
 | `grasp_width_audit.py` | host | seconds | Which main objects fit the 2F-85 jaw by bounding box? |
 | `droid_curobo.py` | container | ~5 min | Builds and verifies a cuRobo model of DROID |
 | `grasp_test.py` | container | ~5 min per task | Can DROID physically grasp and lift each main object? |
+| `skill_solver.py` | container | ~5–8 min per task | Can a scripted, privileged solver complete each task, scored by REALM's own ladder? |
 
 Every container script writes a JSON report and prints a `VERDICT` line. Isaac's exit code is not
 trusted (it exits 0 on exceptions and can segfault at teardown after a pass), so read the JSON, not `$?`.
@@ -194,3 +195,47 @@ For each grasped main object (task types pick, put, rotate, stack, pour, pour_pr
 
 It needs `tmp/feasibility/droid_curobo/droid_curobo.yml` from `droid_curobo.py`. Results go to
 `tmp/feasibility/grasp/<task>.json` and `tmp/feasibility/grasp/summary.json`.
+
+Results on REALM_DROID10 (elmo, 2026-11-02, commit d996ae4): GRASP_OK 8/8. OmniGibson's AABB pose
+lifted 7/8; the banana needed a sampled grasp. `robot.is_grasping()` reported 0/−1 on clear lifts, so it
+is recorded for information only. REALM's `env.reset()` re-places objects (the banana moved 37 cm), so
+grasps are re-sampled whenever a reset moves the object more than 1 cm.
+
+---
+
+## Scripted solver (`skill_solver.py`)
+
+A privileged solver for the seven skills. It is scored exactly the way a policy is:
+`env.reset()` → `env.warmup()` → `env.step(7 joint targets + gripper)`. The score is `env.step`'s
+`task_progression`: the fraction of the `task_progressions.yaml` ladder reached, in order.
+
+| Skill | Ladder | What the solver does |
+|---|---|---|
+| pick | REACH, GRASP, LIFT_LARGE | grasp; lift 15 cm |
+| put | REACH, GRASP, LIFT_SLIGHT, MOVE_CLOSE, PLACE_INTO | grasp; lift; carry over the target at +10 cm; lower until the object's bottom is 3 cm above the target's top; open; back off |
+| stack | REACH, GRASP, LIFT_SLIGHT, MOVE_CLOSE, PLACE_ONTO | the same as put, released 1 cm above the target's top |
+| rotate | REACH, GRASP, ROTATED (> 1.1 rad) | grasp; lift 3 cm; turn joint 7 by ~1.6 rad |
+| push | REACH, TOUCH, TOGGLED_ON | closed fist; press the fingertip 4 → 9 → 14 mm into the switch's `togglebutton` marker, along the switch's thin axis, and hold. OmniGibson toggles after 5 steps of finger overlap. |
+| open_drawer | REACH, TOUCH_AND_MOVE_JOINT, OPEN_JOINT_SMALL/LARGE/FULL (> 0.95) | grasp a handle on the drawer front (horizontal approach, within 40°); pull straight along the slide axis, slowly |
+| close_drawer | REACH, TOUCH_AND_MOVE_JOINT, CLOSE_JOINT_SMALL/LARGE/FULL (< 0.05) | closed fist on the drawer's front-most face; push straight along the slide axis, slowly |
+
+- **Grasping skills** try OmniGibson's AABB pose first. They then try mesh-sampled grasps
+  (`grasp_test.sample_grasps`), re-sampled on each new episode's pose. There are up to 4 episodes per
+  task.
+- **The slide axis** is `R(parent link) · R(localRot0) · e_axis`: the joint's axis, rotated into the
+  world. The report records whether it points toward the robot (`open_dir_toward_robot`).
+- **Pulls and pushes** are planned with cuRobo's motion constraint `[1,1,1,1,1,0]`: rotation and the
+  TCP's x and y are locked, so the only motion is along the approach axis. They are executed at
+  ≤ 0.002 rad per joint per step. REALM's drawer joint has kp = 0 and kd = 1000, so fast motion stalls.
+- **No handle:** if the drawer front has no graspable handle, `open_drawer` reports `NO_HANDLE` rather
+  than improvising.
+- **The report** includes the best score, the steps taken, and whether the solve fits REALM's default
+  500-step policy budget (`within_policy_budget`). It also logs each attempt with its stage flags.
+
+```
+./scripts/run_apptainer.sh python -u tmp/feasibility/skill_solver.py --task_cfg_path REALM_DROID10/open_drawer/default.yaml
+./scripts/run_apptainer.sh python -u tmp/feasibility/skill_solver.py --family REALM_DROID10   # the 10 skill tasks; pour is skipped
+```
+
+Results go to `tmp/feasibility/solver/<task>.json` and `tmp/feasibility/solver/summary.json`.
+
